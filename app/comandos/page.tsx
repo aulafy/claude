@@ -1,0 +1,219 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Comandos — Aprende Claude Code",
+  description: "Referencia completa de todos los slash commands y flags de Claude Code.",
+};
+
+const slashCommands = [
+  { cmd: "/help", desc: "Muestra la lista de comandos disponibles y ayuda general." },
+  { cmd: "/clear", desc: "Limpia la pantalla del terminal." },
+  { cmd: "/reset", desc: "Reinicia la conversación actual (borra el contexto de la sesión)." },
+  { cmd: "/exit", desc: "Sale de Claude Code." },
+  { cmd: "/plan", desc: "Activa el modo planificación: Claude muestra el plan antes de actuar." },
+  { cmd: "/permissions", desc: "Abre el diálogo de gestión de permisos interactivo." },
+  { cmd: "/config", desc: "Abre la configuración de Claude Code." },
+  { cmd: "/agents", desc: "Lista y gestiona los subagentes activos en la sesión." },
+  { cmd: "/doctor", desc: "Diagnostica la instalación, autenticación y entorno." },
+  { cmd: "/hooks", desc: "Gestiona los hooks de automatización de la sesión actual." },
+  { cmd: "/memory", desc: "Muestra o edita el archivo de memoria (CLAUDE.md)." },
+  { cmd: "/status", desc: "Muestra el estado actual de la sesión, modelo y costos." },
+  { cmd: "/fast", desc: "Alterna entre modo rápido (Opus con más velocidad) y normal." },
+  { cmd: "/compact", desc: "Compacta el contexto de la conversación para ahorrar tokens." },
+  { cmd: "/review", desc: "Solicita a Claude que revise el código actual o los cambios recientes." },
+  { cmd: "/init", desc: "Inicializa CLAUDE.md en el proyecto actual con instrucciones base." },
+];
+
+const cliFlags = [
+  { flag: "-p / --print", desc: "Modo no interactivo: responde una vez y sale. Ideal para scripts." },
+  { flag: "--dangerously-skip-permissions", desc: "Omite todas las confirmaciones de permisos. Usar con precaución." },
+  { flag: "--model <id>", desc: "Especifica el modelo a usar. Ej: --model claude-opus-4-8" },
+  { flag: "--max-tokens <n>", desc: "Limita los tokens de salida por respuesta." },
+  { flag: "--no-color", desc: "Desactiva el color en la salida del terminal." },
+  { flag: "--version", desc: "Muestra la versión instalada de Claude Code." },
+  { flag: "--help", desc: "Muestra la ayuda de la CLI." },
+  { flag: "--verbose", desc: "Activa salida detallada para depuración." },
+  { flag: "--output-format json", desc: "Devuelve la respuesta en JSON. Útil para scripts." },
+];
+
+export default function Comandos() {
+  return (
+    <div className="max-w-3xl mx-auto px-8 py-14">
+      <div className="mb-2 text-xs text-zinc-600">
+        <Link href="/" className="hover:text-zinc-400">Inicio</Link>
+        <span className="mx-2">/</span>
+        <span className="text-zinc-400">Comandos</span>
+      </div>
+
+      <div className="mb-10">
+        <h1 className="text-4xl font-bold text-white mb-4">⌨️ Comandos</h1>
+        <p className="text-lg text-zinc-400 leading-relaxed">
+          Referencia completa de slash commands y flags de CLI disponibles en Claude Code.
+        </p>
+      </div>
+
+      <div className="prose">
+        <h2>Slash commands</h2>
+        <p>
+          Los slash commands se escriben dentro de la sesión interactiva de Claude Code.
+          Empiezan con <code>/</code> y se ejecutan al instante.
+        </p>
+      </div>
+
+      <div className="overflow-x-auto mb-8">
+        <table>
+          <thead>
+            <tr>
+              <th style={{ width: "32%" }}>Comando</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            {slashCommands.map((row) => (
+              <tr key={row.cmd}>
+                <td><code>{row.cmd}</code></td>
+                <td>{row.desc}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div className="prose">
+        <h2>Flags de la CLI</h2>
+        <p>
+          Los flags se pasan al ejecutar <code>claude</code> desde el terminal,
+          antes o después del prompt.
+        </p>
+        <pre><code>{`claude [flags] [prompt]
+claude --model claude-opus-4-8 "refactoriza este archivo"
+claude -p "¿qué hace esta función?" < mi_archivo.py`}</code></pre>
+      </div>
+
+      <div className="overflow-x-auto mb-8">
+        <table>
+          <thead>
+            <tr>
+              <th style={{ width: "36%" }}>Flag</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            {cliFlags.map((row) => (
+              <tr key={row.flag}>
+                <td><code>{row.flag}</code></td>
+                <td>{row.desc}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div className="prose">
+        <h2>Modelos disponibles</h2>
+        <p>
+          Puedes cambiar el modelo con <code>--model</code> o en la configuración.
+          Claude Code usa <code>claude-sonnet-4-6</code> por defecto (velocidad
+          óptima), pero puedes elegir:
+        </p>
+      </div>
+
+      <div className="overflow-x-auto mb-8">
+        <table>
+          <thead>
+            <tr>
+              <th>Modelo</th>
+              <th>ID</th>
+              <th>Velocidad</th>
+              <th>Ideal para</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Claude Fable 5</td>
+              <td><code>claude-fable-5</code></td>
+              <td>Lento</td>
+              <td>Tareas de máxima complejidad</td>
+            </tr>
+            <tr>
+              <td>Claude Opus 4.8</td>
+              <td><code>claude-opus-4-8</code></td>
+              <td>Medio</td>
+              <td>Razonamiento complejo, análisis profundo</td>
+            </tr>
+            <tr>
+              <td>Claude Sonnet 4.6</td>
+              <td><code>claude-sonnet-4-6</code></td>
+              <td>Rápido</td>
+              <td>Uso general (por defecto en Claude Code)</td>
+            </tr>
+            <tr>
+              <td>Claude Haiku 4.5</td>
+              <td><code>claude-haiku-4-5</code></td>
+              <td>Muy rápido</td>
+              <td>Tareas simples, alta frecuencia, bajo costo</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div className="prose">
+        <h2>Atajos de teclado en sesión interactiva</h2>
+      </div>
+
+      <div className="overflow-x-auto mb-8">
+        <table>
+          <thead>
+            <tr>
+              <th>Atajo</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              ["↑ / ↓", "Navegar por el historial de prompts"],
+              ["Ctrl+C", "Interrumpir la respuesta actual o salir"],
+              ["Ctrl+D", "Salir de Claude Code"],
+              ["Ctrl+L", "Limpiar pantalla"],
+              ["Tab", "Autocompletar slash commands"],
+              ["Shift+Enter", "Nueva línea sin enviar el mensaje"],
+              ["Esc", "Cancelar edición actual"],
+            ].map(([key, action]) => (
+              <tr key={key as string}>
+                <td><kbd>{key as string}</kbd></td>
+                <td>{action as string}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div className="prose">
+        <h2>Comandos de ejemplo</h2>
+        <h3>Sesión headless en CI/CD</h3>
+        <pre><code>{`# Generar un resumen del PR en JSON
+claude -p --output-format json "resume los cambios del último commit"
+
+# Revisar seguridad de un archivo
+claude -p "revisa posibles vulnerabilidades en src/api/auth.ts" < /dev/null`}</code></pre>
+
+        <h3>Cambiar modelo para una sesión</h3>
+        <pre><code>{`claude --model claude-opus-4-8
+# Ahora usas Opus 4.8 para la sesión completa`}</code></pre>
+
+        <h3>Ver diagnóstico de instalación</h3>
+        <pre><code>{`# Dentro de Claude Code:
+/doctor
+
+# Desde la terminal:
+claude doctor`}</code></pre>
+      </div>
+
+      <div className="mt-12 pt-8 border-t border-zinc-800 flex justify-between items-center">
+        <Link href="/primeros-pasos" className="text-sm text-zinc-500 hover:text-zinc-300">← Primeros pasos</Link>
+        <Link href="/configuracion" className="text-sm text-orange-400 hover:text-orange-300">Configuración →</Link>
+      </div>
+    </div>
+  );
+}
