@@ -23,6 +23,10 @@ const slashCommands = [
   { cmd: "/compact", desc: "Compacta el contexto de la conversación para ahorrar tokens." },
   { cmd: "/review", desc: "Solicita a Claude que revise el código actual o los cambios recientes." },
   { cmd: "/init", desc: "Inicializa CLAUDE.md en el proyecto actual con instrucciones base." },
+  { cmd: "/rewind", desc: "Vuelve a un punto anterior (checkpoint): deshace conversación y/o código." },
+  { cmd: "/plugin", desc: "Gestiona plugins: añadir marketplaces, instalar, activar y desactivar." },
+  { cmd: "/mcp", desc: "Muestra y gestiona los servidores MCP conectados a la sesión." },
+  { cmd: "/skills", desc: "Lista las skills disponibles (también las invocas por su nombre: /nombre)." },
 ];
 
 const cliFlags = [

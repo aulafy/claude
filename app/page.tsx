@@ -14,6 +14,54 @@ const cards = [
     desc: "Tu primera sesión: cómo hablar con Claude Code y entender la interfaz.",
   },
   {
+    href: "/recetas",
+    icon: "🍳",
+    title: "Recetas prácticas",
+    desc: "Más de 40 ejemplos reales del día a día, con prompts listos para copiar.",
+  },
+  {
+    href: "/proyectos",
+    icon: "🏗️",
+    title: "Proyectos guiados",
+    desc: "Construye una web, una app y un script paso a paso, con todos los prompts.",
+  },
+  {
+    href: "/prompts",
+    icon: "🎯",
+    title: "Escribir buenos prompts",
+    desc: "Cómo pedir las cosas para obtener mejores resultados. Antes y después.",
+  },
+  {
+    href: "/glosario",
+    icon: "📖",
+    title: "Glosario",
+    desc: "Términos técnicos explicados con palabras normales y analogías.",
+  },
+  {
+    href: "/skills",
+    icon: "🧩",
+    title: "Skills",
+    desc: "Enseña a Claude tareas a tu manera con archivos SKILL.md reutilizables.",
+  },
+  {
+    href: "/subagentes",
+    icon: "🤖",
+    title: "Subagentes",
+    desc: "Ayudantes especializados que trabajan en paralelo mientras tú revisas.",
+  },
+  {
+    href: "/plugins",
+    icon: "🔌",
+    title: "Plugins",
+    desc: "Instala bundles de skills, agentes y MCP desde el marketplace.",
+  },
+  {
+    href: "/flujos",
+    icon: "🧭",
+    title: "Flujos de trabajo pro",
+    desc: "Plan mode, rewind, tareas en background y los trucos más recomendados.",
+  },
+  {
     href: "/comandos",
     icon: "⌨️",
     title: "Comandos",
@@ -49,6 +97,18 @@ const cards = [
     title: "Uso avanzado",
     desc: "Subagentes, worktrees, modo headless y flujos de trabajo pro.",
   },
+  {
+    href: "/faq",
+    icon: "❓",
+    title: "Preguntas frecuentes",
+    desc: "Precio, seguridad, privacidad y las dudas más comunes al empezar.",
+  },
+  {
+    href: "/problemas",
+    icon: "🔧",
+    title: "Solución de problemas",
+    desc: "Errores comunes de instalación y uso, y cómo resolverlos rápido.",
+  },
 ];
 
 export default function Home() {
@@ -73,7 +133,7 @@ export default function Home() {
           Anthropic que convierte tu terminal en un asistente de IA experto.
           Sin conocimientos previos necesarios.
         </p>
-        <div className="flex items-center gap-4">
+        <div className="flex flex-wrap items-center gap-4">
           <Link
             href="/instalacion"
             className="px-5 py-2.5 rounded-lg bg-orange-500 hover:bg-orange-400 text-white font-medium text-sm transition-colors"
@@ -81,10 +141,10 @@ export default function Home() {
             Empezar ahora →
           </Link>
           <Link
-            href="/primeros-pasos"
+            href="/recetas"
             className="px-5 py-2.5 rounded-lg border border-zinc-700 hover:border-zinc-500 text-zinc-300 font-medium text-sm transition-colors"
           >
-            Ver primeros pasos
+            🍳 Ver recetas prácticas
           </Link>
         </div>
       </div>
