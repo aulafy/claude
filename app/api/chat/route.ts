@@ -1,0 +1,121 @@
+import { SYSTEM_PROMPT } from "@/lib/chatbot-knowledge";
+
+export const runtime = "edge";
+
+const GROQ_URL = "https://api.groq.com/openai/v1/chat/completions";
+
+type Msg = { role: "user" | "assistant"; content: string };
+
+export async function POST(req: Request) {
+  const apiKey = process.env.GROQ_API_KEY;
+  if (!apiKey) {
+    return Response.json(
+      { error: "El servidor no tiene configurada la clave de Groq." },
+      { status: 500 }
+    );
+  }
+
+  let messages: Msg[] = [];
+  try {
+    const body = await req.json();
+    messages = Array.isArray(body?.messages) ? body.messages : [];
+  } catch {
+    return Response.json({ error: "Petición inválida." }, { status: 400 });
+  }
+
+  // Limpieza y límites básicos para evitar abusos.
+  const cleaned = messages
+    .filter(
+      (m) =>
+        m &&
+        (m.role === "user" || m.role === "assistant") &&
+        typeof m.content === "string" &&
+        m.content.trim().length > 0
+    )
+    .slice(-12) // últimos 12 turnos
+    .map((m) => ({ role: m.role, content: m.content.slice(0, 4000) }));
+
+  if (cleaned.length === 0) {
+    return Response.json({ error: "No hay mensaje que responder." }, { status: 400 });
+  }
+
+  let groqRes: Response;
+  try {
+    groqRes = await fetch(GROQ_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        model: process.env.GROQ_MODEL || "llama-3.3-70b-versatile",
+        temperature: 0.4,
+        max_tokens: 1024,
+        stream: true,
+        messages: [{ role: "system", content: SYSTEM_PROMPT }, ...cleaned],
+      }),
+    });
+  } catch {
+    return Response.json(
+      { error: "No se pudo conectar con el servicio de IA." },
+      { status: 502 }
+    );
+  }
+
+  if (!groqRes.ok || !groqRes.body) {
+    const detail = await groqRes.text().catch(() => "");
+    return Response.json(
+      { error: "El servicio de IA devolvió un error.", detail: detail.slice(0, 300) },
+      { status: 502 }
+    );
+  }
+
+  // Transformamos el SSE de Groq (formato OpenAI) en texto plano en streaming.
+  const encoder = new TextEncoder();
+  const decoder = new TextDecoder();
+
+  const stream = new ReadableStream({
+    async start(controller) {
+      const reader = groqRes.body!.getReader();
+      let buffer = "";
+      try {
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          buffer += decoder.decode(value, { stream: true });
+
+          const lines = buffer.split("\n");
+          buffer = lines.pop() ?? "";
+
+          for (const line of lines) {
+            const trimmed = line.trim();
+            if (!trimmed.startsWith("data:")) continue;
+            const data = trimmed.slice(5).trim();
+            if (data === "[DONE]") {
+              controller.close();
+              return;
+            }
+            try {
+              const json = JSON.parse(data);
+              const delta = json?.choices?.[0]?.delta?.content;
+              if (delta) controller.enqueue(encoder.encode(delta));
+            } catch {
+              // fragmento incompleto: se completará en el siguiente chunk
+            }
+          }
+        }
+      } catch {
+        controller.error(new Error("Error al recibir la respuesta de la IA."));
+        return;
+      }
+      controller.close();
+    },
+  });
+
+  return new Response(stream, {
+    headers: {
+      "Content-Type": "text/plain; charset=utf-8",
+      "Cache-Control": "no-store",
+    },
+  });
+}
