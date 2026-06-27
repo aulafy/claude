@@ -121,6 +121,18 @@ const cards = [
     title: "Comparativa",
     desc: "Claude Code frente a Cursor, Windsurf, Copilot y ChatGPT.",
   },
+  {
+    href: "/pymes",
+    icon: "🏢",
+    title: "Pymes y oficina",
+    desc: "Automatiza Excel, facturas, informes y tareas de oficina sin programar.",
+  },
+  {
+    href: "/equipos",
+    icon: "🧑‍💻",
+    title: "Perfiles técnicos",
+    desc: "Code review, refactors, testing, CI/CD y estandarización de equipo.",
+  },
 ];
 
 export default function Home() {
