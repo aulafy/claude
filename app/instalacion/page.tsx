@@ -18,31 +18,44 @@ export default function Instalacion() {
       <div className="mb-10">
         <h1 className="text-4xl font-bold text-white mb-4">📦 Instalación</h1>
         <p className="text-lg text-zinc-400 leading-relaxed">
-          Instala Claude Code en tu sistema en menos de 5 minutos.
-          Necesitas Node.js y una API key de Anthropic.
+          Instala Claude Code en tu sistema en un par de minutos. Solo necesitas
+          una cuenta de Anthropic (suscripción de Claude o cuenta de la consola).
         </p>
       </div>
 
       <div className="prose">
         <h2>Requisitos previos</h2>
         <ul>
-          <li><strong>Node.js 20+</strong> — Claude Code requiere Node.js versión 20 o superior.</li>
-          <li><strong>npm o npx</strong> — incluido con Node.js.</li>
-          <li><strong>Sistema operativo:</strong> macOS, Linux, o Windows con WSL2.</li>
-          <li><strong>API key de Anthropic</strong> — necesitarás una cuenta en <code>console.anthropic.com</code>.</li>
+          <li><strong>Sistema operativo:</strong> macOS, Linux, o Windows (con WSL o nativo).</li>
+          <li><strong>Cuenta de Anthropic</strong> — una suscripción de Claude o una cuenta de la consola (<code>console.anthropic.com</code>).</li>
+          <li><strong>Node.js 20+</strong> — <em>solo</em> si instalas por npm. Con el instalador nativo (recomendado) no hace falta.</li>
         </ul>
 
         <div className="callout callout-info">
-          <strong>¿No tienes Node.js?</strong> Descárgalo desde{" "}
-          <strong>nodejs.org</strong> y selecciona la versión LTS. Verifica tu
-          versión con <code>node --version</code>.
+          El método recomendado por Anthropic es el <strong>instalador nativo</strong>,
+          que no depende de Node.js y se actualiza solo. Si prefieres npm, necesitarás
+          Node.js 20+ (descárgalo desde <strong>nodejs.org</strong>, versión LTS).
         </div>
 
         <h2>Paso 1: Instalar Claude Code</h2>
-        <p>Abre tu terminal y ejecuta:</p>
-        <pre><code>{`npm install -g @anthropic-ai/claude-code`}</code></pre>
         <p>
-          Esto instala el comando <code>claude</code> globalmente en tu sistema.
+          Abre tu terminal y usa el <strong>instalador nativo</strong> (recomendado;
+          no necesita Node.js y se actualiza solo):
+        </p>
+        <pre><code>{`# macOS, Linux o WSL
+curl -fsSL https://claude.ai/install.sh | bash
+
+# Windows (PowerShell)
+irm https://claude.ai/install.ps1 | iex`}</code></pre>
+        <p>En Mac también puedes usar Homebrew:</p>
+        <pre><code>{`brew install --cask claude-code`}</code></pre>
+
+        <h3>Alternativa: con npm</h3>
+        <p>Si prefieres npm (requiere Node.js 20+):</p>
+        <pre><code>{`npm install -g @anthropic-ai/claude-code`}</code></pre>
+
+        <p>
+          Cualquiera de los métodos instala el comando <code>claude</code>.
           Verifica que se instaló correctamente:
         </p>
         <pre><code>{`claude --version`}</code></pre>
@@ -87,13 +100,18 @@ claude`}</code></pre>
 
         <h2>Instalación en Windows</h2>
         <p>
-          Claude Code funciona en Windows a través de <strong>WSL2</strong> (Windows
-          Subsystem for Linux). Sigue estos pasos:
+          En Windows tienes dos caminos:
         </p>
         <ol>
-          <li>Instala WSL2: <code>wsl --install</code> en PowerShell como administrador.</li>
-          <li>Instala Node.js dentro de WSL (usa nvm).</li>
-          <li>Instala Claude Code desde la terminal WSL como en Linux.</li>
+          <li>
+            <strong>Nativo (más sencillo):</strong> abre PowerShell y ejecuta{" "}
+            <code>irm https://claude.ai/install.ps1 | iex</code>. Se recomienda tener{" "}
+            <strong>Git para Windows</strong> instalado para que Claude pueda usar Bash.
+          </li>
+          <li>
+            <strong>Con WSL2:</strong> instala WSL con <code>wsl --install</code> y luego
+            instala Claude Code dentro de WSL igual que en Linux.
+          </li>
         </ol>
         <div className="callout callout-info">
           Claude Code también tiene extensión para <strong>VS Code</strong> y{" "}
@@ -102,13 +120,23 @@ claude`}</code></pre>
         </div>
 
         <h2>Actualizar Claude Code</h2>
-        <p>Para actualizar a la última versión:</p>
-        <pre><code>{`npm update -g @anthropic-ai/claude-code`}</code></pre>
-        <p>Claude Code también puede auto-actualizarse. Puedes comprobarlo con:</p>
+        <p>
+          Con el <strong>instalador nativo</strong> se actualiza solo en segundo plano:
+          no tienes que hacer nada. Comprueba tu versión con:
+        </p>
         <pre><code>{`claude --version`}</code></pre>
+        <p>
+          Con Homebrew: <code>brew upgrade claude-code</code>. Si instalaste por npm:
+        </p>
+        <pre><code>{`npm update -g @anthropic-ai/claude-code`}</code></pre>
 
         <h2>Desinstalar</h2>
-        <pre><code>{`npm uninstall -g @anthropic-ai/claude-code`}</code></pre>
+        <p>Según cómo lo instalaste:</p>
+        <pre><code>{`# Homebrew
+brew uninstall --cask claude-code
+
+# npm
+npm uninstall -g @anthropic-ai/claude-code`}</code></pre>
       </div>
 
       {/* Navigation */}
