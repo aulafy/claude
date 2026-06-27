@@ -14,6 +14,8 @@ const routes = [
   "/problemas",
   "/recursos",
   "/comparativa",
+  "/pymes",
+  "/equipos",
   "/skills",
   "/subagentes",
   "/plugins",

@@ -24,6 +24,13 @@ const sections = [
     ],
   },
   {
+    title: "Según tu perfil",
+    items: [
+      { href: "/pymes", label: "Pymes y oficina", icon: "🏢" },
+      { href: "/equipos", label: "Perfiles técnicos", icon: "🧑‍💻" },
+    ],
+  },
+  {
     title: "Extender Claude Code",
     items: [
       { href: "/skills", label: "Skills", icon: "🧩" },

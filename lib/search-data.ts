@@ -27,4 +27,6 @@ export const searchData: SearchItem[] = [
   { href: "/problemas", title: "Solución de problemas", section: "Ayuda", keywords: "error command not found eacces node api key rate limit lento doctor troubleshooting arreglar" },
   { href: "/recursos", title: "Recursos", section: "Ayuda", keywords: "enlaces links docs documentación oficial repos skills mcp cursos youtube tutoriales x twitter comunidad" },
   { href: "/comparativa", title: "Comparativa", section: "Ayuda", keywords: "comparación versus cursor windsurf copilot chatgpt diferencias elegir herramientas" },
+  { href: "/pymes", title: "Pymes y oficina", section: "Según tu perfil", keywords: "empresa negocio autónomo oficina excel csv facturas documentos informes automatizar tareas ahorrar tiempo no programador productividad datos" },
+  { href: "/equipos", title: "Perfiles técnicos", section: "Según tu perfil", keywords: "equipos developers code review refactor testing tdd ci cd headless monorepo estandarizar plugin interno mcp integraciones avanzado" },
 ];

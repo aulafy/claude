@@ -42,6 +42,12 @@ const SECTION_LINKS: Record<string, string> = {
   "problemas": "/problemas",
   "recursos": "/recursos",
   "comparativa": "/comparativa",
+  "pymes y oficina": "/pymes",
+  "pymes": "/pymes",
+  "oficina": "/pymes",
+  "perfiles técnicos": "/equipos",
+  "perfiles tecnicos": "/equipos",
+  "equipos": "/equipos",
 };
 
 const SUGGESTIONS = [
