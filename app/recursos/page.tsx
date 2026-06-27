@@ -95,6 +95,21 @@ export default function Recursos() {
         </p>
       </div>
 
+      <a
+        href="/guia-claude-code.pdf"
+        download
+        className="flex items-center gap-4 rounded-xl border border-orange-500/30 bg-orange-500/10 p-5 mb-8 hover:bg-orange-500/15 transition-colors"
+      >
+        <span className="text-3xl">📄</span>
+        <div className="flex-1">
+          <div className="font-semibold text-white">Descarga la guía completa en PDF</div>
+          <div className="text-sm text-zinc-400">
+            89 páginas, lista para imprimir · licencia Creative Commons (CC BY 4.0)
+          </div>
+        </div>
+        <span className="text-orange-400 text-sm font-medium">Descargar →</span>
+      </a>
+
       <div className="callout callout-info mb-8">
         <strong>Enlaces externos:</strong> estas páginas no dependen de esta guía y
         pueden cambiar, moverse o actualizarse con el tiempo.
