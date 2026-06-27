@@ -1,0 +1,3054 @@
+\documentclass[11pt,a4paper]{report}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{xcolor}
+\definecolor{accent}{HTML}{C2410C}
+\definecolor{codebg}{HTML}{F4F4F5}
+\definecolor{calloutbg}{HTML}{FFF7ED}
+\usepackage{microtype}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{bookmark}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage[most]{tcolorbox}
+\usepackage{fvextra}
+\hypersetup{colorlinks=true,linkcolor=accent,urlcolor=accent,citecolor=accent}
+\titleformat{\chapter}[display]{\Huge\bfseries\color{accent}}{\chaptertitlename\ \thechapter}{12pt}{}
+\titleformat{\section}{\Large\bfseries\color{accent}}{\thesection}{0.75em}{}
+\titleformat{\subsection}{\large\bfseries\color{accent}}{\thesubsection}{0.75em}{}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\nouppercase{\leftmark}}
+\fancyhead[R]{Aprende Claude Code}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\headheight}{14pt}
+\setlist{itemsep=0.25em,topsep=0.4em}
+\newtcolorbox{calloutbox}[1]{colback=calloutbg,colframe=accent,title=\textbf{#1},arc=1mm,boxrule=0.6pt,left=2mm,right=2mm,top=1mm,bottom=1mm}
+\DefineVerbatimEnvironment{codebox}{Verbatim}{frame=single,framerule=0.6pt,rulecolor=\color{accent!45},framesep=7pt,breaklines=true,breakanywhere=true,fontsize=\small,xleftmargin=2mm,xrightmargin=2mm}
+\begin{document}
+\begin{titlepage}
+\centering
+\vspace*{3cm}
+{\Huge\bfseries\color{accent} Aprende Claude Code\par}
+\vspace{0.8cm}
+{\Large Guía completa en español · 2026\par}
+\vspace{1.2cm}
+{\large claude-rho-snowy.vercel.app\par}
+\vfill
+Este contenido se publica bajo licencia Creative Commons (CC BY 4.0). Puedes compartirlo y adaptarlo citando la fuente.
+\end{titlepage}
+\tableofcontents
+\clearpage
+\chapter{Introducción: ¿Qué es Claude Code?}
+
+Actualizado junio 2026 · Claude Code 2.xLa guía más completa en español para dominar Claude Code, la CLI de Anthropic que convierte tu terminal en un asistente de IA experto. Sin conocimientos previos necesarios.
+
+Empezar ahora  Ver recetas prácticasInstalación rápida
+
+\begin{codebox}
+npm install -g @anthropic-ai/claude-code
+\end{codebox}
+
+Requiere Node.js 20+ · Funciona en macOS, Linux y WSL
+
+\section{Contenido del tutorial}
+
+\subsection{Instalación}
+
+Instala Claude Code en macOS, Linux o Windows en menos de 2 minutos.
+
+\subsection{Primeros pasos}
+
+Tu primera sesión: cómo hablar con Claude Code y entender la interfaz.
+
+\subsection{CLI, app y móvil}
+
+Terminal, app de escritorio, web, IDE y cómo controlarlo desde el móvil.
+
+\subsection{Recetas prácticas}
+
+Más de 40 ejemplos reales del día a día, con prompts listos para copiar.
+
+\subsection{Proyectos guiados}
+
+Construye una web, una app y un script paso a paso, con todos los prompts.
+
+\subsection{Escribir buenos prompts}
+
+Cómo pedir las cosas para obtener mejores resultados. Antes y después.
+
+\subsection{Glosario}
+
+Términos técnicos explicados con palabras normales y analogías.
+
+\subsection{Skills}
+
+Enseña a Claude tareas a tu manera con archivos SKILL.md reutilizables.
+
+\subsection{Subagentes}
+
+Ayudantes especializados que trabajan en paralelo mientras tú revisas.
+
+\subsection{Plugins}
+
+Instala bundles de skills, agentes y MCP desde el marketplace.
+
+\subsection{Flujos de trabajo pro}
+
+Plan mode, rewind, tareas en background y los trucos más recomendados.
+
+\subsection{Comandos}
+
+Todos los slash commands y flags disponibles con ejemplos reales.
+
+\subsection{Configuración}
+
+Personaliza el comportamiento, modelos y memoria con settings.json.
+
+\subsection{Servidores MCP}
+
+Conecta herramientas externas: bases de datos, APIs, navegador y más.
+
+\subsection{Hooks}
+
+Automatiza acciones antes y después de cada herramienta o respuesta.
+
+\subsection{Permisos}
+
+Controla qué puede hacer Claude Code en tu máquina con seguridad.
+
+\subsection{Uso avanzado}
+
+Subagentes, worktrees, modo headless y flujos de trabajo pro.
+
+\subsection{Preguntas frecuentes}
+
+Precio, seguridad, privacidad y las dudas más comunes al empezar.
+
+\subsection{Solución de problemas}
+
+Errores comunes de instalación y uso, y cómo resolverlos rápido.
+
+\subsection{Recursos}
+
+Enlaces oficiales, repos de skills, MCP y cursos actualizados.
+
+\subsection{Comparativa}
+
+Claude Code frente a Cursor, Windsurf, Copilot y ChatGPT.
+
+\subsection{Pymes y oficina}
+
+Automatiza Excel, facturas, informes y tareas de oficina sin programar.
+
+\subsection{Perfiles técnicos}
+
+Code review, refactors, testing, CI/CD y estandarización de equipo.
+
+\section{¿Qué es Claude Code?}
+
+\textbf{Claude Code} es una CLI (interfaz de línea de comandos) desarrollada por Anthropic que te permite interactuar con el modelo Claude directamente desde tu terminal o desde tu editor de código favorito (VS Code, JetBrains, etc.).
+
+A diferencia de los chatbots web, Claude Code tiene acceso \textbf{directo a tus archivos}, puede ejecutar comandos de terminal, leer y escribir código, hacer git commits, buscar en tu base de código y mucho más — todo con tu supervisión.
+
+En resumen, Claude Code es:
+\begin{itemize}
+  \item \textbf{Agente de código:} lee, edita y crea archivos directamente en tu proyecto.
+  \item \textbf{Extensible:} conecta herramientas externas vía Model Context Protocol (MCP).
+  \item \textbf{Seguro:} tú controlas cada permiso. Nada ocurre sin tu aprobación.
+\end{itemize}
+\chapter{Instalación}
+
+Instala Claude Code en tu sistema en un par de minutos. Solo necesitas una cuenta de Anthropic (suscripción de Claude o cuenta de la consola).
+
+\section{Requisitos previos}
+
+\begin{itemize}
+\item \textbf{Sistema operativo:} macOS, Linux, o Windows (con WSL o nativo).
+\item \textbf{Cuenta de Anthropic} — una suscripción de Claude o una cuenta de la consola (\texttt{console.anthropic.com}).
+\item \textbf{Node.js 20+} — \emph{solo} si instalas por npm. Con el instalador nativo (recomendado) no hace falta.
+\end{itemize}
+
+\begin{calloutbox}{Nota}
+El método recomendado por Anthropic es el instalador nativo, que no depende de Node.js y se actualiza solo. Si prefieres npm, necesitarás Node.js 20+ (descárgalo desde nodejs.org, versión LTS).\end{calloutbox}
+
+\section{Paso 1: Instalar Claude Code}
+
+Abre tu terminal y usa el \textbf{instalador nativo} (recomendado; no necesita Node.js y se actualiza solo):
+
+\begin{codebox}
+# macOS, Linux o WSL
+curl -fsSL https://claude.ai/install.sh | bash
+
+# Windows (PowerShell)
+irm https://claude.ai/install.ps1 | iex
+\end{codebox}
+
+En Mac también puedes usar Homebrew:
+
+\begin{codebox}
+brew install --cask claude-code
+\end{codebox}
+
+\subsection{Alternativa: con npm}
+
+Si prefieres npm (requiere Node.js 20+):
+
+\begin{codebox}
+npm install -g @anthropic-ai/claude-code
+\end{codebox}
+
+Cualquiera de los métodos instala el comando \texttt{claude}. Verifica que se instaló correctamente:
+
+\begin{codebox}
+claude --version
+\end{codebox}
+
+\section{Paso 2: Obtener tu API key}
+
+\begin{enumerate}
+\item Entra a \textbf{console.anthropic.com} y crea una cuenta si no tienes.
+\item Ve a \textbf{API Keys} en el panel lateral.
+\item Haz clic en \textbf{Create Key} y copia la clave generada.
+\item Guárdala en un lugar seguro — solo se muestra una vez.
+\end{enumerate}
+
+\begin{calloutbox}{Atención}
+Atención: Las API keys tienen costos por uso. Anthropic ofrece créditos gratuitos al registrarse. Revisa los precios en anthropic.com/pricing.\end{calloutbox}
+
+\section{Paso 3: Configurar la API key}
+
+Tienes dos opciones para configurar tu clave:
+
+\subsection{Opción A: Variable de entorno (recomendado)}
+
+Añade esto a tu \texttt{\textasciitilde{}/.zshrc}, \texttt{\textasciitilde{}/.bashrc} o equivalente:
+
+\begin{codebox}
+export ANTHROPIC_API_KEY="sk-ant-xxxxxxxxxxxxxxxxxxxxxxxx"
+\end{codebox}
+
+Luego recarga tu shell:
+
+\begin{codebox}
+source ~/.zshrc   # o ~/.bashrc
+\end{codebox}
+
+\subsection{Opción B: Al iniciar Claude Code}
+
+Si no configuraste la variable, Claude Code te pedirá la clave la primera vez que lo ejecutes y la guardará automáticamente.
+
+\section{Paso 4: Primera ejecución}
+
+Navega a un directorio de trabajo y ejecuta:
+
+\begin{codebox}
+cd mi-proyecto
+claude
+\end{codebox}
+
+La primera vez te puede pedir autorizaciones o confirmar la clave. Después verás el prompt interactivo de Claude Code listo para usar.
+
+\section{Instalación en Windows}
+
+En Windows tienes dos caminos:
+
+\begin{enumerate}
+\item \textbf{Nativo (más sencillo):} abre PowerShell y ejecuta \texttt{irm https://claude.ai/install.ps1 | iex}. Se recomienda tener \textbf{Git para Windows} instalado para que Claude pueda usar Bash.
+\item \textbf{Con WSL2:} instala WSL con \texttt{wsl --install} y luego instala Claude Code dentro de WSL igual que en Linux.
+\end{enumerate}
+
+\begin{calloutbox}{Nota}
+Claude Code también tiene extensión para VS Code y JetBrains IDE — las instalas desde el marketplace de tu editor. Ver sección de configuración para más detalles.\end{calloutbox}
+
+\section{Actualizar Claude Code}
+
+Con el \textbf{instalador nativo} se actualiza solo en segundo plano: no tienes que hacer nada. Comprueba tu versión con:
+
+\begin{codebox}
+claude --version
+\end{codebox}
+
+Con Homebrew: \texttt{brew upgrade claude-code}. Si instalaste por npm:
+
+\begin{codebox}
+npm update -g @anthropic-ai/claude-code
+\end{codebox}
+
+\section{Desinstalar}
+
+Según cómo lo instalaste:
+
+\begin{codebox}
+# Homebrew
+brew uninstall --cask claude-code
+
+# npm
+npm uninstall -g @anthropic-ai/claude-code
+\end{codebox}
+
+
+\chapter{Primeros pasos}
+
+Aprende a iniciar Claude Code, entender su interfaz y completar tus primeras tareas de programación con IA.
+
+\section{Iniciar una sesión}
+
+Abre tu terminal, navega al directorio de tu proyecto y ejecuta:
+
+\begin{codebox}
+claude
+\end{codebox}
+
+Verás un prompt interactivo como este:
+
+\begin{codebox}
++==================================+
+|  Claude Code  ·  claude-sonnet  |
++==================================+
+> _
+\end{codebox}
+
+Claude Code está listo para recibir instrucciones en lenguaje natural. Puedes escribirle como si fuera un compañero de trabajo.
+
+\section{Tu primera tarea}
+
+Prueba algo sencillo para empezar. Escribe:
+
+\begin{codebox}
+> ¿Qué archivos hay en este directorio?
+\end{codebox}
+
+Claude Code ejecutará \texttt{ls} o \texttt{find} y te mostrará el resultado. Observarás que antes de ejecutar cualquier herramienta te pide confirmación o te muestra lo que va a hacer.
+
+\section{Entender el flujo de trabajo}
+
+Claude Code opera en ciclos de:
+
+\begin{enumerate}
+\item \textbf{Pensar} — analiza tu petición y planifica los pasos.
+\item \textbf{Actuar} — usa herramientas (leer archivos, ejecutar comandos, editar código).
+\item \textbf{Mostrar} — te presenta los resultados y cambios realizados.
+\item \textbf{Esperar} — vuelve a esperar tu siguiente instrucción.
+\end{enumerate}
+
+\begin{calloutbox}{Consejo}
+Consejo: Sé específico en tus instrucciones. En lugar de "arregla el código", di "el test en auth.test.ts falla con un error 401, revísalo y corrígelo".\end{calloutbox}
+
+\section{Modos de operación}
+
+\subsection{Modo normal (por defecto)}
+
+Claude Code te pide confirmación antes de editar archivos o ejecutar comandos importantes. Ideal para empezar y mantener control.
+
+\subsection{Modo auto}
+
+Claude completa tareas de forma autónoma sin pedir confirmación en cada paso. Útil cuando confías en la tarea y quieres velocidad:
+
+\begin{codebox}
+claude --dangerously-skip-permissions
+\end{codebox}
+
+\begin{calloutbox}{Atención}
+Usa el modo auto con precaución. Claude puede modificar archivos, instalar paquetes o ejecutar comandos sin pausa. Úsalo en entornos controlados o con proyectos que tengan git para revertir cambios.\end{calloutbox}
+
+\subsection{Modo plan}
+
+Escribe \texttt{/plan} antes de tu petición para que Claude te muestre el plan antes de ejecutar nada. Ideal para tareas complejas:
+
+\begin{codebox}
+> /plan refactoriza el módulo de autenticación para usar JWT
+\end{codebox}
+
+\section{Ejemplos de primeras tareas}
+
+\subsection{Entender un proyecto existente}
+
+\begin{codebox}
+> Explícame la estructura de este proyecto y qué hace cada carpeta
+\end{codebox}
+
+\begin{codebox}
+> ¿Qué hace la función processPayment en src/payments.ts?
+\end{codebox}
+
+\subsection{Crear un archivo nuevo}
+
+\begin{codebox}
+> Crea un componente React llamado Button con variantes primary y secondary en TypeScript
+\end{codebox}
+
+\subsection{Arreglar un error}
+
+\begin{codebox}
+> Tengo este error en la consola: [pegar el error] — ayúdame a resolverlo
+\end{codebox}
+
+\subsection{Ejecutar tests}
+
+\begin{codebox}
+> Ejecuta los tests y si hay fallos, corrígelos
+\end{codebox}
+
+\section{Salir de Claude Code}
+
+Puedes salir con \texttt{Ctrl}+\texttt{C}, \texttt{Ctrl}+\texttt{D}, o escribiendo:
+
+\begin{codebox}
+> /exit
+\end{codebox}
+
+\section{Iniciar con un prompt directo}
+
+Si sabes exactamente qué quieres, puedes pasarlo directamente al comando sin entrar al modo interactivo:
+
+\begin{codebox}
+claude "explica el archivo package.json"
+claude "añade tipos TypeScript al archivo utils.js"
+\end{codebox}
+
+\section{Modo "print" (salida directa)}
+
+Para usar Claude Code en scripts o pipelines:
+
+\begin{codebox}
+claude -p "resume los cambios en este diff" < cambios.diff
+\end{codebox}
+
+La bandera \texttt{-p} hace que Claude responda una vez y salga, ideal para automatizaciones.
+
+
+\chapter{CLI, app de escritorio, web y móvil}
+
+Claude Code no vive solo en la terminal. Puedes usarlo en varias superficies y todas comparten el MISMO motor: tus archivos CLAUDE.md, tus ajustes y tus servidores MCP funcionan igual en todas. Elige la que mejor encaje contigo (o combínalas).
+
+\begin{calloutbox}{Nota}
+Dato clave: como todas las superficies usan el mismo motor, puedes empezar una tarea en un sitio y continuarla en otro.\end{calloutbox}
+
+\section{Las superficies de Claude Code}
+
+\begin{longtable}{p{0.28\textwidth}p{0.28\textwidth}p{0.28\textwidth}}
+\toprule
+Superficie & Qué es & Ideal para \\\midrule
+\textbf{Terminal (CLI)} & La versión completa, en tu terminal. & Máximo control, scripts, automatización y modo headless. \\
+\textbf{App de escritorio} & App independiente para Mac y Windows, con interfaz visual. & Revisar diffs visualmente, varias sesiones a la vez, tareas programadas y lanzar sesiones en la nube. \\
+\textbf{Web (claude.ai/code)} & En el navegador, sin instalar nada. & Tareas largas en la nube, trabajar en repos que no tienes en local y varias tareas en paralelo. \\
+\textbf{VS Code / Cursor} & Extensión para tu editor. & Diffs en línea, @-menciones, revisión de plan e historial dentro del editor. \\
+\textbf{JetBrains} & Plugin para IntelliJ, PyCharm, WebStorm, etc. (requiere la CLI). & Lo mismo dentro de los IDE de JetBrains. \\
+\bottomrule
+\end{longtable}
+
+\section{ Terminal (CLI)}
+
+La forma original y más potente. Instalación recomendada (instalador nativo):
+
+\begin{codebox}
+# macOS, Linux, WSL
+curl -fsSL https://claude.ai/install.sh | bash
+
+# Windows (PowerShell)
+irm https://claude.ai/install.ps1 | iex
+
+# Con Homebrew (Mac)
+brew install --cask claude-code
+\end{codebox}
+
+También puedes instalarlo con npm (\texttt{npm install -g @anthropic-ai/claude-code}). Tras instalar, ve a tu proyecto y ejecuta \texttt{claude}. Más detalle en \href{https://claude-rho-snowy.vercel.app/instalacion}{Instalación (\url{https://claude-rho-snowy.vercel.app/instalacion})}. Es la mejor opción para automatización, scripts y flujos headless (ver \href{https://claude-rho-snowy.vercel.app/equipos}{Perfiles técnicos (\url{https://claude-rho-snowy.vercel.app/equipos})}).
+
+\section{ App de escritorio (Mac y Windows)}
+
+App independiente con interfaz gráfica. Permite revisar diffs visualmente, ejecutar varias sesiones en paralelo lado a lado, programar tareas recurrentes y lanzar sesiones en la nube. Ideal si prefieres una interfaz visual a la terminal. Requiere una suscripción de pago. Se descarga desde la web oficial; tras instalar, inicia sesión y pulsa la pestaña "Code".
+
+\begin{calloutbox}{Consejo}
+Consejo: si la terminal te intimida, la app de escritorio es la forma más cómoda de empezar con la misma potencia.\end{calloutbox}
+
+\section{ Web (claude.ai/code)}
+
+Ejecuta Claude Code en el navegador, sin instalar nada en tu ordenador. Perfecta para lanzar tareas largas y volver cuando terminen, trabajar en repositorios que no tienes en local, o correr varias tareas a la vez en la nube. Disponible en navegadores de escritorio y en la app de Claude para iOS. Empieza en \href{https://claude.ai/code}{claude.ai/code (\url{https://claude.ai/code})}.
+
+\section{ Extensiones de IDE (VS Code, JetBrains)}
+
+Si trabajas en VS Code (o Cursor) o en un IDE de JetBrains, hay extensión/plugin oficial que integra Claude Code en el editor con diffs en línea, @-menciones y revisión de plan. La de JetBrains requiere tener la CLI instalada. Ver \href{https://claude-rho-snowy.vercel.app/configuracion}{Configuración (\url{https://claude-rho-snowy.vercel.app/configuracion})}.
+
+\section{ Controlar Claude Code desde el móvil}
+
+Sí, puedes usar y supervisar Claude Code desde el teléfono. Estas son las formas:
+
+\begin{itemize}
+\item \textbf{App de Claude para iOS + web:} lanza una tarea larga desde claude.ai/code o la app de iOS y revísala o continúala desde el móvil.
+\item \textbf{Remote Control:} continúa una sesión que tienes en tu ordenador desde el móvil u otro dispositivo.
+\item \textbf{Dispatch:} encarga una tarea desde el móvil; se crea una sesión de escritorio que abres luego en tu ordenador.
+\item \textbf{Teleport:} empieza una tarea en la web o en iOS y tráela a tu terminal con el comando \texttt{claude --teleport} (requiere suscripción de claude.ai).
+\item \textbf{Channels:} envía tareas a una sesión desde Telegram, Discord, iMessage o tus propios webhooks.
+\item \textbf{Slack:} menciona a @Claude con un reporte de bug y te devuelve un pull request.
+\end{itemize}
+
+\begin{calloutbox}{Atención}
+Importante: el móvil brilla para LANZAR, SUPERVISAR y APROBAR tareas, no para escribir código intensivo. Lo ideal: encargar desde el móvil y revisar a fondo en el ordenador.\end{calloutbox}
+
+\section{¿Cuál elijo?}
+
+\begin{itemize}
+\item ¿Te manejas en terminal y quieres todo el poder? Terminal (CLI).
+\item ¿Prefieres una interfaz visual sin terminal? App de escritorio.
+\item ¿No quieres instalar nada o trabajar desde varios sitios? Web.
+\item ¿Ya vives en tu editor? Extensión de VS Code o JetBrains.
+\item ¿Quieres lanzar o supervisar sobre la marcha? Móvil (iOS/web) + Remote Control.
+\end{itemize}
+
+\begin{calloutbox}{Nota}
+No tienes que elegir solo una. Como todas comparten el mismo motor (CLAUDE.md, ajustes, MCP), mucha gente usa la CLI o la app en el ordenador y el móvil para supervisar.\end{calloutbox}
+
+
+\chapter{Recetas prácticas}
+
+Casos de uso reales para el día a día. Cada receta incluye el prompt exacto que puedes copiar y pegar en Claude Code. Pensadas para personas que están empezando en programación.
+
+\begin{calloutbox}{Consejo}
+Cómo usar esta página: haz clic en  Copiar en cualquier prompt, pégalo en tu terminal con Claude Code abierto, y ajusta los detalles entre corchetes [ ] a tu caso.\end{calloutbox}
+
+En esta página
+
+ Aprender a programar Crear tu primer proyecto Entender código que no escribiste Resolver errores Mejorar tu código Git y control de versiones Trabajar con datos y archivos Automatizar tareas repetitivas Comandos de terminal sin miedo Documentar y explicar\section{ Aprender a programar}
+
+Claude Code es un profesor particular dentro de tu terminal. No solo escribe código: te explica el porqué de cada cosa a tu nivel.
+
+\subsection{Pedir una explicación a tu nivel}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Explícame qué es una función en programación como si nunca hubiera programado. Usa un ejemplo de la vida real y luego enséñame cómo se escribe en Python.
+\end{codebox}
+
+\subsection{Aprender haciendo un mini-proyecto guiado}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Quiero aprender Python desde cero. Guíame paso a paso para crear una calculadora sencilla en la terminal. Explícame cada línea antes de escribirla y espera a que yo entienda antes de continuar.
+\end{codebox}
+
+\subsection{Entender un concepto que se te resiste}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+No entiendo qué es un "bucle for". Explícamelo con 3 ejemplos sencillos, del más fácil al más difícil, y dime para qué se usa en la vida real.
+\end{codebox}
+
+\subsection{Practicar con ejercicios}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Ponme 5 ejercicios de Python para principiantes sobre listas, ordenados de fácil a difícil. No me des las soluciones todavía: dámelas solo cuando yo te lo pida después de intentarlo.
+\end{codebox}
+
+\section{ Crear tu primer proyecto}
+
+Lo mejor de Claude Code es que puede montar un proyecto completo y funcional mientras tú aprendes viéndolo trabajar.
+
+\subsection{Una página web personal}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Crea una página web personal sencilla con HTML y CSS en una carpeta nueva llamada "mi-web". Que tenga: mi nombre, una foto, una breve biografía y mis enlaces a redes sociales. Que se vea moderna y funcione en el móvil. Cuando termines, dime cómo abrirla en el navegador.
+\end{codebox}
+
+\subsection{Una pequeña app de tareas (to-do list)}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Crea una aplicación de lista de tareas que funcione en el navegador, solo con HTML, CSS y JavaScript (sin librerías). Quiero poder añadir tareas, marcarlas como completadas y borrarlas. Que se guarden aunque cierre la página. Explícame cómo probarla.
+\end{codebox}
+
+\subsection{Un script útil para tu día a día}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Necesito un script en Python que renombre todas las fotos de una carpeta poniéndoles la fecha en que se hicieron al principio del nombre. Pregúntame la ruta de la carpeta antes de empezar y avísame antes de cambiar nada.
+\end{codebox}
+
+\begin{calloutbox}{Atención}
+Antes de tocar tus archivos: cuando un script modifica archivos importantes (fotos, documentos), pídele a Claude que primero haga una prueba sin cambiar nada y te enseñe qué haría. Añade: "primero muéstrame qué cambiarías sin hacerlo de verdad".\end{calloutbox}
+
+\section{ Entender código que no escribiste}
+
+Cuando heredas un proyecto o sigues un tutorial, Claude Code te traduce el código a lenguaje humano.
+
+\subsection{Entender un proyecto entero}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Acabo de descargar este proyecto y no sé por dónde empezar. Explícame: qué hace la aplicación, qué tecnologías usa, qué hace cada carpeta principal y cuál es el archivo más importante por el que debería empezar a leer.
+\end{codebox}
+
+\subsection{Explicar un archivo o función concreta}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Explícame línea por línea, en español sencillo, qué hace el archivo [src/login.js]. No asumas que sé mucho.
+\end{codebox}
+
+\subsection{Traducir jerga técnica}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+En este proyecto veo palabras como "API", "endpoint" y "middleware". Explícame cada una con una analogía sencilla y señálame dónde aparecen en el código.
+\end{codebox}
+
+\section{ Resolver errores}
+
+Los errores son la parte más frustrante al empezar. Claude Code los lee, te explica qué significan y los arregla.
+
+\subsection{Entender y arreglar un error}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Me sale este error y no entiendo qué significa:
+
+[pega aquí el error completo]
+
+Explícame en palabras sencillas qué está pasando, por qué ocurre y cómo arreglarlo.
+\end{codebox}
+
+\subsection{Cuando algo "no funciona" pero no hay error}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Mi página debería mostrar una lista de productos pero aparece en blanco. No sale ningún error. Investiga qué está pasando, dime dónde está el problema y arréglalo.
+\end{codebox}
+
+\subsection{Arreglar los tests que fallan}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Ejecuta los tests del proyecto. Si alguno falla, explícame por qué falla y arréglalo, pero enséñame el cambio antes de aplicarlo.
+\end{codebox}
+
+\begin{calloutbox}{Consejo}
+Truco: copia todo el mensaje de error, incluida la parte larga que parece "ruido". Esa parte (el stack trace) es justo lo que Claude necesita para encontrar el problema rápido.\end{calloutbox}
+
+\section{ Mejorar tu código}
+
+\subsection{Pedir una revisión como si fuera un mentor}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Revisa el archivo [mi_codigo.py] como si fueras un programador con experiencia ayudando a un principiante. Dime qué está bien, qué se puede mejorar y por qué. Sé amable pero honesto.
+\end{codebox}
+
+\subsection{Hacer el código más legible}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Este código funciona pero es un lío y no lo entiendo cuando vuelvo a él días después. Reescríbelo para que sea más claro y fácil de leer, con buenos nombres de variables y comentarios donde haga falta. No cambies lo que hace.
+\end{codebox}
+
+\subsection{Añadir comprobaciones de seguridad}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+En este formulario el usuario puede escribir cualquier cosa. Añade comprobaciones para que no se rompa si dejan campos vacíos o escriben datos raros. Explícame qué problemas estabas previniendo.
+\end{codebox}
+
+\section{ Git y control de versiones}
+
+Git asusta al principio. Deja que Claude Code lo maneje mientras tú aprendes los conceptos.
+
+\subsection{Empezar a usar git sin saber git}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Quiero empezar a guardar el historial de cambios de este proyecto con git, pero nunca lo he usado. Configúralo, haz el primer guardado (commit) y explícame con palabras sencillas qué acabas de hacer y por qué sirve.
+\end{codebox}
+
+\subsection{Guardar tu trabajo con un buen mensaje}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Guarda los cambios que he hecho hoy con git. Escribe un mensaje de commit claro que explique qué cambié. Antes de guardar, enséñame qué archivos van a entrar.
+\end{codebox}
+
+\subsection{"He liado algo, quiero volver atrás"}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Creo que rompí algo con mis últimos cambios. Enséñame qué he cambiado desde el último guardado y ayúdame a volver a como estaba si hace falta. Explícame las opciones antes de hacer nada.
+\end{codebox}
+
+\subsection{Subir el proyecto a GitHub}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Quiero subir este proyecto a GitHub por primera vez para tener una copia online. Guíame paso a paso: qué necesito, qué tengo que hacer en la web de GitHub y qué comandos ejecutar.
+\end{codebox}
+
+\section{ Trabajar con datos y archivos}
+
+\subsection{Analizar un archivo Excel o CSV}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Tengo un archivo [ventas.csv] con datos de ventas. Dime cuántas filas tiene, qué columnas hay, y hazme un resumen: total de ventas, mes con más ventas y el producto más vendido.
+\end{codebox}
+
+\subsection{Convertir entre formatos}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Tengo un archivo [datos.json] y necesito los mismos datos en formato Excel (CSV) para abrirlos con el programa de hojas de cálculo. Conviértelo y guárdalo.
+\end{codebox}
+
+\subsection{Limpiar datos desordenados}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+En este archivo [contactos.csv] los números de teléfono están escritos de mil maneras distintas. Únificalos todos al mismo formato y quita las filas duplicadas. Enséñame un ejemplo de antes y después.
+\end{codebox}
+
+\subsection{Generar un gráfico}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Con los datos del archivo [gastos.csv], crea un gráfico de barras de gastos por categoría y guárdalo como imagen. Usa Python.
+\end{codebox}
+
+\section{ Automatizar tareas repetitivas}
+
+Si haces algo aburrido y repetitivo en el ordenador, probablemente Claude Code pueda automatizarlo.
+
+\subsection{Organizar la carpeta de descargas}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Mi carpeta de Descargas es un caos. Crea un script que ordene los archivos en subcarpetas según su tipo (imágenes, PDFs, vídeos, instaladores, etc.). Antes de moverlos, enséñame el plan de qué iría a cada carpeta.
+\end{codebox}
+
+\subsection{Renombrar muchos archivos a la vez}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Tengo 200 archivos llamados "IMG_0001", "IMG_0002"... Quiero renombrarlos a "vacaciones-2026-001", "vacaciones-2026-002", etc. Hazlo con un script y muéstrame primero cómo quedarían los primeros 5 nombres.
+\end{codebox}
+
+\subsection{Buscar texto en muchos archivos}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Busca en qué archivos de este proyecto aparece la palabra "contraseña" o "password". Quiero asegurarme de no haber dejado ningún dato sensible escrito por error.
+\end{codebox}
+
+\section{ Comandos de terminal sin miedo}
+
+La terminal intimida. Claude Code la usa por ti y te enseña los comandos poco a poco.
+
+\subsection{"¿Cómo se hace esto en la terminal?"}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Quiero ver cuánto espacio ocupa cada carpeta dentro de este directorio para saber qué está llenando mi disco. Hazlo y explícame el comando que usaste por si quiero repetirlo.
+\end{codebox}
+
+\subsection{Instalar herramientas}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Necesito instalar [Python / Node.js / git] en mi ordenador (uso macOS). Guíame paso a paso, comprueba si ya lo tengo instalado primero y dime cómo verificar que funciona.
+\end{codebox}
+
+\subsection{Antes de ejecutar un comando que viste en internet}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Encontré este comando en un tutorial y me da miedo ejecutarlo sin saber qué hace:
+
+[pega el comando]
+
+Explícame exactamente qué hace cada parte y dime si es seguro ejecutarlo.
+\end{codebox}
+
+\begin{calloutbox}{Atención}
+Regla de oro: nunca ejecutes un comando de internet que no entiendas. Pregúntale primero a Claude Code qué hace. Especialmente si llevasudo, rm o curl ... | bash.\end{calloutbox}
+
+\section{ Documentar y explicar}
+
+\subsection{Crear un README para tu proyecto}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Crea un archivo README.md para este proyecto que explique: qué hace, cómo instalarlo, cómo usarlo y qué tecnologías usa. Escríbelo para que alguien que llega nuevo lo entienda.
+\end{codebox}
+
+\subsection{Comentar tu propio código}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Añade comentarios al archivo [mi_script.py] explicando qué hace cada parte, pensando en mí dentro de 6 meses cuando ya no me acuerde de nada. No cambies el código, solo añade explicaciones.
+\end{codebox}
+
+\subsection{Preparar una explicación para presentar tu trabajo}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Tengo que explicar este proyecto en clase. Hazme un resumen sencillo de qué hace y cómo funciona por dentro, con un guion de 5 puntos que pueda usar para presentarlo.
+\end{codebox}
+
+
+\chapter{Proyectos guiados}
+
+La mejor forma de aprender es construyendo algo real. Aquí tienes tres proyectos completos, de principio a fin, con los prompts exactos en orden. Solo necesitas Claude Code instalado y ganas.
+
+\begin{calloutbox}{Consejo}
+Cómo seguir un proyecto: abre una terminal, crea una carpeta para el proyecto, entra en ella y ejecuta claude. Luego ve copiando los prompts en orden. Tómate tu tiempo para leer lo que Claude te explica en cada paso.\end{calloutbox}
+
+Web personalPrincipiante · 30 minApp de tareasPrincipiante + · 45 minScript en PythonIntermedio · 30 min\section{ Proyecto 1: Tu web personal}
+
+\textbf{Qué construirás:} una página web personal con tu nombre, foto, biografía y enlaces, lista para enseñar al mundo.
+
+\textbf{Qué aprenderás:} qué son HTML y CSS, cómo se ve un proyecto web por dentro y cómo publicarlo gratis en internet.
+
+1\subsubsection{Crea la base de la web}
+
+Pídele a Claude que monte la estructura inicial:
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Soy principiante total. Crea una página web personal sencilla con HTML y CSS en esta carpeta. Que tenga: mi nombre como título grande, un hueco para una foto, un párrafo de biografía y una fila de enlaces (LinkedIn, GitHub, email). Que se vea moderna, con colores agradables, y que funcione bien en el móvil. Explícame qué archivos creas y para qué sirve cada uno.
+\end{codebox}
+
+2\subsubsection{Ábrela en el navegador}
+
+Mira el resultado por primera vez:
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Dime exactamente cómo abrir esta web en mi navegador para verla.
+\end{codebox}
+
+3\subsubsection{Personalízala a tu gusto}
+
+Ahora hazla tuya:
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Cambia el texto por mi información real: me llamo [tu nombre], soy [a qué te dedicas], y mi biografía es: [escribe 2 frases]. Pon los enlaces a mis redes: [pega tus enlaces]. Cambia los colores a tonos [azules / verdes / lo que quieras].
+\end{codebox}
+
+4\subsubsection{Añade un detalle bonito}
+
+Aprende pidiendo mejoras visuales:
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Añade una animación suave para que los elementos aparezcan al cargar la página, y que los enlaces cambien de color cuando paso el ratón por encima. Explícame por encima cómo lo has hecho.
+\end{codebox}
+
+5\subsubsection{Publícala gratis en internet}
+
+Comparte tu web con el mundo:
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Quiero publicar esta web gratis en internet para tener un enlace que pueda compartir. Recomiéndame la forma más fácil para un principiante y guíame paso a paso.
+\end{codebox}
+
+\section{ Proyecto 2: App de lista de tareas}
+
+\textbf{Qué construirás:} una app donde añadir tareas, marcarlas como hechas y borrarlas, que recuerda tus tareas aunque cierres la página.
+
+\textbf{Qué aprenderás:} qué es JavaScript, cómo una web "reacciona" a lo que haces y cómo se guardan datos en el navegador.
+
+1\subsubsection{Crea la app básica}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Soy principiante. Crea una aplicación de lista de tareas que funcione en el navegador, usando solo HTML, CSS y JavaScript (sin librerías externas). De momento quiero poder: escribir una tarea en una caja de texto, pulsar un botón "Añadir" y que aparezca en una lista debajo. Que se vea limpia y moderna. Explícame para qué sirve cada archivo.
+\end{codebox}
+
+2\subsubsection{Marcar tareas como completadas}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Ahora quiero poder marcar una tarea como completada al hacer clic en ella: que se ponga tachada y en gris. Y que pueda desmarcarla volviendo a hacer clic.
+\end{codebox}
+
+3\subsubsection{Borrar tareas}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Añade un botón de papelera al lado de cada tarea para poder borrarla. Pídeme confirmación antes de borrar.
+\end{codebox}
+
+4\subsubsection{Que recuerde las tareas}
+
+El momento "magia": persistencia de datos.
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Haz que las tareas se guarden, de forma que si cierro la página y vuelvo a abrirla, mis tareas sigan ahí. Explícame de forma sencilla cómo lo consigues (qué es "localStorage").
+\end{codebox}
+
+5\subsubsection{Pulir y entender}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+La app ya funciona. Repásala conmigo: explícame en lenguaje sencillo qué hace cada parte del JavaScript, como si me estuvieras enseñando. Y dime una mejora que podría intentar yo solo como ejercicio.
+\end{codebox}
+
+\section{ Proyecto 3: Un script útil en Python}
+
+\textbf{Qué construirás:} un programa que organiza automáticamente una carpeta desordenada (como Descargas) metiendo cada archivo en su sitio.
+
+\textbf{Qué aprenderás:} qué es Python, cómo un programa trabaja con tus archivos y cómo probar algo de forma segura antes de aplicarlo de verdad.
+
+1\subsubsection{Comprueba que tienes Python}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Comprueba si tengo Python instalado en mi ordenador (uso macOS). Si no lo tengo, guíame para instalarlo. Cuando esté, dime cómo verificar que funciona.
+\end{codebox}
+
+2\subsubsection{Crea el script en modo seguro}
+
+Pide que primero solo simule, sin mover nada:
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Crea un script en Python que organice los archivos de una carpeta en subcarpetas según su tipo (Imágenes, Documentos, Vídeos, Comprimidos, Otros). MUY IMPORTANTE: de momento que solo MUESTRE qué movería, sin mover nada de verdad. Así puedo revisarlo antes. Explícame cómo ejecutarlo.
+\end{codebox}
+
+3\subsubsection{Pruébalo con una carpeta de ejemplo}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Crea una carpeta de prueba con varios archivos falsos de distintos tipos y ejecuta el script sobre ella para ver qué haría. Enséñame el resultado.
+\end{codebox}
+
+4\subsubsection{Actívalo de verdad}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Perfecto, funciona como esperaba. Ahora añade una opción para que mueva los archivos de verdad, pero que me pida confirmación antes de empezar y que me diga cuántos archivos movió al terminar.
+\end{codebox}
+
+5\subsubsection{Hazlo reutilizable}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Haz que el script me pregunte qué carpeta quiero organizar al ejecutarlo, en vez de tenerlo escrito fijo. Y crea un archivo README.md que explique cómo usarlo, por si lo retomo dentro de meses.
+\end{codebox}
+
+\begin{calloutbox}{Nota}
+¿Y ahora qué? Cuando termines estos proyectos, intenta uno tuyo desde cero. Describe a Claude Code qué quieres construir y pídele que te guíe paso a paso, igual que aquí. Echa un vistazo a las recetas prácticas para más ideas.\end{calloutbox}
+
+
+\chapter{Cómo escribir buenos prompts}
+
+La calidad de lo que te da Claude Code depende mucho de cómo se lo pidas. No hace falta saber "hablar técnico": solo ser claro. Aquí tienes los 7 principios y ejemplos reales antes/después.
+
+\section{1. Sé específico, no genérico}
+
+"Arregla esto" obliga a Claude a adivinar. Cuanto más contexto des, menos adivina y mejor acierta.
+
+ Poco claroArregla mi código
+
+ Mucho mejorEl botón de 'Enviar' en login.html no hace nada al pulsarlo. Debería mostrar un mensaje de error si el campo email está vacío. Investiga por qué no funciona y arréglalo.
+
+\section{2. Di tu nivel y pide explicaciones}
+
+Claude se adapta a ti. Si le dices que estás empezando, te explicará las cosas en lugar de soltar código sin más.
+
+ Poco claroHaz una API REST con autenticación JWT
+
+ Mucho mejorEstoy empezando a programar. Ayúdame a crear una API sencilla con login. Explícame cada paso con palabras normales antes de escribir el código, y dime qué es 'JWT' cuando lo uses.
+
+\section{3. Pide ver antes de actuar}
+
+Para tareas que cambian archivos o pueden tener consecuencias, pide el plan primero. Así aprendes y evitas sustos.
+
+\noindent\textbf{Prompt: Plantilla segura}
+\begin{codebox}
+Antes de hacer ningún cambio, explícame tu plan paso a paso y espera mi aprobación. Solo entonces empieza.
+\end{codebox}
+
+\section{4. Da contexto: pega errores, datos y ejemplos}
+
+No describas el error con tus palabras: \textbf{pégalo entero}. No expliques cómo son tus datos: enséñale el archivo.
+
+ Poco claroMe da un error al ejecutar el programa
+
+ Mucho mejorAl ejecutar "python app.py" me sale este error: Traceback (most recent call last): File "app.py", line 12, in <module> print(precio * cantidad) TypeError: can't multiply sequence by non-int ¿Qué significa y cómo lo arreglo?
+
+\section{5. Divide las tareas grandes}
+
+En lugar de pedir todo de golpe, ve por partes. Claude trabaja mejor y tú entiendes lo que va pasando.
+
+ Poco claroHazme una tienda online completa con carrito, pagos, usuarios y panel de administración
+
+ Mucho mejorVamos a hacer una tienda online paso a paso. Empecemos solo por la página que muestra la lista de productos. Cuando funcione, seguimos con el carrito.
+
+\section{6. Describe el resultado que quieres, no la solución técnica}
+
+No tienes que saber \emph{cómo} se hace. Describe \emph{qué} quieres conseguir y deja que Claude proponga el cómo.
+
+ Poco claroUsa un useEffect con un debounce y memoización
+
+ Mucho mejorQuiero que cuando el usuario escriba en el buscador, los resultados se filtren solos sin tener que pulsar un botón, pero que no vaya lento aunque escriba rápido.
+
+\section{7. Pide que te corrija y te enseñe}
+
+Claude Code no es solo para que haga el trabajo: úsalo para mejorar tú.
+
+\noindent\textbf{Prompt: Modo aprendizaje}
+\begin{codebox}
+Cuando termines, dime: ¿qué he hecho yo mal o de forma poco eficiente? ¿Qué debería aprender para hacer esto mejor la próxima vez por mi cuenta?
+\end{codebox}
+
+\section{Plantillas listas para usar}
+
+Copia, rellena los corchetes y pega:
+
+\subsection{ Para crear algo nuevo}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Quiero crear [qué quieres]. Lo usaré para [para qué sirve]. Soy [tu nivel: principiante/intermedio]. Usa [tecnología, o "lo que recomiendes"]. Explícame los pasos importantes mientras lo haces.
+\end{codebox}
+
+\subsection{ Para arreglar algo}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Tengo este problema: [qué pasa]. Esperaba que pasara: [qué debería pasar]. Lo que veo: [qué ves, pega errores]. Investiga la causa, arréglalo y explícame qué estaba mal.
+\end{codebox}
+
+\subsection{ Para entender algo}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Explícame [el concepto o el archivo] como si tuviera poca experiencia. Usa una analogía sencilla y un ejemplo pequeño. Luego dime para qué se usa en la práctica.
+\end{codebox}
+
+\subsection{ Para mejorar lo que ya tienes}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Revisa [archivo o carpeta]. Dime qué se puede mejorar en cuanto a claridad, errores potenciales y buenas prácticas. Aplica las mejoras importantes y explícame por qué.
+\end{codebox}
+
+\begin{calloutbox}{Consejo}
+El mejor consejo de todos: habla con Claude Code como hablarías con un compañero de trabajo paciente. No necesitas comandos mágicos ni vocabulario técnico. La claridad gana siempre.\end{calloutbox}
+
+\section{Errores comunes al empezar}
+
+\begin{itemize}
+\item \textbf{Aceptar cambios sin leerlos.} Claude muestra un diff antes de editar. Léelo: así aprendes y detectas si algo no es lo que querías.
+\item \textbf{No dar contexto del proyecto.} Si tienes un \texttt{CLAUDE.md} (ver \href{https://claude-rho-snowy.vercel.app/configuracion}{Configuración (\url{https://claude-rho-snowy.vercel.app/configuracion})}), Claude entiende mucho mejor tu proyecto desde el primer mensaje.
+\item \textbf{Rendirse al primer intento.} Si la respuesta no es lo que querías, no empieces de cero: dile \emph{"casi, pero quería que además..."}y refina.
+\item \textbf{Pedir demasiado de una vez.} Tareas enormes en un solo prompt salen peor. Divide y vencerás.
+\end{itemize}
+
+
+\chapter{Glosario}
+
+¿Te has perdido con alguna palabra técnica? Aquí tienes los términos que más aparecen al usar Claude Code, explicados con palabras normales y analogías de la vida real.
+
+\begin{calloutbox}{Consejo}
+Recuerda: si alguna vez no entiendes una palabra mientras usas Claude Code, ¡pregúntale! Escribe "explícame qué es [palabra] de forma sencilla" y te lo aclarará al instante.\end{calloutbox}
+
+\subsection{Terminal (o consola)}
+
+Una ventana donde escribes comandos de texto para darle órdenes al ordenador, en lugar de hacer clic con el ratón.
+
+Como enviarle instrucciones escritas a tu ordenador en vez de señalar botones.
+
+\subsection{CLI}
+
+Command Line Interface (interfaz de línea de comandos). Un programa que usas escribiendo en la terminal. Claude Code es una CLI.
+
+\subsection{Comando}
+
+Una orden que escribes en la terminal para que el ordenador haga algo. Por ejemplo, 'ls' lista los archivos de una carpeta.
+
+\subsection{Directorio}
+
+Es lo mismo que una carpeta. Los programadores suelen decir 'directorio'.
+
+\subsection{Repositorio (repo)}
+
+Una carpeta de proyecto cuyo historial de cambios se guarda con git. Puede estar en tu ordenador y/o en internet (GitHub).
+
+Como una carpeta con 'máquina del tiempo' incorporada.
+
+\subsection{git}
+
+Una herramienta que guarda el historial de todos los cambios de tu proyecto, para que puedas volver atrás o ver qué cambió y cuándo.
+
+Como el historial de versiones de un documento, pero para código.
+
+\subsection{Commit}
+
+Un 'punto de guardado' en git. Cada commit captura cómo estaba tu proyecto en ese momento, con un mensaje que explica qué cambiaste.
+
+Como una foto del estado de tu proyecto con una etiqueta describiéndola.
+
+\subsection{GitHub}
+
+Una web donde puedes guardar tus repositorios en internet, compartirlos y colaborar con otras personas.
+
+\subsection{Branch (rama)}
+
+Una línea de trabajo paralela en git. Te permite hacer cambios sin tocar la versión principal hasta que estés seguro.
+
+Como hacer una copia para experimentar sin estropear el original.
+
+\subsection{Pull Request (PR)}
+
+Una propuesta para añadir tus cambios al proyecto principal, para que alguien los revise antes de aceptarlos.
+
+\subsection{API}
+
+Application Programming Interface. Una forma de que dos programas hablen entre sí. Por ejemplo, una web que consulta el tiempo usa la API de un servicio meteorológico.
+
+Como el camarero de un restaurante: tú pides, él trae lo que la cocina prepara, sin que entres a la cocina.
+
+\subsection{API key}
+
+Una contraseña secreta que identifica quién usa un servicio. Claude Code necesita tu API key de Anthropic para funcionar.
+
+Como tu carné personal para entrar a un servicio.
+
+\subsection{Frontend}
+
+La parte de una aplicación que ve y usa el usuario: botones, textos, colores, formularios.
+
+El escaparate y la sala de una tienda.
+
+\subsection{Backend}
+
+La parte que no se ve: la lógica, la base de datos, los cálculos. Funciona 'por detrás'.
+
+El almacén y la trastienda donde se gestiona todo.
+
+\subsection{Base de datos}
+
+Un sitio organizado donde se guardan los datos de una aplicación (usuarios, productos, mensajes...).
+
+Como un archivador gigante, ordenado y consultable al instante.
+
+\subsection{Framework / Librería}
+
+Código ya hecho por otras personas que reutilizas para no empezar de cero. Por ejemplo, React es una librería para construir interfaces.
+
+Como usar muebles de IKEA en vez de fabricar cada tornillo.
+
+\subsection{Dependencia}
+
+Una librería externa que tu proyecto necesita para funcionar. Se instalan normalmente con npm o pip.
+
+\subsection{npm}
+
+El gestor de paquetes de Node.js. Sirve para instalar librerías de JavaScript con un comando.
+
+\subsection{Paquete}
+
+Una librería empaquetada y lista para instalar. 'Instalar un paquete' = añadir código de otra persona a tu proyecto.
+
+\subsection{Función}
+
+Un bloque de código con nombre que hace una tarea concreta y puedes reutilizar las veces que quieras.
+
+Como una receta: la escribes una vez y la usas cuando quieras.
+
+\subsection{Variable}
+
+Un nombre que guarda un valor (un número, un texto...) para usarlo después.
+
+Como una caja etiquetada donde guardas algo.
+
+\subsection{Bug}
+
+Un error o fallo en el código que hace que no funcione como debería.
+
+\subsection{Debug (depurar)}
+
+El proceso de encontrar y arreglar bugs.
+
+\subsection{Stack trace / Traceback}
+
+El texto largo que aparece cuando algo falla. Muestra dónde y por qué se rompió el programa. Es muy útil: cópialo entero al pedir ayuda.
+
+\subsection{Deploy (desplegar)}
+
+Publicar tu proyecto en internet para que otras personas puedan usarlo. Vercel, por ejemplo, despliega webs.
+
+\subsection{Servidor}
+
+Un ordenador (normalmente en internet) que ejecuta tu aplicación y responde a las peticiones de los usuarios.
+
+\subsection{localhost}
+
+Tu propio ordenador actuando como servidor, para probar tu proyecto antes de publicarlo. Suele verse como 'localhost:3000'.
+
+\subsection{JSON}
+
+Un formato de texto para guardar y compartir datos de forma organizada. Lo usan casi todas las aplicaciones para comunicarse.
+
+\subsection{Entorno (environment)}
+
+El conjunto de programas y configuraciones donde se ejecuta tu código. Tu ordenador es un entorno; un servidor es otro.
+
+\subsection{Variable de entorno}
+
+Un valor de configuración que vive fuera del código (como una API key), para no escribir datos secretos directamente en los archivos.
+
+\subsection{Hook}
+
+En Claude Code, un script que se ejecuta solo cuando ocurre algo (antes o después de una acción). Sirve para automatizar.
+
+\subsection{MCP}
+
+Model Context Protocol. La forma en que Claude Code se conecta a herramientas externas como bases de datos o el navegador.
+
+Como un enchufe universal para conectar herramientas a la IA.
+
+
+\chapter{Claude Code para pymes y oficina}
+
+Aunque Claude Code es una herramienta para programar, su verdadero superpoder —trabajar con TUS archivos y automatizar tu ordenador— lo hace utilísimo para autónomos y pequeñas empresas, aunque no sepas programar. Aquí tienes casos reales de oficina que te ahorran horas, con el prompt listo para copiar.
+
+\begin{calloutbox}{Nota}
+Para seguir esta página necesitas tener Claude Code instalado (Instalación) y abrirlo escribiendo claude dentro de la carpeta donde tienes tus archivos.\end{calloutbox}
+
+\begin{calloutbox}{Atención}
+Seguridad: trabaja siempre con COPIAS de tus archivos importantes, y para tareas que modifican archivos añade al prompt "primero enséñame qué harías sin tocar nada".\end{calloutbox}
+
+En esta página
+
+ Hojas de cálculo y datos Documentos y plantillas Automatizar tareas repetitivas Informes y análisis Comunicación y clientes Tu presencia online\section{ Hojas de cálculo y datos}
+
+Para sacar conclusiones rápidas de un CSV o preparar datos antes de enviarlos a otra herramienta.
+
+\subsection{Resumen de ventas para una reunión}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Analiza este archivo [ventas.csv]: dime el total de ventas, el mejor mes, el producto más vendido y hazme un resumen en 5 puntos que pueda enseñar en una reunión.
+\end{codebox}
+
+\subsection{Limpiar una lista de contactos}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Limpia este archivo [contactos.csv]: unifica los formatos de teléfono, quita filas duplicadas y corrige los nombres que están en mayúsculas. Enséñame un ejemplo de antes y después.
+\end{codebox}
+
+\subsection{Cruzar clientes y pedidos}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Cruza estos dos archivos: [clientes.csv] y [pedidos.csv]. Dime qué clientes no han hecho ningún pedido en los últimos 6 meses para poder contactarlos.
+\end{codebox}
+
+\section{ Documentos y plantillas}
+
+Úsalo para convertir, resumir o generar documentos repetitivos sin copiar y pegar a mano.
+
+\subsection{Facturas desde una plantilla}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Tengo una plantilla de factura en [plantilla.docx] y los datos de clientes en [clientes.csv]. Genera una factura por cada cliente rellenando la plantilla. Empieza con las 3 primeras para que las revise.
+\end{codebox}
+
+\subsection{Resumir PDFs de una carpeta}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Convierte todos los PDF de esta carpeta a texto y hazme un resumen de media página de cada uno.
+\end{codebox}
+
+\subsection{Crear una plantilla de presupuesto}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Créame una plantilla profesional de presupuesto en un documento, con mis datos: [nombre empresa, CIF, logo opcional], que pueda reutilizar y rellenar fácilmente.
+\end{codebox}
+
+\section{ Automatizar tareas repetitivas}
+
+Ideal para trabajos aburridos que se repiten cada semana: ordenar, renombrar, generar resúmenes o preparar archivos.
+
+\subsection{Organizar una carpeta caótica}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Organiza esta carpeta metiendo cada archivo en subcarpetas por tipo (Facturas, Imágenes, Documentos, etc.). Primero enséñame el plan de qué movería, sin mover nada.
+\end{codebox}
+
+\subsection{Renombrar archivos por lote}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Renombra todos los archivos de esta carpeta para que empiecen por la fecha y un nombre descriptivo: [evento o proyecto]. Muéstrame cómo quedarían los 5 primeros antes de hacerlo.
+\end{codebox}
+
+\subsection{Programa pequeño para pedidos diarios}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Crea un pequeño programa que, cuando lo ejecute, lea [pedidos.csv] y me genere un resumen de los pedidos nuevos del día. Explícamelo como si no supiera programar.
+\end{codebox}
+
+\section{ Informes y análisis}
+
+Pídele que convierta datos en gráficos, documentos y conclusiones claras para compartir.
+
+\subsection{Gráfico de gastos por categoría}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Con los datos de [gastos.csv], crea un gráfico de barras de gastos por categoría y guárdalo como imagen para meterlo en mi informe.
+\end{codebox}
+
+\subsection{Informe mensual de ventas}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Genera un informe mensual en un documento a partir de [ventas.csv]: incluye totales, comparación con el mes anterior, y 3 conclusiones claras.
+\end{codebox}
+
+\section{ Comunicación y clientes}
+
+También puede ayudarte a detectar patrones en opiniones de clientes y preparar respuestas profesionales.
+
+\subsection{Detectar problemas repetidos en reseñas}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Lee las reseñas de [resenas.csv] y dime los 5 problemas que más repiten los clientes y una propuesta de mejora para cada uno.
+\end{codebox}
+
+\subsection{Plantillas de email}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Redáctame 3 plantillas de email para responder a [situación: p. ej. una reclamación], en tono cercano pero profesional, de menos de 150 palabras cada una.
+\end{codebox}
+
+\section{ Tu presencia online sin saber programar}
+
+Si necesitas una web sencilla para validar presencia online, puede crear una primera versión lista para revisar.
+
+\subsection{Web de una sola página}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Créame una web sencilla de una sola página para mi negocio de [tipo de negocio], con mi nombre, qué ofrezco, horarios, ubicación y un botón de contacto por WhatsApp. Que se vea moderna y funcione en el móvil. Al terminar dime cómo publicarla gratis.
+\end{codebox}
+
+\begin{calloutbox}{Nota}
+El patrón ganador para una pyme: pon todos los archivos de la tarea en una carpeta, abre Claude Code ahí, y descríbele el resultado que quieres en lenguaje normal. Para más ejemplos, mira Recetas prácticas y Escribir buenos prompts.\end{calloutbox}
+
+
+\chapter{Para perfiles técnicos y equipos}
+
+Recetas concretas para exprimir Claude Code en proyectos serios y en equipo: revisión de código, refactors grandes, testing, CI/CD y estandarización. Cada una con el prompt o comando listo.
+
+En esta página
+
+ Bases de código grandes Revisión de código automatizada Refactors y migraciones Testing y TDD CI/CD y modo headless Estandarizar el equipo Integraciones\section{ Bases de código grandes}
+
+Usa \texttt{CLAUDE.md} en la raíz y por módulo para dar contexto;\texttt{/init} para generarlo; \texttt{/compact} en sesiones largas. Ajusta más detalles en \href{https://claude-rho-snowy.vercel.app/configuracion}{Configuración (\url{https://claude-rho-snowy.vercel.app/configuracion})}.
+
+\subsection{Generar contexto inicial del repositorio}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Explora este repositorio y genera un CLAUDE.md con el stack, los comandos clave (build, test, lint), la estructura de carpetas y las convenciones. Mantenlo conciso.
+\end{codebox}
+
+\section{ Revisión de código automatizada}
+
+Usa \texttt{/code-review} y \texttt{/security-review} sobre el diff; en CI puedes automatizarlo con \texttt{claude -p}.
+
+\subsection{Revisar el diff local}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Revisa el diff actual en busca de bugs, problemas de seguridad y deuda técnica. Ordena los hallazgos por gravedad y propón el arreglo de los críticos.
+\end{codebox}
+
+\subsection{Revisión desde GitHub CLI}
+
+\begin{codebox}
+gh pr diff 123 | claude -p "haz un code review y comenta problemas por gravedad"
+\end{codebox}
+
+\section{ Refactors y migraciones a gran escala}
+
+Combina Plan Mode para revisar antes de tocar código con subagentes en paralelo. Profundiza en \href{https://claude-rho-snowy.vercel.app/flujos}{Flujos de trabajo pro (\url{https://claude-rho-snowy.vercel.app/flujos})} y \href{https://claude-rho-snowy.vercel.app/subagentes}{Subagentes (\url{https://claude-rho-snowy.vercel.app/subagentes})}.
+
+\subsection{Migración con plan previo}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Quiero migrar todos los componentes de clase a componentes de función con hooks. Primero hazme un plan por fases y dime los riesgos. No cambies nada hasta que lo apruebe.
+\end{codebox}
+
+\section{ Testing y TDD}
+
+Pide pruebas concretas y haz que Claude Code las ejecute para cerrar el ciclo con evidencia.
+
+\subsection{Tests unitarios para un módulo}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Genera tests unitarios para [módulo], cubriendo casos límite y errores. Ejecútalos y, si fallan, arregla el código o el test explicándome la causa.
+\end{codebox}
+
+\subsection{Trabajar en TDD}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Trabajemos en TDD: escribe primero un test que falle para [funcionalidad], y luego implementa el código mínimo para que pase.
+\end{codebox}
+
+\section{ CI/CD y modo headless}
+
+Usa \texttt{claude -p} para scripts y \texttt{--output-format json} cuando necesites parsear la salida desde otro proceso.
+
+\subsection{Ejemplo en GitHub Actions}
+
+\begin{codebox}
+- name: Claude review
+  run: claude -p "revisa los cambios del PR y resume riesgos" --output-format json > review.json
+  env:
+    ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+\end{codebox}
+
+\section{ Estandarizar el equipo}
+
+Versiona la carpeta \texttt{.claude/} en el repo con settings, skills y agents para que todo el equipo comparta configuración, permisos y flujos. Empaqueta lo común como plugin interno. Mira \href{https://claude-rho-snowy.vercel.app/skills}{Skills (\url{https://claude-rho-snowy.vercel.app/skills})} y \href{https://claude-rho-snowy.vercel.app/plugins}{Plugins (\url{https://claude-rho-snowy.vercel.app/plugins})}.
+
+\subsection{Skill interna para antes del PR}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Crea en .claude/ una skill de 'revisión previa a PR' que compruebe lint, tests y que no haya console.log ni secretos. Que el equipo pueda invocarla con /pre-pr.
+\end{codebox}
+
+\section{ Integraciones}
+
+Conecta MCP a tu base de datos u observabilidad; usa hooks para formatear al guardar. Sigue con \href{https://claude-rho-snowy.vercel.app/mcp}{Servidores MCP (\url{https://claude-rho-snowy.vercel.app/mcp})} y \href{https://claude-rho-snowy.vercel.app/hooks}{Hooks (\url{https://claude-rho-snowy.vercel.app/hooks})}.
+
+\subsection{Consultar datos mediante MCP}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Conéctate a la base de datos vía MCP y dime el esquema de la tabla [pedidos], luego escríbeme una consulta para ver los 10 pedidos de mayor importe del último mes.
+\end{codebox}
+
+\begin{calloutbox}{Consejo}
+El cambio de mentalidad para equipos: pasar de escribir cada línea a dirigir y revisar; estandariza con .claude/ versionado para que el equipo trabaje igual.\end{calloutbox}
+
+
+\chapter{Skills}
+
+Las Skills son la forma más potente de enseñarle a Claude Code a hacer tareas concretas \emph{a tu manera}: revisiones, despliegues, debugging, flujos repetitivos... Las defines una vez y Claude las usa cuando hacen falta.
+
+\section{¿Qué es una Skill?}
+
+Una Skill es un conjunto reutilizable de instrucciones y procedimientos (checklists, flujos de varios pasos, comportamientos especializados) que amplían lo que Claude sabe hacer. Siguen el estándar abierto \textbf{Agent Skills} más las extensiones de Claude Code.
+
+Claude carga una Skill \textbf{automáticamente} cuando es relevante (según su descripción), o tú la invocas \textbf{manualmente} con \texttt{/nombre-skill}. Puede incluir archivos auxiliares: scripts, plantillas, documentos de referencia.
+
+\begin{calloutbox}{Nota}
+Novedad importante: los antiguos comandos personalizados (.claude/commands/) se han unificado dentro de las Skills. Los archivos .md antiguos siguen funcionando, pero las Skills son la forma recomendada porque admiten frontmatter y archivos auxiliares.\end{calloutbox}
+
+\section{Estructura de una Skill}
+
+Una Skill es una carpeta con un archivo \texttt{SKILL.md} dentro. Ese archivo tiene dos partes: un \textbf{frontmatter} en YAML (metadatos) y el cuerpo en Markdown (las instrucciones).
+
+\begin{codebox}
+.claude/skills/
++-- deploy/
+    +-- SKILL.md          <- instrucciones + metadatos
+    +-- checklist.md      <- archivo auxiliar (opcional)
+    +-- scripts/
+        +-- deploy.sh     <- script auxiliar (opcional)
+\end{codebox}
+
+\subsection{Ejemplo de SKILL.md}
+
+\begin{codebox}
+---
+name: deploy
+description: Despliega la aplicación a producción. Úsala cuando el usuario pida "subir", "desplegar" o "hacer deploy".
+disable-model-invocation: true
+argument-hint: "[entorno]"
+---
+
+Despliega la aplicación al entorno $ARGUMENTS siguiendo estos pasos:
+
+1. Ejecuta los tests. Si fallan, detente y avisa.
+2. Comprueba que la rama es 'main' y está actualizada.
+3. Ejecuta el build de producción.
+4. Lanza el deploy con el script scripts/deploy.sh.
+5. Verifica que el sitio responde y resume el resultado.
+\end{codebox}
+
+\subsection{Campos del frontmatter}
+
+\begin{longtable}{p{0.28\textwidth}p{0.28\textwidth}}
+\toprule
+Campo & Para qué sirve \\\midrule
+\texttt{name} & Nombre de la skill (así la invocas: /name). Obligatorio. \\
+\texttt{description} & Cuándo usarla. Claude lee esto para decidir si la activa sola. Obligatorio. \\
+\texttt{disable-model-invocation} & Si es true, solo se activa manualmente (ideal para acciones con efectos como deploy). \\
+\texttt{argument-hint} & Pista de qué argumentos espera, p. ej. "[entorno]". \\
+\bottomrule
+\end{longtable}
+
+\section{Dónde se guardan}
+
+\begin{itemize}
+\item \textbf{Personal (todos tus proyectos):} \texttt{\textasciitilde{}/.claude/skills/<nombre>/SKILL.md}
+\item \textbf{Proyecto (recomendado, versionable):} \texttt{.claude/skills/<nombre>/SKILL.md}
+\item \textbf{Vía plugin:} dentro del plugin, con nombre namespaced como \texttt{/plugin:skill}
+\item \textbf{Monorepos:} en subdirectorios, cualificadas como \texttt{/apps/web:deploy}
+\end{itemize}
+
+\begin{calloutbox}{Consejo}
+Guarda las skills del proyecto en .claude/skills/ y añádelas a git: así todo tu equipo comparte los mismos flujos de trabajo.\end{calloutbox}
+
+\section{Cómo invocar una Skill}
+
+\subsection{Manualmente}
+
+\begin{codebox}
+# Sin argumentos
+/deploy
+
+# Con argumentos (llegan como $ARGUMENTS)
+/deploy produccion
+\end{codebox}
+
+\subsection{Automáticamente}
+
+Si no pones \texttt{disable-model-invocation: true}, Claude activará la skill por su cuenta cuando tu petición encaje con su \texttt{description}. Por eso la descripción es tan importante: escríbela pensando en \emph{cuándo} debe usarse.
+
+\section{Crear tu primera Skill (sin saber)}
+
+Deja que Claude Code la cree por ti:
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Quiero crear una skill de Claude Code para mi proyecto que haga siempre lo mismo cuando le pida "revisar": comprobar que el código no tiene console.log olvidados, que los nombres de variables son claros y que hay tests. Crea la carpeta y el SKILL.md en .claude/skills/ y explícame cómo invocarla.
+\end{codebox}
+
+\section{Skills oficiales incluidas}
+
+Claude Code trae skills listas para usar. Algunas que verás disponibles:
+
+\begin{itemize}
+\item \texttt{/code-review} — revisión de código del diff actual.
+\item \texttt{/security-review} — revisión de seguridad de tus cambios.
+\item \texttt{/init} — genera el \texttt{CLAUDE.md} de tu proyecto.
+\end{itemize}
+
+Existe además un plugin \texttt{skill-creator} que te ayuda a crear, iterar y evaluar tus propias skills.
+
+\section{Edición en vivo}
+
+Puedes editar un \texttt{SKILL.md} mientras Claude Code está abierto y los cambios tienen efecto \textbf{inmediato}, sin reiniciar. Ideal para ir afinando una skill mientras la pruebas.
+
+\begin{calloutbox}{Nota}
+Buena práctica 2026: mantén un CLAUDE.md ligero (contexto general del proyecto) y mueve los procedimientos concretos a Skills específicas. Así Claude solo carga lo que necesita en cada momento.\end{calloutbox}
+
+
+\chapter{Subagentes}
+
+Los subagentes son "ayudantes especializados" que Claude Code puede lanzar para trabajar en paralelo: uno revisa código, otro investiga, otro escribe tests... mientras el agente principal coordina y tú solo revisas resultados.
+
+\section{¿Para qué sirven?}
+
+En tareas grandes, en vez de hacerlo todo de forma lineal, Claude Code puede repartir el trabajo entre varios subagentes con roles concretos (revisor, planificador, depurador, investigador). Ventajas:
+
+\begin{itemize}
+\item \textbf{Paralelismo:} varios trabajando a la vez = más rápido.
+\item \textbf{Contexto limpio:} cada subagente tiene su propia "memoria", sin mezclar.
+\item \textbf{Especialización:} cada uno con sus instrucciones y herramientas.
+\item \textbf{Background:} pueden correr de fondo sin bloquearte.
+\end{itemize}
+
+\begin{calloutbox}{Nota}
+Un patrón muy comentado en 2026: lanzar 7 o más subagentes en paralelo (imágenes, auditoría de seguridad, importación de datos, tests...) mientras tú solo asignas tareas y revisas los diffs. El rol del programador cambia: de escribir código a asignar y revisar.\end{calloutbox}
+
+\section{Crear un subagente}
+
+Un subagente es un archivo Markdown con frontmatter YAML (configuración) y un cuerpo que es su \emph{system prompt} (sus instrucciones de personalidad y rol).
+
+\begin{codebox}
+.claude/agents/
++-- revisor.md
++-- depurador.md
++-- investigador.md
+\end{codebox}
+
+\subsection{Ejemplo: un subagente revisor de código}
+
+\begin{codebox}
+---
+name: revisor
+description: Revisa código en busca de bugs y malas prácticas. Úsalo tras escribir o cambiar código.
+tools: Read, Grep, Glob
+model: sonnet
+color: blue
+---
+
+Eres un revisor de código senior. Tu trabajo es leer los cambios y encontrar:
+- Bugs potenciales y casos límite no cubiertos.
+- Nombres poco claros y código difícil de mantener.
+- Problemas de seguridad.
+
+No edites archivos: solo informa de lo que encuentres, ordenado por gravedad.
+Sé directo pero constructivo.
+\end{codebox}
+
+\subsection{Campos del frontmatter}
+
+\begin{longtable}{p{0.28\textwidth}p{0.28\textwidth}}
+\toprule
+Campo & Para qué sirve \\\midrule
+\texttt{name} & Nombre del subagente. Obligatorio. \\
+\texttt{description} & Cuándo usarlo. El agente principal lo lee para delegar. Obligatorio. \\
+\texttt{tools} & Lista blanca de herramientas que puede usar (p. ej. Read, Grep). Limítalas por seguridad. \\
+\texttt{model} & Modelo a usar: sonnet, opus, fable o inherit (heredar del principal). \\
+\texttt{permissionMode} & Modo de permisos para este subagente. \\
+\texttt{color} & Color con el que se muestra en la interfaz. \\
+\texttt{hooks} & Hooks específicos de este subagente. \\
+\texttt{skills} & Skills que se precargan al lanzarlo. \\
+\texttt{background} & Si es true, corre en segundo plano. \\
+\texttt{effort} & Nivel de esfuerzo/razonamiento. \\
+\bottomrule
+\end{longtable}
+
+\section{Dónde se guardan}
+
+\begin{itemize}
+\item \textbf{Proyecto (recomendado):} \texttt{.claude/agents/<nombre>.md}
+\item \textbf{Personal:} \texttt{\textasciitilde{}/.claude/agents/<nombre>.md}
+\item \textbf{Vía plugin:} dentro del plugin (\texttt{agents/...})
+\item \textbf{Solo para una sesión:} con el flag \texttt{--agents '\{...\}'} (no se guarda en disco)
+\end{itemize}
+
+\section{Cómo invocarlos}
+
+\subsection{Delegación natural}
+
+Simplemente pídeselo al agente principal:
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Usa el subagente "revisor" para revisar los cambios que acabas de hacer y dime qué encuentra.
+\end{codebox}
+
+\subsection{Mención directa}
+
+\begin{codebox}
+@"revisor (agent)" revisa src/pagos.ts
+\end{codebox}
+
+\subsection{Asistente interactivo}
+
+Usa el comando \texttt{/agents} para abrir un asistente que te guía en la creación y gestión de subagentes sin escribir el YAML a mano.
+
+\subsection{Desde la terminal}
+
+\begin{codebox}
+# Lanzar con un subagente concreto
+claude --agent revisor
+
+# Ver, monitorizar y gestionar subagentes en paralelo
+claude agents
+\end{codebox}
+
+\section{Crear uno sin saber YAML}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Quiero crear un subagente para mi proyecto que se dedique solo a escribir tests. Debe poder leer y editar archivos, usar el modelo sonnet, y centrarse en cubrir casos límite. Créalo en .claude/agents/ y explícame cómo lanzarlo.
+\end{codebox}
+
+\section{Subagentes en paralelo (ejemplo real)}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Tengo que añadir una función de notificaciones a la app. Reparte el trabajo en subagentes en paralelo: uno que investigue cómo está montado el sistema actual, otro que escriba el código, y otro que prepare los tests. Coordínalos tú y al final enséñame un resumen con los cambios para que los revise.
+\end{codebox}
+
+\begin{calloutbox}{Consejo}
+Consejo de seguridad: limita el campo tools de cada subagente a lo mínimo. Un revisor solo necesita leer (Read, Grep); no le des permiso para editar o ejecutar comandos si no hace falta.\end{calloutbox}
+
+
+\chapter{Plugins}
+
+Los plugins son paquetes que añaden funcionalidad a Claude Code de golpe: agrupan skills, subagentes, comandos, hooks y servidores MCP. Es la forma más rápida de potenciar tu instalación con trabajo ya hecho por otros.
+
+\section{¿Qué es un plugin?}
+
+Un plugin empaqueta varias extensiones en una sola unidad instalable:
+
+\begin{itemize}
+\item \textbf{Skills} — flujos y procedimientos especializados.
+\item \textbf{Subagentes} — ayudantes con roles concretos.
+\item \textbf{Comandos} — slash commands listos para usar.
+\item \textbf{Hooks} — automatizaciones de eventos.
+\item \textbf{Servidores MCP} — conexiones a herramientas externas.
+\end{itemize}
+
+Un \textbf{marketplace} es un repositorio (normalmente en GitHub) con un registro de plugins. Añades el marketplace una vez y luego instalas los plugins que quieras de él.
+
+\section{Añadir un marketplace}
+
+El marketplace oficial de Anthropic:
+
+\begin{codebox}
+/plugin marketplace add anthropics/claude-plugins-official
+\end{codebox}
+
+También puedes añadir uno de la comunidad o uno privado de tu empresa:
+
+\begin{codebox}
+/plugin marketplace add https://github.com/usuario/mi-marketplace
+\end{codebox}
+
+\section{Instalar un plugin}
+
+\begin{codebox}
+# Desde un marketplace añadido
+/plugin install github@claude-plugins-official
+
+# Directamente desde un repo
+/plugin install https://github.com/usuario/mi-plugin
+\end{codebox}
+
+O usa la interfaz interactiva: escribe \texttt{/plugin} y entra en \textbf{Discover} para explorar, ver qué incluye cada plugin y su coste estimado de contexto antes de instalar.
+
+\section{Gestionar plugins}
+
+\begin{codebox}
+/plugin           # Abre el panel: listar, activar, desactivar
+/plugin list      # Ver plugins instalados
+\end{codebox}
+
+\section{Plugins útiles que la gente instala}
+
+\begin{itemize}
+\item Integración con \textbf{GitHub} (issues, PRs, commits).
+\item \textbf{Toolkits de revisión de PRs} (pr-review-toolkit).
+\item Flujos de \textbf{commit y despliegue}.
+\item Bundles de \textbf{skills científicas} (biología, química con bases de datos).
+\item \texttt{skill-creator} para crear y evaluar tus propias skills.
+\end{itemize}
+
+\begin{calloutbox}{Nota}
+Coste de contexto: cada plugin que activas consume parte del contexto de Claude (sus skills, agentes y descripciones se cargan). Activa solo los que vayas a usar; el panel /plugin te muestra el coste estimado.\end{calloutbox}
+
+\section{Empezar rápido con plugins}
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Soy nuevo con Claude Code. Añade el marketplace oficial de Anthropic, enséñame qué plugins hay disponibles que sean útiles para alguien que está aprendiendo a programar, y recomiéndame 2 o 3 para empezar explicándome qué hace cada uno.
+\end{codebox}
+
+\section{Crear tu propio plugin}
+
+Si tienes skills, subagentes o comandos que usas en varios proyectos, puedes empaquetarlos en un plugin y compartirlo (con tu equipo o públicamente) creando un repositorio con la estructura de marketplace. Pídeselo a Claude Code:
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Tengo varias skills y subagentes en .claude/ que quiero reutilizar en otros proyectos. Ayúdame a empaquetarlos como un plugin de Claude Code en un repositorio nuevo, con la estructura correcta para poder instalarlo con /plugin install. Explícame los pasos.
+\end{codebox}
+
+\begin{calloutbox}{Consejo}
+Verifica siempre lo que instalas. Un plugin puede traer hooks y comandos que se ejecutan en tu máquina. Instala solo de fuentes en las que confíes (oficial, tu empresa, autores conocidos) y revisa qué incluye.\end{calloutbox}
+
+
+\chapter{Flujos de trabajo pro}
+
+Las funciones y rutinas que diferencian a quien usa Claude Code de vez en cuando de quien lo exprime de verdad: planificar antes de actuar, deshacer sin miedo y trabajar en paralelo.
+
+\section{ Plan Mode (modo planificación)}
+
+En Plan Mode, Claude \textbf{explora e investiga tu código y propone un plan detallado, pero sin tocar ningún archivo}. Tú lo revisas y, si te convence, le das luz verde para ejecutarlo. Es la mejor red de seguridad para tareas grandes.
+
+\subsection{Cómo activarlo}
+
+\begin{itemize}
+\item Pulsa \texttt{Shift}+\texttt{Tab} para alternar el modo (vuelve a pulsar para salir).
+\item O al iniciar: \texttt{claude --permission-mode plan}
+\end{itemize}
+
+\begin{calloutbox}{Consejo}
+Patrón recomendado: usa un modelo potente (Opus) para planificar y uno rápido (Sonnet) para ejecutar. Primero planificas con calma, luego ejecutas con velocidad.\end{calloutbox}
+
+\section{ Checkpoints y Rewind (deshacer)}
+
+Cada vez que envías un mensaje, Claude Code crea un \textbf{checkpoint}(un punto de guardado). Si un cambio sale mal, puedes \textbf{volver atrás}tanto la conversación como el código a un estado anterior.
+
+\subsection{Cómo deshacer}
+
+\begin{itemize}
+\item Comando \texttt{/rewind} para elegir a qué punto volver.
+\item Pulsa \texttt{Esc} \texttt{Esc} (dos veces) como "botón de pánico".
+\end{itemize}
+
+\begin{calloutbox}{Atención}
+El rewind es tu seguro para refactorizaciones arriesgadas: si Claude se desvía o rompe algo, vuelves al estado bueno en segundos. Aun así, trabajar con git sigue siendo la mejor red de seguridad.\end{calloutbox}
+
+\section{ Tareas en background}
+
+Puedes lanzar tareas o subagentes que corran \textbf{en segundo plano}mientras tú sigues trabajando en otra cosa en la sesión principal. Perfecto para procesos largos (tests pesados, builds, investigación extensa).
+
+\subsection{Cómo usarlo}
+
+\begin{itemize}
+\item Lanzar en background: \texttt{claude --bg "tu tarea"}
+\item Pulsa \texttt{Ctrl}+\texttt{B} o pídele "ejecuta esto en background".
+\item Gestiona los procesos con \texttt{claude agents} (ver, adjuntar, logs, parar).
+\end{itemize}
+
+\section{ Output styles (formato de salida)}
+
+Controla cómo responde Claude Code, útil sobre todo para scripts y automatizaciones:
+
+\begin{codebox}
+# Salida en texto normal (por defecto)
+claude -p "resume los cambios" --output-format text
+
+# Salida en JSON (para procesar con scripts)
+claude -p "lista los TODO" --output-format json
+
+# Salida en streaming JSON (para integraciones en vivo)
+claude -p "analiza el repo" --output-format stream-json
+\end{codebox}
+
+También puedes definir estilos personalizados (p. ej. un modo "explicativo" que enseñe más, ideal para aprender) mediante la configuración o el system prompt.
+
+\section{ Los flujos que más se recomiendan}
+
+Esto es lo que la comunidad de Claude Code está compartiendo y recomendando como mejores prácticas:
+
+\begin{enumerate}
+\item \textbf{Plan Mode primero, siempre.} Antes de cualquier tarea seria:\texttt{Shift}+\texttt{Tab} revisar el plan ejecutar. Evita sorpresas.
+\item \textbf{Subagentes en paralelo + background.} Delega investigación, código, tests y revisión a la vez. Monitoriza con \texttt{claude agents}.
+\item \textbf{Skills estandarizadas.} Crea o instala \href{https://claude-rho-snowy.vercel.app/skills}{skills (\url{https://claude-rho-snowy.vercel.app/skills})} para revisar, desplegar, testear. Usa \texttt{disable-model-invocation: true} en las que tengan efectos (como deploy) para que no se lancen solas.
+\item \textbf{Rewind / Esc Esc como botón de pánico} cuando algo se tuerce.
+\item \textbf{Hooks + MCP} para integrar tu entorno: formateo automático tras editar, conexión con Slack o tu gestor de tickets.
+\item \textbf{Revisión intensiva antes de producción.} Una pasada de revisión exigente (con un modelo potente) antes de subir cambios importantes.
+\item \textbf{\texttt{CLAUDE.md} ligero + skills específicas}, y versiona la carpeta \texttt{.claude/} en tu repositorio para que el equipo comparta la misma configuración.
+\end{enumerate}
+
+\begin{calloutbox}{Nota}
+El gran cambio de mentalidad: el flujo que domina ahora mismo no es "escribir código línea a línea", sino asignar tareas y revisar los cambios que proponen Claude y sus subagentes. Tu valor está en dirigir bien y revisar con criterio.\end{calloutbox}
+
+\section{Comprueba tu versión}
+
+Claude Code se actualiza muy a menudo (releases frecuentes). Si una función de aquí no te aparece, actualiza:
+
+\begin{codebox}
+claude --version
+npm update -g @anthropic-ai/claude-code
+\end{codebox}
+
+
+\chapter{Comandos}
+
+Referencia completa de slash commands y flags de CLI disponibles en Claude Code.
+
+\section{Slash commands}
+
+Los slash commands se escriben dentro de la sesión interactiva de Claude Code. Empiezan con \texttt{/} y se ejecutan al instante.
+
+\begin{longtable}{p{0.28\textwidth}p{0.28\textwidth}}
+\toprule
+Comando & Descripción \\\midrule
+\texttt{/help} & Muestra la lista de comandos disponibles y ayuda general. \\
+\texttt{/clear} & Limpia la pantalla del terminal. \\
+\texttt{/reset} & Reinicia la conversación actual (borra el contexto de la sesión). \\
+\texttt{/exit} & Sale de Claude Code. \\
+\texttt{/plan} & Activa el modo planificación: Claude muestra el plan antes de actuar. \\
+\texttt{/permissions} & Abre el diálogo de gestión de permisos interactivo. \\
+\texttt{/config} & Abre la configuración de Claude Code. \\
+\texttt{/agents} & Lista y gestiona los subagentes activos en la sesión. \\
+\texttt{/doctor} & Diagnostica la instalación, autenticación y entorno. \\
+\texttt{/hooks} & Gestiona los hooks de automatización de la sesión actual. \\
+\texttt{/memory} & Muestra o edita el archivo de memoria (CLAUDE.md). \\
+\texttt{/status} & Muestra el estado actual de la sesión, modelo y costos. \\
+\texttt{/fast} & Alterna entre modo rápido (Opus con más velocidad) y normal. \\
+\texttt{/compact} & Compacta el contexto de la conversación para ahorrar tokens. \\
+\texttt{/review} & Solicita a Claude que revise el código actual o los cambios recientes. \\
+\texttt{/init} & Inicializa CLAUDE.md en el proyecto actual con instrucciones base. \\
+\texttt{/rewind} & Vuelve a un punto anterior (checkpoint): deshace conversación y/o código. \\
+\texttt{/plugin} & Gestiona plugins: añadir marketplaces, instalar, activar y desactivar. \\
+\texttt{/mcp} & Muestra y gestiona los servidores MCP conectados a la sesión. \\
+\texttt{/skills} & Lista las skills disponibles (también las invocas por su nombre: /nombre). \\
+\bottomrule
+\end{longtable}
+
+\section{Flags de la CLI}
+
+Los flags se pasan al ejecutar \texttt{claude} desde el terminal, antes o después del prompt.
+
+\begin{codebox}
+claude [flags] [prompt]
+claude --model claude-opus-4-8 "refactoriza este archivo"
+claude -p "¿qué hace esta función?" < mi_archivo.py
+\end{codebox}
+
+\begin{longtable}{p{0.28\textwidth}p{0.28\textwidth}}
+\toprule
+Flag & Descripción \\\midrule
+\texttt{-p / --print} & Modo no interactivo: responde una vez y sale. Ideal para scripts. \\
+\texttt{--dangerously-skip-permissions} & Omite todas las confirmaciones de permisos. Usar con precaución. \\
+\texttt{--model <id>} & Especifica el modelo a usar. Ej: --model claude-opus-4-8 \\
+\texttt{--max-tokens <n>} & Limita los tokens de salida por respuesta. \\
+\texttt{--no-color} & Desactiva el color en la salida del terminal. \\
+\texttt{--version} & Muestra la versión instalada de Claude Code. \\
+\texttt{--help} & Muestra la ayuda de la CLI. \\
+\texttt{--verbose} & Activa salida detallada para depuración. \\
+\texttt{--output-format json} & Devuelve la respuesta en JSON. Útil para scripts. \\
+\bottomrule
+\end{longtable}
+
+\section{Modelos disponibles}
+
+Puedes cambiar el modelo con \texttt{--model} o en la configuración. Claude Code usa \texttt{claude-sonnet-4-6} por defecto (velocidad óptima), pero puedes elegir:
+
+\begin{longtable}{p{0.28\textwidth}p{0.28\textwidth}p{0.28\textwidth}p{0.28\textwidth}}
+\toprule
+Modelo & ID & Velocidad & Ideal para \\\midrule
+Claude Fable 5 & \texttt{claude-fable-5} & Lento & Tareas de máxima complejidad \\
+Claude Opus 4.8 & \texttt{claude-opus-4-8} & Medio & Razonamiento complejo, análisis profundo \\
+Claude Sonnet 4.6 & \texttt{claude-sonnet-4-6} & Rápido & Uso general (por defecto en Claude Code) \\
+Claude Haiku 4.5 & \texttt{claude-haiku-4-5} & Muy rápido & Tareas simples, alta frecuencia, bajo costo \\
+\bottomrule
+\end{longtable}
+
+\section{Atajos de teclado en sesión interactiva}
+
+\begin{longtable}{p{0.28\textwidth}p{0.28\textwidth}}
+\toprule
+Atajo & Acción \\\midrule
+\texttt{↑ / ↓} & Navegar por el historial de prompts \\
+\texttt{Ctrl+C} & Interrumpir la respuesta actual o salir \\
+\texttt{Ctrl+D} & Salir de Claude Code \\
+\texttt{Ctrl+L} & Limpiar pantalla \\
+\texttt{Tab} & Autocompletar slash commands \\
+\texttt{Shift+Enter} & Nueva línea sin enviar el mensaje \\
+\texttt{Esc} & Cancelar edición actual \\
+\bottomrule
+\end{longtable}
+
+\section{Comandos de ejemplo}
+
+\subsection{Sesión headless en CI/CD}
+
+\begin{codebox}
+# Generar un resumen del PR en JSON
+claude -p --output-format json "resume los cambios del último commit"
+
+# Revisar seguridad de un archivo
+claude -p "revisa posibles vulnerabilidades en src/api/auth.ts" < /dev/null
+\end{codebox}
+
+\subsection{Cambiar modelo para una sesión}
+
+\begin{codebox}
+claude --model claude-opus-4-8
+# Ahora usas Opus 4.8 para la sesión completa
+\end{codebox}
+
+\subsection{Ver diagnóstico de instalación}
+
+\begin{codebox}
+# Dentro de Claude Code:
+/doctor
+
+# Desde la terminal:
+claude doctor
+\end{codebox}
+
+
+\chapter{Configuración}
+
+Claude Code es altamente configurable. Aprende a personalizar su comportamiento, modelo, memoria y preferencias globales o por proyecto.
+
+\section{Archivo de configuración principal}
+
+Claude Code guarda su configuración en \texttt{\textasciitilde{}/.claude/settings.json}(configuración global) y en \texttt{.claude/settings.json} dentro de cada proyecto (configuración local, tiene prioridad).
+
+\begin{codebox}
+# Ver configuración actual dentro de Claude Code:
+/config
+
+# O editar directamente:
+nano ~/.claude/settings.json
+\end{codebox}
+
+\subsection{Ejemplo de settings.json}
+
+\begin{codebox}
+{
+  "model": "claude-sonnet-4-6",
+  "theme": "dark",
+  "autoUpdates": true,
+  "permissions": {
+    "allow": [
+      "Bash(npm:*)",
+      "Bash(git:*)",
+      "Read(**)",
+      "Edit(**)"
+    ],
+    "deny": [
+      "Bash(rm -rf:*)",
+      "WebFetch(domain:evil.com)"
+    ]
+  },
+  "env": {
+    "NODE_ENV": "development"
+  }
+}
+\end{codebox}
+
+\begin{calloutbox}{Nota}
+La configuración del proyecto (.claude/settings.json) sobreescribe la global. Puedes añadir este archivo al repositorio para compartir configuración con tu equipo.\end{calloutbox}
+
+\section{CLAUDE.md — Memoria del proyecto}
+
+El archivo \texttt{CLAUDE.md} en la raíz de tu proyecto es la "memoria" de Claude Code. Cuando inicias una sesión, Claude lee este archivo automáticamente para entender el contexto de tu proyecto.
+
+\subsection{Crear CLAUDE.md automáticamente}
+
+\begin{codebox}
+# Dentro de Claude Code:
+/init
+\end{codebox}
+
+Claude Code analizará tu proyecto y generará un CLAUDE.md con la estructura, stack tecnológico, comandos importantes y convenciones.
+
+\subsection{Estructura recomendada de CLAUDE.md}
+
+\begin{codebox}
+# Proyecto: Mi App
+
+## Stack
+- Frontend: Next.js 16 + TypeScript + Tailwind CSS
+- Backend: Node.js + Express + PostgreSQL
+- Tests: Vitest + Playwright
+
+## Comandos esenciales
+```bash
+npm run dev          # Iniciar dev server (puerto 3000)
+npm run test         # Ejecutar tests
+npm run build        # Build de producción
+npm run db:migrate   # Ejecutar migraciones
+```
+
+## Estructura del proyecto
+- /app — Páginas Next.js (App Router)
+- /components — Componentes reutilizables
+- /lib — Utilidades y configuración
+- /prisma — Schema de base de datos
+
+## Convenciones
+- Usa kebab-case para nombres de archivos
+- Los componentes llevan sufijo .tsx
+- Los tests van junto al archivo que prueban (*.test.ts)
+
+## Notas importantes
+- La rama main está protegida, trabaja en feature branches
+- La DB local está en localhost:5432, usuario: dev, sin contraseña
+\end{codebox}
+
+\section{Variables de entorno}
+
+Claude Code lee variables de entorno de tu shell. Las más importantes:
+
+\begin{longtable}{p{0.28\textwidth}p{0.28\textwidth}}
+\toprule
+Variable & Descripción \\\midrule
+\texttt{ANTHROPIC\_API\_KEY} & Tu API key de Anthropic (obligatoria) \\
+\texttt{ANTHROPIC\_MODEL} & Modelo por defecto para la sesión \\
+\texttt{ANTHROPIC\_BASE\_URL} & URL base para proxies o endpoints personalizados \\
+\texttt{CLAUDE\_CODE\_DISABLE\_NONESSENTIAL\_TRAFFIC} & Desactiva telemetría (pon 1) \\
+\texttt{NO\_COLOR} & Desactiva el color en la salida (pon 1) \\
+\texttt{CLAUDE\_MAX\_TOKENS} & Tokens máximos por respuesta \\
+\bottomrule
+\end{longtable}
+
+\section{Modelo por defecto}
+
+Puedes cambiar el modelo que Claude Code usa en cada sesión. El modelo por defecto es \texttt{claude-sonnet-4-6} (equilibrio velocidad/calidad).
+
+\begin{codebox}
+# En settings.json:
+{ "model": "claude-opus-4-8" }
+
+# O como variable de entorno:
+export ANTHROPIC_MODEL="claude-opus-4-8"
+
+# O al iniciar Claude Code:
+claude --model claude-opus-4-8
+\end{codebox}
+
+\section{Integración con VS Code}
+
+Instala la extensión \textbf{Claude Code} desde el Marketplace de VS Code. Tras instalarla, Claude Code aparece en el panel lateral y funciona con el mismo contexto de tu proyecto abierto.
+
+\begin{itemize}
+\item Atajos de teclado: \texttt{Cmd}+\texttt{Shift}+\texttt{P} "Claude Code"
+\item Inline suggestions al escribir código
+\item Panel de chat integrado con contexto del archivo activo
+\item Diff view para revisar cambios propuestos
+\end{itemize}
+
+\section{Integración con JetBrains}
+
+Disponible en el Marketplace de JetBrains para IntelliJ IDEA, PyCharm, WebStorm, etc. Mismas capacidades que la extensión de VS Code.
+
+\section{Configuración de proxy}
+
+Si trabajas detrás de un proxy corporativo:
+
+\begin{codebox}
+export HTTPS_PROXY="https://proxy.empresa.com:8080"
+export HTTP_PROXY="http://proxy.empresa.com:8080"
+# Luego inicia Claude Code normalmente
+claude
+\end{codebox}
+
+\section{Múltiples perfiles / proyectos}
+
+Para usar diferentes API keys o configuraciones en distintos proyectos, crea un \texttt{.claude/settings.json} en cada proyecto con sus propios valores. Claude Code los detecta automáticamente.
+
+
+\chapter{Servidores MCP}
+
+El Model Context Protocol (MCP) permite conectar Claude Code con herramientas externas: bases de datos, APIs, navegadores, servicios en la nube y mucho más.
+
+\section{¿Qué es MCP?}
+
+\textbf{MCP (Model Context Protocol)} es un estándar abierto creado por Anthropic que define cómo los modelos de IA se comunican con herramientas externas. Es como un "USB para IA": un conector universal que cualquier herramienta puede implementar.
+
+Con MCP, Claude Code puede acceder a recursos que van más allá de tu sistema de archivos local: bases de datos PostgreSQL, APIs REST, el navegador web, Slack, GitHub, Jira, y cualquier servicio que tenga un servidor MCP.
+
+\begin{calloutbox}{Nota}
+MCP en Claude Code 2026: Claude Code ahora soporta MCP nativo sin necesidad de configuración manual. Muchos servidores se activan automáticamente según el contexto del proyecto.\end{calloutbox}
+
+\section{Cómo funciona}
+
+Un servidor MCP es un proceso (local o remoto) que expone:
+
+\begin{itemize}
+\item \textbf{Herramientas (tools):} funciones que Claude puede llamar (ej: ejecutar SQL, buscar en Slack).
+\item \textbf{Recursos (resources):} datos que Claude puede leer (ej: esquema de la DB, documentación).
+\item \textbf{Prompts:} instrucciones especializadas para tareas concretas.
+\end{itemize}
+
+\section{Añadir un servidor MCP}
+
+Los servidores MCP se configuran en \texttt{.claude/settings.json}:
+
+\begin{codebox}
+{
+  "mcpServers": {
+    "postgres": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-postgres",
+               "postgresql://localhost/midb"],
+      "env": {}
+    },
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "ghp_xxxxxxxx"
+      }
+    }
+  }
+}
+\end{codebox}
+
+O añade servidores directamente desde la CLI:
+
+\begin{codebox}
+claude mcp add <nombre> -- <comando> [args...]
+
+# Ejemplo: servidor de PostgreSQL
+claude mcp add postgres -- npx -y @modelcontextprotocol/server-postgres \
+  "postgresql://localhost/midb"
+
+# Ejemplo: servidor de filesystem (solo lectura)
+claude mcp add files -- npx -y @modelcontextprotocol/server-filesystem \
+  /ruta/al/directorio
+\end{codebox}
+
+\section{Servidores MCP populares}
+
+\begin{longtable}{p{0.28\textwidth}p{0.28\textwidth}p{0.28\textwidth}}
+\toprule
+Servidor & Paquete npm & Para qué sirve \\\midrule
+\textbf{PostgreSQL} & \texttt{@modelcontextprotocol/server-postgres} & Consultas SQL directas a tu base de datos \\
+\textbf{SQLite} & \texttt{@modelcontextprotocol/server-sqlite} & Base de datos SQLite local \\
+\textbf{GitHub} & \texttt{@modelcontextprotocol/server-github} & Issues, PRs, repos de GitHub \\
+\textbf{Brave Search} & \texttt{@modelcontextprotocol/server-brave-search} & Búsquedas web en tiempo real \\
+\textbf{Puppeteer} & \texttt{@modelcontextprotocol/server-puppeteer} & Control de navegador web \\
+\textbf{Slack} & \texttt{@modelcontextprotocol/server-slack} & Leer/enviar mensajes de Slack \\
+\textbf{Google Drive} & \texttt{@modelcontextprotocol/server-gdrive} & Acceso a archivos de Google Drive \\
+\textbf{Filesystem} & \texttt{@modelcontextprotocol/server-filesystem} & Acceso controlado al sistema de archivos \\
+\textbf{Memory} & \texttt{@modelcontextprotocol/server-memory} & Memoria persistente entre sesiones \\
+\textbf{Sentry} & \texttt{@modelcontextprotocol/server-sentry} & Errores y performance de Sentry \\
+\bottomrule
+\end{longtable}
+
+\section{Gestionar servidores MCP}
+
+\begin{codebox}
+# Listar servidores configurados
+claude mcp list
+
+# Ver detalles de un servidor
+claude mcp get postgres
+
+# Eliminar un servidor
+claude mcp remove postgres
+
+# Dentro de Claude Code, ver servidores activos:
+/mcp
+\end{codebox}
+
+\section{Ámbito de los servidores MCP}
+
+Los servidores MCP tienen tres ámbitos posibles:
+
+\begin{itemize}
+\item \textbf{Local} (por defecto): disponible solo en el proyecto actual. Se guarda en \texttt{.claude/settings.json}.
+\item \textbf{Usuario}: disponible en todos tus proyectos. Se guarda en \texttt{\textasciitilde{}/.claude/settings.json}. Añade \texttt{--scope user} al comando.
+\item \textbf{Proyecto}: compartido con el equipo via control de versiones.
+\end{itemize}
+
+\begin{codebox}
+# Añadir servidor a nivel de usuario (global)
+claude mcp add --scope user github -- npx -y @modelcontextprotocol/server-github
+\end{codebox}
+
+\section{Crear tu propio servidor MCP}
+
+Cualquier script que implemente el protocolo MCP puede ser un servidor. Anthropic proporciona SDKs para Python y TypeScript:
+
+\begin{codebox}
+# TypeScript
+npm install @modelcontextprotocol/sdk
+
+# Python
+pip install mcp
+\end{codebox}
+
+\subsection{Ejemplo mínimo en TypeScript}
+
+\begin{codebox}
+import { Server } from "@modelcontextprotocol/sdk/server/index.js";
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+
+const server = new Server({ name: "mi-servidor", version: "1.0.0" }, {
+  capabilities: { tools: {} }
+});
+
+server.setRequestHandler("tools/list", async () => ({
+  tools: [{
+    name: "saludar",
+    description: "Saluda al usuario",
+    inputSchema: {
+      type: "object",
+      properties: { nombre: { type: "string" } },
+      required: ["nombre"]
+    }
+  }]
+}));
+
+server.setRequestHandler("tools/call", async (request) => {
+  if (request.params.name === "saludar") {
+    return { content: [{ type: "text", text: `Hola, ${request.params.arguments.nombre}!` }] };
+  }
+});
+
+const transport = new StdioServerTransport();
+await server.connect(transport);
+\end{codebox}
+
+\section{MCP en la nube vs local}
+
+Los servidores MCP pueden ejecutarse localmente (como proceso en tu máquina) o en la nube (conectados via HTTP/SSE). Claude Code soporta ambos:
+
+\begin{codebox}
+# Servidor local (stdio)
+{
+  "command": "node",
+  "args": ["./mi-servidor-mcp.js"]
+}
+
+# Servidor remoto (HTTP/SSE)
+{
+  "url": "https://mi-servidor.com/mcp",
+  "headers": { "Authorization": "Bearer TOKEN" }
+}
+\end{codebox}
+
+
+\chapter{Hooks}
+
+Los hooks son scripts de shell que se ejecutan automáticamente en respuesta a eventos de Claude Code. Te dan control total sobre el comportamiento de la herramienta.
+
+\section{¿Qué son los hooks?}
+
+Los hooks te permiten interceptar y reaccionar a eventos del ciclo de vida de Claude Code: antes de ejecutar una herramienta, después de hacerlo, cuando Claude termina una respuesta, etc.
+
+Casos de uso comunes:
+
+\begin{itemize}
+\item Formatear automáticamente el código tras cada edición.
+\item Registrar en un log todas las operaciones de Claude.
+\item Bloquear operaciones peligrosas con lógica personalizada.
+\item Enviar notificaciones cuando Claude termina una tarea larga.
+\item Ejecutar tests automáticamente después de cada cambio.
+\end{itemize}
+
+\section{Tipos de hooks}
+
+\begin{longtable}{p{0.28\textwidth}p{0.28\textwidth}p{0.28\textwidth}}
+\toprule
+Evento & Cuándo se dispara & Puede bloquear \\\midrule
+\texttt{PreToolCall} & Antes de ejecutar cualquier herramienta & Sí \\
+\texttt{PostToolCall} & Después de ejecutar cualquier herramienta & No \\
+\texttt{Stop} & Cuando Claude termina una respuesta completa & No \\
+\texttt{SubagentStop} & Cuando un subagente termina su tarea & No \\
+\texttt{Notification} & Cuando Claude emite una notificación al usuario & No \\
+\bottomrule
+\end{longtable}
+
+\section{Configurar hooks}
+
+Los hooks se configuran en \texttt{.claude/settings.json} (proyecto) o \texttt{\textasciitilde{}/.claude/settings.json} (global):
+
+\begin{codebox}
+{
+  "hooks": {
+    "PostToolCall": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "prettier --write $CLAUDE_FILE_PATH"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "osascript -e 'display notification "Claude terminó" with title "Claude Code"'"
+          }
+        ]
+      }
+    ]
+  }
+}
+\end{codebox}
+
+\section{Variables de entorno disponibles en hooks}
+
+\begin{longtable}{p{0.28\textwidth}p{0.28\textwidth}}
+\toprule
+Variable & Descripción \\\midrule
+\texttt{CLAUDE\_TOOL\_NAME} & Nombre de la herramienta que se ejecutó \\
+\texttt{CLAUDE\_TOOL\_INPUT} & Input de la herramienta (JSON) \\
+\texttt{CLAUDE\_TOOL\_OUTPUT} & Output de la herramienta (PostToolCall) \\
+\texttt{CLAUDE\_FILE\_PATH} & Ruta del archivo afectado (Edit/Write/Read) \\
+\texttt{CLAUDE\_SESSION\_ID} & ID único de la sesión actual \\
+\texttt{CLAUDE\_PROJECT\_DIR} & Directorio raíz del proyecto \\
+\texttt{CLAUDE\_HOOK\_TYPE} & Tipo de hook (PreToolCall, PostToolCall, Stop...) \\
+\bottomrule
+\end{longtable}
+
+\section{El matcher}
+
+El campo \texttt{matcher} es una expresión regular que se compara con el nombre de la herramienta. Si no se especifica, el hook se aplica a todas las herramientas.
+
+\begin{codebox}
+# Solo edición de archivos TypeScript
+"matcher": "Edit"
+
+# Herramientas de bash y edición
+"matcher": "Bash|Edit|Write"
+
+# Cualquier herramienta de lectura
+"matcher": "^Read"
+\end{codebox}
+
+\section{Hook de tipo command}
+
+El tipo más común. Ejecuta un comando de shell. El hook puede leer información del evento via variables de entorno o via stdin (JSON):
+
+\begin{codebox}
+{
+  "type": "command",
+  "command": "bash /ruta/a/mi-hook.sh",
+  "timeout": 30
+}
+\end{codebox}
+
+\subsection{Ejemplo: hook que lee datos del evento por stdin}
+
+\begin{codebox}
+#!/bin/bash
+# mi-hook.sh — recibe el evento completo como JSON por stdin
+EVENT=$(cat)
+TOOL=$(echo $EVENT | jq -r '.tool_name')
+FILE=$(echo $EVENT | jq -r '.tool_input.path // ""')
+
+echo "Herramienta: $TOOL, Archivo: $FILE" >> ~/.claude/hook.log
+\end{codebox}
+
+\section{Bloquear operaciones con PreToolCall}
+
+Un hook \texttt{PreToolCall} puede devolver un código de salida distinto de 0 para bloquear la operación:
+
+\begin{codebox}
+#!/bin/bash
+# Bloquear rm -rf
+TOOL=$(cat | jq -r '.tool_name')
+CMD=$(cat | jq -r '.tool_input.command // ""')
+
+if [[ "$CMD" == *"rm -rf"* ]]; then
+  echo "BLOQUEADO: rm -rf no permitido"
+  exit 1  # exit 1 = bloquear la operación
+fi
+
+exit 0  # exit 0 = permitir
+\end{codebox}
+
+Configúralo así en settings.json:
+
+\begin{codebox}
+{
+  "hooks": {
+    "PreToolCall": [{
+      "matcher": "Bash",
+      "hooks": [{
+        "type": "command",
+        "command": "bash ~/.claude/hooks/bloquear-rm.sh"
+      }]
+    }]
+  }
+}
+\end{codebox}
+
+\section{Ejemplos prácticos}
+
+\subsection{Formatear con Prettier tras edición}
+
+\begin{codebox}
+{
+  "hooks": {
+    "PostToolCall": [{
+      "matcher": "Edit|Write",
+      "hooks": [{
+        "type": "command",
+        "command": "npx prettier --write "$CLAUDE_FILE_PATH" 2>/dev/null || true"
+      }]
+    }]
+  }
+}
+\end{codebox}
+
+\subsection{Ejecutar tests tras cambios}
+
+\begin{codebox}
+{
+  "hooks": {
+    "Stop": [{
+      "hooks": [{
+        "type": "command",
+        "command": "npm test --watchAll=false 2>&1 | tail -20"
+      }]
+    }]
+  }
+}
+\end{codebox}
+
+\subsection{Log de todas las operaciones}
+
+\begin{codebox}
+{
+  "hooks": {
+    "PostToolCall": [{
+      "hooks": [{
+        "type": "command",
+        "command": "echo "$(date) - $CLAUDE_TOOL_NAME: $CLAUDE_FILE_PATH" >> ~/.claude/audit.log"
+      }]
+    }]
+  }
+}
+\end{codebox}
+
+\begin{calloutbox}{Consejo}
+Consejo: Usa 2>/dev/null || true al final de tus comandos de hook para evitar que errores menores interrumpan el flujo de Claude.\end{calloutbox}
+
+\section{Gestionar hooks desde la CLI}
+
+\begin{codebox}
+# Ver hooks configurados (dentro de Claude Code)
+/hooks
+
+# O abre settings.json directamente:
+claude config
+\end{codebox}
+
+
+\chapter{Permisos}
+
+El sistema de permisos de Claude Code garantiza que nada ocurra sin tu conocimiento. Aprende a configurar qué puede y qué no puede hacer Claude.
+
+\section{Filosofía de permisos}
+
+Claude Code sigue el principio de \textbf{mínimo privilegio}: por defecto pide confirmación para cualquier acción potencialmente irreversible o que afecte a recursos fuera de tu proyecto. Tú decides cuándo darle más autonomía.
+
+\section{Herramientas y sus permisos}
+
+Claude Code tiene acceso a estas herramientas, cada una con su nivel de riesgo por defecto:
+
+\begin{longtable}{p{0.28\textwidth}p{0.28\textwidth}p{0.28\textwidth}}
+\toprule
+Herramienta & Qué hace & Confirmación por defecto \\\midrule
+\texttt{Read} & Leer archivos de tu proyecto & No \\
+\texttt{Edit} & Editar archivos existentes & Sí (muestra diff) \\
+\texttt{Write} & Crear nuevos archivos & Sí \\
+\texttt{Bash} & Ejecutar comandos de terminal & Sí \\
+\texttt{WebFetch} & Hacer peticiones HTTP & Sí \\
+\texttt{WebSearch} & Buscar en internet & No \\
+\texttt{TodoRead/Write} & Gestionar lista de tareas interna & No \\
+\bottomrule
+\end{longtable}
+
+\section{Permitir y denegar operaciones}
+
+Configura permisos en \texttt{.claude/settings.json} para no tener que confirmar operaciones frecuentes:
+
+\begin{codebox}
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run:*)",
+      "Bash(git:*)",
+      "Bash(npx:*)",
+      "Read(**)",
+      "Edit(**)",
+      "Write(**)",
+      "WebFetch(domain:api.github.com)"
+    ],
+    "deny": [
+      "Bash(rm -rf:*)",
+      "Bash(sudo:*)",
+      "WebFetch(domain:*.evil.com)"
+    ]
+  }
+}
+\end{codebox}
+
+\subsection{Sintaxis de permisos}
+
+Los permisos usan el formato \texttt{Herramienta(patrón:valor)}:
+
+\begin{itemize}
+\item \texttt{Bash(npm:*)} — permite cualquier comando npm
+\item \texttt{Bash(git commit:*)} — permite git commit con cualquier argumento
+\item \texttt{Read(**)} — permite leer cualquier archivo (\texttt{**} = cualquier ruta)
+\item \texttt{WebFetch(domain:api.example.com)} — permite fetch solo a ese dominio
+\item \texttt{Edit(src/**)} — permite editar solo archivos bajo \texttt{src/}
+\end{itemize}
+
+\section{Gestión interactiva de permisos}
+
+Dentro de Claude Code, usa el comando:
+
+\begin{codebox}
+/permissions
+\end{codebox}
+
+Esto abre un panel interactivo donde puedes ver, añadir o revocar permisos de la sesión actual.
+
+\section{Permisos durante una sesión}
+
+Cuando Claude Code solicita hacer algo que no tienes pre-autorizado, te mostrará un diálogo como este:
+
+\begin{codebox}
+Claude quiere ejecutar:
+  git push origin main
+
+¿Permitir? [s/N/siempre/nunca] _
+\end{codebox}
+
+\begin{itemize}
+\item \texttt{s} — permitir solo esta vez.
+\item \texttt{N} — denegar (Claude buscará otra alternativa).
+\item \texttt{siempre} — añadir a la lista de permisos permanentes.
+\item \texttt{nunca} — añadir a la lista de denegados permanentes.
+\end{itemize}
+
+\section{Modo sin permisos (peligroso)}
+
+Para entornos controlados (CI, Docker, sandboxes), puedes desactivar todas las confirmaciones:
+
+\begin{codebox}
+claude --dangerously-skip-permissions "implementa los tests unitarios"
+\end{codebox}
+
+\begin{calloutbox}{Atención}
+Solo para entornos aislados. Con este flag, Claude puede ejecutar cualquier comando sin confirmación. Úsalo en contenedores Docker o VMs donde el daño potencial esté contenido.\end{calloutbox}
+
+\section{Buenas prácticas de seguridad}
+
+\begin{itemize}
+\item \textbf{Usa git:} trabajar en un repositorio git te permite revertir cualquier cambio que Claude haya hecho con \texttt{git restore}.
+\item \textbf{Limita el scope en producción:} en servidores de producción, no le des permisos de escritura a Claude.
+\item \textbf{Revisa los diffs:} Claude siempre muestra un diff antes de editar. Léelo antes de aceptar.
+\item \textbf{Permisos por dominio:} si usas WebFetch, especifica los dominios exactos en lugar de \texttt{WebFetch(*)}.
+\item \textbf{Variables de entorno:} Claude no puede leer tus secretos a menos que estén en el entorno o se los pases explícitamente.
+\end{itemize}
+
+\section{Configuración de permisos para equipo}
+
+Añade \texttt{.claude/settings.json} a tu repositorio para que todo el equipo use la misma configuración de permisos base:
+
+\begin{codebox}
+# .gitignore — NO ignorar settings.json del equipo
+# (sí ignorar settings.local.json para configs personales)
+.claude/settings.local.json
+\end{codebox}
+
+\begin{calloutbox}{Nota}
+Existe un archivo settings.local.json para configuraciones personales que no deben compartirse (como tu API key o rutas locales). Claude Code lo lee y tiene prioridad sobre settings.json.\end{calloutbox}
+
+
+\chapter{Uso avanzado}
+
+Técnicas avanzadas para sacar el máximo partido a Claude Code: subagentes, worktrees, integración en CI/CD, modo headless y más.
+
+\section{Subagentes}
+
+Claude Code puede lanzar \textbf{subagentes}: instancias paralelas de Claude que trabajan de forma independiente en subtareas. Esto es especialmente útil para tareas que se pueden paralelizar.
+
+Ejemplos donde los subagentes brillan:
+
+\begin{itemize}
+\item Refactorizar 20 archivos en paralelo.
+\item Generar tests para múltiples módulos simultáneamente.
+\item Investigar distintas soluciones a la vez y elegir la mejor.
+\end{itemize}
+
+Lanzar subagentes con el SDK de Claude:
+
+\begin{codebox}
+# Dentro de Claude Code, Claude decide cuándo paralelizar
+> "Genera tests unitarios para cada archivo en src/components. Hazlo en paralelo."
+
+# Claude lanzará un subagente por archivo automáticamente
+\end{codebox}
+
+\begin{calloutbox}{Nota}
+Los subagentes se gestionan automáticamente. Claude decide cuándo crear uno basándose en la complejidad y paralelizabilidad de la tarea. Puedes ver los activos con /agents.\end{calloutbox}
+
+\section{Git worktrees}
+
+Los \textbf{git worktrees} permiten trabajar en múltiples ramas del mismo repositorio simultáneamente, en directorios distintos. Claude Code los soporta nativamente y los usa para aislar cambios de subagentes:
+
+\begin{codebox}
+# Crear un worktree para una feature branch
+git worktree add ../mi-proyecto-feature feature/nueva-api
+
+# Claude Code con isolation de worktree
+claude --isolation worktree "implementa la nueva API de pagos en una branch separada"
+\end{codebox}
+
+Con \texttt{--isolation worktree}, Claude Code crea automáticamente un worktree temporal, hace los cambios ahí y te propone un PR al terminar. Si no acepta los cambios, el worktree se limpia solo.
+
+\section{Modo headless / CI-CD}
+
+Claude Code puede ejecutarse sin interfaz interactiva, ideal para pipelines de CI/CD, scripts y automatizaciones:
+
+\begin{codebox}
+# Modo headless básico
+claude -p "revisa el código en busca de vulnerabilidades SQL"
+
+# Con output JSON para parsear
+claude -p --output-format json "lista todos los TODO del proyecto" | jq '.result'
+
+# En un Makefile o script CI
+claude -p --dangerously-skip-permissions \
+  "ejecuta los tests, si hay fallos corrígelos y haz commit"
+
+# En GitHub Actions
+- name: Claude Code Review
+  run: |
+    claude -p "revisa los cambios del PR y comenta problemas de seguridad" \
+      --output-format json > review.json
+  env:
+    ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+\end{codebox}
+
+\section{Modo /fast (Opus acelerado)}
+
+El modo fast usa Claude Opus con mayor velocidad de respuesta. Actívalo o desactívalo durante la sesión:
+
+\begin{codebox}
+# Dentro de Claude Code
+/fast
+
+# O al iniciar
+claude --fast
+\end{codebox}
+
+\section{Sesiones largas y compactación}
+
+En sesiones largas, el contexto se llena y Claude Code puede volverse más lento o perder coherencia. Soluciones:
+
+\subsection{Compactar el contexto}
+
+\begin{codebox}
+# Dentro de Claude Code
+/compact
+
+# Claude resume la conversación hasta el momento
+# y la reemplaza por un resumen compacto
+\end{codebox}
+
+\subsection{Reanudar una sesión}
+
+\begin{codebox}
+# Ver sesiones recientes
+claude resume
+
+# Continuar la última sesión
+claude resume --last
+
+# El contexto se restaura automáticamente
+\end{codebox}
+
+\section{CLAUDE.md en subdirectorios}
+
+Puedes tener archivos \texttt{CLAUDE.md} en subdirectorios de tu proyecto. Claude los leerá automáticamente cuando trabaje en esa carpeta, dándole instrucciones específicas para esa parte del código:
+
+\begin{codebox}
+mi-proyecto/
++-- CLAUDE.md              <- instrucciones globales
++-- frontend/
+|   +-- CLAUDE.md          <- instrucciones para el frontend
++-- backend/
+|   +-- CLAUDE.md          <- instrucciones para el backend
++-- docs/
+    +-- CLAUDE.md          <- instrucciones para documentación
+\end{codebox}
+
+\section{Flujos de trabajo con git}
+
+\subsection{Crear feature branches automáticamente}
+
+\begin{codebox}
+> "Implementa el sistema de notificaciones push. Crea una feature branch,
+   haz los cambios necesarios y al terminar prepara el PR."
+
+# Claude hará:
+# 1. git checkout -b feature/push-notifications
+# 2. Implementar los cambios
+# 3. git add + git commit con mensaje descriptivo
+# 4. Preparar el cuerpo del PR para que lo apruebes
+\end{codebox}
+
+\subsection{Code review automatizado}
+
+\begin{codebox}
+# Revisar el diff del último commit
+claude -p "revisa este diff en busca de bugs y problemas de rendimiento" \
+  <<< "$(git diff HEAD~1)"
+
+# Revisar todo un PR
+gh pr diff 123 | claude -p "haz un code review completo"
+\end{codebox}
+
+\section{Integración con tmux / pantallas divididas}
+
+Un flujo de trabajo popular es tener Claude Code en un panel y tu editor en otro:
+
+\begin{codebox}
+# Crear sesión tmux con dos paneles
+tmux new-session -d -s dev
+tmux split-window -h
+tmux send-keys -t dev:0.0 "claude" Enter  # Claude Code a la izquierda
+tmux send-keys -t dev:0.1 "nvim ." Enter  # Editor a la derecha
+\end{codebox}
+
+\section{Tips de productividad}
+
+\begin{itemize}
+\item \textbf{Sé específico con el contexto:} menciona el archivo, la función y el error exacto. Cuanto más específico, mejor resultado.
+\item \textbf{Un alias útil:} \texttt{alias ai="claude -p"}para consultas rápidas sin entrar al modo interactivo.
+\item \textbf{Memoria entre sesiones:} mantén tu CLAUDE.md actualizado con las decisiones de arquitectura y convenciones del proyecto.
+\item \textbf{Tareas grandes:} divide el trabajo en subtareas menores. Claude trabaja mejor con objetivos acotados y claros.
+\item \textbf{Revisar antes de aceptar:} usa siempre el diff view para entender exactamente qué va a cambiar antes de confirmar.
+\end{itemize}
+
+\section{Exportar la sesión}
+
+\begin{codebox}
+# Guardar el transcript de la sesión actual
+claude -p --output-format json "resumen del trabajo de hoy" > sesion-$(date +%Y%m%d).json
+\end{codebox}
+
+
+\chapter{Preguntas frecuentes}
+
+Las dudas que casi todo el mundo tiene al empezar con Claude Code, respondidas sin rodeos.
+
+\section{ Coste y cuenta}
+
+\section{ Seguridad y privacidad}
+
+\section{ Uso y aprendizaje}
+
+\section{ Comparativas}
+
+\begin{calloutbox}{Consejo}
+¿No está tu duda aquí? Pregúntasela directamente a Claude Code: escribe "explícame [tu duda] sobre cómo funcionas". O revisa la solución de problemas si algo no te funciona.\end{calloutbox}
+
+
+\chapter{Solución de problemas}
+
+Los tropiezos más habituales al empezar y cómo resolverlos. Si algo no te funciona, probablemente esté aquí.
+
+\begin{calloutbox}{Consejo}
+Lo primero que debes probar: el comando de diagnóstico. Dentro de Claude Code escribe /doctor (o claude doctor desde la terminal). Comprueba instalación, autenticación y entorno, y te dice qué falla.\end{calloutbox}
+
+\section{Al instalar}
+
+\subsection{"command not found: claude"}
+
+Instalaste Claude Code pero la terminal no lo encuentra. Causas habituales:
+
+\begin{itemize}
+\item La instalación de npm no terminó bien. Reinstala: \texttt{npm install -g @anthropic-ai/claude-code}
+\item La carpeta global de npm no está en tu \texttt{PATH}. Cierra y abre la terminal de nuevo.
+\item Aún sin solución: comprueba dónde instala npm con \texttt{npm config get prefix} y asegúrate de que esa ruta \texttt{/bin} esté en tu PATH.
+\end{itemize}
+
+\subsection{"EACCES: permission denied" al instalar}
+
+npm no tiene permisos para instalar globalmente. \textbf{No uses \texttt{sudo}}(causa más problemas). En su lugar, lo ideal es instalar Node.js con un gestor de versiones como \texttt{nvm}, que evita estos problemas de permisos.
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Al instalar Claude Code con npm me sale "EACCES: permission denied". Estoy en macOS. Ayúdame a arreglarlo de la forma correcta, sin usar sudo. Si recomiendas instalar nvm, guíame paso a paso.
+\end{codebox}
+
+\subsection{"Node.js version too old" / versión incompatible}
+
+Claude Code necesita \textbf{Node.js 20 o superior}. Comprueba tu versión con \texttt{node --version}. Si es menor, actualiza Node.js (con nvm: \texttt{nvm install 20 \&\& nvm use 20}).
+
+\section{Al iniciar sesión / autenticación}
+
+\subsection{"Invalid API key" o errores de autenticación}
+
+\begin{itemize}
+\item Comprueba que copiaste la clave entera, sin espacios al principio o final.
+\item Verifica que la variable está bien puesta: \texttt{echo \$ANTHROPIC\_API\_KEY} debe mostrarla.
+\item Si la pusiste en \texttt{\textasciitilde{}/.zshrc}, recarga con \texttt{source \textasciitilde{}/.zshrc} o abre una terminal nueva.
+\item La clave puede estar revocada o agotada. Genera una nueva en \texttt{console.anthropic.com}.
+\end{itemize}
+
+\subsection{"Rate limit exceeded" / "Too many requests"}
+
+Has hecho demasiadas peticiones en poco tiempo, o alcanzaste el límite de tu plan. Espera unos minutos. Si es recurrente, revisa los límites de tu plan o, en API, tu nivel de uso (tier) en el panel de Anthropic.
+
+\subsection{"Insufficient credit" / saldo agotado}
+
+Si usas API, se acabaron tus créditos. Añade saldo o un método de pago en \texttt{console.anthropic.com}. Si usas suscripción, puede que hayas alcanzado el límite de uso de tu plan; espera a que se renueve o sube de plan.
+
+\section{Durante el uso}
+
+\subsection{Claude Code va lento o se "atasca"}
+
+\begin{itemize}
+\item \textbf{Sesión muy larga:} el contexto se ha llenado. Usa \texttt{/compact} para resumirlo, o \texttt{/clear} para empezar limpio (perderás el contexto de la conversación, no tus archivos).
+\item \textbf{Tarea muy grande:} divídela en partes más pequeñas. Mira \href{https://claude-rho-snowy.vercel.app/prompts}{cómo escribir buenos prompts (\url{https://claude-rho-snowy.vercel.app/prompts})}.
+\item \textbf{Conexión:} Claude Code necesita internet estable.
+\end{itemize}
+
+\subsection{Hace cambios que yo no quería}
+
+\begin{itemize}
+\item Usa \texttt{/rewind} (o \texttt{Esc} \texttt{Esc}) para deshacer al estado anterior. Ver \href{https://claude-rho-snowy.vercel.app/flujos}{Flujos de trabajo (\url{https://claude-rho-snowy.vercel.app/flujos})}.
+\item Si usas git: \texttt{git restore .} revierte los cambios no guardados.
+\item Para el futuro: usa \textbf{Plan Mode} (\texttt{Shift}+\texttt{Tab}) y revisa el plan antes de que actúe.
+\end{itemize}
+
+\subsection{No me pide permiso / me pide demasiado permiso}
+
+Ajusta la lista de permisos. Si te pregunta por cosas que siempre permites (como \texttt{npm run}), añádelas a la lista \texttt{allow}. Si quieres más control, revisa tu configuración. Todo en \href{https://claude-rho-snowy.vercel.app/permisos}{Permisos (\url{https://claude-rho-snowy.vercel.app/permisos})}.
+
+\subsection{Una función de la documentación no me aparece}
+
+Probablemente tienes una versión antigua. Claude Code se actualiza muy a menudo:
+
+\begin{codebox}
+claude --version
+npm update -g @anthropic-ai/claude-code
+\end{codebox}
+
+\subsection{Un servidor MCP no conecta}
+
+\begin{itemize}
+\item Revisa la lista con \texttt{/mcp} dentro de Claude Code.
+\item Comprueba que el comando del servidor es correcto y que tiene las variables de entorno necesarias (tokens, rutas).
+\item Mira los detalles en \href{https://claude-rho-snowy.vercel.app/mcp}{Servidores MCP (\url{https://claude-rho-snowy.vercel.app/mcp})}.
+\end{itemize}
+
+\section{El comodín que siempre funciona}
+
+Si te bloqueas con cualquier error, \textbf{pregúntale a Claude Code directamente}. Es literalmente experto en resolver problemas técnicos. Pégale el error completo:
+
+\noindent\textbf{Prompt: }
+\begin{codebox}
+Estoy teniendo este problema con Claude Code (o con mi proyecto):
+
+[describe qué intentabas hacer y pega el error completo]
+
+Explícame qué significa y cómo solucionarlo paso a paso. Soy principiante.
+\end{codebox}
+
+\begin{calloutbox}{Nota}
+¿Sigue sin funcionar? Ejecuta /doctor y, si el problema persiste, busca en el repositorio oficial de Claude Code en GitHub (sección Issues) por si es un fallo conocido con solución.\end{calloutbox}
+
+
+\chapter{Recursos}
+
+Enlaces oficiales y de la comunidad, actualizados (2026), para profundizar en Claude Code.
+
+\begin{calloutbox}{Nota}
+Enlaces externos: estas páginas no dependen de esta guía y pueden cambiar, moverse o actualizarse con el tiempo.\end{calloutbox}
+
+\section{Documentación oficial}
+
+\begin{itemize}
+\item \href{https://code.claude.com/docs/en/quickstart}{Quickstart oficial (\url{https://code.claude.com/docs/en/quickstart})}
+\item \href{https://code.claude.com/docs}{Documentación principal (\url{https://code.claude.com/docs})}
+\item \href{https://anthropic.skilljar.com/claude-code-101}{Claude Code 101 (curso oficial Anthropic) (\url{https://anthropic.skilljar.com/claude-code-101})}
+\item \href{https://www-cdn.anthropic.com/58284b19e702b49db9302d5b6f135ad8871e7658.pdf}{Cómo usan Claude Code los equipos de Anthropic (PDF) (\url{https://www-cdn.anthropic.com/58284b19e702b49db9302d5b6f135ad8871e7658.pdf})}
+\end{itemize}
+
+\section{Skills}
+
+\begin{itemize}
+\item \href{https://resources.anthropic.com/hubfs/The-Complete-Guide-to-Building-Skill-for-Claude.pdf}{Guía completa para crear Skills (PDF oficial Anthropic) (\url{https://resources.anthropic.com/hubfs/The-Complete-Guide-to-Building-Skill-for-Claude.pdf})}
+\item \href{https://github.com/anthropics/skills}{Repositorio oficial de Skills (Anthropic) (\url{https://github.com/anthropics/skills})}
+\item \href{https://github.com/ComposioHQ/awesome-claude-skills}{Awesome Claude Skills (curado, +1000) (\url{https://github.com/ComposioHQ/awesome-claude-skills})}
+\item \href{https://github.com/alirezarezvani/claude-skills}{Colección de skills (337+) (\url{https://github.com/alirezarezvani/claude-skills})}
+\item \href{https://github.com/obra/superpowers}{superpowers (framework: convierte Claude Code en dev senior) (\url{https://github.com/obra/superpowers})}
+\item \href{https://github.com/rohitg00/awesome-claude-code-toolkit}{awesome-claude-code-toolkit (agentes + skills + hooks + MCP) (\url{https://github.com/rohitg00/awesome-claude-code-toolkit})}
+\item \href{https://github.com/thedotmack/claude-mem}{claude-mem (\url{https://github.com/thedotmack/claude-mem})}
+\item \href{https://github.com/kepano/obsidian-skills}{obsidian-skills (\url{https://github.com/kepano/obsidian-skills})}
+\end{itemize}
+
+\section{Herramientas}
+
+\begin{itemize}
+\item \href{https://github.com/yamadashy/repomix}{Repomix (empaqueta tu repo en un archivo para dar contexto) (\url{https://github.com/yamadashy/repomix})}
+\end{itemize}
+
+\section{MCP (Model Context Protocol)}
+
+\begin{itemize}
+\item \href{https://modelcontextprotocol.io/}{Sitio oficial de MCP (\url{https://modelcontextprotocol.io/})}
+\item \href{https://github.com/modelcontextprotocol/servers}{Repositorio oficial de servidores MCP (\url{https://github.com/modelcontextprotocol/servers})}
+\item \href{https://github.com/github/github-mcp-server}{GitHub MCP Server (el más usado) (\url{https://github.com/github/github-mcp-server})}
+\end{itemize}
+
+\section{Cursos y tutoriales en español (YouTube)}
+
+\begin{itemize}
+\item \href{https://www.youtube.com/watch?v=73eFWU-edO4}{Claude Code 2026: Curso Completo (Benjamín Cordero) (\url{https://www.youtube.com/watch?v=73eFWU-edO4})}
+\item \href{https://www.youtube.com/playlist?list=PLwjjPKgjif66EDzC\_QaRANOjwjo-mmJ7\_}{Claude Code Desde Cero, Curso Completo (Agustín Medina) (\url{https://www.youtube.com/playlist?list=PLwjjPKgjif66EDzC\_QaRANOjwjo-mmJ7\_})}
+\item \href{https://www.youtube.com/watch?v=K4e2l49RSrY}{Claude Code: Curso Completo 2 Horas (\url{https://www.youtube.com/watch?v=K4e2l49RSrY})}
+\end{itemize}
+
+\section{Tutoriales en inglés}
+
+\begin{itemize}
+\item \href{https://www.freecodecamp.org/news/claude-code-handbook/}{The Claude Code Handbook (FreeCodeCamp) (\url{https://www.freecodecamp.org/news/claude-code-handbook/})}
+\item \href{https://www.youtube.com/playlist?list=PL4cUxeGkcC9g4YJeBqChhFJwKQ9TRiivY}{Net Ninja – Claude Code (playlist) (\url{https://www.youtube.com/playlist?list=PL4cUxeGkcC9g4YJeBqChhFJwKQ9TRiivY})}
+\item \href{https://www.youtube.com/watch?v=IuyVVtr1uhY}{Programming with Mosh – Claude Code (\url{https://www.youtube.com/watch?v=IuyVVtr1uhY})}
+\end{itemize}
+
+\section{Cuentas de X para estar al día}
+
+\begin{itemize}
+\item \href{https://x.com/bcherny}{@bcherny (creador de Claude Code) (\url{https://x.com/bcherny})}
+\item \href{https://x.com/trq212}{@trq212 (desarrollador de Claude Code) (\url{https://x.com/trq212})}
+\item \href{https://x.com/rubenhassid}{@rubenhassid (guías gratuitas) (\url{https://x.com/rubenhassid})}
+\item \href{https://x.com/charliejhills}{@charliejhills (recopilaciones de skills) (\url{https://x.com/charliejhills})}
+\end{itemize}
+
+
+\chapter{Comparativa}
+
+En qué se diferencia Claude Code de otras herramientas de IA para programar, para ayudarte a elegir.
+
+\begin{longtable}{p{0.28\textwidth}p{0.28\textwidth}p{0.28\textwidth}p{0.28\textwidth}}
+\toprule
+Herramienta & Tipo & Acceso a tu proyecto & Ideal para \\\midrule
+\textbf{Claude Code} & CLI & Lee, edita y ejecuta comandos dentro de tu proyecto con permisos explícitos. & Cambios de varios archivos, refactors, investigación del código y automatización desde terminal. \\
+\textbf{Cursor} & Editor & Trabaja dentro del editor, con contexto del workspace y asistencia integrada al flujo de edición. & Programar con IA sin salir del IDE, autocompletado, chat sobre el código y cambios guiados. \\
+\textbf{Windsurf} & Editor & Accede al proyecto desde el editor y coordina ediciones con agentes y contexto del workspace. & Flujos visuales dentro del IDE, navegación asistida y desarrollo iterativo con ayuda contextual. \\
+\textbf{GitHub Copilot} & Editor & Se integra en editores y repositorios de GitHub, con contexto del archivo y del proyecto según configuración. & Autocompletado rápido, ayuda puntual, generación de funciones y asistencia continua mientras escribes. \\
+\textbf{ChatGPT (web)} & Chat & No actúa directamente sobre tu proyecto salvo que subas archivos o copies contexto manualmente. & Explicaciones, diseño de soluciones, aprendizaje, revisión de ideas y consultas sin tocar el repositorio. \\
+\bottomrule
+\end{longtable}
+
+\section{¿Cuándo elegir Claude Code?}
+
+Claude Code encaja especialmente bien cuando quieres que la IA trabaje sobre el repositorio real: leer varios archivos, proponer un plan, editar código, ejecutar tests, revisar errores y dejar cambios listos para inspeccionar. Es fuerte en tareas largas donde importa entender el proyecto completo, no solo completar la línea actual.
+
+\section{Claude Code + tu editor (no es o lo uno o lo otro)}
+
+No tienes que elegir una sola herramienta. Claude Code funciona desde la terminal y también se integra con VS Code y JetBrains, así que puede convivir con Cursor, Windsurf o Copilot. Puedes usar el editor para escribir y navegar, y Claude Code para encargos más amplios como refactors, migraciones, pruebas o análisis de bugs.
+
+\begin{calloutbox}{Consejo}
+Recomendación práctica: usa Claude Code para tareas con varios pasos y validación en el proyecto; usa un editor con IA para el trabajo fino y continuo mientras programas.\end{calloutbox}
+
+\section{Resumen}
+
+Claude Code destaca como agente de terminal orientado a operar sobre tu código. Cursor, Windsurf y Copilot brillan dentro del editor. ChatGPT web es muy útil para pensar, aprender y explicar. La mejor elección depende de si necesitas conversación, autocompletado, edición asistida o ejecución real en el proyecto.
+
+\chapter{Sugerencias y contacto}
+
+Si tienes sugerencias, dudas o quieres proponer mejoras para esta guía, puedes escribir a \href{mailto:contacto@aulafy.net}{contacto@aulafy.net}.
+
+Este contenido se publica bajo licencia Creative Commons (CC BY 4.0). Puedes compartirlo y adaptarlo citando la fuente.
+
+\end{document}
