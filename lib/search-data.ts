@@ -25,4 +25,6 @@ export const searchData: SearchItem[] = [
   { href: "/avanzado", title: "Uso avanzado", section: "Referencia", keywords: "subagentes worktree headless ci cd fast compact resume tmux git productividad" },
   { href: "/faq", title: "Preguntas frecuentes", section: "Ayuda", keywords: "precio coste seguridad privacidad reemplaza programadores modelo lenguajes dudas faq" },
   { href: "/problemas", title: "Solución de problemas", section: "Ayuda", keywords: "error command not found eacces node api key rate limit lento doctor troubleshooting arreglar" },
+  { href: "/recursos", title: "Recursos", section: "Ayuda", keywords: "enlaces links docs documentación oficial repos skills mcp cursos youtube tutoriales x twitter comunidad" },
+  { href: "/comparativa", title: "Comparativa", section: "Ayuda", keywords: "comparación versus cursor windsurf copilot chatgpt diferencias elegir herramientas" },
 ];

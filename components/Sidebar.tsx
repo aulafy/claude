@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import Search from "@/components/Search";
 
 const sections = [
   {
@@ -47,6 +48,8 @@ const sections = [
     items: [
       { href: "/faq", label: "Preguntas frecuentes", icon: "❓" },
       { href: "/problemas", label: "Solución de problemas", icon: "🔧" },
+      { href: "/recursos", label: "Recursos", icon: "📚" },
+      { href: "/comparativa", label: "Comparativa", icon: "🆚" },
     ],
   },
 ];
@@ -88,6 +91,11 @@ export default function Sidebar() {
               <div className="text-xs text-zinc-500">Guía en español</div>
             </div>
           </Link>
+        </div>
+
+        {/* Buscador */}
+        <div className="px-3 pt-3">
+          <Search />
         </div>
 
         {/* Nav */}

@@ -12,6 +12,8 @@ const routes = [
   "/glosario",
   "/faq",
   "/problemas",
+  "/recursos",
+  "/comparativa",
   "/skills",
   "/subagentes",
   "/plugins",
