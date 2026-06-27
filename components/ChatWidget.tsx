@@ -1,8 +1,46 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 
 type Message = { role: "user" | "assistant"; content: string };
+
+// Nombre de sección (normalizado) -> ruta. Permite enlazar [[Sección]].
+const SECTION_LINKS: Record<string, string> = {
+  "inicio": "/",
+  "instalación": "/instalacion",
+  "instalacion": "/instalacion",
+  "primeros pasos": "/primeros-pasos",
+  "recetas prácticas": "/recetas",
+  "recetas practicas": "/recetas",
+  "recetas": "/recetas",
+  "proyectos guiados": "/proyectos",
+  "proyectos": "/proyectos",
+  "escribir buenos prompts": "/prompts",
+  "buenos prompts": "/prompts",
+  "prompts": "/prompts",
+  "glosario": "/glosario",
+  "skills": "/skills",
+  "subagentes": "/subagentes",
+  "plugins": "/plugins",
+  "flujos de trabajo pro": "/flujos",
+  "flujos de trabajo": "/flujos",
+  "flujos": "/flujos",
+  "comandos": "/comandos",
+  "configuración": "/configuracion",
+  "configuracion": "/configuracion",
+  "servidores mcp": "/mcp",
+  "mcp": "/mcp",
+  "hooks": "/hooks",
+  "permisos": "/permisos",
+  "uso avanzado": "/avanzado",
+  "avanzado": "/avanzado",
+  "preguntas frecuentes": "/faq",
+  "faq": "/faq",
+  "solución de problemas": "/problemas",
+  "solucion de problemas": "/problemas",
+  "problemas": "/problemas",
+};
 
 const SUGGESTIONS = [
   "¿Qué es Claude Code y para qué sirve?",
@@ -14,8 +52,8 @@ const SUGGESTIONS = [
 const WELCOME =
   "¡Hola! 👋 Soy tu asistente para aprender **Claude Code**. Pregúntame lo que quieras: instalación, comandos, skills, errores… lo que necesites.";
 
-/** Render ligero de markdown: bloques de código, `inline`, **negrita** y saltos de línea. */
-function renderContent(text: string) {
+/** Render ligero de markdown: bloques de código, `inline`, **negrita**, enlaces [[Sección]] y saltos de línea. */
+function renderContent(text: string, onNavigate?: () => void) {
   const parts = text.split(/(```[\s\S]*?```)/g);
   return parts.map((part, i) => {
     if (part.startsWith("```") && part.endsWith("```")) {
@@ -26,8 +64,8 @@ function renderContent(text: string) {
         </pre>
       );
     }
-    // Texto normal con inline `code` y **bold**
-    const tokens = part.split(/(`[^`]+`|\*\*[^*]+\*\*)/g);
+    // Texto normal con inline `code`, **bold** y enlaces de sección [[Sección]]
+    const tokens = part.split(/(`[^`]+`|\*\*[^*]+\*\*|\[\[[^\]]+\]\])/g);
     return (
       <span key={i} className="whitespace-pre-wrap">
         {tokens.map((tok, j) => {
@@ -40,6 +78,23 @@ function renderContent(text: string) {
           }
           if (tok.startsWith("**") && tok.endsWith("**")) {
             return <strong key={j} className="text-zinc-100 font-semibold">{tok.slice(2, -2)}</strong>;
+          }
+          if (tok.startsWith("[[") && tok.endsWith("]]")) {
+            const name = tok.slice(2, -2).trim();
+            const href = SECTION_LINKS[name.toLowerCase()];
+            if (href) {
+              return (
+                <Link
+                  key={j}
+                  href={href}
+                  onClick={onNavigate}
+                  className="text-orange-400 underline underline-offset-2 hover:text-orange-300 font-medium"
+                >
+                  {name}
+                </Link>
+              );
+            }
+            return <span key={j}>{name}</span>;
           }
           return <span key={j}>{tok}</span>;
         })}
@@ -177,7 +232,7 @@ export default function ChatWidget() {
                   <div className="w-7 h-7 rounded-full bg-zinc-800 flex items-center justify-center text-sm flex-shrink-0">🤖</div>
                   <div className="rounded-2xl rounded-tl-sm bg-zinc-800 px-3.5 py-2.5 text-sm text-zinc-300 leading-relaxed max-w-[85%]">
                     {m.content ? (
-                      renderContent(m.content)
+                      renderContent(m.content, () => setOpen(false))
                     ) : (
                       <span className="inline-flex gap-1">
                         <span className="w-1.5 h-1.5 rounded-full bg-zinc-500 animate-bounce [animation-delay:-0.3s]" />
