@@ -1,4 +1,5 @@
 import { SYSTEM_PROMPT } from "@/lib/chatbot-knowledge";
+import { checkRateLimit } from "@/lib/ratelimit";
 
 export const runtime = "edge";
 
@@ -6,12 +7,29 @@ const GROQ_URL = "https://api.groq.com/openai/v1/chat/completions";
 
 type Msg = { role: "user" | "assistant"; content: string };
 
+function getClientIp(req: Request): string {
+  const fwd = req.headers.get("x-forwarded-for");
+  if (fwd) return fwd.split(",")[0].trim();
+  return req.headers.get("x-real-ip") || "anon";
+}
+
 export async function POST(req: Request) {
   const apiKey = process.env.GROQ_API_KEY;
   if (!apiKey) {
     return Response.json(
       { error: "El servidor no tiene configurada la clave de Groq." },
       { status: 500 }
+    );
+  }
+
+  // Límite de peticiones por IP (si Upstash está configurado).
+  const { allowed, retryAfter } = await checkRateLimit(getClientIp(req));
+  if (!allowed) {
+    return Response.json(
+      {
+        error: `Has hecho demasiadas preguntas seguidas. Espera ${retryAfter ?? 60} segundos y vuelve a intentarlo. 🙏`,
+      },
+      { status: 429, headers: { "Retry-After": String(retryAfter ?? 60) } }
     );
   }
 

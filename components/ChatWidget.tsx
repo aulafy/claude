@@ -80,9 +80,21 @@ export default function ChatWidget() {
         body: JSON.stringify({ messages: next }),
       });
 
-      if (!res.ok || !res.body) {
-        throw new Error("error");
+      // Errores con mensaje (p. ej. límite de peticiones 429).
+      if (!res.ok) {
+        let msg = "Ups, ha habido un problema al responder. Inténtalo de nuevo en un momento. 🙏";
+        if (res.headers.get("content-type")?.includes("application/json")) {
+          const data = await res.json().catch(() => null);
+          if (data?.error) msg = data.error;
+        }
+        setMessages((prev) => {
+          const copy = [...prev];
+          copy[copy.length - 1] = { role: "assistant", content: msg };
+          return copy;
+        });
+        return;
       }
+      if (!res.body) throw new Error("error");
 
       const reader = res.body.getReader();
       const decoder = new TextDecoder();
