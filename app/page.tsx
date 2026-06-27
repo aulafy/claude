@@ -176,6 +176,13 @@ export default function Home() {
           >
             🍳 Ver recetas prácticas
           </Link>
+          <a
+            href="/guia-claude-code.pdf"
+            download
+            className="px-5 py-2.5 rounded-lg border border-zinc-700 hover:border-zinc-500 text-zinc-300 font-medium text-sm transition-colors"
+          >
+            📄 Descargar guía en PDF
+          </a>
         </div>
       </div>
 
