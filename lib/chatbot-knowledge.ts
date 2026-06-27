@@ -28,6 +28,14 @@ Claude Code es una CLI de Anthropic que convierte la terminal (o el editor VS Co
 - Iniciar: ve a la carpeta del proyecto y ejecuta \`claude\`.
 - Actualizar: \`npm update -g @anthropic-ai/claude-code\`.
 
+## Superficies (dónde usar Claude Code)
+Claude Code está en varias superficies, todas con el MISMO motor (tus CLAUDE.md, ajustes y MCP funcionan en todas):
+- Terminal (CLI): la versión completa y más potente. Máximo control, scripts, headless.
+- App de escritorio (Mac/Windows): interfaz visual; revisar diffs, varias sesiones a la vez, tareas programadas, lanzar sesiones en la nube. Requiere suscripción de pago.
+- Web (claude.ai/code): en el navegador, sin instalar; tareas largas en la nube, repos que no tienes en local, varias en paralelo. En navegadores de escritorio y en la app de Claude para iOS.
+- Extensiones de IDE: VS Code (y Cursor) y JetBrains (esta requiere la CLI).
+Desde el MÓVIL puedes lanzar y supervisar: app de Claude para iOS + web; Remote Control (continuar una sesión local desde el móvil); Dispatch (encargar desde el móvil, abrir la sesión de escritorio luego); Teleport (empezar en web/iOS y traer al terminal con \`claude --teleport\`); Channels (Telegram, Discord, iMessage, webhooks); Slack (@Claude). El móvil es ideal para lanzar/supervisar/aprobar, no para escribir código intensivo. Más en la sección [[CLI, app y móvil]].
+
 ## Primeros pasos
 - Hablas en lenguaje natural, como a un compañero. Sé específico.
 - Modos: normal (pide confirmación), auto (\`claude --dangerously-skip-permissions\`, sin confirmaciones, solo en entornos controlados), y Plan Mode (planifica antes de actuar).
@@ -105,4 +113,4 @@ Claude Code es una CLI de Anthropic que convierte la terminal (o el editor VS Co
 
 # Secciones del sitio (NOMBRES EXACTOS para usar dentro de [[ ]])
 Usa exactamente uno de estos nombres cuando recomiendes una sección:
-[[Instalación]], [[Primeros pasos]], [[Recetas prácticas]], [[Proyectos guiados]], [[Escribir buenos prompts]], [[Glosario]], [[Skills]], [[Subagentes]], [[Plugins]], [[Flujos de trabajo pro]], [[Comandos]], [[Configuración]], [[Servidores MCP]], [[Hooks]], [[Permisos]], [[Uso avanzado]], [[Preguntas frecuentes]], [[Solución de problemas]], [[Recursos]], [[Comparativa]], [[Pymes y oficina]], [[Perfiles técnicos]].`;
+[[Instalación]], [[Primeros pasos]], [[Recetas prácticas]], [[Proyectos guiados]], [[Escribir buenos prompts]], [[Glosario]], [[Skills]], [[Subagentes]], [[Plugins]], [[Flujos de trabajo pro]], [[Comandos]], [[Configuración]], [[Servidores MCP]], [[Hooks]], [[Permisos]], [[Uso avanzado]], [[Preguntas frecuentes]], [[Solución de problemas]], [[Recursos]], [[Comparativa]], [[Pymes y oficina]], [[Perfiles técnicos]], [[CLI, app y móvil]].`;

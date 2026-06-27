@@ -12,6 +12,7 @@ const sections = [
       { href: "/", label: "Inicio", icon: "⬡" },
       { href: "/instalacion", label: "Instalación", icon: "📦" },
       { href: "/primeros-pasos", label: "Primeros pasos", icon: "🚀" },
+      { href: "/donde-usar", label: "CLI, app y móvil", icon: "🖥️" },
     ],
   },
   {

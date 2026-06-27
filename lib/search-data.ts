@@ -9,6 +9,7 @@ export const searchData: SearchItem[] = [
   { href: "/", title: "Inicio", section: "Empezar", keywords: "home portada qué es claude code introducción" },
   { href: "/instalacion", title: "Instalación", section: "Empezar", keywords: "instalar npm node api key macos windows wsl linux setup actualizar" },
   { href: "/primeros-pasos", title: "Primeros pasos", section: "Empezar", keywords: "iniciar sesión modo auto plan primera vez interfaz prompt print headless" },
+  { href: "/donde-usar", title: "CLI, app y móvil", section: "Empezar", keywords: "cli terminal app escritorio desktop web navegador vs code jetbrains ide móvil movil ios remote control dispatch teleport channels slack superficies diferencias" },
   { href: "/recetas", title: "Recetas prácticas", section: "Práctica diaria", keywords: "ejemplos prompts copiar aprender crear errores git datos automatizar terminal documentar día a día" },
   { href: "/proyectos", title: "Proyectos guiados", section: "Práctica diaria", keywords: "web personal app tareas to-do script python paso a paso tutorial construir proyecto" },
   { href: "/prompts", title: "Escribir buenos prompts", section: "Práctica diaria", keywords: "prompt engineering específico contexto plantillas antes después comunicar pedir" },
