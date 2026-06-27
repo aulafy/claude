@@ -48,6 +48,10 @@ const SECTION_LINKS: Record<string, string> = {
   "perfiles técnicos": "/equipos",
   "perfiles tecnicos": "/equipos",
   "equipos": "/equipos",
+  "cli, app y móvil": "/donde-usar",
+  "cli app y movil": "/donde-usar",
+  "app de escritorio": "/donde-usar",
+  "donde usar": "/donde-usar",
 };
 
 const SUGGESTIONS = [

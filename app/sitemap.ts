@@ -6,6 +6,7 @@ const routes = [
   "",
   "/instalacion",
   "/primeros-pasos",
+  "/donde-usar",
   "/recetas",
   "/proyectos",
   "/prompts",

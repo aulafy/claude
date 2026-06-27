@@ -14,6 +14,12 @@ const cards = [
     desc: "Tu primera sesión: cómo hablar con Claude Code y entender la interfaz.",
   },
   {
+    href: "/donde-usar",
+    icon: "🖥️",
+    title: "CLI, app y móvil",
+    desc: "Terminal, app de escritorio, web, IDE y cómo controlarlo desde el móvil.",
+  },
+  {
     href: "/recetas",
     icon: "🍳",
     title: "Recetas prácticas",

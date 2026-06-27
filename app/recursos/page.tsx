@@ -30,8 +30,16 @@ const resourceSections = [
       ["Repositorio oficial de Skills (Anthropic)", "https://github.com/anthropics/skills"],
       ["Awesome Claude Skills (curado, +1000)", "https://github.com/ComposioHQ/awesome-claude-skills"],
       ["Colección de skills (337+)", "https://github.com/alirezarezvani/claude-skills"],
+      ["superpowers (framework: convierte Claude Code en dev senior)", "https://github.com/obra/superpowers"],
+      ["awesome-claude-code-toolkit (agentes + skills + hooks + MCP)", "https://github.com/rohitg00/awesome-claude-code-toolkit"],
       ["claude-mem", "https://github.com/thedotmack/claude-mem"],
       ["obsidian-skills", "https://github.com/kepano/obsidian-skills"],
+    ],
+  },
+  {
+    title: "Herramientas",
+    links: [
+      ["Repomix (empaqueta tu repo en un archivo para dar contexto)", "https://github.com/yamadashy/repomix"],
     ],
   },
   {
