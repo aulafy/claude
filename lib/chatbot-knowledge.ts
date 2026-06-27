@@ -105,4 +105,4 @@ Claude Code es una CLI de Anthropic que convierte la terminal (o el editor VS Co
 
 # Secciones del sitio (NOMBRES EXACTOS para usar dentro de [[ ]])
 Usa exactamente uno de estos nombres cuando recomiendes una sección:
-[[Instalación]], [[Primeros pasos]], [[Recetas prácticas]], [[Proyectos guiados]], [[Escribir buenos prompts]], [[Glosario]], [[Skills]], [[Subagentes]], [[Plugins]], [[Flujos de trabajo pro]], [[Comandos]], [[Configuración]], [[Servidores MCP]], [[Hooks]], [[Permisos]], [[Uso avanzado]], [[Preguntas frecuentes]], [[Solución de problemas]].`;
+[[Instalación]], [[Primeros pasos]], [[Recetas prácticas]], [[Proyectos guiados]], [[Escribir buenos prompts]], [[Glosario]], [[Skills]], [[Subagentes]], [[Plugins]], [[Flujos de trabajo pro]], [[Comandos]], [[Configuración]], [[Servidores MCP]], [[Hooks]], [[Permisos]], [[Uso avanzado]], [[Preguntas frecuentes]], [[Solución de problemas]], [[Recursos]], [[Comparativa]].`;

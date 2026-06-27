@@ -40,6 +40,8 @@ const SECTION_LINKS: Record<string, string> = {
   "solución de problemas": "/problemas",
   "solucion de problemas": "/problemas",
   "problemas": "/problemas",
+  "recursos": "/recursos",
+  "comparativa": "/comparativa",
 };
 
 const SUGGESTIONS = [

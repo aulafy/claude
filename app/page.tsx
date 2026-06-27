@@ -109,6 +109,18 @@ const cards = [
     title: "Solución de problemas",
     desc: "Errores comunes de instalación y uso, y cómo resolverlos rápido.",
   },
+  {
+    href: "/recursos",
+    icon: "📚",
+    title: "Recursos",
+    desc: "Enlaces oficiales, repos de skills, MCP y cursos actualizados.",
+  },
+  {
+    href: "/comparativa",
+    icon: "🆚",
+    title: "Comparativa",
+    desc: "Claude Code frente a Cursor, Windsurf, Copilot y ChatGPT.",
+  },
 ];
 
 export default function Home() {
