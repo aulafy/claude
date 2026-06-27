@@ -1,7 +1,8 @@
 import { SYSTEM_PROMPT } from "@/lib/chatbot-knowledge";
-import { checkRateLimit } from "@/lib/ratelimit";
 
-export const runtime = "edge";
+// Runtime de Node.js (más robusto en Vercel para fetch + streaming + Upstash).
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
 const GROQ_URL = "https://api.groq.com/openai/v1/chat/completions";
 
@@ -14,23 +15,42 @@ function getClientIp(req: Request): string {
 }
 
 export async function POST(req: Request) {
+  try {
+    return await handleChat(req);
+  } catch (err) {
+    // Red de seguridad: nunca devolvemos un 500 en HTML; siempre JSON.
+    const detail = err instanceof Error ? err.message : "desconocido";
+    return Response.json(
+      { error: "Error interno del servidor del chat.", detail: detail.slice(0, 200) },
+      { status: 500 }
+    );
+  }
+}
+
+async function handleChat(req: Request) {
   const apiKey = process.env.GROQ_API_KEY;
   if (!apiKey) {
     return Response.json(
-      { error: "El servidor no tiene configurada la clave de Groq." },
+      { error: "El servidor no tiene configurada la clave de Groq (falta GROQ_API_KEY)." },
       { status: 500 }
     );
   }
 
-  // Límite de peticiones por IP (si Upstash está configurado).
-  const { allowed, retryAfter } = await checkRateLimit(getClientIp(req));
-  if (!allowed) {
-    return Response.json(
-      {
-        error: `Has hecho demasiadas preguntas seguidas. Espera ${retryAfter ?? 60} segundos y vuelve a intentarlo. 🙏`,
-      },
-      { status: 429, headers: { "Retry-After": String(retryAfter ?? 60) } }
-    );
+  // Límite de peticiones por IP (si Upstash está configurado). Import dinámico
+  // y protegido para que nunca tumbe el endpoint si algo falla.
+  try {
+    const { checkRateLimit } = await import("@/lib/ratelimit");
+    const { allowed, retryAfter } = await checkRateLimit(getClientIp(req));
+    if (!allowed) {
+      return Response.json(
+        {
+          error: `Has hecho demasiadas preguntas seguidas. Espera ${retryAfter ?? 60} segundos y vuelve a intentarlo. 🙏`,
+        },
+        { status: 429, headers: { "Retry-After": String(retryAfter ?? 60) } }
+      );
+    }
+  } catch {
+    // Si el rate limiter falla, seguimos sin bloquear.
   }
 
   let messages: Msg[] = [];
