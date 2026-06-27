@@ -29,6 +29,12 @@
 \setlist{itemsep=0.25em,topsep=0.4em}
 \newtcolorbox{calloutbox}[1]{colback=calloutbg,colframe=accent,title=\textbf{#1},arc=1mm,boxrule=0.6pt,left=2mm,right=2mm,top=1mm,bottom=1mm}
 \DefineVerbatimEnvironment{codebox}{Verbatim}{frame=single,framerule=0.6pt,rulecolor=\color{accent!45},framesep=7pt,breaklines=true,breakanywhere=true,fontsize=\small,xleftmargin=2mm,xrightmargin=2mm}
+% Permitir que las URLs largas se partan en cualquier punto
+\usepackage{xurl}
+% Permitir que el código en línea (\texttt) se parta para que no se salga del margen
+\usepackage{seqsplit}
+\DeclareRobustCommand{\texttt}[1]{{\ttfamily\seqsplit{#1}}}
+\setlength{\emergencystretch}{2em}
 \begin{document}
 \begin{titlepage}
 \centering
@@ -431,7 +437,7 @@ Dato clave: como todas las superficies usan el mismo motor, puedes empezar una t
 
 \section{Las superficies de Claude Code}
 
-\begin{longtable}{p{0.28\textwidth}p{0.28\textwidth}p{0.28\textwidth}}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.29\textwidth}>{\raggedright\arraybackslash}p{0.29\textwidth}>{\raggedright\arraybackslash}p{0.29\textwidth}}
 \toprule
 Superficie & Qué es & Ideal para \\\midrule
 \textbf{Terminal (CLI)} & La versión completa, en tu terminal. & Máximo control, scripts, automatización y modo headless. \\
@@ -1502,7 +1508,7 @@ Despliega la aplicación al entorno $ARGUMENTS siguiendo estos pasos:
 
 \subsection{Campos del frontmatter}
 
-\begin{longtable}{p{0.28\textwidth}p{0.28\textwidth}}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.45\textwidth}>{\raggedright\arraybackslash}p{0.45\textwidth}}
 \toprule
 Campo & Para qué sirve \\\midrule
 \texttt{name} & Nombre de la skill (así la invocas: /name). Obligatorio. \\
@@ -1620,7 +1626,7 @@ Sé directo pero constructivo.
 
 \subsection{Campos del frontmatter}
 
-\begin{longtable}{p{0.28\textwidth}p{0.28\textwidth}}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.45\textwidth}>{\raggedright\arraybackslash}p{0.45\textwidth}}
 \toprule
 Campo & Para qué sirve \\\midrule
 \texttt{name} & Nombre del subagente. Obligatorio. \\
@@ -1874,7 +1880,7 @@ Referencia completa de slash commands y flags de CLI disponibles en Claude Code.
 
 Los slash commands se escriben dentro de la sesión interactiva de Claude Code. Empiezan con \texttt{/} y se ejecutan al instante.
 
-\begin{longtable}{p{0.28\textwidth}p{0.28\textwidth}}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.45\textwidth}>{\raggedright\arraybackslash}p{0.45\textwidth}}
 \toprule
 Comando & Descripción \\\midrule
 \texttt{/help} & Muestra la lista de comandos disponibles y ayuda general. \\
@@ -1910,7 +1916,7 @@ claude --model claude-opus-4-8 "refactoriza este archivo"
 claude -p "¿qué hace esta función?" < mi_archivo.py
 \end{codebox}
 
-\begin{longtable}{p{0.28\textwidth}p{0.28\textwidth}}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.45\textwidth}>{\raggedright\arraybackslash}p{0.45\textwidth}}
 \toprule
 Flag & Descripción \\\midrule
 \texttt{-p / --print} & Modo no interactivo: responde una vez y sale. Ideal para scripts. \\
@@ -1929,7 +1935,7 @@ Flag & Descripción \\\midrule
 
 Puedes cambiar el modelo con \texttt{--model} o en la configuración. Claude Code usa \texttt{claude-sonnet-4-6} por defecto (velocidad óptima), pero puedes elegir:
 
-\begin{longtable}{p{0.28\textwidth}p{0.28\textwidth}p{0.28\textwidth}p{0.28\textwidth}}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.21\textwidth}>{\raggedright\arraybackslash}p{0.21\textwidth}>{\raggedright\arraybackslash}p{0.21\textwidth}>{\raggedright\arraybackslash}p{0.21\textwidth}}
 \toprule
 Modelo & ID & Velocidad & Ideal para \\\midrule
 Claude Fable 5 & \texttt{claude-fable-5} & Lento & Tareas de máxima complejidad \\
@@ -1941,7 +1947,7 @@ Claude Haiku 4.5 & \texttt{claude-haiku-4-5} & Muy rápido & Tareas simples, alt
 
 \section{Atajos de teclado en sesión interactiva}
 
-\begin{longtable}{p{0.28\textwidth}p{0.28\textwidth}}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.45\textwidth}>{\raggedright\arraybackslash}p{0.45\textwidth}}
 \toprule
 Atajo & Acción \\\midrule
 \texttt{↑ / ↓} & Navegar por el historial de prompts \\
@@ -2079,7 +2085,7 @@ npm run db:migrate   # Ejecutar migraciones
 
 Claude Code lee variables de entorno de tu shell. Las más importantes:
 
-\begin{longtable}{p{0.28\textwidth}p{0.28\textwidth}}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.45\textwidth}>{\raggedright\arraybackslash}p{0.45\textwidth}}
 \toprule
 Variable & Descripción \\\midrule
 \texttt{ANTHROPIC\_API\_KEY} & Tu API key de Anthropic (obligatoria) \\
@@ -2200,7 +2206,7 @@ claude mcp add files -- npx -y @modelcontextprotocol/server-filesystem \
 
 \section{Servidores MCP populares}
 
-\begin{longtable}{p{0.28\textwidth}p{0.28\textwidth}p{0.28\textwidth}}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.29\textwidth}>{\raggedright\arraybackslash}p{0.29\textwidth}>{\raggedright\arraybackslash}p{0.29\textwidth}}
 \toprule
 Servidor & Paquete npm & Para qué sirve \\\midrule
 \textbf{PostgreSQL} & \texttt{@modelcontextprotocol/server-postgres} & Consultas SQL directas a tu base de datos \\
@@ -2330,7 +2336,7 @@ Casos de uso comunes:
 
 \section{Tipos de hooks}
 
-\begin{longtable}{p{0.28\textwidth}p{0.28\textwidth}p{0.28\textwidth}}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.29\textwidth}>{\raggedright\arraybackslash}p{0.29\textwidth}>{\raggedright\arraybackslash}p{0.29\textwidth}}
 \toprule
 Evento & Cuándo se dispara & Puede bloquear \\\midrule
 \texttt{PreToolCall} & Antes de ejecutar cualquier herramienta & Sí \\
@@ -2375,7 +2381,7 @@ Los hooks se configuran en \texttt{.claude/settings.json} (proyecto) o \texttt{\
 
 \section{Variables de entorno disponibles en hooks}
 
-\begin{longtable}{p{0.28\textwidth}p{0.28\textwidth}}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.45\textwidth}>{\raggedright\arraybackslash}p{0.45\textwidth}}
 \toprule
 Variable & Descripción \\\midrule
 \texttt{CLAUDE\_TOOL\_NAME} & Nombre de la herramienta que se ejecutó \\
@@ -2535,7 +2541,7 @@ Claude Code sigue el principio de \textbf{mínimo privilegio}: por defecto pide 
 
 Claude Code tiene acceso a estas herramientas, cada una con su nivel de riesgo por defecto:
 
-\begin{longtable}{p{0.28\textwidth}p{0.28\textwidth}p{0.28\textwidth}}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.29\textwidth}>{\raggedright\arraybackslash}p{0.29\textwidth}>{\raggedright\arraybackslash}p{0.29\textwidth}}
 \toprule
 Herramienta & Qué hace & Confirmación por defecto \\\midrule
 \texttt{Read} & Leer archivos de tu proyecto & No \\
@@ -3019,7 +3025,7 @@ Enlaces externos: estas páginas no dependen de esta guía y pueden cambiar, mov
 
 En qué se diferencia Claude Code de otras herramientas de IA para programar, para ayudarte a elegir.
 
-\begin{longtable}{p{0.28\textwidth}p{0.28\textwidth}p{0.28\textwidth}p{0.28\textwidth}}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.21\textwidth}>{\raggedright\arraybackslash}p{0.21\textwidth}>{\raggedright\arraybackslash}p{0.21\textwidth}>{\raggedright\arraybackslash}p{0.21\textwidth}}
 \toprule
 Herramienta & Tipo & Acceso a tu proyecto & Ideal para \\\midrule
 \textbf{Claude Code} & CLI & Lee, edita y ejecuta comandos dentro de tu proyecto con permisos explícitos. & Cambios de varios archivos, refactors, investigación del código y automatización desde terminal. \\
@@ -3047,7 +3053,7 @@ Claude Code destaca como agente de terminal orientado a operar sobre tu código.
 
 \chapter{Sugerencias y contacto}
 
-Si tienes sugerencias, dudas o quieres proponer mejoras para esta guía, puedes escribir a \href{mailto:learntouseai@gmail.com}{learntouseai@gmail.com}.
+Si tienes sugerencias, dudas o quieres proponer mejoras para esta guía, puedes escribir a \mbox{\href{mailto:learntouseai@gmail.com}{learntouseai@gmail.com}}.
 
 Este contenido se publica bajo licencia Creative Commons (CC BY 4.0). Puedes compartirlo y adaptarlo citando la fuente.
 
