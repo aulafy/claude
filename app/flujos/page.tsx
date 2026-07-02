@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PageTitle from "@/components/PageTitle";
+import SectionHeading from "@/components/SectionHeading";
 
 export const metadata: Metadata = {
   title: "Flujos de trabajo pro — Aprende Claude Code",
@@ -17,7 +19,7 @@ export default function Flujos() {
       </div>
 
       <div className="mb-10">
-        <h1 className="text-4xl font-bold text-white mb-4">🧭 Flujos de trabajo pro</h1>
+        <PageTitle icon="route">Flujos de trabajo pro</PageTitle>
         <p className="text-lg text-zinc-400 leading-relaxed">
           Las funciones y rutinas que diferencian a quien usa Claude Code de vez en
           cuando de quien lo exprime de verdad: planificar antes de actuar, deshacer
@@ -26,7 +28,7 @@ export default function Flujos() {
       </div>
 
       <div className="prose">
-        <h2>🗺️ Plan Mode (modo planificación)</h2>
+        <SectionHeading icon="route">Plan Mode (modo planificación)</SectionHeading>
         <p>
           En Plan Mode, Claude <strong>explora e investiga tu código y propone un plan
           detallado, pero sin tocar ningún archivo</strong>. Tú lo revisas y, si te
@@ -44,7 +46,7 @@ export default function Flujos() {
           planificas con calma, luego ejecutas con velocidad.
         </div>
 
-        <h2>⏪ Checkpoints y Rewind (deshacer)</h2>
+        <SectionHeading icon="recycle">Checkpoints y Rewind (deshacer)</SectionHeading>
         <p>
           Cada vez que envías un mensaje, Claude Code crea un <strong>checkpoint</strong>
           (un punto de guardado). Si un cambio sale mal, puedes <strong>volver atrás</strong>
@@ -61,7 +63,7 @@ export default function Flujos() {
           con <Link href="/glosario">git</Link> sigue siendo la mejor red de seguridad.
         </div>
 
-        <h2>⚙️ Tareas en background</h2>
+        <SectionHeading icon="automation">Tareas en background</SectionHeading>
         <p>
           Puedes lanzar tareas o subagentes que corran <strong>en segundo plano</strong>
           mientras tú sigues trabajando en otra cosa en la sesión principal. Perfecto
@@ -74,7 +76,7 @@ export default function Flujos() {
           <li>Gestiona los procesos con <code>claude agents</code> (ver, adjuntar, logs, parar).</li>
         </ul>
 
-        <h2>🎨 Output styles (formato de salida)</h2>
+        <SectionHeading icon="palette">Output styles (formato de salida)</SectionHeading>
         <p>
           Controla cómo responde Claude Code, útil sobre todo para scripts y automatizaciones:
         </p>
@@ -91,7 +93,7 @@ claude -p "analiza el repo" --output-format stream-json`}</code></pre>
           que enseñe más, ideal para aprender) mediante la configuración o el system prompt.
         </p>
 
-        <h2>🏆 Los flujos que más se recomiendan</h2>
+        <SectionHeading icon="star">Los flujos que más se recomiendan</SectionHeading>
         <p>
           Esto es lo que la comunidad de Claude Code está compartiendo y recomendando
           como mejores prácticas:

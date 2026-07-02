@@ -11,7 +11,7 @@ export default function Page() {
     <Chapter
       crumb="Escribir buenos encargos"
       title="Escribir buenos encargos (prompts)"
-      emoji="🎯"
+      icon="prompt"
       lead={<>En este libro no programas: <strong>le encargas</strong> a Claude Code lo que quieres. La calidad de lo que recibes depende, sobre todo, de cómo escribes ese encargo. Este capítulo te enseña a pedir bien para obtener resultados que funcionan a la primera.</>}
     >
       <Objetivos>

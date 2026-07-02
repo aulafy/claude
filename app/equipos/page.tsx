@@ -1,12 +1,25 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Icon, { type IconName } from "@/components/Icon";
+import PageTitle from "@/components/PageTitle";
 import Prompt from "@/components/Prompt";
+import SectionHeading from "@/components/SectionHeading";
 
 export const metadata: Metadata = {
   title: "Para perfiles técnicos y equipos — Aprende Claude Code",
   description:
     "Recetas avanzadas de Claude Code para developers y equipos: revisión de código, refactors a gran escala, testing/TDD, CI/CD headless, estandarización con .claude/ e integraciones MCP.",
 };
+
+const sections: Array<{ href: string; icon: IconName; label: string }> = [
+  { href: "#codebase", icon: "folder", label: "Bases de código grandes" },
+  { href: "#review", icon: "search", label: "Revisión de código automatizada" },
+  { href: "#refactor", icon: "recycle", label: "Refactors y migraciones" },
+  { href: "#testing", icon: "testTube", label: "Testing y TDD" },
+  { href: "#cicd", icon: "robot", label: "CI/CD y modo headless" },
+  { href: "#equipo", icon: "users", label: "Estandarizar el equipo" },
+  { href: "#integraciones", icon: "link", label: "Integraciones" },
+];
 
 export default function Equipos() {
   return (
@@ -18,7 +31,7 @@ export default function Equipos() {
       </div>
 
       <div className="mb-10">
-        <h1 className="text-4xl font-bold text-white mb-4">🧑‍💻 Para perfiles técnicos y equipos</h1>
+        <PageTitle icon="users">Para perfiles técnicos y equipos</PageTitle>
         <p className="text-lg text-zinc-400 leading-relaxed">
           Recetas concretas para exprimir Claude Code en proyectos serios y en
           equipo: revisión de código, refactors grandes, testing, CI/CD y
@@ -29,24 +42,17 @@ export default function Equipos() {
       <div className="mb-12 rounded-xl border border-zinc-800 bg-zinc-900/30 p-5">
         <p className="text-xs font-medium text-zinc-500 uppercase tracking-wider mb-3">En esta página</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-1.5 gap-x-4 text-sm">
-          {[
-            ["#codebase", "🗂️ Bases de código grandes"],
-            ["#review", "🔍 Revisión de código automatizada"],
-            ["#refactor", "♻️ Refactors y migraciones"],
-            ["#testing", "🧪 Testing y TDD"],
-            ["#cicd", "🤖 CI/CD y modo headless"],
-            ["#equipo", "👥 Estandarizar el equipo"],
-            ["#integraciones", "🔗 Integraciones"],
-          ].map(([href, label]) => (
-            <a key={href} href={href} className="text-zinc-400 hover:text-orange-400 transition-colors">
-              {label}
+          {sections.map((item) => (
+            <a key={item.href} href={item.href} className="inline-flex items-center gap-2 text-zinc-400 hover:text-orange-400 transition-colors">
+              <Icon name={item.icon} />
+              {item.label}
             </a>
           ))}
         </div>
       </div>
 
       <div className="prose">
-        <h2 id="codebase">🗂️ Bases de código grandes</h2>
+        <SectionHeading id="codebase" icon="folder">Bases de código grandes</SectionHeading>
         <p>
           Usa <code>CLAUDE.md</code> en la raíz y por módulo para dar contexto;
           <code>/init</code> para generarlo; <code>/compact</code> en sesiones
@@ -56,7 +62,7 @@ export default function Equipos() {
         <h3>Generar contexto inicial del repositorio</h3>
         <Prompt>{`Explora este repositorio y genera un CLAUDE.md con el stack, los comandos clave (build, test, lint), la estructura de carpetas y las convenciones. Mantenlo conciso.`}</Prompt>
 
-        <h2 id="review">🔍 Revisión de código automatizada</h2>
+        <SectionHeading id="review" icon="search">Revisión de código automatizada</SectionHeading>
         <p>
           Usa <code>/code-review</code> y <code>/security-review</code> sobre el
           diff; en CI puedes automatizarlo con <code>claude -p</code>.
@@ -68,7 +74,7 @@ export default function Equipos() {
         <h3>Revisión desde GitHub CLI</h3>
         <pre><code>{`gh pr diff 123 | claude -p "haz un code review y comenta problemas por gravedad"`}</code></pre>
 
-        <h2 id="refactor">♻️ Refactors y migraciones a gran escala</h2>
+        <SectionHeading id="refactor" icon="recycle">Refactors y migraciones a gran escala</SectionHeading>
         <p>
           Combina Plan Mode para revisar antes de tocar código con subagentes en
           paralelo. Profundiza en <Link href="/flujos">Flujos de trabajo pro</Link>{" "}
@@ -78,7 +84,7 @@ export default function Equipos() {
         <h3>Migración con plan previo</h3>
         <Prompt>{`Quiero migrar todos los componentes de clase a componentes de función con hooks. Primero hazme un plan por fases y dime los riesgos. No cambies nada hasta que lo apruebe.`}</Prompt>
 
-        <h2 id="testing">🧪 Testing y TDD</h2>
+        <SectionHeading id="testing" icon="testTube">Testing y TDD</SectionHeading>
         <p>
           Pide pruebas concretas y haz que Claude Code las ejecute para cerrar el
           ciclo con evidencia.
@@ -90,7 +96,7 @@ export default function Equipos() {
         <h3>Trabajar en TDD</h3>
         <Prompt>{`Trabajemos en TDD: escribe primero un test que falle para [funcionalidad], y luego implementa el código mínimo para que pase.`}</Prompt>
 
-        <h2 id="cicd">🤖 CI/CD y modo headless</h2>
+        <SectionHeading id="cicd" icon="robot">CI/CD y modo headless</SectionHeading>
         <p>
           Usa <code>claude -p</code> para scripts y <code>--output-format json</code>{" "}
           cuando necesites parsear la salida desde otro proceso.
@@ -102,7 +108,7 @@ export default function Equipos() {
   env:
     ANTHROPIC_API_KEY: \${{ secrets.ANTHROPIC_API_KEY }}`}</code></pre>
 
-        <h2 id="equipo">👥 Estandarizar el equipo</h2>
+        <SectionHeading id="equipo" icon="users">Estandarizar el equipo</SectionHeading>
         <p>
           Versiona la carpeta <code>.claude/</code> en el repo con settings,
           skills y agents para que todo el equipo comparta configuración,
@@ -113,7 +119,7 @@ export default function Equipos() {
         <h3>Skill interna para antes del PR</h3>
         <Prompt>{`Crea en .claude/ una skill de 'revisión previa a PR' que compruebe lint, tests y que no haya console.log ni secretos. Que el equipo pueda invocarla con /pre-pr.`}</Prompt>
 
-        <h2 id="integraciones">🔗 Integraciones</h2>
+        <SectionHeading id="integraciones" icon="link">Integraciones</SectionHeading>
         <p>
           Conecta MCP a tu base de datos u observabilidad; usa hooks para
           formatear al guardar. Sigue con <Link href="/mcp">Servidores MCP</Link>{" "}

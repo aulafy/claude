@@ -12,7 +12,7 @@ export default function Page() {
     <Chapter
       crumb="Un avatar que habla"
       title="Un avatar que habla para tus cursos"
-      emoji="🧑‍🏫"
+      icon="userGraduate"
       lead={<>Una cara animada (un <em>avatar</em>) que <strong>lee un texto moviendo la boca</strong>, para presentaciones, cursos online o vídeos explicativos. Escribes lo que quieres que diga y el avatar lo narra sincronizando los labios.</>}
     >
       <Objetivos>

@@ -12,7 +12,7 @@ export default function Page() {
     <Chapter
       crumb="Simulaciones 3D"
       title="Simulaciones 3D para explicar en clase"
-      emoji="🪐"
+      icon="cube"
       lead={<>Una escena <strong>3D interactiva</strong> en el navegador —por ejemplo el sistema solar, una molécula o una figura geométrica que se puede girar y explorar— para usar en clases, cursos o presentaciones. Funciona en cualquier navegador moderno.</>}
     >
       <Objetivos>

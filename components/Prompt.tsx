@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Icon from "@/components/Icon";
 
 export default function Prompt({
   children,
@@ -25,7 +26,7 @@ export default function Prompt({
     <div className="my-4 rounded-lg border border-zinc-700 bg-zinc-900/60 overflow-hidden">
       <div className="flex items-center justify-between px-4 py-2 border-b border-zinc-800 bg-zinc-900">
         <span className="text-xs font-medium text-orange-400 flex items-center gap-1.5">
-          <span>💬</span>
+          <Icon name="chat" />
           {label ?? "Escribe esto a Claude Code"}
         </span>
         <button
@@ -34,10 +35,12 @@ export default function Prompt({
         >
           {copied ? (
             <>
-              <span className="text-emerald-400">✓</span> Copiado
+              <Icon name="check" className="text-emerald-400" /> Copiado
             </>
           ) : (
-            <>📋 Copiar</>
+            <>
+              <Icon name="copy" /> Copiar
+            </>
           )}
         </button>
       </div>

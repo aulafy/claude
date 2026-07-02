@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PageTitle from "@/components/PageTitle";
 import Prompt from "@/components/Prompt";
 
 export const metadata: Metadata = {
@@ -18,7 +19,7 @@ export default function Skills() {
       </div>
 
       <div className="mb-10">
-        <h1 className="text-4xl font-bold text-white mb-4">🧩 Skills (Agent Skills)</h1>
+        <PageTitle icon="grid">Skills (Agent Skills)</PageTitle>
         <p className="text-lg text-zinc-400 leading-relaxed">
           Las Skills son la forma más potente de enseñarle a Claude Code a hacer
           tareas concretas <em>a tu manera</em>: revisiones, despliegues, debugging,

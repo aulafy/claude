@@ -12,7 +12,7 @@ export default function Page() {
     <Chapter
       crumb="Asistente para autónomos"
       title="Un asistente de oficina para autónomos"
-      emoji="🧾"
+      icon="document"
       lead={<>Una pequeña aplicación local que te ayuda con el papeleo del día a día como autónomo: <strong>crear facturas</strong>, llevar un registro de ingresos y gastos, y responder preguntas sobre tus propios documentos. Todo en tu ordenador, sin cuotas mensuales.</>}
     >
       <Objetivos>

@@ -12,7 +12,7 @@ export default function Page() {
     <Chapter
       crumb="Tema de WordPress"
       title="Crea un tema de WordPress con IA"
-      emoji="🎨"
+      icon="wordpress"
       lead={<>Un <strong>tema</strong> (el diseño y la estructura visual) para WordPress, hecho a tu medida con ayuda de Claude Code. Ideal si tienes o quieres una web con WordPress y no quieres pagar una plantilla ni depender de una agencia.</>}
     >
       <Objetivos>

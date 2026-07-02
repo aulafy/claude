@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import Icon from "@/components/Icon";
 import { searchData, type SearchItem } from "@/lib/search-data";
 
 function score(item: SearchItem, q: string): number {
@@ -91,7 +92,7 @@ export default function Search() {
         onClick={openSearch}
         className="w-full flex items-center gap-2 px-3 py-2 rounded-lg border border-zinc-800 bg-zinc-900/50 text-sm text-zinc-500 hover:border-zinc-700 hover:text-zinc-300 transition-colors"
       >
-        <span>🔍</span>
+        <Icon name="search" />
         <span className="flex-1 text-left">Buscar...</span>
         <kbd className="text-[10px] px-1.5 py-0.5 rounded bg-zinc-800 border border-zinc-700 text-zinc-400">⌘K</kbd>
       </button>
@@ -107,7 +108,7 @@ export default function Search() {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center gap-3 px-4 border-b border-zinc-800">
-              <span className="text-zinc-500">🔍</span>
+              <Icon name="search" className="text-zinc-500" />
               <input
                 ref={inputRef}
                 value={query}
@@ -144,7 +145,7 @@ export default function Search() {
                       </div>
                       <div className="text-xs text-zinc-500">{r.section}</div>
                     </div>
-                    <span className="text-zinc-600 text-xs">↵</span>
+                    <Icon name="chevronRight" className="text-zinc-600 text-xs" />
                   </button>
                 ))
               )}

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PageTitle from "@/components/PageTitle";
 
 export const metadata: Metadata = {
   title: "Primeros pasos — Aprende Claude Code",
@@ -16,7 +17,7 @@ export default function PrimerospasoS() {
       </div>
 
       <div className="mb-10">
-        <h1 className="text-4xl font-bold text-white mb-4">🚀 Primeros pasos</h1>
+        <PageTitle icon="rocket">Primeros pasos</PageTitle>
         <p className="text-lg text-zinc-400 leading-relaxed">
           Aprende a iniciar Claude Code, entender su interfaz y completar tus
           primeras tareas de programación con IA.

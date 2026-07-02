@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Icon from "@/components/Icon";
+import PageTitle from "@/components/PageTitle";
 import Prompt from "@/components/Prompt";
 
 export const metadata: Metadata = {
@@ -18,7 +20,7 @@ export default function Plugins() {
       </div>
 
       <div className="mb-10">
-        <h1 className="text-4xl font-bold text-white mb-4">🔌 Plugins y marketplace</h1>
+        <PageTitle icon="plug">Plugins y marketplace</PageTitle>
         <p className="text-lg text-zinc-400 leading-relaxed">
           Los plugins son paquetes que añaden funcionalidad a Claude Code de golpe:
           agrupan skills, subagentes, comandos, hooks y servidores MCP. Es la forma
@@ -32,11 +34,11 @@ export default function Plugins() {
           Un plugin empaqueta varias extensiones en una sola unidad instalable:
         </p>
         <ul>
-          <li>🧩 <strong>Skills</strong> — flujos y procedimientos especializados.</li>
-          <li>🤖 <strong>Subagentes</strong> — ayudantes con roles concretos.</li>
-          <li>⌨️ <strong>Comandos</strong> — slash commands listos para usar.</li>
-          <li>🪝 <strong>Hooks</strong> — automatizaciones de eventos.</li>
-          <li>🔗 <strong>Servidores MCP</strong> — conexiones a herramientas externas.</li>
+          <li><Icon name="grid" className="text-orange-400" /> <strong>Skills</strong> — flujos y procedimientos especializados.</li>
+          <li><Icon name="robot" className="text-orange-400" /> <strong>Subagentes</strong> — ayudantes con roles concretos.</li>
+          <li><Icon name="command" className="text-orange-400" /> <strong>Comandos</strong> — slash commands listos para usar.</li>
+          <li><Icon name="hook" className="text-orange-400" /> <strong>Hooks</strong> — automatizaciones de eventos.</li>
+          <li><Icon name="link" className="text-orange-400" /> <strong>Servidores MCP</strong> — conexiones a herramientas externas.</li>
         </ul>
         <p>
           Un <strong>marketplace</strong> es un repositorio (normalmente en GitHub) con

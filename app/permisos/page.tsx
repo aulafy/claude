@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PageTitle from "@/components/PageTitle";
 
 export const metadata: Metadata = {
   title: "Permisos — Aprende Claude Code",
@@ -16,7 +17,7 @@ export default function Permisos() {
       </div>
 
       <div className="mb-10">
-        <h1 className="text-4xl font-bold text-white mb-4">🔐 Permisos</h1>
+        <PageTitle icon="lock">Permisos</PageTitle>
         <p className="text-lg text-zinc-400 leading-relaxed">
           El sistema de permisos de Claude Code garantiza que nada ocurra sin
           tu conocimiento. Aprende a configurar qué puede y qué no puede hacer Claude.

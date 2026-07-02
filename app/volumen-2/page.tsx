@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Icon from "@/components/Icon";
+import PageTitle from "@/components/PageTitle";
 
 export const metadata: Metadata = {
   title: "Volumen II · Claude Code + IA Local — Aprende Claude Code",
@@ -87,7 +89,7 @@ export default function VolumenII() {
         <div className="inline-block mb-3 text-xs font-semibold uppercase tracking-wider text-orange-400 bg-orange-500/10 border border-orange-500/20 rounded-full px-3 py-1">
           Continuación · Volumen II
         </div>
-        <h1 className="text-4xl font-bold text-white mb-4">🧠 Claude Code + IA Local</h1>
+        <PageTitle icon="brain">Claude Code + IA Local</PageTitle>
         <p className="text-lg text-zinc-400 leading-relaxed">
           El primer libro te enseñó <em>qué</em> es Claude Code. Este da el salto:
           vas a <strong>construir herramientas de inteligencia artificial reales</strong>{" "}
@@ -101,7 +103,8 @@ export default function VolumenII() {
           href="/guia-claude-code-vol2.pdf"
           className="inline-flex items-center gap-2 rounded-lg bg-orange-500 hover:bg-orange-400 text-white font-medium px-4 py-2.5 text-sm transition-colors"
         >
-          📕 Descargar el Volumen II (PDF)
+          <Icon name="filePdf" />
+          Descargar el Volumen II (PDF)
         </a>
         <Link
           href="/volumen-2/terminal"

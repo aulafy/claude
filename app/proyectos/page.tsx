@@ -1,12 +1,27 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Icon, { type IconName } from "@/components/Icon";
+import PageTitle from "@/components/PageTitle";
 import Prompt from "@/components/Prompt";
+import SectionHeading from "@/components/SectionHeading";
 
 export const metadata: Metadata = {
   title: "Proyectos guiados — Aprende Claude Code",
   description:
     "Tres proyectos completos paso a paso con Claude Code: una web personal, una app de tareas y un script útil en Python. Con todos los prompts.",
 };
+
+const projectCards: Array<{
+  href: string;
+  icon: IconName;
+  title: string;
+  level: string;
+  time: string;
+}> = [
+  { href: "#web", icon: "globe", title: "Web personal", level: "Principiante", time: "30 min" },
+  { href: "#tareas", icon: "listCheck", title: "App de tareas", level: "Principiante +", time: "45 min" },
+  { href: "#script", icon: "code", title: "Script en Python", level: "Intermedio", time: "30 min" },
+];
 
 function Step({ n, title, children }: { n: number; title: string; children: React.ReactNode }) {
   return (
@@ -32,7 +47,7 @@ export default function Proyectos() {
       </div>
 
       <div className="mb-10">
-        <h1 className="text-4xl font-bold text-white mb-4">🏗️ Proyectos guiados</h1>
+        <PageTitle icon="hammer">Proyectos guiados</PageTitle>
         <p className="text-lg text-zinc-400 leading-relaxed">
           La mejor forma de aprender es construyendo algo real. Aquí tienes tres
           proyectos completos, de principio a fin, con los prompts exactos en orden.
@@ -49,13 +64,9 @@ export default function Proyectos() {
 
       {/* Selector de nivel */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-12">
-        {[
-          { href: "#web", emoji: "🌐", title: "Web personal", level: "Principiante", time: "30 min" },
-          { href: "#tareas", emoji: "✅", title: "App de tareas", level: "Principiante +", time: "45 min" },
-          { href: "#script", emoji: "🐍", title: "Script en Python", level: "Intermedio", time: "30 min" },
-        ].map((p) => (
+        {projectCards.map((p) => (
           <a key={p.href} href={p.href} className="rounded-xl border border-zinc-800 bg-zinc-900/30 p-4 hover:border-zinc-600 transition-colors">
-            <div className="text-2xl mb-2">{p.emoji}</div>
+            <Icon name={p.icon} className="text-2xl mb-2 text-orange-400" />
             <div className="font-semibold text-white text-sm">{p.title}</div>
             <div className="text-xs text-zinc-500 mt-1">{p.level} · {p.time}</div>
           </a>
@@ -64,7 +75,7 @@ export default function Proyectos() {
 
       <div className="prose">
         {/* ───────── PROYECTO 1 ───────── */}
-        <h2 id="web">🌐 Proyecto 1: Tu web personal</h2>
+        <SectionHeading id="web" icon="globe">Proyecto 1: Tu web personal</SectionHeading>
         <p>
           <strong>Qué construirás:</strong> una página web personal con tu nombre,
           foto, biografía y enlaces, lista para enseñar al mundo.
@@ -100,7 +111,7 @@ export default function Proyectos() {
 
       <div className="prose">
         {/* ───────── PROYECTO 2 ───────── */}
-        <h2 id="tareas">✅ Proyecto 2: App de lista de tareas</h2>
+        <SectionHeading id="tareas" icon="listCheck">Proyecto 2: App de lista de tareas</SectionHeading>
         <p>
           <strong>Qué construirás:</strong> una app donde añadir tareas, marcarlas como
           hechas y borrarlas, que recuerda tus tareas aunque cierres la página.
@@ -132,7 +143,7 @@ export default function Proyectos() {
 
       <div className="prose">
         {/* ───────── PROYECTO 3 ───────── */}
-        <h2 id="script">🐍 Proyecto 3: Un script útil en Python</h2>
+        <SectionHeading id="script" icon="code">Proyecto 3: Un script útil en Python</SectionHeading>
         <p>
           <strong>Qué construirás:</strong> un programa que organiza automáticamente
           una carpeta desordenada (como Descargas) metiendo cada archivo en su sitio.

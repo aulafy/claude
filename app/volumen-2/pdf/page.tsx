@@ -12,7 +12,7 @@ export default function Page() {
     <Chapter
       crumb="Pregúntale a tus PDF"
       title="Pregúntale a tus PDF"
-      emoji="📄"
+      icon="pdf"
       lead={<>Una aplicación donde sueltas cualquier PDF —un manual, un contrato, un artículo, los apuntes de una asignatura— y le haces preguntas en lenguaje normal. Te responde y te dice en qué página lo ha encontrado. Es el capítulo anterior llevado a cualquier documento, no solo legal.</>}
     >
       <Objetivos>

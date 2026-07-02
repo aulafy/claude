@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PageTitle from "@/components/PageTitle";
 import Prompt from "@/components/Prompt";
 
 export const metadata: Metadata = {
@@ -18,7 +19,7 @@ export default function Problemas() {
       </div>
 
       <div className="mb-10">
-        <h1 className="text-4xl font-bold text-white mb-4">🔧 Solución de problemas</h1>
+        <PageTitle icon="tools">Solución de problemas</PageTitle>
         <p className="text-lg text-zinc-400 leading-relaxed">
           Los tropiezos más habituales al empezar y cómo resolverlos. Si algo no te
           funciona, probablemente esté aquí.

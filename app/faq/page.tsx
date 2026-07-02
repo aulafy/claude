@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PageTitle from "@/components/PageTitle";
 import Faq from "@/components/Faq";
+import SectionHeading from "@/components/SectionHeading";
 
 export const metadata: Metadata = {
   title: "Preguntas frecuentes — Aprende Claude Code",
@@ -18,14 +20,14 @@ export default function FaqPage() {
       </div>
 
       <div className="mb-10">
-        <h1 className="text-4xl font-bold text-white mb-4">❓ Preguntas frecuentes</h1>
+        <PageTitle icon="circleQuestion">Preguntas frecuentes</PageTitle>
         <p className="text-lg text-zinc-400 leading-relaxed">
           Las dudas que casi todo el mundo tiene al empezar con Claude Code,
           respondidas sin rodeos.
         </p>
       </div>
 
-      <h2 className="text-lg font-semibold text-white mb-4 mt-2">💰 Coste y cuenta</h2>
+      <SectionHeading icon="briefcase">Coste y cuenta</SectionHeading>
 
       <Faq question="¿Cuánto cuesta usar Claude Code?">
         <p>
@@ -62,7 +64,7 @@ export default function FaqPage() {
         </p>
       </Faq>
 
-      <h2 className="text-lg font-semibold text-white mb-4 mt-8">🔐 Seguridad y privacidad</h2>
+      <SectionHeading icon="lock">Seguridad y privacidad</SectionHeading>
 
       <Faq question="¿Es seguro darle acceso a mis archivos?">
         <p>
@@ -103,7 +105,7 @@ export default function FaqPage() {
         </p>
       </Faq>
 
-      <h2 className="text-lg font-semibold text-white mb-4 mt-8">🧑‍💻 Uso y aprendizaje</h2>
+      <SectionHeading icon="laptopCode">Uso y aprendizaje</SectionHeading>
 
       <Faq question="¿Necesito saber programar para usar Claude Code?">
         <p>
@@ -149,7 +151,7 @@ export default function FaqPage() {
         </p>
       </Faq>
 
-      <h2 className="text-lg font-semibold text-white mb-4 mt-8">🆚 Comparativas</h2>
+      <SectionHeading icon="compare">Comparativas</SectionHeading>
 
       <Faq question="¿En qué se diferencia de ChatGPT o de la web de Claude?">
         <p>

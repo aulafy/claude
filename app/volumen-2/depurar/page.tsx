@@ -11,7 +11,7 @@ export default function Page() {
     <Chapter
       crumb="Cuando algo se rompe"
       title="Cuando algo se rompe: depurar y proteger tu trabajo"
-      emoji="🛟"
+      icon="shield"
       lead={<>Tarde o temprano algo fallará: un error al arrancar, una instalación que se atasca, Claude Code que hace algo distinto. No es un drama: es parte de construir. Este capítulo te da un método sereno para resolverlo y, sobre todo, para <strong>no perder nunca tu trabajo</strong> ni exponer tus datos.</>}
     >
       <Objetivos>

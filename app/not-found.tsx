@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Icon from "@/components/Icon";
 
 export default function NotFound() {
   return (
@@ -20,9 +21,10 @@ export default function NotFound() {
         </Link>
         <Link
           href="/recetas"
-          className="px-5 py-2.5 rounded-lg border border-zinc-700 hover:border-zinc-500 text-zinc-300 font-medium text-sm transition-colors"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-zinc-700 hover:border-zinc-500 text-zinc-300 font-medium text-sm transition-colors"
         >
-          🍳 Ver recetas prácticas
+          <Icon name="recipe" />
+          Ver recetas prácticas
         </Link>
       </div>
     </div>

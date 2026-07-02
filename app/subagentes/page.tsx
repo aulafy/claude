@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PageTitle from "@/components/PageTitle";
 import Prompt from "@/components/Prompt";
 
 export const metadata: Metadata = {
@@ -18,7 +19,7 @@ export default function Subagentes() {
       </div>
 
       <div className="mb-10">
-        <h1 className="text-4xl font-bold text-white mb-4">🤖 Subagentes</h1>
+        <PageTitle icon="robot">Subagentes</PageTitle>
         <p className="text-lg text-zinc-400 leading-relaxed">
           Los subagentes son "ayudantes especializados" que Claude Code puede lanzar
           para trabajar en paralelo: uno revisa código, otro investiga, otro escribe

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PageTitle from "@/components/PageTitle";
 
 export const metadata: Metadata = {
   title: "Configuración — Aprende Claude Code",
@@ -16,7 +17,7 @@ export default function Configuracion() {
       </div>
 
       <div className="mb-10">
-        <h1 className="text-4xl font-bold text-white mb-4">⚙️ Configuración</h1>
+        <PageTitle icon="gear">Configuración</PageTitle>
         <p className="text-lg text-zinc-400 leading-relaxed">
           Claude Code es altamente configurable. Aprende a personalizar su comportamiento,
           modelo, memoria y preferencias globales o por proyecto.

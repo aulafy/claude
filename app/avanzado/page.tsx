@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PageTitle from "@/components/PageTitle";
 
 export const metadata: Metadata = {
   title: "Uso avanzado — Aprende Claude Code",
@@ -16,7 +17,7 @@ export default function Avanzado() {
       </div>
 
       <div className="mb-10">
-        <h1 className="text-4xl font-bold text-white mb-4">⚡ Uso avanzado</h1>
+        <PageTitle icon="advanced">Uso avanzado</PageTitle>
         <p className="text-lg text-zinc-400 leading-relaxed">
           Técnicas avanzadas para sacar el máximo partido a Claude Code:
           subagentes, worktrees, integración en CI/CD, modo headless y más.

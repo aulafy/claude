@@ -1,12 +1,24 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Icon, { type IconName } from "@/components/Icon";
+import PageTitle from "@/components/PageTitle";
 import Prompt from "@/components/Prompt";
+import SectionHeading from "@/components/SectionHeading";
 
 export const metadata: Metadata = {
   title: "Claude Code para pymes y oficina — Aprende Claude Code",
   description:
     "Casos reales de oficina con Claude Code para autónomos y pymes: analizar Excel/CSV, generar facturas y documentos, automatizar tareas e informes. Con prompts listos para copiar.",
 };
+
+const sections: Array<{ href: string; icon: IconName; label: string }> = [
+  { href: "#datos", icon: "spreadsheet", label: "Hojas de cálculo y datos" },
+  { href: "#documentos", icon: "document", label: "Documentos y plantillas" },
+  { href: "#automatizar", icon: "automation", label: "Automatizar tareas repetitivas" },
+  { href: "#informes", icon: "chart", label: "Informes y análisis" },
+  { href: "#comunicacion", icon: "email", label: "Comunicación y clientes" },
+  { href: "#web", icon: "globe", label: "Tu presencia online" },
+];
 
 export default function Pymes() {
   return (
@@ -18,7 +30,7 @@ export default function Pymes() {
       </div>
 
       <div className="mb-10">
-        <h1 className="text-4xl font-bold text-white mb-4">🏢 Claude Code para pymes y oficina</h1>
+        <PageTitle icon="building">Claude Code para pymes y oficina</PageTitle>
         <p className="text-lg text-zinc-400 leading-relaxed">
           Aunque Claude Code es una herramienta para programar, su verdadero
           superpoder —trabajar con TUS archivos y automatizar tu ordenador— lo
@@ -43,23 +55,17 @@ export default function Pymes() {
       <div className="mb-12 rounded-xl border border-zinc-800 bg-zinc-900/30 p-5">
         <p className="text-xs font-medium text-zinc-500 uppercase tracking-wider mb-3">En esta página</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-1.5 gap-x-4 text-sm">
-          {[
-            ["#datos", "📊 Hojas de cálculo y datos"],
-            ["#documentos", "📄 Documentos y plantillas"],
-            ["#automatizar", "⚙️ Automatizar tareas repetitivas"],
-            ["#informes", "📈 Informes y análisis"],
-            ["#comunicacion", "✉️ Comunicación y clientes"],
-            ["#web", "🌐 Tu presencia online"],
-          ].map(([href, label]) => (
-            <a key={href} href={href} className="text-zinc-400 hover:text-orange-400 transition-colors">
-              {label}
+          {sections.map((item) => (
+            <a key={item.href} href={item.href} className="inline-flex items-center gap-2 text-zinc-400 hover:text-orange-400 transition-colors">
+              <Icon name={item.icon} />
+              {item.label}
             </a>
           ))}
         </div>
       </div>
 
       <div className="prose">
-        <h2 id="datos">📊 Hojas de cálculo y datos</h2>
+        <SectionHeading id="datos" icon="spreadsheet">Hojas de cálculo y datos</SectionHeading>
         <p>
           Para sacar conclusiones rápidas de un CSV o preparar datos antes de
           enviarlos a otra herramienta.
@@ -74,7 +80,7 @@ export default function Pymes() {
         <h3>Cruzar clientes y pedidos</h3>
         <Prompt>{`Cruza estos dos archivos: [clientes.csv] y [pedidos.csv]. Dime qué clientes no han hecho ningún pedido en los últimos 6 meses para poder contactarlos.`}</Prompt>
 
-        <h2 id="documentos">📄 Documentos y plantillas</h2>
+        <SectionHeading id="documentos" icon="document">Documentos y plantillas</SectionHeading>
         <p>
           Úsalo para convertir, resumir o generar documentos repetitivos sin
           copiar y pegar a mano.
@@ -89,7 +95,7 @@ export default function Pymes() {
         <h3>Crear una plantilla de presupuesto</h3>
         <Prompt>{`Créame una plantilla profesional de presupuesto en un documento, con mis datos: [nombre empresa, CIF, logo opcional], que pueda reutilizar y rellenar fácilmente.`}</Prompt>
 
-        <h2 id="automatizar">⚙️ Automatizar tareas repetitivas</h2>
+        <SectionHeading id="automatizar" icon="automation">Automatizar tareas repetitivas</SectionHeading>
         <p>
           Ideal para trabajos aburridos que se repiten cada semana: ordenar,
           renombrar, generar resúmenes o preparar archivos.
@@ -104,7 +110,7 @@ export default function Pymes() {
         <h3>Programa pequeño para pedidos diarios</h3>
         <Prompt>{`Crea un pequeño programa que, cuando lo ejecute, lea [pedidos.csv] y me genere un resumen de los pedidos nuevos del día. Explícamelo como si no supiera programar.`}</Prompt>
 
-        <h2 id="informes">📈 Informes y análisis</h2>
+        <SectionHeading id="informes" icon="chart">Informes y análisis</SectionHeading>
         <p>
           Pídele que convierta datos en gráficos, documentos y conclusiones
           claras para compartir.
@@ -116,7 +122,7 @@ export default function Pymes() {
         <h3>Informe mensual de ventas</h3>
         <Prompt>{`Genera un informe mensual en un documento a partir de [ventas.csv]: incluye totales, comparación con el mes anterior, y 3 conclusiones claras.`}</Prompt>
 
-        <h2 id="comunicacion">✉️ Comunicación y clientes</h2>
+        <SectionHeading id="comunicacion" icon="email">Comunicación y clientes</SectionHeading>
         <p>
           También puede ayudarte a detectar patrones en opiniones de clientes y
           preparar respuestas profesionales.
@@ -128,7 +134,7 @@ export default function Pymes() {
         <h3>Plantillas de email</h3>
         <Prompt>{`Redáctame 3 plantillas de email para responder a [situación: p. ej. una reclamación], en tono cercano pero profesional, de menos de 150 palabras cada una.`}</Prompt>
 
-        <h2 id="web">🌐 Tu presencia online sin saber programar</h2>
+        <SectionHeading id="web" icon="globe">Tu presencia online sin saber programar</SectionHeading>
         <p>
           Si necesitas una web sencilla para validar presencia online, puede
           crear una primera versión lista para revisar.
