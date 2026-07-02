@@ -46,7 +46,7 @@ const cursos = [
   { icon: "network", title: "Agentes en producción", desc: "LangGraph, n8n, herramientas, aprobaciones humanas, logs y seguridad para flujos reales.", level: "Intermedio", status: "Nuevo", statusColor: "text-[#10b981]", href: "/cursos/agentes-produccion" },
   { icon: "database", title: "RAG avanzado y seguro", desc: "Chatbots con documentos privados, citaciones, búsqueda híbrida, evals y defensa ante prompt injection.", level: "Intermedio", status: "Nuevo", statusColor: "text-[#10b981]", href: "/cursos/rag-seguro" },
   { icon: "palette", title: "IA generativa: imagen y voz", desc: "Genera imágenes, voz y vídeo con herramientas open source y en la nube.", level: "Principiante", status: "Disponible", statusColor: "text-[#22d3ee]", href: "/cursos/ia-local/texto-a-audio" },
-  { icon: "briefcase", title: "IA para tu trabajo", desc: "Aplica la IA a tareas reales de oficina, autónomos y pymes. Sin ser técnico.", level: "Principiante", status: "Disponible", statusColor: "text-[#22d3ee]", href: "/cursos/claude-code/pymes" },
+  { icon: "briefcase", title: "IA para pymes y autónomos", desc: "Emails, facturas, presupuestos, WhatsApp, Excel y RGPD básico con flujos revisables.", level: "Principiante", status: "Nuevo", statusColor: "text-[#10b981]", href: "/cursos/ia-pymes" },
 ] satisfies Array<{
   icon: IconName;
   title: string;
