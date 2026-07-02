@@ -124,7 +124,7 @@ api_base: http://localhost:11434`}</Terminal>
 
       <ChapterNav
         prev={{ href: "/cursos/ia-local/conectar-ollama", label: "Conecta Claude Code con tu IA local" }}
-        next={{ href: "/cursos/ia-local/depurar", label: "Depurar y proteger" }}
+        next={{ href: "/cursos/ia-local/ollama-gpu-windows", label: "Ollama no usa la GPU en Windows" }}
       />
     </Chapter>
   );

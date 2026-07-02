@@ -103,6 +103,7 @@ export const cursos: Curso[] = [
           { slug: "ollama-desde-cero", title: "Ollama desde cero" },
           { slug: "conectar-ollama", title: "Conecta Claude Code con tu IA local" },
           { slug: "troubleshooting-ollama", title: "Soluciona errores de Ollama" },
+          { slug: "ollama-gpu-windows", title: "Ollama no usa la GPU en Windows" },
           { slug: "depurar", title: "Depurar y proteger tu trabajo" },
         ],
       },
@@ -177,6 +178,7 @@ export const cursos: Curso[] = [
         title: "Arquitectura",
         lecciones: [
           { slug: "mapa-frameworks", title: "LangGraph, n8n y CrewAI: qué usar" },
+          { slug: "langgraph-vs-crewai-n8n", title: "LangGraph vs CrewAI vs n8n en 2026" },
           { slug: "estado-memoria", title: "Estado, memoria y bucles controlados" },
         ],
       },

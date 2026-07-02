@@ -62,6 +62,7 @@ Curso práctico para pasar de demos de agentes a sistemas con estado, herramient
 
 - [Presentación del curso](https://www.aulafy.net/cursos/agentes-produccion)
 - [LangGraph, n8n y CrewAI: qué usar](https://www.aulafy.net/cursos/agentes-produccion/mapa-frameworks)
+- [LangGraph vs CrewAI vs n8n en 2026](https://www.aulafy.net/cursos/agentes-produccion/langgraph-vs-crewai-n8n)
 - [Estado, memoria y bucles controlados](https://www.aulafy.net/cursos/agentes-produccion/estado-memoria)
 - [n8n como capa de herramientas](https://www.aulafy.net/cursos/agentes-produccion/n8n-tools)
 - [Aprobaciones humanas y permisos](https://www.aulafy.net/cursos/agentes-produccion/human-in-the-loop)
@@ -81,6 +82,7 @@ Guía práctica para construir herramientas de IA que se ejecutan en el propio o
 - [Ollama desde cero](https://www.aulafy.net/cursos/ia-local/ollama-desde-cero)
 - [Conecta Claude Code con tu IA local](https://www.aulafy.net/cursos/ia-local/conectar-ollama)
 - [Soluciona errores de Ollama](https://www.aulafy.net/cursos/ia-local/troubleshooting-ollama)
+- [Ollama no usa la GPU en Windows](https://www.aulafy.net/cursos/ia-local/ollama-gpu-windows)
 - [Depurar y proteger](https://www.aulafy.net/cursos/ia-local/depurar)
 - [Chatbot legal RAG local](https://www.aulafy.net/cursos/ia-local/chatbot-legal)
 - [Pregúntale a tus PDF](https://www.aulafy.net/cursos/ia-local/pdf)

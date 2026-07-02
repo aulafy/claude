@@ -67,7 +67,7 @@ Log: qué decidió, con qué datos y por qué`}</Terminal>
         Quédate con esta frase: n8n conecta el negocio; LangGraph controla el razonamiento; CrewAI ayuda a prototipar roles. No tienen por qué competir.
       </Guardar>
 
-      <ChapterNav next={{ href: "/cursos/agentes-produccion/estado-memoria", label: "Estado, memoria y bucles controlados" }} />
+      <ChapterNav next={{ href: "/cursos/agentes-produccion/langgraph-vs-crewai-n8n", label: "LangGraph vs CrewAI vs n8n" }} />
     </Chapter>
   );
 }
