@@ -47,9 +47,36 @@ const partes = [
   },
 ];
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://claude-rho-snowy.vercel.app";
+
+const bookJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Book",
+  name: "Claude Code + IA Local — Guía práctica para perfiles técnicos (Volumen II)",
+  inLanguage: "es",
+  url: `${SITE_URL}/volumen-2`,
+  bookFormat: "https://schema.org/EBook",
+  license: "https://creativecommons.org/licenses/by/4.0/",
+  isAccessibleForFree: true,
+  author: { "@type": "Person", name: "Ramón Guillamón", url: "https://www.linkedin.com/in/rguillamon/" },
+  about: ["Claude Code", "IA local", "Ollama", "RAG", "despliegue de aplicaciones"],
+  hasPart: partes.flatMap((p) =>
+    p.caps.map((c) => ({
+      "@type": "Chapter",
+      position: c.n,
+      name: c.label,
+      url: `${SITE_URL}${c.href}`,
+    }))
+  ),
+};
+
 export default function VolumenII() {
   return (
     <div className="max-w-3xl mx-auto px-8 py-14">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(bookJsonLd) }}
+      />
       <div className="mb-2 text-xs text-zinc-600">
         <Link href="/" className="hover:text-zinc-400">Inicio</Link>
         <span className="mx-2">/</span>
