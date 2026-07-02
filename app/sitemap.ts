@@ -3,7 +3,7 @@ import { cursos, lecciones } from "@/lib/cursos";
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 
-const estaticas = ["", "/cursos", "/aviso-legal", "/licencia", "/privacidad", "/cookies"];
+const estaticas = ["", "/cursos", "/acerca", "/aviso-legal", "/licencia", "/privacidad", "/cookies"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -24,6 +24,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
           ? 0.9
           : ["/aviso-legal", "/privacidad", "/cookies", "/licencia"].includes(route)
             ? 0.4
+            : route === "/acerca"
+              ? 0.7
             : 0.8,
   }));
 }

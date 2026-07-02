@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Sora } from "next/font/google";
 import Script from "next/script";
 import Shell from "@/components/Shell";
+import { cursos, totalLecciones } from "@/lib/cursos";
 import "./globals.css";
 import "./fontawesome.css";
 
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
     template: "%s | Aulafy",
   },
   description:
-    "Cursos gratuitos de inteligencia artificial open source en español con ejemplos prácticos: IA local, Claude Code, RAG, prompts, voz, PDF y automatización.",
+    "Cursos gratuitos de inteligencia artificial open source en español con ejemplos prácticos: IA local, Claude Code, Ollama, RAG, agentes, prompts y automatización.",
   keywords: [
     "cursos de IA gratis",
     "cursos de inteligencia artificial en español",
@@ -49,6 +50,11 @@ export const metadata: Metadata = {
     "LLM",
     "RAG local",
     "chatbot con documentos",
+    "agentes de IA",
+    "subagentes",
+    "MCP",
+    "hooks Claude Code",
+    "skills Claude Code",
     "prompts IA",
     "automatización con IA",
     "IA programación",
@@ -108,9 +114,14 @@ const jsonLd = {
         "IA open source",
         "IA local",
         "Claude Code",
+        "Agentes de IA",
         "RAG",
         "Ollama",
         "LM Studio",
+        "Model Context Protocol",
+        "Subagentes",
+        "Hooks",
+        "Skills",
         "Automatización con IA",
         "Ingeniería de prompts",
       ],
@@ -127,25 +138,20 @@ const jsonLd = {
       publisher: { "@id": `${SITE_URL}/#organization` },
       creator: { "@id": `${SITE_URL}/#author` },
     },
-    {
+    ...cursos.map((curso) => ({
       "@type": "Course",
-      "@id": `${SITE_URL}/guia#course`,
-      name: "Claude Code, de 0 a pro",
-      description:
-        "Curso gratuito en español para aprender Claude Code desde cero, con proyectos, recetas, skills, subagentes, MCP, hooks e IA local.",
-      url: `${SITE_URL}/guia`,
+      "@id": `${SITE_URL}/cursos/${curso.slug}#course`,
+      name: curso.title,
+      description: curso.desc,
+      url: `${SITE_URL}/cursos/${curso.slug}`,
       inLanguage: "es",
       isAccessibleForFree: true,
+      educationalLevel: curso.level,
+      numberOfCredits: totalLecciones(curso),
       provider: { "@id": `${SITE_URL}/#organization` },
       author: { "@id": `${SITE_URL}/#author` },
-      teaches: [
-        "Claude Code",
-        "IA local",
-        "Model Context Protocol",
-        "subagentes",
-        "automatización con IA",
-      ],
-    },
+      teaches: curso.secciones.flatMap((seccion) => seccion.lecciones.map((leccion) => leccion.title)),
+    })),
     {
       "@type": "LearningResource",
       "@id": `${SITE_URL}/volumen-2#learning-resource`,
