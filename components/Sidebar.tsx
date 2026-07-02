@@ -9,7 +9,7 @@ const sections = [
   {
     title: "Empezar",
     items: [
-      { href: "/", label: "Inicio", icon: "⬡" },
+      { href: "/guia", label: "Inicio de la guía", icon: "⬡" },
       { href: "/instalacion", label: "Instalación", icon: "📦" },
       { href: "/primeros-pasos", label: "Primeros pasos", icon: "🚀" },
       { href: "/donde-usar", label: "CLI, app y móvil", icon: "🖥️" },
@@ -115,11 +115,11 @@ export default function Sidebar() {
       >
         {/* Logo */}
         <div className="px-5 py-5 border-b border-zinc-800">
-          <Link href="/" onClick={() => setOpen(false)} className="flex items-center gap-2.5">
+          <Link href="/guia" onClick={() => setOpen(false)} className="flex items-center gap-2.5">
             <div className="w-7 h-7 rounded-md bg-orange-500 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">C</div>
             <div>
               <div className="text-sm font-semibold text-white leading-tight">Claude Code</div>
-              <div className="text-xs text-zinc-500">Guía en español</div>
+              <div className="text-xs text-zinc-500">Curso de Aulafy</div>
             </div>
           </Link>
         </div>
