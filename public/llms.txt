@@ -80,6 +80,7 @@ Guía práctica para construir herramientas de IA que se ejecutan en el propio o
 - [Escribir buenos encargos](https://www.aulafy.net/cursos/ia-local/prompts)
 - [IA local: elige el modelo para tu máquina](https://www.aulafy.net/cursos/ia-local/ia-local)
 - [Ollama desde cero](https://www.aulafy.net/cursos/ia-local/ollama-desde-cero)
+- [Cuantización GGUF: Q4, Q5 y Q8](https://www.aulafy.net/cursos/ia-local/cuantizacion-gguf)
 - [Conecta Claude Code con tu IA local](https://www.aulafy.net/cursos/ia-local/conectar-ollama)
 - [Soluciona errores de Ollama](https://www.aulafy.net/cursos/ia-local/troubleshooting-ollama)
 - [Ollama no usa la GPU en Windows](https://www.aulafy.net/cursos/ia-local/ollama-gpu-windows): diagnóstico con nvidia-smi, logs, portátiles híbridos, Defender, Vulkan, AMD, WSL2 y Docker.

@@ -101,6 +101,7 @@ export const cursos: Curso[] = [
           { slug: "prompts", title: "Escribir buenos encargos" },
           { slug: "ia-local", title: "IA local: elige tu modelo" },
           { slug: "ollama-desde-cero", title: "Ollama desde cero" },
+          { slug: "cuantizacion-gguf", title: "Cuantización GGUF: Q4, Q5 y Q8" },
           { slug: "conectar-ollama", title: "Conecta Claude Code con tu IA local" },
           { slug: "troubleshooting-ollama", title: "Soluciona errores de Ollama" },
           { slug: "ollama-gpu-windows", title: "Ollama no usa la GPU en Windows" },
