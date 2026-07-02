@@ -238,6 +238,33 @@ export const cursos: Curso[] = [
       },
     ],
   },
+  {
+    slug: "ia-pymes",
+    title: "IA para pymes y autónomos",
+    short: "Automatiza oficina sin perder control",
+    desc: "Aprende a aplicar IA en tareas reales de negocio: emails, facturas, presupuestos, hojas de cálculo, atención al cliente y RGPD básico con flujos locales y revisables.",
+    level: "Principiante → intermedio",
+    icon: "briefcase",
+    gradient: ["#0ea5e9", "#f59e0b"],
+    secciones: [
+      {
+        title: "Antes de automatizar",
+        lecciones: [
+          { slug: "mapa", title: "Mapa de IA útil para una pyme" },
+          { slug: "rgpd-basico", title: "RGPD básico para usar IA sin sustos" },
+        ],
+      },
+      {
+        title: "Flujos de oficina",
+        lecciones: [
+          { slug: "emails", title: "Emails: clasificar y crear borradores" },
+          { slug: "facturas", title: "Facturas: extraer datos y revisar" },
+          { slug: "presupuestos-excel", title: "Presupuestos, Excel y Sheets" },
+          { slug: "whatsapp-atencion", title: "WhatsApp y Telegram con aprobación humana" },
+        ],
+      },
+    ],
+  },
 ];
 
 export const proximamente = [
