@@ -57,8 +57,8 @@ export default function FaqPage() {
           Dentro de Claude Code, el comando <code>/status</code> te muestra el uso de la
           sesión. Si usas API, el panel de <code>console.anthropic.com</code> tiene el
           consumo y puedes ponerte <strong>límites de gasto</strong>. Consejo: usa el
-          modelo <code>claude-sonnet-4-6</code> (el de por defecto) para el día a día y
-          reserva Opus para tareas que de verdad lo necesiten.
+          alias <code>sonnet</code> para el día a día y reserva <code>opus</code>{" "}
+          para tareas que de verdad lo necesiten.
         </p>
       </Faq>
 
@@ -141,10 +141,10 @@ export default function FaqPage() {
 
       <Faq question="¿Qué modelo debería usar?">
         <p>
-          Para el día a día, <code>claude-sonnet-4-6</code> (el de por defecto): rápido y
-          muy capaz. Para tareas de mucho razonamiento o problemas difíciles, sube a{" "}
-          <code>claude-opus-4-8</code>. Para tareas simples y muy repetitivas,{" "}
-          <code>claude-haiku-4-5</code> es más barato. Lo ves todo en{" "}
+          Para el día a día, usa <code>sonnet</code>: rápido y muy capaz. Para
+          tareas de mucho razonamiento o problemas difíciles, sube a <code>opus</code>.
+          Para tareas simples y muy repetitivas, <code>haiku</code> suele ser más
+          barato. Lo ves todo en{" "}
           <Link href="/comandos">Comandos</Link>.
         </p>
       </Faq>

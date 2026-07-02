@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
 
 // Rutas que se muestran a pantalla completa, sin el chrome de la guía (sidebar).
-const BARE_ROUTES = ["/"];
+const BARE_ROUTES = ["/", "/licencia", "/privacidad"];
 
 export default function Shell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();

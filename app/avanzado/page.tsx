@@ -18,8 +18,8 @@ export default function Avanzado() {
       <div className="mb-10">
         <h1 className="text-4xl font-bold text-white mb-4">⚡ Uso avanzado</h1>
         <p className="text-lg text-zinc-400 leading-relaxed">
-          Técnicas avanzadas para sacar el máximo partido a Claude Code: subagentes,
-          worktrees, integración en CI/CD, modo headless y más.
+          Técnicas avanzadas para sacar el máximo partido a Claude Code:
+          subagentes, worktrees, integración en CI/CD, modo headless y más.
         </p>
       </div>
 
@@ -52,18 +52,18 @@ export default function Avanzado() {
         <p>
           Los <strong>git worktrees</strong> permiten trabajar en múltiples
           ramas del mismo repositorio simultáneamente, en directorios distintos.
-          Claude Code los soporta nativamente y los usa para aislar cambios
-          de subagentes:
+          Puedes usarlos para aislar cambios grandes antes de abrir Claude Code:
         </p>
         <pre><code>{`# Crear un worktree para una feature branch
 git worktree add ../mi-proyecto-feature feature/nueva-api
 
-# Claude Code con isolation de worktree
-claude --isolation worktree "implementa la nueva API de pagos en una branch separada"`}</code></pre>
+# Entrar en ese directorio y abrir Claude Code allí
+cd ../mi-proyecto-feature
+claude`}</code></pre>
         <p>
-          Con <code>--isolation worktree</code>, Claude Code crea automáticamente
-          un worktree temporal, hace los cambios ahí y te propone un PR al terminar.
-          Si no acepta los cambios, el worktree se limpia solo.
+          Así separas los cambios de tu rama principal con una herramienta de Git
+          estable y verificable. Cuando termines, revisa el diff, ejecuta tests y
+          fusiona o elimina el worktree según convenga.
         </p>
 
         <h2>Modo headless / CI-CD</h2>
@@ -89,16 +89,20 @@ claude -p --dangerously-skip-permissions \\
   env:
     ANTHROPIC_API_KEY: \${{ secrets.ANTHROPIC_API_KEY }}`}</code></pre>
 
-        <h2>Modo /fast (Opus acelerado)</h2>
+        <h2>Elegir modelo y esfuerzo</h2>
         <p>
-          El modo fast usa Claude Opus con mayor velocidad de respuesta.
-          Actívalo o desactívalo durante la sesión:
+          En vez de memorizar IDs concretos, usa aliases de modelo. Claude Code
+          resuelve <code>sonnet</code>, <code>opus</code>, <code>haiku</code> o{" "}
+          <code>fable</code> según tu proveedor y permisos.
         </p>
-        <pre><code>{`# Dentro de Claude Code
-/fast
+        <pre><code>{`# Modelo equilibrado para el día a día
+claude --model sonnet
 
-# O al iniciar
-claude --fast`}</code></pre>
+# Más razonamiento en la sesión actual
+claude --model opus --effort high
+
+# Dentro de la sesión puedes abrir el selector
+/model`}</code></pre>
 
         <h2>Sesiones largas y compactación</h2>
         <p>

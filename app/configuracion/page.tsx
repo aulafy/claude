@@ -39,7 +39,7 @@ nano ~/.claude/settings.json`}</code></pre>
 
         <h3>Ejemplo de settings.json</h3>
         <pre><code>{`{
-  "model": "claude-sonnet-4-6",
+  "model": "sonnet",
   "theme": "dark",
   "autoUpdates": true,
   "permissions": {
@@ -145,17 +145,18 @@ npm run db:migrate   # Ejecutar migraciones
 
         <h2>Modelo por defecto</h2>
         <p>
-          Puedes cambiar el modelo que Claude Code usa en cada sesión. El modelo
-          por defecto es <code>claude-sonnet-4-6</code> (equilibrio velocidad/calidad).
+          Puedes cambiar el modelo que Claude Code usa en cada sesión. El valor
+          por defecto depende de tu cuenta y proveedor; para evitar IDs obsoletos,
+          usa aliases como <code>sonnet</code>, <code>opus</code> o <code>haiku</code>.
         </p>
         <pre><code>{`# En settings.json:
-{ "model": "claude-opus-4-8" }
+{ "model": "opus" }
 
 # O como variable de entorno:
-export ANTHROPIC_MODEL="claude-opus-4-8"
+export ANTHROPIC_MODEL="opus"
 
 # O al iniciar Claude Code:
-claude --model claude-opus-4-8`}</code></pre>
+claude --model opus`}</code></pre>
 
         <h2>Integración con VS Code</h2>
         <p>

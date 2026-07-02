@@ -41,7 +41,7 @@ export async function checkRateLimit(identifier: string): Promise<RateResult> {
     const retryAfter = Math.max(1, Math.ceil((reset - Date.now()) / 1000));
     return { allowed: false, retryAfter };
   } catch {
-    // Si Upstash falla, no bloqueamos al usuario (preferimos disponibilidad).
-    return { allowed: true };
+    // Si Upstash esta configurado pero falla, protegemos el coste del chat.
+    return { allowed: false, retryAfter: 60 };
   }
 }
