@@ -42,7 +42,8 @@ export default function CourseSidebar() {
     } catch {
       /* almacenamiento no disponible */
     }
-    setVisited(progress[curso.slug]);
+    const frame = window.requestAnimationFrame(() => setVisited(progress[curso.slug]));
+    return () => window.cancelAnimationFrame(frame);
   }, [curso, leccionSlug]);
 
   const { total, done, pct } = useMemo(() => {
@@ -111,15 +112,18 @@ export default function CourseSidebar() {
 
         {/* Lecciones */}
         <nav className="flex-1 overflow-y-auto py-4 px-3">
-          {(() => {
-            let n = 0;
-            return curso.secciones.map((seccion) => (
+          {curso.secciones.map((seccion, seccionIndex) => {
+            const start = curso.secciones
+              .slice(0, seccionIndex)
+              .reduce((sum, item) => sum + item.lecciones.length, 0);
+
+            return (
               <div key={seccion.title} className="mb-5">
                 <p className="px-3 mb-1.5 text-[10px] font-semibold uppercase tracking-wider text-zinc-600">
                   {seccion.title}
                 </p>
-                {seccion.lecciones.map((l) => {
-                  n += 1;
+                {seccion.lecciones.map((l, leccionIndex) => {
+                  const n = start + leccionIndex + 1;
                   const href = `/cursos/${curso.slug}/${l.slug}`;
                   const active = pathname === href;
                   const isDone = visited.includes(l.slug);
@@ -149,8 +153,8 @@ export default function CourseSidebar() {
                   );
                 })}
               </div>
-            ));
-          })()}
+            );
+          })}
         </nav>
 
         {/* Pie del sidebar */}

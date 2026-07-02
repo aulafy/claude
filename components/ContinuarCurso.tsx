@@ -17,7 +17,10 @@ export default function ContinuarCurso({ cursoSlug }: { cursoSlug: string }) {
       const visited = new Set(progress[curso.slug] ?? []);
       const all = lecciones(curso);
       const next = all.find((l) => !visited.has(l.slug)) ?? all[0];
-      setState({ done: all.filter((l) => visited.has(l.slug)).length, next: next.slug });
+      const frame = window.requestAnimationFrame(() => {
+        setState({ done: all.filter((l) => visited.has(l.slug)).length, next: next.slug });
+      });
+      return () => window.cancelAnimationFrame(frame);
     } catch {
       /* sin almacenamiento */
     }
