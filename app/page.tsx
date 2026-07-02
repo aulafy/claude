@@ -201,6 +201,27 @@ export default function Home() {
         </p>
       </div>
 
+      {/* Volumen II banner */}
+      <Link
+        href="/volumen-2"
+        className="group block mb-14 rounded-xl border border-orange-500/30 bg-gradient-to-br from-orange-500/10 to-zinc-900/40 p-6 hover:border-orange-500/60 transition-colors"
+      >
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <div className="inline-block mb-2 text-[10px] font-semibold uppercase tracking-wider text-orange-400 bg-orange-500/10 border border-orange-500/20 rounded-full px-2.5 py-0.5">
+              Nuevo · Volumen II
+            </div>
+            <h2 className="text-xl font-bold text-white mb-1">🧠 Claude Code + IA Local</h2>
+            <p className="text-sm text-zinc-400 leading-relaxed max-w-2xl">
+              La continuación: construye herramientas de IA que se ejecutan en tu
+              propio ordenador (chatbots, lectores de PDF, voz, 3D...) y publícalas en
+              internet. 17 capítulos y PDF descargable.
+            </p>
+          </div>
+          <span className="text-orange-400 text-sm font-medium whitespace-nowrap group-hover:translate-x-0.5 transition-transform">Abrir →</span>
+        </div>
+      </Link>
+
       {/* Cards grid */}
       <div>
         <h2 className="text-lg font-semibold text-white mb-5">
