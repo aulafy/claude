@@ -82,7 +82,7 @@ Guía práctica para construir herramientas de IA que se ejecutan en el propio o
 - [Ollama desde cero](https://www.aulafy.net/cursos/ia-local/ollama-desde-cero)
 - [Conecta Claude Code con tu IA local](https://www.aulafy.net/cursos/ia-local/conectar-ollama)
 - [Soluciona errores de Ollama](https://www.aulafy.net/cursos/ia-local/troubleshooting-ollama)
-- [Ollama no usa la GPU en Windows](https://www.aulafy.net/cursos/ia-local/ollama-gpu-windows)
+- [Ollama no usa la GPU en Windows](https://www.aulafy.net/cursos/ia-local/ollama-gpu-windows): diagnóstico con nvidia-smi, logs, portátiles híbridos, Defender, Vulkan, AMD, WSL2 y Docker.
 - [Depurar y proteger](https://www.aulafy.net/cursos/ia-local/depurar)
 - [Chatbot legal RAG local](https://www.aulafy.net/cursos/ia-local/chatbot-legal)
 - [Pregúntale a tus PDF](https://www.aulafy.net/cursos/ia-local/pdf)
