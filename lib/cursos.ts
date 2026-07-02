@@ -109,6 +109,13 @@ export const cursos: Curso[] = [
         ],
       },
       {
+        title: "IA local avanzada",
+        lecciones: [
+          { slug: "hardware-minimo-2026", title: "Hardware mínimo para IA local en 2026" },
+          { slug: "open-webui-qdrant", title: "Open WebUI + Ollama + Qdrant" },
+        ],
+      },
+      {
         title: "Construye tus herramientas",
         lecciones: [
           { slug: "chatbot-legal", title: "Chatbot que cita la ley (RAG)" },
