@@ -196,6 +196,38 @@ export const cursos: Curso[] = [
       },
     ],
   },
+  {
+    slug: "rag-seguro",
+    title: "RAG avanzado y seguro",
+    short: "Chatbots con documentos que sí se pueden usar",
+    desc: "Aprende a construir sistemas RAG con PDFs y documentos privados: chunking, embeddings, búsqueda híbrida, reranking, citaciones, permisos, evals y defensa frente a prompt injection.",
+    level: "Intermedio",
+    icon: "database",
+    gradient: ["#f97316", "#14b8a6"],
+    secciones: [
+      {
+        title: "Fundamentos que importan",
+        lecciones: [
+          { slug: "mapa-rag", title: "RAG útil: mucho más que chat con PDF" },
+          { slug: "ingesta-chunking", title: "Ingesta, limpieza y chunking" },
+        ],
+      },
+      {
+        title: "Recuperar mejor",
+        lecciones: [
+          { slug: "embeddings-vector-db", title: "Embeddings y bases vectoriales" },
+          { slug: "hybrid-reranking", title: "Búsqueda híbrida y reranking" },
+        ],
+      },
+      {
+        title: "Seguridad y producción",
+        lecciones: [
+          { slug: "prompt-injection", title: "Prompt injection en RAG" },
+          { slug: "evals-citaciones", title: "Evals, citaciones y trazabilidad" },
+        ],
+      },
+    ],
+  },
 ];
 
 export const proximamente = [
