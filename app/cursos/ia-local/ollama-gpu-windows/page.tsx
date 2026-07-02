@@ -4,7 +4,7 @@ import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, Chapt
 export const metadata: Metadata = {
   title: "Ollama no usa la GPU en Windows: CUDA, AMD, WSL2 y fixes — Claude Code + IA Local",
   description:
-    "Guía de diagnóstico para cuando Ollama usa CPU en Windows: comprobar GPU, drivers NVIDIA, AMD Radeon, WSL2, Docker, VRAM y pruebas con nvidia-smi.",
+    "Guía de diagnóstico para cuando Ollama usa CPU en Windows: comprobar GPU, drivers NVIDIA, AMD Radeon, WSL2, Docker, VRAM, Defender, logs y variables persistentes.",
   keywords: [
     "Ollama no usa GPU Windows",
     "Ollama NVIDIA Windows",
@@ -54,6 +54,21 @@ nvidia-smi -l 1`}</Terminal>
       </Comprueba>
 
       <div className="prose">
+        <h2>Lee los logs antes de tocar nada</h2>
+        <p>Los logs suelen decir si Ollama encontró una GPU, si cayó a CPU o si un driver falló durante la detección.</p>
+      </div>
+
+      <Terminal>{`# PowerShell
+Get-ChildItem "$env:LOCALAPPDATA\\Ollama" -Recurse -Filter "*.log"
+
+# Abre el log más reciente:
+notepad "$env:LOCALAPPDATA\\Ollama\\server.log"`}</Terminal>
+
+      <div className="prose">
+        <p>Busca palabras como <code>cuda</code>, <code>rocm</code>, <code>vulkan</code>, <code>gpu</code>, <code>fallback</code>, <code>memory</code> o <code>no compatible GPUs</code>. Si no aparece nada de GPU, Windows ni siquiera se la está presentando bien a Ollama.</p>
+      </div>
+
+      <div className="prose">
         <h2>Checklist NVIDIA</h2>
         <ol>
           <li>Actualiza el driver NVIDIA. Ollama documenta soporte para GPUs NVIDIA con compute capability compatible y drivers recientes.</li>
@@ -73,6 +88,26 @@ ollama run qwen3:4b "Responde con 20 frases para probar rendimiento"`}</Terminal
       </Idea>
 
       <div className="prose">
+        <h2>Portátiles híbridos NVIDIA + Intel</h2>
+        <p>Este es el caso más traicionero: Windows puede arrancar Ollama con la iGPU Intel aunque tengas una NVIDIA dedicada.</p>
+        <ol>
+          <li>Abre <strong>Configuración</strong> → <strong>Sistema</strong> → <strong>Pantalla</strong> → <strong>Gráficos</strong>.</li>
+          <li>Añade la app de Ollama si no aparece.</li>
+          <li>Marca <strong>Alto rendimiento</strong> para usar la GPU dedicada.</li>
+          <li>En el Panel de control de NVIDIA, usa <strong>Procesador NVIDIA de alto rendimiento</strong> para Ollama si tu equipo lo permite.</li>
+          <li>Cierra Ollama desde la bandeja del sistema y vuelve a abrirlo.</li>
+        </ol>
+      </div>
+
+      <Terminal>{`# Comprueba antes y después:
+nvidia-smi -l 1
+ollama run qwen3:4b "Haz una prueba larga de rendimiento"`}</Terminal>
+
+      <Cuidado>
+        Algunos portátiles solo activan la GPU dedicada con el cargador conectado o en modo alto rendimiento. Si pruebas con batería, puedes diagnosticar mal.
+      </Cuidado>
+
+      <div className="prose">
         <h2>Checklist AMD Radeon</h2>
         <p>Ollama para Windows incluye soporte AMD Radeon, pero la compatibilidad práctica depende mucho de GPU, driver y backend disponible.</p>
         <ul>
@@ -86,6 +121,37 @@ ollama run qwen3:4b "Responde con 20 frases para probar rendimiento"`}</Terminal
       <Cuidado>
         AMD en Windows puede ser más irregular que NVIDIA para LLMs locales. Si tu objetivo es aprender o trabajar ya, no te cases con una herramienta: compara Ollama, LM Studio y llama.cpp en tu máquina.
       </Cuidado>
+
+      <div className="prose">
+        <h2>Vulkan como plan B para AMD, iGPU y equipos raros</h2>
+        <p>Si tu GPU no entra por CUDA o ROCm, Vulkan puede ser una vía útil en algunos equipos. No lo trates como garantía universal: pruébalo y mide.</p>
+      </div>
+
+      <Terminal>{`# PowerShell: variables persistentes para tu usuario
+setx OLLAMA_VULKAN 1
+setx OLLAMA_IGPU_ENABLE 1
+
+# Cierra Ollama completamente, abre una terminal nueva y prueba:
+ollama run qwen3:4b "Prueba de Vulkan en Ollama"`}</Terminal>
+
+      <Cuidado>
+        <code>setx</code> no afecta a la terminal ya abierta. Cierra y abre PowerShell, y reinicia Ollama desde la bandeja del sistema.
+      </Cuidado>
+
+      <div className="prose">
+        <h2>Windows Defender puede ralentizar modelos</h2>
+        <p>Los modelos son archivos enormes. En algunas máquinas, Defender puede escanear cada descarga o lectura y dar la sensación de que Ollama está roto.</p>
+      </div>
+
+      <Terminal>{`# Ruta habitual de modelos:
+%USERPROFILE%\\.ollama
+
+# PowerShell:
+explorer "$env:USERPROFILE\\.ollama"`}</Terminal>
+
+      <div className="prose">
+        <p>Añade esa carpeta a exclusiones de Windows Security solo si entiendes el riesgo y descargas modelos de fuentes confiables. No excluyas carpetas genéricas como Descargas o todo tu usuario.</p>
+      </div>
 
       <div className="prose">
         <h2>WSL2 o Windows nativo</h2>
@@ -117,6 +183,7 @@ nvidia-smi`}</Terminal>
           <li>Prueba un modelo menor o una cuantización más ligera.</li>
           <li>Comprueba VRAM libre antes de lanzar el modelo.</li>
           <li>En portátil híbrido, conecta el cargador y activa modo alto rendimiento.</li>
+          <li>Compara con LM Studio si tienes iGPU o AMD y necesitas offload Vulkan fácil.</li>
         </ul>
       </div>
 
