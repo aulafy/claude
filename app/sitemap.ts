@@ -1,63 +1,29 @@
 import type { MetadataRoute } from "next";
+import { cursos, lecciones } from "@/lib/cursos";
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 
-const routes = [
-  "",
-  "/guia",
-  "/instalacion",
-  "/primeros-pasos",
-  "/donde-usar",
-  "/recetas",
-  "/proyectos",
-  "/prompts",
-  "/glosario",
-  "/faq",
-  "/problemas",
-  "/recursos",
-  "/comparativa",
-  "/aviso-legal",
-  "/licencia",
-  "/privacidad",
-  "/cookies",
-  "/pymes",
-  "/equipos",
-  "/skills",
-  "/subagentes",
-  "/plugins",
-  "/flujos",
-  "/comandos",
-  "/configuracion",
-  "/mcp",
-  "/hooks",
-  "/permisos",
-  "/avanzado",
-  "/volumen-2",
-  "/volumen-2/terminal",
-  "/volumen-2/proyectos",
-  "/volumen-2/prompts",
-  "/volumen-2/ia-local",
-  "/volumen-2/depurar",
-  "/volumen-2/chatbot-legal",
-  "/volumen-2/pdf",
-  "/volumen-2/voz",
-  "/volumen-2/texto-a-audio",
-  "/volumen-2/simulaciones-3d",
-  "/volumen-2/avatar",
-  "/volumen-2/wordpress",
-  "/volumen-2/landing",
-  "/volumen-2/facturacion",
-  "/volumen-2/estudio",
-  "/volumen-2/publicar",
-  "/volumen-2/cluster",
-];
+const estaticas = ["", "/cursos", "/aviso-legal", "/licencia", "/privacidad", "/cookies"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
-  return routes.map((route) => ({
+
+  const rutasCursos = cursos.flatMap((c) => [
+    `/cursos/${c.slug}`,
+    ...lecciones(c).map((l) => `/cursos/${c.slug}/${l.slug}`),
+  ]);
+
+  return [...estaticas, ...rutasCursos].map((route) => ({
     url: `${BASE_URL}${route}`,
     lastModified: now,
     changeFrequency: "monthly",
-    priority: route === "" ? 1 : route.includes("legal") || route === "/privacidad" || route === "/cookies" || route === "/licencia" ? 0.4 : 0.8,
+    priority:
+      route === ""
+        ? 1
+        : route === "/cursos" || cursos.some((c) => route === `/cursos/${c.slug}`)
+          ? 0.9
+          : ["/aviso-legal", "/privacidad", "/cookies", "/licencia"].includes(route)
+            ? 0.4
+            : 0.8,
   }));
 }
