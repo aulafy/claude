@@ -21,7 +21,7 @@ const sora = Sora({
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://aulafy.net"
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net"
   ),
   title: {
     default: "Aulafy — Cursos de Inteligencia Artificial en español",
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
   },
 };
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://aulafy.net";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 
 const jsonLd = {
   "@context": "https://schema.org",
