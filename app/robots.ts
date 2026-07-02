@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://claude-rho-snowy.vercel.app";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://aulafy.net";
 
 // Rastreadores de IA / motores generativos con acceso explícito
 // (ChatGPT/OpenAI, Claude/Anthropic, Perplexity, Google Gemini, Apple, etc.)
