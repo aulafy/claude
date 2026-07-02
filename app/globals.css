@@ -89,6 +89,10 @@ code {
 .callout-warning { border-color: #f59e0b; background: #1c1608; color: #fcd34d; }
 .callout-tip { border-color: #10b981; background: #062016; color: #6ee7b7; }
 .callout-orange { border-color: var(--accent); background: #1a0e05; color: #fdba74; }
+.callout ul, .callout ol { margin: 0.5rem 0 0; padding-left: 1.25rem; }
+.callout ul li { list-style: disc; margin-bottom: 0.3rem; }
+.callout ol li { list-style: decimal; margin-bottom: 0.3rem; }
+.callout code { background: rgba(255,255,255,0.08); padding: 0.05rem 0.3rem; border-radius: 4px; font-size: 0.85em; }
 
 /* Tables */
 table { width: 100%; border-collapse: collapse; margin: 1.25rem 0; font-size: 0.9rem; }
