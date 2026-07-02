@@ -1,38 +1,42 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import Sidebar from "@/components/Sidebar";
+import CourseSidebar from "@/components/CourseSidebar";
+import SiteHeader from "@/components/SiteHeader";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
-import ThemeToggle from "@/components/ThemeToggle";
-
-// Rutas que se muestran a pantalla completa, sin el chrome de la guía (sidebar).
-const BARE_ROUTES = ["/", "/aviso-legal", "/cookies", "/licencia", "/privacidad"];
+import { getCurso } from "@/lib/cursos";
 
 export default function Shell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const bare = BARE_ROUTES.includes(pathname);
 
-  if (bare) {
+  // 1) Landing: pantalla completa, con su propio header y footer.
+  if (pathname === "/") {
+    return <>{children}</>;
+  }
+
+  // 2) Lección de un curso: /cursos/<curso>/<leccion> → sidebar del curso.
+  const parts = pathname.split("/").filter(Boolean);
+  const esLeccion = parts[0] === "cursos" && parts.length >= 3 && getCurso(parts[1]);
+  if (esLeccion) {
     return (
       <>
-        {pathname !== "/" && (
-          <div className="fixed right-4 top-4 z-50">
-            <ThemeToggle />
-          </div>
-        )}
-        {children}
+        <CourseSidebar />
+        <div className="md:ml-[280px] min-h-screen flex flex-col">
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </div>
+        <ChatWidget />
       </>
     );
   }
 
+  // 3) Resto (catálogo, páginas de curso, legales…): cabecera + pie del sitio.
   return (
     <>
-      <Sidebar />
-      <div className="md:ml-[260px] min-h-screen flex flex-col">
-        <main className="flex-1">{children}</main>
-        <Footer />
-      </div>
+      <SiteHeader />
+      <main className="min-h-screen">{children}</main>
+      <Footer />
       <ChatWidget />
     </>
   );
