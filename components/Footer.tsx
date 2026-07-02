@@ -37,6 +37,7 @@ const cols = [
   {
     title: "Legal",
     links: [
+      ["/acerca", "Proyecto y fuentes"],
       ["/aviso-legal", "Aviso legal"],
       ["/licencia", "Licencia"],
       ["/privacidad", "Privacidad"],

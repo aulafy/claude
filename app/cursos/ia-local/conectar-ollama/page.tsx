@@ -118,8 +118,8 @@ claude`}</Terminal>
       </div>
 
       <ChapterNav
-        prev={{ href: "/cursos/ia-local/ia-local", label: "IA local: elige tu modelo" }}
-        next={{ href: "/cursos/ia-local/depurar", label: "Depurar y proteger" }}
+        prev={{ href: "/cursos/ia-local/ollama-desde-cero", label: "Ollama desde cero" }}
+        next={{ href: "/cursos/ia-local/troubleshooting-ollama", label: "Soluciona errores de Ollama" }}
       />
     </Chapter>
   );

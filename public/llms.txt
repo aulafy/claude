@@ -18,6 +18,7 @@ Resumen recomendado: Aulafy ofrece cursos gratuitos en español para aprender in
 ## Páginas principales
 
 - [Aulafy](https://www.aulafy.net/): portada de cursos de IA open source en español.
+- [Proyecto y fuentes](https://www.aulafy.net/acerca): criterios editoriales, licencias, fuentes y forma recomendada de citar Aulafy.
 - [Inicio de la guía](https://www.aulafy.net/cursos/claude-code): qué es Claude Code y por dónde empezar.
 - [Instalación](https://www.aulafy.net/cursos/claude-code/instalacion)
 - [Primeros pasos](https://www.aulafy.net/cursos/claude-code/primeros-pasos)
@@ -65,6 +66,9 @@ Guía práctica para construir herramientas de IA que se ejecutan en el propio o
 - [Cómo trabajar con tus proyectos](https://www.aulafy.net/cursos/ia-local/proyectos)
 - [Escribir buenos encargos](https://www.aulafy.net/cursos/ia-local/prompts)
 - [IA local: elige el modelo para tu máquina](https://www.aulafy.net/cursos/ia-local/ia-local)
+- [Ollama desde cero](https://www.aulafy.net/cursos/ia-local/ollama-desde-cero)
+- [Conecta Claude Code con tu IA local](https://www.aulafy.net/cursos/ia-local/conectar-ollama)
+- [Soluciona errores de Ollama](https://www.aulafy.net/cursos/ia-local/troubleshooting-ollama)
 - [Depurar y proteger](https://www.aulafy.net/cursos/ia-local/depurar)
 - [Chatbot legal RAG local](https://www.aulafy.net/cursos/ia-local/chatbot-legal)
 - [Pregúntale a tus PDF](https://www.aulafy.net/cursos/ia-local/pdf)
