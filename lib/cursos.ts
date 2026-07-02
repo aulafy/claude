@@ -129,10 +129,42 @@ export const cursos: Curso[] = [
       },
     ],
   },
+  {
+    slug: "agentes-automatizacion",
+    title: "Agentes y automatización",
+    short: "Diseña agentes útiles, seguros y mantenibles",
+    desc: "Aprende a convertir tareas repetitivas en sistemas agénticos: subagentes, hooks, skills, MCP, GitHub Actions, routines y agentes 24/7 con límites claros de seguridad.",
+    level: "Intermedio",
+    icon: "robot",
+    gradient: ["#22d3ee", "#10b981"],
+    secciones: [
+      {
+        title: "Fundamentos",
+        lecciones: [
+          { slug: "mapa", title: "Mapa real de agentes en 2026" },
+          { slug: "subagentes", title: "Subagentes con roles y límites" },
+        ],
+      },
+      {
+        title: "Automatizar con control",
+        lecciones: [
+          { slug: "hooks", title: "Hooks: automatización determinista" },
+          { slug: "skills-seguras", title: "Skills seguras y auditables" },
+          { slug: "mcp-seguro", title: "MCP sin regalar tus llaves" },
+        ],
+      },
+      {
+        title: "Del portátil a producción",
+        lecciones: [
+          { slug: "github-routines", title: "GitHub Actions y routines" },
+          { slug: "agente-247", title: "Proyecto: agente 24/7 con bandeja de entrada" },
+        ],
+      },
+    ],
+  },
 ];
 
 export const proximamente = [
-  { icon: "robot", title: "Agentes y automatización", desc: "Crea agentes que hacen tareas por ti y automatiza flujos repetitivos con IA." },
   { icon: "palette", title: "IA generativa: imagen y voz", desc: "Genera imágenes, voz y vídeo con herramientas open source y en la nube." },
 ];
 
