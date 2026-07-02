@@ -47,7 +47,7 @@ const partes = [
   },
 ];
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://claude-rho-snowy.vercel.app";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://aulafy.net";
 
 const bookJsonLd = {
   "@context": "https://schema.org",
@@ -143,8 +143,7 @@ export default function VolumenII() {
       <div className="mt-12 pt-8 border-t border-zinc-800 text-sm text-zinc-500">
         Contenido bajo licencia Creative Commons (CC BY 4.0) · por Ramón Guillamón ·{" "}
         <a href="https://www.linkedin.com/in/rguillamon/" className="text-orange-400 hover:text-orange-300">LinkedIn</a>{" · "}
-        <a href="https://x.com/learntouseai" className="text-orange-400 hover:text-orange-300">X</a>{" · "}
-        <a href="https://github.com/raym33" className="text-orange-400 hover:text-orange-300">GitHub</a>
+        <a href="https://x.com/learntouseai" className="text-orange-400 hover:text-orange-300">X</a>
       </div>
     </div>
   );
