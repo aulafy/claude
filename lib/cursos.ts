@@ -164,6 +164,38 @@ export const cursos: Curso[] = [
       },
     ],
   },
+  {
+    slug: "agentes-produccion",
+    title: "Agentes en producción con LangGraph y n8n",
+    short: "Agentes fiables para tareas reales",
+    desc: "Construye agentes con estado, herramientas, revisión humana y automatizaciones de negocio usando LangGraph, n8n, Ollama y buenas prácticas de seguridad.",
+    level: "Intermedio → avanzado",
+    icon: "network",
+    gradient: ["#10b981", "#6366f1"],
+    secciones: [
+      {
+        title: "Arquitectura",
+        lecciones: [
+          { slug: "mapa-frameworks", title: "LangGraph, n8n y CrewAI: qué usar" },
+          { slug: "estado-memoria", title: "Estado, memoria y bucles controlados" },
+        ],
+      },
+      {
+        title: "Automatizar con herramientas",
+        lecciones: [
+          { slug: "n8n-tools", title: "n8n como capa de herramientas" },
+          { slug: "human-in-the-loop", title: "Aprobaciones humanas y permisos" },
+        ],
+      },
+      {
+        title: "Producción",
+        lecciones: [
+          { slug: "evals-logs", title: "Evals, logs y observabilidad" },
+          { slug: "proyecto-inbox", title: "Proyecto: agente de inbox para pymes" },
+        ],
+      },
+    ],
+  },
 ];
 
 export const proximamente = [
