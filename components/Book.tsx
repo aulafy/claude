@@ -13,12 +13,20 @@ export function Lead({ children }: { children: React.ReactNode }) {
   return <p className="text-lg text-zinc-400 leading-relaxed">{children}</p>;
 }
 
-export function Crumb({ label }: { label: string }) {
+export function Crumb({
+  label,
+  courseHref = "/cursos/ia-local",
+  courseLabel = "Claude Code + IA Local",
+}: {
+  label: string;
+  courseHref?: string;
+  courseLabel?: string;
+}) {
   return (
     <div className="mb-2 text-xs text-zinc-600">
-      <Link href="/" className="hover:text-zinc-400">Inicio</Link>
+      <Link href="/cursos" className="hover:text-zinc-400">Cursos</Link>
       <span className="mx-2">/</span>
-      <Link href="/volumen-2" className="hover:text-zinc-400">Volumen II</Link>
+      <Link href={courseHref} className="hover:text-zinc-400">{courseLabel}</Link>
       <span className="mx-2">/</span>
       <span className="text-zinc-400">{label}</span>
     </div>
@@ -168,16 +176,20 @@ export function Chapter({
   icon,
   lead,
   children,
+  courseHref,
+  courseLabel,
 }: {
   crumb: string;
   title: string;
   icon: IconName;
   lead: React.ReactNode;
   children: React.ReactNode;
+  courseHref?: string;
+  courseLabel?: string;
 }) {
   return (
     <div className="max-w-3xl mx-auto px-8 py-14">
-      <Crumb label={crumb} />
+      <Crumb label={crumb} courseHref={courseHref} courseLabel={courseLabel} />
       <div className="mb-10">
         <h1 className="text-4xl font-bold text-white mb-4 flex items-center gap-3">
           <Icon name={icon} className="text-orange-400 text-3xl" />
