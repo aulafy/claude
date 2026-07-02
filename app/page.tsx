@@ -40,12 +40,12 @@ function BrandIcon({ id, className }: { id: string; className?: string }) {
 }
 
 const cursos = [
-  { icon: "brain", title: "IA local: tu IA privada", desc: "Ejecuta modelos en tu propio equipo con Ollama y LM Studio. Sin cuotas y sin enviar tus datos a la nube.", level: "Intermedio", status: "Disponible", statusColor: "text-[#22d3ee]", href: "/volumen-2/ia-local" },
-  { icon: "prompt", title: "Ingeniería de prompts", desc: "Escribe instrucciones que funcionan a la primera. La habilidad que multiplica todo lo demás.", level: "Todos los niveles", status: "Disponible", statusColor: "text-[#22d3ee]", href: "/prompts" },
+  { icon: "brain", title: "IA local: tu IA privada", desc: "Ejecuta modelos en tu propio equipo con Ollama y LM Studio. Sin cuotas y sin enviar tus datos a la nube.", level: "Intermedio", status: "Disponible", statusColor: "text-[#22d3ee]", href: "/cursos/ia-local/ia-local" },
+  { icon: "prompt", title: "Ingeniería de prompts", desc: "Escribe instrucciones que funcionan a la primera. La habilidad que multiplica todo lo demás.", level: "Todos los niveles", status: "Disponible", statusColor: "text-[#22d3ee]", href: "/cursos/claude-code/prompts" },
   { icon: "robot", title: "Agentes y automatización", desc: "Crea agentes que hacen tareas por ti y automatiza flujos repetitivos con IA.", level: "Intermedio", status: "Próximamente", statusColor: "text-[#e879f9]" },
-  { icon: "pdf", title: "Chatbots con tus documentos", desc: "Monta un asistente que responde citando tus PDF y datos (RAG), 100% local.", level: "Intermedio", status: "Disponible", statusColor: "text-[#22d3ee]", href: "/volumen-2/pdf" },
-  { icon: "palette", title: "IA generativa: imagen y voz", desc: "Genera imágenes, voz y vídeo con herramientas open source y en la nube.", level: "Principiante", status: "Disponible", statusColor: "text-[#22d3ee]", href: "/volumen-2/texto-a-audio" },
-  { icon: "briefcase", title: "IA para tu trabajo", desc: "Aplica la IA a tareas reales de oficina, autónomos y pymes. Sin ser técnico.", level: "Principiante", status: "Disponible", statusColor: "text-[#22d3ee]", href: "/pymes" },
+  { icon: "pdf", title: "Chatbots con tus documentos", desc: "Monta un asistente que responde citando tus PDF y datos (RAG), 100% local.", level: "Intermedio", status: "Disponible", statusColor: "text-[#22d3ee]", href: "/cursos/ia-local/pdf" },
+  { icon: "palette", title: "IA generativa: imagen y voz", desc: "Genera imágenes, voz y vídeo con herramientas open source y en la nube.", level: "Principiante", status: "Disponible", statusColor: "text-[#22d3ee]", href: "/cursos/ia-local/texto-a-audio" },
+  { icon: "briefcase", title: "IA para tu trabajo", desc: "Aplica la IA a tareas reales de oficina, autónomos y pymes. Sin ser técnico.", level: "Principiante", status: "Disponible", statusColor: "text-[#22d3ee]", href: "/cursos/claude-code/pymes" },
 ] satisfies Array<{
   icon: IconName;
   title: string;
@@ -60,19 +60,19 @@ const rutas = [
   {
     title: "Empieza desde cero",
     desc: "Instala Claude Code, aprende a pedir bien y crea tus primeros proyectos guiados.",
-    href: "/instalacion",
+    href: "/cursos/claude-code/instalacion",
     steps: ["Instalación", "Primeros pasos", "Proyectos guiados"],
   },
   {
     title: "Construye con IA local",
     desc: "Monta apps con modelos en tu ordenador: RAG, PDF, voz y herramientas privadas.",
-    href: "/volumen-2",
+    href: "/cursos/ia-local",
     steps: ["IA local", "PDF y RAG", "Voz y audio"],
   },
   {
     title: "Llévalo a tu trabajo",
     desc: "Automatiza tareas de oficina, documentos, informes y flujos de equipo con IA.",
-    href: "/pymes",
+    href: "/cursos/claude-code/pymes",
     steps: ["Pymes", "Recetas", "Flujos pro"],
   },
 ];
@@ -230,7 +230,7 @@ export default function Home() {
               </div>
             </div>
             <div className="flex md:flex-col gap-3 md:w-48">
-              <Link href="/guia" className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-medium text-white bg-gradient-to-r from-[#8b5cf6] to-[#e879f9] hover:opacity-90 transition-opacity">
+              <Link href="/cursos/claude-code" className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-medium text-white bg-gradient-to-r from-[#8b5cf6] to-[#e879f9] hover:opacity-90 transition-opacity">
                 <Icon name="book" />
                 Ver el curso
               </Link>
@@ -321,7 +321,7 @@ export default function Home() {
               <Icon name="book" />
               Ver los cursos
             </a>
-            <Link href="/guia" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium text-zinc-200 glass hover:border-white/20 transition-colors">
+            <Link href="/cursos/claude-code" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium text-zinc-200 glass hover:border-white/20 transition-colors">
               <Icon name="terminal" />
               Empezar con Claude Code
             </Link>
@@ -337,7 +337,7 @@ export default function Home() {
             <span className="text-sm text-zinc-400">Aulafy · Cursos de IA en español</span>
           </a>
           <div className="flex flex-wrap items-center justify-center gap-5 text-zinc-500">
-            <Link href="/guia" className="text-xs hover:text-white transition-colors">
+            <Link href="/cursos/claude-code" className="text-xs hover:text-white transition-colors">
               Guía
             </Link>
             <Link href="/aviso-legal" className="text-xs hover:text-white transition-colors">
