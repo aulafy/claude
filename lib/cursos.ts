@@ -220,6 +220,7 @@ export const cursos: Curso[] = [
         lecciones: [
           { slug: "mapa-rag", title: "RAG útil: mucho más que chat con PDF" },
           { slug: "ingesta-chunking", title: "Ingesta, limpieza y chunking" },
+          { slug: "ocr-tablas", title: "OCR y tablas en PDFs reales" },
         ],
       },
       {
@@ -227,12 +228,14 @@ export const cursos: Curso[] = [
         lecciones: [
           { slug: "embeddings-vector-db", title: "Embeddings y bases vectoriales" },
           { slug: "hybrid-reranking", title: "Búsqueda híbrida y reranking" },
+          { slug: "qdrant-permisos", title: "Qdrant multiusuario y permisos" },
         ],
       },
       {
         title: "Seguridad y producción",
         lecciones: [
           { slug: "prompt-injection", title: "Prompt injection en RAG" },
+          { slug: "evals-metricas", title: "Evals RAG con métricas" },
           { slug: "evals-citaciones", title: "Evals, citaciones y trazabilidad" },
         ],
       },

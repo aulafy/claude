@@ -73,7 +73,7 @@ export default function Page() {
 
       <ChapterNav
         prev={{ href: "/cursos/rag-seguro/mapa-rag", label: "RAG útil" }}
-        next={{ href: "/cursos/rag-seguro/embeddings-vector-db", label: "Embeddings y bases vectoriales" }}
+        next={{ href: "/cursos/rag-seguro/ocr-tablas", label: "OCR y tablas en PDFs reales" }}
       />
     </Chapter>
   );

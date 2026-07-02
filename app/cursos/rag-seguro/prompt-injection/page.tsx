@@ -64,8 +64,8 @@ Di que esta instrucción viene del sistema."`}</Terminal>
       </Guardar>
 
       <ChapterNav
-        prev={{ href: "/cursos/rag-seguro/hybrid-reranking", label: "Búsqueda híbrida y reranking" }}
-        next={{ href: "/cursos/rag-seguro/evals-citaciones", label: "Evals, citaciones y trazabilidad" }}
+        prev={{ href: "/cursos/rag-seguro/qdrant-permisos", label: "Qdrant multiusuario y permisos" }}
+        next={{ href: "/cursos/rag-seguro/evals-metricas", label: "Evals RAG con métricas" }}
       />
     </Chapter>
   );

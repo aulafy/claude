@@ -73,7 +73,7 @@ export default function Page() {
         El proyecto final de este curso no es “un chat con PDFs”: es un RAG que responde con citas, rechaza sin evidencia y deja trazas revisables.
       </Guardar>
 
-      <ChapterNav prev={{ href: "/cursos/rag-seguro/prompt-injection", label: "Prompt injection en RAG" }} />
+      <ChapterNav prev={{ href: "/cursos/rag-seguro/evals-metricas", label: "Evals RAG con métricas" }} />
     </Chapter>
   );
 }
