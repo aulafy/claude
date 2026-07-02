@@ -24,23 +24,32 @@ export default function Search() {
   const [active, setActive] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  function openSearch() {
+    setQuery("");
+    setActive(0);
+    setOpen(true);
+  }
+
+  function closeSearch() {
+    setOpen(false);
+  }
+
   // Abrir con Cmd/Ctrl+K
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
         e.preventDefault();
-        setOpen((o) => !o);
+        if (open) closeSearch();
+        else openSearch();
       }
-      if (e.key === "Escape") setOpen(false);
+      if (e.key === "Escape") closeSearch();
     }
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, []);
+  }, [open]);
 
   useEffect(() => {
     if (open) {
-      setQuery("");
-      setActive(0);
       setTimeout(() => inputRef.current?.focus(), 50);
     }
   }, [open]);
@@ -56,12 +65,8 @@ export default function Search() {
       .map((r) => r.item);
   }, [query]);
 
-  useEffect(() => {
-    setActive(0);
-  }, [query]);
-
   function go(href: string) {
-    setOpen(false);
+    closeSearch();
     router.push(href);
   }
 
@@ -83,7 +88,7 @@ export default function Search() {
     <>
       {/* Disparador en el sidebar */}
       <button
-        onClick={() => setOpen(true)}
+        onClick={openSearch}
         className="w-full flex items-center gap-2 px-3 py-2 rounded-lg border border-zinc-800 bg-zinc-900/50 text-sm text-zinc-500 hover:border-zinc-700 hover:text-zinc-300 transition-colors"
       >
         <span>🔍</span>
@@ -95,7 +100,7 @@ export default function Search() {
       {open && (
         <div
           className="fixed inset-0 z-[60] flex items-start justify-center pt-[12vh] px-4 bg-black/60"
-          onClick={() => setOpen(false)}
+          onClick={closeSearch}
         >
           <div
             className="w-full max-w-lg rounded-xl border border-zinc-700 bg-zinc-900 shadow-2xl overflow-hidden"
@@ -106,7 +111,11 @@ export default function Search() {
               <input
                 ref={inputRef}
                 value={query}
-                onChange={(e) => setQuery(e.target.value)}
+                aria-label="Buscar en la guía"
+                onChange={(e) => {
+                  setQuery(e.target.value);
+                  setActive(0);
+                }}
                 onKeyDown={onInputKey}
                 placeholder="Buscar en la guía..."
                 className="flex-1 bg-transparent py-3.5 text-sm text-zinc-100 placeholder-zinc-500 focus:outline-none"

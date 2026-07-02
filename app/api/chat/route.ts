@@ -17,11 +17,10 @@ function getClientIp(req: Request): string {
 export async function POST(req: Request) {
   try {
     return await handleChat(req);
-  } catch (err) {
+  } catch {
     // Red de seguridad: nunca devolvemos un 500 en HTML; siempre JSON.
-    const detail = err instanceof Error ? err.message : "desconocido";
     return Response.json(
-      { error: "Error interno del servidor del chat.", detail: detail.slice(0, 200) },
+      { error: "Error interno del servidor del chat." },
       { status: 500 }
     );
   }
@@ -31,7 +30,7 @@ async function handleChat(req: Request) {
   const apiKey = process.env.GROQ_API_KEY;
   if (!apiKey) {
     return Response.json(
-      { error: "El servidor no tiene configurada la clave de Groq (falta GROQ_API_KEY)." },
+      { error: "El chat no está disponible temporalmente." },
       { status: 500 }
     );
   }
@@ -101,9 +100,9 @@ async function handleChat(req: Request) {
   }
 
   if (!groqRes.ok || !groqRes.body) {
-    const detail = await groqRes.text().catch(() => "");
+    await groqRes.text().catch(() => "");
     return Response.json(
-      { error: "El servicio de IA devolvió un error.", detail: detail.slice(0, 300) },
+      { error: "El servicio de IA devolvió un error." },
       { status: 502 }
     );
   }

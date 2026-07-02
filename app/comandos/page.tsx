@@ -19,7 +19,7 @@ const slashCommands = [
   { cmd: "/hooks", desc: "Gestiona los hooks de automatización de la sesión actual." },
   { cmd: "/memory", desc: "Muestra o edita el archivo de memoria (CLAUDE.md)." },
   { cmd: "/status", desc: "Muestra el estado actual de la sesión, modelo y costos." },
-  { cmd: "/fast", desc: "Alterna entre modo rápido (Opus con más velocidad) y normal." },
+  { cmd: "/model", desc: "Abre el selector de modelo o cambia el modelo de la sesión." },
   { cmd: "/compact", desc: "Compacta el contexto de la conversación para ahorrar tokens." },
   { cmd: "/review", desc: "Solicita a Claude que revise el código actual o los cambios recientes." },
   { cmd: "/init", desc: "Inicializa CLAUDE.md en el proyecto actual con instrucciones base." },
@@ -32,7 +32,7 @@ const slashCommands = [
 const cliFlags = [
   { flag: "-p / --print", desc: "Modo no interactivo: responde una vez y sale. Ideal para scripts." },
   { flag: "--dangerously-skip-permissions", desc: "Omite todas las confirmaciones de permisos. Usar con precaución." },
-  { flag: "--model <id>", desc: "Especifica el modelo a usar. Ej: --model claude-opus-4-8" },
+  { flag: "--model <alias|id>", desc: "Especifica el modelo a usar. Ej: --model opus" },
   { flag: "--max-tokens <n>", desc: "Limita los tokens de salida por respuesta." },
   { flag: "--no-color", desc: "Desactiva el color en la salida del terminal." },
   { flag: "--version", desc: "Muestra la versión instalada de Claude Code." },
@@ -91,7 +91,7 @@ export default function Comandos() {
           antes o después del prompt.
         </p>
         <pre><code>{`claude [flags] [prompt]
-claude --model claude-opus-4-8 "refactoriza este archivo"
+claude --model opus "refactoriza este archivo"
 claude -p "¿qué hace esta función?" < mi_archivo.py`}</code></pre>
       </div>
 
@@ -117,9 +117,9 @@ claude -p "¿qué hace esta función?" < mi_archivo.py`}</code></pre>
       <div className="prose">
         <h2>Modelos disponibles</h2>
         <p>
-          Puedes cambiar el modelo con <code>--model</code> o en la configuración.
-          Claude Code usa <code>claude-sonnet-4-6</code> por defecto (velocidad
-          óptima), pero puedes elegir:
+          Puedes cambiar el modelo con <code>--model</code>, <code>/model</code>{" "}
+          o en la configuración. El valor por defecto depende de tu tipo de
+          cuenta y proveedor, así que lo más estable es usar aliases:
         </p>
       </div>
 
@@ -128,7 +128,7 @@ claude -p "¿qué hace esta función?" < mi_archivo.py`}</code></pre>
           <thead>
             <tr>
               <th>Modelo</th>
-              <th>ID</th>
+              <th>Alias / ID</th>
               <th>Velocidad</th>
               <th>Ideal para</th>
             </tr>
@@ -136,25 +136,25 @@ claude -p "¿qué hace esta función?" < mi_archivo.py`}</code></pre>
           <tbody>
             <tr>
               <td>Claude Fable 5</td>
-              <td><code>claude-fable-5</code></td>
+              <td><code>fable</code> o <code>claude-fable-5</code></td>
               <td>Lento</td>
               <td>Tareas de máxima complejidad</td>
             </tr>
             <tr>
               <td>Claude Opus 4.8</td>
-              <td><code>claude-opus-4-8</code></td>
+              <td><code>opus</code> o <code>claude-opus-4-8</code></td>
               <td>Medio</td>
               <td>Razonamiento complejo, análisis profundo</td>
             </tr>
             <tr>
               <td>Claude Sonnet 4.6</td>
-              <td><code>claude-sonnet-4-6</code></td>
+              <td><code>sonnet</code> o un ID Sonnet concreto</td>
               <td>Rápido</td>
-              <td>Uso general (por defecto en Claude Code)</td>
+              <td>Uso general y tareas diarias</td>
             </tr>
             <tr>
               <td>Claude Haiku 4.5</td>
-              <td><code>claude-haiku-4-5</code></td>
+              <td><code>haiku</code> o <code>claude-haiku-4-5</code></td>
               <td>Muy rápido</td>
               <td>Tareas simples, alta frecuencia, bajo costo</td>
             </tr>
@@ -203,8 +203,8 @@ claude -p --output-format json "resume los cambios del último commit"
 claude -p "revisa posibles vulnerabilidades en src/api/auth.ts" < /dev/null`}</code></pre>
 
         <h3>Cambiar modelo para una sesión</h3>
-        <pre><code>{`claude --model claude-opus-4-8
-# Ahora usas Opus 4.8 para la sesión completa`}</code></pre>
+        <pre><code>{`claude --model opus
+# Ahora usas el alias Opus para la sesión completa`}</code></pre>
 
         <h3>Ver diagnóstico de instalación</h3>
         <pre><code>{`# Dentro de Claude Code:

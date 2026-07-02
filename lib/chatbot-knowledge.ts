@@ -43,14 +43,12 @@ Desde el MÓVIL puedes lanzar y supervisar: app de Claude para iOS + web; Remote
 - Prompt directo: \`claude "explica el package.json"\`. Modo print para scripts: \`claude -p "..."\`.
 
 ## Slash commands más usados (dentro de la sesión)
-/help, /clear, /exit, /plan, /permissions, /config, /agents, /doctor (diagnóstico), /hooks, /memory, /status, /fast, /compact (resume contexto), /review, /init (genera CLAUDE.md), /rewind (deshacer a un punto anterior), /plugin, /mcp, /skills.
+/help, /clear, /exit, /plan, /permissions, /config, /agents, /doctor (diagnóstico), /hooks, /memory, /status, /compact (resume contexto), /review, /init (genera CLAUDE.md), /rewind (deshacer a un punto anterior), /plugin, /mcp, /skills, /model.
 
 ## Modelos
-- Por defecto: claude-sonnet-4-6 (rápido y capaz, para el día a día).
-- claude-opus-4-8: razonamiento complejo.
-- claude-haiku-4-5: tareas simples, más barato.
-- claude-fable-5: máxima capacidad.
-- Cambiar: \`claude --model claude-opus-4-8\`.
+- Usa aliases estables: \`sonnet\` para el día a día, \`opus\` para razonamiento complejo, \`haiku\` para tareas simples y \`fable\` para tareas largas o muy difíciles cuando esté disponible.
+- El modelo por defecto depende de la cuenta y del proveedor; no lo presentes como fijo.
+- Cambiar: \`claude --model opus\` o \`/model\` dentro de la sesión.
 
 ## Configuración
 - settings.json global (~/.claude/settings.json) y por proyecto (.claude/settings.json, tiene prioridad).
@@ -76,7 +74,7 @@ Desde el MÓVIL puedes lanzar y supervisar: app de Claude para iOS + web; Remote
 - Gestionar: \`claude mcp list\`, o \`/mcp\` en la sesión.
 
 ## Hooks
-- Scripts que se ejecutan automáticamente ante eventos: PreToolCall (antes de una herramienta, puede bloquear), PostToolCall (después), Stop (al terminar respuesta), etc.
+- Scripts que se ejecutan automáticamente ante eventos: PreToolUse (antes de una herramienta, puede bloquear), PostToolUse (después), Stop (al terminar respuesta), etc.
 - Se configuran en settings.json con un matcher (regex del nombre de herramienta) y un comando.
 - Usos: formatear con prettier tras editar, correr tests, logs, bloquear comandos peligrosos.
 
@@ -94,7 +92,7 @@ Desde el MÓVIL puedes lanzar y supervisar: app de Claude para iOS + web; Remote
 ## Flujos de trabajo pro
 - Plan Mode: Shift+Tab o \`--permission-mode plan\`. Planifica sin tocar archivos; tú apruebas.
 - Rewind/checkpoints: \`/rewind\` o Esc Esc para deshacer al estado anterior (conversación y código).
-- Tareas en background: \`claude --bg "tarea"\`, Ctrl+B, gestionar con \`claude agents\`.
+- Tareas en background: \`claude --bg "tarea"\`, gestionar con \`claude agents\`.
 - Output styles: \`--output-format text|json|stream-json\`.
 - Mentalidad recomendada: planificar primero, delegar a subagentes, revisar diffs.
 

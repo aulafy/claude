@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://aulafy.net";
+const HOST = new URL(BASE_URL).host;
 
 // Rastreadores de IA / motores generativos con acceso explícito
 // (ChatGPT/OpenAI, Claude/Anthropic, Perplexity, Google Gemini, Apple, etc.)
@@ -31,6 +32,6 @@ export default function robots(): MetadataRoute.Robots {
       ...AI_BOTS.map((bot) => ({ userAgent: bot, allow: "/" })),
     ],
     sitemap: `${BASE_URL}/sitemap.xml`,
-    host: BASE_URL,
+    host: HOST,
   };
 }

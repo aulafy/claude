@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Hooks — Aprende Claude Code",
-  description: "Automatiza comportamientos de Claude Code con hooks: PreToolCall, PostToolCall, Stop y más.",
+  description: "Automatiza comportamientos de Claude Code con hooks: PreToolUse, PostToolUse, Stop y más.",
 };
 
 export default function Hooks() {
@@ -54,8 +54,8 @@ export default function Hooks() {
           </thead>
           <tbody>
             {[
-              ["PreToolCall", "Antes de ejecutar cualquier herramienta", "Sí"],
-              ["PostToolCall", "Después de ejecutar cualquier herramienta", "No"],
+              ["PreToolUse", "Antes de ejecutar cualquier herramienta", "Sí"],
+              ["PostToolUse", "Después de ejecutar cualquier herramienta", "No"],
               ["Stop", "Cuando Claude termina una respuesta completa", "No"],
               ["SubagentStop", "Cuando un subagente termina su tarea", "No"],
               ["Notification", "Cuando Claude emite una notificación al usuario", "No"],
@@ -82,7 +82,7 @@ export default function Hooks() {
         </p>
         <pre><code>{`{
   "hooks": {
-    "PostToolCall": [
+    "PostToolUse": [
       {
         "matcher": "Edit|Write",
         "hooks": [
@@ -121,11 +121,11 @@ export default function Hooks() {
             {[
               ["CLAUDE_TOOL_NAME", "Nombre de la herramienta que se ejecutó"],
               ["CLAUDE_TOOL_INPUT", "Input de la herramienta (JSON)"],
-              ["CLAUDE_TOOL_OUTPUT", "Output de la herramienta (PostToolCall)"],
+              ["CLAUDE_TOOL_OUTPUT", "Output de la herramienta (PostToolUse)"],
               ["CLAUDE_FILE_PATH", "Ruta del archivo afectado (Edit/Write/Read)"],
               ["CLAUDE_SESSION_ID", "ID único de la sesión actual"],
               ["CLAUDE_PROJECT_DIR", "Directorio raíz del proyecto"],
-              ["CLAUDE_HOOK_TYPE", "Tipo de hook (PreToolCall, PostToolCall, Stop...)"],
+              ["CLAUDE_HOOK_TYPE", "Tipo de hook (PreToolUse, PostToolUse, Stop...)"],
             ].map(([v, d]) => (
               <tr key={v as string}>
                 <td><code>{v as string}</code></td>
@@ -172,9 +172,9 @@ FILE=$(echo $EVENT | jq -r '.tool_input.path // ""')
 
 echo "Herramienta: $TOOL, Archivo: $FILE" >> ~/.claude/hook.log`}</code></pre>
 
-        <h2>Bloquear operaciones con PreToolCall</h2>
+        <h2>Bloquear operaciones con PreToolUse</h2>
         <p>
-          Un hook <code>PreToolCall</code> puede devolver un código de salida
+          Un hook <code>PreToolUse</code> puede devolver un código de salida
           distinto de 0 para bloquear la operación:
         </p>
         <pre><code>{`#!/bin/bash
@@ -191,7 +191,7 @@ exit 0  # exit 0 = permitir`}</code></pre>
         <p>Configúralo así en settings.json:</p>
         <pre><code>{`{
   "hooks": {
-    "PreToolCall": [{
+    "PreToolUse": [{
       "matcher": "Bash",
       "hooks": [{
         "type": "command",
@@ -206,7 +206,7 @@ exit 0  # exit 0 = permitir`}</code></pre>
         <h3>Formatear con Prettier tras edición</h3>
         <pre><code>{`{
   "hooks": {
-    "PostToolCall": [{
+    "PostToolUse": [{
       "matcher": "Edit|Write",
       "hooks": [{
         "type": "command",
@@ -231,7 +231,7 @@ exit 0  # exit 0 = permitir`}</code></pre>
         <h3>Log de todas las operaciones</h3>
         <pre><code>{`{
   "hooks": {
-    "PostToolCall": [{
+    "PostToolUse": [{
       "hooks": [{
         "type": "command",
         "command": "echo \"$(date) - $CLAUDE_TOOL_NAME: $CLAUDE_FILE_PATH\" >> ~/.claude/audit.log"

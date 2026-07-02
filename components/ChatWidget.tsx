@@ -165,17 +165,21 @@ export default function ChatWidget() {
 
       const reader = res.body.getReader();
       const decoder = new TextDecoder();
-      let acc = "";
-      while (true) {
+
+      async function readStream(acc: string): Promise<string> {
         const { done, value } = await reader.read();
-        if (done) break;
-        acc += decoder.decode(value, { stream: true });
+        if (done) return acc;
+
+        const nextAcc = acc + decoder.decode(value, { stream: true });
         setMessages((prev) => {
           const copy = [...prev];
-          copy[copy.length - 1] = { role: "assistant", content: acc };
+          copy[copy.length - 1] = { role: "assistant", content: nextAcc };
           return copy;
         });
+        return readStream(nextAcc);
       }
+
+      const acc = await readStream("");
       if (!acc.trim()) throw new Error("empty");
     } catch {
       setMessages((prev) => {
@@ -286,6 +290,7 @@ export default function ChatWidget() {
               <textarea
                 ref={inputRef}
                 value={input}
+                aria-label="Pregunta para el asistente"
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => {
                   if (e.key === "Enter" && !e.shiftKey) {

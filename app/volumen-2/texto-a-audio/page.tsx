@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Prompt from "@/components/Prompt";
-import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, Nota, ChapterNav, Terminal } from "@/components/Book";
+import { Chapter, Objetivos, Idea, Cristiano, Comprueba, Guardar, Nota, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
   title: "Convierte cualquier texto en audio — Claude Code + IA Local",

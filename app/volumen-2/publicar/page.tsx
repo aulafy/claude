@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, Nota, ChapterNav } from "@/components/Book";
+import { Chapter, Objetivos, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav } from "@/components/Book";
 
 export const metadata: Metadata = {
   title: "Publica tu aplicación en internet — Claude Code + IA Local",

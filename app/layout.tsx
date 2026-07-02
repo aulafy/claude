@@ -24,11 +24,11 @@ export const metadata: Metadata = {
     process.env.NEXT_PUBLIC_SITE_URL ?? "https://aulafy.net"
   ),
   title: {
-    default: "Aprende Claude Code — Guía completa en español",
-    template: "%s",
+    default: "Aulafy — Cursos de Inteligencia Artificial en español",
+    template: "%s | Aulafy",
   },
   description:
-    "Tutorial completo de Claude Code desde cero: instalación, comandos, skills, subagentes, MCP, hooks, permisos y uso avanzado. Incluye el Volumen II: Claude Code + IA Local.",
+    "Cursos gratuitos y de código abierto para aprender IA con ejemplos prácticos: Claude Code, IA local, prompts, RAG, voz, PDF y automatización.",
   keywords: [
     "Claude Code",
     "tutorial Claude Code español",
@@ -46,18 +46,18 @@ export const metadata: Metadata = {
   publisher: "Ramón Guillamón",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Aprende Claude Code — Guía completa en español",
+    title: "Aulafy — Cursos de IA en español",
     description:
-      "Tutorial completo de Claude Code en español: recetas, proyectos guiados, skills, subagentes y el Volumen II sobre IA local.",
+      "Cursos gratuitos y prácticos para aprender IA, construir herramientas propias y trabajar con modelos locales.",
     type: "website",
     locale: "es_ES",
-    siteName: "Aprende Claude Code",
+    siteName: "Aulafy",
     url: "/",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aprende Claude Code — Guía completa en español",
-    description: "Tutorial completo de Claude Code en español. Incluye el Volumen II: IA local.",
+    title: "Aulafy — Cursos de IA en español",
+    description: "Cursos gratuitos y prácticos para aprender IA, Claude Code e IA local.",
     creator: "@learntouseai",
   },
 };
@@ -76,6 +76,18 @@ const jsonLd = {
         "Cursos de Inteligencia Artificial en español, gratis y de código abierto. El primer curso es Claude Code.",
       inLanguage: "es",
       publisher: { "@id": `${SITE_URL}/#author` },
+    },
+    {
+      "@type": "Course",
+      "@id": `${SITE_URL}/guia#course`,
+      name: "Claude Code, de 0 a pro",
+      description:
+        "Curso gratuito en español para aprender Claude Code desde cero, con proyectos, recetas, skills, subagentes, MCP, hooks e IA local.",
+      url: `${SITE_URL}/guia`,
+      inLanguage: "es",
+      isAccessibleForFree: true,
+      provider: { "@id": `${SITE_URL}/#website` },
+      author: { "@id": `${SITE_URL}/#author` },
     },
     {
       "@type": "Person",

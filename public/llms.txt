@@ -6,7 +6,8 @@ Autor: Ramón Guillamón (AI Automation Consultant) — LinkedIn: https://www.li
 
 ## Volumen I — Aprende Claude Code (fundamentos y referencia)
 
-- [Inicio](https://aulafy.net/): qué es Claude Code y por dónde empezar.
+- [Aulafy](https://aulafy.net/): portada de cursos de IA en español.
+- [Inicio de la guia](https://aulafy.net/guia): qué es Claude Code y por dónde empezar.
 - [Instalación](https://aulafy.net/instalacion)
 - [Primeros pasos](https://aulafy.net/primeros-pasos)
 - [CLI, app de escritorio, web y móvil](https://aulafy.net/donde-usar)

@@ -38,12 +38,33 @@ function BrandIcon({ id, className }: { id: string; className?: string }) {
 }
 
 const cursos = [
-  { icon: "🧠", title: "IA local: tu IA privada", desc: "Ejecuta modelos en tu propio equipo con Ollama y LM Studio. Sin cuotas y sin enviar tus datos a la nube.", level: "Intermedio", status: "Disponible", statusColor: "text-[#22d3ee]" },
-  { icon: "🎯", title: "Ingeniería de prompts", desc: "Escribe instrucciones que funcionan a la primera. La habilidad que multiplica todo lo demás.", level: "Todos los niveles", status: "Disponible", statusColor: "text-[#22d3ee]" },
+  { icon: "🧠", title: "IA local: tu IA privada", desc: "Ejecuta modelos en tu propio equipo con Ollama y LM Studio. Sin cuotas y sin enviar tus datos a la nube.", level: "Intermedio", status: "Disponible", statusColor: "text-[#22d3ee]", href: "/volumen-2/ia-local" },
+  { icon: "🎯", title: "Ingeniería de prompts", desc: "Escribe instrucciones que funcionan a la primera. La habilidad que multiplica todo lo demás.", level: "Todos los niveles", status: "Disponible", statusColor: "text-[#22d3ee]", href: "/prompts" },
   { icon: "🤖", title: "Agentes y automatización", desc: "Crea agentes que hacen tareas por ti y automatiza flujos repetitivos con IA.", level: "Intermedio", status: "Próximamente", statusColor: "text-[#e879f9]" },
-  { icon: "📄", title: "Chatbots con tus documentos", desc: "Monta un asistente que responde citando tus PDF y datos (RAG), 100% local.", level: "Intermedio", status: "Próximamente", statusColor: "text-[#e879f9]" },
-  { icon: "🎨", title: "IA generativa: imagen y voz", desc: "Genera imágenes, voz y vídeo con herramientas open source y en la nube.", level: "Principiante", status: "Próximamente", statusColor: "text-[#e879f9]" },
-  { icon: "💼", title: "IA para tu trabajo", desc: "Aplica la IA a tareas reales de oficina, autónomos y pymes. Sin ser técnico.", level: "Principiante", status: "Próximamente", statusColor: "text-[#e879f9]" },
+  { icon: "📄", title: "Chatbots con tus documentos", desc: "Monta un asistente que responde citando tus PDF y datos (RAG), 100% local.", level: "Intermedio", status: "Disponible", statusColor: "text-[#22d3ee]", href: "/volumen-2/pdf" },
+  { icon: "🎨", title: "IA generativa: imagen y voz", desc: "Genera imágenes, voz y vídeo con herramientas open source y en la nube.", level: "Principiante", status: "Disponible", statusColor: "text-[#22d3ee]", href: "/volumen-2/texto-a-audio" },
+  { icon: "💼", title: "IA para tu trabajo", desc: "Aplica la IA a tareas reales de oficina, autónomos y pymes. Sin ser técnico.", level: "Principiante", status: "Disponible", statusColor: "text-[#22d3ee]", href: "/pymes" },
+];
+
+const rutas = [
+  {
+    title: "Empieza desde cero",
+    desc: "Instala Claude Code, aprende a pedir bien y crea tus primeros proyectos guiados.",
+    href: "/instalacion",
+    steps: ["Instalación", "Primeros pasos", "Proyectos guiados"],
+  },
+  {
+    title: "Construye con IA local",
+    desc: "Monta apps con modelos en tu ordenador: RAG, PDF, voz y herramientas privadas.",
+    href: "/volumen-2",
+    steps: ["IA local", "PDF y RAG", "Voz y audio"],
+  },
+  {
+    title: "Llévalo a tu trabajo",
+    desc: "Automatiza tareas de oficina, documentos, informes y flujos de equipo con IA.",
+    href: "/pymes",
+    steps: ["Pymes", "Recetas", "Flujos pro"],
+  },
 ];
 
 export default function Home() {
@@ -93,6 +114,33 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Rutas */}
+      <section id="rutas" className="max-w-6xl mx-auto px-6 py-10">
+        <div className="mb-8 text-center">
+          <h2 className="font-display font-bold text-3xl text-white">Elige tu ruta</h2>
+          <p className="mt-3 text-zinc-400">Aprende en orden, con práctica desde el primer día.</p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-5">
+          {rutas.map((ruta) => (
+            <Link
+              key={ruta.title}
+              href={ruta.href}
+              className="glass rounded-2xl p-6 card-hover block"
+            >
+              <h3 className="font-display font-semibold text-lg text-white">{ruta.title}</h3>
+              <p className="mt-2 text-sm text-zinc-400 leading-relaxed">{ruta.desc}</p>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {ruta.steps.map((step) => (
+                  <span key={step} className="px-2.5 py-1 rounded-md bg-white/5 text-xs text-zinc-300">
+                    {step}
+                  </span>
+                ))}
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
       {/* Cursos */}
       <section id="cursos" className="max-w-6xl mx-auto px-6 py-16">
         <div className="mb-10 text-center">
@@ -123,16 +171,29 @@ export default function Home() {
 
         {/* Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {cursos.map((c) => (
-            <div key={c.title} className="glass rounded-2xl p-6 card-hover">
+          {cursos.map((c) => {
+            const content = (
+              <>
               <div className="text-3xl mb-3">{c.icon}</div>
               <h3 className="font-display font-semibold text-lg text-white">{c.title}</h3>
               <p className="mt-2 text-sm text-zinc-400 leading-relaxed">{c.desc}</p>
               <div className="mt-4 flex items-center justify-between text-xs text-zinc-500">
-                <span>{c.level}</span><span className={c.statusColor}>{c.status}</span>
+                <span>{c.level}</span>
+                <span className={c.statusColor}>{c.status}</span>
               </div>
-            </div>
-          ))}
+              </>
+            );
+
+            return c.href ? (
+              <Link key={c.title} href={c.href} className="glass rounded-2xl p-6 card-hover block">
+                {content}
+              </Link>
+            ) : (
+              <div key={c.title} className="glass rounded-2xl p-6">
+                {content}
+              </div>
+            );
+          })}
         </div>
       </section>
 
@@ -219,7 +280,24 @@ export default function Home() {
             <BrandIcon id="lg-foot" className="w-7 h-7" />
             <span className="text-sm text-zinc-400">Aulafy · Cursos de IA en español</span>
           </a>
-          <div className="flex items-center gap-5 text-zinc-500">
+          <div className="flex flex-wrap items-center justify-center gap-5 text-zinc-500">
+            <Link href="/guia" className="text-xs hover:text-white transition-colors">
+              Guía
+            </Link>
+            <Link href="/licencia" className="text-xs hover:text-white transition-colors">
+              Licencia
+            </Link>
+            <Link href="/privacidad" className="text-xs hover:text-white transition-colors">
+              Privacidad
+            </Link>
+            <a
+              href="https://github.com/raym33/claude"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs hover:text-white transition-colors"
+            >
+              Código
+            </a>
             <a href="mailto:learntouseai@gmail.com" aria-label="Email" className="hover:text-white transition-colors">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
             </a>
@@ -230,7 +308,7 @@ export default function Home() {
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z" /></svg>
             </a>
           </div>
-          <p className="text-xs text-zinc-600">© {year} Aulafy · Cursos de IA en español</p>
+          <p className="text-xs text-zinc-600">© {year} Aulafy · Contenido CC BY 4.0 · Código MIT</p>
         </div>
       </footer>
     </div>
