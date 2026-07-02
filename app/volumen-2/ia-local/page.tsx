@@ -11,7 +11,7 @@ export default function Page() {
     <Chapter
       crumb="IA local"
       title="IA local: elige el modelo para tu máquina"
-      emoji="🧠"
+      icon="brain"
       lead={<>Vas a poner un “cerebro” de IA a funcionar en tu propio ordenador y a elegir el adecuado según tu equipo. Este capítulo es la base de casi todos los proyectos del libro.</>}
     >
       <Objetivos>

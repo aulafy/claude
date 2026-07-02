@@ -3,84 +3,97 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import Icon, { type IconName } from "@/components/Icon";
 import Search from "@/components/Search";
+import ThemeToggle from "@/components/ThemeToggle";
 
-const sections = [
+type NavItem = {
+  href: string;
+  label: string;
+  icon: IconName;
+};
+
+type NavSection = {
+  title: string;
+  items: NavItem[];
+};
+
+const sections: NavSection[] = [
   {
     title: "Empezar",
     items: [
-      { href: "/guia", label: "Inicio de la guía", icon: "⬡" },
-      { href: "/instalacion", label: "Instalación", icon: "📦" },
-      { href: "/primeros-pasos", label: "Primeros pasos", icon: "🚀" },
-      { href: "/donde-usar", label: "CLI, app y móvil", icon: "🖥️" },
+      { href: "/guia", label: "Inicio de la guía", icon: "aulafy" },
+      { href: "/instalacion", label: "Instalación", icon: "install" },
+      { href: "/primeros-pasos", label: "Primeros pasos", icon: "rocket" },
+      { href: "/donde-usar", label: "CLI, app y móvil", icon: "desktop" },
     ],
   },
   {
     title: "Práctica diaria",
     items: [
-      { href: "/recetas", label: "Recetas prácticas", icon: "🍳" },
-      { href: "/proyectos", label: "Proyectos guiados", icon: "🏗️" },
-      { href: "/prompts", label: "Escribir buenos prompts", icon: "🎯" },
-      { href: "/glosario", label: "Glosario", icon: "📖" },
+      { href: "/recetas", label: "Recetas prácticas", icon: "recipe" },
+      { href: "/proyectos", label: "Proyectos guiados", icon: "hammer" },
+      { href: "/prompts", label: "Escribir buenos prompts", icon: "prompt" },
+      { href: "/glosario", label: "Glosario", icon: "book" },
     ],
   },
   {
     title: "Según tu perfil",
     items: [
-      { href: "/pymes", label: "Pymes y oficina", icon: "🏢" },
-      { href: "/equipos", label: "Perfiles técnicos", icon: "🧑‍💻" },
+      { href: "/pymes", label: "Pymes y oficina", icon: "building" },
+      { href: "/equipos", label: "Perfiles técnicos", icon: "users" },
     ],
   },
   {
     title: "Extender Claude Code",
     items: [
-      { href: "/skills", label: "Skills", icon: "🧩" },
-      { href: "/subagentes", label: "Subagentes", icon: "🤖" },
-      { href: "/plugins", label: "Plugins", icon: "🔌" },
-      { href: "/flujos", label: "Flujos de trabajo pro", icon: "🧭" },
+      { href: "/skills", label: "Skills", icon: "grid" },
+      { href: "/subagentes", label: "Subagentes", icon: "robot" },
+      { href: "/plugins", label: "Plugins", icon: "plug" },
+      { href: "/flujos", label: "Flujos de trabajo pro", icon: "route" },
     ],
   },
   {
     title: "Referencia",
     items: [
-      { href: "/comandos", label: "Comandos", icon: "⌨️" },
-      { href: "/configuracion", label: "Configuración", icon: "⚙️" },
-      { href: "/mcp", label: "Servidores MCP", icon: "🔗" },
-      { href: "/hooks", label: "Hooks", icon: "🪝" },
-      { href: "/permisos", label: "Permisos", icon: "🔐" },
-      { href: "/avanzado", label: "Uso avanzado", icon: "⚡" },
+      { href: "/comandos", label: "Comandos", icon: "command" },
+      { href: "/configuracion", label: "Configuración", icon: "gear" },
+      { href: "/mcp", label: "Servidores MCP", icon: "link" },
+      { href: "/hooks", label: "Hooks", icon: "hook" },
+      { href: "/permisos", label: "Permisos", icon: "lock" },
+      { href: "/avanzado", label: "Uso avanzado", icon: "advanced" },
     ],
   },
   {
     title: "Ayuda",
     items: [
-      { href: "/faq", label: "Preguntas frecuentes", icon: "❓" },
-      { href: "/problemas", label: "Solución de problemas", icon: "🔧" },
-      { href: "/recursos", label: "Recursos", icon: "📚" },
-      { href: "/comparativa", label: "Comparativa", icon: "🆚" },
+      { href: "/faq", label: "Preguntas frecuentes", icon: "circleQuestion" },
+      { href: "/problemas", label: "Solución de problemas", icon: "tools" },
+      { href: "/recursos", label: "Recursos", icon: "book" },
+      { href: "/comparativa", label: "Comparativa", icon: "compare" },
     ],
   },
   {
     title: "Volumen II · IA Local",
     items: [
-      { href: "/volumen-2", label: "Presentación", icon: "🧠" },
-      { href: "/volumen-2/terminal", label: "La terminal (CLI)", icon: "⌨️" },
-      { href: "/volumen-2/proyectos", label: "Tus proyectos", icon: "🗂️" },
-      { href: "/volumen-2/prompts", label: "Buenos encargos", icon: "🎯" },
-      { href: "/volumen-2/ia-local", label: "IA local", icon: "🧠" },
-      { href: "/volumen-2/depurar", label: "Depurar y proteger", icon: "🛟" },
-      { href: "/volumen-2/chatbot-legal", label: "Chatbot legal (RAG)", icon: "⚖️" },
-      { href: "/volumen-2/pdf", label: "Pregunta a tus PDF", icon: "📄" },
-      { href: "/volumen-2/voz", label: "Chatbot con voz", icon: "🎙️" },
-      { href: "/volumen-2/texto-a-audio", label: "Texto a audio", icon: "🔊" },
-      { href: "/volumen-2/simulaciones-3d", label: "Simulaciones 3D", icon: "🪐" },
-      { href: "/volumen-2/avatar", label: "Avatar que habla", icon: "🧑‍🏫" },
-      { href: "/volumen-2/wordpress", label: "Tema de WordPress", icon: "🎨" },
-      { href: "/volumen-2/landing", label: "Web en minutos", icon: "🌐" },
-      { href: "/volumen-2/facturacion", label: "Asistente autónomos", icon: "🧾" },
-      { href: "/volumen-2/estudio", label: "App para estudiar", icon: "📚" },
-      { href: "/volumen-2/publicar", label: "Publicar en la red", icon: "🚀" },
-      { href: "/volumen-2/cluster", label: "Clúster casero", icon: "🖧" },
+      { href: "/volumen-2", label: "Presentación", icon: "brain" },
+      { href: "/volumen-2/terminal", label: "La terminal (CLI)", icon: "terminal" },
+      { href: "/volumen-2/proyectos", label: "Tus proyectos", icon: "folder" },
+      { href: "/volumen-2/prompts", label: "Buenos encargos", icon: "prompt" },
+      { href: "/volumen-2/ia-local", label: "IA local", icon: "brain" },
+      { href: "/volumen-2/depurar", label: "Depurar y proteger", icon: "shield" },
+      { href: "/volumen-2/chatbot-legal", label: "Chatbot legal (RAG)", icon: "legal" },
+      { href: "/volumen-2/pdf", label: "Pregunta a tus PDF", icon: "pdf" },
+      { href: "/volumen-2/voz", label: "Chatbot con voz", icon: "microphone" },
+      { href: "/volumen-2/texto-a-audio", label: "Texto a audio", icon: "audio" },
+      { href: "/volumen-2/simulaciones-3d", label: "Simulaciones 3D", icon: "cube" },
+      { href: "/volumen-2/avatar", label: "Avatar que habla", icon: "userGraduate" },
+      { href: "/volumen-2/wordpress", label: "Tema de WordPress", icon: "wordpress" },
+      { href: "/volumen-2/landing", label: "Web en minutos", icon: "globe" },
+      { href: "/volumen-2/facturacion", label: "Asistente autónomos", icon: "document" },
+      { href: "/volumen-2/estudio", label: "App para estudiar", icon: "book" },
+      { href: "/volumen-2/publicar", label: "Publicar en la red", icon: "rocket" },
+      { href: "/volumen-2/cluster", label: "Clúster casero", icon: "network" },
     ],
   },
 ];
@@ -97,7 +110,7 @@ export default function Sidebar() {
         className="md:hidden fixed top-3 left-3 z-50 w-10 h-10 rounded-lg bg-zinc-800 border border-zinc-700 flex items-center justify-center text-zinc-200"
         aria-label="Menú"
       >
-        {open ? "✕" : "☰"}
+        <Icon name={open ? "close" : "menu"} />
       </button>
 
       {/* Backdrop on mobile */}
@@ -129,6 +142,10 @@ export default function Sidebar() {
           <Search />
         </div>
 
+        <div className="px-3 pt-3">
+          <ThemeToggle />
+        </div>
+
         {/* Nav */}
         <nav className="flex-1 overflow-y-auto py-4 px-3">
           {sections.map((section) => (
@@ -149,7 +166,7 @@ export default function Sidebar() {
                         : "text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800"
                     }`}
                   >
-                    <span className="text-base leading-none">{item.icon}</span>
+                    <Icon name={item.icon} className="text-[0.95rem]" />
                     <span>{item.label}</span>
                   </Link>
                 );

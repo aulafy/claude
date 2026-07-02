@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PageTitle from "@/components/PageTitle";
 
 export const metadata: Metadata = {
   title: "Hooks — Aprende Claude Code",
@@ -16,7 +17,7 @@ export default function Hooks() {
       </div>
 
       <div className="mb-10">
-        <h1 className="text-4xl font-bold text-white mb-4">🪝 Hooks</h1>
+        <PageTitle icon="hook">Hooks</PageTitle>
         <p className="text-lg text-zinc-400 leading-relaxed">
           Los hooks son scripts de shell que se ejecutan automáticamente en
           respuesta a eventos de Claude Code. Te dan control total sobre el

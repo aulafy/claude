@@ -1,141 +1,147 @@
 import Link from "next/link";
+import Icon, { type IconName } from "@/components/Icon";
 
-const cards = [
+const cards: Array<{
+  href: string;
+  icon: IconName;
+  title: string;
+  desc: string;
+}> = [
   {
     href: "/instalacion",
-    icon: "📦",
+    icon: "install",
     title: "Instalación",
     desc: "Instala Claude Code en macOS, Linux o Windows en menos de 2 minutos.",
   },
   {
     href: "/primeros-pasos",
-    icon: "🚀",
+    icon: "rocket",
     title: "Primeros pasos",
     desc: "Tu primera sesión: cómo hablar con Claude Code y entender la interfaz.",
   },
   {
     href: "/donde-usar",
-    icon: "🖥️",
+    icon: "desktop",
     title: "CLI, app y móvil",
     desc: "Terminal, app de escritorio, web, IDE y cómo controlarlo desde el móvil.",
   },
   {
     href: "/recetas",
-    icon: "🍳",
+    icon: "recipe",
     title: "Recetas prácticas",
     desc: "Más de 40 ejemplos reales del día a día, con prompts listos para copiar.",
   },
   {
     href: "/proyectos",
-    icon: "🏗️",
+    icon: "hammer",
     title: "Proyectos guiados",
     desc: "Construye una web, una app y un script paso a paso, con todos los prompts.",
   },
   {
     href: "/prompts",
-    icon: "🎯",
+    icon: "prompt",
     title: "Escribir buenos prompts",
     desc: "Cómo pedir las cosas para obtener mejores resultados. Antes y después.",
   },
   {
     href: "/glosario",
-    icon: "📖",
+    icon: "book",
     title: "Glosario",
     desc: "Términos técnicos explicados con palabras normales y analogías.",
   },
   {
     href: "/skills",
-    icon: "🧩",
+    icon: "grid",
     title: "Skills",
     desc: "Enseña a Claude tareas a tu manera con archivos SKILL.md reutilizables.",
   },
   {
     href: "/subagentes",
-    icon: "🤖",
+    icon: "robot",
     title: "Subagentes",
     desc: "Ayudantes especializados que trabajan en paralelo mientras tú revisas.",
   },
   {
     href: "/plugins",
-    icon: "🔌",
+    icon: "plug",
     title: "Plugins",
     desc: "Instala bundles de skills, agentes y MCP desde el marketplace.",
   },
   {
     href: "/flujos",
-    icon: "🧭",
+    icon: "route",
     title: "Flujos de trabajo pro",
     desc: "Plan mode, rewind, tareas en background y los trucos más recomendados.",
   },
   {
     href: "/comandos",
-    icon: "⌨️",
+    icon: "command",
     title: "Comandos",
     desc: "Todos los slash commands y flags disponibles con ejemplos reales.",
   },
   {
     href: "/configuracion",
-    icon: "⚙️",
+    icon: "gear",
     title: "Configuración",
     desc: "Personaliza el comportamiento, modelos y memoria con settings.json.",
   },
   {
     href: "/mcp",
-    icon: "🔌",
+    icon: "link",
     title: "Servidores MCP",
     desc: "Conecta herramientas externas: bases de datos, APIs, navegador y más.",
   },
   {
     href: "/hooks",
-    icon: "🪝",
+    icon: "hook",
     title: "Hooks",
     desc: "Automatiza acciones antes y después de cada herramienta o respuesta.",
   },
   {
     href: "/permisos",
-    icon: "🔐",
+    icon: "lock",
     title: "Permisos",
     desc: "Controla qué puede hacer Claude Code en tu máquina con seguridad.",
   },
   {
     href: "/avanzado",
-    icon: "⚡",
+    icon: "advanced",
     title: "Uso avanzado",
     desc: "Subagentes, worktrees, modo headless y flujos de trabajo pro.",
   },
   {
     href: "/faq",
-    icon: "❓",
+    icon: "circleQuestion",
     title: "Preguntas frecuentes",
     desc: "Precio, seguridad, privacidad y las dudas más comunes al empezar.",
   },
   {
     href: "/problemas",
-    icon: "🔧",
+    icon: "tools",
     title: "Solución de problemas",
     desc: "Errores comunes de instalación y uso, y cómo resolverlos rápido.",
   },
   {
     href: "/recursos",
-    icon: "📚",
+    icon: "book",
     title: "Recursos",
     desc: "Enlaces oficiales, repos de skills, MCP y cursos actualizados.",
   },
   {
     href: "/comparativa",
-    icon: "🆚",
+    icon: "compare",
     title: "Comparativa",
     desc: "Claude Code frente a Cursor, Windsurf, Copilot y ChatGPT.",
   },
   {
     href: "/pymes",
-    icon: "🏢",
+    icon: "building",
     title: "Pymes y oficina",
     desc: "Automatiza Excel, facturas, informes y tareas de oficina sin programar.",
   },
   {
     href: "/equipos",
-    icon: "🧑‍💻",
+    icon: "users",
     title: "Perfiles técnicos",
     desc: "Code review, refactors, testing, CI/CD y estandarización de equipo.",
   },
@@ -147,7 +153,7 @@ export default function Home() {
       {/* Hero */}
       <div className="mb-14">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-medium mb-6">
-          <span>✦</span>
+          <Icon name="star" />
           Actualizado junio 2026 · Claude Code 2.x
         </div>
         <h1 className="text-5xl font-bold text-white leading-tight mb-5">
@@ -174,14 +180,20 @@ export default function Home() {
             href="/recetas"
             className="px-5 py-2.5 rounded-lg border border-zinc-700 hover:border-zinc-500 text-zinc-300 font-medium text-sm transition-colors"
           >
-            🍳 Ver recetas prácticas
+            <span className="inline-flex items-center gap-2">
+              <Icon name="recipe" />
+              Ver recetas prácticas
+            </span>
           </Link>
           <a
             href="/guia-claude-code.pdf"
             download
             className="px-5 py-2.5 rounded-lg border border-zinc-700 hover:border-zinc-500 text-zinc-300 font-medium text-sm transition-colors"
           >
-            📄 Descargar guía en PDF
+            <span className="inline-flex items-center gap-2">
+              <Icon name="filePdf" />
+              Descargar guía en PDF
+            </span>
           </a>
         </div>
       </div>
@@ -211,7 +223,10 @@ export default function Home() {
             <div className="inline-block mb-2 text-[10px] font-semibold uppercase tracking-wider text-orange-400 bg-orange-500/10 border border-orange-500/20 rounded-full px-2.5 py-0.5">
               Nuevo · Volumen II
             </div>
-            <h2 className="text-xl font-bold text-white mb-1">🧠 Claude Code + IA Local</h2>
+            <h2 className="text-xl font-bold text-white mb-1 flex items-center gap-2">
+              <Icon name="brain" className="text-orange-400" />
+              Claude Code + IA Local
+            </h2>
             <p className="text-sm text-zinc-400 leading-relaxed max-w-2xl">
               La continuación: construye herramientas de IA que se ejecutan en tu
               propio ordenador (chatbots, lectores de PDF, voz, 3D...) y publícalas en
@@ -235,7 +250,7 @@ export default function Home() {
               className="group block rounded-xl border border-zinc-800 bg-zinc-900/30 p-5 hover:border-zinc-600 hover:bg-zinc-900/60 transition-all"
             >
               <div className="flex items-start gap-3">
-                <span className="text-2xl leading-none mt-0.5">{card.icon}</span>
+                <Icon name={card.icon} className="text-xl leading-none mt-0.5 text-orange-400" />
                 <div>
                   <h3 className="font-semibold text-white text-sm mb-1 group-hover:text-orange-400 transition-colors">
                     {card.title}

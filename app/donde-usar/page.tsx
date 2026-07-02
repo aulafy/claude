@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Icon, { type IconName } from "@/components/Icon";
+import PageTitle from "@/components/PageTitle";
+import SectionHeading from "@/components/SectionHeading";
 
 export const metadata: Metadata = {
   title: "CLI, app de escritorio, web y móvil — Aprende Claude Code",
@@ -9,30 +12,35 @@ export const metadata: Metadata = {
 
 const surfaces = [
   {
-    surface: "💻 Terminal (CLI)",
+    icon: "terminal" as IconName,
+    surface: "Terminal (CLI)",
     description: "La versión completa, en tu terminal.",
     ideal: "Máximo control, scripts, automatización y modo headless.",
   },
   {
-    surface: "🖥️ App de escritorio",
+    icon: "desktop" as IconName,
+    surface: "App de escritorio",
     description: "App independiente para Mac y Windows, con interfaz visual.",
     ideal:
       "Revisar diffs visualmente, varias sesiones a la vez, tareas programadas y lanzar sesiones en la nube.",
   },
   {
-    surface: "🌐 Web (claude.ai/code)",
+    icon: "globe" as IconName,
+    surface: "Web (claude.ai/code)",
     description: "En el navegador, sin instalar nada.",
     ideal:
       "Tareas largas en la nube, trabajar en repos que no tienes en local y varias tareas en paralelo.",
   },
   {
-    surface: "🧩 VS Code / Cursor",
+    icon: "code" as IconName,
+    surface: "VS Code / Cursor",
     description: "Extensión para tu editor.",
     ideal:
       "Diffs en línea, @-menciones, revisión de plan e historial dentro del editor.",
   },
   {
-    surface: "🧩 JetBrains",
+    icon: "plug" as IconName,
+    surface: "JetBrains",
     description: "Plugin para IntelliJ, PyCharm, WebStorm, etc. (requiere la CLI).",
     ideal: "Lo mismo dentro de los IDE de JetBrains.",
   },
@@ -48,7 +56,7 @@ export default function DondeUsarPage() {
       </div>
 
       <div className="mb-10">
-        <h1 className="text-4xl font-bold text-white mb-4">🖥️ CLI, app de escritorio, web y móvil</h1>
+        <PageTitle icon="desktop">CLI, app de escritorio, web y móvil</PageTitle>
         <p className="text-lg text-zinc-400 leading-relaxed">
           Claude Code no vive solo en la terminal. Puedes usarlo en varias
           superficies y todas comparten el MISMO motor: tus archivos CLAUDE.md,
@@ -78,7 +86,12 @@ export default function DondeUsarPage() {
           <tbody>
             {surfaces.map((item) => (
               <tr key={item.surface}>
-                <td><strong>{item.surface}</strong></td>
+                <td>
+                  <strong className="inline-flex items-center gap-2">
+                    <Icon name={item.icon} className="text-orange-400" />
+                    {item.surface}
+                  </strong>
+                </td>
                 <td>{item.description}</td>
                 <td>{item.ideal}</td>
               </tr>
@@ -88,7 +101,7 @@ export default function DondeUsarPage() {
       </div>
 
       <div className="prose">
-        <h2>💻 Terminal (CLI)</h2>
+        <SectionHeading icon="terminal">Terminal (CLI)</SectionHeading>
         <p>
           La forma original y más potente. Instalación recomendada (instalador
           nativo):
@@ -109,7 +122,7 @@ brew install --cask claude-code`}</code></pre>
           <Link href="/equipos">Perfiles técnicos</Link>).
         </p>
 
-        <h2>🖥️ App de escritorio (Mac y Windows)</h2>
+        <SectionHeading icon="desktop">App de escritorio (Mac y Windows)</SectionHeading>
         <p>
           App independiente con interfaz gráfica. Permite revisar diffs
           visualmente, ejecutar varias sesiones en paralelo lado a lado,
@@ -126,7 +139,7 @@ brew install --cask claude-code`}</code></pre>
       </div>
 
       <div className="prose">
-        <h2>🌐 Web (claude.ai/code)</h2>
+        <SectionHeading icon="globe">Web (claude.ai/code)</SectionHeading>
         <p>
           Ejecuta Claude Code en el navegador, sin instalar nada en tu
           ordenador. Perfecta para lanzar tareas largas y volver cuando
@@ -138,7 +151,7 @@ brew install --cask claude-code`}</code></pre>
           </a>.
         </p>
 
-        <h2>🧩 Extensiones de IDE (VS Code, JetBrains)</h2>
+        <SectionHeading icon="code">Extensiones de IDE (VS Code, JetBrains)</SectionHeading>
         <p>
           Si trabajas en VS Code (o Cursor) o en un IDE de JetBrains, hay
           extensión/plugin oficial que integra Claude Code en el editor con
@@ -147,7 +160,7 @@ brew install --cask claude-code`}</code></pre>
           <Link href="/configuracion">Configuración</Link>.
         </p>
 
-        <h2>📱 Controlar Claude Code desde el móvil</h2>
+        <SectionHeading icon="mobile">Controlar Claude Code desde el móvil</SectionHeading>
         <p>
           Sí, puedes usar y supervisar Claude Code desde el teléfono. Estas son
           las formas:

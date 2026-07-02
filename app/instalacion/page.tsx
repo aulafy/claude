@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PageTitle from "@/components/PageTitle";
 
 export const metadata: Metadata = {
   title: "Instalación — Aprende Claude Code",
@@ -16,7 +17,7 @@ export default function Instalacion() {
       </div>
 
       <div className="mb-10">
-        <h1 className="text-4xl font-bold text-white mb-4">📦 Instalación</h1>
+        <PageTitle icon="install">Instalación</PageTitle>
         <p className="text-lg text-zinc-400 leading-relaxed">
           Instala Claude Code en tu sistema en un par de minutos. Solo necesitas
           una cuenta de Anthropic (suscripción de Claude o cuenta de la consola).

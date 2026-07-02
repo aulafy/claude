@@ -11,7 +11,7 @@ export default function Page() {
     <Chapter
       crumb="Varios ordenadores, una IA"
       title="Varios ordenadores, una sola IA"
-      emoji="🖧"
+      icon="network"
       lead={<>El capítulo más ambicioso: unir <strong>varios ordenadores en red</strong> para que trabajen juntos y ejecuten modelos de IA más grandes de los que cabrían en uno solo. Si tienes un par de portátiles o Macs por casa, puedes montar tu propio “mini centro de datos”.</>}
     >
       <Objetivos>

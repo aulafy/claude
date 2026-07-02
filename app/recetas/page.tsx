@@ -1,12 +1,28 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Icon, { type IconName } from "@/components/Icon";
+import PageTitle from "@/components/PageTitle";
 import Prompt from "@/components/Prompt";
+import SectionHeading from "@/components/SectionHeading";
 
 export const metadata: Metadata = {
   title: "Recetas prácticas — Aprende Claude Code",
   description:
     "Más de 40 ejemplos reales para usar Claude Code en el día a día: aprender a programar, crear proyectos, depurar errores, automatizar tareas y más.",
 };
+
+const sections: Array<{ href: string; icon: IconName; label: string }> = [
+  { href: "#aprender", icon: "book", label: "Aprender a programar" },
+  { href: "#crear", icon: "hammer", label: "Crear tu primer proyecto" },
+  { href: "#entender", icon: "search", label: "Entender código que no escribiste" },
+  { href: "#errores", icon: "tools", label: "Resolver errores" },
+  { href: "#mejorar", icon: "magic", label: "Mejorar tu código" },
+  { href: "#git", icon: "seed", label: "Git y control de versiones" },
+  { href: "#datos", icon: "spreadsheet", label: "Trabajar con datos y archivos" },
+  { href: "#automatizar", icon: "automation", label: "Automatizar tareas repetitivas" },
+  { href: "#terminal", icon: "terminal", label: "Comandos de terminal sin miedo" },
+  { href: "#documentar", icon: "document", label: "Documentar y explicar" },
+];
 
 export default function Recetas() {
   return (
@@ -18,7 +34,7 @@ export default function Recetas() {
       </div>
 
       <div className="mb-10">
-        <h1 className="text-4xl font-bold text-white mb-4">🍳 Recetas prácticas</h1>
+        <PageTitle icon="recipe">Recetas prácticas</PageTitle>
         <p className="text-lg text-zinc-400 leading-relaxed">
           Casos de uso reales para el día a día. Cada receta incluye el prompt
           exacto que puedes copiar y pegar en Claude Code. Pensadas para personas
@@ -27,7 +43,11 @@ export default function Recetas() {
       </div>
 
       <div className="callout callout-tip mb-8">
-        <strong>Cómo usar esta página:</strong> haz clic en <strong>📋 Copiar</strong> en
+        <strong>Cómo usar esta página:</strong> haz clic en{" "}
+        <strong className="inline-flex items-center gap-1">
+          <Icon name="copy" /> Copiar
+        </strong>{" "}
+        en
         cualquier prompt, pégalo en tu terminal con Claude Code abierto, y ajusta
         los detalles entre corchetes <code>[ ]</code> a tu caso.
       </div>
@@ -36,20 +56,10 @@ export default function Recetas() {
       <div className="mb-12 rounded-xl border border-zinc-800 bg-zinc-900/30 p-5">
         <p className="text-xs font-medium text-zinc-500 uppercase tracking-wider mb-3">En esta página</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-1.5 gap-x-4 text-sm">
-          {[
-            ["#aprender", "📚 Aprender a programar"],
-            ["#crear", "🏗️ Crear tu primer proyecto"],
-            ["#entender", "🔍 Entender código que no escribiste"],
-            ["#errores", "🐛 Resolver errores"],
-            ["#mejorar", "✨ Mejorar tu código"],
-            ["#git", "🌿 Git y control de versiones"],
-            ["#datos", "📊 Trabajar con datos y archivos"],
-            ["#automatizar", "⚙️ Automatizar tareas repetitivas"],
-            ["#terminal", "💻 Comandos de terminal sin miedo"],
-            ["#documentar", "📝 Documentar y explicar"],
-          ].map(([href, label]) => (
-            <a key={href} href={href} className="text-zinc-400 hover:text-orange-400 transition-colors">
-              {label}
+          {sections.map((item) => (
+            <a key={item.href} href={item.href} className="inline-flex items-center gap-2 text-zinc-400 hover:text-orange-400 transition-colors">
+              <Icon name={item.icon} />
+              {item.label}
             </a>
           ))}
         </div>
@@ -57,7 +67,7 @@ export default function Recetas() {
 
       <div className="prose">
         {/* ───────────── APRENDER ───────────── */}
-        <h2 id="aprender">📚 Aprender a programar</h2>
+        <SectionHeading id="aprender" icon="book">Aprender a programar</SectionHeading>
         <p>
           Claude Code es un profesor particular dentro de tu terminal. No solo
           escribe código: te explica el porqué de cada cosa a tu nivel.
@@ -76,7 +86,7 @@ export default function Recetas() {
         <Prompt>{`Ponme 5 ejercicios de Python para principiantes sobre listas, ordenados de fácil a difícil. No me des las soluciones todavía: dámelas solo cuando yo te lo pida después de intentarlo.`}</Prompt>
 
         {/* ───────────── CREAR ───────────── */}
-        <h2 id="crear">🏗️ Crear tu primer proyecto</h2>
+        <SectionHeading id="crear" icon="hammer">Crear tu primer proyecto</SectionHeading>
         <p>
           Lo mejor de Claude Code es que puede montar un proyecto completo y
           funcional mientras tú aprendes viéndolo trabajar.
@@ -99,7 +109,7 @@ export default function Recetas() {
         </div>
 
         {/* ───────────── ENTENDER ───────────── */}
-        <h2 id="entender">🔍 Entender código que no escribiste</h2>
+        <SectionHeading id="entender" icon="search">Entender código que no escribiste</SectionHeading>
         <p>
           Cuando heredas un proyecto o sigues un tutorial, Claude Code te traduce
           el código a lenguaje humano.
@@ -115,7 +125,7 @@ export default function Recetas() {
         <Prompt>{`En este proyecto veo palabras como "API", "endpoint" y "middleware". Explícame cada una con una analogía sencilla y señálame dónde aparecen en el código.`}</Prompt>
 
         {/* ───────────── ERRORES ───────────── */}
-        <h2 id="errores">🐛 Resolver errores</h2>
+        <SectionHeading id="errores" icon="tools">Resolver errores</SectionHeading>
         <p>
           Los errores son la parte más frustrante al empezar. Claude Code los lee,
           te explica qué significan y los arregla.
@@ -141,7 +151,7 @@ Explícame en palabras sencillas qué está pasando, por qué ocurre y cómo arr
         </div>
 
         {/* ───────────── MEJORAR ───────────── */}
-        <h2 id="mejorar">✨ Mejorar tu código</h2>
+        <SectionHeading id="mejorar" icon="magic">Mejorar tu código</SectionHeading>
 
         <h3>Pedir una revisión como si fuera un mentor</h3>
         <Prompt>{`Revisa el archivo [mi_codigo.py] como si fueras un programador con experiencia ayudando a un principiante. Dime qué está bien, qué se puede mejorar y por qué. Sé amable pero honesto.`}</Prompt>
@@ -153,7 +163,7 @@ Explícame en palabras sencillas qué está pasando, por qué ocurre y cómo arr
         <Prompt>{`En este formulario el usuario puede escribir cualquier cosa. Añade comprobaciones para que no se rompa si dejan campos vacíos o escriben datos raros. Explícame qué problemas estabas previniendo.`}</Prompt>
 
         {/* ───────────── GIT ───────────── */}
-        <h2 id="git">🌿 Git y control de versiones</h2>
+        <SectionHeading id="git" icon="seed">Git y control de versiones</SectionHeading>
         <p>
           Git asusta al principio. Deja que Claude Code lo maneje mientras tú
           aprendes los conceptos.
@@ -172,7 +182,7 @@ Explícame en palabras sencillas qué está pasando, por qué ocurre y cómo arr
         <Prompt>{`Quiero subir este proyecto a GitHub por primera vez para tener una copia online. Guíame paso a paso: qué necesito, qué tengo que hacer en la web de GitHub y qué comandos ejecutar.`}</Prompt>
 
         {/* ───────────── DATOS ───────────── */}
-        <h2 id="datos">📊 Trabajar con datos y archivos</h2>
+        <SectionHeading id="datos" icon="spreadsheet">Trabajar con datos y archivos</SectionHeading>
 
         <h3>Analizar un archivo Excel o CSV</h3>
         <Prompt>{`Tengo un archivo [ventas.csv] con datos de ventas. Dime cuántas filas tiene, qué columnas hay, y hazme un resumen: total de ventas, mes con más ventas y el producto más vendido.`}</Prompt>
@@ -187,7 +197,7 @@ Explícame en palabras sencillas qué está pasando, por qué ocurre y cómo arr
         <Prompt>{`Con los datos del archivo [gastos.csv], crea un gráfico de barras de gastos por categoría y guárdalo como imagen. Usa Python.`}</Prompt>
 
         {/* ───────────── AUTOMATIZAR ───────────── */}
-        <h2 id="automatizar">⚙️ Automatizar tareas repetitivas</h2>
+        <SectionHeading id="automatizar" icon="automation">Automatizar tareas repetitivas</SectionHeading>
         <p>
           Si haces algo aburrido y repetitivo en el ordenador, probablemente Claude
           Code pueda automatizarlo.
@@ -203,7 +213,7 @@ Explícame en palabras sencillas qué está pasando, por qué ocurre y cómo arr
         <Prompt>{`Busca en qué archivos de este proyecto aparece la palabra "contraseña" o "password". Quiero asegurarme de no haber dejado ningún dato sensible escrito por error.`}</Prompt>
 
         {/* ───────────── TERMINAL ───────────── */}
-        <h2 id="terminal">💻 Comandos de terminal sin miedo</h2>
+        <SectionHeading id="terminal" icon="terminal">Comandos de terminal sin miedo</SectionHeading>
         <p>
           La terminal intimida. Claude Code la usa por ti y te enseña los comandos
           poco a poco.
@@ -229,7 +239,7 @@ Explícame exactamente qué hace cada parte y dime si es seguro ejecutarlo.`}</P
         </div>
 
         {/* ───────────── DOCUMENTAR ───────────── */}
-        <h2 id="documentar">📝 Documentar y explicar</h2>
+        <SectionHeading id="documentar" icon="document">Documentar y explicar</SectionHeading>
 
         <h3>Crear un README para tu proyecto</h3>
         <Prompt>{`Crea un archivo README.md para este proyecto que explique: qué hace, cómo instalarlo, cómo usarlo y qué tecnologías usa. Escríbelo para que alguien que llega nuevo lo entienda.`}</Prompt>

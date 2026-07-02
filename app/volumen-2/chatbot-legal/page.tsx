@@ -12,7 +12,7 @@ export default function Page() {
     <Chapter
       crumb="Un chatbot que cita la ley"
       title="Un chatbot que responde citando la ley"
-      emoji="⚖️"
+      icon="legal"
       lead={<>Una aplicación web sencilla donde escribes una pregunta en lenguaje normal —por ejemplo, <em>“¿cuántos días de permiso por mudanza tengo?”</em>— y un asistente te responde <strong>basándose en documentos legales que tú le has dado</strong> (leyes, un convenio, un reglamento en PDF), <strong>citando el fragmento</strong> de donde saca la respuesta. Y lo mejor: <strong>la aplicación funciona entera en tu ordenador</strong>.</>}
     >
       <Cristiano term="“local” de verdad, con un matiz honesto">

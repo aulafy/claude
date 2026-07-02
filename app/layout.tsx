@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Sora } from "next/font/google";
+import Script from "next/script";
 import Shell from "@/components/Shell";
 import "./globals.css";
+import "./fontawesome.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -108,7 +110,21 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es" className={`${geistSans.variable} ${geistMono.variable} ${sora.variable} antialiased`}>
+    <html
+      lang="es"
+      suppressHydrationWarning
+      className={`${geistSans.variable} ${geistMono.variable} ${sora.variable} antialiased`}
+    >
+      <head>
+        <Script
+          id="theme-init"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{var t=localStorage.getItem('aulafy-theme');var l=t?t==='light':matchMedia('(prefers-color-scheme: light)').matches;document.documentElement.classList.toggle('light',l);document.documentElement.style.colorScheme=l?'light':'dark'}catch(e){}",
+          }}
+        />
+      </head>
       <body className="min-h-screen bg-zinc-950 text-zinc-200">
         <script
           type="application/ld+json"

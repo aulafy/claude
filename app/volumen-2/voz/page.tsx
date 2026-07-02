@@ -12,7 +12,7 @@ export default function Page() {
     <Chapter
       crumb="Un chatbot que te escucha"
       title="Un chatbot que te escucha y te habla"
-      emoji="🎙️"
+      icon="microphone"
       lead={<>Un asistente al que le <strong>hablas</strong> por el micrófono y te <strong>responde en voz alta</strong>. Todo con IA local: reconocimiento de voz, cerebro y voz sintética, sin enviar tu audio a ningún servidor. Ideal para accesibilidad, atención al cliente o manos libres.</>}
     >
       <Objetivos>

@@ -12,7 +12,7 @@ export default function Page() {
     <Chapter
       crumb="Texto a audio"
       title="Convierte cualquier texto en audio"
-      emoji="🔊"
+      icon="audio"
       lead={<>Una herramienta que coge un texto —un artículo, unos apuntes, un capítulo de un libro— y lo convierte en un <strong>archivo de audio</strong> que puedes escuchar en el móvil o el coche. En el idioma que quieras. Perfecto para estudiar, para accesibilidad o para hacer audiolibros de tus propios materiales.</>}
     >
       <Objetivos>

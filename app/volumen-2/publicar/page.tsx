@@ -11,7 +11,7 @@ export default function Page() {
     <Chapter
       crumb="Publica tu app"
       title="Publica tu aplicación en internet"
-      emoji="🚀"
+      icon="rocket"
       lead={<>Hasta ahora tus proyectos vivían en tu ordenador (<code>localhost</code>). En este capítulo aprendes a <strong>publicarlos en internet</strong> para que cualquiera los abra desde un enlace, con servicios gratuitos.</>}
     >
       <Objetivos>

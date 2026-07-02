@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Icon from "@/components/Icon";
 
 type Message = { role: "user" | "assistant"; content: string };
 
@@ -62,7 +63,7 @@ const SUGGESTIONS = [
 ];
 
 const WELCOME =
-  "¡Hola! 👋 Soy tu asistente para aprender **Claude Code**. Pregúntame lo que quieras: instalación, comandos, skills, errores… lo que necesites.";
+  "Hola. Soy tu asistente para aprender **Claude Code**. Pregúntame lo que quieras: instalación, comandos, skills, errores... lo que necesites.";
 
 /** Render ligero de markdown: bloques de código, `inline`, **negrita**, enlaces [[Sección]] y saltos de línea. */
 function renderContent(text: string, onNavigate?: () => void) {
@@ -149,7 +150,7 @@ export default function ChatWidget() {
 
       // Errores con mensaje (p. ej. límite de peticiones 429).
       if (!res.ok) {
-        let msg = "Ups, ha habido un problema al responder. Inténtalo de nuevo en un momento. 🙏";
+        let msg = "Ups, ha habido un problema al responder. Inténtalo de nuevo en un momento.";
         if (res.headers.get("content-type")?.includes("application/json")) {
           const data = await res.json().catch(() => null);
           if (data?.error) msg = data.error;
@@ -187,7 +188,7 @@ export default function ChatWidget() {
         copy[copy.length - 1] = {
           role: "assistant",
           content:
-            "Ups, ha habido un problema al responder. Inténtalo de nuevo en un momento. 🙏",
+            "Ups, ha habido un problema al responder. Inténtalo de nuevo en un momento.",
         };
         return copy;
       });
@@ -204,7 +205,7 @@ export default function ChatWidget() {
         aria-label="Abrir chat de ayuda"
         className="fixed bottom-5 right-5 z-50 w-14 h-14 rounded-full bg-orange-500 hover:bg-orange-400 shadow-lg shadow-orange-500/30 flex items-center justify-center text-white text-2xl transition-transform hover:scale-105"
       >
-        {open ? "✕" : "💬"}
+        <Icon name={open ? "close" : "chat"} />
       </button>
 
       {/* Panel */}
@@ -213,7 +214,7 @@ export default function ChatWidget() {
           {/* Header */}
           <div className="flex items-center gap-3 px-4 py-3 border-b border-zinc-800 bg-zinc-950">
             <div className="w-8 h-8 rounded-full bg-orange-500 flex items-center justify-center text-white text-base">
-              🤖
+              <Icon name="robot" />
             </div>
             <div className="flex-1 min-w-0">
               <div className="text-sm font-semibold text-white leading-tight">Asistente Claude Code</div>
@@ -222,7 +223,7 @@ export default function ChatWidget() {
               </div>
             </div>
             <button onClick={() => setOpen(false)} className="text-zinc-500 hover:text-zinc-300 text-lg" aria-label="Cerrar">
-              ✕
+              <Icon name="close" />
             </button>
           </div>
 
@@ -230,7 +231,9 @@ export default function ChatWidget() {
           <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-4 space-y-3">
             {/* Bienvenida */}
             <div className="flex gap-2">
-              <div className="w-7 h-7 rounded-full bg-zinc-800 flex items-center justify-center text-sm flex-shrink-0">🤖</div>
+              <div className="w-7 h-7 rounded-full bg-zinc-800 flex items-center justify-center text-sm flex-shrink-0">
+                <Icon name="robot" />
+              </div>
               <div className="rounded-2xl rounded-tl-sm bg-zinc-800 px-3.5 py-2.5 text-sm text-zinc-300 leading-relaxed max-w-[85%]">
                 {renderContent(WELCOME)}
               </div>
@@ -245,7 +248,9 @@ export default function ChatWidget() {
                 </div>
               ) : (
                 <div key={i} className="flex gap-2">
-                  <div className="w-7 h-7 rounded-full bg-zinc-800 flex items-center justify-center text-sm flex-shrink-0">🤖</div>
+                  <div className="w-7 h-7 rounded-full bg-zinc-800 flex items-center justify-center text-sm flex-shrink-0">
+                    <Icon name="robot" />
+                  </div>
                   <div className="rounded-2xl rounded-tl-sm bg-zinc-800 px-3.5 py-2.5 text-sm text-zinc-300 leading-relaxed max-w-[85%]">
                     {m.content ? (
                       renderContent(m.content, () => setOpen(false))
@@ -308,7 +313,7 @@ export default function ChatWidget() {
                 className="flex-shrink-0 w-10 h-10 rounded-xl bg-orange-500 hover:bg-orange-400 disabled:opacity-40 disabled:cursor-not-allowed text-white flex items-center justify-center transition-colors"
                 aria-label="Enviar"
               >
-                ➤
+                <Icon name="paperPlane" />
               </button>
             </form>
             <p className="text-[10px] text-zinc-600 mt-1.5 text-center">

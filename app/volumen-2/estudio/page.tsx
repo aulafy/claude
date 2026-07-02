@@ -12,7 +12,7 @@ export default function Page() {
     <Chapter
       crumb="App para estudiar"
       title="Una app para estudiar y aprender"
-      emoji="📚"
+      icon="book"
       lead={<>Una aplicación que convierte tus apuntes o un temario en <strong>preguntas de test</strong>, te examina, corrige y te explica los fallos. Sirve para preparar una oposición, un examen o cualquier materia. Con IA local: estudia sin conexión y sin coste por pregunta.</>}
     >
       <Objetivos>

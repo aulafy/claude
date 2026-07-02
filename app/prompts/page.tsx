@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Icon from "@/components/Icon";
+import PageTitle from "@/components/PageTitle";
 import Prompt from "@/components/Prompt";
+import SectionHeading from "@/components/SectionHeading";
 
 export const metadata: Metadata = {
   title: "Cómo escribir buenos prompts — Aprende Claude Code",
@@ -19,13 +22,13 @@ function Comparison({
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 my-4">
       <div className="rounded-lg border border-red-900/40 bg-red-950/20 p-4">
         <div className="text-xs font-medium text-red-400 mb-2 flex items-center gap-1.5">
-          <span>✕</span> Poco claro
+          <Icon name="close" /> Poco claro
         </div>
         <p className="text-sm text-zinc-300 m-0 leading-relaxed">{bad}</p>
       </div>
       <div className="rounded-lg border border-emerald-900/40 bg-emerald-950/20 p-4">
         <div className="text-xs font-medium text-emerald-400 mb-2 flex items-center gap-1.5">
-          <span>✓</span> Mucho mejor
+          <Icon name="check" /> Mucho mejor
         </div>
         <p className="text-sm text-zinc-300 m-0 leading-relaxed">{good}</p>
       </div>
@@ -43,7 +46,7 @@ export default function Prompts() {
       </div>
 
       <div className="mb-10">
-        <h1 className="text-4xl font-bold text-white mb-4">🎯 Cómo escribir buenos prompts</h1>
+        <PageTitle icon="prompt">Cómo escribir buenos prompts</PageTitle>
         <p className="text-lg text-zinc-400 leading-relaxed">
           La calidad de lo que te da Claude Code depende mucho de cómo se lo pidas.
           No hace falta saber "hablar técnico": solo ser claro. Aquí tienes los 7
@@ -125,16 +128,16 @@ TypeError: can't multiply sequence by non-int
         <h2>Plantillas listas para usar</h2>
         <p>Copia, rellena los corchetes y pega:</p>
 
-        <h3>📌 Para crear algo nuevo</h3>
+        <SectionHeading icon="prompt" level={3}>Para crear algo nuevo</SectionHeading>
         <Prompt>{`Quiero crear [qué quieres]. Lo usaré para [para qué sirve]. Soy [tu nivel: principiante/intermedio]. Usa [tecnología, o "lo que recomiendes"]. Explícame los pasos importantes mientras lo haces.`}</Prompt>
 
-        <h3>📌 Para arreglar algo</h3>
+        <SectionHeading icon="tools" level={3}>Para arreglar algo</SectionHeading>
         <Prompt>{`Tengo este problema: [qué pasa]. Esperaba que pasara: [qué debería pasar]. Lo que veo: [qué ves, pega errores]. Investiga la causa, arréglalo y explícame qué estaba mal.`}</Prompt>
 
-        <h3>📌 Para entender algo</h3>
+        <SectionHeading icon="idea" level={3}>Para entender algo</SectionHeading>
         <Prompt>{`Explícame [el concepto o el archivo] como si tuviera poca experiencia. Usa una analogía sencilla y un ejemplo pequeño. Luego dime para qué se usa en la práctica.`}</Prompt>
 
-        <h3>📌 Para mejorar lo que ya tienes</h3>
+        <SectionHeading icon="magic" level={3}>Para mejorar lo que ya tienes</SectionHeading>
         <Prompt>{`Revisa [archivo o carpeta]. Dime qué se puede mejorar en cuanto a claridad, errores potenciales y buenas prácticas. Aplica las mejoras importantes y explícame por qué.`}</Prompt>
 
         <div className="callout callout-tip">

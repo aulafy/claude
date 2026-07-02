@@ -11,7 +11,7 @@ export default function Page() {
     <Chapter
       crumb="La terminal sin miedo"
       title="La terminal sin miedo (qué es un CLI)"
-      emoji="⌨️"
+      icon="terminal"
       lead={<>Antes de construir nada, vamos a hacer las paces con una ventana que asusta a mucha gente: la <strong>terminal</strong>. Es la herramienta que usarás en todos los capítulos, y en diez minutos verás que no muerde.</>}
     >
       <Objetivos>

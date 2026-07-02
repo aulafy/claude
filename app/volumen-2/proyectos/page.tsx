@@ -12,7 +12,7 @@ export default function Page() {
     <Chapter
       crumb="Cómo trabajar con tus proyectos"
       title="Cómo trabajar con tus proyectos"
-      emoji="🗂️"
+      icon="folder"
       lead={<>Este capítulo es la columna vertebral del libro. Cada aplicación que construyas vivirá en una <strong>carpeta de proyecto</strong>. Aquí aprendes a crearla, guardarla, cerrarla y <strong>volver a abrirla otro día</strong> sin perder nada.</>}
     >
       <Objetivos>

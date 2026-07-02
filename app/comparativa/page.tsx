@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PageTitle from "@/components/PageTitle";
 
 export const metadata: Metadata = {
   title: "Comparativa — Aprende Claude Code",
@@ -50,7 +51,7 @@ export default function Comparativa() {
       </div>
 
       <div className="mb-10">
-        <h1 className="text-4xl font-bold text-white mb-4">🆚 Comparativa</h1>
+        <PageTitle icon="compare">Comparativa</PageTitle>
         <p className="text-lg text-zinc-400 leading-relaxed">
           En qué se diferencia Claude Code de otras herramientas de IA para programar,
           para ayudarte a elegir.

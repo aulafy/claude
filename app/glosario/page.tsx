@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Icon from "@/components/Icon";
+import PageTitle from "@/components/PageTitle";
 
 export const metadata: Metadata = {
   title: "Glosario para principiantes — Aprende Claude Code",
@@ -162,7 +164,7 @@ export default function Glosario() {
       </div>
 
       <div className="mb-10">
-        <h1 className="text-4xl font-bold text-white mb-4">📖 Glosario para principiantes</h1>
+        <PageTitle icon="book">Glosario para principiantes</PageTitle>
         <p className="text-lg text-zinc-400 leading-relaxed">
           ¿Te has perdido con alguna palabra técnica? Aquí tienes los términos que
           más aparecen al usar Claude Code, explicados con palabras normales y
@@ -185,8 +187,9 @@ export default function Glosario() {
             <h3 className="text-base font-semibold text-orange-400 mb-1.5">{t.term}</h3>
             <p className="text-sm text-zinc-300 leading-relaxed m-0">{t.def}</p>
             {t.analogy && (
-              <p className="text-sm text-zinc-500 leading-relaxed mt-2 m-0 italic">
-                💡 {t.analogy}
+              <p className="text-sm text-zinc-500 leading-relaxed mt-2 m-0 italic flex gap-2">
+                <Icon name="idea" className="text-orange-400 mt-0.5" />
+                <span>{t.analogy}</span>
               </p>
             )}
           </div>

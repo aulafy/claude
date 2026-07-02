@@ -43,7 +43,7 @@ async function handleChat(req: Request) {
     if (!allowed) {
       return Response.json(
         {
-          error: `Has hecho demasiadas preguntas seguidas. Espera ${retryAfter ?? 60} segundos y vuelve a intentarlo. 🙏`,
+          error: `Has hecho demasiadas preguntas seguidas. Espera ${retryAfter ?? 60} segundos y vuelve a intentarlo.`,
         },
         { status: 429, headers: { "Retry-After": String(retryAfter ?? 60) } }
       );

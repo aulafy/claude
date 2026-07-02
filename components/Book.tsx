@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Icon, { type IconName } from "@/components/Icon";
 
 /* ============================================================
    Componentes compartidos del Volumen II (Claude Code + IA Local)
@@ -28,7 +29,9 @@ export function Crumb({ label }: { label: string }) {
 export function Objetivos({ children }: { children: React.ReactNode }) {
   return (
     <div className="callout callout-info mb-8">
-      <strong>🎯 Objetivos de aprendizaje</strong>
+      <strong className="inline-flex items-center gap-2">
+        <Icon name="prompt" /> Objetivos de aprendizaje
+      </strong>
       <div className="mt-2">{children}</div>
     </div>
   );
@@ -37,7 +40,10 @@ export function Objetivos({ children }: { children: React.ReactNode }) {
 export function Idea({ children }: { children: React.ReactNode }) {
   return (
     <div className="callout callout-tip my-6">
-      <strong>💡 Idea clave.</strong> {children}
+      <strong className="inline-flex items-center gap-2">
+        <Icon name="idea" /> Idea clave.
+      </strong>{" "}
+      {children}
     </div>
   );
 }
@@ -45,7 +51,10 @@ export function Idea({ children }: { children: React.ReactNode }) {
 export function Cuidado({ children }: { children: React.ReactNode }) {
   return (
     <div className="callout callout-warning my-6">
-      <strong>⚠️ Cuidado.</strong> {children}
+      <strong className="inline-flex items-center gap-2">
+        <Icon name="warning" /> Cuidado.
+      </strong>{" "}
+      {children}
     </div>
   );
 }
@@ -53,7 +62,10 @@ export function Cuidado({ children }: { children: React.ReactNode }) {
 export function Cristiano({ term, children }: { term: string; children: React.ReactNode }) {
   return (
     <div className="callout callout-info my-6">
-      <strong>🧠 En cristiano: {term}.</strong> {children}
+      <strong className="inline-flex items-center gap-2">
+        <Icon name="brain" /> En cristiano: {term}.
+      </strong>{" "}
+      {children}
     </div>
   );
 }
@@ -61,7 +73,10 @@ export function Cristiano({ term, children }: { term: string; children: React.Re
 export function Comprueba({ children }: { children: React.ReactNode }) {
   return (
     <div className="callout callout-tip my-6">
-      <strong>✅ Comprueba que funciona.</strong> {children}
+      <strong className="inline-flex items-center gap-2">
+        <Icon name="check" /> Comprueba que funciona.
+      </strong>{" "}
+      {children}
     </div>
   );
 }
@@ -69,7 +84,9 @@ export function Comprueba({ children }: { children: React.ReactNode }) {
 export function Guardar({ children }: { children: React.ReactNode }) {
   return (
     <div className="callout callout-orange my-6">
-      <strong>💾 Guardar y reabrir el proyecto.</strong>
+      <strong className="inline-flex items-center gap-2">
+        <Icon name="save" /> Guardar y reabrir el proyecto.
+      </strong>
       <div className="mt-2">{children}</div>
     </div>
   );
@@ -100,13 +117,21 @@ export function Terminal({ children }: { children: string }) {
     <div className="my-4 rounded-lg border border-zinc-700 bg-zinc-900/60 overflow-hidden">
       <div className="flex items-center justify-between px-4 py-2 border-b border-zinc-800 bg-zinc-900">
         <span className="text-xs font-medium text-zinc-400 flex items-center gap-1.5">
-          <span>⌨️</span> Terminal
+          <Icon name="terminal" /> Terminal
         </span>
         <button
           onClick={copy}
           className="text-xs px-2 py-1 rounded-md bg-zinc-800 hover:bg-zinc-700 text-zinc-300 transition-colors flex items-center gap-1"
         >
-          {copied ? (<><span className="text-emerald-400">✓</span> Copiado</>) : (<>📋 Copiar</>)}
+          {copied ? (
+            <>
+              <Icon name="check" className="text-emerald-400" /> Copiado
+            </>
+          ) : (
+            <>
+              <Icon name="copy" /> Copiar
+            </>
+          )}
         </button>
       </div>
       <pre className="px-4 py-3 text-sm text-zinc-200 leading-relaxed whitespace-pre-wrap overflow-x-auto font-[family-name:var(--font-geist-mono)]">
@@ -140,13 +165,13 @@ export function ChapterNav({
 export function Chapter({
   crumb,
   title,
-  emoji,
+  icon,
   lead,
   children,
 }: {
   crumb: string;
   title: string;
-  emoji: string;
+  icon: IconName;
   lead: React.ReactNode;
   children: React.ReactNode;
 }) {
@@ -154,7 +179,10 @@ export function Chapter({
     <div className="max-w-3xl mx-auto px-8 py-14">
       <Crumb label={crumb} />
       <div className="mb-10">
-        <h1 className="text-4xl font-bold text-white mb-4">{emoji} {title}</h1>
+        <h1 className="text-4xl font-bold text-white mb-4 flex items-center gap-3">
+          <Icon name={icon} className="text-orange-400 text-3xl" />
+          <span>{title}</span>
+        </h1>
         <Lead>{lead}</Lead>
       </div>
       {children}

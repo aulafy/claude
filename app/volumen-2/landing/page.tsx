@@ -12,7 +12,7 @@ export default function Page() {
     <Chapter
       crumb="Una web en minutos"
       title="Una web para tu servicio en minutos"
-      emoji="🌐"
+      icon="globe"
       lead={<>Una <strong>página de aterrizaje</strong> (<em>landing page</em>): una web de una sola página, atractiva y clara, para presentar tu servicio, recoger contactos o vender algo. De la idea a la web publicada, muy rápido.</>}
     >
       <Objetivos>

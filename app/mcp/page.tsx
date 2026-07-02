@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PageTitle from "@/components/PageTitle";
 
 export const metadata: Metadata = {
   title: "Servidores MCP — Aprende Claude Code",
@@ -16,7 +17,7 @@ export default function Mcp() {
       </div>
 
       <div className="mb-10">
-        <h1 className="text-4xl font-bold text-white mb-4">🔌 Servidores MCP</h1>
+        <PageTitle icon="plug">Servidores MCP</PageTitle>
         <p className="text-lg text-zinc-400 leading-relaxed">
           El Model Context Protocol (MCP) permite conectar Claude Code con herramientas
           externas: bases de datos, APIs, navegadores, servicios en la nube y mucho más.

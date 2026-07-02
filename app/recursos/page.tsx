@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Icon from "@/components/Icon";
+import PageTitle from "@/components/PageTitle";
 
 export const metadata: Metadata = {
   title: "Recursos — Aprende Claude Code",
@@ -88,7 +90,7 @@ export default function Recursos() {
       </div>
 
       <div className="mb-10">
-        <h1 className="text-4xl font-bold text-white mb-4">📚 Recursos</h1>
+        <PageTitle icon="book">Recursos</PageTitle>
         <p className="text-lg text-zinc-400 leading-relaxed">
           Enlaces oficiales y de la comunidad, actualizados (2026), para profundizar
           en Claude Code.
@@ -100,14 +102,17 @@ export default function Recursos() {
         download
         className="flex items-center gap-4 rounded-xl border border-orange-500/30 bg-orange-500/10 p-5 mb-8 hover:bg-orange-500/15 transition-colors"
       >
-        <span className="text-3xl">📄</span>
+        <Icon name="filePdf" className="text-3xl text-orange-400" />
         <div className="flex-1">
           <div className="font-semibold text-white">Descarga la guía completa en PDF</div>
           <div className="text-sm text-zinc-400">
             89 páginas, lista para imprimir · licencia Creative Commons (CC BY 4.0)
           </div>
         </div>
-        <span className="text-orange-400 text-sm font-medium">Descargar →</span>
+        <span className="inline-flex items-center gap-2 text-orange-400 text-sm font-medium">
+          <Icon name="download" />
+          Descargar
+        </span>
       </a>
 
       <div className="callout callout-info mb-8">
