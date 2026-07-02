@@ -1,0 +1,54 @@
+# Aprende Claude Code
+
+> Guía educativa gratuita en español sobre Claude Code (la CLI de IA de Anthropic) y sobre cómo construir aplicaciones de IA que se ejecutan en local. Escrita por Ramón Guillamón. Licencia Creative Commons BY 4.0. Todo el contenido es libre y citable.
+
+Autor: Ramón Guillamón (AI Automation Consultant) — LinkedIn: https://www.linkedin.com/in/rguillamon/ · X: https://x.com/learntouseai · GitHub: https://github.com/raym33 · Email: learntouseai@gmail.com
+
+## Volumen I — Aprende Claude Code (fundamentos y referencia)
+
+- [Inicio](https://claude-rho-snowy.vercel.app/): qué es Claude Code y por dónde empezar.
+- [Instalación](https://claude-rho-snowy.vercel.app/instalacion)
+- [Primeros pasos](https://claude-rho-snowy.vercel.app/primeros-pasos)
+- [CLI, app de escritorio, web y móvil](https://claude-rho-snowy.vercel.app/donde-usar)
+- [Recetas prácticas](https://claude-rho-snowy.vercel.app/recetas)
+- [Proyectos guiados](https://claude-rho-snowy.vercel.app/proyectos)
+- [Cómo escribir buenos prompts](https://claude-rho-snowy.vercel.app/prompts)
+- [Skills](https://claude-rho-snowy.vercel.app/skills)
+- [Subagentes](https://claude-rho-snowy.vercel.app/subagentes)
+- [Plugins](https://claude-rho-snowy.vercel.app/plugins)
+- [Servidores MCP](https://claude-rho-snowy.vercel.app/mcp)
+- [Hooks](https://claude-rho-snowy.vercel.app/hooks)
+- [Permisos](https://claude-rho-snowy.vercel.app/permisos)
+- [Comandos](https://claude-rho-snowy.vercel.app/comandos)
+- [Configuración](https://claude-rho-snowy.vercel.app/configuracion)
+- [Uso avanzado](https://claude-rho-snowy.vercel.app/avanzado)
+- [Preguntas frecuentes](https://claude-rho-snowy.vercel.app/faq)
+- [Glosario](https://claude-rho-snowy.vercel.app/glosario)
+
+## Volumen II — Claude Code + IA Local (construir apps de IA local)
+
+Guía práctica para perfiles técnicos: construir herramientas de IA que se ejecutan en el propio ordenador (Ollama, LM Studio, modelos Qwen/Gemma/Phi) y publicarlas en internet.
+
+- [Presentación del Volumen II](https://claude-rho-snowy.vercel.app/volumen-2)
+- [PDF descargable](https://claude-rho-snowy.vercel.app/guia-claude-code-vol2.pdf)
+- [La terminal sin miedo (qué es un CLI)](https://claude-rho-snowy.vercel.app/volumen-2/terminal)
+- [Cómo trabajar con tus proyectos](https://claude-rho-snowy.vercel.app/volumen-2/proyectos)
+- [Escribir buenos encargos (prompts)](https://claude-rho-snowy.vercel.app/volumen-2/prompts)
+- [IA local: elige el modelo para tu máquina](https://claude-rho-snowy.vercel.app/volumen-2/ia-local)
+- [Cuando algo se rompe: depurar y proteger](https://claude-rho-snowy.vercel.app/volumen-2/depurar)
+- [Un chatbot que responde citando la ley (RAG local)](https://claude-rho-snowy.vercel.app/volumen-2/chatbot-legal)
+- [Pregúntale a tus PDF](https://claude-rho-snowy.vercel.app/volumen-2/pdf)
+- [Un chatbot que te escucha y te habla (voz)](https://claude-rho-snowy.vercel.app/volumen-2/voz)
+- [Convierte cualquier texto en audio](https://claude-rho-snowy.vercel.app/volumen-2/texto-a-audio)
+- [Simulaciones 3D para explicar en clase](https://claude-rho-snowy.vercel.app/volumen-2/simulaciones-3d)
+- [Un avatar que habla para tus cursos](https://claude-rho-snowy.vercel.app/volumen-2/avatar)
+- [Crea un tema de WordPress con IA](https://claude-rho-snowy.vercel.app/volumen-2/wordpress)
+- [Una web para tu servicio en minutos](https://claude-rho-snowy.vercel.app/volumen-2/landing)
+- [Un asistente de oficina para autónomos](https://claude-rho-snowy.vercel.app/volumen-2/facturacion)
+- [Una app para estudiar y aprender](https://claude-rho-snowy.vercel.app/volumen-2/estudio)
+- [Publica tu aplicación en internet](https://claude-rho-snowy.vercel.app/volumen-2/publicar)
+- [Varios ordenadores, una sola IA (clúster con exo)](https://claude-rho-snowy.vercel.app/volumen-2/cluster)
+
+## Licencia
+
+Creative Commons Attribution 4.0 (CC BY 4.0). Se permite citar, compartir y adaptar el contenido atribuyendo a Ramón Guillamón y enlazando a la fuente.
