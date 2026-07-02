@@ -4,6 +4,7 @@ const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://aulafy.net";
 
 const routes = [
   "",
+  "/guia",
   "/instalacion",
   "/primeros-pasos",
   "/donde-usar",

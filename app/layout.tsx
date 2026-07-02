@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import Sidebar from "@/components/Sidebar";
-import Footer from "@/components/Footer";
-import ChatWidget from "@/components/ChatWidget";
+import { Geist, Geist_Mono, Sora } from "next/font/google";
+import Shell from "@/components/Shell";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -13,6 +11,12 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const sora = Sora({
+  variable: "--font-sora",
+  subsets: ["latin"],
+  weight: ["400", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -67,9 +71,9 @@ const jsonLd = {
       "@type": "WebSite",
       "@id": `${SITE_URL}/#website`,
       url: SITE_URL,
-      name: "Aprende Claude Code",
+      name: "Aulafy",
       description:
-        "Guía completa en español de Claude Code, con un Volumen II sobre construir IA local.",
+        "Cursos de Inteligencia Artificial en español, gratis y de código abierto. El primer curso es Claude Code.",
       inLanguage: "es",
       publisher: { "@id": `${SITE_URL}/#author` },
     },
@@ -92,18 +96,13 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es" className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+    <html lang="es" className={`${geistSans.variable} ${geistMono.variable} ${sora.variable} antialiased`}>
       <body className="min-h-screen bg-zinc-950 text-zinc-200">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <Sidebar />
-        <div className="md:ml-[260px] min-h-screen flex flex-col">
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </div>
-        <ChatWidget />
+        <Shell>{children}</Shell>
       </body>
     </html>
   );
