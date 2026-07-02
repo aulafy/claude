@@ -42,6 +42,7 @@ export const iconMap = {
   home: "fa-house",
   hook: "fa-anchor",
   idea: "fa-lightbulb",
+  image: "fa-image",
   install: "fa-download",
   lab: "fa-flask",
   landing: "fa-window-maximize",
