@@ -116,7 +116,7 @@ ollama ps`}</Terminal>
 
       <ChapterNav
         prev={{ href: "/cursos/ia-local/ia-local", label: "IA local: elige tu modelo" }}
-        next={{ href: "/cursos/ia-local/conectar-ollama", label: "Conecta Claude Code con tu IA local" }}
+        next={{ href: "/cursos/ia-local/cuantizacion-gguf", label: "Cuantización GGUF" }}
       />
     </Chapter>
   );
