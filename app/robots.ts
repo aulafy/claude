@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://aulafy.net";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 const HOST = new URL(BASE_URL).host;
 
 // Rastreadores de IA / motores generativos con acceso explícito

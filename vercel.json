@@ -1,13 +1,5 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": ".next",
-  "framework": "nextjs",
-  "redirects": [
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.aulafy.net" }],
-      "destination": "https://aulafy.net/:path*",
-      "permanent": true
-    }
-  ]
+  "framework": "nextjs"
 }
