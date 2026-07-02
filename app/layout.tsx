@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://claude-rho-snowy.vercel.app"
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://aulafy.net"
   ),
   title: {
     default: "Aprende Claude Code — Guía completa en español",
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
   },
 };
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://claude-rho-snowy.vercel.app";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://aulafy.net";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -83,7 +83,6 @@ const jsonLd = {
       sameAs: [
         "https://www.linkedin.com/in/rguillamon/",
         "https://x.com/learntouseai",
-        "https://github.com/raym33",
       ],
     },
   ],
