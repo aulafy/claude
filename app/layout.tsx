@@ -21,17 +21,23 @@ const sora = Sora({
   weight: ["400", "600", "700", "800"],
 });
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
+
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net"
-  ),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "Aulafy — Cursos de Inteligencia Artificial en español",
+    default: "Aulafy — Cursos gratis de IA open source en español",
     template: "%s | Aulafy",
   },
   description:
-    "Cursos gratuitos y de código abierto para aprender IA con ejemplos prácticos: Claude Code, IA local, prompts, RAG, voz, PDF y automatización.",
+    "Cursos gratuitos de inteligencia artificial open source en español con ejemplos prácticos: IA local, Claude Code, RAG, prompts, voz, PDF y automatización.",
   keywords: [
+    "cursos de IA gratis",
+    "cursos de inteligencia artificial en español",
+    "curso IA open source",
+    "tutoriales IA prácticos",
+    "aprender inteligencia artificial",
+    "IA open source español",
     "Claude Code",
     "tutorial Claude Code español",
     "Anthropic CLI",
@@ -39,18 +45,35 @@ export const metadata: Metadata = {
     "IA local",
     "Ollama",
     "LM Studio",
+    "modelos locales",
+    "LLM",
     "RAG local",
+    "chatbot con documentos",
+    "prompts IA",
+    "automatización con IA",
     "IA programación",
     "asistente código terminal",
   ],
   authors: [{ name: "Ramón Guillamón", url: "https://www.linkedin.com/in/rguillamon/" }],
   creator: "Ramón Guillamón",
-  publisher: "Ramón Guillamón",
+  publisher: "Aulafy",
   alternates: { canonical: "/" },
+  category: "Education",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
-    title: "Aulafy — Cursos de IA en español",
+    title: "Aulafy — Cursos gratis de IA open source en español",
     description:
-      "Cursos gratuitos y prácticos para aprender IA, construir herramientas propias y trabajar con modelos locales.",
+      "Tutoriales gratuitos y prácticos para aprender IA local, Claude Code, RAG, prompts y automatización con herramientas abiertas.",
     type: "website",
     locale: "es_ES",
     siteName: "Aulafy",
@@ -58,26 +81,51 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aulafy — Cursos de IA en español",
-    description: "Cursos gratuitos y prácticos para aprender IA, Claude Code e IA local.",
+    title: "Aulafy — Cursos gratis de IA open source",
+    description: "Cursos prácticos en español para aprender IA local, Claude Code, RAG y automatización.",
     creator: "@learntouseai",
   },
+  other: {
+    "ai-summary":
+      "Aulafy es una web educativa en español con cursos gratuitos de inteligencia artificial open source, IA local, Claude Code, RAG, prompts y automatización.",
+    "llms.txt": `${SITE_URL}/llms.txt`,
+  },
 };
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
+    {
+      "@type": "EducationalOrganization",
+      "@id": `${SITE_URL}/#organization`,
+      name: "Aulafy",
+      url: SITE_URL,
+      description:
+        "Web educativa con cursos gratuitos de inteligencia artificial open source en español, IA local, RAG, prompts, Claude Code y automatización.",
+      inLanguage: "es",
+      knowsAbout: [
+        "Inteligencia artificial",
+        "IA open source",
+        "IA local",
+        "Claude Code",
+        "RAG",
+        "Ollama",
+        "LM Studio",
+        "Automatización con IA",
+        "Ingeniería de prompts",
+      ],
+      sameAs: ["https://github.com/raym33/claude"],
+    },
     {
       "@type": "WebSite",
       "@id": `${SITE_URL}/#website`,
       url: SITE_URL,
       name: "Aulafy",
       description:
-        "Cursos de Inteligencia Artificial en español, gratis y de código abierto. El primer curso es Claude Code.",
+        "Cursos de Inteligencia Artificial open source en español, gratis y con ejemplos prácticos.",
       inLanguage: "es",
-      publisher: { "@id": `${SITE_URL}/#author` },
+      publisher: { "@id": `${SITE_URL}/#organization` },
+      creator: { "@id": `${SITE_URL}/#author` },
     },
     {
       "@type": "Course",
@@ -88,14 +136,33 @@ const jsonLd = {
       url: `${SITE_URL}/guia`,
       inLanguage: "es",
       isAccessibleForFree: true,
-      provider: { "@id": `${SITE_URL}/#website` },
+      provider: { "@id": `${SITE_URL}/#organization` },
       author: { "@id": `${SITE_URL}/#author` },
+      teaches: [
+        "Claude Code",
+        "IA local",
+        "Model Context Protocol",
+        "subagentes",
+        "automatización con IA",
+      ],
+    },
+    {
+      "@type": "LearningResource",
+      "@id": `${SITE_URL}/volumen-2#learning-resource`,
+      name: "Claude Code + IA Local",
+      description:
+        "Guía práctica en español para construir aplicaciones de IA local con Ollama, LM Studio, RAG, PDF, voz y modelos abiertos.",
+      url: `${SITE_URL}/volumen-2`,
+      inLanguage: "es",
+      isAccessibleForFree: true,
+      educationalLevel: "Intermedio",
+      learningResourceType: "Tutorial",
+      provider: { "@id": `${SITE_URL}/#organization` },
     },
     {
       "@type": "Person",
       "@id": `${SITE_URL}/#author`,
       name: "Ramón Guillamón",
-      jobTitle: "AI Automation Consultant",
       email: "contacto@aulafy.net",
       url: SITE_URL,
       sameAs: [
