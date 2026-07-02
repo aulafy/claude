@@ -73,7 +73,7 @@ export default function Page() {
 
       <ChapterNav
         prev={{ href: "/cursos/rag-seguro/embeddings-vector-db", label: "Embeddings y vector DB" }}
-        next={{ href: "/cursos/rag-seguro/prompt-injection", label: "Prompt injection en RAG" }}
+        next={{ href: "/cursos/rag-seguro/qdrant-permisos", label: "Qdrant multiusuario y permisos" }}
       />
     </Chapter>
   );

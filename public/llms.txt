@@ -107,9 +107,12 @@ Curso para construir chatbots con documentos privados que sean útiles y auditab
 - [Presentación del curso](https://www.aulafy.net/cursos/rag-seguro)
 - [RAG útil: mucho más que chat con PDF](https://www.aulafy.net/cursos/rag-seguro/mapa-rag)
 - [Ingesta, limpieza y chunking](https://www.aulafy.net/cursos/rag-seguro/ingesta-chunking)
+- [OCR y tablas en PDFs reales](https://www.aulafy.net/cursos/rag-seguro/ocr-tablas)
 - [Embeddings y bases vectoriales](https://www.aulafy.net/cursos/rag-seguro/embeddings-vector-db)
 - [Búsqueda híbrida y reranking](https://www.aulafy.net/cursos/rag-seguro/hybrid-reranking)
+- [Qdrant multiusuario y permisos](https://www.aulafy.net/cursos/rag-seguro/qdrant-permisos)
 - [Prompt injection en RAG](https://www.aulafy.net/cursos/rag-seguro/prompt-injection)
+- [Evals RAG con métricas](https://www.aulafy.net/cursos/rag-seguro/evals-metricas)
 - [Evals, citaciones y trazabilidad](https://www.aulafy.net/cursos/rag-seguro/evals-citaciones)
 
 ## IA para pymes y autónomos

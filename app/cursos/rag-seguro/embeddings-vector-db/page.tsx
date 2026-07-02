@@ -69,7 +69,7 @@ payload:
       </Guardar>
 
       <ChapterNav
-        prev={{ href: "/cursos/rag-seguro/ingesta-chunking", label: "Ingesta y chunking" }}
+        prev={{ href: "/cursos/rag-seguro/ocr-tablas", label: "OCR y tablas en PDFs reales" }}
         next={{ href: "/cursos/rag-seguro/hybrid-reranking", label: "Búsqueda híbrida y reranking" }}
       />
     </Chapter>
