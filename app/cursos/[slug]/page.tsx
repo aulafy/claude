@@ -50,8 +50,6 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
     })),
   };
 
-  let n = 0;
-
   return (
     <div className="max-w-4xl mx-auto px-6 py-14">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
@@ -103,15 +101,20 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
 
       {/* Temario */}
       <h2 className="font-display font-bold text-2xl text-white mb-6">Temario</h2>
-      {curso.secciones.map((seccion) => (
-        <div key={seccion.title} className="mb-8">
-          <h3 className="text-sm font-semibold uppercase tracking-wider text-zinc-500 mb-3">
-            {seccion.title}
-          </h3>
-          <ol className="rounded-xl border border-zinc-800 divide-y divide-zinc-800/70 overflow-hidden">
-            {seccion.lecciones.map((l) => {
-              n += 1;
-              return (
+      {curso.secciones.map((seccion, seccionIndex) => {
+        const start = curso.secciones
+          .slice(0, seccionIndex)
+          .reduce((sum, item) => sum + item.lecciones.length, 0);
+
+        return (
+          <div key={seccion.title} className="mb-8">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-zinc-500 mb-3">
+              {seccion.title}
+            </h3>
+            <ol className="rounded-xl border border-zinc-800 divide-y divide-zinc-800/70 overflow-hidden">
+              {seccion.lecciones.map((l, leccionIndex) => {
+                const n = start + leccionIndex + 1;
+                return (
                 <li key={l.slug}>
                   <Link
                     href={`/cursos/${curso.slug}/${l.slug}`}
@@ -126,11 +129,12 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
                     </span>
                   </Link>
                 </li>
-              );
-            })}
-          </ol>
-        </div>
-      ))}
+                );
+              })}
+            </ol>
+          </div>
+        );
+      })}
 
       {/* Otros cursos */}
       <div className="mt-12 pt-8 border-t border-zinc-800">
