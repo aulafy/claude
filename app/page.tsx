@@ -4,14 +4,14 @@ import Icon, { type IconName } from "@/components/Icon";
 import ThemeToggle from "@/components/ThemeToggle";
 
 export const metadata: Metadata = {
-  title: "Aulafy — Cursos de Inteligencia Artificial en español",
+  title: "Aulafy — Cursos de IA open source en español",
   description:
-    "Aprende a usar la IA y a construir tus propias aplicaciones con cursos prácticos en español, gratis y de código abierto. El primer curso es Claude Code.",
+    "Cursos gratuitos de inteligencia artificial open source en español: IA local, Claude Code, RAG, prompts, automatización y proyectos prácticos paso a paso.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Aulafy — Cursos de IA en español",
+    title: "Aulafy — Cursos de IA open source en español",
     description:
-      "De cero a construir tus propias herramientas de IA. Gratis y de código abierto.",
+      "Tutoriales prácticos para aprender IA local, Claude Code, RAG, prompts y automatización. Gratis, en español y de código abierto.",
     type: "website",
     locale: "es_ES",
     url: "/",
@@ -119,7 +119,6 @@ export default function Home() {
             <a href="#cursos" className="hover:text-white transition-colors">Cursos</a>
             <a href="#porque" className="hover:text-white transition-colors">Por qué Aulafy</a>
             <a href="#como" className="hover:text-white transition-colors">Cómo funciona</a>
-            <a href="#instructor" className="hover:text-white transition-colors">Instructor</a>
           </nav>
           <div className="flex items-center gap-2">
             <ThemeToggle compact />
@@ -135,13 +134,13 @@ export default function Home() {
       <section className="max-w-6xl mx-auto px-6 pt-20 pb-16 text-center">
         <div className="inline-flex items-center gap-2 text-xs font-medium text-[#a78bfa] bg-[#8b5cf6]/10 border border-[#8b5cf6]/20 rounded-full px-3 py-1 mb-6">
           <span className="w-1.5 h-1.5 rounded-full bg-[#22d3ee] animate-pulse" />
-          Cursos de IA en español · Gratis y de código abierto
+          Cursos de IA open source en español · Gratis y prácticos
         </div>
         <h1 className="font-display font-extrabold text-4xl sm:text-6xl leading-tight text-white max-w-4xl mx-auto">
           Aprende a usar la IA<br /><span className="grad-text">y a construir con ella</span>
         </h1>
         <p className="mt-6 text-lg text-zinc-400 max-w-2xl mx-auto leading-relaxed">
-          De cero a crear tus propias herramientas de inteligencia artificial. Proyectos reales, sin humo, y muchos ejecutándose en <strong className="text-zinc-200">tu propio ordenador</strong>.
+          De cero a crear tus propias herramientas de inteligencia artificial. Tutoriales de IA local, RAG, prompts y automatización, con proyectos reales y muchos ejecutándose en <strong className="text-zinc-200">tu propio ordenador</strong>.
         </p>
         <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
           <a href="#cursos" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium text-white bg-gradient-to-r from-[#8b5cf6] to-[#e879f9] hover:opacity-90 transition-opacity glow">
@@ -308,27 +307,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Instructor */}
-      <section id="instructor" className="max-w-6xl mx-auto px-6 py-16">
-        <div className="glass rounded-2xl p-8 sm:p-10 grid md:grid-cols-[auto_1fr] gap-8 items-center">
-          <div className="w-28 h-28 rounded-2xl bg-gradient-to-br from-[#8b5cf6] to-[#22d3ee] flex items-center justify-center font-display font-extrabold text-4xl text-white mx-auto">RG</div>
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-wider text-[#a78bfa] mb-2">Tu instructor</p>
-            <h2 className="font-display font-bold text-2xl text-white">Ramón Guillamón</h2>
-            <p className="text-sm text-zinc-500 mb-3">AI Automation Consultant</p>
-            <p className="text-zinc-400 leading-relaxed max-w-2xl">Consultor de automatización con IA y autor de guías gratuitas que han ayudado a miles de personas a empezar con Claude Code y la IA local. En Aulafy comparte lo que funciona de verdad: nada de humo, solo proyectos que puedes construir hoy.</p>
-            <div className="mt-4 flex items-center gap-4 text-zinc-500">
-              <a href="https://www.linkedin.com/in/rguillamon/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-white transition-colors">
-                <Icon name="linkedin" family="brands" className="text-lg" />
-              </a>
-              <a href="https://x.com/learntouseai" target="_blank" rel="noopener noreferrer" aria-label="X" className="hover:text-white transition-colors">
-                <Icon name="xTwitter" family="brands" className="text-lg" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Gratis y open source */}
       <section id="opensource" className="max-w-4xl mx-auto px-6 py-20">
         <div className="glass rounded-3xl p-10 sm:p-14 text-center">
@@ -362,11 +340,17 @@ export default function Home() {
             <Link href="/guia" className="text-xs hover:text-white transition-colors">
               Guía
             </Link>
+            <Link href="/aviso-legal" className="text-xs hover:text-white transition-colors">
+              Aviso legal
+            </Link>
             <Link href="/licencia" className="text-xs hover:text-white transition-colors">
               Licencia
             </Link>
             <Link href="/privacidad" className="text-xs hover:text-white transition-colors">
               Privacidad
+            </Link>
+            <Link href="/cookies" className="text-xs hover:text-white transition-colors">
+              Cookies
             </Link>
             <a
               href="https://github.com/raym33/claude"

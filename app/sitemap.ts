@@ -16,8 +16,10 @@ const routes = [
   "/problemas",
   "/recursos",
   "/comparativa",
+  "/aviso-legal",
   "/licencia",
   "/privacidad",
+  "/cookies",
   "/pymes",
   "/equipos",
   "/skills",
@@ -56,6 +58,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${BASE_URL}${route}`,
     lastModified: now,
     changeFrequency: "monthly",
-    priority: route === "" ? 1 : 0.8,
+    priority: route === "" ? 1 : route.includes("legal") || route === "/privacidad" || route === "/cookies" || route === "/licencia" ? 0.4 : 0.8,
   }));
 }

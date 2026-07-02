@@ -49,6 +49,8 @@ export const searchData: SearchItem[] = [
   { href: "/volumen-2/estudio", title: "App para estudiar", section: "Volumen II", keywords: "estudiar apuntes examenes preguntas flashcards" },
   { href: "/volumen-2/publicar", title: "Publicar en la red", section: "Volumen II", keywords: "deploy publicar vercel internet dominio" },
   { href: "/volumen-2/cluster", title: "Clúster casero", section: "Volumen II", keywords: "exo cluster ordenadores red modelos grandes" },
+  { href: "/aviso-legal", title: "Aviso legal", section: "Legal", keywords: "aviso legal titular responsable contacto lssi condiciones uso" },
   { href: "/licencia", title: "Licencia", section: "Legal", keywords: "cc by mit contenido codigo reutilizar" },
   { href: "/privacidad", title: "Privacidad", section: "Legal", keywords: "privacidad cookies chat groq datos ip" },
+  { href: "/cookies", title: "Cookies", section: "Legal", keywords: "cookies localstorage modo claro oscuro sin analitica publicidad seguimiento" },
 ];
