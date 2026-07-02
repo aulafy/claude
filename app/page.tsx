@@ -6,12 +6,12 @@ import ThemeToggle from "@/components/ThemeToggle";
 export const metadata: Metadata = {
   title: "Aulafy — Cursos de IA open source en español",
   description:
-    "Cursos gratuitos de inteligencia artificial open source en español: IA local, Claude Code, RAG, prompts, automatización y proyectos prácticos paso a paso.",
+    "Cursos gratuitos de inteligencia artificial open source en español: IA local, Claude Code, RAG, prompts, automatización, imagen, voz, vídeo y proyectos prácticos paso a paso.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "Aulafy — Cursos de IA open source en español",
     description:
-      "Tutoriales prácticos para aprender IA local, Claude Code, RAG, prompts y automatización. Gratis, en español y de código abierto.",
+      "Tutoriales prácticos para aprender IA local, Claude Code, RAG, prompts, automatización e IA generativa multimedia. Gratis, en español y de código abierto.",
     type: "website",
     locale: "es_ES",
     url: "/",
@@ -45,7 +45,7 @@ const cursos = [
   { icon: "robot", title: "Agentes y automatización", desc: "Crea agentes que hacen tareas por ti y automatiza flujos repetitivos con IA.", level: "Intermedio", status: "Disponible", statusColor: "text-[#22d3ee]", href: "/cursos/agentes-automatizacion" },
   { icon: "network", title: "Agentes en producción", desc: "LangGraph, n8n, herramientas, aprobaciones humanas, logs y seguridad para flujos reales.", level: "Intermedio", status: "Nuevo", statusColor: "text-[#10b981]", href: "/cursos/agentes-produccion" },
   { icon: "database", title: "RAG avanzado y seguro", desc: "Chatbots con documentos privados, citaciones, búsqueda híbrida, evals y defensa ante prompt injection.", level: "Intermedio", status: "Nuevo", statusColor: "text-[#10b981]", href: "/cursos/rag-seguro" },
-  { icon: "palette", title: "IA generativa: imagen y voz", desc: "Genera imágenes, voz y vídeo con herramientas open source y en la nube.", level: "Principiante", status: "Disponible", statusColor: "text-[#22d3ee]", href: "/cursos/ia-local/texto-a-audio" },
+  { icon: "palette", title: "IA generativa: imagen, voz y vídeo", desc: "ComfyUI, FLUX, Diffusers, Whisper, Piper y Wan para crear recursos educativos con control.", level: "Principiante", status: "Nuevo", statusColor: "text-[#10b981]", href: "/cursos/ia-generativa" },
   { icon: "briefcase", title: "IA para pymes y autónomos", desc: "Emails, facturas, presupuestos, WhatsApp, Excel y RGPD básico con flujos revisables.", level: "Principiante", status: "Nuevo", statusColor: "text-[#10b981]", href: "/cursos/ia-pymes" },
 ] satisfies Array<{
   icon: IconName;

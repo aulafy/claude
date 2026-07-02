@@ -141,6 +141,39 @@ export const cursos: Curso[] = [
     ],
   },
   {
+    slug: "ia-generativa",
+    title: "IA generativa: imagen, voz y vídeo",
+    short: "Crea recursos multimedia con modelos abiertos",
+    desc: "Aprende a generar y editar imágenes, voces, transcripciones y clips de vídeo con ComfyUI, FLUX, Diffusers, Whisper, Piper y Wan, cuidando licencias, reproducibilidad y uso educativo.",
+    level: "Principiante → intermedio",
+    icon: "palette",
+    gradient: ["#ec4899", "#22c55e"],
+    secciones: [
+      {
+        title: "Mapa y criterio",
+        lecciones: [
+          { slug: "mapa-licencias", title: "Mapa de herramientas y licencias" },
+          { slug: "comfyui-flux", title: "ComfyUI + FLUX desde cero" },
+        ],
+      },
+      {
+        title: "Imagen controlada",
+        lecciones: [
+          { slug: "diffusers-python", title: "Diffusers con Python reproducible" },
+          { slug: "control-lora", title: "Control, referencias y LoRA" },
+        ],
+      },
+      {
+        title: "Audio y vídeo",
+        lecciones: [
+          { slug: "voz-local", title: "Voz local: Whisper y Piper" },
+          { slug: "video-local", title: "Vídeo local con Wan y ComfyUI" },
+          { slug: "proyecto-multimodal", title: "Proyecto: cápsula educativa multimedia" },
+        ],
+      },
+    ],
+  },
+  {
     slug: "agentes-automatizacion",
     title: "Agentes y automatización",
     short: "Diseña agentes útiles, seguros y mantenibles",
@@ -271,7 +304,7 @@ export const cursos: Curso[] = [
 ];
 
 export const proximamente = [
-  { icon: "palette", title: "IA generativa: imagen y voz", desc: "Genera imágenes, voz y vídeo con herramientas open source y en la nube." },
+  { icon: "shield", title: "Seguridad y evaluación de modelos", desc: "Red teaming, benchmarks, privacidad y despliegue responsable de sistemas de IA." },
 ];
 
 export function getCurso(slug: string): Curso | undefined {
