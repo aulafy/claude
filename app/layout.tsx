@@ -65,6 +65,13 @@ export const metadata: Metadata = {
   publisher: "Aulafy",
   alternates: { canonical: "/" },
   category: "Education",
+  verification: {
+    // Se rellenan con variables de entorno en Vercel (no hace falta tocar código).
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+    other: process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
+      ? { "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION }
+      : {},
+  },
   robots: {
     index: true,
     follow: true,
