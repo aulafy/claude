@@ -88,7 +88,7 @@ npm run dev`}</Terminal>
         <p>Enlaza el avatar con un modelo de Ollama: que el avatar <strong>responda</strong> a preguntas hablando, no solo lea un texto fijo. Habrás creado un tutor virtual con cara.</p>
       </div>
 
-      <ChapterNav prev={{ href: "/volumen-2/simulaciones-3d", label: "Simulaciones 3D" }} next={{ href: "/volumen-2/wordpress", label: "Tema de WordPress" }} />
+      <ChapterNav prev={{ href: "/cursos/ia-local/simulaciones-3d", label: "Simulaciones 3D" }} next={{ href: "/cursos/ia-local/wordpress", label: "Tema de WordPress" }} />
     </Chapter>
   );
 }

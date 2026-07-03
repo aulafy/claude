@@ -78,7 +78,7 @@ npm run dev`}</Terminal>
         <p>Añade botones para “visitar” cada planeta (que la cámara viaje hasta él) y un panel lateral con su ficha. Habrás convertido la simulación en una pequeña lección interactiva.</p>
       </div>
 
-      <ChapterNav prev={{ href: "/volumen-2/texto-a-audio", label: "Texto a audio" }} next={{ href: "/volumen-2/avatar", label: "Un avatar que habla" }} />
+      <ChapterNav prev={{ href: "/cursos/ia-local/texto-a-audio", label: "Texto a audio" }} next={{ href: "/cursos/ia-local/avatar", label: "Un avatar que habla" }} />
     </Chapter>
   );
 }

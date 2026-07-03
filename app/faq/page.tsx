@@ -71,9 +71,9 @@ export default function FaqPage() {
           Sí, con sensatez. Claude Code <strong>pide confirmación</strong> antes de
           editar archivos o ejecutar comandos importantes, y siempre te muestra qué va a
           cambiar. Tú tienes el control en todo momento. Para máxima tranquilidad, trabaja
-          en proyectos con <Link href="/glosario">git</Link> (puedes deshacer cualquier
+          en proyectos con <Link href="/cursos/claude-code/glosario">git</Link> (puedes deshacer cualquier
           cosa) y revisa los cambios antes de aceptarlos. Más detalle en{" "}
-          <Link href="/permisos">Permisos</Link>.
+          <Link href="/cursos/claude-code/permisos">Permisos</Link>.
         </p>
       </Faq>
 
@@ -100,7 +100,7 @@ export default function FaqPage() {
           En el modo normal pide permiso antes de acciones peligrosas, así que es difícil.
           El riesgo aparece si usas <code>--dangerously-skip-permissions</code> (omite las
           confirmaciones): úsalo solo en entornos controlados. Y configura una lista de
-          comandos prohibidos en <Link href="/permisos">Permisos</Link> (como{" "}
+          comandos prohibidos en <Link href="/cursos/claude-code/permisos">Permisos</Link> (como{" "}
           <code>rm -rf</code>). Con git, además, todo es reversible.
         </p>
       </Faq>
@@ -111,7 +111,7 @@ export default function FaqPage() {
         <p>
           No para empezar. Puedes pedirle cosas en lenguaje natural y aprender mientras
           ves cómo trabaja. Eso sí: cuanto más entiendas, mejor podrás dirigirlo y
-          detectar si algo no está bien. Por eso recomendamos <Link href="/proyectos">
+          detectar si algo no está bien. Por eso recomendamos <Link href="/cursos/claude-code/proyectos">
           construir proyectos guiados</Link> pidiéndole que te explique cada paso.
         </p>
       </Faq>
@@ -147,7 +147,7 @@ export default function FaqPage() {
           tareas de mucho razonamiento o problemas difíciles, sube a <code>opus</code>.
           Para tareas simples y muy repetitivas, <code>haiku</code> suele ser más
           barato. Lo ves todo en{" "}
-          <Link href="/comandos">Comandos</Link>.
+          <Link href="/cursos/claude-code/comandos">Comandos</Link>.
         </p>
       </Faq>
 
@@ -166,7 +166,7 @@ export default function FaqPage() {
         <p>
           No, funciona en cualquier terminal. Pero si usas <strong>VS Code</strong> o un
           IDE de <strong>JetBrains</strong>, hay extensiones que lo integran en el editor.
-          Mira <Link href="/configuracion">Configuración</Link> para los detalles.
+          Mira <Link href="/cursos/claude-code/configuracion">Configuración</Link> para los detalles.
         </p>
       </Faq>
 
@@ -181,12 +181,12 @@ export default function FaqPage() {
       <div className="mt-10 callout callout-tip">
         <strong>¿No está tu duda aquí?</strong> Pregúntasela directamente a Claude Code:
         escribe <em>"explícame [tu duda] sobre cómo funcionas"</em>. O revisa la{" "}
-        <Link href="/problemas">solución de problemas</Link> si algo no te funciona.
+        <Link href="/cursos/claude-code/problemas">solución de problemas</Link> si algo no te funciona.
       </div>
 
       <div className="mt-12 pt-8 border-t border-zinc-800 flex justify-between items-center">
-        <Link href="/proyectos" className="text-sm text-zinc-500 hover:text-zinc-300">← Proyectos guiados</Link>
-        <Link href="/problemas" className="text-sm text-orange-400 hover:text-orange-300">Solución de problemas →</Link>
+        <Link href="/cursos/claude-code/proyectos" className="text-sm text-zinc-500 hover:text-zinc-300">← Proyectos guiados</Link>
+        <Link href="/cursos/claude-code/problemas" className="text-sm text-orange-400 hover:text-orange-300">Solución de problemas →</Link>
       </div>
     </div>
   );

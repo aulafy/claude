@@ -62,6 +62,27 @@ No modifiques archivos salvo que el usuario lo pida explícitamente.
 Prioriza: contraste, navegación por teclado, etiquetas, estados de foco y textos alternativos.
 Devuelve hallazgos con severidad y archivo.`}</Terminal>
 
+      <div className="prose">
+        <h2>Los dos candados reales del frontmatter</h2>
+        <p>Además de escribir buenas instrucciones, Claude Code te da dos campos en el frontmatter que <strong>limitan de verdad</strong> lo que una skill puede hacer:</p>
+        <ul>
+          <li><code>allowed-tools</code>: la lista blanca de herramientas que la skill puede usar. Sé estrecho. Evita el comodín <code>Bash(*)</code>, que da barra libre a la terminal.</li>
+          <li><code>disable-model-invocation: true</code>: impide que el modelo lance la skill por su cuenta. Imprescindible en skills con <em>efectos</em> (desplegar, borrar, publicar): así solo se ejecutan cuando tú la invocas con <code>/nombre</code>.</li>
+        </ul>
+      </div>
+
+      <Terminal>{`---
+name: deploy
+description: Despliega a producción (solo bajo demanda).
+disable-model-invocation: true
+allowed-tools: Bash(./scripts/deploy.sh *)
+---
+Ejecuta el despliegue paso a paso y muéstrame el resultado.`}</Terminal>
+
+      <Cuidado>
+        La combinación peligrosa que buscan los atacantes: una skill con <code>allowed-tools: Bash(*)</code> (o sin restringir) <strong>más</strong> contexto dinámico (comandos <code>!</code> que se ejecutan solos al cargar la skill). Eso permite leer tus tokens y filtrarlos antes de que te des cuenta. Si ves ambas cosas juntas en una skill de terceros, no la instales.
+      </Cuidado>
+
       <Idea>
         La mejor skill no hace más cosas: reduce ambigüedad. Te da mejores encargos, mejor checklist y mejor salida.
       </Idea>

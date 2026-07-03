@@ -102,8 +102,8 @@ export default function Plugins() {
       </div>
 
       <div className="mt-12 pt-8 border-t border-zinc-800 flex justify-between items-center">
-        <Link href="/subagentes" className="text-sm text-zinc-500 hover:text-zinc-300">← Subagentes</Link>
-        <Link href="/flujos" className="text-sm text-orange-400 hover:text-orange-300">Flujos de trabajo pro →</Link>
+        <Link href="/cursos/claude-code/subagentes" className="text-sm text-zinc-500 hover:text-zinc-300">← Subagentes</Link>
+        <Link href="/cursos/claude-code/flujos" className="text-sm text-orange-400 hover:text-orange-300">Flujos de trabajo pro →</Link>
       </div>
     </div>
   );

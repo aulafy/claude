@@ -194,8 +194,8 @@ claude`}</code></pre>
       </div>
 
       <div className="mt-12 pt-8 border-t border-zinc-800 flex justify-between items-center">
-        <Link href="/comandos" className="text-sm text-zinc-500 hover:text-zinc-300">← Comandos</Link>
-        <Link href="/mcp" className="text-sm text-orange-400 hover:text-orange-300">Servidores MCP →</Link>
+        <Link href="/cursos/claude-code/comandos" className="text-sm text-zinc-500 hover:text-zinc-300">← Comandos</Link>
+        <Link href="/cursos/claude-code/mcp" className="text-sm text-orange-400 hover:text-orange-300">Servidores MCP →</Link>
       </div>
     </div>
   );

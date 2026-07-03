@@ -102,7 +102,7 @@ npm run dev`}</Terminal>
         <p>Crea la carpeta <code>proyectos-ia</code>, entra en ella, crea dentro una carpeta <code>prueba</code>, entra, y pídele a Claude Code que inicialice Git y haga el primer commit. Ya tienes tu método de trabajo montado para todo el libro.</p>
       </div>
 
-      <ChapterNav prev={{ href: "/volumen-2/terminal", label: "La terminal sin miedo" }} next={{ href: "/volumen-2/prompts", label: "Escribir buenos encargos" }} />
+      <ChapterNav prev={{ href: "/cursos/ia-local/terminal", label: "La terminal sin miedo" }} next={{ href: "/cursos/ia-local/prompts", label: "Escribir buenos encargos" }} />
     </Chapter>
   );
 }

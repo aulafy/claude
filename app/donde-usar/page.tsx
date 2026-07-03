@@ -117,9 +117,9 @@ brew install --cask claude-code`}</code></pre>
         <p>
           También puedes instalarlo con npm (<code>npm install -g @anthropic-ai/claude-code</code>).
           Tras instalar, ve a tu proyecto y ejecuta <code>claude</code>. Más
-          detalle en <Link href="/instalacion">Instalación</Link>. Es la mejor
+          detalle en <Link href="/cursos/claude-code/instalacion">Instalación</Link>. Es la mejor
           opción para automatización, scripts y flujos headless (ver{" "}
-          <Link href="/equipos">Perfiles técnicos</Link>).
+          <Link href="/cursos/claude-code/equipos">Perfiles técnicos</Link>).
         </p>
 
         <SectionHeading icon="desktop">App de escritorio (Mac y Windows)</SectionHeading>
@@ -157,7 +157,7 @@ brew install --cask claude-code`}</code></pre>
           extensión/plugin oficial que integra Claude Code en el editor con
           diffs en línea, @-menciones y revisión de plan. La de JetBrains
           requiere tener la CLI instalada. Ver{" "}
-          <Link href="/configuracion">Configuración</Link>.
+          <Link href="/cursos/claude-code/configuracion">Configuración</Link>.
         </p>
 
         <SectionHeading icon="mobile">Controlar Claude Code desde el móvil</SectionHeading>
@@ -222,8 +222,8 @@ brew install --cask claude-code`}</code></pre>
       </div>
 
       <div className="mt-12 pt-8 border-t border-zinc-800 flex justify-between items-center">
-        <Link href="/primeros-pasos" className="text-sm text-zinc-500 hover:text-zinc-300">← Primeros pasos</Link>
-        <Link href="/comandos" className="text-sm text-orange-400 hover:text-orange-300">Comandos →</Link>
+        <Link href="/cursos/claude-code/primeros-pasos" className="text-sm text-zinc-500 hover:text-zinc-300">← Primeros pasos</Link>
+        <Link href="/cursos/claude-code/comandos" className="text-sm text-orange-400 hover:text-orange-300">Comandos →</Link>
       </div>
     </div>
   );

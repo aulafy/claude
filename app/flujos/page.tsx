@@ -60,7 +60,7 @@ export default function Flujos() {
         <div className="callout callout-warning">
           El rewind es tu seguro para refactorizaciones arriesgadas: si Claude se
           desvía o rompe algo, vuelves al estado bueno en segundos. Aun así, trabajar
-          con <Link href="/glosario">git</Link> sigue siendo la mejor red de seguridad.
+          con <Link href="/cursos/claude-code/glosario">git</Link> sigue siendo la mejor red de seguridad.
         </div>
 
         <SectionHeading icon="automation">Tareas en background</SectionHeading>
@@ -109,7 +109,7 @@ claude -p "analiza el repo" --output-format stream-json`}</code></pre>
           </li>
           <li>
             <strong>Skills estandarizadas.</strong> Crea o instala{" "}
-            <Link href="/skills">skills</Link> para revisar, desplegar, testear. Usa{" "}
+            <Link href="/cursos/claude-code/skills">skills</Link> para revisar, desplegar, testear. Usa{" "}
             <code>disable-model-invocation: true</code> en las que tengan efectos
             (como deploy) para que no se lancen solas.
           </li>
@@ -148,8 +148,8 @@ npm update -g @anthropic-ai/claude-code`}</code></pre>
       </div>
 
       <div className="mt-12 pt-8 border-t border-zinc-800 flex justify-between items-center">
-        <Link href="/plugins" className="text-sm text-zinc-500 hover:text-zinc-300">← Plugins</Link>
-        <Link href="/avanzado" className="text-sm text-orange-400 hover:text-orange-300">Uso avanzado →</Link>
+        <Link href="/cursos/claude-code/plugins" className="text-sm text-zinc-500 hover:text-zinc-300">← Plugins</Link>
+        <Link href="/cursos/claude-code/avanzado" className="text-sm text-orange-400 hover:text-orange-300">Uso avanzado →</Link>
       </div>
     </div>
   );
