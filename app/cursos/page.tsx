@@ -6,7 +6,7 @@ import { cursos, proximamente, totalLecciones } from "@/lib/cursos";
 export const metadata: Metadata = {
   title: "Cursos — Aulafy",
   description:
-    "Catálogo de cursos de IA de Aulafy: Claude Code, IA local, RAG, agentes, seguridad, evals, prompts, imagen, voz y vídeo. Gratis, en español y de código abierto.",
+    "Catálogo de cursos de IA de Aulafy: Claude Code, IA local, RAG, agentes, MLOps, seguridad, evals, prompts, imagen, voz y vídeo. Gratis, en español y de código abierto.",
   alternates: { canonical: "/cursos" },
 };
 

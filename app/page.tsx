@@ -6,12 +6,12 @@ import ThemeToggle from "@/components/ThemeToggle";
 export const metadata: Metadata = {
   title: "Aulafy — Cursos de IA open source en español",
   description:
-    "Cursos gratuitos de inteligencia artificial open source en español: IA local, Claude Code, RAG, prompts, seguridad, automatización, imagen, voz, vídeo y proyectos prácticos paso a paso.",
+    "Cursos gratuitos de inteligencia artificial open source en español: IA local, Claude Code, RAG, MLOps, prompts, seguridad, automatización, imagen, voz, vídeo y proyectos prácticos paso a paso.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "Aulafy — Cursos de IA open source en español",
     description:
-      "Tutoriales prácticos para aprender IA local, Claude Code, RAG, prompts, seguridad, automatización e IA generativa multimedia. Gratis, en español y de código abierto.",
+      "Tutoriales prácticos para aprender IA local, Claude Code, RAG, MLOps, prompts, seguridad, automatización e IA generativa multimedia. Gratis, en español y de código abierto.",
     type: "website",
     locale: "es_ES",
     url: "/",
@@ -47,6 +47,7 @@ const cursos = [
   { icon: "database", title: "RAG avanzado y seguro", desc: "Chatbots con documentos privados, citaciones, búsqueda híbrida, evals y defensa ante prompt injection.", level: "Intermedio", status: "Nuevo", statusColor: "text-[#10b981]", href: "/cursos/rag-seguro" },
   { icon: "palette", title: "IA generativa: imagen, voz y vídeo", desc: "ComfyUI, FLUX, Diffusers, Whisper, Piper y Wan para crear recursos educativos con control.", level: "Principiante", status: "Nuevo", statusColor: "text-[#10b981]", href: "/cursos/ia-generativa" },
   { icon: "shield", title: "Seguridad y evaluación de modelos", desc: "OWASP, NIST, red teaming, privacidad, supply chain y auditoría antes de publicar IA.", level: "Intermedio", status: "Nuevo", statusColor: "text-[#10b981]", href: "/cursos/seguridad-evals" },
+  { icon: "server", title: "MLOps local y despliegue de modelos", desc: "llama.cpp, vLLM, LiteLLM, observabilidad, colas, caché y costes para servir IA.", level: "Intermedio", status: "Nuevo", statusColor: "text-[#10b981]", href: "/cursos/mlops-local" },
   { icon: "briefcase", title: "IA para pymes y autónomos", desc: "Emails, facturas, presupuestos, WhatsApp, Excel y RGPD básico con flujos revisables.", level: "Principiante", status: "Nuevo", statusColor: "text-[#10b981]", href: "/cursos/ia-pymes" },
 ] satisfies Array<{
   icon: IconName;
