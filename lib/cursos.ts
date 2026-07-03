@@ -277,8 +277,8 @@ export const cursos: Curso[] = [
     slug: "agentes-automatizacion",
     title: "Agentes y automatización",
     short: "Diseña agentes útiles, seguros y mantenibles",
-    desc: "Aprende a convertir tareas repetitivas en sistemas agénticos: subagentes, hooks, skills, MCP, GitHub Actions, routines y agentes 24/7 con límites claros de seguridad.",
-    level: "Intermedio",
+    desc: "Aprende a convertir tareas repetitivas en sistemas agénticos: subagentes, hooks, skills, MCP, GitHub Actions, agentes 24/7, OOM, retries, estado persistente, loops, costes y governance.",
+    level: "Intermedio → avanzado",
     icon: "robot",
     gradient: ["#22d3ee", "#10b981"],
     secciones: [
@@ -302,6 +302,16 @@ export const cursos: Curso[] = [
         lecciones: [
           { slug: "github-routines", title: "GitHub Actions y routines" },
           { slug: "agente-247", title: "Proyecto: agente 24/7 con bandeja de entrada" },
+        ],
+      },
+      {
+        title: "Fallos de producción",
+        lecciones: [
+          { slug: "oom-memory", title: "OOM y gestión de memoria" },
+          { slug: "retry-idempotencia", title: "Retries, idempotencia y exactly-once" },
+          { slug: "estado-recuperacion", title: "Estado persistente y crash recovery" },
+          { slug: "loops-costes", title: "Loops infinitos y control de costes" },
+          { slug: "mcp-governance", title: "Governance MCP y conocimiento fiable" },
         ],
       },
     ],
