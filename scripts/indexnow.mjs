@@ -54,9 +54,9 @@ async function main() {
   // IndexNow responde 200 (OK) o 202 (aceptado). 403 = clave no válida/servida.
   console.log(`Respuesta IndexNow: ${res.status} ${res.statusText}`);
   if (res.status === 200 || res.status === 202) {
-    console.log("✅ Enviado. Bing/Yandex procesarán las URLs en breve.");
+    console.log("Enviado. Bing/Yandex procesaran las URLs en breve.");
   } else {
-    console.log("⚠️ Revisa que la clave esté servida en:", `${SITE}/${key}.txt`);
+    console.log("Revisa que la clave este servida en:", `${SITE}/${key}.txt`);
     console.log(await res.text());
   }
 }
