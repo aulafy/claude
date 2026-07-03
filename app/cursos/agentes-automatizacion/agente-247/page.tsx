@@ -4,87 +4,79 @@ import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, Chapt
 export const metadata: Metadata = {
   title: "Proyecto: agente 24/7 con bandeja de entrada — Agentes y automatización",
   description:
-    "Diseña un agente siempre encendido con cola de tareas, permisos mínimos, logs y revisión humana antes de ejecutar acciones peligrosas.",
+    "Proyecto final para montar un agente 24/7 con VPS o mini PC, Telegram o Discord, cola de tareas, aprobación humana y logs.",
+  keywords: ["agente 24/7 IA", "Claude Code Telegram VPS", "automatización IA pyme", "agente Discord IA local"],
   alternates: { canonical: "/cursos/agentes-automatizacion/agente-247" },
 };
 
 export default function Page() {
   return (
     <Chapter
-      crumb="Proyecto: agente 24/7"
+      crumb="Proyecto final"
       title="Proyecto: agente 24/7 con bandeja de entrada"
-      icon="robot"
-      lead={<>El proyecto estrella: un agente que no depende de que estés delante. Recibe tareas, las clasifica, ejecuta solo lo permitido y deja evidencia. No buscamos ciencia ficción: buscamos un operador pequeño, aburrido y fiable.</>}
+      icon="server"
+      lead={<>El proyecto final es un agente casero que recibe tareas, las clasifica, ejecuta solo lo seguro y deja lo delicado pendiente de aprobación humana.</>}
       courseHref="/cursos/agentes-automatizacion"
       courseLabel="Agentes y automatización"
     >
       <Objetivos>
         <ul>
-          <li>Diseñar un agente 24/7 sin darle permisos absurdos.</li>
-          <li>Separar entrada, cola, ejecución, logs y aprobación humana.</li>
-          <li>Construir un MVP replicable con Telegram, Discord, email o una carpeta de entrada.</li>
+          <li>Montar una arquitectura simple con bandeja de entrada, worker y logs.</li>
+          <li>Separar respuestas automáticas, borradores y acciones con aprobación.</li>
+          <li>Controlar costes, bucles, secretos y permisos en un agente siempre encendido.</li>
         </ul>
       </Objetivos>
 
-      <Cristiano term="bandeja de entrada">
-        Es el lugar donde llegan tareas: un chat de Telegram, un canal de Discord, una issue, un email o un archivo en una carpeta. El agente no vive “pensando”; despierta cuando entra trabajo.
+      <Cristiano term="agente 24/7">
+        Es un proceso que escucha tareas de forma continua, pero no significa que deba tener permiso para hacerlo todo.
       </Cristiano>
 
-      <div className="prose">
-        <h2>Arquitectura mínima</h2>
-        <ol>
-          <li><strong>Entrada</strong>: mensaje, issue, email o archivo.</li>
-          <li><strong>Clasificador</strong>: decide tipo, prioridad y riesgo.</li>
-          <li><strong>Cola</strong>: guarda tareas pendientes.</li>
-          <li><strong>Ejecutor</strong>: hace solo acciones permitidas.</li>
-          <li><strong>Revisión</strong>: pide confirmación para escritura, compras, borrados o publicaciones.</li>
-          <li><strong>Log</strong>: deja rastro de cada decisión.</li>
-        </ol>
-      </div>
+      <Terminal>{`Telegram o Discord
+  -> webhook / inbox
+  -> cola Redis o SQLite
+  -> worker agente
+  -> herramientas permitidas
+  -> logs + resumen
+  -> aprobacion humana si hay riesgo
 
-      <Terminal>{`inbox/
-  nueva-tarea.md
-queue/
-  pendiente-001.json
-logs/
-  2026-07-02.md
-outbox/
-  borrador-respuesta.md`}</Terminal>
-
-      <Idea>
-        El primer agente 24/7 no necesita Telegram. Una carpeta local con archivos de entrada ya enseña lo importante: cola, estado, permisos y logs.
-      </Idea>
+acciones_auto:
+  - resumir
+  - buscar en documentos
+  - preparar borrador
+acciones_con_permiso:
+  - enviar email
+  - publicar
+  - tocar produccion
+  - modificar datos de cliente`}</Terminal>
 
       <div className="prose">
-        <h2>MVP recomendado</h2>
+        <h2>Stack recomendado</h2>
         <ul>
-          <li>Entrada: carpeta <code>inbox</code>.</li>
-          <li>Modelo: Claude Code para razonar y una IA local para resumir volumen.</li>
-          <li>Acciones permitidas: crear borradores, abrir issues, resumir documentos.</li>
-          <li>Acciones prohibidas: borrar, publicar, enviar emails o hacer deploy sin aprobación.</li>
-          <li>Salida: informe en <code>outbox</code> y log en Markdown.</li>
+          <li><strong>Mini PC o Mac</strong>: mejor si necesitas archivos locales o Ollama.</li>
+          <li><strong>VPS pequeño</strong>: mejor para webhooks y disponibilidad constante.</li>
+          <li><strong>Telegram o Discord</strong>: entrada sencilla para tareas y aprobaciones.</li>
+          <li><strong>SQLite</strong>: suficiente para cola pequeña, auditoría y estado.</li>
+          <li><strong>Ollama o proveedor cloud</strong>: decide por privacidad, coste y calidad.</li>
         </ul>
       </div>
 
-      <Terminal>{`Eres el agente de bandeja de entrada.
-Lee solo inbox/.
-Clasifica cada tarea: responder, investigar, crear borrador o pedir aclaración.
-No envíes nada. No borres nada.
-Escribe resultado en outbox/ y registra decisión en logs/hoy.md.`}</Terminal>
+      <Idea>
+        La bandeja de entrada es más importante que el modelo: permite pausar, reintentar, auditar y pedir permiso.
+      </Idea>
 
       <Cuidado>
-        Los agentes 24/7 fallan por tres sitios: bucles infinitos, permisos excesivos y falta de logs. Si no puedes ver qué hizo y por qué, no lo dejes encendido.
+        Un agente 24/7 sin presupuesto, timeout y condición de parada puede gastar dinero o repetir errores durante horas.
       </Cuidado>
 
       <Comprueba>
-        Mete tres tareas: una clara, una ambigua y una peligrosa. El agente debe ejecutar la clara, pedir aclaración en la ambigua y rechazar o escalar la peligrosa. Ese test vale más que cien demos bonitas.
+        Define límites numéricos: máximo de tareas por hora, máximo de tokens por tarea, timeout, número de reintentos y acciones bloqueadas por defecto.
       </Comprueba>
 
       <Guardar>
-        Tu primer agente bueno debe parecer conservador. Cuando lleve días acertando, amplías permisos. La autonomía se gana con evidencia.
+        El objetivo no es tener un agente “autónomo”. El objetivo es tener un compañero automático que haga lo repetible y se pare ante lo importante.
       </Guardar>
 
-      <ChapterNav prev={{ href: "/cursos/agentes-automatizacion/github-routines", label: "GitHub Actions y routines" }} />
+      <ChapterNav prev={{ href: "/cursos/agentes-automatizacion/github-routines", label: "GitHub y routines" }} />
     </Chapter>
   );
 }

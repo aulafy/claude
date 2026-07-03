@@ -4,80 +4,74 @@ import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, Chapt
 export const metadata: Metadata = {
   title: "Subagentes con roles y límites — Agentes y automatización",
   description:
-    "Cómo usar subagentes en Claude Code para investigar, revisar y ejecutar tareas sin llenar el contexto principal ni dar permisos excesivos.",
+    "Cómo diseñar subagentes especializados con herramientas mínimas, contexto aislado y salidas verificables para automatizaciones de IA.",
+  keywords: ["subagentes Claude Code", "agentes especializados IA", "agent teams", "roles agentes IA"],
   alternates: { canonical: "/cursos/agentes-automatizacion/subagentes" },
 };
 
 export default function Page() {
   return (
     <Chapter
-      crumb="Subagentes con roles y límites"
+      crumb="Subagentes"
       title="Subagentes con roles y límites"
       icon="users"
-      lead={<>Los subagentes son la forma más limpia de delegar trabajo: investigan en su propio contexto, usan herramientas acotadas y devuelven solo lo importante. Bien usados ahorran contexto; mal usados multiplican el caos.</>}
+      lead={<>Un subagente sirve para aislar trabajo: investigar, revisar, probar, documentar o auditar sin llenar el contexto principal ni mezclar responsabilidades.</>}
       courseHref="/cursos/agentes-automatizacion"
       courseLabel="Agentes y automatización"
     >
       <Objetivos>
         <ul>
-          <li>Crear roles útiles: investigador, revisor, depurador, documentalista.</li>
-          <li>Limitar herramientas y permisos por subagente.</li>
-          <li>Usarlos para ahorrar contexto y mejorar calidad de decisión.</li>
+          <li>Definir subagentes con misión, herramientas y salida concreta.</li>
+          <li>Separar investigación, edición y revisión para reducir errores.</li>
+          <li>Evitar equipos de agentes innecesarios cuando basta una tarea simple.</li>
         </ul>
       </Objetivos>
 
       <Cristiano term="subagente">
-        Es un Claude especializado que recibe una misión concreta. No debe ser “otro yo generalista”, sino una herramienta humana: el que revisa seguridad, el que busca bugs, el que resume logs o el que convierte notas en documentación.
+        Es un agente secundario con su propio contexto. El agente principal le encarga una tarea y recibe un resumen o resultado.
       </Cristiano>
 
       <div className="prose">
-        <h2>Cuándo usarlo</h2>
+        <h2>Roles útiles</h2>
         <ul>
-          <li>Cuando la tarea requiere explorar muchos archivos.</li>
-          <li>Cuando quieres una segunda opinión antes de tocar código.</li>
-          <li>Cuando necesitas comparar alternativas sin ensuciar la sesión principal.</li>
-          <li>Cuando una tarea tiene un criterio repetible: “revisa seguridad”, “busca deuda técnica”, “resume cambios”.</li>
+          <li><strong>Investigador</strong>: solo lee, busca y resume fuentes.</li>
+          <li><strong>Implementador</strong>: edita con un alcance pequeño.</li>
+          <li><strong>Revisor</strong>: busca bugs, riesgos y tests ausentes.</li>
+          <li><strong>Documentador</strong>: convierte cambios en guía, changelog o tutorial.</li>
+          <li><strong>Guardia de seguridad</strong>: revisa permisos, secretos, red y dependencias.</li>
         </ul>
       </div>
 
-      <Terminal>{`Usa un subagente revisor para revisar este cambio.
-Objetivo: encontrar bugs, riesgos de seguridad y tests ausentes.
-No cambies archivos.
-Devuelve hallazgos ordenados por severidad con archivo y línea.`}</Terminal>
+      <Terminal>{`---
+name: reviewer
+description: Revisa cambios antes de commit. Prioriza bugs y riesgos.
+tools: Read, Grep, Bash(npm test), Bash(npm run lint), Bash(git diff *)
+model: sonnet
+---
+Actua como revisor senior.
+No edites archivos.
+Devuelve hallazgos con archivo, linea, severidad y prueba sugerida.
+Si no ves problemas, dilo claramente.`}</Terminal>
 
       <Idea>
-        Un buen subagente tiene verbo, alcance y salida. “Revisa” es flojo. “Busca fugas de secretos en estos cambios y devuelve solo hallazgos accionables” ya es una herramienta.
+        Un buen subagente no necesita todas las herramientas. Cuanto más específico es su rol, más fácil es evaluar si hizo bien el trabajo.
       </Idea>
 
-      <div className="prose">
-        <h2>Roles que sí merecen existir</h2>
-        <ul>
-          <li><strong>Investigador de código</strong>: localiza módulos y explica flujo.</li>
-          <li><strong>Revisor de seguridad</strong>: secretos, permisos, entrada de usuario, SSRF, paths peligrosos.</li>
-          <li><strong>Depurador</strong>: reproduce error, reduce caso mínimo, propone fix.</li>
-          <li><strong>Documentalista</strong>: convierte decisiones en README, CLAUDE.md o changelog.</li>
-          <li><strong>QA funcional</strong>: revisa estados, rutas, responsive y regresiones visibles.</li>
-        </ul>
-
-        <h2>Roles que huelen mal</h2>
-        <p>“CEO agent”, “arquitecto supremo” o “agente que lo hace todo” suelen acabar en coste alto y poca responsabilidad. Si el rol no tiene límites, no es un rol: es una excusa.</p>
-      </div>
-
       <Cuidado>
-        No des permisos de escritura o shell por defecto a un subagente que solo debe leer. La seguridad empieza por la dieta: menos herramientas, menos superficie, menos sustos.
+        Evita crear varios agentes para tareas que no requieren aislamiento. Más agentes también significa más coste, más coordinación y más superficie de error.
       </Cuidado>
 
       <Comprueba>
-        Prueba la misma tarea dos veces: una en la sesión principal y otra delegada a un subagente. Si el subagente devuelve una síntesis útil y el contexto principal queda limpio, has ganado.
+        Crea tres roles para un flujo de PR: investigador, implementador y revisor. Para cada uno, limita herramientas y define qué debe devolver.
       </Comprueba>
 
       <Guardar>
-        Plantilla mental: “eres X, puedes usar Y, no puedes hacer Z, devuelve W”. Repite esa estructura hasta que te salga sola.
+        Subagentes no son magia: son separación de responsabilidades aplicada a IA.
       </Guardar>
 
       <ChapterNav
-        prev={{ href: "/cursos/agentes-automatizacion/mapa", label: "Mapa real de agentes" }}
-        next={{ href: "/cursos/agentes-automatizacion/hooks", label: "Hooks: automatización determinista" }}
+        prev={{ href: "/cursos/agentes-automatizacion/mapa", label: "Mapa de agentes" }}
+        next={{ href: "/cursos/agentes-automatizacion/hooks", label: "Hooks" }}
       />
     </Chapter>
   );
