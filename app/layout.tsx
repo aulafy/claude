@@ -66,8 +66,11 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   category: "Education",
   verification: {
-    // Se rellenan con variables de entorno en Vercel (no hace falta tocar código).
-    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+    // Google Search Console (valor fijo; también admite override por env).
+    google:
+      process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ??
+      "1TiEliSQkuIN6u8NkWQBTG7u6l-0bkWxVEpa3a8GnY0",
+    // Bing: se rellena con variable de entorno cuando lo tengas.
     other: process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
       ? { "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION }
       : {},
