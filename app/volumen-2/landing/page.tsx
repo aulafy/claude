@@ -77,7 +77,7 @@ npm run dev`}</Terminal>
         <p>Crea dos versiones del titular y pide a Claude Code que prepare la web para <strong>probar cuál funciona mejor</strong> (un test A/B sencillo). Aprender qué convence a tus visitantes es oro.</p>
       </div>
 
-      <ChapterNav prev={{ href: "/volumen-2/wordpress", label: "Tema de WordPress" }} next={{ href: "/volumen-2/facturacion", label: "Asistente para autónomos" }} />
+      <ChapterNav prev={{ href: "/cursos/ia-local/wordpress", label: "Tema de WordPress" }} next={{ href: "/cursos/ia-local/facturacion", label: "Asistente para autónomos" }} />
     </Chapter>
   );
 }

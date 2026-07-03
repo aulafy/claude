@@ -75,7 +75,7 @@ npm run dev`}</Terminal>
         <p>Añade <strong>fichas de repaso</strong> (<em>flashcards</em>) y un modo “examen cronometrado” que simule las condiciones reales de tu prueba.</p>
       </div>
 
-      <ChapterNav prev={{ href: "/volumen-2/facturacion", label: "Asistente para autónomos" }} next={{ href: "/volumen-2/publicar", label: "Publica tu app" }} />
+      <ChapterNav prev={{ href: "/cursos/ia-local/facturacion", label: "Asistente para autónomos" }} next={{ href: "/cursos/ia-local/publicar", label: "Publica tu app" }} />
     </Chapter>
   );
 }

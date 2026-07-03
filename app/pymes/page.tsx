@@ -42,7 +42,7 @@ export default function Pymes() {
 
       <div className="callout callout-info mb-6">
         Para seguir esta página necesitas tener Claude Code instalado (
-        <Link href="/instalacion">Instalación</Link>) y abrirlo escribiendo{" "}
+        <Link href="/cursos/claude-code/instalacion">Instalación</Link>) y abrirlo escribiendo{" "}
         <code>claude</code> dentro de la carpeta donde tienes tus archivos.
       </div>
 
@@ -147,14 +147,14 @@ export default function Pymes() {
           <strong>El patrón ganador para una pyme:</strong> pon todos los archivos
           de la tarea en una carpeta, abre Claude Code ahí, y descríbele el
           resultado que quieres en lenguaje normal. Para más ejemplos, mira{" "}
-          <Link href="/recetas">Recetas prácticas</Link> y{" "}
-          <Link href="/prompts">Escribir buenos prompts</Link>.
+          <Link href="/cursos/claude-code/recetas">Recetas prácticas</Link> y{" "}
+          <Link href="/cursos/claude-code/prompts">Escribir buenos prompts</Link>.
         </div>
       </div>
 
       <div className="mt-12 pt-8 border-t border-zinc-800 flex justify-between items-center">
-        <Link href="/recetas" className="text-sm text-zinc-500 hover:text-zinc-300">← Recetas prácticas</Link>
-        <Link href="/equipos" className="text-sm text-orange-400 hover:text-orange-300">Para perfiles técnicos →</Link>
+        <Link href="/cursos/claude-code/recetas" className="text-sm text-zinc-500 hover:text-zinc-300">← Recetas prácticas</Link>
+        <Link href="/cursos/claude-code/equipos" className="text-sm text-orange-400 hover:text-orange-300">Para perfiles técnicos →</Link>
       </div>
     </div>
   );

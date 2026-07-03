@@ -187,8 +187,8 @@ export default function Permisos() {
       </div>
 
       <div className="mt-12 pt-8 border-t border-zinc-800 flex justify-between items-center">
-        <Link href="/hooks" className="text-sm text-zinc-500 hover:text-zinc-300">← Hooks</Link>
-        <Link href="/avanzado" className="text-sm text-orange-400 hover:text-orange-300">Uso avanzado →</Link>
+        <Link href="/cursos/claude-code/hooks" className="text-sm text-zinc-500 hover:text-zinc-300">← Hooks</Link>
+        <Link href="/cursos/claude-code/avanzado" className="text-sm text-orange-400 hover:text-orange-300">Uso avanzado →</Link>
       </div>
     </div>
   );

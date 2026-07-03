@@ -155,7 +155,7 @@ TypeError: can't multiply sequence by non-int
           <li>
             <strong>No dar contexto del proyecto.</strong> Si tienes un{" "}
             <code>CLAUDE.md</code> (ver{" "}
-            <Link href="/configuracion">Configuración</Link>), Claude entiende mucho
+            <Link href="/cursos/claude-code/configuracion">Configuración</Link>), Claude entiende mucho
             mejor tu proyecto desde el primer mensaje.
           </li>
           <li>
@@ -171,8 +171,8 @@ TypeError: can't multiply sequence by non-int
       </div>
 
       <div className="mt-12 pt-8 border-t border-zinc-800 flex justify-between items-center">
-        <Link href="/recetas" className="text-sm text-zinc-500 hover:text-zinc-300">← Recetas prácticas</Link>
-        <Link href="/comandos" className="text-sm text-orange-400 hover:text-orange-300">Comandos →</Link>
+        <Link href="/cursos/claude-code/recetas" className="text-sm text-zinc-500 hover:text-zinc-300">← Recetas prácticas</Link>
+        <Link href="/cursos/claude-code/comandos" className="text-sm text-orange-400 hover:text-orange-300">Comandos →</Link>
       </div>
     </div>
   );
