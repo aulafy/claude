@@ -197,7 +197,7 @@ export default function Glosario() {
       </div>
 
       <div className="mt-12 pt-8 border-t border-zinc-800 flex justify-between items-center">
-        <Link href="/prompts" className="text-sm text-zinc-500 hover:text-zinc-300">← Cómo escribir buenos prompts</Link>
+        <Link href="/cursos/claude-code/prompts" className="text-sm text-zinc-500 hover:text-zinc-300">← Cómo escribir buenos prompts</Link>
         <Link href="/" className="text-sm text-orange-400 hover:text-orange-300">Volver al inicio →</Link>
       </div>
     </div>

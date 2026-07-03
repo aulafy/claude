@@ -89,7 +89,7 @@ export default function Page() {
         <p>Publica en Vercel la landing del capítulo anterior y conéctale un formulario de contacto que te llegue por correo (hay servicios gratuitos que Claude Code sabe integrar). Tendrás tu primera web profesional en internet.</p>
       </div>
 
-      <ChapterNav prev={{ href: "/volumen-2/estudio", label: "App para estudiar" }} next={{ href: "/volumen-2/cluster", label: "Varios ordenadores, una IA" }} />
+      <ChapterNav prev={{ href: "/cursos/ia-local/estudio", label: "App para estudiar" }} next={{ href: "/cursos/ia-local/cluster", label: "Varios ordenadores, una IA" }} />
     </Chapter>
   );
 }

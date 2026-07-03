@@ -162,7 +162,7 @@ npm run dev`}</Terminal>
         <p>Pídele a Claude Code que añada un botón para <strong>borrar la conversación</strong>, que muestre <strong>la fecha de la ley</strong> junto a cada cita, y prueba un modelo más potente si tu equipo lo permite.</p>
       </div>
 
-      <ChapterNav prev={{ href: "/volumen-2/depurar", label: "Cuando algo se rompe" }} next={{ href: "/volumen-2/pdf", label: "Pregúntale a tus PDF" }} />
+      <ChapterNav prev={{ href: "/cursos/ia-local/depurar", label: "Cuando algo se rompe" }} next={{ href: "/cursos/ia-local/pdf", label: "Pregúntale a tus PDF" }} />
     </Chapter>
   );
 }

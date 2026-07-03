@@ -95,14 +95,14 @@ export default function Problemas() {
           </li>
           <li>
             <strong>Tarea muy grande:</strong> divídela en partes más pequeñas. Mira{" "}
-            <Link href="/prompts">cómo escribir buenos prompts</Link>.
+            <Link href="/cursos/claude-code/prompts">cómo escribir buenos prompts</Link>.
           </li>
           <li><strong>Conexión:</strong> Claude Code necesita internet estable.</li>
         </ul>
 
         <h3>Hace cambios que yo no quería</h3>
         <ul>
-          <li>Usa <code>/rewind</code> (o <kbd>Esc</kbd> <kbd>Esc</kbd>) para deshacer al estado anterior. Ver <Link href="/flujos">Flujos de trabajo</Link>.</li>
+          <li>Usa <code>/rewind</code> (o <kbd>Esc</kbd> <kbd>Esc</kbd>) para deshacer al estado anterior. Ver <Link href="/cursos/claude-code/flujos">Flujos de trabajo</Link>.</li>
           <li>Si usas git: <code>git restore .</code> revierte los cambios no guardados.</li>
           <li>Para el futuro: usa <strong>Plan Mode</strong> (<kbd>Shift</kbd>+<kbd>Tab</kbd>) y revisa el plan antes de que actúe.</li>
         </ul>
@@ -111,7 +111,7 @@ export default function Problemas() {
         <p>
           Ajusta la lista de permisos. Si te pregunta por cosas que siempre permites
           (como <code>npm run</code>), añádelas a la lista <code>allow</code>. Si quieres
-          más control, revisa tu configuración. Todo en <Link href="/permisos">Permisos</Link>.
+          más control, revisa tu configuración. Todo en <Link href="/cursos/claude-code/permisos">Permisos</Link>.
         </p>
 
         <h3>Una función de la documentación no me aparece</h3>
@@ -125,7 +125,7 @@ npm update -g @anthropic-ai/claude-code`}</code></pre>
         <ul>
           <li>Revisa la lista con <code>/mcp</code> dentro de Claude Code.</li>
           <li>Comprueba que el comando del servidor es correcto y que tiene las variables de entorno necesarias (tokens, rutas).</li>
-          <li>Mira los detalles en <Link href="/mcp">Servidores MCP</Link>.</li>
+          <li>Mira los detalles en <Link href="/cursos/claude-code/mcp">Servidores MCP</Link>.</li>
         </ul>
 
         <h2>El comodín que siempre funciona</h2>
@@ -147,7 +147,7 @@ Explícame qué significa y cómo solucionarlo paso a paso. Soy principiante.`}<
       </div>
 
       <div className="mt-12 pt-8 border-t border-zinc-800 flex justify-between items-center">
-        <Link href="/faq" className="text-sm text-zinc-500 hover:text-zinc-300">← Preguntas frecuentes</Link>
+        <Link href="/cursos/claude-code/faq" className="text-sm text-zinc-500 hover:text-zinc-300">← Preguntas frecuentes</Link>
         <Link href="/" className="text-sm text-orange-400 hover:text-orange-300">Volver al inicio →</Link>
       </div>
     </div>

@@ -87,7 +87,7 @@ ollama run qwen3:4b "Explícame qué es la energía solar en dos frases"`}</Term
         <p>Descarga dos modelos de distinto tamaño (por ejemplo <code>qwen3:4b</code> y un Gemma). Hazles la misma pregunta con <code>ollama run</code> y compara la calidad y la velocidad. Así aprendes a elegir el equilibrio que te conviene.</p>
       </div>
 
-      <ChapterNav prev={{ href: "/volumen-2/prompts", label: "Escribir buenos encargos" }} next={{ href: "/cursos/ia-local/conectar-ollama", label: "Conecta Claude Code con tu IA local" }} />
+      <ChapterNav prev={{ href: "/cursos/ia-local/prompts", label: "Escribir buenos encargos" }} next={{ href: "/cursos/ia-local/conectar-ollama", label: "Conecta Claude Code con tu IA local" }} />
     </Chapter>
   );
 }

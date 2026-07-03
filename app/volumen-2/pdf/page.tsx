@@ -104,7 +104,7 @@ npm run dev`}</Terminal>
         <p>Pídele a Claude Code que añada un modo “compara dos PDF” (por ejemplo dos versiones de un contrato) y que te señale las diferencias importantes.</p>
       </div>
 
-      <ChapterNav prev={{ href: "/volumen-2/chatbot-legal", label: "Un chatbot que cita la ley" }} next={{ href: "/volumen-2/voz", label: "Un chatbot que te escucha" }} />
+      <ChapterNav prev={{ href: "/cursos/ia-local/chatbot-legal", label: "Un chatbot que cita la ley" }} next={{ href: "/cursos/ia-local/voz", label: "Un chatbot que te escucha" }} />
     </Chapter>
   );
 }
