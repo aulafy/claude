@@ -350,6 +350,39 @@ export const cursos: Curso[] = [
     ],
   },
   {
+    slug: "automatizacion-self-hosted",
+    title: "Automatización IA self-hosted para pymes",
+    short: "n8n, Open WebUI y Ollama en tu servidor",
+    desc: "Monta una plataforma barata y privada para automatizar tareas de negocio con n8n, Open WebUI, Ollama o vLLM, webhooks, aprobaciones humanas, colas, backups, seguridad y monitorización básica.",
+    level: "Intermedio",
+    icon: "automation",
+    gradient: ["#14b8a6", "#f59e0b"],
+    secciones: [
+      {
+        title: "Arquitectura base",
+        lecciones: [
+          { slug: "mapa-stack", title: "Mapa del stack: n8n, Open WebUI y modelos" },
+          { slug: "docker-vps", title: "Docker y VPS barato sin liarla" },
+          { slug: "ollama-openwebui", title: "Ollama y Open WebUI como interfaz privada" },
+        ],
+      },
+      {
+        title: "Flujos de negocio",
+        lecciones: [
+          { slug: "n8n-webhooks", title: "n8n con webhooks y credenciales" },
+          { slug: "aprobaciones-humanas", title: "Aprobaciones humanas antes de actuar" },
+          { slug: "colas-backups-monitoring", title: "Colas, backups y monitorización" },
+        ],
+      },
+      {
+        title: "Proyecto final",
+        lecciones: [
+          { slug: "proyecto-soporte-pyme", title: "Proyecto: soporte interno para una pyme" },
+        ],
+      },
+    ],
+  },
+  {
     slug: "rag-seguro",
     title: "RAG avanzado y seguro",
     short: "Chatbots con documentos que sí se pueden usar",

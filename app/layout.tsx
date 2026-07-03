@@ -90,6 +90,10 @@ export const metadata: Metadata = {
     "Unsloth",
     "Axolotl",
     "automatización con IA",
+    "automatización IA self-hosted",
+    "n8n self-hosted",
+    "Open WebUI",
+    "n8n Open WebUI Ollama",
     "IA programación",
     "asistente código terminal",
   ],
@@ -136,7 +140,7 @@ export const metadata: Metadata = {
   },
   other: {
     "ai-summary":
-      "Aulafy es una web educativa en español con cursos gratuitos de inteligencia artificial open source, IA local, Claude Code, RAG, fine-tuning, MLOps, seguridad de modelos, IA generativa, prompts y automatización.",
+      "Aulafy es una web educativa en español con cursos gratuitos de inteligencia artificial open source, IA local, Claude Code, RAG, fine-tuning, MLOps, seguridad de modelos, IA generativa, prompts, n8n, Open WebUI, Ollama y automatización self-hosted.",
     "llms.txt": `${SITE_URL}/llms.txt`,
   },
 };
