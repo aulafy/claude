@@ -174,6 +174,39 @@ export const cursos: Curso[] = [
     ],
   },
   {
+    slug: "seguridad-evals",
+    title: "Seguridad y evaluación de modelos",
+    short: "Prueba sistemas de IA antes de publicarlos",
+    desc: "Aprende a evaluar modelos y aplicaciones de IA con criterios prácticos: OWASP Top 10 LLM, NIST AI RMF, red teaming, privacidad, supply chain, logs, benchmarks y auditoría previa a producción.",
+    level: "Intermedio",
+    icon: "shield",
+    gradient: ["#ef4444", "#0ea5e9"],
+    secciones: [
+      {
+        title: "Riesgo y marco mental",
+        lecciones: [
+          { slug: "mapa-riesgos", title: "Mapa de riesgos de IA generativa" },
+          { slug: "owasp-llm", title: "OWASP Top 10 LLM explicado" },
+        ],
+      },
+      {
+        title: "Medir antes de confiar",
+        lecciones: [
+          { slug: "evals-basicas", title: "Evals básicas y regresiones" },
+          { slug: "red-teaming", title: "Red teaming y jailbreaks" },
+        ],
+      },
+      {
+        title: "Producción responsable",
+        lecciones: [
+          { slug: "privacidad-datos", title: "Privacidad, logs y datos sensibles" },
+          { slug: "supply-chain", title: "Supply chain de modelos y datasets" },
+          { slug: "proyecto-auditoria", title: "Proyecto: auditoría de una app IA" },
+        ],
+      },
+    ],
+  },
+  {
     slug: "agentes-automatizacion",
     title: "Agentes y automatización",
     short: "Diseña agentes útiles, seguros y mantenibles",
@@ -304,7 +337,7 @@ export const cursos: Curso[] = [
 ];
 
 export const proximamente = [
-  { icon: "shield", title: "Seguridad y evaluación de modelos", desc: "Red teaming, benchmarks, privacidad y despliegue responsable de sistemas de IA." },
+  { icon: "server", title: "MLOps local y despliegue de modelos", desc: "Versionado, observabilidad, colas, caché, costes y despliegue fiable de modelos abiertos." },
 ];
 
 export function getCurso(slug: string): Curso | undefined {
