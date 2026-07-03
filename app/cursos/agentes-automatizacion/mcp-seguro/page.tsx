@@ -4,75 +4,75 @@ import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, Chapt
 export const metadata: Metadata = {
   title: "MCP sin regalar tus llaves — Agentes y automatización",
   description:
-    "Cómo conectar Claude Code a herramientas externas con MCP de forma útil y segura: permisos, tokens, alcance y auditoría.",
+    "Buenas prácticas para usar servidores MCP con agentes: allowlists, OAuth, variables de entorno, permisos por servidor y revisión de herramientas.",
+  keywords: ["MCP seguro", "Model Context Protocol seguridad", "Claude Code MCP permisos", "MCP OAuth"],
   alternates: { canonical: "/cursos/agentes-automatizacion/mcp-seguro" },
 };
 
 export default function Page() {
   return (
     <Chapter
-      crumb="MCP sin regalar tus llaves"
+      crumb="MCP seguro"
       title="MCP sin regalar tus llaves"
       icon="plug"
-      lead={<>MCP convierte a Claude Code en un operador de herramientas: GitHub, bases de datos, APIs, documentación o dashboards. El salto de poder es enorme; el salto de riesgo también. Aquí montamos MCP con mentalidad de mínimos permisos.</>}
+      lead={<>MCP vuelve útil a un agente porque lo conecta con GitHub, bases de datos, navegadores y servicios internos. Esa misma potencia amplía la superficie de ataque.</>}
       courseHref="/cursos/agentes-automatizacion"
       courseLabel="Agentes y automatización"
     >
       <Objetivos>
         <ul>
-          <li>Decidir cuándo MCP merece la pena.</li>
-          <li>Configurar servidores con tokens acotados.</li>
-          <li>Evitar que un agente tenga permisos que no necesita.</li>
+          <li>Entender qué riesgo añade cada servidor MCP.</li>
+          <li>Separar credenciales, permisos y entornos de prueba.</li>
+          <li>Diseñar allowlists y reglas de uso para equipos.</li>
         </ul>
       </Objetivos>
 
       <Cristiano term="MCP">
-        Es un estándar para enchufar herramientas a un modelo. En vez de copiar datos de GitHub, una base de datos o una API, Claude puede pedirlos directamente a un servidor MCP.
+        Model Context Protocol es un estándar para que un modelo use herramientas externas con esquemas definidos.
       </Cristiano>
 
-      <div className="prose">
-        <h2>La pregunta antes de conectar nada</h2>
-        <p>¿Claude necesita leer esa herramienta, escribir en ella o ambas cosas? Si solo necesita consultar, no le des escritura. Si solo necesita un repositorio, no le des toda tu organización.</p>
-      </div>
-
-      <Terminal>{`# Modelo mental de permisos
-LECTURA: buscar issues, leer docs, consultar tablas
-ESCRITURA: crear issues, comentar PRs, modificar registros
-ADMIN: cambiar configuración, borrar, rotar tokens
-
-# Para agentes: casi nunca empieces por ADMIN.`}</Terminal>
-
-      <Cuidado>
-        El error clásico es usar un token personal con permisos amplios “para probar”. Lo que empieza como prueba se queda en producción. Crea tokens separados, con nombres claros y caducidad.
-      </Cuidado>
+      <Terminal>{`{
+  "mcpServers": {
+    "github-readonly": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "\${GITHUB_READONLY_TOKEN}"
+      }
+    }
+  }
+}`}</Terminal>
 
       <div className="prose">
-        <h2>Checklist de MCP seguro</h2>
+        <h2>Buenas prácticas</h2>
         <ul>
-          <li>Token específico para esa integración.</li>
-          <li>Permisos mínimos.</li>
-          <li>Lectura antes que escritura.</li>
-          <li>Sin secretos en repositorios.</li>
-          <li>Servidor MCP documentado en <code>CLAUDE.md</code>.</li>
-          <li>Prueba en entorno de demo antes de datos reales.</li>
+          <li>Usa tokens de solo lectura cuando el flujo no necesita escribir.</li>
+          <li>Separa tokens de desarrollo, preview y producción.</li>
+          <li>No pongas secretos en repositorios, prompts ni capturas.</li>
+          <li>Revisa qué tools expone cada MCP antes de aprobarlo.</li>
+          <li>Limita servidores permitidos en equipos mediante settings gestionados si los tienes.</li>
         </ul>
       </div>
 
       <Idea>
-        Un MCP bueno convierte copiar-pegar en flujo. Un MCP mal configurado convierte un prompt ambiguo en una acción peligrosa.
+        El nombre del servidor no basta. Mira las herramientas que expone: leer issues no es lo mismo que cerrar PRs, borrar ramas o escribir en producción.
       </Idea>
 
+      <Cuidado>
+        Un agente con MCP a base de datos real y permisos de escritura necesita las mismas defensas que una aplicación interna: mínimos privilegios, logs y entorno de pruebas.
+      </Cuidado>
+
       <Comprueba>
-        Monta una integración de solo lectura. Pide a Claude que liste datos. Luego pídele una acción de escritura y comprueba que no puede hacerla. Ese fallo controlado es una victoria.
+        Haz inventario de tus MCP: servidor, credencial, herramientas disponibles, permisos reales, entorno y persona responsable.
       </Comprueba>
 
       <Guardar>
-        MCP se documenta como infraestructura: para qué sirve, qué permisos tiene, dónde vive el token, cómo se revoca y quién lo mantiene.
+        MCP no es solo una integración. Es una puerta. Decide quién tiene llave, para qué y con qué registro.
       </Guardar>
 
       <ChapterNav
         prev={{ href: "/cursos/agentes-automatizacion/skills-seguras", label: "Skills seguras" }}
-        next={{ href: "/cursos/agentes-automatizacion/github-routines", label: "GitHub Actions y routines" }}
+        next={{ href: "/cursos/agentes-automatizacion/github-routines", label: "GitHub y routines" }}
       />
     </Chapter>
   );

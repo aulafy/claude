@@ -153,6 +153,19 @@ Curso práctico para adaptar modelos abiertos con datos propios: datasets de ins
 - [Exportar a GGUF y Ollama](https://www.aulafy.net/cursos/fine-tuning-local/export-gguf-ollama)
 - [Proyecto: modelo adaptado para una pyme](https://www.aulafy.net/cursos/fine-tuning-local/proyecto-modelo-pyme)
 
+## Agentes y automatización
+
+Curso práctico para diseñar agentes de IA útiles, seguros y mantenibles: skills, subagentes, hooks, MCP, GitHub Actions, routines, loops, agentes 24/7, Telegram/Discord, permisos mínimos y aprobación humana.
+
+- [Presentación del curso](https://www.aulafy.net/cursos/agentes-automatizacion)
+- [Mapa real de agentes en 2026](https://www.aulafy.net/cursos/agentes-automatizacion/mapa)
+- [Subagentes con roles y límites](https://www.aulafy.net/cursos/agentes-automatizacion/subagentes)
+- [Hooks: automatización determinista](https://www.aulafy.net/cursos/agentes-automatizacion/hooks)
+- [Skills seguras y auditables](https://www.aulafy.net/cursos/agentes-automatizacion/skills-seguras)
+- [MCP sin regalar tus llaves](https://www.aulafy.net/cursos/agentes-automatizacion/mcp-seguro)
+- [GitHub Actions y routines](https://www.aulafy.net/cursos/agentes-automatizacion/github-routines)
+- [Proyecto: agente 24/7 con bandeja de entrada](https://www.aulafy.net/cursos/agentes-automatizacion/agente-247)
+
 ## RAG avanzado y seguro
 
 Curso para construir chatbots con documentos privados que sean útiles y auditables: ingesta, chunking, embeddings, bases vectoriales, búsqueda híbrida, reranking, prompt injection, citaciones y evals.

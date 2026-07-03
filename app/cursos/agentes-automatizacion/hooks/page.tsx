@@ -4,73 +4,85 @@ import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, Chapt
 export const metadata: Metadata = {
   title: "Hooks: automatización determinista — Agentes y automatización",
   description:
-    "Usa hooks de Claude Code para ejecutar reglas, checks y logs en puntos concretos del ciclo de vida sin depender de que el modelo se acuerde.",
+    "Usa hooks para imponer reglas, ejecutar tests, bloquear comandos peligrosos y reducir errores en flujos agénticos.",
+  keywords: ["hooks Claude Code", "automatización determinista IA", "PreToolUse PostToolUse", "seguridad agentes IA"],
   alternates: { canonical: "/cursos/agentes-automatizacion/hooks" },
 };
 
 export default function Page() {
   return (
     <Chapter
-      crumb="Hooks: automatización determinista"
+      crumb="Hooks"
       title="Hooks: automatización determinista"
       icon="hook"
-      lead={<>Un hook es una regla automática. No razona, no improvisa y no se olvida. Por eso es perfecto para todo lo que debe pasar siempre: formatear, bloquear secretos, registrar acciones o pedir confirmación ante comandos delicados.</>}
+      lead={<>El modelo puede olvidar una regla. Un hook no. Por eso los hooks son la pieza correcta para bloquear acciones peligrosas, ejecutar verificaciones y dejar rastro.</>}
       courseHref="/cursos/agentes-automatizacion"
       courseLabel="Agentes y automatización"
     >
       <Objetivos>
         <ul>
-          <li>Entender la diferencia entre un agente y una regla determinista.</li>
-          <li>Diseñar hooks para calidad, seguridad y trazabilidad.</li>
-          <li>Evitar hooks frágiles que bloquean el trabajo.</li>
+          <li>Distinguir instrucciones blandas de controles obligatorios.</li>
+          <li>Diseñar hooks para comandos, tests, logs y protección de ramas.</li>
+          <li>Usar hooks sin convertir cada acción en una trampa de mantenimiento.</li>
         </ul>
       </Objetivos>
 
       <Cristiano term="hook">
-        Es un “cuando pase X, ejecuta Y”. Por ejemplo: antes de permitir un comando, comprueba si intenta leer <code>.env</code>; después de editar código, ejecuta el formateador; al terminar una tarea, guarda un resumen.
+        Es un comando o verificación que se ejecuta automáticamente en un punto del flujo, por ejemplo antes de usar una herramienta o después de editar.
       </Cristiano>
 
       <div className="prose">
-        <h2>Tres hooks que sí cambian tu vida</h2>
-        <ol>
-          <li><strong>Bloqueo de secretos</strong>: impide leer o imprimir archivos sensibles.</li>
-          <li><strong>Calidad automática</strong>: ejecuta lint, formatter o tests cortos tras cambios.</li>
-          <li><strong>Registro de decisiones</strong>: añade un resumen a un log de trabajo.</li>
-        </ol>
-      </div>
-
-      <Terminal>{`# Ejemplo conceptual: antes de ejecutar comandos, bloquea secretos
-if echo "$COMMAND" | grep -E '\\.env|id_rsa|secret|token'; then
-  echo "Bloqueado: posible secreto"
-  exit 2
-fi`}</Terminal>
-
-      <Idea>
-        Si algo es política de equipo, no lo dejes como sugerencia en un prompt. Ponlo en un hook o en CI. Los prompts educan; los hooks hacen cumplir.
-      </Idea>
-
-      <div className="prose">
-        <h2>Buen hook, mal hook</h2>
-        <p><strong>Buen hook:</strong> rápido, predecible, con mensaje claro y salida fácil. <strong>Mal hook:</strong> lento, opaco, toca archivos sin avisar o falla por detalles irrelevantes.</p>
-
-        <h2>Orden recomendado</h2>
+        <h2>Cuándo usar hooks</h2>
         <ul>
-          <li>Primero registra lo que pasa.</li>
-          <li>Después avisa.</li>
-          <li>Solo cuando estés seguro, bloquea.</li>
+          <li>Bloquear `git push` directo a `main`.</li>
+          <li>Ejecutar lint o tests tras editar archivos críticos.</li>
+          <li>Registrar comandos sensibles en un log.</li>
+          <li>Impedir lectura de `.env`, claves o dumps privados.</li>
+          <li>Forzar aprobación humana para deploy, borrados o migraciones.</li>
         </ul>
       </div>
 
+      <Terminal>{`{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/deny-dangerous.sh"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "npm run lint"
+          }
+        ]
+      }
+    ]
+  }
+}`}</Terminal>
+
+      <Idea>
+        La regla práctica: si el fallo sería caro, no lo dejes solo en el prompt. Ponlo en un hook, un test o una aprobación.
+      </Idea>
+
       <Cuidado>
-        Un hook que bloquea demasiado enseña al equipo a saltárselo. Empieza con warnings y sube el nivel cuando veas falsos positivos bajos.
+        Un hook demasiado agresivo puede bloquear el trabajo normal. Empieza con avisos y registros; convierte en bloqueo solo las acciones de alto riesgo.
       </Cuidado>
 
       <Comprueba>
-        Crea un hook de solo aviso que detecte <code>.env</code> en comandos. Intenta leer un archivo falso llamado <code>.env.example</code> y ajusta la regla para no bloquear documentación legítima.
+        Escribe una lista de comandos que nunca quieres que un agente ejecute sin permiso: borrados, pushes, migraciones, exposición de puertos y lectura de secretos.
       </Comprueba>
 
       <Guardar>
-        Automatiza lo aburrido y lo peligroso. Lo que requiere juicio humano o contexto amplio, déjalo al agente o al PR.
+        Hooks son cinturón de seguridad, no volante. El agente decide el camino; el hook evita que cruce líneas rojas.
       </Guardar>
 
       <ChapterNav

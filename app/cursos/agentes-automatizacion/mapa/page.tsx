@@ -4,83 +4,76 @@ import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, Chapt
 export const metadata: Metadata = {
   title: "Mapa real de agentes en 2026 — Agentes y automatización",
   description:
-    "Qué es un agente de IA de verdad y cuándo usar subagentes, hooks, skills, MCP, GitHub Actions, routines o un proceso local.",
+    "Taxonomía práctica de agentes de IA: skills, subagentes, hooks, MCP, loops, GitHub Actions y automatizaciones con límites claros.",
+  keywords: ["agentes IA 2026", "Claude Code skills subagentes hooks", "automatización con IA", "MCP Claude Code"],
   alternates: { canonical: "/cursos/agentes-automatizacion/mapa" },
 };
 
 export default function Page() {
   return (
     <Chapter
-      crumb="Mapa real de agentes en 2026"
+      crumb="Mapa de agentes"
       title="Mapa real de agentes en 2026"
-      icon="route"
-      lead={<>Un agente no es magia: es un sistema que recibe una entrada, decide pasos, usa herramientas y deja evidencia. Esta lección te da el mapa para elegir la pieza correcta sin montar una fábrica cuando solo necesitas un temporizador.</>}
+      icon="robot"
+      lead={<>Un agente útil no es un chat con nombre bonito. Es un sistema con objetivo, herramientas, permisos, memoria mínima, verificación y una forma clara de parar.</>}
       courseHref="/cursos/agentes-automatizacion"
       courseLabel="Agentes y automatización"
     >
       <Objetivos>
         <ul>
-          <li>Distinguir agente, automatización, workflow y asistente.</li>
-          <li>Saber cuándo usar subagentes, hooks, skills, MCP, GitHub Actions o routines.</li>
-          <li>Diseñar cualquier agente con entrada, herramientas, límites, memoria y verificación.</li>
+          <li>Distinguir skills, subagentes, hooks, MCP, loops y automatizaciones externas.</li>
+          <li>Elegir la pieza adecuada según contexto, riesgo y repetición.</li>
+          <li>Diseñar agentes que no se queden en bucle ni actúen sin control.</li>
         </ul>
       </Objetivos>
 
       <Cristiano term="agente">
-        Es un ayudante con herramientas y un objetivo. La diferencia con un chatbot normal es que puede actuar: leer archivos, ejecutar comandos, abrir issues, llamar APIs o pedir datos a un MCP. La diferencia con un script es que decide parte del camino, no solo ejecuta una lista fija.
+        Es un asistente que puede decidir pasos, usar herramientas y comprobar resultados para completar una tarea.
       </Cristiano>
 
       <div className="prose">
-        <h2>La taxonomía que importa</h2>
+        <h2>Taxonomía práctica</h2>
         <ul>
-          <li><strong>Prompt repetible</strong>: una receta que copias y pegas. Barato, simple, manual.</li>
-          <li><strong>Skill</strong>: conocimiento empaquetado para que Claude sepa hacer una tarea concreta.</li>
-          <li><strong>Subagente</strong>: otro Claude especializado que trabaja con su propio contexto y te devuelve una conclusión.</li>
-          <li><strong>Hook</strong>: una regla determinista que se ejecuta en momentos concretos. No decide: obedece.</li>
-          <li><strong>MCP</strong>: un puente a herramientas externas: GitHub, bases de datos, dashboards, ficheros, APIs.</li>
-          <li><strong>GitHub Actions</strong>: automatización alrededor de issues y pull requests.</li>
-          <li><strong>Routine</strong>: automatización en cloud gestionada por Anthropic. Útil, pero en research preview: no diseñes un negocio crítico dependiendo de que su API no cambie.</li>
+          <li><strong>CLAUDE.md</strong>: reglas siempre presentes del proyecto.</li>
+          <li><strong>Skill</strong>: procedimiento reutilizable que se activa cuando hace falta.</li>
+          <li><strong>Subagente</strong>: especialista con contexto y herramientas separadas.</li>
+          <li><strong>Hook</strong>: acción determinista antes o después de una herramienta.</li>
+          <li><strong>MCP</strong>: conexión con servicios externos como GitHub, bases de datos o navegador.</li>
+          <li><strong>Loop o tarea programada</strong>: ejecución repetida con condición de salida.</li>
+          <li><strong>GitHub Actions</strong>: automatización declarativa para CI, tests y despliegues.</li>
         </ul>
       </div>
 
+      <Terminal>{`necesidad: "revisar PRs cada mañana"
+decision:
+  conocimiento_del_proyecto: CLAUDE.md
+  checklist_reutilizable: skill code-review
+  verificacion_aislada: subagente reviewer
+  reglas_obligatorias: hook pre/post tool
+  integracion_externa: GitHub MCP o gh CLI
+  programacion: GitHub Actions o tarea programada
+limites:
+  no_merge_automatico: true
+  publicar_solo_comentarios: true
+  parar_si_no_hay_tests: true`}</Terminal>
+
       <Idea>
-        Regla de arquitectura: si la acción debe ocurrir siempre igual, usa un hook o un script. Si necesita criterio, usa un agente. Si necesita datos externos, añade MCP. Si necesita repetirse sin ti, súbelo a GitHub Actions, cron o routines.
+        La mayoría de agentes buenos son aburridos por diseño: hacen pocas cosas, las registran bien y piden permiso antes de tocar algo irreversible.
       </Idea>
 
-      <div className="prose">
-        <h2>El lienzo de diseño de un agente</h2>
-        <p>Antes de escribir código, rellena esto. Es el antídoto contra agentes que hacen cosas raras:</p>
-      </div>
-
-      <Terminal>{`Nombre:
-Objetivo:
-Entrada:
-Herramientas permitidas:
-Herramientas prohibidas:
-Memoria que puede leer:
-Acciones que requieren confirmación:
-Criterio de éxito:
-Prueba mínima:
-Registro de evidencia:`}</Terminal>
-
       <Cuidado>
-        Si no puedes escribir el criterio de éxito en una frase, no tienes un agente: tienes una esperanza. Empieza con una versión pequeña, observable y fácil de apagar.
+        Si no puedes explicar qué herramientas puede usar, qué datos ve y cuándo debe parar, todavía no tienes un agente: tienes una conversación larga con permisos de más.
       </Cuidado>
 
-      <div className="prose">
-        <h2>Ejemplo: agente revisor de PR</h2>
-        <p>Mal planteado: “revisa mi código”. Bien planteado: “cuando se abra un PR, revisa solo seguridad, regresiones obvias y tests ausentes; comenta con archivo y línea; no cambies código; ignora estilo”. Eso ya se puede convertir en workflow.</p>
-      </div>
-
       <Comprueba>
-        Elige una tarea repetitiva de tu semana y clasifícala: ¿prompt, skill, subagente, hook, MCP, GitHub Action, routine o cron? Si dudas entre dos, elige la pieza menos poderosa. Los sistemas pequeños se arreglan; los sistemas demasiado ambiciosos se esconden.
+        Elige una tarea repetitiva de tu trabajo. Escribe objetivo, entrada, herramientas, salida esperada, condición de parada y acción que nunca debe hacer.
       </Comprueba>
 
       <Guardar>
-        Quédate con este orden de madurez: manual primero, semiautomático después, automático al final. Una automatización mala a escala es peor que hacer la tarea a mano.
+        Primero diseña el circuito de control. Después eliges framework, modelo y automatización.
       </Guardar>
 
-      <ChapterNav next={{ href: "/cursos/agentes-automatizacion/subagentes", label: "Subagentes con roles y límites" }} />
+      <ChapterNav next={{ href: "/cursos/agentes-automatizacion/subagentes", label: "Subagentes con roles" }} />
     </Chapter>
   );
 }

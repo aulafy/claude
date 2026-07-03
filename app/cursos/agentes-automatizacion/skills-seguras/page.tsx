@@ -4,95 +4,70 @@ import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, Chapt
 export const metadata: Metadata = {
   title: "Skills seguras y auditables — Agentes y automatización",
   description:
-    "Cómo instalar, revisar y crear skills de Claude Code sin abrir puertas innecesarias ni ejecutar instrucciones que no entiendes.",
+    "Cómo crear y auditar skills de Claude Code con frontmatter, herramientas permitidas, scripts revisables y permisos mínimos.",
+  keywords: ["skills Claude Code seguras", "auditar skills IA", "SKILL.md allowed-tools", "Agent Skills seguridad"],
   alternates: { canonical: "/cursos/agentes-automatizacion/skills-seguras" },
 };
 
 export default function Page() {
   return (
     <Chapter
-      crumb="Skills seguras y auditables"
+      crumb="Skills seguras"
       title="Skills seguras y auditables"
-      icon="shield"
-      lead={<>Una skill puede ser oro: encapsula una forma excelente de trabajar. También puede ser una puerta peligrosa si la instalas sin mirar. En esta lección aprendes a tratarlas como código: revisar, probar y limitar.</>}
+      icon="capsule"
+      lead={<>Una skill buena empaqueta un procedimiento. Una skill peligrosa empaqueta permisos excesivos, scripts opacos y llamadas de red que nadie ha leído.</>}
       courseHref="/cursos/agentes-automatizacion"
       courseLabel="Agentes y automatización"
     >
       <Objetivos>
         <ul>
-          <li>Entender qué añade una skill y qué no debería hacer.</li>
-          <li>Auditar una skill antes de usarla en proyectos reales.</li>
-          <li>Crear una skill mínima con criterios de seguridad.</li>
+          <li>Crear skills pequeñas, versionables y fáciles de revisar.</li>
+          <li>Auditar `SKILL.md`, scripts auxiliares y permisos antes de instalar.</li>
+          <li>Evitar skills que mezclan conocimiento, ejecución y secretos.</li>
         </ul>
       </Objetivos>
 
       <Cristiano term="skill">
-        Es una carpeta con instrucciones, ejemplos y a veces scripts que enseñan a Claude una forma concreta de trabajar. No es un plugin mágico: es conocimiento empaquetado.
+        Es una carpeta con instrucciones y recursos para enseñar a Claude un procedimiento reutilizable sin cargarlo todo siempre en contexto.
       </Cristiano>
 
-      <div className="prose">
-        <h2>Checklist antes de instalar una skill</h2>
-        <ul>
-          <li>Lee el <code>SKILL.md</code> completo.</li>
-          <li>Busca comandos destructivos: <code>rm</code>, <code>curl | sh</code>, cambios en <code>~/.ssh</code>, tokens, exfiltración.</li>
-          <li>Revisa si pide acceso a red, navegador, sistema de archivos o secretos.</li>
-          <li>Comprueba si trae scripts y qué hacen.</li>
-          <li>Pruébala primero en un repo de juguete.</li>
-        </ul>
-      </div>
-
-      <Terminal>{`rg -n "curl|wget|rm -rf|TOKEN|SECRET|\\.env|ssh|chmod|sudo" ruta/de/la/skill`}</Terminal>
-
-      <Cuidado>
-        No instales skills como quien instala fondos de pantalla. Una skill influye en cómo piensa y actúa tu asistente dentro del proyecto. Si una instrucción te parece rara, no la ignores.
-      </Cuidado>
-
-      <div className="prose">
-        <h2>Una skill buena tiene límites</h2>
-        <p>Ejemplo de buen alcance: “generar una auditoría de accesibilidad con pasos manuales y checks automáticos”. Ejemplo demasiado amplio: “optimizar cualquier web y aplicar todos los cambios necesarios”.</p>
-      </div>
-
       <Terminal>{`---
-name: qa-accessibilidad
-description: Revisa accesibilidad web y propone cambios sin aplicarlos automáticamente.
----
-
-Actúa como revisor de accesibilidad.
-No modifiques archivos salvo que el usuario lo pida explícitamente.
-Prioriza: contraste, navegación por teclado, etiquetas, estados de foco y textos alternativos.
-Devuelve hallazgos con severidad y archivo.`}</Terminal>
-
-      <div className="prose">
-        <h2>Los dos candados reales del frontmatter</h2>
-        <p>Además de escribir buenas instrucciones, Claude Code te da dos campos en el frontmatter que <strong>limitan de verdad</strong> lo que una skill puede hacer:</p>
-        <ul>
-          <li><code>allowed-tools</code>: la lista blanca de herramientas que la skill puede usar. Sé estrecho. Evita el comodín <code>Bash(*)</code>, que da barra libre a la terminal.</li>
-          <li><code>disable-model-invocation: true</code>: impide que el modelo lance la skill por su cuenta. Imprescindible en skills con <em>efectos</em> (desplegar, borrar, publicar): así solo se ejecutan cuando tú la invocas con <code>/nombre</code>.</li>
-        </ul>
-      </div>
-
-      <Terminal>{`---
-name: deploy
-description: Despliega a producción (solo bajo demanda).
+name: deploy-preview
+description: Crea un deploy preview y resume el resultado.
+allowed-tools: Bash(npm run build), Bash(vercel deploy --yes), Bash(git status *)
 disable-model-invocation: true
-allowed-tools: Bash(./scripts/deploy.sh *)
 ---
-Ejecuta el despliegue paso a paso y muéstrame el resultado.`}</Terminal>
+1. Comprueba estado de git.
+2. Ejecuta build.
+3. Crea deploy preview.
+4. Devuelve URL, commit y errores si los hay.
+5. No hagas deploy a produccion.`}</Terminal>
 
-      <Cuidado>
-        La combinación peligrosa que buscan los atacantes: una skill con <code>allowed-tools: Bash(*)</code> (o sin restringir) <strong>más</strong> contexto dinámico (comandos <code>!</code> que se ejecutan solos al cargar la skill). Eso permite leer tus tokens y filtrarlos antes de que te des cuenta. Si ves ambas cosas juntas en una skill de terceros, no la instales.
-      </Cuidado>
+      <div className="prose">
+        <h2>Checklist de auditoría</h2>
+        <ul>
+          <li>Lee el `SKILL.md` entero, no solo la descripción.</li>
+          <li>Busca `curl`, `wget`, `nc`, `ssh`, `gh auth token`, `.env` y dominios externos.</li>
+          <li>Revisa `allowed-tools`: evita `Bash(*)` salvo que sea local y de confianza.</li>
+          <li>Comprueba scripts incluidos en la carpeta de la skill.</li>
+          <li>Prueba primero en proyecto limpio, sin credenciales reales.</li>
+        </ul>
+      </div>
 
       <Idea>
-        La mejor skill no hace más cosas: reduce ambigüedad. Te da mejores encargos, mejor checklist y mejor salida.
+        Las mejores skills parecen documentación ejecutable: instrucciones claras, comandos concretos y alcance pequeño.
       </Idea>
 
+      <Cuidado>
+        Una skill instalada desde internet es código de terceros. Si puede ejecutar shell o leer archivos, trátala como tratarías un paquete npm desconocido.
+      </Cuidado>
+
       <Comprueba>
-        Crea una skill local de solo lectura para revisar una página. Pruébala en una copia. Si el resultado es útil sin tocar archivos, ya tienes una skill segura para iterar.
+        Audita una skill propia: reduce herramientas, elimina comandos genéricos y separa los pasos peligrosos en una aprobación manual.
       </Comprueba>
 
       <Guardar>
-        Trata cada skill como dependencia: origen, versión, lectura, prueba y rollback. Si no puedes explicar qué hace, no debería estar en un proyecto importante.
+        Skill segura es skill aburrida: poco alcance, permisos mínimos y comportamiento fácil de explicar.
       </Guardar>
 
       <ChapterNav
