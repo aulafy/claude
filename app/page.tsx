@@ -167,6 +167,27 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Libro PDF */}
+      <section id="libro" className="max-w-5xl mx-auto px-6 py-8">
+        <div className="rounded-2xl border border-[#8b5cf6]/30 bg-gradient-to-br from-[#8b5cf6]/10 to-[#22d3ee]/5 p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-6">
+          <div className="flex-shrink-0 w-16 h-20 rounded-lg bg-gradient-to-br from-[#8b5cf6] to-[#22d3ee] flex items-center justify-center text-white text-3xl shadow-lg" aria-hidden="true">
+            <Icon name="filePdf" />
+          </div>
+          <div className="flex-1 text-center sm:text-left">
+            <h2 className="font-display font-bold text-xl text-white">Toda la plataforma en un libro</h2>
+            <p className="mt-1 text-sm text-zinc-400 leading-relaxed">
+              Los 7 cursos de Aulafy reunidos en un PDF de <strong className="text-zinc-200">225 páginas</strong>, listo para leer sin conexión o imprimir. Gratis y con licencia Creative Commons.
+            </p>
+          </div>
+          <a
+            href="/aulafy-guia-completa.pdf"
+            className="flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium text-white bg-gradient-to-r from-[#8b5cf6] to-[#e879f9] hover:opacity-90 transition-opacity"
+          >
+            <Icon name="download" /> Descargar el libro (PDF)
+          </a>
+        </div>
+      </section>
+
       {/* Rutas */}
       <section id="rutas" className="max-w-6xl mx-auto px-6 py-10">
         <div className="mb-8 text-center">
