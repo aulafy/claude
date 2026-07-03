@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     template: "%s | Aulafy",
   },
   description:
-    "Cursos gratuitos de inteligencia artificial open source en español con ejemplos prácticos: IA local, Claude Code, Ollama, RAG, agentes, prompts y automatización.",
+    "Cursos gratuitos de inteligencia artificial open source en español con ejemplos prácticos: IA local, Claude Code, Ollama, RAG, agentes, prompts, imagen, voz, vídeo y automatización.",
   keywords: [
     "cursos de IA gratis",
     "cursos de inteligencia artificial en español",
@@ -56,6 +56,13 @@ export const metadata: Metadata = {
     "hooks Claude Code",
     "skills Claude Code",
     "prompts IA",
+    "ComfyUI",
+    "FLUX",
+    "Diffusers",
+    "Whisper",
+    "Piper",
+    "Wan video IA",
+    "IA generativa multimedia",
     "automatización con IA",
     "IA programación",
     "asistente código terminal",
@@ -89,7 +96,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Aulafy — Cursos gratis de IA open source en español",
     description:
-      "Tutoriales gratuitos y prácticos para aprender IA local, Claude Code, RAG, prompts y automatización con herramientas abiertas.",
+      "Tutoriales gratuitos y prácticos para aprender IA local, Claude Code, RAG, prompts, IA generativa multimedia y automatización con herramientas abiertas.",
     type: "website",
     locale: "es_ES",
     siteName: "Aulafy",
@@ -98,12 +105,12 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Aulafy — Cursos gratis de IA open source",
-    description: "Cursos prácticos en español para aprender IA local, Claude Code, RAG y automatización.",
+    description: "Cursos prácticos en español para aprender IA local, Claude Code, RAG, IA generativa y automatización.",
     creator: "@learntouseai",
   },
   other: {
     "ai-summary":
-      "Aulafy es una web educativa en español con cursos gratuitos de inteligencia artificial open source, IA local, Claude Code, RAG, prompts y automatización.",
+      "Aulafy es una web educativa en español con cursos gratuitos de inteligencia artificial open source, IA local, Claude Code, RAG, IA generativa, prompts y automatización.",
     "llms.txt": `${SITE_URL}/llms.txt`,
   },
 };
