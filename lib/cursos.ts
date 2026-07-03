@@ -207,6 +207,39 @@ export const cursos: Curso[] = [
     ],
   },
   {
+    slug: "mlops-local",
+    title: "MLOps local y despliegue de modelos",
+    short: "Sirve modelos abiertos con control",
+    desc: "Aprende a llevar modelos abiertos de tu portátil a un servicio usable: llama.cpp, vLLM, LiteLLM, colas, caché, costes, observabilidad, evals y despliegue con límites claros.",
+    level: "Intermedio → avanzado",
+    icon: "server",
+    gradient: ["#06b6d4", "#84cc16"],
+    secciones: [
+      {
+        title: "Servir modelos",
+        lecciones: [
+          { slug: "mapa-serving", title: "Mapa de serving: Ollama, llama.cpp, vLLM" },
+          { slug: "llama-server", title: "llama.cpp server en local" },
+          { slug: "vllm-openai", title: "vLLM con API compatible OpenAI" },
+        ],
+      },
+      {
+        title: "Operar con control",
+        lecciones: [
+          { slug: "litellm-gateway", title: "LiteLLM como gateway y control de costes" },
+          { slug: "observabilidad", title: "Observabilidad con Langfuse y OpenTelemetry" },
+          { slug: "colas-costes", title: "Colas, rate limits y caché" },
+        ],
+      },
+      {
+        title: "Proyecto final",
+        lecciones: [
+          { slug: "proyecto-produccion", title: "Proyecto: mini plataforma LLM privada" },
+        ],
+      },
+    ],
+  },
+  {
     slug: "agentes-automatizacion",
     title: "Agentes y automatización",
     short: "Diseña agentes útiles, seguros y mantenibles",
@@ -337,7 +370,7 @@ export const cursos: Curso[] = [
 ];
 
 export const proximamente = [
-  { icon: "server", title: "MLOps local y despliegue de modelos", desc: "Versionado, observabilidad, colas, caché, costes y despliegue fiable de modelos abiertos." },
+  { icon: "spreadsheet", title: "IA para datos y analítica", desc: "CSV, SQL, notebooks, dashboards, limpieza de datos y asistentes analíticos con modelos abiertos." },
 ];
 
 export function getCurso(slug: string): Curso | undefined {
