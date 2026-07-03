@@ -74,6 +74,19 @@ Curso práctico para pasar de demos de agentes a sistemas con estado, herramient
 - [Evals, logs y observabilidad](https://www.aulafy.net/cursos/agentes-produccion/evals-logs)
 - [Proyecto: agente de inbox para pymes](https://www.aulafy.net/cursos/agentes-produccion/proyecto-inbox)
 
+## Automatización IA self-hosted para pymes
+
+Curso práctico para montar una plataforma barata y privada de automatización IA con n8n, Open WebUI, Ollama o vLLM, Docker, VPS, webhooks, credenciales, aprobaciones humanas, colas, backups, monitorización y soporte interno.
+
+- [Presentación del curso](https://www.aulafy.net/cursos/automatizacion-self-hosted)
+- [Mapa del stack: n8n, Open WebUI y modelos](https://www.aulafy.net/cursos/automatizacion-self-hosted/mapa-stack)
+- [Docker y VPS barato sin liarla](https://www.aulafy.net/cursos/automatizacion-self-hosted/docker-vps)
+- [Ollama y Open WebUI como interfaz privada](https://www.aulafy.net/cursos/automatizacion-self-hosted/ollama-openwebui)
+- [n8n con webhooks y credenciales](https://www.aulafy.net/cursos/automatizacion-self-hosted/n8n-webhooks)
+- [Aprobaciones humanas antes de actuar](https://www.aulafy.net/cursos/automatizacion-self-hosted/aprobaciones-humanas)
+- [Colas, backups y monitorización](https://www.aulafy.net/cursos/automatizacion-self-hosted/colas-backups-monitoring)
+- [Proyecto: soporte interno para una pyme](https://www.aulafy.net/cursos/automatizacion-self-hosted/proyecto-soporte-pyme)
+
 ## IA local y aplicaciones prácticas
 
 Guía práctica para construir herramientas de IA que se ejecutan en el propio ordenador o con modelos abiertos: Ollama, LM Studio, RAG, PDF, voz, avatares, WordPress, apps de estudio y publicación en internet.
