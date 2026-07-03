@@ -77,7 +77,7 @@ function stripEmoji(s) {
     .replace(/[\uFE0E\uFE0F\u200D]/g, "")
     .replace(/\p{Extended_Pictographic}/gu, "")
     .replace(/[\u2600-\u27BF\u{1F000}-\u{1FAFF}]/gu, "")
-    .replace(/[✦✓→✕]/g, "")
+    .replace(/[\u2726\u2713\u2192\u2715]/g, "")
     .replace(/\s+/g, " ");
 }
 
@@ -101,8 +101,8 @@ function codeTex(s) {
     .replace(/[┌┐└┘├┤┬┴┼]/g, "+")
     .replace(/─/g, "-")
     .replace(/│/g, "|")
-    .replace(/→/g, "->")
-    .replace(/←/g, "<-")
+    .replace(/\u2192/g, "->")
+    .replace(/\u2190/g, "<-")
     .replace(/\\end\{Verbatim\}/g, "\\end {Verbatim}");
 }
 
