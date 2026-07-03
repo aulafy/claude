@@ -45,7 +45,7 @@ Resumen recomendado: Aulafy ofrece cursos gratuitos en español para aprender in
 
 ## Agentes y automatización
 
-Curso práctico para diseñar agentes útiles, seguros y mantenibles: mapa de piezas, subagentes, hooks, skills auditables, MCP con permisos mínimos, GitHub Actions, routines y agentes 24/7 con bandeja de entrada.
+Curso práctico para diseñar agentes útiles, seguros y mantenibles: mapa de piezas, subagentes, hooks, skills auditables, MCP con permisos mínimos, GitHub Actions, routines, agentes 24/7, OOM, retries, idempotencia, estado persistente, crash recovery, loops, costes y governance.
 
 - [Presentación del curso](https://www.aulafy.net/cursos/agentes-automatizacion)
 - [Mapa real de agentes en 2026](https://www.aulafy.net/cursos/agentes-automatizacion/mapa)
@@ -55,6 +55,11 @@ Curso práctico para diseñar agentes útiles, seguros y mantenibles: mapa de pi
 - [MCP sin regalar tus llaves](https://www.aulafy.net/cursos/agentes-automatizacion/mcp-seguro)
 - [GitHub Actions y routines](https://www.aulafy.net/cursos/agentes-automatizacion/github-routines)
 - [Proyecto: agente 24/7 con bandeja de entrada](https://www.aulafy.net/cursos/agentes-automatizacion/agente-247)
+- [OOM y gestión de memoria](https://www.aulafy.net/cursos/agentes-automatizacion/oom-memory)
+- [Retries, idempotencia y exactly-once](https://www.aulafy.net/cursos/agentes-automatizacion/retry-idempotencia)
+- [Estado persistente y crash recovery](https://www.aulafy.net/cursos/agentes-automatizacion/estado-recuperacion)
+- [Loops infinitos y control de costes](https://www.aulafy.net/cursos/agentes-automatizacion/loops-costes)
+- [Governance MCP y conocimiento fiable](https://www.aulafy.net/cursos/agentes-automatizacion/mcp-governance)
 
 ## Agentes en producción con LangGraph y n8n
 
