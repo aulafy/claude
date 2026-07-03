@@ -85,7 +85,7 @@ export default function Page() {
         <p>Provoca un error a propósito en un proyecto de prueba (por ejemplo, borra una línea del código), observa el mensaje, pégaselo a Claude Code y arréglalo. Perder el miedo a los errores es lo que te convierte en autónomo de verdad.</p>
       </div>
 
-      <ChapterNav prev={{ href: "/cursos/ia-local/conectar-ollama", label: "Conecta Claude Code con tu IA local" }} next={{ href: "/volumen-2/chatbot-legal", label: "Un chatbot que cita la ley" }} />
+      <ChapterNav prev={{ href: "/cursos/ia-local/conectar-ollama", label: "Conecta Claude Code con tu IA local" }} next={{ href: "/cursos/ia-local/chatbot-legal", label: "Un chatbot que cita la ley" }} />
     </Chapter>
   );
 }

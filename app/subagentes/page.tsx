@@ -146,8 +146,8 @@ claude agents`}</code></pre>
       </div>
 
       <div className="mt-12 pt-8 border-t border-zinc-800 flex justify-between items-center">
-        <Link href="/skills" className="text-sm text-zinc-500 hover:text-zinc-300">← Skills</Link>
-        <Link href="/plugins" className="text-sm text-orange-400 hover:text-orange-300">Plugins →</Link>
+        <Link href="/cursos/claude-code/skills" className="text-sm text-zinc-500 hover:text-zinc-300">← Skills</Link>
+        <Link href="/cursos/claude-code/plugins" className="text-sm text-orange-400 hover:text-orange-300">Plugins →</Link>
       </div>
     </div>
   );

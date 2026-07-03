@@ -178,13 +178,13 @@ export default function Proyectos() {
           <strong>¿Y ahora qué?</strong> Cuando termines estos proyectos, intenta uno
           tuyo desde cero. Describe a Claude Code qué quieres construir y pídele que te
           guíe paso a paso, igual que aquí. Echa un vistazo a las{" "}
-          <Link href="/recetas">recetas prácticas</Link> para más ideas.
+          <Link href="/cursos/claude-code/recetas">recetas prácticas</Link> para más ideas.
         </div>
       </div>
 
       <div className="mt-12 pt-8 border-t border-zinc-800 flex justify-between items-center">
-        <Link href="/recetas" className="text-sm text-zinc-500 hover:text-zinc-300">← Recetas prácticas</Link>
-        <Link href="/faq" className="text-sm text-orange-400 hover:text-orange-300">Preguntas frecuentes →</Link>
+        <Link href="/cursos/claude-code/recetas" className="text-sm text-zinc-500 hover:text-zinc-300">← Recetas prácticas</Link>
+        <Link href="/cursos/claude-code/faq" className="text-sm text-orange-400 hover:text-orange-300">Preguntas frecuentes →</Link>
       </div>
     </div>
   );

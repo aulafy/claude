@@ -77,7 +77,7 @@ claude`}</Terminal>
         <p>Pide a Claude Code una variación del tema en <strong>modo oscuro</strong> y un patrón de sección reutilizable (por ejemplo, un bloque de “testimonios”) que puedas insertar en cualquier página.</p>
       </div>
 
-      <ChapterNav prev={{ href: "/volumen-2/avatar", label: "Un avatar que habla" }} next={{ href: "/volumen-2/landing", label: "Una web en minutos" }} />
+      <ChapterNav prev={{ href: "/cursos/ia-local/avatar", label: "Un avatar que habla" }} next={{ href: "/cursos/ia-local/landing", label: "Una web en minutos" }} />
     </Chapter>
   );
 }

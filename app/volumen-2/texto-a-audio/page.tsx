@@ -85,7 +85,7 @@ npm run dev`}</Terminal>
         <p>Añade un “modo pódcast”: que dos voces distintas lean un diálogo alternándose. Ideal para material educativo más ameno.</p>
       </div>
 
-      <ChapterNav prev={{ href: "/volumen-2/voz", label: "Un chatbot que te escucha" }} next={{ href: "/volumen-2/simulaciones-3d", label: "Simulaciones 3D" }} />
+      <ChapterNav prev={{ href: "/cursos/ia-local/voz", label: "Un chatbot que te escucha" }} next={{ href: "/cursos/ia-local/simulaciones-3d", label: "Simulaciones 3D" }} />
     </Chapter>
   );
 }

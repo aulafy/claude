@@ -75,7 +75,7 @@ export default function Page() {
         <p>Coge cualquier proyecto de este libro y, antes de mirar el encargo que proponemos, <strong>escribe tú el tuyo</strong> con la receta de cuatro partes. Luego compáralos: verás qué detalles añadir la próxima vez.</p>
       </div>
 
-      <ChapterNav prev={{ href: "/volumen-2/proyectos", label: "Cómo trabajar con tus proyectos" }} next={{ href: "/volumen-2/ia-local", label: "IA local" }} />
+      <ChapterNav prev={{ href: "/cursos/ia-local/proyectos", label: "Cómo trabajar con tus proyectos" }} next={{ href: "/cursos/ia-local/ia-local", label: "IA local" }} />
     </Chapter>
   );
 }

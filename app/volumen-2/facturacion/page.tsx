@@ -75,7 +75,7 @@ npm run dev`}</Terminal>
         <p>Añade recordatorios de <strong>facturas pendientes de cobro</strong> y un botón para generar el resumen trimestral listo para enviar a tu gestoría.</p>
       </div>
 
-      <ChapterNav prev={{ href: "/volumen-2/landing", label: "Una web en minutos" }} next={{ href: "/volumen-2/estudio", label: "App para estudiar" }} />
+      <ChapterNav prev={{ href: "/cursos/ia-local/landing", label: "Una web en minutos" }} next={{ href: "/cursos/ia-local/estudio", label: "App para estudiar" }} />
     </Chapter>
   );
 }

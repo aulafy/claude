@@ -125,7 +125,7 @@ npm run dev`}</Terminal>
         <p>Une este capítulo con el anterior: haz que puedas <strong>preguntarle por voz a tus PDF</strong> y te conteste hablando. Es combinar dos proyectos que ya entiendes.</p>
       </div>
 
-      <ChapterNav prev={{ href: "/volumen-2/pdf", label: "Pregúntale a tus PDF" }} next={{ href: "/volumen-2/texto-a-audio", label: "Texto a audio" }} />
+      <ChapterNav prev={{ href: "/cursos/ia-local/pdf", label: "Pregúntale a tus PDF" }} next={{ href: "/cursos/ia-local/texto-a-audio", label: "Texto a audio" }} />
     </Chapter>
   );
 }

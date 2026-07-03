@@ -56,7 +56,7 @@ export default function Equipos() {
         <p>
           Usa <code>CLAUDE.md</code> en la raíz y por módulo para dar contexto;
           <code>/init</code> para generarlo; <code>/compact</code> en sesiones
-          largas. Ajusta más detalles en <Link href="/configuracion">Configuración</Link>.
+          largas. Ajusta más detalles en <Link href="/cursos/claude-code/configuracion">Configuración</Link>.
         </p>
 
         <h3>Generar contexto inicial del repositorio</h3>
@@ -77,8 +77,8 @@ export default function Equipos() {
         <SectionHeading id="refactor" icon="recycle">Refactors y migraciones a gran escala</SectionHeading>
         <p>
           Combina Plan Mode para revisar antes de tocar código con subagentes en
-          paralelo. Profundiza en <Link href="/flujos">Flujos de trabajo pro</Link>{" "}
-          y <Link href="/subagentes">Subagentes</Link>.
+          paralelo. Profundiza en <Link href="/cursos/claude-code/flujos">Flujos de trabajo pro</Link>{" "}
+          y <Link href="/cursos/claude-code/subagentes">Subagentes</Link>.
         </p>
 
         <h3>Migración con plan previo</h3>
@@ -113,7 +113,7 @@ export default function Equipos() {
           Versiona la carpeta <code>.claude/</code> en el repo con settings,
           skills y agents para que todo el equipo comparta configuración,
           permisos y flujos. Empaqueta lo común como plugin interno. Mira{" "}
-          <Link href="/skills">Skills</Link> y <Link href="/plugins">Plugins</Link>.
+          <Link href="/cursos/claude-code/skills">Skills</Link> y <Link href="/cursos/claude-code/plugins">Plugins</Link>.
         </p>
 
         <h3>Skill interna para antes del PR</h3>
@@ -122,8 +122,8 @@ export default function Equipos() {
         <SectionHeading id="integraciones" icon="link">Integraciones</SectionHeading>
         <p>
           Conecta MCP a tu base de datos u observabilidad; usa hooks para
-          formatear al guardar. Sigue con <Link href="/mcp">Servidores MCP</Link>{" "}
-          y <Link href="/hooks">Hooks</Link>.
+          formatear al guardar. Sigue con <Link href="/cursos/claude-code/mcp">Servidores MCP</Link>{" "}
+          y <Link href="/cursos/claude-code/hooks">Hooks</Link>.
         </p>
 
         <h3>Consultar datos mediante MCP</h3>
@@ -137,7 +137,7 @@ export default function Equipos() {
       </div>
 
       <div className="mt-12 pt-8 border-t border-zinc-800 flex justify-between items-center">
-        <Link href="/pymes" className="text-sm text-zinc-500 hover:text-zinc-300">← Claude Code para pymes y oficina</Link>
+        <Link href="/cursos/claude-code/pymes" className="text-sm text-zinc-500 hover:text-zinc-300">← Claude Code para pymes y oficina</Link>
         <Link href="/" className="text-sm text-orange-400 hover:text-orange-300">Volver al inicio →</Link>
       </div>
     </div>

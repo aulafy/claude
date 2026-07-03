@@ -13,38 +13,38 @@ const partes = [
   {
     titulo: "Parte I · Fundamentos",
     caps: [
-      { href: "/volumen-2/terminal", n: 1, label: "La terminal sin miedo (qué es un CLI)" },
-      { href: "/volumen-2/proyectos", n: 2, label: "Cómo trabajar con tus proyectos" },
-      { href: "/volumen-2/prompts", n: 3, label: "Escribir buenos encargos (prompts)" },
-      { href: "/volumen-2/ia-local", n: 4, label: "IA local: elige el modelo para tu máquina" },
-      { href: "/volumen-2/depurar", n: 5, label: "Cuando algo se rompe: depurar y proteger" },
+      { href: "/cursos/ia-local/terminal", n: 1, label: "La terminal sin miedo (qué es un CLI)" },
+      { href: "/cursos/ia-local/proyectos", n: 2, label: "Cómo trabajar con tus proyectos" },
+      { href: "/cursos/ia-local/prompts", n: 3, label: "Escribir buenos encargos (prompts)" },
+      { href: "/cursos/ia-local/ia-local", n: 4, label: "IA local: elige el modelo para tu máquina" },
+      { href: "/cursos/ia-local/depurar", n: 5, label: "Cuando algo se rompe: depurar y proteger" },
     ],
   },
   {
     titulo: "Parte II · Construye tus herramientas de IA",
     caps: [
-      { href: "/volumen-2/chatbot-legal", n: 6, label: "Un chatbot que responde citando la ley" },
-      { href: "/volumen-2/pdf", n: 7, label: "Pregúntale a tus PDF" },
-      { href: "/volumen-2/voz", n: 8, label: "Un chatbot que te escucha y te habla" },
-      { href: "/volumen-2/texto-a-audio", n: 9, label: "Convierte cualquier texto en audio" },
-      { href: "/volumen-2/simulaciones-3d", n: 10, label: "Simulaciones 3D para explicar en clase" },
-      { href: "/volumen-2/avatar", n: 11, label: "Un avatar que habla para tus cursos" },
-      { href: "/volumen-2/wordpress", n: 12, label: "Crea un tema de WordPress con IA" },
-      { href: "/volumen-2/landing", n: 13, label: "Una web para tu servicio en minutos" },
-      { href: "/volumen-2/facturacion", n: 14, label: "Un asistente de oficina para autónomos" },
-      { href: "/volumen-2/estudio", n: 15, label: "Una app para estudiar y aprender" },
+      { href: "/cursos/ia-local/chatbot-legal", n: 6, label: "Un chatbot que responde citando la ley" },
+      { href: "/cursos/ia-local/pdf", n: 7, label: "Pregúntale a tus PDF" },
+      { href: "/cursos/ia-local/voz", n: 8, label: "Un chatbot que te escucha y te habla" },
+      { href: "/cursos/ia-local/texto-a-audio", n: 9, label: "Convierte cualquier texto en audio" },
+      { href: "/cursos/ia-local/simulaciones-3d", n: 10, label: "Simulaciones 3D para explicar en clase" },
+      { href: "/cursos/ia-local/avatar", n: 11, label: "Un avatar que habla para tus cursos" },
+      { href: "/cursos/ia-local/wordpress", n: 12, label: "Crea un tema de WordPress con IA" },
+      { href: "/cursos/ia-local/landing", n: 13, label: "Una web para tu servicio en minutos" },
+      { href: "/cursos/ia-local/facturacion", n: 14, label: "Un asistente de oficina para autónomos" },
+      { href: "/cursos/ia-local/estudio", n: 15, label: "Una app para estudiar y aprender" },
     ],
   },
   {
     titulo: "Parte III · Sácalo al mundo",
     caps: [
-      { href: "/volumen-2/publicar", n: 16, label: "Publica tu aplicación en internet" },
+      { href: "/cursos/ia-local/publicar", n: 16, label: "Publica tu aplicación en internet" },
     ],
   },
   {
     titulo: "Anexos (avanzado)",
     caps: [
-      { href: "/volumen-2/cluster", n: 17, label: "Varios ordenadores, una sola IA" },
+      { href: "/cursos/ia-local/cluster", n: 17, label: "Varios ordenadores, una sola IA" },
     ],
   },
 ];
@@ -107,7 +107,7 @@ export default function VolumenII() {
           Descargar el Volumen II (PDF)
         </a>
         <Link
-          href="/volumen-2/terminal"
+          href="/cursos/ia-local/terminal"
           className="inline-flex items-center gap-2 rounded-lg border border-zinc-700 hover:border-zinc-500 text-zinc-200 font-medium px-4 py-2.5 text-sm transition-colors"
         >
           Empezar a leer →
@@ -117,8 +117,8 @@ export default function VolumenII() {
       <div className="callout callout-orange mb-10">
         <strong>¿Vienes del Volumen I?</strong> Perfecto. Este volumen asume que ya
         tienes Claude Code instalado y funcionando. Si no, empieza por la{" "}
-        <Link href="/instalacion">instalación</Link> y los{" "}
-        <Link href="/primeros-pasos">primeros pasos</Link>.
+        <Link href="/cursos/claude-code/instalacion">instalación</Link> y los{" "}
+        <Link href="/cursos/claude-code/primeros-pasos">primeros pasos</Link>.
       </div>
 
       {partes.map((parte) => (

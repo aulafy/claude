@@ -78,7 +78,7 @@ ls`}</Terminal>
         <p>Abre la terminal, usa <code>cd</code> para llegar hasta tu carpeta de Descargas y escribe <code>ls</code> para ver qué hay dentro. Cuando lo consigas, ya sabes moverte: estás listo para el resto del libro.</p>
       </div>
 
-      <ChapterNav next={{ href: "/volumen-2/proyectos", label: "Cómo trabajar con tus proyectos" }} />
+      <ChapterNav next={{ href: "/cursos/ia-local/proyectos", label: "Cómo trabajar con tus proyectos" }} />
     </Chapter>
   );
 }

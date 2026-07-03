@@ -76,7 +76,7 @@ export default function Page() {
         <p>Mide la diferencia: ejecuta el modelo más grande que quepa en <strong>un</strong> equipo y luego uno mayor con el <strong>clúster</strong>. Compara qué modelos puedes usar en cada caso. Habrás construido tu propia infraestructura de IA en casa.</p>
       </div>
 
-      <ChapterNav prev={{ href: "/volumen-2/publicar", label: "Publica tu app" }} />
+      <ChapterNav prev={{ href: "/cursos/ia-local/publicar", label: "Publica tu app" }} />
     </Chapter>
   );
 }
