@@ -27,6 +27,19 @@ export default function Cursos() {
         </p>
       </div>
 
+      {/* Descarga del libro completo */}
+      <a
+        href="/aulafy-guia-completa.pdf"
+        className="group flex items-center gap-4 rounded-xl border border-[#8b5cf6]/30 bg-gradient-to-r from-[#8b5cf6]/10 to-transparent p-4 mb-10 hover:border-[#8b5cf6]/60 transition-colors"
+      >
+        <span className="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-[#8b5cf6] to-[#22d3ee] flex items-center justify-center text-white"><Icon name="filePdf" /></span>
+        <span className="flex-1 text-sm">
+          <strong className="text-white">¿Prefieres leerlo todo de un tirón?</strong>{" "}
+          <span className="text-zinc-400">Descarga los 7 cursos en un libro PDF de 225 páginas, gratis.</span>
+        </span>
+        <span className="flex-shrink-0 text-[#a78bfa] text-sm font-medium group-hover:translate-x-0.5 transition-transform inline-flex items-center gap-1.5"><Icon name="download" /> Descargar</span>
+      </a>
+
       {/* Cursos disponibles */}
       <div className="grid md:grid-cols-2 gap-6 mb-14">
         {cursos.map((c) => (
