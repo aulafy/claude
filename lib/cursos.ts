@@ -240,6 +240,40 @@ export const cursos: Curso[] = [
     ],
   },
   {
+    slug: "fine-tuning-local",
+    title: "Fine-tuning y post-training de LLMs",
+    short: "Adapta modelos abiertos con tus datos",
+    desc: "Aprende a preparar datasets, entrenar LoRA/QLoRA con PEFT, TRL, Unsloth o Axolotl, evitar overfitting, evaluar mejoras y exportar modelos a GGUF/Ollama para usarlos en local.",
+    level: "Intermedio → avanzado",
+    icon: "experiment",
+    gradient: ["#a855f7", "#f97316"],
+    secciones: [
+      {
+        title: "Antes de entrenar",
+        lecciones: [
+          { slug: "mapa-post-training", title: "Mapa: SFT, LoRA, QLoRA y DPO" },
+          { slug: "datasets-instrucciones", title: "Datasets de instrucciones de calidad" },
+        ],
+      },
+      {
+        title: "Entrenamiento práctico",
+        lecciones: [
+          { slug: "lora-qlora", title: "LoRA y QLoRA sin humo" },
+          { slug: "unsloth-sft", title: "SFT rápido con Unsloth" },
+          { slug: "axolotl-config", title: "Axolotl para entrenamientos reproducibles" },
+        ],
+      },
+      {
+        title: "Evaluar y usar",
+        lecciones: [
+          { slug: "evals-overfitting", title: "Evals, overfitting y regresiones" },
+          { slug: "export-gguf-ollama", title: "Exportar a GGUF y Ollama" },
+          { slug: "proyecto-modelo-pyme", title: "Proyecto: modelo adaptado para una pyme" },
+        ],
+      },
+    ],
+  },
+  {
     slug: "agentes-automatizacion",
     title: "Agentes y automatización",
     short: "Diseña agentes útiles, seguros y mantenibles",
