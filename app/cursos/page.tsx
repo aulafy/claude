@@ -4,10 +4,39 @@ import Icon, { type IconName } from "@/components/Icon";
 import { cursos, proximamente, totalLecciones } from "@/lib/cursos";
 
 export const metadata: Metadata = {
-  title: "Cursos — Aulafy",
+  title: "Cursos gratis de IA open source en español",
   description:
-    "Catálogo de cursos de IA de Aulafy: Claude Code, IA local, RAG, agentes, fine-tuning, MLOps, seguridad, evals, prompts, imagen, voz y vídeo. Gratis, en español y de código abierto.",
+    "Catálogo gratuito de cursos de inteligencia artificial open source en español: Claude Code, IA local, Ollama, RAG, agentes, fine-tuning, MLOps, seguridad, evals, prompts, imagen, voz, vídeo y automatización. Sin registro.",
+  keywords: [
+    "cursos gratis de IA",
+    "cursos inteligencia artificial español",
+    "curso IA open source",
+    "curso Claude Code",
+    "curso Ollama",
+    "curso RAG",
+    "curso agentes IA",
+    "curso fine-tuning LLM",
+    "curso MLOps LLM",
+    "curso IA para pymes",
+    "automatización IA self-hosted",
+  ],
   alternates: { canonical: "/cursos" },
+  openGraph: {
+    title: "Cursos gratis de IA open source en español — Aulafy",
+    description:
+      "Rutas prácticas, gratuitas y sin registro para aprender IA local, Claude Code, RAG, agentes, fine-tuning, MLOps, seguridad y automatización.",
+    url: "/cursos",
+    type: "website",
+    siteName: "Aulafy",
+    locale: "es_ES",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cursos gratis de IA open source en español",
+    description:
+      "Catálogo práctico de Aulafy para aprender IA local, Claude Code, RAG, agentes, MLOps, seguridad y automatización.",
+    creator: "@learntouseai",
+  },
 };
 
 export default function Cursos() {

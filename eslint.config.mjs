@@ -13,6 +13,7 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
     "pdf/build-latex.js",
+    "scripts/**/*.cjs",
   ]),
   {
     rules: {

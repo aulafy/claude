@@ -15,11 +15,36 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const curso = getCurso(slug);
   if (!curso) return {};
+  const lecciones = curso.secciones.flatMap((seccion) => seccion.lecciones.map((leccion) => leccion.title));
+  const title = `${curso.title} — Curso gratuito de IA open source`;
+  const description = `${curso.desc} Curso gratis en español, sin registro, con ${totalLecciones(curso)} lecciones prácticas.`;
   return {
-    title: `${curso.title} — Curso gratuito | Aulafy`,
-    description: curso.desc,
+    title,
+    description,
+    keywords: [
+      curso.title,
+      curso.short,
+      "curso gratis IA",
+      "curso IA open source",
+      "tutorial IA español",
+      "Aulafy",
+      ...lecciones.slice(0, 16),
+    ],
     alternates: { canonical: `/cursos/${curso.slug}` },
-    openGraph: { title: curso.title, description: curso.desc, url: `/cursos/${curso.slug}` },
+    openGraph: {
+      title,
+      description,
+      url: `/cursos/${curso.slug}`,
+      type: "website",
+      siteName: "Aulafy",
+      locale: "es_ES",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      creator: "@learntouseai",
+    },
   };
 }
 
@@ -29,25 +54,72 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
   if (!curso) notFound();
 
   const total = totalLecciones(curso);
+  const leccionesCurso = curso.secciones.flatMap((seccion) => seccion.lecciones);
+  const leccionTitles = leccionesCurso.map((leccion) => leccion.title);
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Course",
-    name: curso.title,
-    description: curso.desc,
-    inLanguage: "es",
-    url: `${SITE_URL}/cursos/${curso.slug}`,
-    isAccessibleForFree: true,
-    provider: { "@type": "Organization", name: "Aulafy", url: SITE_URL },
-    hasCourseInstance: {
-      "@type": "CourseInstance",
-      courseMode: "online",
-      courseWorkload: `PT${Math.max(2, Math.round(total * 0.4))}H`,
-    },
-    syllabusSections: curso.secciones.map((s) => ({
-      "@type": "Syllabus",
-      name: s.title,
-      description: s.lecciones.map((l) => l.title).join(" · "),
-    })),
+    "@graph": [
+      {
+        "@type": "Course",
+        "@id": `${SITE_URL}/cursos/${curso.slug}#course`,
+        name: curso.title,
+        description: curso.desc,
+        inLanguage: "es",
+        url: `${SITE_URL}/cursos/${curso.slug}`,
+        isAccessibleForFree: true,
+        educationalLevel: curso.level,
+        learningResourceType: "Curso online",
+        keywords: [
+          curso.title,
+          curso.short,
+          "curso gratis IA",
+          "IA open source en español",
+          ...leccionTitles,
+        ].join(", "),
+        teaches: leccionTitles,
+        provider: { "@type": "Organization", name: "Aulafy", url: SITE_URL },
+        offers: {
+          "@type": "Offer",
+          price: "0",
+          priceCurrency: "EUR",
+          availability: "https://schema.org/InStock",
+          category: "free",
+          url: `${SITE_URL}/cursos/${curso.slug}`,
+        },
+        hasCourseInstance: {
+          "@type": "CourseInstance",
+          courseMode: "online",
+          courseWorkload: `PT${Math.max(2, Math.round(total * 0.4))}H`,
+        },
+        syllabusSections: curso.secciones.map((s) => ({
+          "@type": "Syllabus",
+          name: s.title,
+          description: s.lecciones.map((l) => l.title).join(" · "),
+        })),
+        hasPart: leccionesCurso.map((leccion) => ({
+          "@type": "LearningResource",
+          name: leccion.title,
+          url: `${SITE_URL}/cursos/${curso.slug}/${leccion.slug}`,
+          inLanguage: "es",
+          isAccessibleForFree: true,
+          learningResourceType: "Lección",
+          isPartOf: { "@id": `${SITE_URL}/cursos/${curso.slug}#course` },
+        })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Inicio", item: SITE_URL },
+          { "@type": "ListItem", position: 2, name: "Cursos", item: `${SITE_URL}/cursos` },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: curso.title,
+            item: `${SITE_URL}/cursos/${curso.slug}`,
+          },
+        ],
+      },
+    ],
   };
 
   return (
