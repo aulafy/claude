@@ -142,7 +142,7 @@ export default function Home() {
           Cursos de IA open source en español · Gratis y prácticos
         </div>
         <h1 className="font-display font-extrabold text-4xl sm:text-6xl leading-tight text-white max-w-4xl mx-auto">
-          Aprende a usar la IA<br /><span className="grad-text">y a construir con ella</span>
+          Cursos gratis de IA en español:<br /><span className="grad-text">Claude Code, IA local, RAG y automatización</span>
         </h1>
         <p className="mt-6 text-lg text-zinc-400 max-w-2xl mx-auto leading-relaxed">
           De cero a crear tus propias herramientas de inteligencia artificial. Tutoriales de IA local, RAG, prompts y automatización, con proyectos reales y muchos ejecutándose en <strong className="text-zinc-200">tu propio ordenador</strong>.

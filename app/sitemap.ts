@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { cursos, lecciones } from "@/lib/cursos";
+import { seoLandings } from "@/lib/seo-landings";
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 
@@ -13,6 +14,7 @@ const principales: SitemapEntry[] = [
   { route: "", changeFrequency: "weekly", priority: 1 },
   { route: "/cursos", changeFrequency: "weekly", priority: 0.95 },
   { route: "/acerca", changeFrequency: "monthly", priority: 0.7 },
+  { route: "/sobre-ramon-guillamon", changeFrequency: "monthly", priority: 0.72 },
 ];
 
 const guiaClaude: SitemapEntry[] = [
@@ -74,6 +76,12 @@ const descargables: SitemapEntry[] = [
   "/guia-claude-code-vol2.pdf",
 ].map((route) => ({ route, changeFrequency: "monthly", priority: 0.72 }));
 
+const landingsSeo: SitemapEntry[] = seoLandings.map((landing) => ({
+  route: `/${landing.slug}`,
+  changeFrequency: "weekly",
+  priority: 0.88,
+}));
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
@@ -92,6 +100,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...volumen2,
     ...legales,
     ...descargables,
+    ...landingsSeo,
     ...rutasCursos,
   ];
   const unicas = Array.from(new Map(rutas.map((entry) => [entry.route, entry])).values());

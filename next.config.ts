@@ -33,6 +33,7 @@ const nextConfig: NextConfig = {
     return [
       // La guía y el Volumen II ahora son cursos.
       { source: "/guia", destination: "/cursos/claude-code", permanent: true },
+      { source: "/course/:path*", destination: "/", permanent: true },
       { source: "/volumen-2", destination: "/cursos/ia-local", permanent: true },
       { source: "/volumen-2/:leccion", destination: "/cursos/ia-local/:leccion", permanent: true },
       ...leccionesClaudeCode.map((slug) => ({
