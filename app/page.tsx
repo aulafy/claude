@@ -6,7 +6,7 @@ import ThemeToggle from "@/components/ThemeToggle";
 export const metadata: Metadata = {
   title: "Aulafy — Cursos de IA open source en español",
   description:
-    "Cursos gratuitos de inteligencia artificial open source en español: IA local, Claude Code, RAG, fine-tuning, MLOps, prompts, seguridad, automatización, imagen, voz, vídeo y proyectos prácticos paso a paso.",
+    "Cursos gratis de IA open source en español: Claude Code, IA local, RAG, agentes, automatización, seguridad y proyectos prácticos.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "Aulafy — Cursos de IA open source en español",
@@ -365,6 +365,15 @@ export default function Home() {
           <div className="flex flex-wrap items-center justify-center gap-5 text-zinc-500">
             <Link href="/cursos/claude-code" className="text-xs hover:text-white transition-colors">
               Guía
+            </Link>
+            <Link href="/que-es-aulafy" className="text-xs hover:text-white transition-colors">
+              Qué es Aulafy
+            </Link>
+            <Link href="/fuentes" className="text-xs hover:text-white transition-colors">
+              Fuentes
+            </Link>
+            <Link href="/sobre-ramon-guillamon" className="text-xs hover:text-white transition-colors">
+              Autoría
             </Link>
             <Link href="/aviso-legal" className="text-xs hover:text-white transition-colors">
               Aviso legal

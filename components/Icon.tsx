@@ -64,6 +64,7 @@ export const iconMap = {
   plug: "fa-plug",
   prompt: "fa-bullseye",
   python: "fa-code",
+  quote: "fa-quote-left",
   recipe: "fa-kitchen-set",
   recycle: "fa-rotate",
   robot: "fa-robot",

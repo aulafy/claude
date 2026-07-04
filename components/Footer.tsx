@@ -37,11 +37,13 @@ const cols = [
   {
     title: "Legal",
     links: [
+      ["/que-es-aulafy", "Qué es Aulafy"],
       ["/acerca", "Proyecto y fuentes"],
+      ["/fuentes", "Fuentes oficiales"],
+      ["/sobre-ramon-guillamon", "Autoría"],
       ["/aviso-legal", "Aviso legal"],
       ["/licencia", "Licencia"],
       ["/privacidad", "Privacidad"],
-      ["/cookies", "Cookies"],
     ],
   },
 ];
@@ -78,7 +80,7 @@ export default function Footer() {
               <Icon name="aulafy" />
             </div>
             <span className="text-sm text-zinc-400">
-              Aprende Claude Code · Guía en español
+              Aulafy · Cursos de IA open source en español
             </span>
           </div>
 
@@ -121,8 +123,8 @@ export default function Footer() {
           </div>
 
           <p className="text-xs text-zinc-600 leading-relaxed">
-            Guía educativa no oficial. Claude y Claude Code son productos de Anthropic.
-            Verifica siempre las funciones con tu versión: <code className="text-zinc-500">claude --version</code>
+            Formación educativa no oficial. Las marcas y herramientas citadas pertenecen a sus titulares.
+            Verifica siempre las funciones con la documentación oficial enlazada en fuentes.
           </p>
         </div>
       </div>

@@ -49,7 +49,9 @@ export default function Cursos() {
       </div>
 
       <div className="mb-12">
-        <h1 className="font-display font-extrabold text-4xl text-white mb-4">Cursos</h1>
+        <h1 className="font-display font-extrabold text-4xl text-white mb-4">
+          Cursos gratis de IA open source en español
+        </h1>
         <p className="text-lg text-zinc-400 max-w-2xl leading-relaxed">
           Rutas prácticas para pasar de curioso a construir de verdad. Todos gratuitos,
           en español y de código abierto. Sin registro: tu progreso se guarda solo en tu navegador.

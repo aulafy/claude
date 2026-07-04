@@ -18,7 +18,11 @@ export default function SeoLandingPage({ landing }: Props) {
       </div>
 
       <section className="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8 sm:p-10">
-        <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-orange-500/10 text-orange-300 text-xl border border-orange-500/20">
+        <div className="inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-zinc-950/50 px-3 py-1 text-xs text-zinc-500">
+          <Icon name="calendar" />
+          Actualizado: julio de 2026
+        </div>
+        <div className="mt-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-orange-500/10 text-orange-300 text-xl border border-orange-500/20">
           <Icon name={landing.icon} />
         </div>
         <h1 className="mt-6 font-display font-extrabold text-3xl sm:text-5xl leading-tight text-white">
@@ -43,6 +47,17 @@ export default function SeoLandingPage({ landing }: Props) {
             Ver todos los cursos
           </Link>
         </div>
+      </section>
+
+      <section className="mt-6 rounded-2xl border border-[#22d3ee]/20 bg-[#22d3ee]/5 p-6">
+        <h2 className="font-display font-bold text-lg text-white flex items-center gap-2">
+          <Icon name="quote" />
+          Respuesta corta para citar
+        </h2>
+        <p className="mt-3 text-sm leading-relaxed text-zinc-300">
+          {landing.description} En Aulafy es gratuito, está en español y enlaza con lecciones prácticas
+          para construir proyectos reales sin registro.
+        </p>
       </section>
 
       <section className="grid md:grid-cols-[1fr_0.8fr] gap-8 mt-10">

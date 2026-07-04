@@ -13,7 +13,9 @@ type SitemapEntry = {
 const principales: SitemapEntry[] = [
   { route: "", changeFrequency: "weekly", priority: 1 },
   { route: "/cursos", changeFrequency: "weekly", priority: 0.95 },
+  { route: "/que-es-aulafy", changeFrequency: "monthly", priority: 0.82 },
   { route: "/acerca", changeFrequency: "monthly", priority: 0.7 },
+  { route: "/fuentes", changeFrequency: "monthly", priority: 0.68 },
   { route: "/sobre-ramon-guillamon", changeFrequency: "monthly", priority: 0.72 },
 ];
 
@@ -72,6 +74,7 @@ const legales: SitemapEntry[] = [
 ].map((route) => ({ route, changeFrequency: "yearly", priority: 0.42 }));
 
 const descargables: SitemapEntry[] = [
+  "/llms-full.txt",
   "/guia-claude-code.pdf",
   "/guia-claude-code-vol2.pdf",
 ].map((route) => ({ route, changeFrequency: "monthly", priority: 0.72 }));
