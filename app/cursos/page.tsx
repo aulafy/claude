@@ -12,6 +12,10 @@ export const metadata: Metadata = {
     "cursos inteligencia artificial español",
     "curso IA open source",
     "curso Claude Code",
+    "curso Fable 5",
+    "curso videojuegos 3D IA",
+    "curso Godot Blender IA",
+    "IA para CAD",
     "curso Ollama",
     "curso RAG",
     "curso agentes IA",
@@ -24,18 +28,27 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Cursos gratis de IA open source en español — Aulafy",
     description:
-      "Rutas prácticas, gratuitas y sin registro para aprender IA local, Claude Code, RAG, agentes, fine-tuning, MLOps, seguridad y automatización.",
+      "Rutas prácticas, gratuitas y sin registro para aprender IA local, Claude Code, Fable 5, videojuegos 3D, RAG, agentes, MLOps, seguridad y automatización.",
     url: "/cursos",
     type: "website",
     siteName: "Aulafy",
     locale: "es_ES",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 512,
+        height: 512,
+        alt: "Catálogo de cursos de IA en Aulafy",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Cursos gratis de IA open source en español",
     description:
-      "Catálogo práctico de Aulafy para aprender IA local, Claude Code, RAG, agentes, MLOps, seguridad y automatización.",
+      "Catálogo práctico de Aulafy para aprender IA local, Claude Code, Fable 5, videojuegos 3D, RAG, agentes, MLOps y seguridad.",
     creator: "@learntouseai",
+    images: ["/og-image.png"],
   },
 };
 

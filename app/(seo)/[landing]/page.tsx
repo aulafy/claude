@@ -28,12 +28,21 @@ export async function generateMetadata({ params }: { params: Promise<{ landing: 
       type: "article",
       siteName: "Aulafy",
       locale: "es_ES",
+      images: [
+        {
+          url: "/og-image.png",
+          width: 512,
+          height: 512,
+          alt: `${landing.title} en Aulafy`,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: landing.title,
       description: landing.description,
       creator: "@learntouseai",
+      images: ["/og-image.png"],
     },
   };
 }

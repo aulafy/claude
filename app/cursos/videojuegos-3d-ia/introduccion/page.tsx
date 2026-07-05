@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Fable 5 para videojuegos, 3D y simulaciones — Aulafy",
+  title: "Fable 5 para videojuegos, 3D y simulaciones",
   description:
     "Aprende a usar Fable 5 con criterio para idear videojuegos, prototipos 3D, escenas interactivas y pipelines con Blender, Godot, Unity o CAD.",
   keywords: ["Fable 5 videojuegos", "Claude Fable 5 Blender", "IA para videojuegos 3D", "Godot IA", "Blender MCP"],

@@ -5,7 +5,7 @@ import Icon, { type IconName } from "@/components/Icon";
 import ContinuarCurso from "@/components/ContinuarCurso";
 import { cursos, getCurso, totalLecciones } from "@/lib/cursos";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://aulafy.net";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 
 export function generateStaticParams() {
   return cursos.map((c) => ({ slug: c.slug }));
@@ -38,12 +38,21 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       type: "website",
       siteName: "Aulafy",
       locale: "es_ES",
+      images: [
+        {
+          url: "/og-image.png",
+          width: 512,
+          height: 512,
+          alt: `${curso.title} en Aulafy`,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
       creator: "@learntouseai",
+      images: ["/og-image.png"],
     },
   };
 }
