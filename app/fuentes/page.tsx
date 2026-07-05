@@ -7,7 +7,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 export const metadata: Metadata = {
   title: "Fuentes oficiales de Aulafy",
   description:
-    "Fuentes oficiales usadas por Aulafy para cursos de IA open source: Anthropic, Ollama, LangGraph, n8n, Qdrant, OWASP, NIST, Next.js y Vercel.",
+    "Fuentes oficiales usadas por Aulafy para cursos de IA open source: Anthropic, Ollama, vLLM, llama.cpp, LangGraph, n8n, Qdrant, OWASP, NIST, Next.js y Vercel.",
   keywords: [
     "fuentes Aulafy",
     "documentación IA open source",
@@ -41,11 +41,22 @@ const fuentes = [
     links: [
       { name: "Ollama Docs", href: "https://docs.ollama.com/" },
       { name: "Ollama Claude Code integration", href: "https://docs.ollama.com/integrations/claude-code" },
+      { name: "Ollama Context Length", href: "https://docs.ollama.com/context-length" },
       { name: "Ollama Library", href: "https://ollama.com/library" },
       { name: "MLX Docs", href: "https://ml-explore.github.io/mlx/" },
       { name: "LM Studio", href: "https://lmstudio.ai/" },
       { name: "Open WebUI", href: "https://docs.openwebui.com/" },
       { name: "Qdrant Docs", href: "https://qdrant.tech/documentation/" },
+    ],
+  },
+  {
+    area: "Serving local, GPU y cuantización",
+    links: [
+      { name: "vLLM Quantized KV Cache", href: "https://docs.vllm.ai/en/latest/features/quantization/quantized_kvcache/" },
+      { name: "llama.cpp multi-GPU", href: "https://github.com/ggml-org/llama.cpp/blob/master/docs/multi-gpu.md" },
+      { name: "llama.cpp quantization", href: "https://github.com/ggml-org/llama.cpp/blob/master/tools/quantize/README.md" },
+      { name: "NVIDIA CUDA on WSL", href: "https://docs.nvidia.com/cuda/wsl-user-guide/index.html" },
+      { name: "Microsoft CUDA on WSL 2", href: "https://learn.microsoft.com/en-us/windows/ai/directml/gpu-cuda-in-wsl" },
     ],
   },
   {

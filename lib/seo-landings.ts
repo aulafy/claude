@@ -617,6 +617,206 @@ export const seoLandings: SeoLanding[] = [
       { q: "¿Qué log es imprescindible?", a: "Query, chunks, filtros, prompt final, parámetros, respuesta y citas." },
     ],
   },
+  {
+    slug: "vllm-oom-vram-ollama-llamacpp",
+    title: "vLLM OOM y VRAM: cuándo usar Ollama o llama.cpp",
+    h1: "vLLM OOM y VRAM: cuándo usar Ollama, llama.cpp o vLLM",
+    description:
+      "Diagnostica CUDA OOM, contexto, KV cache y límites de VRAM en IA local. Aprende cuándo usar vLLM, Ollama o llama.cpp.",
+    keywords: ["vllm cuda oom single gpu solución", "ollama rtx 3090 oom error fix 2026", "vLLM vs Ollama VRAM"],
+    icon: "server",
+    primaryHref: "/cursos/mlops-local/vram-oom-vllm-ollama",
+    primaryLabel: "Ver guía de VRAM y OOM",
+    audience:
+      "Para usuarios con RTX 3090/4090, servidores caseros o VPS GPU que chocan con CUDA OOM, contexto largo o vLLM inestable.",
+    promise:
+      "Aprenderás a separar pesos, contexto, KV cache y concurrencia para elegir el runtime correcto antes de comprar más hardware.",
+    sections: [
+      {
+        title: "El fallo que mata setups",
+        body:
+          "Un modelo puede parecer compatible con tu VRAM y aun así fallar por KV cache, batch, contexto o overhead del runtime.",
+        bullets: ["Bajar contexto antes de cambiar modelo.", "Comparar vLLM, Ollama y llama.cpp.", "Medir VRAM y tokens/segundo."],
+      },
+      {
+        title: "Decisión de runtime",
+        body:
+          "Ollama y llama.cpp suelen ser más tolerantes al límite; vLLM brilla cuando necesitas concurrencia y el modelo cabe con margen.",
+        bullets: ["Ollama para simplicidad.", "llama.cpp para control.", "vLLM para throughput."],
+      },
+    ],
+    examples: ["RTX 3090 con OOM en vLLM.", "Modelo que funciona a 4k pero cae a 16k.", "Comparativa tokens/s por runtime.", "KV cache como cuello de botella."],
+    related: [
+      { title: "VRAM y OOM", href: "/cursos/mlops-local/vram-oom-vllm-ollama", desc: "Diagnóstico completo." },
+      { title: "Mapa serving", href: "/cursos/mlops-local/mapa-serving", desc: "Ollama, llama.cpp y vLLM." },
+      { title: "vLLM OpenAI", href: "/cursos/mlops-local/vllm-openai", desc: "API compatible OpenAI." },
+    ],
+    faqs: [
+      { q: "¿Por qué Ollama funciona y vLLM no?", a: "Porque gestionan memoria, contexto y concurrencia de forma distinta. vLLM necesita margen para throughput." },
+      { q: "¿Basta con bajar contexto?", a: "Muchas veces ayuda mucho, porque la KV cache crece con el contexto." },
+      { q: "¿vLLM es malo?", a: "No. Es excelente para serving concurrente cuando el modelo cabe holgado." },
+    ],
+  },
+  {
+    slug: "mac-m4-vs-windows-wsl2-ia-local",
+    title: "Mac M4 vs Windows WSL2 para IA local",
+    h1: "Mac M4 vs Windows WSL2 para IA local: qué elegir en 2026",
+    description:
+      "Compara Mac Apple Silicon, Windows con WSL2/NVIDIA y Linux para IA local: Ollama, MLX, Docker GPU, contexto, errores y uso real.",
+    keywords: ["mejor setup ia local mac m4 pro ollama mlx", "docker gpu passthrough wsl2 ollama problemas", "Mac M4 vs RTX 4090 IA local"],
+    icon: "desktop",
+    primaryHref: "/cursos/ia-local/windows-wsl2-vs-mac-m4",
+    primaryLabel: "Ver comparativa práctica",
+    audience:
+      "Para quien está pensando si comprar Mac M-series, PC NVIDIA, portátil Windows o montar Linux para IA local.",
+    promise:
+      "Aprenderás a elegir por tareas reales: coding, RAG, Docker GPU, herramientas Windows, contexto largo y mantenimiento.",
+    sections: [
+      {
+        title: "No compres por un benchmark",
+        body:
+          "Un benchmark de tokens/segundo no te dice si Docker GPU funcionará, si tendrás contexto suficiente o si el entorno encaja con tu trabajo.",
+        bullets: ["Mac para simplicidad.", "Windows para entorno enterprise.", "Linux para serving serio."],
+      },
+      {
+        title: "Dónde falla cada uno",
+        body:
+          "Windows/WSL2 añade capas; Mac puede chocar con contexto y prefill; Linux requiere saber operar drivers y contenedores.",
+        bullets: ["WSL2 y CUDA.", "MLX y Ollama.", "Docker GPU y versiones."],
+      },
+    ],
+    examples: ["Diagnóstico `nvidia-smi` en WSL2.", "Ollama en Mac M-series.", "Docker GPU en Windows.", "Elección por caso de uso."],
+    related: [
+      { title: "Windows vs Mac", href: "/cursos/ia-local/windows-wsl2-vs-mac-m4", desc: "Comparativa completa." },
+      { title: "Hardware mínimo", href: "/cursos/ia-local/hardware-minimo-2026", desc: "Requisitos reales." },
+      { title: "Ollama GPU Windows", href: "/cursos/ia-local/ollama-gpu-windows", desc: "Diagnóstico Windows." },
+    ],
+    faqs: [
+      { q: "¿Mac M4 es mejor?", a: "Es más cómodo para muchas personas, pero no sustituye un servidor NVIDIA si necesitas CUDA/vLLM serio." },
+      { q: "¿Windows sirve?", a: "Sí, especialmente con WSL2, pero tiene más puntos de fallo que macOS para empezar." },
+      { q: "¿Qué elegiría para producción?", a: "Linux con NVIDIA si vas a operar modelos de forma continua." },
+    ],
+  },
+  {
+    slug: "homelab-rtx-3090-ia-local",
+    title: "Homelab IA local con RTX 3090 usadas",
+    h1: "Homelab IA local con RTX 3090 usadas: VRAM, costes y riesgos",
+    description:
+      "Guía para pensar un homelab de IA local con RTX 3090 usadas: VRAM, multi-GPU, llama.cpp, consumo, calor, ruido y ROI.",
+    keywords: ["comprar rtx 3090 usada homelab ia local", "4x RTX 3090 IA local", "llama.cpp multi gpu tensor splitting sin nvlink"],
+    icon: "server",
+    primaryHref: "/cursos/ia-local/homelab-rtx-3090",
+    primaryLabel: "Ver guía de homelab",
+    audience:
+      "Para usuarios que quieren escapar de suscripciones, ejecutar modelos privados y aprender serving local con hardware propio.",
+    promise:
+      "Aprenderás cuándo una 3090 usada tiene sentido y qué riesgos debes revisar antes de montar un rig multi-GPU.",
+    sections: [
+      {
+        title: "La 3090 no es magia",
+        body:
+          "24 GB de VRAM ayudan mucho, pero no eliminan contexto, calor, consumo, drivers ni limitaciones del runtime.",
+        bullets: ["Single GPU primero.", "Multi-GPU con expectativas realistas.", "Medición antes de escalar."],
+      },
+      {
+        title: "Coste real",
+        body:
+          "El precio de compra no es todo. Fuente, caja, electricidad, ruido, backups y tiempo de mantenimiento también cuentan.",
+        bullets: ["Consumo en pared.", "Temperaturas.", "Plan de rollback."],
+      },
+    ],
+    examples: ["Benchmark de una 3090.", "llama.cpp con tensor split.", "Checklist de compra usada.", "ROI frente a suscripciones."],
+    related: [
+      { title: "Homelab RTX 3090", href: "/cursos/ia-local/homelab-rtx-3090", desc: "Guía completa." },
+      { title: "VRAM y OOM", href: "/cursos/mlops-local/vram-oom-vllm-ollama", desc: "Evita fallos de memoria." },
+      { title: "llama.cpp server", href: "/cursos/mlops-local/llama-server", desc: "Serving controlado." },
+    ],
+    faqs: [
+      { q: "¿Mejor 3090 o 4090?", a: "Depende de precio, consumo, garantía y necesidad de VRAM. La 3090 destaca por 24 GB usados a buen precio." },
+      { q: "¿Necesito 4 GPUs?", a: "Casi nunca para empezar. Una GPU bien medida enseña más que cuatro mal montadas." },
+      { q: "¿Sin NVLink sirve?", a: "Puede servir, pero no esperes escalado perfecto en todos los modelos y runtimes." },
+    ],
+  },
+  {
+    slug: "open-webui-troubleshooting-produccion",
+    title: "Open WebUI troubleshooting y producción ligera",
+    h1: "Open WebUI troubleshooting: updates, tools, Ollama y producción ligera",
+    description:
+      "Checklist para mantener Open WebUI estable con Ollama, Docker, volúmenes, backups, tool calling, Qdrant y actualizaciones.",
+    keywords: ["open webui breaking changes tool calling", "Open WebUI troubleshooting Ollama", "Open WebUI Docker backup"],
+    icon: "chat",
+    primaryHref: "/cursos/ia-local/open-webui-troubleshooting",
+    primaryLabel: "Ver troubleshooting Open WebUI",
+    audience:
+      "Para usuarios de Open WebUI que ya lo usan a diario y quieren evitar roturas por updates, volúmenes mal montados o conexiones con Ollama/Qdrant.",
+    promise:
+      "Aprenderás a revisar logs, hacer backups, conectar Ollama correctamente y preparar una instalación ligera para equipo pequeño.",
+    sections: [
+      {
+        title: "No es solo una UI",
+        body:
+          "Cuando Open WebUI guarda usuarios, chats, documentos o tools, ya es un sistema con estado. Hay que hacer backup y controlar actualizaciones.",
+        bullets: ["Volumen persistente.", "Logs antes de tocar.", "Rollback documentado."],
+      },
+      {
+        title: "Conexión con Ollama",
+        body:
+          "Muchos errores vienen de confundir localhost del host con localhost del contenedor.",
+        bullets: ["Red Docker.", "host.docker.internal.", "Qdrant separado."],
+      },
+    ],
+    examples: ["Backup del volumen.", "Diagnóstico de Ollama API.", "Update con rollback.", "Open WebUI + Qdrant estable."],
+    related: [
+      { title: "Open WebUI troubleshooting", href: "/cursos/ia-local/open-webui-troubleshooting", desc: "Checklist completa." },
+      { title: "Open WebUI + Qdrant", href: "/cursos/ia-local/open-webui-qdrant", desc: "RAG local." },
+      { title: "Ollama desde cero", href: "/cursos/ia-local/ollama-desde-cero", desc: "Base del modelo local." },
+    ],
+    faqs: [
+      { q: "¿Por qué no conecta con Ollama?", a: "Si está en Docker, `localhost` puede apuntar al contenedor, no al host." },
+      { q: "¿Puedo actualizar sin backup?", a: "No deberías si tienes datos importantes." },
+      { q: "¿Sirve para pymes?", a: "Sí, con usuarios, HTTPS, backups y permisos claros." },
+    ],
+  },
+  {
+    slug: "cuantizacion-modelos-coding-ollama",
+    title: "Cuantización y modelos locales para coding",
+    h1: "Cuantización y modelos locales para coding: Q4, Q5, Q8, GGUF y contexto",
+    description:
+      "Aprende a elegir modelos y quants para coding agents locales: GGUF, Q4, Q5, Q8, FP8, contexto, velocidad, calidad y pruebas.",
+    keywords: ["gemma 4 ollama mlx velocidad agents", "mejor modelo local para coding agents Ollama 2026", "GGUF Q4 Q5 coding"],
+    icon: "code",
+    primaryHref: "/cursos/ia-local/cuantizacion-modelos-coding",
+    primaryLabel: "Ver guía de cuantización",
+    audience:
+      "Para quienes quieren usar modelos locales para programar sin perderse entre benchmarks, quants y promesas de velocidad.",
+    promise:
+      "Aprenderás a elegir un quant que quepa, responda con calidad suficiente y pueda pasar tests reales de código.",
+    sections: [
+      {
+        title: "El tamaño no lo es todo",
+        body:
+          "Un modelo grande con poco contexto o latencia enorme puede ser peor que uno mediano bien cuantizado y verificado.",
+        bullets: ["Q4 para entrada.", "Q5 como equilibrio.", "Q8 cuando sobra memoria."],
+      },
+      {
+        title: "Evalúa con tu repo",
+        body:
+          "Los benchmarks ayudan, pero tu prueba debe ser explicar bug, generar test, parchear y pasar build.",
+        bullets: ["tokens/s.", "tiempo al primer token.", "calidad de diff."],
+      },
+    ],
+    examples: ["Comparar dos quants.", "Test de bug real.", "Modelo local para generar tests.", "Registro `models-eval.md`."],
+    related: [
+      { title: "Cuantización y coding", href: "/cursos/ia-local/cuantizacion-modelos-coding", desc: "Guía completa." },
+      { title: "Cuantización GGUF", href: "/cursos/ia-local/cuantizacion-gguf", desc: "Base técnica." },
+      { title: "Agentes de código locales", href: "/cursos/ia-local/agentes-codigo-locales", desc: "Aplicación práctica." },
+    ],
+    faqs: [
+      { q: "¿Q4 es suficiente?", a: "Para muchas tareas sí, pero hay que probarlo con tu repo y tus tests." },
+      { q: "¿Qué modelo es el mejor?", a: "Depende de fecha, hardware y tarea. Lo estable es tener una prueba repetible." },
+      { q: "¿FP8 siempre mejora?", a: "No. Puede ahorrar memoria, pero debes validar estabilidad y calidad." },
+    ],
+  },
 ];
 
 export function getSeoLanding(slug: string) {

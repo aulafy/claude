@@ -112,8 +112,12 @@ export const cursos: Curso[] = [
         title: "IA local avanzada",
         lecciones: [
           { slug: "hardware-minimo-2026", title: "Hardware mínimo para IA local en 2026" },
+          { slug: "windows-wsl2-vs-mac-m4", title: "Windows/WSL2 vs Mac M4 para IA local" },
+          { slug: "homelab-rtx-3090", title: "Homelab IA con RTX 3090 usadas" },
+          { slug: "cuantizacion-modelos-coding", title: "Cuantización y modelos para coding" },
           { slug: "agentes-codigo-locales", title: "Agentes de código locales con Ollama" },
           { slug: "open-webui-qdrant", title: "Open WebUI + Ollama + Qdrant" },
+          { slug: "open-webui-troubleshooting", title: "Open WebUI troubleshooting y producción ligera" },
         ],
       },
       {
@@ -220,6 +224,7 @@ export const cursos: Curso[] = [
         title: "Servir modelos",
         lecciones: [
           { slug: "mapa-serving", title: "Mapa de serving: Ollama, llama.cpp, vLLM" },
+          { slug: "vram-oom-vllm-ollama", title: "VRAM y OOM: vLLM vs Ollama/llama.cpp" },
           { slug: "llama-server", title: "llama.cpp server en local" },
           { slug: "vllm-openai", title: "vLLM con API compatible OpenAI" },
         ],

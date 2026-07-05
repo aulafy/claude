@@ -136,7 +136,11 @@ Guía práctica para construir herramientas de IA que se ejecutan en el propio o
 - [Ollama no usa la GPU en Windows](https://www.aulafy.net/cursos/ia-local/ollama-gpu-windows): diagnóstico con nvidia-smi, logs, portátiles híbridos, Defender, Vulkan, AMD, WSL2 y Docker.
 - [Depurar y proteger](https://www.aulafy.net/cursos/ia-local/depurar)
 - [Hardware mínimo para IA local en 2026](https://www.aulafy.net/cursos/ia-local/hardware-minimo-2026)
+- [Windows/WSL2 vs Mac M4 para IA local](https://www.aulafy.net/cursos/ia-local/windows-wsl2-vs-mac-m4)
+- [Homelab IA con RTX 3090 usadas](https://www.aulafy.net/cursos/ia-local/homelab-rtx-3090)
+- [Cuantización y modelos para coding](https://www.aulafy.net/cursos/ia-local/cuantizacion-modelos-coding)
 - [Open WebUI + Ollama + Qdrant](https://www.aulafy.net/cursos/ia-local/open-webui-qdrant)
+- [Open WebUI troubleshooting y producción ligera](https://www.aulafy.net/cursos/ia-local/open-webui-troubleshooting)
 - [Chatbot legal RAG local](https://www.aulafy.net/cursos/ia-local/chatbot-legal)
 - [Pregúntale a tus PDF](https://www.aulafy.net/cursos/ia-local/pdf)
 - [Chatbot con voz](https://www.aulafy.net/cursos/ia-local/voz)
@@ -182,6 +186,7 @@ Curso práctico para servir modelos abiertos con control: Ollama, llama.cpp serv
 
 - [Presentación del curso](https://www.aulafy.net/cursos/mlops-local)
 - [Mapa de serving: Ollama, llama.cpp, vLLM](https://www.aulafy.net/cursos/mlops-local/mapa-serving)
+- [VRAM y OOM: vLLM vs Ollama/llama.cpp](https://www.aulafy.net/cursos/mlops-local/vram-oom-vllm-ollama)
 - [llama.cpp server en local](https://www.aulafy.net/cursos/mlops-local/llama-server)
 - [vLLM con API compatible OpenAI](https://www.aulafy.net/cursos/mlops-local/vllm-openai)
 - [LiteLLM como gateway y control de costes](https://www.aulafy.net/cursos/mlops-local/litellm-gateway)

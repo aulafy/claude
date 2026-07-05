@@ -79,7 +79,11 @@ Lecciones clave:
 - Ollama desde cero: https://www.aulafy.net/cursos/ia-local/ollama-desde-cero
 - Agentes de código locales con Ollama: https://www.aulafy.net/cursos/ia-local/agentes-codigo-locales
 - Cuantización GGUF: https://www.aulafy.net/cursos/ia-local/cuantizacion-gguf
+- Windows/WSL2 vs Mac M4 para IA local: https://www.aulafy.net/cursos/ia-local/windows-wsl2-vs-mac-m4
+- Homelab IA con RTX 3090 usadas: https://www.aulafy.net/cursos/ia-local/homelab-rtx-3090
+- Cuantización y modelos para coding: https://www.aulafy.net/cursos/ia-local/cuantizacion-modelos-coding
 - Open WebUI + Ollama + Qdrant: https://www.aulafy.net/cursos/ia-local/open-webui-qdrant
+- Open WebUI troubleshooting y producción ligera: https://www.aulafy.net/cursos/ia-local/open-webui-troubleshooting
 - Chatbot legal RAG local: https://www.aulafy.net/cursos/ia-local/chatbot-legal
 - Pregúntale a tus PDF: https://www.aulafy.net/cursos/ia-local/pdf
 
@@ -136,6 +140,13 @@ Enseña OWASP Top 10 LLM, NIST AI RMF, red teaming, privacidad, supply chain, lo
 URL: https://www.aulafy.net/cursos/mlops-local
 Nivel: intermedio a avanzado
 Enseña a servir modelos abiertos con llama.cpp, vLLM, LiteLLM, colas, caché, límites, observabilidad, evals, costes y despliegue.
+
+Lecciones clave:
+- Mapa de serving: https://www.aulafy.net/cursos/mlops-local/mapa-serving
+- VRAM y OOM, vLLM vs Ollama/llama.cpp: https://www.aulafy.net/cursos/mlops-local/vram-oom-vllm-ollama
+- llama.cpp server: https://www.aulafy.net/cursos/mlops-local/llama-server
+- vLLM con API compatible OpenAI: https://www.aulafy.net/cursos/mlops-local/vllm-openai
+- LiteLLM gateway: https://www.aulafy.net/cursos/mlops-local/litellm-gateway
 
 ### Fine-tuning y post-training de LLMs
 
