@@ -40,7 +40,9 @@ const fuentes = [
     area: "IA local y modelos abiertos",
     links: [
       { name: "Ollama Docs", href: "https://docs.ollama.com/" },
+      { name: "Ollama Claude Code integration", href: "https://docs.ollama.com/integrations/claude-code" },
       { name: "Ollama Library", href: "https://ollama.com/library" },
+      { name: "MLX Docs", href: "https://ml-explore.github.io/mlx/" },
       { name: "LM Studio", href: "https://lmstudio.ai/" },
       { name: "Open WebUI", href: "https://docs.openwebui.com/" },
       { name: "Qdrant Docs", href: "https://qdrant.tech/documentation/" },
@@ -50,8 +52,10 @@ const fuentes = [
     area: "Agentes y automatización",
     links: [
       { name: "LangGraph Docs", href: "https://docs.langchain.com/oss/python/langgraph/overview" },
+      { name: "LangGraph Persistence", href: "https://docs.langchain.com/oss/python/langgraph/persistence" },
       { name: "n8n Docs", href: "https://docs.n8n.io/" },
       { name: "Model Context Protocol", href: "https://modelcontextprotocol.io/" },
+      { name: "MCP Specification", href: "https://modelcontextprotocol.io/specification/2025-03-26" },
     ],
   },
   {

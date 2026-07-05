@@ -352,6 +352,271 @@ export const seoLandings: SeoLanding[] = [
       { q: "¿Necesito Kubernetes?", a: "No para empezar. Docker, backups y monitorización simple suelen ser mejor primera fase." },
     ],
   },
+  {
+    slug: "alternativa-claude-code-local-ollama",
+    title: "Alternativa local a Claude Code con Ollama",
+    h1: "Alternativa local a Claude Code con Ollama: agentes de código privados",
+    description:
+      "Aprende a montar un flujo de agente de código local con Ollama, modelos abiertos, contexto suficiente y verificación antes de tocar proyectos reales.",
+    keywords: ["claude code local ollama", "alternativa Claude Code open source", "agente de código local", "Ollama coding agent"],
+    icon: "terminal",
+    primaryHref: "/cursos/ia-local/agentes-codigo-locales",
+    primaryLabel: "Ver la lección práctica",
+    audience:
+      "Para desarrolladores, makers y pymes que quieren reducir costes de suscripción, mantener código privado y usar modelos locales para tareas acotadas de programación.",
+    promise:
+      "Aprenderás cuándo compensa un agente local, cómo preparar Ollama, cómo cuidar el contexto y cómo verificar cambios con lint, tests y build.",
+    sections: [
+      {
+        title: "Local no significa mágico",
+        body:
+          "Un modelo local puede ayudarte a explicar código, generar tests o preparar cambios pequeños, pero necesita límites claros. La clave es no compararlo solo por potencia bruta, sino por privacidad, coste, trazabilidad y control de permisos.",
+        bullets: [
+          "Elegir tareas pequeñas y verificables.",
+          "Configurar contexto suficiente para proyectos multiarchivo.",
+          "Separar propuesta de cambios y verificación.",
+        ],
+      },
+      {
+        title: "Flujo recomendado",
+        body:
+          "El patrón sano es pedir plan, crear rama, aplicar cambios, ejecutar comprobaciones y revisar diff. Si el agente no puede pasar esos pasos, no debería tocar código de producción.",
+        bullets: [
+          "Rama aislada para cada tarea.",
+          "Comandos de verificación definidos antes de empezar.",
+          "Sin secretos ni datos de clientes en prompts o logs.",
+        ],
+      },
+    ],
+    examples: [
+      "Generar tests para una función TypeScript.",
+      "Refactorizar un componente pequeño y correr build.",
+      "Crear un script interno sin enviar código a la nube.",
+      "Guardar un TASK.md para evitar pérdida de contexto.",
+    ],
+    related: [
+      { title: "Agentes de código locales", href: "/cursos/ia-local/agentes-codigo-locales", desc: "La lección paso a paso." },
+      { title: "Hardware IA local", href: "/cursos/ia-local/hardware-minimo-2026", desc: "VRAM, RAM y expectativas reales." },
+      { title: "Ollama desde cero", href: "/cursos/ia-local/ollama-desde-cero", desc: "Instala y prueba modelos." },
+    ],
+    faqs: [
+      { q: "¿Sustituye a Claude Code?", a: "No en todos los casos. Es una alternativa privada y barata para tareas acotadas, con verificación obligatoria." },
+      { q: "¿Sirve en Windows?", a: "Sí, pero la experiencia depende de GPU, drivers, modelo y contexto disponible." },
+      { q: "¿Qué es lo más importante?", a: "No el modelo: el flujo de contexto, permisos y verificación." },
+    ],
+  },
+  {
+    slug: "n8n-self-hosted-docker-windows-ia",
+    title: "n8n self-hosted en Windows con Docker y WSL",
+    h1: "n8n self-hosted en Windows: Docker, WSL y automatizaciones IA",
+    description:
+      "Instala n8n self-hosted en Windows con Docker Desktop y WSL, diagnostica errores típicos y prepara workflows IA con Ollama y webhooks.",
+    keywords: ["n8n self hosted docker windows ia", "n8n windows wsl", "n8n docker errores", "n8n ollama tutorial"],
+    icon: "automation",
+    primaryHref: "/cursos/automatizacion-self-hosted/n8n-windows-wsl",
+    primaryLabel: "Ver guía Windows/WSL",
+    audience:
+      "Para usuarios de Windows que quieren automatizar con n8n e IA local, pero se atascan antes de llegar al primer workflow por Docker, WSL o puertos.",
+    promise:
+      "Aprenderás a validar Docker, levantar n8n con volumen persistente y diagnosticar errores antes de conectar modelos o bots.",
+    sections: [
+      {
+        title: "El problema real",
+        body:
+          "La mayoría de fallos iniciales no son de n8n: son virtualización desactivada, Docker sin backend WSL 2, puertos ocupados o volúmenes mal montados.",
+        bullets: [
+          "Comprobar WSL y Docker antes de crear workflows.",
+          "Usar un docker-compose mínimo y repetible.",
+          "Separar pruebas locales de despliegue público con HTTPS.",
+        ],
+      },
+      {
+        title: "Después llega la IA",
+        body:
+          "Cuando n8n ya arranca estable, puedes añadir Ollama, Open WebUI, Qdrant, Telegram o webhooks. Antes, cualquier flujo complejo solo es ruido.",
+        bullets: [
+          "Webhook de prueba antes del agente.",
+          "Credenciales y secrets ordenados.",
+          "Logs y backups desde el primer día.",
+        ],
+      },
+    ],
+    examples: [
+      "Levantar n8n local en Windows.",
+      "Detectar puerto ocupado y Docker caído.",
+      "Crear un webhook de prueba.",
+      "Preparar base para un agente con Ollama.",
+    ],
+    related: [
+      { title: "n8n Windows y WSL", href: "/cursos/automatizacion-self-hosted/n8n-windows-wsl", desc: "Diagnóstico paso a paso." },
+      { title: "Docker y VPS", href: "/cursos/automatizacion-self-hosted/docker-vps", desc: "Base self-hosted." },
+      { title: "n8n webhooks", href: "/cursos/automatizacion-self-hosted/n8n-webhooks", desc: "Conecta tareas reales." },
+    ],
+    faqs: [
+      { q: "¿Puedo usarlo sin Linux?", a: "Sí, pero Docker Desktop en Windows usa WSL 2 por debajo para una experiencia estable." },
+      { q: "¿Sirve para producción?", a: "La guía arranca local. Para producción necesitas HTTPS, backups, credenciales y hardening." },
+      { q: "¿Por dónde empiezo?", a: "Por `docker run hello-world`. Si eso falla, arregla Docker antes de n8n." },
+    ],
+  },
+  {
+    slug: "langgraph-error-recovery-agentes",
+    title: "LangGraph error recovery para agentes IA",
+    h1: "LangGraph error recovery: evita spirals, retries infinitos y fallos 503",
+    description:
+      "Aprende patrones de recuperación para agentes IA: clasificación de errores, retries con backoff, timeouts, estado persistente y revisión humana.",
+    keywords: ["langgraph error recovery agent", "agent 503 retry backoff", "agente IA loop infinito", "LangGraph retries"],
+    icon: "network",
+    primaryHref: "/cursos/agentes-produccion/recuperacion-errores",
+    primaryLabel: "Ver recuperación de errores",
+    audience:
+      "Para equipos que quieren pasar de demos de agentes a flujos que sobreviven APIs caídas, rate limits y acciones fallidas.",
+    promise:
+      "Aprenderás a distinguir fallos transitorios, errores recuperables por el modelo, errores de usuario y fallos definitivos.",
+    sections: [
+      {
+        title: "No todos los fallos son iguales",
+        body:
+          "Un 503 no merece el mismo tratamiento que una credencial inválida. Clasificar errores permite reintentar solo cuando tiene sentido.",
+        bullets: [
+          "Retries con backoff y jitter.",
+          "Timeout por herramienta.",
+          "Escalado humano si se agotan intentos.",
+        ],
+      },
+      {
+        title: "Estado para continuar",
+        body:
+          "La recuperación exige saber qué pasó antes: intento actual, última herramienta, error, fallback y próximo paso.",
+        bullets: [
+          "Estado persistente por task_id.",
+          "Resumen de fallo y decisión.",
+          "Bloqueo de acciones irreversibles sin aprobación.",
+        ],
+      },
+    ],
+    examples: [
+      "API que devuelve 503 dos veces y luego responde.",
+      "Agente de investigación que usa caché como fallback.",
+      "Email que queda pendiente de aprobación tras fallo parcial.",
+      "Reporte de error con logs útiles, no drama.",
+    ],
+    related: [
+      { title: "Recuperación de errores", href: "/cursos/agentes-produccion/recuperacion-errores", desc: "Patrones prácticos." },
+      { title: "Estado y memoria", href: "/cursos/agentes-produccion/estado-memoria", desc: "No pierdas el hilo." },
+      { title: "Evals y logs", href: "/cursos/agentes-produccion/evals-logs", desc: "Observabilidad mínima." },
+    ],
+    faqs: [
+      { q: "¿Un retry arregla todo?", a: "No. Solo errores transitorios. Otros fallos requieren corrección, aprobación o parada." },
+      { q: "¿Por qué entran en loop?", a: "Porque no tienen criterio de salida, estado persistente o clasificación de errores." },
+      { q: "¿Dónde pongo revisión humana?", a: "En acciones irreversibles o cuando el agente agota recuperación." },
+    ],
+  },
+  {
+    slug: "mcp-server-verificacion-agentes",
+    title: "MCP server de verificación para agentes",
+    h1: "MCP server de verificación: edita, prueba y solo después merge",
+    description:
+      "Diseña un workflow MCP para que un agente edite código y otro proceso verifique dependencias, tests, build y logs antes de merge.",
+    keywords: ["mcp server claude code local ollama", "mcp verify workflow", "github mcp agent code", "MCP seguridad"],
+    icon: "plug",
+    primaryHref: "/cursos/agentes-automatizacion/mcp-verificacion",
+    primaryLabel: "Ver MCP de verificación",
+    audience:
+      "Para desarrolladores y equipos que quieren usar agentes de código sin aceptar cambios no probados en el repositorio.",
+    promise:
+      "Aprenderás a separar agente editor, servidor GitHub, verificador en sandbox y aprobación final.",
+    sections: [
+      {
+        title: "El patrón que falta",
+        body:
+          "Muchos agentes editan código pero no verifican desde cero. Un MCP de verificación convierte esa debilidad en un flujo auditable.",
+        bullets: [
+          "Clone limpio.",
+          "Install, lint, tests y build.",
+          "Logs y exit code adjuntos al PR.",
+        ],
+      },
+      {
+        title: "Permisos mínimos",
+        body:
+          "El verificador no necesita escribir en producción. Necesita leer, ejecutar en entorno controlado y devolver evidencias.",
+        bullets: [
+          "Sin force push.",
+          "Sin secrets reales si no hacen falta.",
+          "Merge solo con verificación verde.",
+        ],
+      },
+    ],
+    examples: [
+      "PR automático con resumen de cambios.",
+      "Verificador que falla por test roto.",
+      "Logs adjuntos para revisión humana.",
+      "Bloqueo de merge si build no pasa.",
+    ],
+    related: [
+      { title: "MCP de verificación", href: "/cursos/agentes-automatizacion/mcp-verificacion", desc: "Workflow completo." },
+      { title: "MCP seguro", href: "/cursos/agentes-automatizacion/mcp-seguro", desc: "Permisos y límites." },
+      { title: "Governance MCP", href: "/cursos/agentes-automatizacion/mcp-governance", desc: "Catálogo fiable." },
+    ],
+    faqs: [
+      { q: "¿MCP es seguro por defecto?", a: "No. Depende de permisos, servidores, aislamiento y revisión." },
+      { q: "¿Hace falta GitHub?", a: "No, pero GitHub facilita ramas, PRs y checks. El patrón sirve para otros repos." },
+      { q: "¿Quién decide el merge?", a: "Una policy o una persona. El agente aporta evidencia, no autoridad absoluta." },
+    ],
+  },
+  {
+    slug: "rag-alucinaciones-grounding-prompt",
+    title: "RAG alucina aunque recupera bien: grounding y prompt completo",
+    h1: "RAG alucina aunque recupera bien: cómo arreglar grounding y prompt",
+    description:
+      "Depura un sistema RAG que recupera documentos correctos pero responde mal: logging del prompt completo, grounding estricto, citas y tests.",
+    keywords: ["rag alucinaciones fix grounding prompt", "debug rag full prompt logging", "RAG recupera bien pero alucina", "grounding RAG"],
+    icon: "database",
+    primaryHref: "/cursos/rag-seguro/debugging-grounding",
+    primaryLabel: "Ver debugging RAG",
+    audience:
+      "Para equipos que ya tienen búsqueda vectorial funcionando, pero no confían en las respuestas del modelo.",
+    promise:
+      "Aprenderás a separar fallo de retrieval y fallo de generación, guardar trazas y obligar al modelo a responder solo con evidencia.",
+    sections: [
+      {
+        title: "Retrieval no es respuesta",
+        body:
+          "Que el chunk correcto aparezca no garantiza que el modelo lo use bien. Hay que revisar el prompt final y las reglas de abstención.",
+        bullets: [
+          "Log de query, filtros y chunks.",
+          "Prompt final completo.",
+          "Citas verificables por afirmación.",
+        ],
+      },
+      {
+        title: "Grounding estricto",
+        body:
+          "El sistema debe decir no lo sé cuando el dato no está en documentos, aunque el modelo tenga conocimiento general.",
+        bullets: [
+          "Temperatura baja.",
+          "Instrucción de no usar conocimiento externo.",
+          "Tests con preguntas sin respuesta.",
+        ],
+      },
+    ],
+    examples: [
+      "Pregunta con respuesta exacta en PDF.",
+      "Pregunta sin evidencia que debe abstenerse.",
+      "Documento con prompt injection.",
+      "Cita que no respalda la frase y debe fallar.",
+    ],
+    related: [
+      { title: "Debugging RAG", href: "/cursos/rag-seguro/debugging-grounding", desc: "Trazas y grounding." },
+      { title: "Evals RAG", href: "/cursos/rag-seguro/evals-metricas", desc: "Mide calidad." },
+      { title: "Citaciones", href: "/cursos/rag-seguro/evals-citaciones", desc: "Comprueba evidencia." },
+    ],
+    faqs: [
+      { q: "¿Por qué alucina si recupera bien?", a: "Porque generación y recuperación son fases distintas. El modelo puede ignorar o completar mal el contexto." },
+      { q: "¿Bajar temperatura basta?", a: "Ayuda, pero necesitas prompt, citas, trazas y tests." },
+      { q: "¿Qué log es imprescindible?", a: "Query, chunks, filtros, prompt final, parámetros, respuesta y citas." },
+    ],
+  },
 ];
 
 export function getSeoLanding(slug: string) {

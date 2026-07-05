@@ -112,6 +112,7 @@ export const cursos: Curso[] = [
         title: "IA local avanzada",
         lecciones: [
           { slug: "hardware-minimo-2026", title: "Hardware mínimo para IA local en 2026" },
+          { slug: "agentes-codigo-locales", title: "Agentes de código locales con Ollama" },
           { slug: "open-webui-qdrant", title: "Open WebUI + Ollama + Qdrant" },
         ],
       },
@@ -311,6 +312,7 @@ export const cursos: Curso[] = [
           { slug: "retry-idempotencia", title: "Retries, idempotencia y exactly-once" },
           { slug: "estado-recuperacion", title: "Estado persistente y crash recovery" },
           { slug: "loops-costes", title: "Loops infinitos y control de costes" },
+          { slug: "mcp-verificacion", title: "MCP de verificación antes de merge" },
           { slug: "mcp-governance", title: "Governance MCP y conocimiento fiable" },
         ],
       },
@@ -338,6 +340,7 @@ export const cursos: Curso[] = [
         lecciones: [
           { slug: "n8n-tools", title: "n8n como capa de herramientas" },
           { slug: "human-in-the-loop", title: "Aprobaciones humanas y permisos" },
+          { slug: "recuperacion-errores", title: "Recuperación de errores y fallos 503" },
         ],
       },
       {
@@ -363,6 +366,7 @@ export const cursos: Curso[] = [
         lecciones: [
           { slug: "mapa-stack", title: "Mapa del stack: n8n, Open WebUI y modelos" },
           { slug: "docker-vps", title: "Docker y VPS barato sin liarla" },
+          { slug: "n8n-windows-wsl", title: "n8n en Windows: Docker, WSL y errores típicos" },
           { slug: "ollama-openwebui", title: "Ollama y Open WebUI como interfaz privada" },
         ],
       },
@@ -411,6 +415,7 @@ export const cursos: Curso[] = [
         title: "Seguridad y producción",
         lecciones: [
           { slug: "prompt-injection", title: "Prompt injection en RAG" },
+          { slug: "debugging-grounding", title: "Debugging RAG: grounding y prompt completo" },
           { slug: "evals-metricas", title: "Evals RAG con métricas" },
           { slug: "evals-citaciones", title: "Evals, citaciones y trazabilidad" },
         ],

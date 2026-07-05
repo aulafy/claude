@@ -47,6 +47,11 @@ Aulafy.net ofrece cursos gratuitos en español para aprender inteligencia artifi
 - Curso agentes de IA en español: https://www.aulafy.net/curso-agentes-ia-espanol
 - IA para pymes y autónomos: https://www.aulafy.net/ia-para-pymes
 - Automatización IA con n8n, Ollama y Open WebUI: https://www.aulafy.net/automatizacion-ia-n8n-ollama
+- Alternativa local a Claude Code con Ollama: https://www.aulafy.net/alternativa-claude-code-local-ollama
+- n8n self-hosted en Windows con Docker y WSL: https://www.aulafy.net/n8n-self-hosted-docker-windows-ia
+- LangGraph error recovery para agentes IA: https://www.aulafy.net/langgraph-error-recovery-agentes
+- MCP server de verificación para agentes: https://www.aulafy.net/mcp-server-verificacion-agentes
+- RAG alucina aunque recupera bien: https://www.aulafy.net/rag-alucinaciones-grounding-prompt
 
 ## Cursos principales
 
@@ -72,6 +77,7 @@ Enseña a crear herramientas de IA que funcionan en el propio equipo o con model
 
 Lecciones clave:
 - Ollama desde cero: https://www.aulafy.net/cursos/ia-local/ollama-desde-cero
+- Agentes de código locales con Ollama: https://www.aulafy.net/cursos/ia-local/agentes-codigo-locales
 - Cuantización GGUF: https://www.aulafy.net/cursos/ia-local/cuantizacion-gguf
 - Open WebUI + Ollama + Qdrant: https://www.aulafy.net/cursos/ia-local/open-webui-qdrant
 - Chatbot legal RAG local: https://www.aulafy.net/cursos/ia-local/chatbot-legal
@@ -88,6 +94,7 @@ Lecciones clave:
 - Ingesta y chunking: https://www.aulafy.net/cursos/rag-seguro/ingesta-chunking
 - Embeddings y vector DB: https://www.aulafy.net/cursos/rag-seguro/embeddings-vector-db
 - Prompt injection: https://www.aulafy.net/cursos/rag-seguro/prompt-injection
+- Debugging RAG, grounding y prompt completo: https://www.aulafy.net/cursos/rag-seguro/debugging-grounding
 - Evals y citaciones: https://www.aulafy.net/cursos/rag-seguro/evals-citaciones
 
 ### Agentes y automatización
@@ -96,17 +103,27 @@ URL: https://www.aulafy.net/cursos/agentes-automatizacion
 Nivel: intermedio a avanzado
 Enseña a diseñar agentes útiles y mantenibles: mapa real de agentes, subagentes, hooks, skills seguras, MCP con permisos mínimos, GitHub Actions, routines, agentes 24/7, OOM, retries, idempotencia, estado persistente, crash recovery, loops, costes y governance.
 
+Lecciones nuevas de alto valor:
+- MCP de verificación antes de merge: https://www.aulafy.net/cursos/agentes-automatizacion/mcp-verificacion
+- Governance MCP y conocimiento fiable: https://www.aulafy.net/cursos/agentes-automatizacion/mcp-governance
+
 ### Agentes en producción con LangGraph y n8n
 
 URL: https://www.aulafy.net/cursos/agentes-produccion
 Nivel: intermedio a avanzado
 Enseña a pasar de demos a sistemas con estado, herramientas, revisión humana, logs, evals y automatizaciones de negocio usando LangGraph y n8n.
 
+Lecciones nuevas de alto valor:
+- Recuperación de errores y fallos 503: https://www.aulafy.net/cursos/agentes-produccion/recuperacion-errores
+
 ### Automatización IA self-hosted para pymes
 
 URL: https://www.aulafy.net/cursos/automatizacion-self-hosted
 Nivel: intermedio
 Enseña a montar una plataforma privada y barata con n8n, Open WebUI, Ollama o vLLM, Docker, VPS, webhooks, credenciales, aprobaciones humanas, colas, backups, monitorización y soporte interno.
+
+Lecciones nuevas de alto valor:
+- n8n en Windows: Docker, WSL y errores típicos: https://www.aulafy.net/cursos/automatizacion-self-hosted/n8n-windows-wsl
 
 ### Seguridad y evaluación de modelos
 
