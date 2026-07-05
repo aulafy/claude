@@ -48,6 +48,7 @@ const fuentes = [
       { name: "MLX Docs", href: "https://ml-explore.github.io/mlx/" },
       { name: "LM Studio", href: "https://lmstudio.ai/" },
       { name: "Open WebUI", href: "https://docs.openwebui.com/" },
+      { name: "Open WebUI Tools & Functions", href: "https://docs.openwebui.com/features/extensibility/plugin/" },
       { name: "Qdrant Docs", href: "https://qdrant.tech/documentation/" },
       { name: "Google Gemma 4 model card", href: "https://ai.google.dev/gemma/docs/core/model_card_4" },
     ],
@@ -70,8 +71,20 @@ const fuentes = [
       { name: "LangGraph Docs", href: "https://docs.langchain.com/oss/python/langgraph/overview" },
       { name: "LangGraph Persistence", href: "https://docs.langchain.com/oss/python/langgraph/persistence" },
       { name: "n8n Docs", href: "https://docs.n8n.io/" },
+      { name: "n8n Queue Mode", href: "https://docs.n8n.io/hosting/scaling/queue-mode/" },
       { name: "Model Context Protocol", href: "https://modelcontextprotocol.io/" },
       { name: "MCP Specification", href: "https://modelcontextprotocol.io/specification/2025-03-26" },
+      { name: "MCP Tools", href: "https://modelcontextprotocol.io/specification/2025-06-18/server/tools" },
+    ],
+  },
+  {
+    area: "Gateways, routing y despliegue",
+    links: [
+      { name: "LiteLLM Docs", href: "https://docs.litellm.ai/" },
+      { name: "LiteLLM Routing", href: "https://docs.litellm.ai/docs/routing-load-balancing" },
+      { name: "LiteLLM Fallbacks", href: "https://docs.litellm.ai/docs/proxy/reliability" },
+      { name: "Docker Compose", href: "https://docs.docker.com/compose/" },
+      { name: "Docker Compose Profiles", href: "https://docs.docker.com/compose/how-tos/profiles/" },
     ],
   },
   {

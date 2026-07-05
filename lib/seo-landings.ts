@@ -937,6 +937,118 @@ export const seoLandings: SeoLanding[] = [
       { q: "¿Qué debe guardar la memoria?", a: "Objetivo, decisiones, evidencias, comandos ejecutados y bloqueos." },
     ],
   },
+  {
+    slug: "docker-compose-ia-local-ollama-n8n-qdrant",
+    title: "Docker Compose para IA local con Ollama, n8n y Qdrant",
+    h1: "Docker Compose para stack completo de IA local",
+    description:
+      "Monta un stack reproducible con Ollama, Open WebUI, Qdrant y n8n usando Docker Compose, volúmenes, perfiles y backups.",
+    keywords: ["docker compose ia local ollama n8n qdrant", "stack local ai production n8n ollama qdrant", "Open WebUI Qdrant Docker"],
+    icon: "server",
+    primaryHref: "/cursos/automatizacion-self-hosted/stack-docker-ia-local",
+    primaryLabel: "Ver stack Docker IA local",
+    audience: "Para makers, pymes y autónomos que quieren un laboratorio local repetible sin perder datos al reiniciar.",
+    promise: "Aprenderás a separar servicios base y opcionales, montar volúmenes persistentes y hacer backups mínimos.",
+    sections: [
+      { title: "Stack reproducible", body: "Compose evita depender de comandos sueltos y permite documentar servicios, puertos y volúmenes.", bullets: ["Qdrant.", "Open WebUI.", "n8n por perfil."] },
+      { title: "Producción ligera", body: "No basta con arrancar: necesitas backups, puertos cerrados y secretos fuera del repositorio.", bullets: ["Volúmenes.", "Perfiles.", "Logs."] },
+    ],
+    examples: ["Compose base.", "Perfil automation.", "Backup de volumen.", "Reinicio sin perder estado."],
+    related: [
+      { title: "Stack Docker", href: "/cursos/automatizacion-self-hosted/stack-docker-ia-local", desc: "Lección completa." },
+      { title: "RAG con n8n", href: "/cursos/automatizacion-self-hosted/rag-n8n-qdrant-ollama", desc: "Flujo privado." },
+      { title: "Open WebUI troubleshooting", href: "/cursos/ia-local/open-webui-troubleshooting", desc: "Errores comunes." },
+    ],
+    faqs: [
+      { q: "¿Meto Ollama en Docker?", a: "En muchos portátiles conviene ejecutarlo nativo y conectar desde contenedores." },
+      { q: "¿Puedo exponerlo a internet?", a: "Solo con HTTPS, autenticación, backups y revisión de puertos." },
+      { q: "¿Para qué sirven los perfiles?", a: "Para activar servicios opcionales sin duplicar compose files." },
+    ],
+  },
+  {
+    slug: "tool-calling-modelos-locales-ollama",
+    title: "Tool calling con modelos locales y Ollama",
+    h1: "Tool calling con modelos locales: errores, parsers y permisos",
+    description:
+      "Diagnostica tool calling roto en agentes locales con Ollama, Hermes, Open WebUI y MCP: schemas, parsers, quants y trazas.",
+    keywords: ["tool calling error ollama hermes fix", "tool calling modelos locales", "MCP tools modelos locales"],
+    icon: "tools",
+    primaryHref: "/cursos/ia-local/tool-calling-modelos-locales",
+    primaryLabel: "Ver troubleshooting de tool calling",
+    audience: "Para quienes montan agentes locales y ven que las tools no se invocan, fallan o devuelven argumentos inválidos.",
+    promise: "Aprenderás a aislar si falla el modelo, el runtime, el parser, el schema o los permisos de la herramienta.",
+    sections: [
+      { title: "Pruebas pequeñas", body: "Antes de tocar GitHub o archivos, prueba una tool mínima y revisa la salida previa al parser.", bullets: ["Schema.", "JSON.", "Logs."] },
+      { title: "Permisos reales", body: "Una tool local puede ejecutar código en tu servidor. Requiere los mismos límites que una app interna.", bullets: ["Allowlist.", "Aprobación.", "Trazas."] },
+    ],
+    examples: ["Tool get_time.", "JSON inválido.", "Parser incompatible.", "Tool con aprobación humana."],
+    related: [
+      { title: "Tool calling local", href: "/cursos/ia-local/tool-calling-modelos-locales", desc: "Diagnóstico completo." },
+      { title: "Hermes y Ollama", href: "/cursos/ia-local/hermes-agente-coding-local", desc: "Agente coding local." },
+      { title: "MCP seguro", href: "/cursos/agentes-automatizacion/mcp-seguro", desc: "Permisos." },
+    ],
+    faqs: [
+      { q: "¿Por qué el modelo describe la tool pero no la llama?", a: "Puede no estar alineado con el formato que espera el runtime o parser." },
+      { q: "¿Un quant puede romper tool calling?", a: "Puede degradar formato y seguimiento de instrucciones; hay que probar." },
+      { q: "¿Open WebUI tools son seguras?", a: "Son potentes porque ejecutan Python; hay que tratarlas como código con permisos." },
+    ],
+  },
+  {
+    slug: "agente-local-24-7-mac-rtx-low-vram",
+    title: "Agente local 24/7 en Mac, RTX o low VRAM",
+    h1: "Agentes 24/7 offline en hardware real: Mac M-series, RTX y mini PC",
+    description:
+      "Diseña agentes locales 24/7 con bandeja de entrada, watchdog, límites de compute, logs y recuperación para Mac, RTX 3090/4090 o mini PC.",
+    keywords: ["agente autonomo local 24/7 low vram", "agente offline privado solopreneur", "agentes 24/7 Mac M4 RTX 3090"],
+    icon: "robot",
+    primaryHref: "/cursos/agentes-automatizacion/agentes-247-hardware-real",
+    primaryLabel: "Ver agentes 24/7 en hardware real",
+    audience: "Para solopreneurs, makers y pymes que quieren agentes locales persistentes sin facturas impredecibles.",
+    promise: "Aprenderás a separar inbox, worker, modelo, watchdog y aprobación humana para evitar loops y caídas silenciosas.",
+    sections: [
+      { title: "Hardware honesto", body: "Mac, RTX, mini PC y VPS sirven para cosas distintas. No todo debe hacer inferencia pesada.", bullets: ["Mac cómodo.", "RTX potente.", "VPS orquesta."] },
+      { title: "Operación antes que autonomía", body: "Un agente 24/7 debe pausar, registrar y pedir ayuda cuando falla.", bullets: ["Healthcheck.", "Logs.", "Timeouts."] },
+    ],
+    examples: ["Watchdog.", "Cola persistente.", "Ollama apagado.", "Tool que falla dos veces."],
+    related: [
+      { title: "24/7 hardware real", href: "/cursos/agentes-automatizacion/agentes-247-hardware-real", desc: "Lección completa." },
+      { title: "Agente 24/7", href: "/cursos/agentes-automatizacion/agente-247", desc: "Proyecto base." },
+      { title: "OOM y memoria", href: "/cursos/agentes-automatizacion/oom-memory", desc: "Límites." },
+    ],
+    faqs: [
+      { q: "¿Puede funcionar sin nube?", a: "Sí, si el modelo local basta y el flujo tiene límites claros." },
+      { q: "¿Mini PC sirve?", a: "Para orquestar y colas, sí; para modelos grandes, normalmente no." },
+      { q: "¿Qué fallo es más común?", a: "Loops, falta de estado persistente y reinicios mal configurados." },
+    ],
+  },
+  {
+    slug: "routing-hibrido-litellm-ollama-cloud",
+    title: "Routing híbrido con LiteLLM, Ollama y cloud",
+    h1: "Routing híbrido local/cloud con LiteLLM",
+    description:
+      "Usa LiteLLM para enrutar tareas entre Ollama, vLLM y modelos cloud con fallbacks, presupuestos, privacidad y trazas.",
+    keywords: ["routing híbrido LiteLLM Ollama", "LiteLLM local cloud fallback", "gateway modelos locales frontier"],
+    icon: "network",
+    primaryHref: "/cursos/mlops-local/routing-hibrido-litellm",
+    primaryLabel: "Ver routing híbrido LiteLLM",
+    audience: "Para equipos que quieren coste bajo y privacidad local, pero necesitan escalar a modelos externos en tareas difíciles.",
+    promise: "Aprenderás a definir políticas: qué va local, qué puede salir, cuándo usar fallback y cómo registrar cada decisión.",
+    sections: [
+      { title: "Local primero", body: "Lo rutinario, privado o barato se queda local. Lo complejo puede escalar con aprobación y trazas.", bullets: ["Ollama.", "vLLM.", "Frontier review."] },
+      { title: "Fallback con cuidado", body: "Si hay datos sensibles, fallar localmente no significa mandar el prompt a otro proveedor.", bullets: ["Política.", "Presupuesto.", "Auditoría."] },
+    ],
+    examples: ["Modelo local-fast.", "local-gpu.", "frontier-review.", "traza de fallback."],
+    related: [
+      { title: "Routing híbrido", href: "/cursos/mlops-local/routing-hibrido-litellm", desc: "Lección completa." },
+      { title: "LiteLLM gateway", href: "/cursos/mlops-local/litellm-gateway", desc: "Base." },
+      { title: "Observabilidad", href: "/cursos/mlops-local/observabilidad", desc: "Trazas." },
+    ],
+    faqs: [
+      { q: "¿Híbrido significa enviar todo a cloud?", a: "No. Significa decidir explícitamente cuándo local no basta." },
+      { q: "¿LiteLLM hace fallbacks?", a: "Sí, puede enrutar y configurar fallbacks, pero la política de privacidad es tuya." },
+      { q: "¿Sirve con Ollama?", a: "Sí, como endpoint local dentro de una estrategia de gateway." },
+    ],
+  },
 ];
 
 export function getSeoLanding(slug: string) {

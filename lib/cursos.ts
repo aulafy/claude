@@ -117,6 +117,7 @@ export const cursos: Curso[] = [
           { slug: "cuantizacion-modelos-coding", title: "Cuantización y modelos para coding" },
           { slug: "agentes-codigo-locales", title: "Agentes de código locales con Ollama" },
           { slug: "hermes-agente-coding-local", title: "Agente coding local con Hermes y Ollama" },
+          { slug: "tool-calling-modelos-locales", title: "Tool calling con modelos locales" },
           { slug: "open-webui-qdrant", title: "Open WebUI + Ollama + Qdrant" },
           { slug: "open-webui-troubleshooting", title: "Open WebUI troubleshooting y producción ligera" },
         ],
@@ -234,6 +235,7 @@ export const cursos: Curso[] = [
         title: "Operar con control",
         lecciones: [
           { slug: "litellm-gateway", title: "LiteLLM como gateway y control de costes" },
+          { slug: "routing-hibrido-litellm", title: "Routing híbrido local/cloud con LiteLLM" },
           { slug: "observabilidad", title: "Observabilidad con Langfuse y OpenTelemetry" },
           { slug: "colas-costes", title: "Colas, rate limits y caché" },
         ],
@@ -309,6 +311,7 @@ export const cursos: Curso[] = [
         lecciones: [
           { slug: "github-routines", title: "GitHub Actions y routines" },
           { slug: "agente-247", title: "Proyecto: agente 24/7 con bandeja de entrada" },
+          { slug: "agentes-247-hardware-real", title: "Agentes 24/7 offline en hardware real" },
         ],
       },
       {
@@ -373,6 +376,7 @@ export const cursos: Curso[] = [
         lecciones: [
           { slug: "mapa-stack", title: "Mapa del stack: n8n, Open WebUI y modelos" },
           { slug: "docker-vps", title: "Docker y VPS barato sin liarla" },
+          { slug: "stack-docker-ia-local", title: "Docker Compose para stack completo de IA local" },
           { slug: "n8n-windows-wsl", title: "n8n en Windows: Docker, WSL y errores típicos" },
           { slug: "ollama-openwebui", title: "Ollama y Open WebUI como interfaz privada" },
         ],

@@ -55,6 +55,10 @@ Aulafy.net ofrece cursos gratuitos en español para aprender inteligencia artifi
 - Agente coding local con Ollama y Hermes: https://www.aulafy.net/agente-coding-local-ollama-hermes
 - RAG privado con n8n, Qdrant y Ollama: https://www.aulafy.net/rag-privado-n8n-qdrant-ollama
 - Evitar loops infinitos en agentes locales: https://www.aulafy.net/runaway-agent-loop-fix-local
+- Docker Compose para IA local con Ollama, n8n y Qdrant: https://www.aulafy.net/docker-compose-ia-local-ollama-n8n-qdrant
+- Tool calling con modelos locales y Ollama: https://www.aulafy.net/tool-calling-modelos-locales-ollama
+- Agente local 24/7 en Mac, RTX o low VRAM: https://www.aulafy.net/agente-local-24-7-mac-rtx-low-vram
+- Routing híbrido con LiteLLM, Ollama y cloud: https://www.aulafy.net/routing-hibrido-litellm-ollama-cloud
 
 ## Cursos principales
 
@@ -82,6 +86,7 @@ Lecciones clave:
 - Ollama desde cero: https://www.aulafy.net/cursos/ia-local/ollama-desde-cero
 - Agentes de código locales con Ollama: https://www.aulafy.net/cursos/ia-local/agentes-codigo-locales
 - Agente coding local con Hermes y Ollama: https://www.aulafy.net/cursos/ia-local/hermes-agente-coding-local
+- Tool calling con modelos locales: https://www.aulafy.net/cursos/ia-local/tool-calling-modelos-locales
 - Cuantización GGUF: https://www.aulafy.net/cursos/ia-local/cuantizacion-gguf
 - Windows/WSL2 vs Mac M4 para IA local: https://www.aulafy.net/cursos/ia-local/windows-wsl2-vs-mac-m4
 - Homelab IA con RTX 3090 usadas: https://www.aulafy.net/cursos/ia-local/homelab-rtx-3090
@@ -113,6 +118,7 @@ Enseña a diseñar agentes útiles y mantenibles: mapa real de agentes, subagent
 
 Lecciones clave:
 - Multi-agentes locales, memoria y control de loops: https://www.aulafy.net/cursos/agentes-automatizacion/multiagentes-locales-loops
+- Agentes 24/7 offline en hardware real: https://www.aulafy.net/cursos/agentes-automatizacion/agentes-247-hardware-real
 - Loops infinitos y control de costes: https://www.aulafy.net/cursos/agentes-automatizacion/loops-costes
 - MCP de verificación: https://www.aulafy.net/cursos/agentes-automatizacion/mcp-verificacion
 
@@ -138,6 +144,7 @@ Enseña a montar una plataforma privada y barata con n8n, Open WebUI, Ollama o v
 Lecciones nuevas de alto valor:
 - n8n en Windows: Docker, WSL y errores típicos: https://www.aulafy.net/cursos/automatizacion-self-hosted/n8n-windows-wsl
 - RAG privado con n8n, Qdrant y Ollama: https://www.aulafy.net/cursos/automatizacion-self-hosted/rag-n8n-qdrant-ollama
+- Docker Compose para stack completo de IA local: https://www.aulafy.net/cursos/automatizacion-self-hosted/stack-docker-ia-local
 
 ### Seguridad y evaluación de modelos
 
@@ -157,6 +164,7 @@ Lecciones clave:
 - llama.cpp server: https://www.aulafy.net/cursos/mlops-local/llama-server
 - vLLM con API compatible OpenAI: https://www.aulafy.net/cursos/mlops-local/vllm-openai
 - LiteLLM gateway: https://www.aulafy.net/cursos/mlops-local/litellm-gateway
+- Routing híbrido local/cloud con LiteLLM: https://www.aulafy.net/cursos/mlops-local/routing-hibrido-litellm
 
 ### Fine-tuning y post-training de LLMs
 
