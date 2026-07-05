@@ -817,6 +817,126 @@ export const seoLandings: SeoLanding[] = [
       { q: "¿FP8 siempre mejora?", a: "No. Puede ahorrar memoria, pero debes validar estabilidad y calidad." },
     ],
   },
+  {
+    slug: "agente-coding-local-ollama-hermes",
+    title: "Agente coding local con Ollama y Hermes",
+    h1: "Agente coding local con Hermes, Ollama y modelos abiertos",
+    description:
+      "Aprende a montar un agente de código local con Hermes Agent, Ollama, Gemma/Qwen, tool calling, memoria, stop logic y verificación con Git.",
+    keywords: ["agente coding local ollama hermes", "Hermes Agent Ollama", "coding agent terminal local ollama", "tool calling error ollama hermes fix"],
+    icon: "terminal",
+    primaryHref: "/cursos/ia-local/hermes-agente-coding-local",
+    primaryLabel: "Ver lección de Hermes y Ollama",
+    audience:
+      "Para devs, makers y autónomos que quieren un agente de código local sin depender siempre de APIs cloud.",
+    promise:
+      "Aprenderás una arquitectura segura: modelo local, herramientas con permisos mínimos, rama Git, límites de pasos y pruebas antes de aceptar cambios.",
+    sections: [
+      {
+        title: "Autonomía con frenos",
+        body:
+          "Un agente local no debe empezar con permisos totales. Primero observa, planifica, edita poco y verifica con comandos reproducibles.",
+        bullets: ["Rama aislada.", "Máximo de pasos.", "Diff revisable."],
+      },
+      {
+        title: "Tool calling sin magia",
+        body:
+          "Los modelos locales pueden fallar con tools por parser, cuantización o formato. La guía enseña a detectar el fallo antes de dar más permisos.",
+        bullets: ["Proveedor local.", "Formato de tools.", "Stop conditions."],
+      },
+    ],
+    examples: ["Arreglar un bug pequeño.", "Generar tests.", "Ejecutar lint/build.", "Parar al repetir el mismo error."],
+    related: [
+      { title: "Hermes y Ollama", href: "/cursos/ia-local/hermes-agente-coding-local", desc: "Agente coding local." },
+      { title: "Agentes de código locales", href: "/cursos/ia-local/agentes-codigo-locales", desc: "Base conceptual." },
+      { title: "Cuantización y coding", href: "/cursos/ia-local/cuantizacion-modelos-coding", desc: "Elige modelo." },
+    ],
+    faqs: [
+      { q: "¿Hermes sustituye a Claude Code?", a: "No exactamente. Es otra arquitectura: agente con tools y memoria que puede usar proveedores locales." },
+      { q: "¿Funciona sin nube?", a: "Puede funcionar con Ollama si el modelo y las tools están configurados correctamente." },
+      { q: "¿Qué es lo más peligroso?", a: "Permitir ediciones o comandos sin límites, sin rama y sin verificación." },
+    ],
+  },
+  {
+    slug: "rag-privado-n8n-qdrant-ollama",
+    title: "RAG privado con n8n, Qdrant y Ollama",
+    h1: "RAG privado con n8n, Qdrant y Ollama para pymes y equipos",
+    description:
+      "Monta un agente RAG privado con n8n, Qdrant, Ollama y Open WebUI: documentos, permisos, Telegram/chat, citas y troubleshooting.",
+    keywords: ["rag privado n8n qdrant ollama tutorial", "n8n ollama qdrant rag agent telegram", "workflow n8n llm local faq rag agent"],
+    icon: "database",
+    primaryHref: "/cursos/automatizacion-self-hosted/rag-n8n-qdrant-ollama",
+    primaryLabel: "Ver lección RAG con n8n",
+    audience:
+      "Para pymes, autónomos y equipos que quieren responder sobre documentación privada con trazas y sin enviar todo a servicios externos.",
+    promise:
+      "Aprenderás el flujo mínimo: entrada, validación de usuario, búsqueda filtrada en Qdrant, respuesta con Ollama y aprobación humana si hay impacto real.",
+    sections: [
+      {
+        title: "Stack simple y útil",
+        body:
+          "n8n orquesta, Qdrant recupera contexto, Ollama responde y Open WebUI puede servir como interfaz privada.",
+        bullets: ["Docker Compose.", "Filtros por tenant.", "Citas y trazas."],
+      },
+      {
+        title: "RAG antes que agente",
+        body:
+          "Muchas automatizaciones no necesitan autonomía completa: necesitan recuperar bien, citar y pedir revisión humana cuando toca.",
+        bullets: ["FAQ interna.", "Telegram.", "Soporte con aprobación."],
+      },
+    ],
+    examples: ["Bot FAQ interno.", "RAG de manuales.", "Respuesta por Telegram.", "Prueba de fuga entre clientes."],
+    related: [
+      { title: "RAG con n8n", href: "/cursos/automatizacion-self-hosted/rag-n8n-qdrant-ollama", desc: "Proyecto completo." },
+      { title: "Open WebUI + Qdrant", href: "/cursos/ia-local/open-webui-qdrant", desc: "Base local." },
+      { title: "Qdrant permisos", href: "/cursos/rag-seguro/qdrant-permisos", desc: "Aislamiento de datos." },
+    ],
+    faqs: [
+      { q: "¿Necesito LangChain?", a: "No siempre. Para un primer flujo, n8n puede orquestar llamadas HTTP y Qdrant directamente." },
+      { q: "¿Es privado de verdad?", a: "Solo si documentos, embeddings, logs y respuestas se quedan bajo tu control." },
+      { q: "¿Puedo usar Telegram?", a: "Sí, pero valida usuarios y evita enviar datos sensibles a chats no controlados." },
+    ],
+  },
+  {
+    slug: "runaway-agent-loop-fix-local",
+    title: "Cómo evitar loops infinitos en agentes locales",
+    h1: "Runaway agents: cómo evitar loops infinitos en agentes locales",
+    description:
+      "Diseña multi-agentes locales con límites de pasos, herramientas, memoria persistente, compute budget y reglas de parada para Ollama, Hermes o LangGraph.",
+    keywords: ["runaway agent loop fix local ollama", "multi agente local subagentes persistencia", "control loops agentes IA"],
+    icon: "warning",
+    primaryHref: "/cursos/agentes-automatizacion/multiagentes-locales-loops",
+    primaryLabel: "Ver control de multi-agentes",
+    audience:
+      "Para quienes están pasando de un agente simple a sistemas con subagentes, memoria y herramientas locales.",
+    promise:
+      "Aprenderás a cortar loops por repetición, falta de evidencia, errores iguales y consumo excesivo de CPU/RAM/VRAM.",
+    sections: [
+      {
+        title: "Más agentes no siempre ayudan",
+        body:
+          "Cada agente añade llamadas, memoria, logs y competencia por recursos. El diseño debe empezar por roles y límites.",
+        bullets: ["Planner.", "Executor.", "Verifier."],
+      },
+      {
+        title: "Memoria útil, no ruido",
+        body:
+          "Guardar todo el chat empeora el sistema. La memoria persistente debe recoger decisiones, evidencias y bloqueos.",
+        bullets: ["state.md.", "trazas.", "salida humana."],
+      },
+    ],
+    examples: ["Corte por tool repetida.", "Presupuesto de compute.", "Memoria de decisiones.", "Verificador sin permisos de edición."],
+    related: [
+      { title: "Multi-agentes locales", href: "/cursos/agentes-automatizacion/multiagentes-locales-loops", desc: "Diseño completo." },
+      { title: "Loops y costes", href: "/cursos/agentes-automatizacion/loops-costes", desc: "Guardrails base." },
+      { title: "Estado persistente", href: "/cursos/agentes-automatizacion/estado-recuperacion", desc: "Recuperación." },
+    ],
+    faqs: [
+      { q: "¿Basta con max_iterations?", a: "No. También necesitas cortar por repetición, coste, tiempo y ausencia de progreso." },
+      { q: "¿Cuántos agentes uso en local?", a: "Los mínimos. Dos roles bien definidos suelen ser mejores que seis compitiendo por recursos." },
+      { q: "¿Qué debe guardar la memoria?", a: "Objetivo, decisiones, evidencias, comandos ejecutados y bloqueos." },
+    ],
+  },
 ];
 
 export function getSeoLanding(slug: string) {

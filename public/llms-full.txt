@@ -52,6 +52,9 @@ Aulafy.net ofrece cursos gratuitos en español para aprender inteligencia artifi
 - LangGraph error recovery para agentes IA: https://www.aulafy.net/langgraph-error-recovery-agentes
 - MCP server de verificación para agentes: https://www.aulafy.net/mcp-server-verificacion-agentes
 - RAG alucina aunque recupera bien: https://www.aulafy.net/rag-alucinaciones-grounding-prompt
+- Agente coding local con Ollama y Hermes: https://www.aulafy.net/agente-coding-local-ollama-hermes
+- RAG privado con n8n, Qdrant y Ollama: https://www.aulafy.net/rag-privado-n8n-qdrant-ollama
+- Evitar loops infinitos en agentes locales: https://www.aulafy.net/runaway-agent-loop-fix-local
 
 ## Cursos principales
 
@@ -78,6 +81,7 @@ Enseña a crear herramientas de IA que funcionan en el propio equipo o con model
 Lecciones clave:
 - Ollama desde cero: https://www.aulafy.net/cursos/ia-local/ollama-desde-cero
 - Agentes de código locales con Ollama: https://www.aulafy.net/cursos/ia-local/agentes-codigo-locales
+- Agente coding local con Hermes y Ollama: https://www.aulafy.net/cursos/ia-local/hermes-agente-coding-local
 - Cuantización GGUF: https://www.aulafy.net/cursos/ia-local/cuantizacion-gguf
 - Windows/WSL2 vs Mac M4 para IA local: https://www.aulafy.net/cursos/ia-local/windows-wsl2-vs-mac-m4
 - Homelab IA con RTX 3090 usadas: https://www.aulafy.net/cursos/ia-local/homelab-rtx-3090
@@ -107,6 +111,11 @@ URL: https://www.aulafy.net/cursos/agentes-automatizacion
 Nivel: intermedio a avanzado
 Enseña a diseñar agentes útiles y mantenibles: mapa real de agentes, subagentes, hooks, skills seguras, MCP con permisos mínimos, GitHub Actions, routines, agentes 24/7, OOM, retries, idempotencia, estado persistente, crash recovery, loops, costes y governance.
 
+Lecciones clave:
+- Multi-agentes locales, memoria y control de loops: https://www.aulafy.net/cursos/agentes-automatizacion/multiagentes-locales-loops
+- Loops infinitos y control de costes: https://www.aulafy.net/cursos/agentes-automatizacion/loops-costes
+- MCP de verificación: https://www.aulafy.net/cursos/agentes-automatizacion/mcp-verificacion
+
 Lecciones nuevas de alto valor:
 - MCP de verificación antes de merge: https://www.aulafy.net/cursos/agentes-automatizacion/mcp-verificacion
 - Governance MCP y conocimiento fiable: https://www.aulafy.net/cursos/agentes-automatizacion/mcp-governance
@@ -128,6 +137,7 @@ Enseña a montar una plataforma privada y barata con n8n, Open WebUI, Ollama o v
 
 Lecciones nuevas de alto valor:
 - n8n en Windows: Docker, WSL y errores típicos: https://www.aulafy.net/cursos/automatizacion-self-hosted/n8n-windows-wsl
+- RAG privado con n8n, Qdrant y Ollama: https://www.aulafy.net/cursos/automatizacion-self-hosted/rag-n8n-qdrant-ollama
 
 ### Seguridad y evaluación de modelos
 

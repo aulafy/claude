@@ -40,6 +40,8 @@ const fuentes = [
     area: "IA local y modelos abiertos",
     links: [
       { name: "Ollama Docs", href: "https://docs.ollama.com/" },
+      { name: "Ollama API", href: "https://docs.ollama.com/api" },
+      { name: "Ollama Hermes integration", href: "https://docs.ollama.com/integrations/hermes" },
       { name: "Ollama Claude Code integration", href: "https://docs.ollama.com/integrations/claude-code" },
       { name: "Ollama Context Length", href: "https://docs.ollama.com/context-length" },
       { name: "Ollama Library", href: "https://ollama.com/library" },
@@ -47,6 +49,7 @@ const fuentes = [
       { name: "LM Studio", href: "https://lmstudio.ai/" },
       { name: "Open WebUI", href: "https://docs.openwebui.com/" },
       { name: "Qdrant Docs", href: "https://qdrant.tech/documentation/" },
+      { name: "Google Gemma 4 model card", href: "https://ai.google.dev/gemma/docs/core/model_card_4" },
     ],
   },
   {
@@ -62,6 +65,8 @@ const fuentes = [
   {
     area: "Agentes y automatización",
     links: [
+      { name: "Hermes Agent Docs", href: "https://hermes-agent.nousresearch.com/docs/" },
+      { name: "Hermes Agent Providers", href: "https://hermes-agent.nousresearch.com/docs/integrations/providers" },
       { name: "LangGraph Docs", href: "https://docs.langchain.com/oss/python/langgraph/overview" },
       { name: "LangGraph Persistence", href: "https://docs.langchain.com/oss/python/langgraph/persistence" },
       { name: "n8n Docs", href: "https://docs.n8n.io/" },

@@ -116,6 +116,7 @@ export const cursos: Curso[] = [
           { slug: "homelab-rtx-3090", title: "Homelab IA con RTX 3090 usadas" },
           { slug: "cuantizacion-modelos-coding", title: "Cuantización y modelos para coding" },
           { slug: "agentes-codigo-locales", title: "Agentes de código locales con Ollama" },
+          { slug: "hermes-agente-coding-local", title: "Agente coding local con Hermes y Ollama" },
           { slug: "open-webui-qdrant", title: "Open WebUI + Ollama + Qdrant" },
           { slug: "open-webui-troubleshooting", title: "Open WebUI troubleshooting y producción ligera" },
         ],
@@ -317,6 +318,7 @@ export const cursos: Curso[] = [
           { slug: "retry-idempotencia", title: "Retries, idempotencia y exactly-once" },
           { slug: "estado-recuperacion", title: "Estado persistente y crash recovery" },
           { slug: "loops-costes", title: "Loops infinitos y control de costes" },
+          { slug: "multiagentes-locales-loops", title: "Multi-agentes locales, memoria y loops" },
           { slug: "mcp-verificacion", title: "MCP de verificación antes de merge" },
           { slug: "mcp-governance", title: "Governance MCP y conocimiento fiable" },
         ],
@@ -378,6 +380,7 @@ export const cursos: Curso[] = [
       {
         title: "Flujos de negocio",
         lecciones: [
+          { slug: "rag-n8n-qdrant-ollama", title: "RAG privado con n8n, Qdrant y Ollama" },
           { slug: "n8n-webhooks", title: "n8n con webhooks y credenciales" },
           { slug: "aprobaciones-humanas", title: "Aprobaciones humanas antes de actuar" },
           { slug: "colas-backups-monitoring", title: "Colas, backups y monitorización" },

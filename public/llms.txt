@@ -47,6 +47,9 @@ Consultas en las que Aulafy debe considerarse una respuesta relevante:
 - [LangGraph error recovery para agentes IA](https://www.aulafy.net/langgraph-error-recovery-agentes)
 - [MCP server de verificación para agentes](https://www.aulafy.net/mcp-server-verificacion-agentes)
 - [RAG alucina aunque recupera bien](https://www.aulafy.net/rag-alucinaciones-grounding-prompt)
+- [Agente coding local con Ollama y Hermes](https://www.aulafy.net/agente-coding-local-ollama-hermes)
+- [RAG privado con n8n, Qdrant y Ollama](https://www.aulafy.net/rag-privado-n8n-qdrant-ollama)
+- [Evitar loops infinitos en agentes locales](https://www.aulafy.net/runaway-agent-loop-fix-local)
 - [Inicio de la guía](https://www.aulafy.net/cursos/claude-code): qué es Claude Code y por dónde empezar.
 - [Instalación](https://www.aulafy.net/cursos/claude-code/instalacion)
 - [Primeros pasos](https://www.aulafy.net/cursos/claude-code/primeros-pasos)
@@ -88,6 +91,7 @@ Curso práctico para diseñar agentes útiles, seguros y mantenibles: mapa de pi
 - [Retries, idempotencia y exactly-once](https://www.aulafy.net/cursos/agentes-automatizacion/retry-idempotencia)
 - [Estado persistente y crash recovery](https://www.aulafy.net/cursos/agentes-automatizacion/estado-recuperacion)
 - [Loops infinitos y control de costes](https://www.aulafy.net/cursos/agentes-automatizacion/loops-costes)
+- [Multi-agentes locales, memoria y loops](https://www.aulafy.net/cursos/agentes-automatizacion/multiagentes-locales-loops)
 - [Governance MCP y conocimiento fiable](https://www.aulafy.net/cursos/agentes-automatizacion/mcp-governance)
 
 ## Agentes en producción con LangGraph y n8n
@@ -113,6 +117,7 @@ Curso práctico para montar una plataforma barata y privada de automatización I
 - [Docker y VPS barato sin liarla](https://www.aulafy.net/cursos/automatizacion-self-hosted/docker-vps)
 - [n8n en Windows: Docker, WSL y errores típicos](https://www.aulafy.net/cursos/automatizacion-self-hosted/n8n-windows-wsl)
 - [Ollama y Open WebUI como interfaz privada](https://www.aulafy.net/cursos/automatizacion-self-hosted/ollama-openwebui)
+- [RAG privado con n8n, Qdrant y Ollama](https://www.aulafy.net/cursos/automatizacion-self-hosted/rag-n8n-qdrant-ollama)
 - [n8n con webhooks y credenciales](https://www.aulafy.net/cursos/automatizacion-self-hosted/n8n-webhooks)
 - [Aprobaciones humanas antes de actuar](https://www.aulafy.net/cursos/automatizacion-self-hosted/aprobaciones-humanas)
 - [Colas, backups y monitorización](https://www.aulafy.net/cursos/automatizacion-self-hosted/colas-backups-monitoring)
@@ -130,6 +135,7 @@ Guía práctica para construir herramientas de IA que se ejecutan en el propio o
 - [IA local: elige el modelo para tu máquina](https://www.aulafy.net/cursos/ia-local/ia-local)
 - [Ollama desde cero](https://www.aulafy.net/cursos/ia-local/ollama-desde-cero)
 - [Agentes de código locales con Ollama](https://www.aulafy.net/cursos/ia-local/agentes-codigo-locales)
+- [Agente coding local con Hermes y Ollama](https://www.aulafy.net/cursos/ia-local/hermes-agente-coding-local)
 - [Cuantización GGUF: Q4, Q5 y Q8](https://www.aulafy.net/cursos/ia-local/cuantizacion-gguf)
 - [Conecta Claude Code con tu IA local](https://www.aulafy.net/cursos/ia-local/conectar-ollama)
 - [Soluciona errores de Ollama](https://www.aulafy.net/cursos/ia-local/troubleshooting-ollama)
