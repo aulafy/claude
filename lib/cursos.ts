@@ -117,6 +117,7 @@ export const cursos: Curso[] = [
           { slug: "cuantizacion-modelos-coding", title: "Cuantización y modelos para coding" },
           { slug: "agentes-codigo-locales", title: "Agentes de código locales con Ollama" },
           { slug: "hermes-agente-coding-local", title: "Agente coding local con Hermes y Ollama" },
+          { slug: "hermes-gemma-mlx-avanzado", title: "Hermes avanzado con Gemma y MLX" },
           { slug: "tool-calling-modelos-locales", title: "Tool calling con modelos locales" },
           { slug: "open-webui-qdrant", title: "Open WebUI + Ollama + Qdrant" },
           { slug: "open-webui-troubleshooting", title: "Open WebUI troubleshooting y producción ligera" },
@@ -306,6 +307,7 @@ export const cursos: Curso[] = [
           { slug: "skills-seguras", title: "Skills seguras y auditables" },
           { slug: "mcp-seguro", title: "MCP sin regalar tus llaves" },
           { slug: "mcp-herramientas-locales", title: "MCP para herramientas locales" },
+          { slug: "servidor-mcp-custom", title: "Crear un servidor MCP personalizado" },
         ],
       },
       {
@@ -324,6 +326,7 @@ export const cursos: Curso[] = [
           { slug: "estado-recuperacion", title: "Estado persistente y crash recovery" },
           { slug: "loops-costes", title: "Loops infinitos y control de costes" },
           { slug: "multiagentes-locales-loops", title: "Multi-agentes locales, memoria y loops" },
+          { slug: "memoria-persistente-compartida", title: "Memoria persistente compartida" },
           { slug: "mcp-verificacion", title: "MCP de verificación antes de merge" },
           { slug: "mcp-governance", title: "Governance MCP y conocimiento fiable" },
         ],
@@ -415,6 +418,7 @@ export const cursos: Curso[] = [
         lecciones: [
           { slug: "mapa-rag", title: "RAG útil: mucho más que chat con PDF" },
           { slug: "ingesta-chunking", title: "Ingesta, limpieza y chunking" },
+          { slug: "chunking-avanzado", title: "Chunking avanzado para RAG privado" },
           { slug: "ocr-tablas", title: "OCR y tablas en PDFs reales" },
         ],
       },
@@ -432,6 +436,7 @@ export const cursos: Curso[] = [
         lecciones: [
           { slug: "prompt-injection", title: "Prompt injection en RAG" },
           { slug: "debugging-grounding", title: "Debugging RAG: grounding y prompt completo" },
+          { slug: "respuestas-estructuradas-citas", title: "Respuestas estructuradas con citas" },
           { slug: "evals-metricas", title: "Evals RAG con métricas" },
           { slug: "evals-citaciones", title: "Evals, citaciones y trazabilidad" },
         ],

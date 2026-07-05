@@ -63,6 +63,11 @@ Aulafy.net ofrece cursos gratuitos en español para aprender inteligencia artifi
 - Observabilidad para agentes locales con Langfuse: https://www.aulafy.net/observabilidad-agentes-locales-langfuse
 - Obsidian RAG, segundo cerebro local: https://www.aulafy.net/obsidian-rag-segundo-cerebro-local
 - Migrar un agente cloud a local con Ollama: https://www.aulafy.net/migrar-agente-cloud-a-local-ollama
+- Crear servidor MCP custom en Python: https://www.aulafy.net/crear-servidor-mcp-custom-python
+- Hermes Agent con Gemma y MLX: https://www.aulafy.net/hermes-agent-gemma-mlx-apple-silicon
+- Memoria persistente para agentes con Qdrant y Obsidian: https://www.aulafy.net/memoria-persistente-agentes-qdrant-obsidian
+- Chunking avanzado para RAG privado: https://www.aulafy.net/chunking-avanzado-rag-privado
+- RAG con respuestas estructuradas y citas: https://www.aulafy.net/rag-respuestas-estructuradas-citas-confidence
 
 ## Cursos principales
 
@@ -90,6 +95,7 @@ Lecciones clave:
 - Ollama desde cero: https://www.aulafy.net/cursos/ia-local/ollama-desde-cero
 - Agentes de código locales con Ollama: https://www.aulafy.net/cursos/ia-local/agentes-codigo-locales
 - Agente coding local con Hermes y Ollama: https://www.aulafy.net/cursos/ia-local/hermes-agente-coding-local
+- Hermes avanzado con Gemma y MLX: https://www.aulafy.net/cursos/ia-local/hermes-gemma-mlx-avanzado
 - Tool calling con modelos locales: https://www.aulafy.net/cursos/ia-local/tool-calling-modelos-locales
 - Cuantización GGUF: https://www.aulafy.net/cursos/ia-local/cuantizacion-gguf
 - Windows/WSL2 vs Mac M4 para IA local: https://www.aulafy.net/cursos/ia-local/windows-wsl2-vs-mac-m4
@@ -108,6 +114,8 @@ Enseña a construir sistemas RAG con documentos privados, chunking, embeddings, 
 
 Lecciones clave:
 - Segundo cerebro local con Obsidian y RAG: https://www.aulafy.net/cursos/rag-seguro/obsidian-segundo-cerebro
+- Chunking avanzado para RAG privado: https://www.aulafy.net/cursos/rag-seguro/chunking-avanzado
+- Respuestas estructuradas con citas en RAG: https://www.aulafy.net/cursos/rag-seguro/respuestas-estructuradas-citas
 
 Lecciones clave:
 - Mapa RAG: https://www.aulafy.net/cursos/rag-seguro/mapa-rag
@@ -127,6 +135,8 @@ Lecciones clave:
 - Multi-agentes locales, memoria y control de loops: https://www.aulafy.net/cursos/agentes-automatizacion/multiagentes-locales-loops
 - Agentes 24/7 offline en hardware real: https://www.aulafy.net/cursos/agentes-automatizacion/agentes-247-hardware-real
 - MCP para herramientas locales: https://www.aulafy.net/cursos/agentes-automatizacion/mcp-herramientas-locales
+- Crear un servidor MCP personalizado: https://www.aulafy.net/cursos/agentes-automatizacion/servidor-mcp-custom
+- Memoria persistente compartida para agentes locales: https://www.aulafy.net/cursos/agentes-automatizacion/memoria-persistente-compartida
 - Loops infinitos y control de costes: https://www.aulafy.net/cursos/agentes-automatizacion/loops-costes
 - MCP de verificación: https://www.aulafy.net/cursos/agentes-automatizacion/mcp-verificacion
 

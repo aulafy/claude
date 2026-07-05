@@ -1161,6 +1161,146 @@ export const seoLandings: SeoLanding[] = [
       { q: "¿Qué suele romperse?", a: "Tool calling, formato de salida, contexto largo y latencia." },
     ],
   },
+  {
+    slug: "crear-servidor-mcp-custom-python",
+    title: "Crear servidor MCP custom en Python",
+    h1: "Crear un servidor MCP personalizado con Python y tools seguras",
+    description:
+      "Aprende a crear un servidor MCP custom con FastMCP, tools propias, validación de rutas, allowlists, logs y pruebas antes de conectarlo a agentes.",
+    keywords: ["crear servidor MCP custom", "MCP server Python", "FastMCP tutorial español"],
+    icon: "plug",
+    primaryHref: "/cursos/agentes-automatizacion/servidor-mcp-custom",
+    primaryLabel: "Ver servidor MCP custom",
+    audience: "Para devs y pymes técnicas que quieren conectar agentes con herramientas propias sin instalar servidores desconocidos.",
+    promise: "Crearás tools estrechas, auditables y con límites reales para lectura, búsqueda y verificación.",
+    sections: [
+      { title: "Tools propias", body: "Un MCP custom permite exponer justo lo que necesitas: buscar docs, ejecutar lint o leer archivos permitidos.", bullets: ["FastMCP.", "Allowlist.", "Timeouts."] },
+      { title: "Seguridad primero", body: "La diferencia entre una tool y una shell peligrosa está en la validación de argumentos y permisos.", bullets: ["Sin shell libre.", "Rutas seguras.", "Logs."] },
+    ],
+    examples: ["list_markdown_files.", "run_lint.", "rechazo de ../.env.", "límite de salida."],
+    related: [
+      { title: "Servidor MCP custom", href: "/cursos/agentes-automatizacion/servidor-mcp-custom", desc: "Lección completa." },
+      { title: "MCP herramientas locales", href: "/cursos/agentes-automatizacion/mcp-herramientas-locales", desc: "Diseño de tools." },
+      { title: "MCP seguro", href: "/cursos/agentes-automatizacion/mcp-seguro", desc: "Permisos." },
+    ],
+    faqs: [
+      { q: "¿Qué tool creo primero?", a: "Una de lectura o verificación, no una de escritura." },
+      { q: "¿Puedo ejecutar comandos?", a: "Sí, pero solo comandos permitidos, sin shell libre y con timeout." },
+      { q: "¿Funciona con varios clientes?", a: "MCP busca interoperabilidad, pero prueba cada cliente y versión." },
+    ],
+  },
+  {
+    slug: "hermes-agent-gemma-mlx-apple-silicon",
+    title: "Hermes Agent con Gemma y MLX",
+    h1: "Hermes avanzado con Gemma y MLX en Apple Silicon",
+    description:
+      "Diseña workflows avanzados con Hermes Agent, Gemma, MLX, skills, memoria, Mixture of Agents y límites de loops para agentes locales.",
+    keywords: ["hermes agent gemma 4 ollama local setup", "gemma 4 mlx apple silicon hermes agent workflows", "Hermes Mixture of Agents"],
+    icon: "brain",
+    primaryHref: "/cursos/ia-local/hermes-gemma-mlx-avanzado",
+    primaryLabel: "Ver Hermes Gemma MLX",
+    audience: "Para usuarios de Mac y builders de agentes que quieren pasar de un agente simple a workflows revisables.",
+    promise: "Aprenderás a convertir experiencia en skills, medir TTFT/calidad y usar MoA con criterio.",
+    sections: [
+      { title: "Skills antes que historial", body: "Guardar habilidades pequeñas es más mantenible que arrastrar conversaciones enormes.", bullets: ["Skills.", "Versionado.", "Revisión."] },
+      { title: "MLX con criterio", body: "MLX ayuda en Mac, pero no sustituye límites de pasos, verificación y trazas.", bullets: ["TTFT.", "Diff.", "Intervenciones."] },
+    ],
+    examples: ["Skill de revisión.", "Planner/verifier.", "MoA puntual.", "Escalado por error repetido."],
+    related: [
+      { title: "Hermes avanzado", href: "/cursos/ia-local/hermes-gemma-mlx-avanzado", desc: "Lección completa." },
+      { title: "Hermes y Ollama", href: "/cursos/ia-local/hermes-agente-coding-local", desc: "Base." },
+      { title: "Tool calling local", href: "/cursos/ia-local/tool-calling-modelos-locales", desc: "Tools." },
+    ],
+    faqs: [
+      { q: "¿MLX solo sirve en Mac?", a: "Sí, MLX está pensado para Apple Silicon." },
+      { q: "¿MoA siempre mejora?", a: "No. Úsalo cuando varias perspectivas compensen latencia y complejidad." },
+      { q: "¿Self-improvement es automático?", a: "Debe revisarse como código; no dejes reglas críticas sin control humano." },
+    ],
+  },
+  {
+    slug: "memoria-persistente-agentes-qdrant-obsidian",
+    title: "Memoria persistente para agentes con Qdrant y Obsidian",
+    h1: "Memoria persistente compartida para agentes locales",
+    description:
+      "Diseña memoria multi-agente con capas hot/warm/cold, Qdrant, Obsidian, task board, decay, permisos y detección de conflictos.",
+    keywords: ["persistent memory multi agent ollama qdrant obsidian", "memoria persistente agentes locales", "shared memory agents"],
+    icon: "database",
+    primaryHref: "/cursos/agentes-automatizacion/memoria-persistente-compartida",
+    primaryLabel: "Ver memoria compartida",
+    audience: "Para quienes tienen agentes que olvidan entre sesiones o varios subagentes que necesitan coordinarse.",
+    promise: "Aprenderás qué guardar, dónde guardarlo, cuándo olvidar y cómo detectar contradicciones.",
+    sections: [
+      { title: "Tres capas", body: "Hot para tareas activas, warm para búsqueda vectorial y cold para wiki revisada.", bullets: ["Task board.", "Qdrant.", "Obsidian."] },
+      { title: "Menos ruido", body: "La memoria debe guardar decisiones y evidencias, no todo el chat.", bullets: ["Fuentes.", "Confianza.", "Caducidad."] },
+    ],
+    examples: ["memory_event.", "conflicting_fact.", "decay_days.", "review task."],
+    related: [
+      { title: "Memoria compartida", href: "/cursos/agentes-automatizacion/memoria-persistente-compartida", desc: "Lección completa." },
+      { title: "Multi-agentes", href: "/cursos/agentes-automatizacion/multiagentes-locales-loops", desc: "Roles y loops." },
+      { title: "Obsidian RAG", href: "/cursos/rag-seguro/obsidian-segundo-cerebro", desc: "Wiki local." },
+    ],
+    faqs: [
+      { q: "¿Guardo todo el chat?", a: "No. Resume decisiones, evidencias y bloqueos." },
+      { q: "¿Qdrant sustituye a Obsidian?", a: "No. Qdrant recupera; Obsidian puede ser la wiki humana revisada." },
+      { q: "¿Cómo evito contradicciones?", a: "Escribe eventos con fuente y crea revisión cuando dos hechos chocan." },
+    ],
+  },
+  {
+    slug: "chunking-avanzado-rag-privado",
+    title: "Chunking avanzado para RAG privado",
+    h1: "Chunking avanzado para RAG privado: semántico, overlap y metadata",
+    description:
+      "Aprende a diseñar chunks con sentido, headings, metadatos, overlap y evaluación de recuperación para RAG privado con Qdrant.",
+    keywords: ["semantic chunking vs fixed size overlap Qdrant", "chunking avanzado RAG", "Open WebUI RAG chunking strategy best practices"],
+    icon: "database",
+    primaryHref: "/cursos/rag-seguro/chunking-avanzado",
+    primaryLabel: "Ver chunking avanzado",
+    audience: "Para quienes tienen un RAG que recupera ruido, corta ideas o pierde precisión con documentos reales.",
+    promise: "Aprenderás a partir documentos por sentido y a medir si la recuperación mejora.",
+    sections: [
+      { title: "No cortes por cortar", body: "El tamaño importa, pero más importa preservar secciones, frases y metadata.", bullets: ["Headings.", "Página.", "Tenant."] },
+      { title: "Evalúa recuperación", body: "Comparar estrategias con 20 preguntas reales vale más que discutir parámetros a ciegas.", bullets: ["Top-5.", "Recall.", "Ruido."] },
+    ],
+    examples: ["heading_path.", "overlap semántico.", "eval_recuperacion.", "filtros Qdrant."],
+    related: [
+      { title: "Chunking avanzado", href: "/cursos/rag-seguro/chunking-avanzado", desc: "Lección completa." },
+      { title: "Ingesta y chunking", href: "/cursos/rag-seguro/ingesta-chunking", desc: "Base." },
+      { title: "Qdrant permisos", href: "/cursos/rag-seguro/qdrant-permisos", desc: "Filtros." },
+    ],
+    faqs: [
+      { q: "¿Overlap siempre ayuda?", a: "Ayuda cuando una idea continúa, pero demasiado overlap crea redundancia." },
+      { q: "¿Qué metadata guardo?", a: "Documento, sección, página, fecha, tenant, idioma y fuente." },
+      { q: "¿Cómo sé si mejoró?", a: "Con preguntas reales y comparación de top resultados." },
+    ],
+  },
+  {
+    slug: "rag-respuestas-estructuradas-citas-confidence",
+    title: "RAG con respuestas estructuradas y citas",
+    h1: "Respuestas estructuradas en RAG: answer, confidence, citations y no sé",
+    description:
+      "Define contratos de respuesta para RAG profesional con citas, confianza, campos faltantes y rechazo cuando no hay evidencia suficiente.",
+    keywords: ["fix RAG hallucinations with citations and structured answers", "RAG citations confidence JSON", "RAG no se"],
+    icon: "quote",
+    primaryHref: "/cursos/rag-seguro/respuestas-estructuradas-citas",
+    primaryLabel: "Ver respuestas estructuradas",
+    audience: "Para proyectos RAG que necesitan respuestas verificables en soporte, legal, empresa o documentación interna.",
+    promise: "Aprenderás a validar que cada respuesta tenga evidencia y a responder menos cuando el contexto no basta.",
+    sections: [
+      { title: "Contrato tipado", body: "La salida debe tener campos obligatorios y validarse antes de enseñarse.", bullets: ["answer.", "citations.", "missing_fields."] },
+      { title: "No sé útil", body: "Un buen RAG sabe abstenerse cuando no hay fuente suficiente.", bullets: ["cannot_answer.", "confidence.", "fuentes."] },
+    ],
+    examples: ["JSON de respuesta.", "cannot_answer.", "citas ligadas a chunks.", "pregunta fuera de contexto."],
+    related: [
+      { title: "Respuestas con citas", href: "/cursos/rag-seguro/respuestas-estructuradas-citas", desc: "Lección completa." },
+      { title: "Debugging RAG", href: "/cursos/rag-seguro/debugging-grounding", desc: "Grounding." },
+      { title: "Evals RAG", href: "/cursos/rag-seguro/evals-metricas", desc: "Métricas." },
+    ],
+    faqs: [
+      { q: "¿Una cita puede ser generada?", a: "No. Debe apuntar a un chunk recuperado." },
+      { q: "¿Confidence lo decide el modelo?", a: "Debe depender de recuperación, cobertura y concordancia, no solo de tono." },
+      { q: "¿Qué pasa si no hay evidencia?", a: "El contrato debe activar `cannot_answer`." },
+    ],
+  },
 ];
 
 export function getSeoLanding(slug: string) {
