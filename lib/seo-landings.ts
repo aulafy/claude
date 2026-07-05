@@ -1301,6 +1301,126 @@ export const seoLandings: SeoLanding[] = [
       { q: "¿Qué pasa si no hay evidencia?", a: "El contrato debe activar `cannot_answer`." },
     ],
   },
+  {
+    slug: "curso-videojuegos-3d-ia-fable-godot-blender",
+    title: "Curso de videojuegos 3D con IA, Fable 5, Godot y Blender",
+    h1: "Curso de videojuegos 3D con IA: Fable 5, Godot y Blender",
+    description:
+      "Aprende a crear prototipos 3D, assets y escenas jugables con Fable 5, Blender y Godot. Curso gratis en español, práctico y sin registro.",
+    keywords: ["curso videojuegos 3D IA", "Fable 5 Godot Blender", "crear juego 3D con IA", "curso game dev IA español"],
+    icon: "cube",
+    primaryHref: "/cursos/videojuegos-3d-ia",
+    primaryLabel: "Entrar al curso de videojuegos 3D",
+    audience:
+      "Para principiantes, docentes, makers, diseñadores y perfiles técnicos que quieren pasar de prompts sueltos a un prototipo 3D jugable y revisable.",
+    promise:
+      "Aprenderás a diseñar una idea pequeña, preparar Blender y Godot, crear assets, importarlos como GLB/glTF, programar una mecánica básica y validar el resultado.",
+    sections: [
+      {
+        title: "De idea a demo jugable",
+        body:
+          "La ruta evita el error típico de pedir un juego enorme a la IA. Empieza con una vertical slice: una escena, un jugador, tres coleccionables, una puerta y una exportación web.",
+        bullets: ["Documento de diseño pequeño.", "Carpetas limpias.", "Prototipo en Godot 4."],
+      },
+      {
+        title: "IA con control técnico",
+        body:
+          "Fable 5 ayuda a planificar, generar scripts y revisar errores, pero cada paso termina con checklist: escala, colisiones, assets, warnings y exportación.",
+        bullets: ["Blender para limpieza.", "Godot para gameplay.", "QA antes de ampliar."],
+      },
+    ],
+    examples: ["Puerta que se abre al recoger objetos.", "Asset GLB limpio.", "Controlador 3D con CharacterBody3D.", "Exportación web del prototipo."],
+    related: [
+      { title: "Introducción a Fable 5 y 3D", href: "/cursos/videojuegos-3d-ia/introduccion", desc: "Qué delegar y qué verificar." },
+      { title: "Setup Blender y Godot", href: "/cursos/videojuegos-3d-ia/setup-blender-godot", desc: "Prepara el entorno." },
+      { title: "Prototipo Godot", href: "/cursos/videojuegos-3d-ia/prototipo-godot", desc: "Primera demo jugable." },
+    ],
+    faqs: [
+      { q: "¿Necesito saber programar?", a: "No para empezar, pero sí debes aprender a leer scripts sencillos y verificar lo que genera la IA." },
+      { q: "¿Usa Unity?", a: "La ruta principal usa Godot y Blender; también explica formatos y criterios útiles para Unity." },
+      { q: "¿Fable 5 hace el juego entero?", a: "No debería plantearse así. Lo potente es usarlo para diseñar, programar piezas pequeñas y revisar." },
+    ],
+  },
+  {
+    slug: "fable-5-blender-godot-assets-3d",
+    title: "Fable 5 con Blender y Godot para assets 3D",
+    h1: "Fable 5, Blender y Godot: pipeline de assets 3D con IA",
+    description:
+      "Aprende a especificar, limpiar, exportar e importar assets 3D con Fable 5, Blender, GLB/glTF, Godot, Unity y Three.js.",
+    keywords: ["Fable 5 Blender", "Blender Godot IA", "assets 3D con IA", "GLB glTF Godot Unity"],
+    icon: "palette",
+    primaryHref: "/cursos/videojuegos-3d-ia/assets-3d-ia",
+    primaryLabel: "Ver pipeline de assets 3D",
+    audience:
+      "Para quienes generan o modelan assets con IA y luego descubren que pesan demasiado, tienen mala escala o se rompen al importarlos.",
+    promise:
+      "Aprenderás un flujo repetible: especificación, generación o modelado, limpieza en Blender, exportación GLB/glTF y prueba en motor.",
+    sections: [
+      {
+        title: "El asset no acaba en la imagen",
+        body:
+          "Un asset usable necesita pivote, escala, materiales y licencia. La lección convierte la salida de IA en una pieza que se puede colocar en una escena.",
+        bullets: ["Pivote correcto.", "Materiales simples.", "Licencia documentada."],
+      },
+      {
+        title: "Multimotor sin caos",
+        body:
+          "GLB/glTF permite prototipar con Godot, Unity y web 3D, siempre que revises luces, materiales y tamaño real después de importar.",
+        bullets: ["Godot.", "Unity.", "Three.js."],
+      },
+    ],
+    examples: ["Puerta modular.", "Coleccionable low-poly.", "Texturas PBR simples.", "Checklist de importación."],
+    related: [
+      { title: "Assets 3D con IA", href: "/cursos/videojuegos-3d-ia/assets-3d-ia", desc: "Lección completa." },
+      { title: "Setup Blender y Godot", href: "/cursos/videojuegos-3d-ia/setup-blender-godot", desc: "Entorno base." },
+      { title: "Primer prototipo Godot", href: "/cursos/videojuegos-3d-ia/prototipo-godot", desc: "Uso en juego." },
+    ],
+    faqs: [
+      { q: "¿GLB o FBX?", a: "Para prototipos web y Godot, GLB/glTF suele ser cómodo. En estudios o pipelines concretos puede aparecer FBX o USD." },
+      { q: "¿Puedo usar assets generados por IA comercialmente?", a: "Depende de la herramienta, modelo, dataset, licencia y jurisdicción. Documenta siempre la fuente." },
+      { q: "¿Cómo sé si pesa demasiado?", a: "Mide tamaño, polígonos, texturas y rendimiento en una escena de prueba." },
+    ],
+  },
+  {
+    slug: "ia-cad-autocad-fusion-validacion",
+    title: "IA para CAD, AutoCAD y Fusion con validación profesional",
+    h1: "IA para CAD, AutoCAD y Fusion: prompts, scripts y validación",
+    description:
+      "Aprende a usar IA en CAD con rigor: AutoCAD, AutoLISP, Fusion, Blender, BIM, cotas, tolerancias, interferencias y responsabilidad profesional.",
+    keywords: ["IA CAD AutoCAD", "Fable 5 CAD", "AutoLISP IA", "Fusion generative design IA", "BIM IA validación"],
+    icon: "building",
+    primaryHref: "/cursos/videojuegos-3d-ia/cad-validacion",
+    primaryLabel: "Ver IA, CAD y validación",
+    audience:
+      "Para diseñadores, arquitectos, makers y perfiles técnicos que quieren usar IA en 3D o CAD sin confundir un boceto visual con un archivo fabricable.",
+    promise:
+      "Aprenderás a pedir con unidades, cotas, materiales, tolerancias y riesgos, y a validar fuera del chat antes de fabricar, imprimir o construir.",
+    sections: [
+      {
+        title: "Prompts espaciales con medidas",
+        body:
+          "En CAD no basta con decir grande, fino o resistente. Hay que expresar unidades, límites, cargas, materiales, tolerancias y función.",
+        bullets: ["Milímetros.", "Cotas críticas.", "Restricciones de fabricación."],
+      },
+      {
+        title: "La IA no firma planos",
+        body:
+          "La IA puede ayudar a automatizar y revisar, pero la responsabilidad técnica sigue en herramientas CAD/BIM y profesionales cualificados.",
+        bullets: ["Interferencias.", "Normativa.", "Revisión humana."],
+      },
+    ],
+    examples: ["Soporte imprimible en 3D.", "Rutina AutoLISP revisable.", "Checklist STEP/STL.", "Revisión de interferencias BIM."],
+    related: [
+      { title: "CAD y validación", href: "/cursos/videojuegos-3d-ia/cad-validacion", desc: "Lección completa." },
+      { title: "Assets 3D", href: "/cursos/videojuegos-3d-ia/assets-3d-ia", desc: "Pipeline visual." },
+      { title: "IA local", href: "/cursos/ia-local", desc: "Privacidad y modelos locales." },
+    ],
+    faqs: [
+      { q: "¿Puedo usar IA para planos reales?", a: "Como apoyo, no como autoridad final. Debe revisar una persona competente y la herramienta CAD/BIM correspondiente." },
+      { q: "¿Sirve para AutoLISP?", a: "Sí, puede ayudar a redactar y explicar rutinas, siempre con pruebas en copias y permisos controlados." },
+      { q: "¿Blender sustituye CAD?", a: "No. Blender es excelente para visualización y assets, pero CAD/BIM es el entorno adecuado para precisión técnica." },
+    ],
+  },
 ];
 
 export function getSeoLanding(slug: string) {

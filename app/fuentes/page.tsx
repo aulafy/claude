@@ -7,12 +7,14 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 export const metadata: Metadata = {
   title: "Fuentes oficiales de Aulafy",
   description:
-    "Fuentes oficiales usadas por Aulafy para cursos de IA open source: Anthropic, Ollama, vLLM, llama.cpp, LangGraph, n8n, Qdrant, OWASP, NIST, Next.js y Vercel.",
+    "Fuentes oficiales usadas por Aulafy para cursos de IA open source: Anthropic, Fable 5, Ollama, Godot, Blender, CAD, vLLM, LangGraph, n8n, Qdrant, OWASP, NIST, Next.js y Vercel.",
   keywords: [
     "fuentes Aulafy",
     "documentación IA open source",
     "fuentes cursos IA",
     "documentación Claude Code",
+    "documentación Fable 5",
+    "documentación Godot Blender",
     "documentación Ollama",
     "OWASP LLM",
   ],
@@ -34,6 +36,25 @@ const fuentes = [
     links: [
       { name: "Anthropic Claude Code", href: "https://www.anthropic.com/product/claude-code" },
       { name: "Claude Platform Docs", href: "https://platform.claude.com/docs" },
+      { name: "Anthropic Claude Fable 5", href: "https://www.anthropic.com/news/claude-fable-5-mythos-5" },
+      { name: "Claude Models Overview", href: "https://docs.anthropic.com/en/docs/about-claude/models/overview" },
+      { name: "Claude Pricing", href: "https://docs.anthropic.com/en/docs/about-claude/pricing" },
+      { name: "Anthropic Fable safeguards", href: "https://www.anthropic.com/news/fable-safeguards-jailbreak-framework" },
+    ],
+  },
+  {
+    area: "Videojuegos, 3D y CAD",
+    links: [
+      { name: "Godot Docs", href: "https://docs.godotengine.org/" },
+      { name: "Godot CharacterBody3D", href: "https://docs.godotengine.org/en/stable/classes/class_characterbody3d.html" },
+      { name: "Godot Web Export", href: "https://docs.godotengine.org/en/latest/tutorials/export/exporting_for_web.html" },
+      { name: "Blender Python API", href: "https://docs.blender.org/api/current/" },
+      { name: "Blender glTF 2.0", href: "https://docs.blender.org/manual/en/latest/addons/import_export/scene_gltf2.html" },
+      { name: "Three.js GLTFLoader", href: "https://threejs.org/docs/pages/GLTFLoader.html" },
+      { name: "Unity importing Blender files", href: "https://docs.unity3d.com/530/Documentation/Manual/HOWTO-ImportObjectBlender.html" },
+      { name: "Autodesk AutoLISP", href: "https://help.autodesk.com/cloudhelp/2026/PTB/AutoCAD-LT-AutoLISP/files/GUID-E1BD97BB-FAE6-40DF-B7B3-CE4BBD0241C4.htm" },
+      { name: "Autodesk Fusion Generative Design", href: "https://www.autodesk.com/solutions/generative-design/manufacturing" },
+      { name: "Autodesk Revit Interference Check", href: "https://www.autodesk.com/support/technical/article/caas/sfdcarticles/sfdcarticles/How-to-run-an-interference-check-between-elements-in-Revit.html" },
     ],
   },
   {

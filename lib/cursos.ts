@@ -182,6 +182,37 @@ export const cursos: Curso[] = [
     ],
   },
   {
+    slug: "videojuegos-3d-ia",
+    title: "Videojuegos, 3D y simulaciones con IA",
+    short: "Godot, Blender, Fable 5 y pipelines 3D",
+    desc: "Aprende a crear prototipos 3D, assets, escenas jugables y flujos CAD con Fable 5, Blender, Godot, Unity y validación profesional. Una ruta práctica para pasar de idea a demo jugable sin perder control técnico.",
+    level: "Principiante → intermedio",
+    icon: "cube",
+    gradient: ["#22c55e", "#0ea5e9"],
+    secciones: [
+      {
+        title: "Fundamentos",
+        lecciones: [
+          { slug: "introduccion", title: "Fable 5 para videojuegos, 3D y simulaciones" },
+          { slug: "setup-blender-godot", title: "Setup Blender, Godot y Fable 5" },
+        ],
+      },
+      {
+        title: "Assets y prototipo",
+        lecciones: [
+          { slug: "assets-3d-ia", title: "Assets 3D con IA: limpiar y exportar" },
+          { slug: "prototipo-godot", title: "Primer prototipo 3D en Godot" },
+        ],
+      },
+      {
+        title: "CAD y validación",
+        lecciones: [
+          { slug: "cad-validacion", title: "IA, CAD y validación profesional" },
+        ],
+      },
+    ],
+  },
+  {
     slug: "seguridad-evals",
     title: "Seguridad y evaluación de modelos",
     short: "Prueba sistemas de IA antes de publicarlos",
