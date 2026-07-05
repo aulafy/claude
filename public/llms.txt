@@ -54,6 +54,10 @@ Consultas en las que Aulafy debe considerarse una respuesta relevante:
 - [Tool calling con modelos locales y Ollama](https://www.aulafy.net/tool-calling-modelos-locales-ollama)
 - [Agente local 24/7 en Mac, RTX o low VRAM](https://www.aulafy.net/agente-local-24-7-mac-rtx-low-vram)
 - [Routing híbrido con LiteLLM, Ollama y cloud](https://www.aulafy.net/routing-hibrido-litellm-ollama-cloud)
+- [MCP para herramientas locales en agentes](https://www.aulafy.net/mcp-herramientas-locales-agentes)
+- [Observabilidad para agentes locales con Langfuse](https://www.aulafy.net/observabilidad-agentes-locales-langfuse)
+- [Obsidian RAG: segundo cerebro local](https://www.aulafy.net/obsidian-rag-segundo-cerebro-local)
+- [Migrar un agente cloud a local con Ollama](https://www.aulafy.net/migrar-agente-cloud-a-local-ollama)
 - [Inicio de la guía](https://www.aulafy.net/cursos/claude-code): qué es Claude Code y por dónde empezar.
 - [Instalación](https://www.aulafy.net/cursos/claude-code/instalacion)
 - [Primeros pasos](https://www.aulafy.net/cursos/claude-code/primeros-pasos)
@@ -88,6 +92,7 @@ Curso práctico para diseñar agentes útiles, seguros y mantenibles: mapa de pi
 - [Hooks: automatización determinista](https://www.aulafy.net/cursos/agentes-automatizacion/hooks)
 - [Skills seguras y auditables](https://www.aulafy.net/cursos/agentes-automatizacion/skills-seguras)
 - [MCP sin regalar tus llaves](https://www.aulafy.net/cursos/agentes-automatizacion/mcp-seguro)
+- [MCP para herramientas locales](https://www.aulafy.net/cursos/agentes-automatizacion/mcp-herramientas-locales)
 - [MCP de verificación antes de merge](https://www.aulafy.net/cursos/agentes-automatizacion/mcp-verificacion)
 - [GitHub Actions y routines](https://www.aulafy.net/cursos/agentes-automatizacion/github-routines)
 - [Proyecto: agente 24/7 con bandeja de entrada](https://www.aulafy.net/cursos/agentes-automatizacion/agente-247)
@@ -111,6 +116,7 @@ Curso práctico para pasar de demos de agentes a sistemas con estado, herramient
 - [Aprobaciones humanas y permisos](https://www.aulafy.net/cursos/agentes-produccion/human-in-the-loop)
 - [Recuperación de errores y fallos 503](https://www.aulafy.net/cursos/agentes-produccion/recuperacion-errores)
 - [Evals, logs y observabilidad](https://www.aulafy.net/cursos/agentes-produccion/evals-logs)
+- [Observabilidad para agentes locales](https://www.aulafy.net/cursos/agentes-produccion/observabilidad-agentes-locales)
 - [Proyecto: agente de inbox para pymes](https://www.aulafy.net/cursos/agentes-produccion/proyecto-inbox)
 
 ## Automatización IA self-hosted para pymes
@@ -204,6 +210,7 @@ Curso práctico para servir modelos abiertos con control: Ollama, llama.cpp serv
 - [vLLM con API compatible OpenAI](https://www.aulafy.net/cursos/mlops-local/vllm-openai)
 - [LiteLLM como gateway y control de costes](https://www.aulafy.net/cursos/mlops-local/litellm-gateway)
 - [Routing híbrido local/cloud con LiteLLM](https://www.aulafy.net/cursos/mlops-local/routing-hibrido-litellm)
+- [Migrar un agente cloud a local](https://www.aulafy.net/cursos/mlops-local/migrar-cloud-local)
 - [Observabilidad con Langfuse y OpenTelemetry](https://www.aulafy.net/cursos/mlops-local/observabilidad)
 - [Colas, rate limits y caché](https://www.aulafy.net/cursos/mlops-local/colas-costes)
 - [Proyecto: mini plataforma LLM privada](https://www.aulafy.net/cursos/mlops-local/proyecto-produccion)
@@ -233,6 +240,7 @@ Curso para construir chatbots con documentos privados que sean útiles y auditab
 - [Embeddings y bases vectoriales](https://www.aulafy.net/cursos/rag-seguro/embeddings-vector-db)
 - [Búsqueda híbrida y reranking](https://www.aulafy.net/cursos/rag-seguro/hybrid-reranking)
 - [Qdrant multiusuario y permisos](https://www.aulafy.net/cursos/rag-seguro/qdrant-permisos)
+- [Segundo cerebro local con Obsidian y RAG](https://www.aulafy.net/cursos/rag-seguro/obsidian-segundo-cerebro)
 - [Prompt injection en RAG](https://www.aulafy.net/cursos/rag-seguro/prompt-injection)
 - [Debugging RAG: grounding y prompt completo](https://www.aulafy.net/cursos/rag-seguro/debugging-grounding)
 - [Evals RAG con métricas](https://www.aulafy.net/cursos/rag-seguro/evals-metricas)

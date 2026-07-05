@@ -1049,6 +1049,118 @@ export const seoLandings: SeoLanding[] = [
       { q: "¿Sirve con Ollama?", a: "Sí, como endpoint local dentro de una estrategia de gateway." },
     ],
   },
+  {
+    slug: "mcp-herramientas-locales-agentes",
+    title: "MCP para herramientas locales en agentes",
+    h1: "MCP para herramientas locales: tools, permisos y trazas",
+    description:
+      "Diseña herramientas MCP locales para agentes con lectura segura, comandos permitidos, allowlists, trazas y aprobación humana.",
+    keywords: ["mcp herramientas locales", "MCP tools agentes locales", "MCP filesystem seguro"],
+    icon: "plug",
+    primaryHref: "/cursos/agentes-automatizacion/mcp-herramientas-locales",
+    primaryLabel: "Ver MCP para herramientas locales",
+    audience: "Para quienes quieren conectar agentes locales con archivos, comandos o documentación sin abrir una shell peligrosa.",
+    promise: "Aprenderás a separar lectura, búsqueda, ejecución y escritura con permisos mínimos y logs claros.",
+    sections: [
+      { title: "Tools pequeñas", body: "Una tool segura hace una cosa, con argumentos estrechos y límites explícitos.", bullets: ["Lectura.", "Allowlist.", "Trazas."] },
+      { title: "Riesgo por acción", body: "Buscar no es lo mismo que borrar o publicar. Cada acción necesita política propia.", bullets: ["Bajo.", "Medio.", "Alto."] },
+    ],
+    examples: ["search_notes.", "read_file.", "run_check.", "rechazar .env."],
+    related: [
+      { title: "MCP local", href: "/cursos/agentes-automatizacion/mcp-herramientas-locales", desc: "Lección completa." },
+      { title: "MCP seguro", href: "/cursos/agentes-automatizacion/mcp-seguro", desc: "Base de seguridad." },
+      { title: "MCP governance", href: "/cursos/agentes-automatizacion/mcp-governance", desc: "Gobernanza." },
+    ],
+    faqs: [
+      { q: "¿Puedo exponer una shell?", a: "No como primera opción. Es mejor exponer comandos concretos y auditables." },
+      { q: "¿MCP es seguro por defecto?", a: "No. La seguridad depende de herramientas, permisos, aislamiento y logs." },
+      { q: "¿Qué tool creo primero?", a: "Una de lectura o búsqueda, no una de escritura." },
+    ],
+  },
+  {
+    slug: "observabilidad-agentes-locales-langfuse",
+    title: "Observabilidad para agentes locales con Langfuse",
+    h1: "Observabilidad para agentes locales: trazas, tools, RAG y errores",
+    description:
+      "Aprende qué registrar en agentes locales: modelo, ruta, tools, chunks RAG, latencia, errores, aprobación humana y coste real.",
+    keywords: ["observabilidad agentes locales", "Langfuse agentes", "OpenTelemetry agentes LLM"],
+    icon: "chart",
+    primaryHref: "/cursos/agentes-produccion/observabilidad-agentes-locales",
+    primaryLabel: "Ver observabilidad de agentes",
+    audience: "Para equipos que ya tienen agentes o workflows y necesitan saber por qué fallan, cuestan o responden mal.",
+    promise: "Aprenderás a reconstruir cada ejecución sin guardar más datos sensibles de los necesarios.",
+    sections: [
+      { title: "Trazas útiles", body: "Una traza debe mostrar entrada, steps, tools, chunks, modelo y resultado.", bullets: ["Request id.", "Steps.", "Outcome."] },
+      { title: "Privacidad en logs", body: "Observabilidad no significa guardar todo. Registra lo justo para depurar.", bullets: ["Hashes.", "Extractos.", "IDs."] },
+    ],
+    examples: ["Trace de soporte.", "Tool lenta.", "RAG sin grounding.", "Loop cortado."],
+    related: [
+      { title: "Observabilidad local", href: "/cursos/agentes-produccion/observabilidad-agentes-locales", desc: "Lección completa." },
+      { title: "Evals y logs", href: "/cursos/agentes-produccion/evals-logs", desc: "Base." },
+      { title: "Langfuse", href: "/cursos/mlops-local/observabilidad", desc: "MLOps." },
+    ],
+    faqs: [
+      { q: "¿Qué registro siempre?", a: "Modelo, route, tools, argumentos resumidos, chunks usados, latencia y resultado." },
+      { q: "¿Guardo prompts completos?", a: "Solo si la privacidad y finalidad lo permiten; muchas veces basta con IDs o extractos." },
+      { q: "¿Sirve para agentes locales?", a: "Sí. Local también necesita trazas y métricas." },
+    ],
+  },
+  {
+    slug: "obsidian-rag-segundo-cerebro-local",
+    title: "Obsidian RAG: segundo cerebro local",
+    h1: "Segundo cerebro local con Obsidian, Qdrant y RAG",
+    description:
+      "Convierte notas Markdown de Obsidian en un RAG local con frontmatter, filtros, backlinks, Qdrant y respuestas con citas.",
+    keywords: ["segundo cerebro local ollama obsidian rag", "Obsidian RAG local", "Qdrant Obsidian"],
+    icon: "book",
+    primaryHref: "/cursos/rag-seguro/obsidian-segundo-cerebro",
+    primaryLabel: "Ver Obsidian RAG",
+    audience: "Para personas que usan Obsidian como base de conocimiento y quieren consultarla con IA local sin mezclar notas privadas.",
+    promise: "Aprenderás a limpiar, etiquetar, filtrar y citar tus notas antes de indexarlas.",
+    sections: [
+      { title: "Markdown con metadatos", body: "El frontmatter convierte notas en documentos filtrables por estado, tipo o etiqueta.", bullets: ["status.", "tags.", "source."] },
+      { title: "No todo es fuente", body: "Borradores, diarios y secretos deben quedar fuera o entrar con confianza menor.", bullets: ["Excluir.", "Filtrar.", "Citar."] },
+    ],
+    examples: ["Vault de soporte.", "Nota vigente.", "Payload Qdrant.", "Pregunta contra nota obsoleta."],
+    related: [
+      { title: "Obsidian RAG", href: "/cursos/rag-seguro/obsidian-segundo-cerebro", desc: "Lección completa." },
+      { title: "Qdrant permisos", href: "/cursos/rag-seguro/qdrant-permisos", desc: "Filtros." },
+      { title: "Debugging RAG", href: "/cursos/rag-seguro/debugging-grounding", desc: "Grounding." },
+    ],
+    faqs: [
+      { q: "¿Obsidian sirve para RAG?", a: "Sí, porque guarda notas en Markdown, pero hay que limpiar y etiquetar." },
+      { q: "¿Indexo todo el vault?", a: "No. Excluye borradores, secretos y notas personales no necesarias." },
+      { q: "¿Cómo evito respuestas obsoletas?", a: "Usa metadatos de estado y fecha, y filtra antes de recuperar." },
+    ],
+  },
+  {
+    slug: "migrar-agente-cloud-a-local-ollama",
+    title: "Migrar un agente cloud a local con Ollama",
+    h1: "Migrar un agente cloud a local sin romper tool calling ni calidad",
+    description:
+      "Plan paso a paso para mover un agente de APIs cloud a Ollama, vLLM o LiteLLM con evals, fallbacks, privacidad y pruebas de tools.",
+    keywords: ["migrar agente cloud a local ollama", "cloud a local LLM", "LiteLLM migración local"],
+    icon: "route",
+    primaryHref: "/cursos/mlops-local/migrar-cloud-local",
+    primaryLabel: "Ver migración cloud a local",
+    audience: "Para equipos que quieren reducir coste o mejorar privacidad sin romper flujos que ya funcionan.",
+    promise: "Aprenderás a migrar por tareas, medir calidad y mantener fallback controlado cuando local no baste.",
+    sections: [
+      { title: "Migración por riesgo", body: "Primero tareas tolerantes a error; después acciones críticas con evals y aprobación.", bullets: ["Clasificar.", "Borradores.", "Decisiones."] },
+      { title: "No cambies solo la URL", body: "Cambian contexto, latencia, tools, formato y calidad. Hay que medir.", bullets: ["30 casos.", "Tool test.", "Fallback."] },
+    ],
+    examples: ["Matriz de tareas.", "Comparativa cloud/local.", "Fallback aprobado.", "Tool calling mínimo."],
+    related: [
+      { title: "Migrar cloud a local", href: "/cursos/mlops-local/migrar-cloud-local", desc: "Lección completa." },
+      { title: "Routing híbrido", href: "/cursos/mlops-local/routing-hibrido-litellm", desc: "Gateway." },
+      { title: "Tool calling local", href: "/cursos/ia-local/tool-calling-modelos-locales", desc: "Compatibilidad." },
+    ],
+    faqs: [
+      { q: "¿Puedo apagar cloud de golpe?", a: "No es recomendable. Migra por tareas y conserva fallback." },
+      { q: "¿Qué pruebo primero?", a: "Clasificación, borradores y tareas internas de bajo riesgo." },
+      { q: "¿Qué suele romperse?", a: "Tool calling, formato de salida, contexto largo y latencia." },
+    ],
+  },
 ];
 
 export function getSeoLanding(slug: string) {

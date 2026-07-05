@@ -236,6 +236,7 @@ export const cursos: Curso[] = [
         lecciones: [
           { slug: "litellm-gateway", title: "LiteLLM como gateway y control de costes" },
           { slug: "routing-hibrido-litellm", title: "Routing híbrido local/cloud con LiteLLM" },
+          { slug: "migrar-cloud-local", title: "Migrar un agente cloud a local" },
           { slug: "observabilidad", title: "Observabilidad con Langfuse y OpenTelemetry" },
           { slug: "colas-costes", title: "Colas, rate limits y caché" },
         ],
@@ -304,6 +305,7 @@ export const cursos: Curso[] = [
           { slug: "hooks", title: "Hooks: automatización determinista" },
           { slug: "skills-seguras", title: "Skills seguras y auditables" },
           { slug: "mcp-seguro", title: "MCP sin regalar tus llaves" },
+          { slug: "mcp-herramientas-locales", title: "MCP para herramientas locales" },
         ],
       },
       {
@@ -357,6 +359,7 @@ export const cursos: Curso[] = [
         title: "Producción",
         lecciones: [
           { slug: "evals-logs", title: "Evals, logs y observabilidad" },
+          { slug: "observabilidad-agentes-locales", title: "Observabilidad para agentes locales" },
           { slug: "proyecto-inbox", title: "Proyecto: agente de inbox para pymes" },
         ],
       },
@@ -421,6 +424,7 @@ export const cursos: Curso[] = [
           { slug: "embeddings-vector-db", title: "Embeddings y bases vectoriales" },
           { slug: "hybrid-reranking", title: "Búsqueda híbrida y reranking" },
           { slug: "qdrant-permisos", title: "Qdrant multiusuario y permisos" },
+          { slug: "obsidian-segundo-cerebro", title: "Segundo cerebro local con Obsidian y RAG" },
         ],
       },
       {

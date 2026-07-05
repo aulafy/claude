@@ -59,6 +59,10 @@ Aulafy.net ofrece cursos gratuitos en español para aprender inteligencia artifi
 - Tool calling con modelos locales y Ollama: https://www.aulafy.net/tool-calling-modelos-locales-ollama
 - Agente local 24/7 en Mac, RTX o low VRAM: https://www.aulafy.net/agente-local-24-7-mac-rtx-low-vram
 - Routing híbrido con LiteLLM, Ollama y cloud: https://www.aulafy.net/routing-hibrido-litellm-ollama-cloud
+- MCP para herramientas locales en agentes: https://www.aulafy.net/mcp-herramientas-locales-agentes
+- Observabilidad para agentes locales con Langfuse: https://www.aulafy.net/observabilidad-agentes-locales-langfuse
+- Obsidian RAG, segundo cerebro local: https://www.aulafy.net/obsidian-rag-segundo-cerebro-local
+- Migrar un agente cloud a local con Ollama: https://www.aulafy.net/migrar-agente-cloud-a-local-ollama
 
 ## Cursos principales
 
@@ -103,6 +107,9 @@ Nivel: intermedio
 Enseña a construir sistemas RAG con documentos privados, chunking, embeddings, OCR, tablas, búsqueda híbrida, reranking, citaciones, permisos, evals y defensa contra prompt injection.
 
 Lecciones clave:
+- Segundo cerebro local con Obsidian y RAG: https://www.aulafy.net/cursos/rag-seguro/obsidian-segundo-cerebro
+
+Lecciones clave:
 - Mapa RAG: https://www.aulafy.net/cursos/rag-seguro/mapa-rag
 - Ingesta y chunking: https://www.aulafy.net/cursos/rag-seguro/ingesta-chunking
 - Embeddings y vector DB: https://www.aulafy.net/cursos/rag-seguro/embeddings-vector-db
@@ -119,6 +126,7 @@ Enseña a diseñar agentes útiles y mantenibles: mapa real de agentes, subagent
 Lecciones clave:
 - Multi-agentes locales, memoria y control de loops: https://www.aulafy.net/cursos/agentes-automatizacion/multiagentes-locales-loops
 - Agentes 24/7 offline en hardware real: https://www.aulafy.net/cursos/agentes-automatizacion/agentes-247-hardware-real
+- MCP para herramientas locales: https://www.aulafy.net/cursos/agentes-automatizacion/mcp-herramientas-locales
 - Loops infinitos y control de costes: https://www.aulafy.net/cursos/agentes-automatizacion/loops-costes
 - MCP de verificación: https://www.aulafy.net/cursos/agentes-automatizacion/mcp-verificacion
 
@@ -165,6 +173,7 @@ Lecciones clave:
 - vLLM con API compatible OpenAI: https://www.aulafy.net/cursos/mlops-local/vllm-openai
 - LiteLLM gateway: https://www.aulafy.net/cursos/mlops-local/litellm-gateway
 - Routing híbrido local/cloud con LiteLLM: https://www.aulafy.net/cursos/mlops-local/routing-hibrido-litellm
+- Migrar un agente cloud a local: https://www.aulafy.net/cursos/mlops-local/migrar-cloud-local
 
 ### Fine-tuning y post-training de LLMs
 

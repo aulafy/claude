@@ -51,6 +51,8 @@ const fuentes = [
       { name: "Open WebUI Tools & Functions", href: "https://docs.openwebui.com/features/extensibility/plugin/" },
       { name: "Qdrant Docs", href: "https://qdrant.tech/documentation/" },
       { name: "Google Gemma 4 model card", href: "https://ai.google.dev/gemma/docs/core/model_card_4" },
+      { name: "Obsidian Markdown syntax", href: "https://obsidian.md/help/syntax" },
+      { name: "Obsidian Flavored Markdown", href: "https://obsidian.md/help/obsidian-flavored-markdown" },
     ],
   },
   {
@@ -85,6 +87,14 @@ const fuentes = [
       { name: "LiteLLM Fallbacks", href: "https://docs.litellm.ai/docs/proxy/reliability" },
       { name: "Docker Compose", href: "https://docs.docker.com/compose/" },
       { name: "Docker Compose Profiles", href: "https://docs.docker.com/compose/how-tos/profiles/" },
+    ],
+  },
+  {
+    area: "Observabilidad de LLMs y agentes",
+    links: [
+      { name: "Langfuse Observability", href: "https://langfuse.com/docs/observability/overview" },
+      { name: "Langfuse Tracing", href: "https://langfuse.com/docs/observability/get-started" },
+      { name: "OpenTelemetry Traces", href: "https://opentelemetry.io/docs/concepts/signals/traces/" },
     ],
   },
   {
