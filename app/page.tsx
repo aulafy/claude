@@ -6,15 +6,30 @@ import ThemeToggle from "@/components/ThemeToggle";
 export const metadata: Metadata = {
   title: "Aulafy — Cursos de IA open source en español",
   description:
-    "Cursos gratis de IA open source en español: Claude Code, IA local, RAG, agentes, automatización, seguridad y proyectos prácticos.",
+    "Cursos gratis de IA open source en español: Claude Code, Fable 5, IA local, videojuegos 3D, RAG, agentes, automatización, seguridad y proyectos prácticos.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "Aulafy — Cursos de IA open source en español",
     description:
-      "Tutoriales prácticos para aprender IA local, Claude Code, RAG, fine-tuning, MLOps, prompts, seguridad, automatización e IA generativa multimedia. Gratis, en español y de código abierto.",
+      "Tutoriales prácticos para aprender IA local, Claude Code, Fable 5, videojuegos 3D, RAG, MLOps, seguridad, automatización e IA generativa multimedia. Gratis, en español y de código abierto.",
     type: "website",
     locale: "es_ES",
     url: "/",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 512,
+        height: 512,
+        alt: "Aulafy, cursos gratis de IA open source en español",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Aulafy — Cursos gratis de IA open source",
+    description: "Aprende IA local, Claude Code, Fable 5, videojuegos 3D, RAG, agentes y automatización.",
+    creator: "@learntouseai",
+    images: ["/og-image.png"],
   },
 };
 
@@ -47,6 +62,7 @@ const cursos = [
   { icon: "automation", title: "Automatización IA self-hosted", desc: "n8n, Open WebUI, Ollama, webhooks, aprobaciones y backups para pymes con presupuesto realista.", level: "Intermedio", status: "Nuevo", statusColor: "text-[#10b981]", href: "/cursos/automatizacion-self-hosted" },
   { icon: "database", title: "RAG avanzado y seguro", desc: "Chatbots con documentos privados, citaciones, búsqueda híbrida, evals y defensa ante prompt injection.", level: "Intermedio", status: "Nuevo", statusColor: "text-[#10b981]", href: "/cursos/rag-seguro" },
   { icon: "palette", title: "IA generativa: imagen, voz y vídeo", desc: "ComfyUI, FLUX, Diffusers, Whisper, Piper y Wan para crear recursos educativos con control.", level: "Principiante", status: "Nuevo", statusColor: "text-[#10b981]", href: "/cursos/ia-generativa" },
+  { icon: "cube", title: "Videojuegos, 3D y simulaciones con IA", desc: "Fable 5, Blender, Godot, assets GLB y CAD para pasar de idea a prototipo jugable.", level: "Principiante", status: "Nuevo", statusColor: "text-[#10b981]", href: "/cursos/videojuegos-3d-ia" },
   { icon: "shield", title: "Seguridad y evaluación de modelos", desc: "OWASP, NIST, red teaming, privacidad, supply chain y auditoría antes de publicar IA.", level: "Intermedio", status: "Nuevo", statusColor: "text-[#10b981]", href: "/cursos/seguridad-evals" },
   { icon: "server", title: "MLOps local y despliegue de modelos", desc: "llama.cpp, vLLM, LiteLLM, observabilidad, colas, caché y costes para servir IA.", level: "Intermedio", status: "Nuevo", statusColor: "text-[#10b981]", href: "/cursos/mlops-local" },
   { icon: "experiment", title: "Fine-tuning y post-training de LLMs", desc: "Datasets, LoRA, QLoRA, PEFT, TRL, Unsloth, Axolotl, evals y export a GGUF/Ollama.", level: "Intermedio", status: "Nuevo", statusColor: "text-[#10b981]", href: "/cursos/fine-tuning-local" },
