@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Icon, { type IconName } from "@/components/Icon";
 import ThemeToggle from "@/components/ThemeToggle";
+import { cursos as catalogoCursos, totalLecciones } from "@/lib/cursos";
 
 export const metadata: Metadata = {
   title: "Aulafy — Cursos de IA open source en español",
@@ -54,28 +55,7 @@ function BrandIcon({ id, className }: { id: string; className?: string }) {
   );
 }
 
-const cursos = [
-  { icon: "brain", title: "IA local: tu IA privada", desc: "Ejecuta modelos en tu propio equipo con Ollama y LM Studio. Sin cuotas y sin enviar tus datos a la nube.", level: "Intermedio", status: "Disponible", statusColor: "text-[#22d3ee]", href: "/cursos/ia-local/ia-local" },
-  { icon: "prompt", title: "Ingeniería de prompts", desc: "Escribe instrucciones que funcionan a la primera. La habilidad que multiplica todo lo demás.", level: "Todos los niveles", status: "Disponible", statusColor: "text-[#22d3ee]", href: "/cursos/claude-code/prompts" },
-  { icon: "robot", title: "Agentes y automatización", desc: "Crea agentes que hacen tareas por ti y automatiza flujos repetitivos con IA.", level: "Intermedio", status: "Disponible", statusColor: "text-[#22d3ee]", href: "/cursos/agentes-automatizacion" },
-  { icon: "network", title: "Agentes en producción", desc: "LangGraph, n8n, herramientas, aprobaciones humanas, logs y seguridad para flujos reales.", level: "Intermedio", status: "Nuevo", statusColor: "text-[#10b981]", href: "/cursos/agentes-produccion" },
-  { icon: "automation", title: "Automatización IA self-hosted", desc: "n8n, Open WebUI, Ollama, webhooks, aprobaciones y backups para pymes con presupuesto realista.", level: "Intermedio", status: "Nuevo", statusColor: "text-[#10b981]", href: "/cursos/automatizacion-self-hosted" },
-  { icon: "database", title: "RAG avanzado y seguro", desc: "Chatbots con documentos privados, citaciones, búsqueda híbrida, evals y defensa ante prompt injection.", level: "Intermedio", status: "Nuevo", statusColor: "text-[#10b981]", href: "/cursos/rag-seguro" },
-  { icon: "palette", title: "IA generativa: imagen, voz y vídeo", desc: "ComfyUI, FLUX, Diffusers, Whisper, Piper y Wan para crear recursos educativos con control.", level: "Principiante", status: "Nuevo", statusColor: "text-[#10b981]", href: "/cursos/ia-generativa" },
-  { icon: "cube", title: "Videojuegos, 3D y simulaciones con IA", desc: "Fable 5, Blender, Godot, assets GLB y CAD para pasar de idea a prototipo jugable.", level: "Principiante", status: "Nuevo", statusColor: "text-[#10b981]", href: "/cursos/videojuegos-3d-ia" },
-  { icon: "shield", title: "Seguridad y evaluación de modelos", desc: "OWASP, NIST, red teaming, privacidad, supply chain y auditoría antes de publicar IA.", level: "Intermedio", status: "Nuevo", statusColor: "text-[#10b981]", href: "/cursos/seguridad-evals" },
-  { icon: "server", title: "MLOps local y despliegue de modelos", desc: "llama.cpp, vLLM, LiteLLM, observabilidad, colas, caché y costes para servir IA.", level: "Intermedio", status: "Nuevo", statusColor: "text-[#10b981]", href: "/cursos/mlops-local" },
-  { icon: "experiment", title: "Fine-tuning y post-training de LLMs", desc: "Datasets, LoRA, QLoRA, PEFT, TRL, Unsloth, Axolotl, evals y export a GGUF/Ollama.", level: "Intermedio", status: "Nuevo", statusColor: "text-[#10b981]", href: "/cursos/fine-tuning-local" },
-  { icon: "briefcase", title: "IA para pymes y autónomos", desc: "Emails, facturas, presupuestos, WhatsApp, Excel y RGPD básico con flujos revisables.", level: "Principiante", status: "Nuevo", statusColor: "text-[#10b981]", href: "/cursos/ia-pymes" },
-] satisfies Array<{
-  icon: IconName;
-  title: string;
-  desc: string;
-  level: string;
-  status: string;
-  statusColor: string;
-  href?: string;
-}>;
+const cursosPortada = catalogoCursos.filter((curso) => curso.slug !== "claude-code");
 
 const rutas = [
   {
@@ -192,7 +172,7 @@ export default function Home() {
           <div className="flex-1 text-center sm:text-left">
             <h2 className="font-display font-bold text-xl text-white">Toda la plataforma en un libro</h2>
             <p className="mt-1 text-sm text-zinc-400 leading-relaxed">
-              Los 7 cursos de Aulafy reunidos en un PDF de <strong className="text-zinc-200">225 páginas</strong>, listo para leer sin conexión o imprimir. Gratis y con licencia Creative Commons.
+              Una guía extensa de Aulafy en PDF de <strong className="text-zinc-200">225 páginas</strong>, lista para leer sin conexión o imprimir. Gratis y con licencia Creative Commons.
             </p>
           </div>
           <a
@@ -286,29 +266,17 @@ export default function Home() {
 
         {/* Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {cursos.map((c) => {
-            const content = (
-              <>
-              <Icon name={c.icon} className="text-3xl mb-3 text-[#22d3ee]" />
+          {cursosPortada.map((c) => (
+            <Link key={c.slug} href={`/cursos/${c.slug}`} className="glass rounded-2xl p-6 card-hover block">
+              <Icon name={c.icon as IconName} className="text-3xl mb-3 text-[#22d3ee]" />
               <h3 className="font-display font-semibold text-lg text-white">{c.title}</h3>
               <p className="mt-2 text-sm text-zinc-400 leading-relaxed">{c.desc}</p>
-              <div className="mt-4 flex items-center justify-between text-xs text-zinc-500">
+              <div className="mt-4 flex items-center justify-between gap-4 text-xs text-zinc-500">
                 <span>{c.level}</span>
-                <span className={c.statusColor}>{c.status}</span>
+                <span className="shrink-0 text-[#10b981]">{totalLecciones(c)} lecciones</span>
               </div>
-              </>
-            );
-
-            return c.href ? (
-              <Link key={c.title} href={c.href} className="glass rounded-2xl p-6 card-hover block">
-                {content}
-              </Link>
-            ) : (
-              <div key={c.title} className="glass rounded-2xl p-6">
-                {content}
-              </div>
-            );
-          })}
+            </Link>
+          ))}
         </div>
       </section>
 
