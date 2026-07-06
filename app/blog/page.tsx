@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import Icon from "@/components/Icon";
 import { blogPosts } from "@/lib/blog";
@@ -61,8 +62,8 @@ export default function BlogPage() {
 
       <Link href={`/blog/${featured.slug}`} className="group block rounded-2xl border border-[#8b5cf6]/30 bg-gradient-to-br from-[#8b5cf6]/12 to-[#22d3ee]/5 p-7 mb-8 hover:border-[#8b5cf6]/60 transition-colors">
         <div className="flex flex-col md:flex-row gap-6 md:items-center">
-          <div className="w-14 h-14 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-[#22d3ee] text-2xl shrink-0">
-            <Icon name={featured.icon} />
+          <div className="relative w-full md:w-72 aspect-video rounded-xl overflow-hidden border border-white/10 bg-zinc-950 shrink-0">
+            <Image src={featured.image} alt="" fill sizes="(min-width: 768px) 288px, 100vw" className="object-cover" priority />
           </div>
           <div className="flex-1">
             <div className="text-xs text-[#a78bfa] font-semibold mb-2">Destacado · {featured.category} · {featured.readingTime}</div>
@@ -82,7 +83,9 @@ export default function BlogPage() {
             href={`/blog/${post.slug}`}
             className="group rounded-2xl border border-zinc-800 bg-zinc-900/30 p-6 hover:border-zinc-600 transition-colors"
           >
-            <Icon name={post.icon} className="text-2xl text-[#22d3ee] mb-4" />
+            <div className="relative aspect-video rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950 mb-4">
+              <Image src={post.image} alt="" fill sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" className="object-cover" />
+            </div>
             <div className="text-xs text-zinc-500 mb-2">{post.category} · {post.readingTime}</div>
             <h2 className="font-display font-bold text-xl text-white group-hover:text-orange-300 transition-colors">{post.title}</h2>
             <p className="mt-3 text-sm text-zinc-400 leading-relaxed">{post.description}</p>

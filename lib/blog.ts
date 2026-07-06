@@ -9,6 +9,7 @@ export type BlogPost = {
   category: string;
   readingTime: string;
   icon: IconName;
+  image: string;
   keywords: string[];
   intro: string;
   sections: Array<{
@@ -35,6 +36,7 @@ export const blogPosts: BlogPost[] = [
     category: "Herramientas IA",
     readingTime: "9 min",
     icon: "tools",
+    image: "/blog/mejores-herramientas-ia-gratis-2026.png",
     keywords: ["mejores herramientas IA gratis 2026", "herramientas inteligencia artificial gratis", "IA gratis español"],
     intro:
       "La mejor herramienta de IA no es la que más ruido hace, sino la que resuelve tu tarea con menos fricción. Esta guía separa herramientas para escribir, programar, buscar, crear multimedia, automatizar y trabajar en local.",
@@ -91,6 +93,7 @@ export const blogPosts: BlogPost[] = [
     category: "Comparativas",
     readingTime: "10 min",
     icon: "compare",
+    image: "/blog/chatgpt-vs-claude-vs-gemini-vs-grok-2026.png",
     keywords: ["ChatGPT vs Claude vs Gemini vs Grok 2026", "mejor IA para programar", "comparativa modelos IA"],
     intro:
       "No hay un ganador universal. Hay modelos que encajan mejor con escritura larga, código, investigación, multimodalidad, datos recientes o flujos de trabajo con herramientas.",
@@ -141,6 +144,7 @@ export const blogPosts: BlogPost[] = [
     category: "SEO y AEO",
     readingTime: "11 min",
     icon: "search",
+    image: "/blog/como-usar-ia-para-seo-aeo-2026.png",
     keywords: ["IA para SEO 2026", "AEO", "aparecer en ChatGPT", "GEO generative engine optimization"],
     intro:
       "La IA puede acelerar investigación, briefs, FAQs, clusters y actualización de contenidos. También puede llenar tu web de texto correcto pero inútil. La diferencia está en fuentes, experiencia, estructura y revisión.",
@@ -197,6 +201,7 @@ export const blogPosts: BlogPost[] = [
     category: "Prompts",
     readingTime: "8 min",
     icon: "prompt",
+    image: "/blog/mejores-prompts-chatgpt-claude-blogs.png",
     keywords: ["prompts ChatGPT blogs", "prompts Claude español", "prompts para escribir artículos IA"],
     intro:
       "Un buen prompt para blogs no pide “escribe un artículo”. Define público, intención, fuentes, criterio editorial, estructura, ejemplos y revisión. Aquí tienes plantillas que puedes adaptar.",
@@ -247,6 +252,7 @@ export const blogPosts: BlogPost[] = [
     category: "Pymes",
     readingTime: "12 min",
     icon: "briefcase",
+    image: "/blog/ia-para-pymes-autonomos-casos-uso-2026.png",
     keywords: ["IA para pymes 2026", "IA para autónomos", "casos de uso IA empresa", "automatización IA pymes"],
     intro:
       "La IA útil para una pyme no empieza con un agente autónomo gigante. Empieza quitando fricción a tareas repetidas: leer, ordenar, resumir, responder, revisar y preparar borradores.",
@@ -297,6 +303,7 @@ export const blogPosts: BlogPost[] = [
     category: "Tendencias",
     readingTime: "10 min",
     icon: "chart",
+    image: "/blog/tendencias-ia-2026-agentes-ia-local-rag.png",
     keywords: ["tendencias IA 2026", "agentes IA 2026", "IA local 2026", "RAG 2026"],
     intro:
       "La tendencia importante no es “más IA en todo”. Es pasar de demos a sistemas medibles: agentes con permisos, IA local cuando importa la privacidad, RAG con citas y automatizaciones con revisión humana.",

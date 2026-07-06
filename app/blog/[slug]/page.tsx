@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import Icon from "@/components/Icon";
 import { blogPosts, getBlogPost } from "@/lib/blog";
@@ -28,13 +29,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       publishedTime: post.date,
       modifiedTime: post.updated,
       authors: ["Ramón Guillamón"],
-      images: [{ url: "/og-image.png", width: 512, height: 512, alt: post.title }],
+      images: [{ url: post.image, width: 1672, height: 941, alt: post.title }],
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.description,
-      images: ["/og-image.png"],
+      images: [post.image],
     },
   };
 }
@@ -54,7 +55,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     inLanguage: "es",
     author: { "@type": "Person", name: "Ramón Guillamón" },
     publisher: { "@type": "Organization", name: "Aulafy", url: SITE_URL },
-    image: [`${SITE_URL}/og-image.png`],
+    image: [`${SITE_URL}${post.image}`],
     mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
     keywords: post.keywords.join(", "),
   };
@@ -90,6 +91,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </div>
           <h1 className="font-display font-extrabold text-4xl text-white leading-tight">{post.title}</h1>
           <p className="mt-5 text-lg text-zinc-400 leading-relaxed">{post.intro}</p>
+          <div className="relative aspect-video rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-950 mt-8">
+            <Image src={post.image} alt="" fill sizes="(min-width: 768px) 768px, 100vw" className="object-cover" priority />
+          </div>
         </header>
 
         <div className="prose">
