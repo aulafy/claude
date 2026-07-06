@@ -27,6 +27,99 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "mcp-2026-07-28-migracion-guia-espanol",
+    title: "MCP 2026-07-28 en español: qué cambia y cómo preparar tu stack",
+    description:
+      "Guía práctica sobre el próximo cambio de MCP previsto para el 28 de julio de 2026: stateless, sesiones, seguridad, migración, Claude Code, Cursor, n8n y agentes.",
+    date: "2026-07-06",
+    updated: "2026-07-06",
+    category: "MCP y agentes",
+    readingTime: "12 min",
+    icon: "network",
+    image: "/blog/mcp-2026-07-28-migracion-guia-espanol.png",
+    keywords: [
+      "MCP 2026-07-28",
+      "Model Context Protocol español",
+      "migración MCP",
+      "MCP stateless",
+      "MCP Claude Code",
+      "seguridad MCP",
+    ],
+    intro:
+      "MCP se está convirtiendo en una capa clave para conectar modelos con herramientas, archivos, APIs y agentes. La señal fuerte de julio de 2026 no es “instala cualquier servidor MCP”, sino preparar una migración ordenada, con permisos mínimos, pruebas y rollback.",
+    sections: [
+      {
+        title: "Qué está pasando con MCP",
+        body:
+          "El Model Context Protocol nació para que asistentes como Claude Code, editores y agentes pudieran hablar con herramientas externas de forma más estándar. En julio de 2026 la conversación técnica está centrada en el release candidate de una nueva especificación, con cambios pensados para despliegues más stateless, mejor operación y menos dependencia de sesiones pegajosas.",
+      },
+      {
+        title: "Qué conviene revisar antes del 28 de julio",
+        body:
+          "La fecha prevista para la especificación final es posterior a hoy, así que lo correcto es preparar y probar, no publicar certezas absolutas. Revisa tus servidores locales, clientes, proxies, balanceadores, permisos, logs y dependencias antes de actualizar nada que uses a diario.",
+        bullets: [
+          "Lista todos tus servidores MCP y quién los mantiene.",
+          "Comprueba si dependen de sesiones persistentes o estado en memoria.",
+          "Prueba la actualización en un entorno aislado antes de tocar producción.",
+          "Guarda una configuración anterior para volver atrás si algo se rompe.",
+        ],
+      },
+      {
+        title: "Stateless no significa sin seguridad",
+        body:
+          "Que un flujo sea más stateless puede simplificar despliegues, escalado y balanceo, pero no elimina los riesgos. MCP sigue conectando modelos con herramientas capaces de leer archivos, llamar APIs, consultar bases de datos o ejecutar acciones. Eso exige mínimo privilegio, auditoría y aprobación humana en operaciones peligrosas.",
+      },
+      {
+        title: "Cómo migrar sin romper tu flujo",
+        body:
+          "Empieza por un inventario, separa herramientas críticas de experimentales, fija versiones, crea un entorno de prueba y registra cada fallo. Si usas Claude Code, Cursor, n8n o servidores MCP de comunidad, evita actualizar todo a la vez. Migra primero lo que puedas validar con una tarea repetible.",
+      },
+      {
+        title: "Qué no deberías creer todavía",
+        body:
+          "No publiques que todos los clientes soportan MCP Apps o Tasks de la misma forma, no asumas que todos los servidores antiguos seguirán funcionando y no cites cifras de ataques o adopción sin fuente primaria. La parte madura de MCP no es el entusiasmo: es saber qué herramientas conectas, con qué permisos y con qué pruebas.",
+      },
+    ],
+    table: {
+      headers: ["Área", "Qué revisar", "Riesgo si lo ignoras", "En Aulafy"],
+      rows: [
+        ["Inventario", "Servidores MCP, versiones, mantenedores y permisos", "Shadow IT y herramientas olvidadas", "/cursos/agentes-automatizacion/mcp-governance"],
+        ["Sesiones", "Dependencia de estado, sticky sessions y cabeceras", "Roturas tras actualizar o escalar", "/cursos/agentes-automatizacion/estado-recuperacion"],
+        ["Seguridad", "Permisos mínimos, sandbox, logs y aprobaciones", "Exfiltración, acciones no deseadas o tool shadowing", "/cursos/agentes-automatizacion/mcp-seguro"],
+        ["Clientes", "Claude Code, Cursor, n8n y compatibilidad real", "Falsas expectativas por soporte parcial", "/cursos/claude-code/mcp"],
+        ["Operación", "Rollback, pruebas repetibles, trazas y alertas", "Caídas difíciles de depurar", "/cursos/agentes-produccion/evals-logs"],
+      ],
+    },
+    faqs: [
+      {
+        q: "¿MCP 2026-07-28 ya es definitivo?",
+        a: "A fecha 6 de julio de 2026, debe tratarse como una actualización prevista y en fase de preparación editorial. Antes de publicar instrucciones cerradas conviene revisar la especificación final el 28 de julio de 2026.",
+      },
+      {
+        q: "¿Tengo que migrar todos mis servidores MCP ya?",
+        a: "No. Lo sensato es inventariar, probar en un entorno aislado y migrar primero los servidores menos críticos. Actualizar todo de golpe aumenta el riesgo de romper flujos de trabajo.",
+      },
+      {
+        q: "¿MCP stateless es más seguro?",
+        a: "Puede facilitar operación y escalado, pero la seguridad depende de permisos, autenticación, sandbox, logs, revisión humana y control de servidores instalados.",
+      },
+      {
+        q: "¿MCP Apps y Tasks funcionarán en todos los clientes?",
+        a: "No lo asumas. El soporte depende de cada cliente, versión y extensión. Verifica documentación oficial antes de prometer compatibilidad.",
+      },
+      {
+        q: "¿Qué debería aprender primero?",
+        a: "Empieza por entender qué es MCP, cómo se configuran herramientas en Claude Code y cómo limitar permisos antes de conectar servidores de comunidad.",
+      },
+    ],
+    related: [
+      { title: "MCP en Claude Code", href: "/cursos/claude-code/mcp", desc: "Conecta herramientas externas sin perder control." },
+      { title: "MCP seguro", href: "/cursos/agentes-automatizacion/mcp-seguro", desc: "Permisos, sandbox y riesgos reales al conectar agentes." },
+      { title: "Servidor MCP custom", href: "/cursos/agentes-automatizacion/servidor-mcp-custom", desc: "Construye un servidor MCP pequeño y mantenible." },
+      { title: "n8n como herramientas de agentes", href: "/cursos/agentes-produccion/n8n-tools", desc: "Automatización con revisión y límites claros." },
+    ],
+  },
+  {
     slug: "mejores-herramientas-ia-gratis-2026",
     title: "Mejores herramientas de IA gratis en 2026: guía práctica para empezar",
     description:

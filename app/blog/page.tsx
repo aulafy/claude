@@ -5,11 +5,14 @@ import Icon from "@/components/Icon";
 import { blogPosts } from "@/lib/blog";
 
 export const metadata: Metadata = {
-  title: "Blog de IA en español: herramientas, comparativas, SEO y automatización",
+  title: "Blog de IA en español: MCP, agentes, herramientas, SEO y automatización",
   description:
-    "Artículos prácticos de Aulafy sobre IA en español: mejores herramientas, ChatGPT vs Claude vs Gemini vs Grok, SEO/AEO, prompts, pymes, agentes, IA local y RAG.",
+    "Artículos prácticos de Aulafy sobre IA en español: MCP, agentes, Claude Code, herramientas, ChatGPT vs Claude vs Gemini vs Grok, SEO/AEO, prompts, pymes, IA local y RAG.",
   keywords: [
     "blog IA español",
+    "MCP español",
+    "Model Context Protocol",
+    "agentes IA",
     "herramientas IA 2026",
     "ChatGPT vs Claude",
     "IA para SEO",
@@ -52,11 +55,11 @@ export default function BlogPage() {
           Guías para Google, lectores y asistentes de IA
         </div>
         <h1 className="font-display font-extrabold text-4xl sm:text-5xl text-white max-w-4xl">
-          Blog de IA en español: herramientas, comparativas y guías prácticas
+          Blog de IA en español: MCP, agentes, herramientas y guías prácticas
         </h1>
         <p className="mt-5 text-lg text-zinc-400 max-w-3xl leading-relaxed">
-          Artículos pensados para búsquedas reales: mejores herramientas de IA, comparativas entre modelos,
-          SEO/AEO, prompts, casos de uso para pymes, agentes, IA local y RAG. Sin relleno: cada post enlaza a cursos y proyectos de Aulafy.
+          Artículos pensados para búsquedas reales: MCP, agentes, mejores herramientas de IA, comparativas entre modelos,
+          SEO/AEO, prompts, casos de uso para pymes, IA local y RAG. Sin relleno: cada post enlaza a cursos y proyectos de Aulafy.
         </p>
       </section>
 

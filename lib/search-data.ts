@@ -8,7 +8,8 @@ export type SearchItem = {
 export const searchData: SearchItem[] = [
   { href: "/guia", title: "Inicio de la guía", section: "Empezar", keywords: "home portada qué es claude code introducción" },
   { href: "/", title: "Aulafy", section: "Cursos", keywords: "aulafy portada cursos ia inteligencia artificial open source" },
-  { href: "/blog", title: "Blog de IA en español", section: "Blog", keywords: "blog ia español herramientas comparativas seo aeo prompts tendencias" },
+  { href: "/blog", title: "Blog de IA en español", section: "Blog", keywords: "blog ia español mcp agentes herramientas comparativas seo aeo prompts tendencias" },
+  { href: "/blog/mcp-2026-07-28-migracion-guia-espanol", title: "MCP 2026-07-28 en español", section: "Blog", keywords: "mcp 2026 model context protocol migracion stateless seguridad agentes claude code n8n" },
   { href: "/blog/mejores-herramientas-ia-gratis-2026", title: "Mejores herramientas de IA gratis en 2026", section: "Blog", keywords: "mejores herramientas ia gratis 2026 inteligencia artificial gratis" },
   { href: "/blog/chatgpt-vs-claude-vs-gemini-vs-grok-2026", title: "ChatGPT vs Claude vs Gemini vs Grok en 2026", section: "Blog", keywords: "chatgpt vs claude vs gemini vs grok comparativa modelos ia" },
   { href: "/blog/como-usar-ia-para-seo-aeo-2026", title: "Cómo usar IA para SEO y AEO en 2026", section: "Blog", keywords: "ia para seo aeo geo aparecer chatgpt perplexity google ai" },
