@@ -13,6 +13,7 @@ const cols = [
   {
     title: "Práctica",
     links: [
+      ["/blog", "Blog de IA"],
       ["/recetas", "Recetas prácticas"],
       ["/prompts", "Buenos prompts"],
       ["/glosario", "Glosario"],

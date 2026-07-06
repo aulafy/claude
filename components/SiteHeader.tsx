@@ -32,6 +32,13 @@ export default function SiteHeader() {
           <span className="font-display font-bold text-white text-lg">Aulafy</span>
         </Link>
         <div className="flex items-center gap-2">
+          <Link
+            href="/blog"
+            className="hidden sm:inline-flex items-center gap-2 text-sm font-medium text-zinc-300 px-4 py-2 rounded-lg border border-zinc-800 hover:border-zinc-600 hover:text-white transition-colors"
+          >
+            <Icon name="search" />
+            Blog
+          </Link>
           <ThemeToggle compact />
           <Link
             href="/cursos"

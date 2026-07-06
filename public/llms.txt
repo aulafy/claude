@@ -302,6 +302,18 @@ Curso práctico sobre Fable 5, Blender, Godot, Unity, Three.js, CAD, assets 3D, 
 
 ## Legal y privacidad
 
+## Blog de IA en español
+
+Artículos prácticos para búsquedas de alto interés sobre IA: mejores herramientas, comparativas de modelos, SEO/AEO, prompts, pymes y tendencias. Cada post enlaza a cursos y proyectos de Aulafy.
+
+- [Blog de IA en español](https://www.aulafy.net/blog)
+- [Mejores herramientas de IA gratis en 2026](https://www.aulafy.net/blog/mejores-herramientas-ia-gratis-2026)
+- [ChatGPT vs Claude vs Gemini vs Grok en 2026](https://www.aulafy.net/blog/chatgpt-vs-claude-vs-gemini-vs-grok-2026)
+- [Cómo usar IA para SEO y AEO en 2026](https://www.aulafy.net/blog/como-usar-ia-para-seo-aeo-2026)
+- [Mejores prompts para ChatGPT y Claude si escribes blogs](https://www.aulafy.net/blog/mejores-prompts-chatgpt-claude-blogs)
+- [IA para pymes y autónomos: 25 casos de uso prácticos](https://www.aulafy.net/blog/ia-para-pymes-autonomos-casos-uso-2026)
+- [Tendencias de IA en 2026: agentes, IA local, RAG, vídeo y automatización](https://www.aulafy.net/blog/tendencias-ia-2026-agentes-ia-local-rag)
+
 - [Aviso legal](https://www.aulafy.net/aviso-legal)
 - [Política de privacidad](https://www.aulafy.net/privacidad)
 - [Política de cookies](https://www.aulafy.net/cookies)

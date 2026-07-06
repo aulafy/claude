@@ -118,6 +118,7 @@ export default function Home() {
           </a>
           <nav className="hidden md:flex items-center gap-8 text-sm text-zinc-400">
             <a href="#cursos" className="hover:text-white transition-colors">Cursos</a>
+            <Link href="/blog" className="hover:text-white transition-colors">Blog</Link>
             <a href="#porque" className="hover:text-white transition-colors">Por qué Aulafy</a>
             <a href="#como" className="hover:text-white transition-colors">Cómo funciona</a>
           </nav>
@@ -281,6 +282,26 @@ export default function Home() {
       </section>
 
       {/* Por qué */}
+      <section id="blog" className="max-w-6xl mx-auto px-6 py-16">
+        <div className="rounded-2xl border border-zinc-800 bg-zinc-900/30 p-8 flex flex-col md:flex-row md:items-center gap-6">
+          <div className="flex-1">
+            <div className="inline-flex items-center gap-2 text-xs font-medium text-[#22d3ee] bg-[#22d3ee]/10 border border-[#22d3ee]/20 rounded-full px-3 py-1 mb-4">
+              <Icon name="search" />
+              Nuevo blog SEO/AEO
+            </div>
+            <h2 className="font-display font-bold text-3xl text-white">Guías para búsquedas reales sobre IA</h2>
+            <p className="mt-3 text-zinc-400 leading-relaxed">
+              Comparativas, mejores herramientas, prompts, IA para SEO, AEO, pymes y tendencias. Artículos pensados para Google y para asistentes como ChatGPT, Grok, Claude y Perplexity.
+            </p>
+          </div>
+          <Link href="/blog" className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-medium text-white bg-gradient-to-r from-[#8b5cf6] to-[#e879f9] hover:opacity-90 transition-opacity">
+            <Icon name="book" />
+            Leer el blog
+          </Link>
+        </div>
+      </section>
+
+      {/* Por qué */}
       <section id="porque" className="max-w-6xl mx-auto px-6 py-16">
         <div className="mb-10 text-center">
           <h2 className="font-display font-bold text-3xl text-white">Por qué Aulafy</h2>
@@ -355,6 +376,9 @@ export default function Home() {
             </Link>
             <Link href="/fuentes" className="text-xs hover:text-white transition-colors">
               Fuentes
+            </Link>
+            <Link href="/blog" className="text-xs hover:text-white transition-colors">
+              Blog
             </Link>
             <Link href="/sobre-ramon-guillamon" className="text-xs hover:text-white transition-colors">
               Autoría

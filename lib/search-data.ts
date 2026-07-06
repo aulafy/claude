@@ -8,6 +8,13 @@ export type SearchItem = {
 export const searchData: SearchItem[] = [
   { href: "/guia", title: "Inicio de la guía", section: "Empezar", keywords: "home portada qué es claude code introducción" },
   { href: "/", title: "Aulafy", section: "Cursos", keywords: "aulafy portada cursos ia inteligencia artificial open source" },
+  { href: "/blog", title: "Blog de IA en español", section: "Blog", keywords: "blog ia español herramientas comparativas seo aeo prompts tendencias" },
+  { href: "/blog/mejores-herramientas-ia-gratis-2026", title: "Mejores herramientas de IA gratis en 2026", section: "Blog", keywords: "mejores herramientas ia gratis 2026 inteligencia artificial gratis" },
+  { href: "/blog/chatgpt-vs-claude-vs-gemini-vs-grok-2026", title: "ChatGPT vs Claude vs Gemini vs Grok en 2026", section: "Blog", keywords: "chatgpt vs claude vs gemini vs grok comparativa modelos ia" },
+  { href: "/blog/como-usar-ia-para-seo-aeo-2026", title: "Cómo usar IA para SEO y AEO en 2026", section: "Blog", keywords: "ia para seo aeo geo aparecer chatgpt perplexity google ai" },
+  { href: "/blog/mejores-prompts-chatgpt-claude-blogs", title: "Mejores prompts para ChatGPT y Claude si escribes blogs", section: "Blog", keywords: "prompts chatgpt blogs prompts claude español artículos seo" },
+  { href: "/blog/ia-para-pymes-autonomos-casos-uso-2026", title: "IA para pymes y autónomos: 25 casos de uso", section: "Blog", keywords: "ia para pymes autonomos casos uso automatizacion empresa" },
+  { href: "/blog/tendencias-ia-2026-agentes-ia-local-rag", title: "Tendencias de IA en 2026", section: "Blog", keywords: "tendencias ia 2026 agentes ia local rag automatizacion" },
   { href: "/instalacion", title: "Instalación", section: "Empezar", keywords: "instalar npm node api key macos windows wsl linux setup actualizar" },
   { href: "/primeros-pasos", title: "Primeros pasos", section: "Empezar", keywords: "iniciar sesión modo auto plan primera vez interfaz prompt print headless" },
   { href: "/donde-usar", title: "CLI, app y móvil", section: "Empezar", keywords: "cli terminal app escritorio desktop web navegador vs code jetbrains ide móvil movil ios remote control dispatch teleport channels slack superficies diferencias" },

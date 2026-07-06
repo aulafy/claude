@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { blogPosts } from "@/lib/blog";
 import { cursos, lecciones } from "@/lib/cursos";
 import { seoLandings } from "@/lib/seo-landings";
 
@@ -13,6 +14,7 @@ type SitemapEntry = {
 const principales: SitemapEntry[] = [
   { route: "", changeFrequency: "weekly", priority: 1 },
   { route: "/cursos", changeFrequency: "weekly", priority: 0.95 },
+  { route: "/blog", changeFrequency: "weekly", priority: 0.92 },
   { route: "/que-es-aulafy", changeFrequency: "monthly", priority: 0.82 },
   { route: "/acerca", changeFrequency: "monthly", priority: 0.7 },
   { route: "/fuentes", changeFrequency: "monthly", priority: 0.68 },
@@ -85,6 +87,12 @@ const landingsSeo: SitemapEntry[] = seoLandings.map((landing) => ({
   priority: 0.88,
 }));
 
+const blog: SitemapEntry[] = blogPosts.map((post) => ({
+  route: `/blog/${post.slug}`,
+  changeFrequency: "weekly",
+  priority: 0.86,
+}));
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
@@ -104,6 +112,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...legales,
     ...descargables,
     ...landingsSeo,
+    ...blog,
     ...rutasCursos,
   ];
   const unicas = Array.from(new Map(rutas.map((entry) => [entry.route, entry])).values());
