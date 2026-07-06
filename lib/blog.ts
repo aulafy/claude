@@ -10,6 +10,7 @@ export type BlogPost = {
   readingTime: string;
   icon: IconName;
   image: string;
+  editorNote?: string;
   keywords: string[];
   intro: string;
   sections: Array<{
@@ -37,6 +38,8 @@ export const blogPosts: BlogPost[] = [
     readingTime: "12 min",
     icon: "network",
     image: "/blog/mcp-2026-07-28-migracion-guia-espanol.png",
+    editorNote:
+      "Actualizado el 6 de julio de 2026 con investigación de Grok CLI sobre señales recientes en X y revisión editorial de fuentes técnicas.",
     keywords: [
       "MCP 2026-07-28",
       "Model Context Protocol español",
@@ -130,6 +133,8 @@ export const blogPosts: BlogPost[] = [
     readingTime: "9 min",
     icon: "tools",
     image: "/blog/mejores-herramientas-ia-gratis-2026.png",
+    editorNote:
+      "Actualizado el 6 de julio de 2026 con Grok CLI: se añadieron límites reales, stack mínimo, privacidad local y riesgos de herramientas gratuitas.",
     keywords: ["mejores herramientas IA gratis 2026", "herramientas inteligencia artificial gratis", "IA gratis español"],
     intro:
       "La mejor herramienta de IA no es la que más ruido hace, sino la que resuelve tu tarea con menos fricción. Tras revisar señales de X, documentación y conversaciones recientes, la regla es clara: gratis casi siempre significa límites, colas, datos en la nube o mantenimiento local.",
@@ -189,6 +194,8 @@ export const blogPosts: BlogPost[] = [
     readingTime: "10 min",
     icon: "compare",
     image: "/blog/chatgpt-vs-claude-vs-gemini-vs-grok-2026.png",
+    editorNote:
+      "Actualizado el 6 de julio de 2026 con Grok CLI: la comparativa pasa de ranking genérico a decisión por tarea, coste, fuentes y verificación.",
     keywords: ["ChatGPT vs Claude vs Gemini vs Grok 2026", "mejor IA para programar", "comparativa modelos IA"],
     intro:
       "No hay un ganador universal. Grok confirma que la comparación útil en 2026 no es “qué modelo gana”, sino “qué tarea hago, con qué presupuesto, cuánta verificación necesito y qué datos estoy compartiendo”.",
@@ -242,6 +249,8 @@ export const blogPosts: BlogPost[] = [
     readingTime: "11 min",
     icon: "search",
     image: "/blog/como-usar-ia-para-seo-aeo-2026.png",
+    editorNote:
+      "Actualizado el 6 de julio de 2026 con Grok CLI: se refuerza AEO/GEO como extensión del SEO, no como truco mágico para asistentes.",
     keywords: ["IA para SEO 2026", "AEO", "aparecer en ChatGPT", "GEO generative engine optimization"],
     intro:
       "La IA puede acelerar investigación, briefs, FAQs, clusters y actualización de contenidos. También puede llenar tu web de texto correcto pero inútil. La diferencia está en fuentes, experiencia, estructura, revisión y datos propios.",
@@ -269,7 +278,7 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     table: {
-      headers: ["Elemento", "Para Google", "Para asistentes IA"],
+      headers: ["Elemento", "Para Google", "Para asistentes IA", "Cuidado"],
       rows: [
         ["Contenido original", "Mejora autoridad y utilidad", "Aumenta citabilidad", "Requiere experiencia real"],
         ["Tabla/checklist", "Featured snippets y escaneo rápido", "Comparación compacta reutilizable", "No rellenar por rellenar"],
@@ -300,6 +309,8 @@ export const blogPosts: BlogPost[] = [
     readingTime: "8 min",
     icon: "prompt",
     image: "/blog/mejores-prompts-chatgpt-claude-blogs.png",
+    editorNote:
+      "Actualizado el 6 de julio de 2026 con Grok CLI: los prompts se reorganizan por fases para evitar un único mega-prompt genérico.",
     keywords: ["prompts ChatGPT blogs", "prompts Claude español", "prompts para escribir artículos IA"],
     intro:
       "Un buen prompt para blogs no pide “escribe un artículo”. El patrón que más se repite en X y en guías serias es trabajar por fases: investigación, brief, estructura, borrador por bloques, edición dura, fact-checking, actualización y distribución.",
@@ -321,7 +332,7 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     table: {
-      headers: ["Fase", "Prompt corto", "Resultado"],
+      headers: ["Fase", "Prompt corto", "Resultado", "Cuidado"],
       rows: [
         ["Investigación", "Clasifica intención, preguntas reales y fuentes mínimas", "Mapa de intención", "Inventar volúmenes o tendencias"],
         ["Brief", "Define público, promesa, CTA, objeciones y límites", "Documento editorial", "Brief demasiado genérico"],
@@ -353,6 +364,8 @@ export const blogPosts: BlogPost[] = [
     readingTime: "12 min",
     icon: "briefcase",
     image: "/blog/ia-para-pymes-autonomos-casos-uso-2026.png",
+    editorNote:
+      "Actualizado el 6 de julio de 2026 con Grok CLI: se añaden señales de pymes españolas, RGPD, Verifactu y revisión humana.",
     keywords: ["IA para pymes 2026", "IA para autónomos", "casos de uso IA empresa", "automatización IA pymes"],
     intro:
       "La IA útil para una pyme no empieza con un agente autónomo gigante. Empieza quitando fricción a tareas repetidas: leer, ordenar, resumir, responder, revisar y preparar borradores. En España, además, hay que mirar RGPD, Verifactu, facturación electrónica y revisión humana.",
@@ -407,6 +420,8 @@ export const blogPosts: BlogPost[] = [
     readingTime: "10 min",
     icon: "chart",
     image: "/blog/tendencias-ia-2026-agentes-ia-local-rag.png",
+    editorNote:
+      "Actualizado el 6 de julio de 2026 con Grok CLI: se separan tendencias verificables de hype en agentes, IA local, RAG y evals.",
     keywords: ["tendencias IA 2026", "agentes IA 2026", "IA local 2026", "RAG 2026"],
     intro:
       "La tendencia importante no es “más IA en todo”. Es pasar de demos a sistemas medibles: agentes con permisos, IA local cuando importa la privacidad, RAG con citas, evals, gobernanza y automatizaciones con revisión humana.",

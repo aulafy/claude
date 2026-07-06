@@ -91,6 +91,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </div>
           <h1 className="font-display font-extrabold text-4xl text-white leading-tight">{post.title}</h1>
           <p className="mt-5 text-lg text-zinc-400 leading-relaxed">{post.intro}</p>
+          {post.editorNote && (
+            <div className="mt-6 rounded-xl border border-[#22d3ee]/25 bg-[#22d3ee]/10 px-4 py-3 text-sm text-[#a5f3fc] leading-relaxed">
+              {post.editorNote}
+            </div>
+          )}
           <div className="relative aspect-video rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-950 mt-8">
             <Image src={post.image} alt="" fill sizes="(min-width: 768px) 768px, 100vw" className="object-cover" priority />
           </div>
