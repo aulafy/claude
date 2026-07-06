@@ -168,6 +168,7 @@ Guía práctica para construir herramientas de IA que se ejecutan en el propio o
 - [Ollama no usa la GPU en Windows](https://www.aulafy.net/cursos/ia-local/ollama-gpu-windows): diagnóstico con nvidia-smi, logs, portátiles híbridos, Defender, Vulkan, AMD, WSL2 y Docker.
 - [Depurar y proteger](https://www.aulafy.net/cursos/ia-local/depurar)
 - [Hardware mínimo para IA local en 2026](https://www.aulafy.net/cursos/ia-local/hardware-minimo-2026)
+- [Ollama, vLLM, SGLang y MLX: qué usar](https://www.aulafy.net/cursos/ia-local/ollama-vllm-sglang-mlx)
 - [Windows/WSL2 vs Mac M4 para IA local](https://www.aulafy.net/cursos/ia-local/windows-wsl2-vs-mac-m4)
 - [Homelab IA con RTX 3090 usadas](https://www.aulafy.net/cursos/ia-local/homelab-rtx-3090)
 - [Cuantización y modelos para coding](https://www.aulafy.net/cursos/ia-local/cuantizacion-modelos-coding)
@@ -261,6 +262,7 @@ Curso para construir chatbots con documentos privados que sean útiles y auditab
 - [RAG útil: mucho más que chat con PDF](https://www.aulafy.net/cursos/rag-seguro/mapa-rag)
 - [Ingesta, limpieza y chunking](https://www.aulafy.net/cursos/rag-seguro/ingesta-chunking)
 - [Chunking avanzado para RAG privado](https://www.aulafy.net/cursos/rag-seguro/chunking-avanzado)
+- [GraphRAG local y memoria con grafos](https://www.aulafy.net/cursos/rag-seguro/graphrag-local)
 - [OCR y tablas en PDFs reales](https://www.aulafy.net/cursos/rag-seguro/ocr-tablas)
 - [Embeddings y bases vectoriales](https://www.aulafy.net/cursos/rag-seguro/embeddings-vector-db)
 - [Búsqueda híbrida y reranking](https://www.aulafy.net/cursos/rag-seguro/hybrid-reranking)
@@ -281,8 +283,22 @@ Curso práctico para aplicar IA en tareas reales de negocio con control humano: 
 - [RGPD básico para usar IA sin sustos](https://www.aulafy.net/cursos/ia-pymes/rgpd-basico)
 - [Emails: clasificar y crear borradores](https://www.aulafy.net/cursos/ia-pymes/emails)
 - [Facturas: extraer datos y revisar](https://www.aulafy.net/cursos/ia-pymes/facturas)
+- [Facturas, OCR y Verifactu con revisión humana](https://www.aulafy.net/cursos/ia-pymes/facturas-verifactu-ocr)
 - [Presupuestos, Excel y Sheets](https://www.aulafy.net/cursos/ia-pymes/presupuestos-excel)
 - [WhatsApp y Telegram con aprobación humana](https://www.aulafy.net/cursos/ia-pymes/whatsapp-atencion)
+- [AEO para pymes: aparecer en respuestas de IA](https://www.aulafy.net/cursos/ia-pymes/aeo-pymes)
+
+## Videojuegos, 3D y simulaciones con IA
+
+Curso práctico sobre Fable 5, Blender, Godot, Unity, Three.js, CAD, assets 3D, prototipos jugables y simulaciones con IA.
+
+- [Presentación del curso](https://www.aulafy.net/cursos/videojuegos-3d-ia)
+- [Fable 5 para videojuegos, 3D y simulaciones](https://www.aulafy.net/cursos/videojuegos-3d-ia/introduccion)
+- [Setup Blender, Godot y Fable 5](https://www.aulafy.net/cursos/videojuegos-3d-ia/setup-blender-godot)
+- [Assets 3D con IA: limpiar y exportar](https://www.aulafy.net/cursos/videojuegos-3d-ia/assets-3d-ia)
+- [NPC con LLM local y memoria en Godot](https://www.aulafy.net/cursos/videojuegos-3d-ia/npc-llm-local-godot)
+- [Primer prototipo 3D en Godot](https://www.aulafy.net/cursos/videojuegos-3d-ia/prototipo-godot)
+- [IA, CAD y validación profesional](https://www.aulafy.net/cursos/videojuegos-3d-ia/cad-validacion)
 
 ## Legal y privacidad
 

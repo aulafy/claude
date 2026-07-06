@@ -112,6 +112,7 @@ export const cursos: Curso[] = [
         title: "IA local avanzada",
         lecciones: [
           { slug: "hardware-minimo-2026", title: "Hardware mínimo para IA local en 2026" },
+          { slug: "ollama-vllm-sglang-mlx", title: "Ollama, vLLM, SGLang y MLX: qué usar" },
           { slug: "windows-wsl2-vs-mac-m4", title: "Windows/WSL2 vs Mac M4 para IA local" },
           { slug: "homelab-rtx-3090", title: "Homelab IA con RTX 3090 usadas" },
           { slug: "cuantizacion-modelos-coding", title: "Cuantización y modelos para coding" },
@@ -201,6 +202,7 @@ export const cursos: Curso[] = [
         title: "Assets y prototipo",
         lecciones: [
           { slug: "assets-3d-ia", title: "Assets 3D con IA: limpiar y exportar" },
+          { slug: "npc-llm-local-godot", title: "NPC con LLM local y memoria en Godot" },
           { slug: "prototipo-godot", title: "Primer prototipo 3D en Godot" },
         ],
       },
@@ -450,6 +452,7 @@ export const cursos: Curso[] = [
           { slug: "mapa-rag", title: "RAG útil: mucho más que chat con PDF" },
           { slug: "ingesta-chunking", title: "Ingesta, limpieza y chunking" },
           { slug: "chunking-avanzado", title: "Chunking avanzado para RAG privado" },
+          { slug: "graphrag-local", title: "GraphRAG local y memoria con grafos" },
           { slug: "ocr-tablas", title: "OCR y tablas en PDFs reales" },
         ],
       },
@@ -495,8 +498,10 @@ export const cursos: Curso[] = [
         lecciones: [
           { slug: "emails", title: "Emails: clasificar y crear borradores" },
           { slug: "facturas", title: "Facturas: extraer datos y revisar" },
+          { slug: "facturas-verifactu-ocr", title: "Facturas, OCR y Verifactu con revisión humana" },
           { slug: "presupuestos-excel", title: "Presupuestos, Excel y Sheets" },
           { slug: "whatsapp-atencion", title: "WhatsApp y Telegram con aprobación humana" },
+          { slug: "aeo-pymes", title: "AEO para pymes: aparecer en respuestas de IA" },
         ],
       },
     ],
