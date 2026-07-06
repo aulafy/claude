@@ -72,6 +72,13 @@ export default function BlogPage() {
             <div className="text-xs text-[#a78bfa] font-semibold mb-2">Destacado · {featured.category} · {featured.readingTime}</div>
             <h2 className="font-display font-bold text-2xl text-white group-hover:text-orange-300 transition-colors">{featured.title}</h2>
             <p className="mt-2 text-sm text-zinc-400 leading-relaxed">{featured.description}</p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {featured.sections.slice(0, 3).map((section) => (
+                <span key={section.title} className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs text-zinc-300">
+                  {section.title}
+                </span>
+              ))}
+            </div>
           </div>
           <span className="inline-flex items-center gap-2 text-sm font-medium text-[#22d3ee]">
             Leer guía <Icon name="chevronRight" />
@@ -92,6 +99,16 @@ export default function BlogPage() {
             <div className="text-xs text-zinc-500 mb-2">{post.category} · {post.readingTime}</div>
             <h2 className="font-display font-bold text-xl text-white group-hover:text-orange-300 transition-colors">{post.title}</h2>
             <p className="mt-3 text-sm text-zinc-400 leading-relaxed">{post.description}</p>
+            <div className="mt-4 space-y-2">
+              <div className="text-[11px] uppercase tracking-wide text-[#22d3ee]">Dentro</div>
+              <div className="flex flex-wrap gap-2">
+                {post.sections.slice(0, 3).map((section) => (
+                  <span key={section.title} className="rounded-full border border-zinc-700 bg-zinc-950/40 px-2.5 py-1 text-xs text-zinc-300">
+                    {section.title}
+                  </span>
+                ))}
+              </div>
+            </div>
           </Link>
         ))}
       </div>

@@ -123,7 +123,7 @@ export const blogPosts: BlogPost[] = [
     slug: "mejores-herramientas-ia-gratis-2026",
     title: "Mejores herramientas de IA gratis en 2026: guía práctica para empezar",
     description:
-      "Lista curada de herramientas de IA gratuitas o con plan gratis para escribir, programar, automatizar, crear imágenes, resumir documentos y trabajar con IA local.",
+      "Herramientas gratis separando plan gratuito, límites reales, privacidad, IA local, automatización y riesgos de depender de cuotas opacas.",
     date: "2026-07-06",
     updated: "2026-07-06",
     category: "Herramientas IA",
@@ -182,7 +182,7 @@ export const blogPosts: BlogPost[] = [
     slug: "chatgpt-vs-claude-vs-gemini-vs-grok-2026",
     title: "ChatGPT vs Claude vs Gemini vs Grok en 2026: cuál usar según tu tarea",
     description:
-      "Comparativa práctica de ChatGPT, Claude, Gemini y Grok para escribir, programar, investigar, analizar documentos, crear contenido y trabajar con datos recientes.",
+      "Comparativa por tarea, no por fanatismo: escritura, código, documentos, investigación reciente, señales de X, coste y verificación.",
     date: "2026-07-06",
     updated: "2026-07-06",
     category: "Comparativas",
@@ -235,7 +235,7 @@ export const blogPosts: BlogPost[] = [
     slug: "como-usar-ia-para-seo-aeo-2026",
     title: "Cómo usar IA para SEO y AEO en 2026 sin crear contenido basura",
     description:
-      "Guía práctica para usar IA en SEO, AEO y visibilidad en respuestas de ChatGPT, Perplexity, Grok y Google AI sin caer en contenido genérico.",
+      "Workflow para SEO, AEO y citabilidad en asistentes IA sin caer en contenido genérico: fuentes, estructura, FAQs, experiencia y revisión.",
     date: "2026-07-06",
     updated: "2026-07-06",
     category: "SEO y AEO",
@@ -293,7 +293,7 @@ export const blogPosts: BlogPost[] = [
     slug: "mejores-prompts-chatgpt-claude-blogs",
     title: "Mejores prompts para ChatGPT y Claude si escribes blogs en español",
     description:
-      "Prompts prácticos para investigar, estructurar, redactar, editar y actualizar artículos de blog en español con ChatGPT, Claude y modelos similares.",
+      "Sistema de prompts por fases para blogs: investigación, brief, estructura, redacción por secciones, edición dura, fact-checking y distribución.",
     date: "2026-07-06",
     updated: "2026-07-06",
     category: "Prompts",
@@ -346,7 +346,7 @@ export const blogPosts: BlogPost[] = [
     slug: "ia-para-pymes-autonomos-casos-uso-2026",
     title: "IA para pymes y autónomos: 25 casos de uso prácticos en 2026",
     description:
-      "Casos de uso reales de IA para autónomos y pymes: facturas, emails, WhatsApp, presupuestos, Excel, marketing, atención al cliente, RAG y automatización.",
+      "Casos de uso para pymes con criterio español: emails, facturas, WhatsApp, Excel, RAG privado, RGPD, Verifactu y revisión humana.",
     date: "2026-07-06",
     updated: "2026-07-06",
     category: "Pymes",
@@ -400,7 +400,7 @@ export const blogPosts: BlogPost[] = [
     slug: "tendencias-ia-2026-agentes-ia-local-rag",
     title: "Tendencias de IA en 2026: agentes, IA local, RAG, vídeo y automatización",
     description:
-      "Resumen práctico de las tendencias de IA más importantes en 2026 para aprender, trabajar y construir: agentes, IA local, RAG seguro, multimodalidad y pymes.",
+      "Tendencias útiles separadas del hype: agentes verificables, IA local realista, RAG con permisos, evals, gobernanza, vídeo y automatización.",
     date: "2026-07-06",
     updated: "2026-07-06",
     category: "Tendencias",
