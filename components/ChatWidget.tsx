@@ -51,7 +51,7 @@ function renderContent(text: string, onNavigate?: () => void) {
     if (part.startsWith("```") && part.endsWith("```")) {
       const inner = part.slice(3, -3).replace(/^[a-zA-Z]*\n/, "");
       return (
-        <pre key={i} className="my-2 rounded-md bg-zinc-950 border border-zinc-700 p-2.5 overflow-x-auto text-xs">
+        <pre key={i} className="my-2 aula-terminal p-2.5 overflow-x-auto text-xs">
           <code>{inner.trim()}</code>
         </pre>
       );
@@ -182,22 +182,22 @@ export default function ChatWidget() {
       <button
         onClick={() => setOpen((o) => !o)}
         aria-label="Abrir chat de ayuda de Aulafy"
-        className="fixed bottom-5 right-5 z-50 w-14 h-14 rounded-full bg-orange-500 hover:bg-orange-400 shadow-lg shadow-orange-500/30 flex items-center justify-center text-white text-2xl transition-transform hover:scale-105"
+        className="fixed bottom-5 right-5 z-50 w-14 h-14 rounded-lg border border-orange-300/35 bg-orange-500 hover:bg-orange-400 shadow-lg shadow-orange-500/25 flex items-center justify-center text-white text-2xl transition-transform hover:scale-105"
       >
         <Icon name={open ? "close" : "chat"} />
       </button>
 
       {/* Panel */}
       {open && (
-        <div className="fixed bottom-24 right-5 z-50 w-[calc(100vw-2.5rem)] max-w-[400px] h-[600px] max-h-[calc(100vh-8rem)] flex flex-col rounded-2xl border border-zinc-700 bg-zinc-900 shadow-2xl overflow-hidden">
+        <div className="fixed bottom-24 right-5 z-50 w-[calc(100vw-2.5rem)] max-w-[400px] h-[600px] max-h-[calc(100vh-8rem)] flex flex-col aula-frame bg-zinc-900 shadow-2xl">
           {/* Header */}
-          <div className="flex items-center gap-3 px-4 py-3 border-b border-zinc-800 bg-zinc-950">
-            <div className="w-8 h-8 rounded-full bg-orange-500 flex items-center justify-center text-white text-base">
+          <div className="flex items-center gap-3 px-4 py-3 border-b border-zinc-800 bg-zinc-950/80">
+            <div className="w-8 h-8 rounded-lg border border-orange-400/30 bg-orange-500/20 flex items-center justify-center text-orange-200 text-base">
               <Icon name="robot" />
             </div>
             <div className="flex-1 min-w-0">
               <div className="text-sm font-semibold text-white leading-tight">Asistente Aulafy</div>
-              <div className="text-xs text-emerald-400 flex items-center gap-1">
+              <div className="aula-meta text-emerald-400 flex items-center gap-1">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block" /> En línea
               </div>
             </div>
@@ -210,10 +210,10 @@ export default function ChatWidget() {
           <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-4 space-y-3">
             {/* Bienvenida */}
             <div className="flex gap-2">
-              <div className="w-7 h-7 rounded-full bg-zinc-800 flex items-center justify-center text-sm flex-shrink-0">
+              <div className="w-7 h-7 rounded-lg border border-zinc-700 bg-zinc-800 flex items-center justify-center text-sm flex-shrink-0">
                 <Icon name="robot" />
               </div>
-              <div className="rounded-2xl rounded-tl-sm bg-zinc-800 px-3.5 py-2.5 text-sm text-zinc-300 leading-relaxed max-w-[85%]">
+              <div className="aula-panel px-3.5 py-2.5 text-sm text-zinc-300 leading-relaxed max-w-[85%]">
                 {renderContent(WELCOME)}
               </div>
             </div>
@@ -221,16 +221,16 @@ export default function ChatWidget() {
             {messages.map((m, i) =>
               m.role === "user" ? (
                 <div key={i} className="flex justify-end">
-                  <div className="rounded-2xl rounded-tr-sm bg-orange-500 px-3.5 py-2.5 text-sm text-white leading-relaxed max-w-[85%] whitespace-pre-wrap">
+                  <div className="rounded-lg border border-orange-300/25 bg-orange-500 px-3.5 py-2.5 text-sm text-white leading-relaxed max-w-[85%] whitespace-pre-wrap">
                     {m.content}
                   </div>
                 </div>
               ) : (
                 <div key={i} className="flex gap-2">
-                  <div className="w-7 h-7 rounded-full bg-zinc-800 flex items-center justify-center text-sm flex-shrink-0">
+                  <div className="w-7 h-7 rounded-lg border border-zinc-700 bg-zinc-800 flex items-center justify-center text-sm flex-shrink-0">
                     <Icon name="robot" />
                   </div>
-                  <div className="rounded-2xl rounded-tl-sm bg-zinc-800 px-3.5 py-2.5 text-sm text-zinc-300 leading-relaxed max-w-[85%]">
+                  <div className="aula-panel px-3.5 py-2.5 text-sm text-zinc-300 leading-relaxed max-w-[85%]">
                     {m.content ? (
                       renderContent(m.content, () => setOpen(false))
                     ) : (
@@ -253,7 +253,7 @@ export default function ChatWidget() {
                   <button
                     key={s}
                     onClick={() => send(s)}
-                    className="block w-full text-left text-sm px-3 py-2 rounded-lg border border-zinc-700 text-zinc-300 hover:border-orange-500/50 hover:bg-zinc-800/50 transition-colors"
+                    className="aula-panel block w-full text-left text-sm px-3 py-2 text-zinc-300 hover:border-orange-500/50 hover:bg-zinc-800/50 transition-colors"
                   >
                     {s}
                   </button>
@@ -284,12 +284,12 @@ export default function ChatWidget() {
                 }}
                 rows={1}
                 placeholder="Escribe tu pregunta..."
-                className="flex-1 resize-none max-h-28 rounded-xl bg-zinc-800 border border-zinc-700 px-3 py-2.5 text-sm text-zinc-100 placeholder-zinc-500 focus:outline-none focus:border-orange-500/50"
+                className="flex-1 resize-none max-h-28 rounded-lg bg-zinc-800 border border-zinc-700 px-3 py-2.5 text-sm text-zinc-100 placeholder-zinc-500 focus:outline-none focus:border-orange-500/50"
               />
               <button
                 type="submit"
                 disabled={loading || !input.trim()}
-                className="flex-shrink-0 w-10 h-10 rounded-xl bg-orange-500 hover:bg-orange-400 disabled:opacity-40 disabled:cursor-not-allowed text-white flex items-center justify-center transition-colors"
+                className="flex-shrink-0 w-10 h-10 rounded-lg bg-orange-500 hover:bg-orange-400 disabled:opacity-40 disabled:cursor-not-allowed text-white flex items-center justify-center transition-colors"
                 aria-label="Enviar"
               >
                 <Icon name="paperPlane" />

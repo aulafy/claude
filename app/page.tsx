@@ -106,7 +106,7 @@ const ventajas = [
 export default function Home() {
   const year = new Date().getFullYear();
   return (
-    <div className="relative bg-[#0a0a12] text-zinc-200 min-h-screen overflow-hidden">
+    <div className="aula-shell relative bg-[#0a0a12] text-zinc-200 min-h-screen overflow-hidden">
       <div className="fixed inset-0 -z-10 aurora" />
 
       {/* Nav */}
@@ -124,7 +124,7 @@ export default function Home() {
           </nav>
           <div className="flex items-center gap-2">
             <ThemeToggle compact />
-            <a href="#cursos" className="inline-flex items-center gap-2 text-sm font-medium text-white px-4 py-2 rounded-lg bg-gradient-to-r from-[#8b5cf6] to-[#e879f9] hover:opacity-90 transition-opacity">
+            <a href="#cursos" className="aula-button aula-button-primary text-sm px-3 py-2">
               <Icon name="book" />
               Ver cursos
             </a>
@@ -134,7 +134,7 @@ export default function Home() {
 
       {/* Hero */}
       <section className="max-w-6xl mx-auto px-6 pt-20 pb-16 text-center">
-        <div className="inline-flex items-center gap-2 text-xs font-medium text-[#a78bfa] bg-[#8b5cf6]/10 border border-[#8b5cf6]/20 rounded-full px-3 py-1 mb-6">
+        <div className="aula-chip mb-6" data-tone="cyan">
           <span className="w-1.5 h-1.5 rounded-full bg-[#22d3ee] animate-pulse" />
           Cursos de IA open source en español · Gratis y prácticos
         </div>
@@ -145,11 +145,11 @@ export default function Home() {
           De cero a crear tus propias herramientas de inteligencia artificial. Tutoriales de IA local, RAG, prompts y automatización, con proyectos reales y muchos ejecutándose en <strong className="text-zinc-200">tu propio ordenador</strong>.
         </p>
         <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
-          <a href="#cursos" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium text-white bg-gradient-to-r from-[#8b5cf6] to-[#e879f9] hover:opacity-90 transition-opacity glow">
+          <a href="#cursos" className="aula-button aula-button-primary glow">
             <Icon name="book" />
             Ver los cursos
           </a>
-          <a href="#curso-claude" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium text-zinc-200 glass hover:border-white/20 transition-colors">
+          <a href="#curso-claude" className="aula-button aula-button-secondary">
             <Icon name="terminal" />
             Empezar con Claude Code
           </a>
@@ -166,8 +166,8 @@ export default function Home() {
 
       {/* Libro PDF */}
       <section id="libro" className="max-w-5xl mx-auto px-6 py-8">
-        <div className="rounded-2xl border border-[#8b5cf6]/30 bg-gradient-to-br from-[#8b5cf6]/10 to-[#22d3ee]/5 p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-6">
-          <div className="flex-shrink-0 w-16 h-20 rounded-lg bg-gradient-to-br from-[#8b5cf6] to-[#22d3ee] flex items-center justify-center text-white text-3xl shadow-lg" aria-hidden="true">
+        <div className="aula-frame p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-6">
+          <div className="aula-icon flex-shrink-0 text-orange-300 text-3xl" aria-hidden="true">
             <Icon name="filePdf" />
           </div>
           <div className="flex-1 text-center sm:text-left">
@@ -178,7 +178,7 @@ export default function Home() {
           </div>
           <a
             href="/aulafy-guia-completa.pdf"
-            className="flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium text-white bg-gradient-to-r from-[#8b5cf6] to-[#e879f9] hover:opacity-90 transition-opacity"
+            className="aula-button aula-button-primary flex-shrink-0"
           >
             <Icon name="download" /> Descargar el libro (PDF)
           </a>
@@ -196,7 +196,7 @@ export default function Home() {
             <Link
               key={ruta.title}
               href={ruta.href}
-              className="glass rounded-2xl p-6 card-hover block"
+              className="aula-capsule p-6 block"
             >
               <h3 className="font-display font-semibold text-lg text-white">{ruta.title}</h3>
               <p className="mt-2 text-sm text-zinc-400 leading-relaxed">{ruta.desc}</p>
@@ -217,12 +217,12 @@ export default function Home() {
         <div className="mb-8 text-center">
           <h2 className="font-display font-bold text-3xl text-white">Método Aulafy</h2>
           <p className="mt-3 text-zinc-400">
-            Inspirado en las cápsulas de HubLab y en la disciplina de experimentos reproducibles de Sacred.
+            Lecciones pequeñas, práctica comprobable y resultados que puedes reutilizar.
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-5">
           {metodo.map((item) => (
-            <div key={item.title} className="glass rounded-2xl p-6">
+            <div key={item.title} className="aula-panel p-6">
               <Icon name={item.icon} className="text-2xl text-[#22d3ee] mb-4" />
               <h3 className="font-display font-semibold text-lg text-white">{item.title}</h3>
               <p className="mt-2 text-sm text-zinc-400 leading-relaxed">{item.desc}</p>
@@ -239,25 +239,25 @@ export default function Home() {
         </div>
 
         {/* Destacado */}
-        <div id="curso-claude" className="glass rounded-2xl p-6 sm:p-8 mb-8 relative overflow-hidden card-hover">
-          <div className="absolute top-5 right-5 text-xs font-semibold text-[#0a0a12] bg-gradient-to-r from-[#22d3ee] to-[#8b5cf6] px-3 py-1 rounded-full">MÁS POPULAR</div>
+        <div id="curso-claude" className="aula-frame p-6 sm:p-8 mb-8">
+          <div className="absolute top-5 right-5 aula-chip" data-tone="cyan">Más popular</div>
           <div className="grid min-w-0 md:grid-cols-[1fr_auto] gap-6 items-center">
             <div className="min-w-0">
               <Icon name="advanced" className="text-4xl mb-3 text-[#22d3ee]" />
               <h3 className="font-display font-bold text-2xl text-white">Claude Code, de 0 a pro</h3>
               <p className="mt-3 text-zinc-400 max-w-xl leading-relaxed">Aprende a construir software y aplicaciones hablando con la IA en tu terminal. Desde la instalación hasta skills, subagentes, MCP y flujos profesionales. Incluye el módulo <strong className="text-zinc-200">Claude Code + IA Local</strong>: apps que corren en tu ordenador.</p>
               <div className="mt-5 flex flex-wrap gap-2 text-xs">
-                <span className="px-2.5 py-1 rounded-md bg-white/5 text-zinc-300">Nivel: de principiante a avanzado</span>
-                <span className="px-2.5 py-1 rounded-md bg-white/5 text-zinc-300">Proyectos reales</span>
-                <span className="px-2.5 py-1 rounded-md bg-white/5 text-zinc-300">Guía + PDF</span>
+                <span className="aula-chip">Nivel: de principiante a avanzado</span>
+                <span className="aula-chip" data-tone="green">Proyectos reales</span>
+                <span className="aula-chip" data-tone="amber">Guía + PDF</span>
               </div>
             </div>
             <div className="flex flex-col sm:flex-row md:flex-col gap-3 md:w-48">
-              <Link href="/cursos/claude-code" className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-medium text-white bg-gradient-to-r from-[#8b5cf6] to-[#e879f9] hover:opacity-90 transition-opacity">
+              <Link href="/cursos/claude-code" className="aula-button aula-button-primary">
                 <Icon name="book" />
                 Ver el curso
               </Link>
-              <a href="/guia-claude-code-vol2.pdf" className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-medium text-zinc-200 glass hover:border-white/20 transition-colors">
+              <a href="/guia-claude-code-vol2.pdf" className="aula-button aula-button-secondary">
                 <Icon name="filePdf" />
                 Descargar PDF
               </a>
@@ -268,7 +268,7 @@ export default function Home() {
         {/* Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {cursosPortada.map((c) => (
-            <Link key={c.slug} href={`/cursos/${c.slug}`} className="glass rounded-2xl p-6 card-hover block">
+            <Link key={c.slug} href={`/cursos/${c.slug}`} className="aula-capsule p-6 block">
               <Icon name={c.icon as IconName} className="text-3xl mb-3 text-[#22d3ee]" />
               <h3 className="font-display font-semibold text-lg text-white">{c.title}</h3>
               <p className="mt-2 text-sm text-zinc-400 leading-relaxed">{c.desc}</p>
@@ -283,9 +283,9 @@ export default function Home() {
 
       {/* Por qué */}
       <section id="blog" className="max-w-6xl mx-auto px-6 py-16">
-        <div className="rounded-2xl border border-zinc-800 bg-zinc-900/30 p-8 flex flex-col md:flex-row md:items-center gap-6">
+        <div className="aula-frame p-8 flex flex-col md:flex-row md:items-center gap-6">
           <div className="flex-1">
-            <div className="inline-flex items-center gap-2 text-xs font-medium text-[#22d3ee] bg-[#22d3ee]/10 border border-[#22d3ee]/20 rounded-full px-3 py-1 mb-4">
+            <div className="aula-chip mb-4" data-tone="cyan">
               <Icon name="search" />
               Nuevo blog SEO/AEO
             </div>
@@ -294,7 +294,7 @@ export default function Home() {
               Comparativas, mejores herramientas, prompts, IA para SEO, AEO, pymes y tendencias. Artículos pensados para Google y para asistentes como ChatGPT, Grok, Claude y Perplexity.
             </p>
           </div>
-          <Link href="/blog" className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-medium text-white bg-gradient-to-r from-[#8b5cf6] to-[#e879f9] hover:opacity-90 transition-opacity">
+          <Link href="/blog" className="aula-button aula-button-primary">
             <Icon name="book" />
             Leer el blog
           </Link>
@@ -329,8 +329,8 @@ export default function Home() {
             { n: "2", c: "#e879f9", t: "Construye paso a paso", d: "Te llevamos de la mano: entender, construir y ejecutar." },
             { n: "3", c: "#22d3ee", t: "Aplícalo a lo tuyo", d: "Lleva lo aprendido a tu trabajo, tus estudios o tu negocio." },
           ].map((s) => (
-            <div key={s.n} className="glass rounded-2xl p-7 text-center">
-              <div className="w-10 h-10 mx-auto rounded-full flex items-center justify-center font-display font-bold mb-4" style={{ background: `${s.c}22`, border: `1px solid ${s.c}66`, color: s.c }}>{s.n}</div>
+            <div key={s.n} className="aula-panel p-7 text-center">
+              <div className="w-10 h-10 mx-auto rounded-lg flex items-center justify-center font-display font-bold mb-4" style={{ background: `${s.c}22`, border: `1px solid ${s.c}66`, color: s.c }}>{s.n}</div>
               <h3 className="font-display font-semibold text-white mb-2">{s.t}</h3>
               <p className="text-sm text-zinc-400 leading-relaxed">{s.d}</p>
             </div>
@@ -340,19 +340,19 @@ export default function Home() {
 
       {/* Gratis y open source */}
       <section id="opensource" className="max-w-4xl mx-auto px-6 py-20">
-        <div className="glass rounded-3xl p-10 sm:p-14 text-center">
-          <div className="inline-flex items-center gap-2 text-xs font-medium text-[#22d3ee] bg-[#22d3ee]/10 border border-[#22d3ee]/20 rounded-full px-3 py-1 mb-6">
+        <div className="aula-frame p-10 sm:p-14 text-center">
+          <div className="aula-chip mb-6" data-tone="green">
             <Icon name="star" />
             100% gratis · Código abierto
           </div>
           <h2 className="font-display font-bold text-3xl sm:text-4xl text-white">Gratis y de código abierto. Siempre.</h2>
           <p className="mt-4 text-zinc-400 leading-relaxed max-w-2xl mx-auto">Todos los cursos de Aulafy son <strong className="text-zinc-200">gratuitos para siempre</strong> y su contenido es <strong className="text-zinc-200">abierto</strong>. Sin muros de pago, sin cuotas y sin registro. Aprende, compártelo con quien quieras y empieza hoy mismo.</p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <a href="#cursos" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium text-white bg-gradient-to-r from-[#8b5cf6] to-[#e879f9] hover:opacity-90 transition-opacity">
+            <a href="#cursos" className="aula-button aula-button-primary">
               <Icon name="book" />
               Ver los cursos
             </a>
-            <Link href="/cursos/claude-code" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium text-zinc-200 glass hover:border-white/20 transition-colors">
+            <Link href="/cursos/claude-code" className="aula-button aula-button-secondary">
               <Icon name="terminal" />
               Empezar con Claude Code
             </Link>

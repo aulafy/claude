@@ -141,10 +141,10 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-6 py-14">
+    <div className="aula-shell max-w-5xl mx-auto px-6 py-14">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <div className="mb-2 text-xs text-zinc-600">
+      <div className="mb-4 aula-meta">
         <Link href="/" className="hover:text-zinc-400">Inicio</Link>
         <span className="mx-2">/</span>
         <Link href="/cursos" className="hover:text-zinc-400">Cursos</Link>
@@ -154,43 +154,70 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
 
       {/* Cabecera del curso */}
       <div
-        className="rounded-2xl p-8 sm:p-10 mb-10 relative overflow-hidden"
+        className="aula-frame p-8 sm:p-10 mb-10"
         style={{ background: `linear-gradient(120deg, ${curso.gradient[0]}22, ${curso.gradient[1]}22)` }}
       >
-        <div className="absolute inset-0 border border-zinc-800 rounded-2xl pointer-events-none" />
-        <div
-          className="w-14 h-14 rounded-2xl flex items-center justify-center text-white text-2xl mb-5"
-          style={{ background: `linear-gradient(120deg, ${curso.gradient[0]}, ${curso.gradient[1]})` }}
-        >
-          <Icon name={curso.icon as IconName} />
-        </div>
-        <h1 className="font-display font-extrabold text-3xl sm:text-4xl text-white">{curso.title}</h1>
-        <p className="mt-4 text-lg text-zinc-400 leading-relaxed max-w-2xl">{curso.desc}</p>
-
-        <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-zinc-400">
-          <span className="inline-flex items-center gap-1.5"><Icon name="chart" /> {curso.level}</span>
-          <span className="inline-flex items-center gap-1.5"><Icon name="book" /> {total} lecciones</span>
-          <span className="inline-flex items-center gap-1.5 text-[#22d3ee]"><Icon name="star" /> Gratis y open source</span>
-        </div>
-
-        <div className="mt-7 flex flex-wrap gap-4">
-          <ContinuarCurso cursoSlug={curso.slug} />
-          {curso.pdf && (
-            <a
-              href={curso.pdf}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium text-zinc-200 border border-zinc-700 hover:border-zinc-500 transition-colors"
+        <div className="flex flex-col lg:flex-row lg:items-start gap-8">
+          <div className="flex-1 min-w-0">
+            <span className="aula-section-label">
+              <Icon name="capsule" /> cápsula/{curso.slug}
+            </span>
+            <div
+              className="aula-course-art mt-5 mb-6 w-16 h-16 rounded-lg flex items-center justify-center text-white text-2xl"
+              style={{ background: `linear-gradient(120deg, ${curso.gradient[0]}, ${curso.gradient[1]})` }}
             >
-              <Icon name="pdf" /> Descargar en PDF
-            </a>
-          )}
+              <Icon name={curso.icon as IconName} />
+            </div>
+            <h1 className="font-display font-extrabold text-3xl sm:text-5xl text-white">{curso.title}</h1>
+            <p className="mt-4 lesson-lead max-w-3xl">{curso.desc}</p>
+
+            <div className="mt-5 flex flex-wrap items-center gap-2">
+              <span className="aula-chip"><Icon name="chart" /> {curso.level}</span>
+              <span className="aula-chip" data-tone="cyan"><Icon name="book" /> {total} lecciones</span>
+              <span className="aula-chip" data-tone="green"><Icon name="star" /> Gratis y open source</span>
+            </div>
+
+            <div className="mt-7 flex flex-wrap gap-3">
+              <ContinuarCurso cursoSlug={curso.slug} />
+              {curso.pdf && (
+                <a
+                  href={curso.pdf}
+                  className="aula-button aula-button-secondary"
+                >
+                  <Icon name="pdf" /> Descargar en PDF
+                </a>
+              )}
+            </div>
+            <p className="mt-4 aula-meta text-zinc-600">
+              Sin registro. Tu progreso se guarda únicamente en tu navegador.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 gap-3 lg:w-64">
+            <div className="aula-panel p-4">
+              <div className="aula-meta text-zinc-500">módulos</div>
+              <div className="font-display text-3xl font-bold text-white mt-1">{curso.secciones.length}</div>
+            </div>
+            <div className="aula-panel p-4">
+              <div className="aula-meta text-zinc-500">lecciones</div>
+              <div className="font-display text-3xl font-bold text-white mt-1">{total}</div>
+            </div>
+            <div className="aula-panel p-4 col-span-2">
+              <div className="aula-meta text-zinc-500">estado</div>
+              <div className="font-display text-xl font-bold text-white mt-1">abierto</div>
+            </div>
+          </div>
         </div>
-        <p className="mt-4 text-xs text-zinc-600">
-          Sin registro. Tu progreso se guarda únicamente en tu navegador.
-        </p>
       </div>
 
       {/* Temario */}
-      <h2 className="font-display font-bold text-2xl text-white mb-6">Temario</h2>
+      <div className="flex items-end justify-between gap-4 mb-6">
+        <div>
+          <span className="aula-section-label"><Icon name="route" /> Itinerario</span>
+          <h2 className="font-display font-bold text-2xl text-white mt-2">Temario</h2>
+        </div>
+        <span className="aula-chip" data-tone="cyan">{total} pasos</span>
+      </div>
       {curso.secciones.map((seccion, seccionIndex) => {
         const start = curso.secciones
           .slice(0, seccionIndex)
@@ -198,22 +225,28 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
 
         return (
           <div key={seccion.title} className="mb-8">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-zinc-500 mb-3">
-              {seccion.title}
-            </h3>
-            <ol className="rounded-xl border border-zinc-800 divide-y divide-zinc-800/70 overflow-hidden">
+            <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
+              <h3 className="aula-section-label">
+                módulo {String(seccionIndex + 1).padStart(2, "0")} / {seccion.title}
+              </h3>
+              <span className="aula-chip">{seccion.lecciones.length} lecciones</span>
+            </div>
+            <ol className="grid gap-2">
               {seccion.lecciones.map((l, leccionIndex) => {
                 const n = start + leccionIndex + 1;
                 return (
                 <li key={l.slug}>
                   <Link
                     href={`/cursos/${curso.slug}/${l.slug}`}
-                    className="flex items-center gap-4 px-5 py-3.5 bg-zinc-900/30 hover:bg-zinc-800/50 transition-colors group"
+                    className="aula-capsule flex items-center gap-4 px-4 py-3.5 group"
                   >
-                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-orange-500/10 border border-orange-500/25 text-orange-400 flex items-center justify-center text-xs font-semibold">
+                    <span className="flex-shrink-0 w-9 h-9 rounded-md bg-orange-500/10 border border-orange-500/25 text-orange-400 flex items-center justify-center text-xs font-semibold font-[family-name:var(--font-code)]">
                       {n}
                     </span>
-                    <span className="text-sm text-zinc-300 group-hover:text-white transition-colors">{l.title}</span>
+                    <span className="min-w-0">
+                      <span className="block text-sm text-zinc-300 group-hover:text-white transition-colors">{l.title}</span>
+                      <span className="aula-meta mt-0.5 block text-zinc-600">/{curso.slug}/{l.slug}</span>
+                    </span>
                     <span className="ml-auto text-zinc-600 group-hover:text-orange-400 transition-colors">
                       <Icon name="chevronRight" />
                     </span>
@@ -228,8 +261,8 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
 
       {/* Otros cursos */}
       <div className="mt-12 pt-8 border-t border-zinc-800">
-        <Link href="/cursos" className="text-sm text-orange-400 hover:text-orange-300">
-          ← Ver todos los cursos
+        <Link href="/cursos" className="aula-button aula-button-secondary">
+          <Icon name="grid" /> Ver todos los cursos
         </Link>
       </div>
     </div>

@@ -95,11 +95,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   };
 
   return (
-    <main className="max-w-3xl mx-auto px-6 py-14">
+    <main className="aula-shell max-w-4xl mx-auto px-6 py-14">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
 
-      <div className="mb-2 text-xs text-zinc-600">
+      <div className="mb-4 aula-meta">
         <Link href="/" className="hover:text-zinc-400">Inicio</Link>
         <span className="mx-2">/</span>
         <Link href="/blog" className="hover:text-zinc-400">Blog</Link>
@@ -108,19 +108,19 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       </div>
 
       <article>
-        <header className="mb-10">
-          <div className="inline-flex items-center gap-2 text-xs font-medium text-[#22d3ee] bg-[#22d3ee]/10 border border-[#22d3ee]/20 rounded-full px-3 py-1 mb-5">
+        <header className="aula-frame p-6 sm:p-8 mb-10">
+          <div className="aula-chip mb-5" data-tone="cyan">
             <Icon name={post.icon} />
             {post.category} · Actualizado {new Intl.DateTimeFormat("es-ES", { dateStyle: "long" }).format(new Date(post.updated))} · {post.readingTime}
           </div>
-          <h1 className="font-display font-extrabold text-4xl text-white leading-tight">{post.title}</h1>
-          <p className="mt-5 text-lg text-zinc-400 leading-relaxed">{post.intro}</p>
+          <h1 className="font-display font-extrabold text-4xl sm:text-5xl text-white leading-tight">{post.title}</h1>
+          <p className="mt-5 lesson-lead">{post.intro}</p>
           {post.editorNote && (
-            <div className="mt-6 rounded-xl border border-[#22d3ee]/25 bg-[#22d3ee]/10 px-4 py-3 text-sm text-[#a5f3fc] leading-relaxed">
+            <div className="mt-6 aula-panel border-[#22d3ee]/25 px-4 py-3 text-sm text-[#a5f3fc] leading-relaxed">
               {post.editorNote}
             </div>
           )}
-          <div className="relative aspect-video rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-950 mt-8">
+          <div className="relative aspect-video rounded-lg overflow-hidden border border-zinc-800 bg-zinc-950 mt-8">
             <Image src={post.image} alt={post.title} fill sizes="(min-width: 768px) 768px, 100vw" className="object-cover" priority />
           </div>
         </header>
@@ -175,7 +175,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           <h2 className="font-display font-bold text-2xl text-white mb-5">Sigue aprendiendo</h2>
           <div className="grid gap-4">
             {post.related.map((item) => (
-              <Link key={item.href} href={item.href} className="rounded-xl border border-zinc-800 bg-zinc-900/30 p-4 hover:border-zinc-600 transition-colors">
+              <Link key={item.href} href={item.href} className="aula-capsule block p-4">
                 <div className="font-semibold text-white">{item.title}</div>
                 <p className="mt-1 text-sm text-zinc-400">{item.desc}</p>
               </Link>

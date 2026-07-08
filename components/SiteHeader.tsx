@@ -25,16 +25,19 @@ function BrandIcon({ id, className }: { id: string; className?: string }) {
 
 export default function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/82 backdrop-blur-xl">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2.5" aria-label="Aulafy — inicio">
           <BrandIcon id="lg-site" className="w-8 h-8" />
-          <span className="font-display font-bold text-white text-lg">Aulafy</span>
+          <span className="flex flex-col leading-none">
+            <span className="font-display font-bold text-white text-lg">Aulafy</span>
+            <span className="hidden sm:block aula-meta text-[10px] text-zinc-500">open-source learning</span>
+          </span>
         </Link>
         <div className="flex items-center gap-2">
           <Link
             href="/blog"
-            className="hidden sm:inline-flex items-center gap-2 text-sm font-medium text-zinc-300 px-4 py-2 rounded-lg border border-zinc-800 hover:border-zinc-600 hover:text-white transition-colors"
+            className="hidden sm:inline-flex aula-button aula-button-secondary min-h-9 px-3 py-2 text-sm"
           >
             <Icon name="search" />
             Blog
@@ -42,7 +45,7 @@ export default function SiteHeader() {
           <ThemeToggle compact />
           <Link
             href="/cursos"
-            className="inline-flex items-center gap-2 text-sm font-medium text-white px-4 py-2 rounded-lg bg-gradient-to-r from-[#8b5cf6] to-[#e879f9] hover:opacity-90 transition-opacity"
+            className="aula-button aula-button-primary min-h-9 px-3 py-2 text-sm"
           >
             <Icon name="book" />
             Cursos

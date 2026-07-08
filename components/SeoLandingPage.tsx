@@ -8,8 +8,8 @@ type Props = {
 
 export default function SeoLandingPage({ landing }: Props) {
   return (
-    <div className="max-w-5xl mx-auto px-6 py-14">
-      <div className="mb-2 text-xs text-zinc-600">
+    <div className="aula-shell max-w-5xl mx-auto px-6 py-14">
+      <div className="mb-4 aula-meta">
         <Link href="/" className="hover:text-zinc-400">Inicio</Link>
         <span className="mx-2">/</span>
         <Link href="/cursos" className="hover:text-zinc-400">Cursos</Link>
@@ -17,31 +17,31 @@ export default function SeoLandingPage({ landing }: Props) {
         <span className="text-zinc-400">{landing.title}</span>
       </div>
 
-      <section className="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8 sm:p-10">
-        <div className="inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-zinc-950/50 px-3 py-1 text-xs text-zinc-500">
+      <section className="aula-frame p-8 sm:p-10">
+        <div className="aula-chip">
           <Icon name="calendar" />
           Actualizado: julio de 2026
         </div>
-        <div className="mt-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-orange-500/10 text-orange-300 text-xl border border-orange-500/20">
+        <div className="aula-icon mt-5 text-orange-300 text-xl">
           <Icon name={landing.icon} />
         </div>
         <h1 className="mt-6 font-display font-extrabold text-3xl sm:text-5xl leading-tight text-white">
           {landing.h1}
         </h1>
-        <p className="mt-5 text-lg text-zinc-400 leading-relaxed max-w-3xl">
+        <p className="mt-5 lesson-lead max-w-3xl">
           {landing.description}
         </p>
         <div className="mt-7 flex flex-wrap gap-3">
           <Link
             href={landing.primaryHref}
-            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#8b5cf6] to-[#e879f9] px-5 py-3 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
+            className="aula-button aula-button-primary text-sm"
           >
             <Icon name="book" />
             {landing.primaryLabel}
           </Link>
           <Link
             href="/cursos"
-            className="inline-flex items-center gap-2 rounded-xl border border-zinc-700 px-5 py-3 text-sm font-semibold text-zinc-200 hover:border-zinc-500 transition-colors"
+            className="aula-button aula-button-secondary text-sm"
           >
             <Icon name="grid" />
             Ver todos los cursos
@@ -49,7 +49,7 @@ export default function SeoLandingPage({ landing }: Props) {
         </div>
       </section>
 
-      <section className="mt-6 rounded-2xl border border-[#22d3ee]/20 bg-[#22d3ee]/5 p-6">
+      <section className="mt-6 aula-panel p-6 border-[#22d3ee]/25">
         <h2 className="font-display font-bold text-lg text-white flex items-center gap-2">
           <Icon name="quote" />
           Respuesta corta para citar
@@ -80,7 +80,7 @@ export default function SeoLandingPage({ landing }: Props) {
         </div>
 
         <aside className="space-y-5">
-          <div className="rounded-2xl border border-zinc-800 bg-zinc-900/35 p-6">
+          <div className="aula-panel p-6">
             <h2 className="font-display font-bold text-lg text-white">Ejemplos prácticos</h2>
             <ul className="mt-4 space-y-3">
               {landing.examples.map((example) => (
@@ -92,14 +92,14 @@ export default function SeoLandingPage({ landing }: Props) {
             </ul>
           </div>
 
-          <div className="rounded-2xl border border-zinc-800 bg-zinc-900/35 p-6">
+          <div className="aula-panel p-6">
             <h2 className="font-display font-bold text-lg text-white">Lecciones relacionadas</h2>
             <div className="mt-4 space-y-3">
               {landing.related.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="block rounded-xl border border-zinc-800 bg-zinc-950/40 p-4 hover:border-zinc-600 transition-colors"
+                  className="aula-capsule block p-4"
                 >
                   <span className="text-sm font-semibold text-zinc-100">{item.title}</span>
                   <span className="mt-1 block text-xs text-zinc-500 leading-relaxed">{item.desc}</span>
@@ -114,7 +114,7 @@ export default function SeoLandingPage({ landing }: Props) {
         <h2 className="font-display font-bold text-2xl text-white mb-5">Preguntas frecuentes</h2>
         <div className="grid md:grid-cols-3 gap-4">
           {landing.faqs.map((faq) => (
-            <div key={faq.q} className="rounded-2xl border border-zinc-800 bg-zinc-900/30 p-5">
+            <div key={faq.q} className="aula-panel p-5">
               <h3 className="font-semibold text-zinc-100">{faq.q}</h3>
               <p className="mt-2 text-sm text-zinc-400 leading-relaxed">{faq.a}</p>
             </div>

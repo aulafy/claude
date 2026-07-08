@@ -51,12 +51,12 @@ const cols = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-zinc-800 bg-zinc-950/50 mt-12">
-      <div className="max-w-4xl mx-auto px-8 py-12">
+    <footer className="border-t border-zinc-800 bg-zinc-950/62 mt-12">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 py-12">
         <div className="grid grid-cols-2 sm:grid-cols-5 gap-8 mb-10">
           {cols.map((col) => (
             <div key={col.title}>
-              <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-3">
+              <p className="aula-section-label mb-3">
                 {col.title}
               </p>
               <ul className="space-y-2">
@@ -77,10 +77,10 @@ export default function Footer() {
 
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-6 border-t border-zinc-800">
           <div className="flex items-center gap-2.5">
-            <div className="w-6 h-6 rounded bg-orange-500 flex items-center justify-center text-white font-bold text-xs">
+            <div className="w-7 h-7 rounded-lg border border-orange-500/25 bg-orange-500/10 flex items-center justify-center text-orange-300 text-xs">
               <Icon name="aulafy" />
             </div>
-            <span className="text-sm text-zinc-400">
+            <span className="aula-meta">
               Aulafy · Cursos de IA open source en español
             </span>
           </div>

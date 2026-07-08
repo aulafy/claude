@@ -53,65 +53,97 @@ export const metadata: Metadata = {
 };
 
 export default function Cursos() {
+  const leccionesTotales = cursos.reduce((sum, curso) => sum + totalLecciones(curso), 0);
+
   return (
-    <div className="max-w-6xl mx-auto px-6 py-14">
-      <div className="mb-2 text-xs text-zinc-600">
+    <div className="aula-shell max-w-6xl mx-auto px-6 py-14">
+      <div className="mb-4 aula-meta">
         <Link href="/" className="hover:text-zinc-400">Inicio</Link>
         <span className="mx-2">/</span>
         <span className="text-zinc-400">Cursos</span>
       </div>
 
-      <div className="mb-12">
-        <h1 className="font-display font-extrabold text-4xl text-white mb-4">
-          Cursos gratis de IA open source en español
-        </h1>
-        <p className="text-lg text-zinc-400 max-w-2xl leading-relaxed">
-          Rutas prácticas para pasar de curioso a construir de verdad. Todos gratuitos,
-          en español y de código abierto. Sin registro: tu progreso se guarda solo en tu navegador.
-        </p>
-      </div>
+      <section className="aula-frame p-6 sm:p-8 mb-8">
+        <div className="grid lg:grid-cols-[1fr_280px] gap-8 items-end">
+          <div>
+            <span className="aula-section-label">
+              <Icon name="capsule" /> Biblioteca de cápsulas
+            </span>
+            <h1 className="font-display font-extrabold text-4xl sm:text-5xl text-white mt-4 mb-4">
+              Cursos gratis de IA open source en español
+            </h1>
+            <p className="lesson-lead max-w-3xl">
+              Rutas prácticas para pasar de curioso a construir de verdad. Todos gratuitos,
+              en español y de código abierto. Sin registro: tu progreso se guarda solo en tu navegador.
+            </p>
+            <div className="mt-5 flex flex-wrap gap-2">
+              <span className="aula-chip" data-tone="green"><Icon name="check" /> Gratis</span>
+              <span className="aula-chip" data-tone="cyan"><Icon name="globe" /> En español</span>
+              <span className="aula-chip" data-tone="amber"><Icon name="code" /> Código abierto</span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-3">
+            <div className="aula-panel p-4">
+              <div className="aula-meta text-zinc-500">cursos</div>
+              <div className="font-display text-3xl font-bold text-white mt-1">{cursos.length}</div>
+            </div>
+            <div className="aula-panel p-4">
+              <div className="aula-meta text-zinc-500">lecciones</div>
+              <div className="font-display text-3xl font-bold text-white mt-1">{leccionesTotales}</div>
+            </div>
+            <div className="aula-panel p-4 col-span-2">
+              <div className="aula-meta text-zinc-500">formato</div>
+              <div className="font-display text-xl font-bold text-white mt-1">web + PDF</div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Descarga del libro completo */}
       <a
         href="/aulafy-guia-completa.pdf"
-        className="group flex items-center gap-4 rounded-xl border border-[#8b5cf6]/30 bg-gradient-to-r from-[#8b5cf6]/10 to-transparent p-4 mb-10 hover:border-[#8b5cf6]/60 transition-colors"
+        className="group aula-frame flex flex-col sm:flex-row sm:items-center gap-4 p-4 mb-10 hover:border-zinc-600 transition-colors"
       >
-        <span className="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-[#8b5cf6] to-[#22d3ee] flex items-center justify-center text-white"><Icon name="filePdf" /></span>
+        <span className="aula-icon flex-shrink-0 text-orange-300"><Icon name="filePdf" /></span>
         <span className="flex-1 text-sm">
           <strong className="text-white">¿Prefieres leerlo todo de un tirón?</strong>{" "}
-          <span className="text-zinc-400">Descarga los 7 cursos en un libro PDF de 225 páginas, gratis.</span>
+          <span className="text-zinc-400">Descarga la guía completa de Aulafy en PDF, gratis.</span>
         </span>
-        <span className="flex-shrink-0 text-[#a78bfa] text-sm font-medium group-hover:translate-x-0.5 transition-transform inline-flex items-center gap-1.5"><Icon name="download" /> Descargar</span>
+        <span className="aula-chip" data-tone="amber"><Icon name="download" /> Descargar</span>
       </a>
 
       {/* Cursos disponibles */}
       <div className="grid md:grid-cols-2 gap-6 mb-14">
-        {cursos.map((c) => (
+        {cursos.map((c, index) => (
           <Link
             key={c.slug}
             href={`/cursos/${c.slug}`}
-            className="group rounded-2xl border border-zinc-800 bg-zinc-900/30 overflow-hidden hover:border-zinc-600 transition-colors"
+            className="group aula-capsule block"
           >
             {/* Portada */}
             <div
-              className="h-36 relative flex items-end p-5"
+              className="aula-course-art h-36 flex items-end justify-between gap-4 p-5"
               style={{ background: `linear-gradient(120deg, ${c.gradient[0]}, ${c.gradient[1]})` }}
             >
-              <div className="absolute inset-0 bg-[radial-gradient(80%_80%_at_80%_0%,rgba(255,255,255,0.25),transparent_60%)]" />
-              <div className="relative w-12 h-12 rounded-xl bg-white/15 border border-white/25 backdrop-blur flex items-center justify-center text-white text-xl">
+              <div className="relative w-12 h-12 rounded-lg bg-white/15 border border-white/25 backdrop-blur flex items-center justify-center text-white text-xl">
                 <Icon name={c.icon as IconName} />
               </div>
+              <span className="relative rounded-md border border-white/25 bg-black/20 px-2.5 py-1 font-[family-name:var(--font-code)] text-xs text-white">
+                cap.{String(index + 1).padStart(2, "0")}
+              </span>
             </div>
             <div className="p-6">
+              <div className="aula-meta mb-2 text-zinc-500">/cursos/{c.slug}</div>
               <h2 className="font-display font-bold text-xl text-white group-hover:text-orange-300 transition-colors">
                 {c.title}
               </h2>
               <p className="mt-2 text-sm text-zinc-400 leading-relaxed">{c.desc}</p>
-              <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-zinc-500">
-                <span className="inline-flex items-center gap-1.5"><Icon name="chart" /> {c.level}</span>
-                <span className="inline-flex items-center gap-1.5"><Icon name="book" /> {totalLecciones(c)} lecciones</span>
-                {c.pdf && <span className="inline-flex items-center gap-1.5"><Icon name="pdf" /> PDF incluido</span>}
-                <span className="text-[#22d3ee]">Gratis</span>
+              <div className="mt-4 flex flex-wrap items-center gap-2">
+                <span className="aula-chip"><Icon name="chart" /> {c.level}</span>
+                <span className="aula-chip" data-tone="cyan"><Icon name="book" /> {totalLecciones(c)} lecciones</span>
+                {c.pdf && <span className="aula-chip" data-tone="amber"><Icon name="pdf" /> PDF</span>}
+                <span className="aula-chip" data-tone="green">open</span>
               </div>
             </div>
           </Link>
@@ -119,14 +151,14 @@ export default function Cursos() {
       </div>
 
       {/* Próximamente */}
-      <h2 className="text-sm font-semibold uppercase tracking-wider text-zinc-500 mb-4">Próximamente</h2>
+      <h2 className="aula-section-label mb-4"><Icon name="lab" /> Próximamente</h2>
       <div className="grid sm:grid-cols-2 gap-5">
         {proximamente.map((c) => (
-          <div key={c.title} className="rounded-2xl border border-zinc-800/70 bg-zinc-900/20 p-6 opacity-75">
-            <div className="text-2xl mb-3 text-zinc-400"><Icon name={c.icon as IconName} /></div>
+          <div key={c.title} className="aula-panel p-6 opacity-80">
+            <div className="aula-icon text-zinc-400 mb-4"><Icon name={c.icon as IconName} /></div>
             <h3 className="font-display font-semibold text-lg text-zinc-300">{c.title}</h3>
             <p className="mt-2 text-sm text-zinc-500 leading-relaxed">{c.desc}</p>
-            <div className="mt-4 text-xs text-[#e879f9]">En preparación</div>
+            <div className="mt-4 aula-chip" data-tone="violet">En preparación</div>
           </div>
         ))}
       </div>

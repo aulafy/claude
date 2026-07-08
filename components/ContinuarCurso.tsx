@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import Icon from "@/components/Icon";
 import { getCurso, lecciones } from "@/lib/cursos";
 
 const STORAGE_KEY = "aulafy:progress:v1";
@@ -33,9 +34,10 @@ export default function ContinuarCurso({ cursoSlug }: { cursoSlug: string }) {
   return (
     <Link
       href={`/cursos/${curso.slug}/${state?.next ?? first}`}
-      className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium text-white bg-gradient-to-r from-[#8b5cf6] to-[#e879f9] hover:opacity-90 transition-opacity"
+      className="aula-button aula-button-primary"
     >
-      {empezado ? `Continuar (${state!.done} completadas) →` : "Empezar el curso →"}
+      <Icon name={empezado ? "route" : "rocket"} />
+      {empezado ? `Continuar (${state!.done} completadas)` : "Empezar el curso"}
     </Link>
   );
 }

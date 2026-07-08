@@ -10,7 +10,7 @@ import Icon, { type IconName } from "@/components/Icon";
    ============================================================ */
 
 export function Lead({ children }: { children: React.ReactNode }) {
-  return <p className="text-lg text-zinc-400 leading-relaxed">{children}</p>;
+  return <p className="lesson-lead">{children}</p>;
 }
 
 export function Crumb({
@@ -23,7 +23,7 @@ export function Crumb({
   courseLabel?: string;
 }) {
   return (
-    <div className="mb-2 text-xs text-zinc-600">
+    <div className="mb-4 aula-meta">
       <Link href="/cursos" className="hover:text-zinc-400">Cursos</Link>
       <span className="mx-2">/</span>
       <Link href={courseHref} className="hover:text-zinc-400">{courseLabel}</Link>
@@ -122,14 +122,14 @@ export function Terminal({ children }: { children: string }) {
     }
   };
   return (
-    <div className="my-4 rounded-lg border border-zinc-700 bg-zinc-900/60 overflow-hidden">
-      <div className="flex items-center justify-between px-4 py-2 border-b border-zinc-800 bg-zinc-900">
-        <span className="text-xs font-medium text-zinc-400 flex items-center gap-1.5">
+    <div className="aula-terminal my-5">
+      <div className="aula-terminal-bar">
+        <span className="flex items-center gap-1.5">
           <Icon name="terminal" /> Terminal
         </span>
         <button
           onClick={copy}
-          className="text-xs px-2 py-1 rounded-md bg-zinc-800 hover:bg-zinc-700 text-zinc-300 transition-colors flex items-center gap-1"
+          className="aula-chip"
         >
           {copied ? (
             <>
@@ -142,7 +142,7 @@ export function Terminal({ children }: { children: string }) {
           )}
         </button>
       </div>
-      <pre className="px-4 py-3 text-sm text-zinc-200 leading-relaxed whitespace-pre-wrap overflow-x-auto font-[family-name:var(--font-geist-mono)]">
+      <pre className="px-4 py-3 text-sm text-zinc-200 leading-relaxed whitespace-pre-wrap overflow-x-auto font-[family-name:var(--font-code)]">
         {children}
       </pre>
     </div>
@@ -158,12 +158,16 @@ export function ChapterNav({
   next?: { href: string; label: string };
 }) {
   return (
-    <div className="mt-12 pt-8 border-t border-zinc-800 flex justify-between items-center">
+    <div className="mt-12 pt-8 border-t border-zinc-800 flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-3">
       {prev ? (
-        <Link href={prev.href} className="text-sm text-zinc-500 hover:text-zinc-300">← {prev.label}</Link>
+        <Link href={prev.href} className="aula-button aula-button-secondary justify-start">
+          <Icon name="chevronRight" className="rotate-180" /> {prev.label}
+        </Link>
       ) : <span />}
       {next ? (
-        <Link href={next.href} className="text-sm text-orange-400 hover:text-orange-300">{next.label} →</Link>
+        <Link href={next.href} className="aula-button aula-button-primary justify-start sm:justify-center">
+          {next.label} <Icon name="chevronRight" />
+        </Link>
       ) : <span />}
     </div>
   );
@@ -188,16 +192,23 @@ export function Chapter({
   courseLabel?: string;
 }) {
   return (
-    <div className="max-w-3xl mx-auto px-8 py-14">
+    <div className="aula-shell max-w-4xl mx-auto px-6 sm:px-8 py-12 sm:py-14">
       <Crumb label={crumb} courseHref={courseHref} courseLabel={courseLabel} />
-      <div className="mb-10">
-        <h1 className="text-4xl font-bold text-white mb-4 flex items-center gap-3">
-          <Icon name={icon} className="text-orange-400 text-3xl" />
-          <span>{title}</span>
+      <header className="aula-frame p-6 sm:p-8 mb-10">
+        <div className="aula-icon text-orange-300 text-xl mb-5">
+          <Icon name={icon} />
+        </div>
+        <span className="aula-section-label">
+          <Icon name="book" /> Lección
+        </span>
+        <h1 className="font-display text-3xl sm:text-5xl font-extrabold text-white mt-3 mb-4 leading-tight">
+          {title}
         </h1>
         <Lead>{lead}</Lead>
-      </div>
-      {children}
+      </header>
+      <article className="aula-reading mx-auto">
+        {children}
+      </article>
     </div>
   );
 }

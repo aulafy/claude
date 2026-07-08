@@ -170,23 +170,23 @@ const jsonLd = {
 
 export default function Fuentes() {
   return (
-    <div className="max-w-4xl mx-auto px-8 py-14">
+    <div className="aula-shell max-w-5xl mx-auto px-6 sm:px-8 py-14">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <div className="mb-2 text-xs text-zinc-600">
+      <div className="mb-4 aula-meta">
         <Link href="/" className="hover:text-zinc-400">Inicio</Link>
         <span className="mx-2">/</span>
         <span className="text-zinc-400">Fuentes</span>
       </div>
 
-      <div className="mb-10">
-        <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-orange-500/10 text-orange-300 text-xl border border-orange-500/20 mb-5">
+      <div className="aula-frame p-6 sm:p-8 mb-10">
+        <div className="aula-icon text-orange-300 text-xl mb-5">
           <Icon name="link" />
         </div>
         <h1 className="font-display font-extrabold text-4xl text-white mb-4">
           Fuentes oficiales de Aulafy
         </h1>
-        <p className="text-lg text-zinc-400 leading-relaxed">
+        <p className="lesson-lead">
           Los cursos de Aulafy se contrastan con documentación oficial, repositorios públicos y
           pruebas reproducibles. Esta página reúne las fuentes principales para facilitar verificación,
           citación y actualización editorial.
@@ -195,7 +195,7 @@ export default function Fuentes() {
 
       <div className="grid gap-5">
         {fuentes.map((grupo) => (
-          <section key={grupo.area} className="rounded-2xl border border-zinc-800 bg-zinc-900/35 p-6">
+          <section key={grupo.area} className="aula-panel p-6">
             <h2 className="font-display font-bold text-xl text-white">{grupo.area}</h2>
             <div className="mt-4 grid sm:grid-cols-2 gap-3">
               {grupo.links.map((link) => (
@@ -204,7 +204,7 @@ export default function Fuentes() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between gap-3 rounded-xl border border-zinc-800 bg-zinc-950/40 p-4 text-sm text-zinc-300 hover:border-zinc-600 transition-colors"
+                  className="aula-capsule flex items-center justify-between gap-3 p-4 text-sm text-zinc-300"
                 >
                   <span>{link.name}</span>
                   <Icon name="external" className="text-zinc-500" />
