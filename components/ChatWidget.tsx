@@ -3,67 +3,46 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Icon from "@/components/Icon";
+import { searchData } from "@/lib/search-data";
 
 type Message = { role: "user" | "assistant"; content: string };
 
 // Nombre de sección (normalizado) -> ruta. Permite enlazar [[Sección]].
+function linkKey(value: string) {
+  return value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
 const SECTION_LINKS: Record<string, string> = {
-  "inicio": "/",
-  "instalación": "/instalacion",
-  "instalacion": "/instalacion",
-  "primeros pasos": "/primeros-pasos",
-  "recetas prácticas": "/recetas",
-  "recetas practicas": "/recetas",
-  "recetas": "/recetas",
-  "proyectos guiados": "/proyectos",
-  "proyectos": "/proyectos",
-  "escribir buenos prompts": "/prompts",
-  "buenos prompts": "/prompts",
-  "prompts": "/prompts",
-  "glosario": "/glosario",
-  "skills": "/skills",
-  "subagentes": "/subagentes",
-  "plugins": "/plugins",
-  "flujos de trabajo pro": "/flujos",
-  "flujos de trabajo": "/flujos",
-  "flujos": "/flujos",
-  "comandos": "/comandos",
-  "configuración": "/configuracion",
-  "configuracion": "/configuracion",
-  "servidores mcp": "/mcp",
-  "mcp": "/mcp",
-  "hooks": "/hooks",
-  "permisos": "/permisos",
-  "uso avanzado": "/avanzado",
-  "avanzado": "/avanzado",
-  "preguntas frecuentes": "/faq",
-  "faq": "/faq",
-  "solución de problemas": "/problemas",
-  "solucion de problemas": "/problemas",
-  "problemas": "/problemas",
-  "recursos": "/recursos",
-  "comparativa": "/comparativa",
-  "pymes y oficina": "/pymes",
-  "pymes": "/pymes",
-  "oficina": "/pymes",
-  "perfiles técnicos": "/equipos",
-  "perfiles tecnicos": "/equipos",
-  "equipos": "/equipos",
-  "cli, app y móvil": "/donde-usar",
-  "cli app y movil": "/donde-usar",
-  "app de escritorio": "/donde-usar",
-  "donde usar": "/donde-usar",
+  ...Object.fromEntries(searchData.map((item) => [linkKey(item.title), item.href])),
+  inicio: "/",
+  aulafy: "/",
+  instalacion: "/cursos/claude-code/instalacion",
+  recetas: "/cursos/claude-code/recetas",
+  prompts: "/cursos/claude-code/prompts",
+  mcp: "/cursos/claude-code/mcp",
+  faq: "/cursos/claude-code/faq",
+  "ia local": "/cursos/ia-local",
+  rag: "/cursos/rag-seguro",
+  agentes: "/cursos/agentes-automatizacion",
+  mlops: "/cursos/mlops-local",
+  "fine tuning": "/cursos/fine-tuning-local",
+  pymes: "/cursos/ia-pymes",
 };
 
 const SUGGESTIONS = [
-  "¿Qué es Claude Code y para qué sirve?",
-  "¿Cómo lo instalo paso a paso?",
-  "¿Qué son las skills?",
-  "Tengo un error al instalar, ayúdame",
+  "¿Qué curso me recomiendas para empezar?",
+  "Quiero montar IA local con Ollama",
+  "¿Dónde aprendo RAG con documentos?",
+  "¿Qué ruta sigo para agentes y automatización?",
 ];
 
 const WELCOME =
-  "Hola. Soy tu asistente para aprender **Claude Code**. Pregúntame lo que quieras: instalación, comandos, skills, errores... lo que necesites.";
+  "Hola. Soy tu asistente de **Aulafy**. Pregúntame por cualquier curso: Claude Code, IA local, RAG, agentes, MLOps, fine-tuning, seguridad, pymes o multimedia.";
 
 /** Render ligero de markdown: bloques de código, `inline`, **negrita**, enlaces [[Sección]] y saltos de línea. */
 function renderContent(text: string, onNavigate?: () => void) {
@@ -94,7 +73,7 @@ function renderContent(text: string, onNavigate?: () => void) {
           }
           if (tok.startsWith("[[") && tok.endsWith("]]")) {
             const name = tok.slice(2, -2).trim();
-            const href = SECTION_LINKS[name.toLowerCase()];
+            const href = SECTION_LINKS[linkKey(name)];
             if (href) {
               return (
                 <Link
@@ -202,7 +181,7 @@ export default function ChatWidget() {
       {/* Botón flotante */}
       <button
         onClick={() => setOpen((o) => !o)}
-        aria-label="Abrir chat de ayuda"
+        aria-label="Abrir chat de ayuda de Aulafy"
         className="fixed bottom-5 right-5 z-50 w-14 h-14 rounded-full bg-orange-500 hover:bg-orange-400 shadow-lg shadow-orange-500/30 flex items-center justify-center text-white text-2xl transition-transform hover:scale-105"
       >
         <Icon name={open ? "close" : "chat"} />
@@ -217,7 +196,7 @@ export default function ChatWidget() {
               <Icon name="robot" />
             </div>
             <div className="flex-1 min-w-0">
-              <div className="text-sm font-semibold text-white leading-tight">Asistente Claude Code</div>
+              <div className="text-sm font-semibold text-white leading-tight">Asistente Aulafy</div>
               <div className="text-xs text-emerald-400 flex items-center gap-1">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block" /> En línea
               </div>
@@ -317,7 +296,7 @@ export default function ChatWidget() {
               </button>
             </form>
             <p className="text-[10px] text-zinc-600 mt-1.5 text-center">
-              IA con Groq · puede equivocarse, verifica con <code className="text-zinc-500">claude --version</code>
+              IA con Groq · puede equivocarse, contrasta los pasos importantes
             </p>
           </div>
         </div>

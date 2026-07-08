@@ -1,4 +1,4 @@
-import { SYSTEM_PROMPT } from "@/lib/chatbot-knowledge";
+import { buildChatbotSystemPrompt } from "@/lib/chatbot-knowledge";
 
 // Runtime de Node.js (más robusto en Vercel para fetch + streaming + Upstash).
 export const runtime = "nodejs";
@@ -76,6 +76,8 @@ async function handleChat(req: Request) {
     return Response.json({ error: "No hay mensaje que responder." }, { status: 400 });
   }
 
+  const systemPrompt = buildChatbotSystemPrompt(cleaned);
+
   let groqRes: Response;
   try {
     groqRes = await fetch(GROQ_URL, {
@@ -89,7 +91,7 @@ async function handleChat(req: Request) {
         temperature: 0.4,
         max_tokens: 1024,
         stream: true,
-        messages: [{ role: "system", content: SYSTEM_PROMPT }, ...cleaned],
+        messages: [{ role: "system", content: systemPrompt }, ...cleaned],
       }),
     });
   } catch {

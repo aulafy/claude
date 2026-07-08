@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:chatbot": "node scripts/build-chatbot-content.cjs",
     "start": "next start",
     "lint": "eslint",
     "indexnow": "node scripts/indexnow.mjs"
