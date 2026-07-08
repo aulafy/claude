@@ -28,6 +28,103 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "grok-45-guia-evaluacion-2026",
+    title: "Grok 4.5: qué sabemos y cómo evaluarlo sin caer en el hype",
+    description:
+      "Guía práctica para seguir la posible llegada de Grok 4.5, separar rumor de información verificable y probar un modelo frontier con criterios útiles: razonamiento, código, coste, privacidad y seguridad.",
+    date: "2026-07-08",
+    updated: "2026-07-08",
+    category: "Modelos IA",
+    readingTime: "10 min",
+    icon: "brain",
+    image: "/blog/grok-45-guia-evaluacion-2026.png",
+    editorNote:
+      "Actualizado el 8 de julio de 2026. La información sobre Grok 4.5 todavía debe tratarse con prudencia: no hay que confundir señales de X, beta privada o declaraciones públicas con benchmarks independientes y documentación final.",
+    keywords: [
+      "Grok 4.5",
+      "xAI Grok",
+      "Grok 4.5 benchmarks",
+      "evaluar modelos IA",
+      "modelos frontier 2026",
+      "comparar Grok Claude ChatGPT Gemini",
+    ],
+    intro:
+      "Cuando aparece un nuevo modelo frontier, el ruido llega antes que las pruebas. Grok 4.5 apunta a ser una actualización importante de xAI, pero para una web educativa como Aulafy la pregunta no es si gana titulares: la pregunta es cómo comprobar si mejora tu trabajo real.",
+    sections: [
+      {
+        title: "Qué se puede decir con seguridad",
+        body:
+          "A fecha 8 de julio de 2026, la página pública de modelos de xAI sigue recomendando Grok 4.3 para uso general y Grok Build para código. También hay señales recientes en medios y X sobre una beta privada de Grok 4.5 y una posible disponibilidad pública próxima, pero eso no equivale a documentación final, precios definitivos ni resultados auditados.",
+        bullets: [
+          "Trata cualquier cifra de parámetros, puntuación interna o comparación con otros modelos como provisional si no enlaza a una fuente primaria.",
+          "Distingue entre disponibilidad en la app de Grok, disponibilidad por API y disponibilidad en planes concretos.",
+          "No compares modelos por una sola captura: compara tareas, coste, latencia, contexto, herramientas y calidad de salida.",
+        ],
+      },
+      {
+        title: "Qué promesas conviene verificar",
+        body:
+          "El texto que circula alrededor de Grok 4.5 insiste en más razonamiento, más velocidad, mejor coste y mejoras en código/agentes. Son promesas plausibles para un nuevo modelo, pero cada una exige una prueba distinta. Un modelo puede ser rápido en chat y flojo en un repositorio real; barato por token y caro por intentos fallidos; fuerte en razonamiento y débil citando fuentes.",
+      },
+      {
+        title: "Cómo probar Grok 4.5 en serio",
+        body:
+          "La prueba útil no es preguntarle un acertijo. Crea una batería pequeña con tareas que ya haces: depurar un error real, resumir un PDF largo, escribir una función con tests, extraer una tabla, comparar fuentes y crear un plan de automatización con límites. Ejecuta la misma batería en Grok, Claude, ChatGPT, Gemini y un modelo local si tiene sentido.",
+        bullets: [
+          "Guarda el prompt, la fecha, el modelo exacto, la temperatura y el plan usado.",
+          "Evalúa si la respuesta se puede ejecutar, no solo si suena bien.",
+          "Cuenta reintentos, correcciones y tiempo total hasta un resultado aceptable.",
+          "Registra fallos de seguridad: invención de fuentes, exceso de confianza, fuga de datos o instrucciones peligrosas.",
+        ],
+      },
+      {
+        title: "Benchmarks: útiles, pero no suficientes",
+        body:
+          "GPQA, SWE-Bench, Terminal-Bench, HLE o rankings de arena pueden orientar, pero no sustituyen una prueba de tu caso de uso. Para Aulafy, un benchmark solo entra como contexto: la decisión final debe salir de una evaluación reproducible, con ejemplos y errores visibles.",
+      },
+      {
+        title: "Mini protocolo Aulafy",
+        body:
+          "Antes de recomendar Grok 4.5 como herramienta principal, Aulafy lo probaría con cinco tareas: razonamiento con fuentes, código en repositorio real, RAG con citas, automatización con herramientas y coste/latencia. Si pasa esas pruebas, merece tutorial. Si no, merece una comparativa honesta con límites claros.",
+      },
+    ],
+    table: {
+      headers: ["Dimensión", "Prueba práctica", "Qué mirar", "Mala señal"],
+      rows: [
+        ["Razonamiento", "Caso con varias restricciones y fuentes", "Explica supuestos y corrige errores", "Respuesta brillante pero no verificable"],
+        ["Código", "Issue real con tests", "Pasa lint, build y test", "Parche grande que rompe otra cosa"],
+        ["RAG", "PDF largo con citas", "Cita páginas y admite incertidumbre", "Inventa una fuente o mezcla documentos"],
+        ["Agentes", "Flujo con herramienta y aprobación humana", "Pide permisos y deja logs", "Ejecuta acciones sin control"],
+        ["Coste", "Misma tarea en varios modelos", "Coste por resultado final", "Barato por token, caro por reintentos"],
+        ["Privacidad", "Documento sensible simulado", "Respeta límites y minimización", "Sugiere subir datos sin advertencia"],
+      ],
+    },
+    faqs: [
+      {
+        q: "¿Grok 4.5 ya está confirmado oficialmente?",
+        a: "Hay señales públicas y conversación reciente, pero la forma responsable de tratarlo es esperar documentación oficial estable, precios, disponibilidad y benchmarks independientes antes de presentarlo como hecho cerrado.",
+      },
+      {
+        q: "¿Será mejor que Claude, ChatGPT o Gemini?",
+        a: "Puede ser mejor en algunas tareas y peor en otras. La comparación útil no es absoluta: depende de código, razonamiento, contexto, herramientas, precio, privacidad y calidad de las respuestas en tu flujo real.",
+      },
+      {
+        q: "¿Qué debería probar primero si aparece en mi cuenta?",
+        a: "Empieza con una tarea que ya conozcas y que puedas verificar: un bug con tests, un PDF con citas o una automatización sencilla. Si no puedes medir el resultado, no puedes saber si ha mejorado.",
+      },
+      {
+        q: "¿Aulafy hará un tutorial de Grok 4.5?",
+        a: "Sí, si la disponibilidad y la documentación son suficientemente claras. La prioridad será una guía práctica de evaluación, no una pieza de entusiasmo por novedad.",
+      },
+    ],
+    related: [
+      { title: "ChatGPT vs Claude vs Gemini vs Grok en 2026", href: "/blog/chatgpt-vs-claude-vs-gemini-vs-grok-2026", desc: "Comparativa de modelos para elegir según tarea." },
+      { title: "Seguridad y evaluación de modelos", href: "/cursos/seguridad-evals", desc: "Curso para probar LLMs antes de confiar en ellos." },
+      { title: "Evals básicas y regresiones", href: "/cursos/seguridad-evals/evals-basicas", desc: "Cómo montar pruebas pequeñas y repetibles." },
+      { title: "Prompts para blogs y análisis", href: "/blog/mejores-prompts-chatgpt-claude-blogs", desc: "Plantillas para convertir noticias en contenido útil." },
+    ],
+  },
+  {
     slug: "crear-tutoriales-ia-x-aulafy",
     title: "Cómo crear tutoriales de IA para X sin humo: método paso a paso",
     description:

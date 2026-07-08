@@ -8,7 +8,8 @@ export type SearchItem = {
 export const searchData: SearchItem[] = [
   { href: "/guia", title: "Inicio de la guía", section: "Empezar", keywords: "home portada qué es claude code introducción" },
   { href: "/", title: "Aulafy", section: "Cursos", keywords: "aulafy portada cursos ia inteligencia artificial open source" },
-  { href: "/blog", title: "Blog de IA en español", section: "Blog", keywords: "blog ia español mcp agentes herramientas comparativas seo aeo prompts tendencias" },
+  { href: "/blog", title: "Blog de IA en español", section: "Blog", keywords: "blog ia español grok modelos mcp agentes herramientas comparativas seo aeo prompts tendencias" },
+  { href: "/blog/grok-45-guia-evaluacion-2026", title: "Grok 4.5: guía de evaluación sin hype", section: "Blog", keywords: "grok 4.5 xai benchmarks modelos frontier evaluar modelos ia comparativa claude chatgpt gemini" },
   { href: "/blog/crear-tutoriales-ia-x-aulafy", title: "Cómo crear tutoriales de IA para X sin humo", section: "Blog", keywords: "tutoriales ia x hilos twitter prompts contenido ia aulafy sin humo" },
   { href: "/blog/mcp-2026-07-28-migracion-guia-espanol", title: "MCP 2026-07-28 en español", section: "Blog", keywords: "mcp 2026 model context protocol migracion stateless seguridad agentes claude code n8n" },
   { href: "/blog/mejores-herramientas-ia-gratis-2026", title: "Mejores herramientas de IA gratis en 2026", section: "Blog", keywords: "mejores herramientas ia gratis 2026 inteligencia artificial gratis" },

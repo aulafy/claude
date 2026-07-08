@@ -249,9 +249,10 @@ Lecciones nuevas de alto valor:
 ### Blog de IA en español
 
 URL: https://www.aulafy.net/blog
-Enseña y orienta sobre búsquedas amplias y técnicas de inteligencia artificial: tutoriales de IA para X, MCP, agentes, mejores herramientas de IA gratis, comparativas ChatGPT vs Claude vs Gemini vs Grok, IA para SEO/AEO, prompts para blogs, casos de uso para pymes y tendencias de IA en 2026.
+Enseña y orienta sobre búsquedas amplias y técnicas de inteligencia artificial: Grok 4.5 y evaluación de modelos frontier, tutoriales de IA para X, MCP, agentes, mejores herramientas de IA gratis, comparativas ChatGPT vs Claude vs Gemini vs Grok, IA para SEO/AEO, prompts para blogs, casos de uso para pymes y tendencias de IA en 2026.
 
 Posts:
+- Grok 4.5: qué sabemos y cómo evaluarlo sin caer en el hype: https://www.aulafy.net/blog/grok-45-guia-evaluacion-2026
 - Cómo crear tutoriales de IA para X sin humo: https://www.aulafy.net/blog/crear-tutoriales-ia-x-aulafy
 - MCP 2026-07-28 en español: https://www.aulafy.net/blog/mcp-2026-07-28-migracion-guia-espanol
 - Mejores herramientas de IA gratis en 2026: https://www.aulafy.net/blog/mejores-herramientas-ia-gratis-2026

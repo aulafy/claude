@@ -305,9 +305,10 @@ Curso práctico sobre Fable 5, Blender, Godot, Unity, Three.js, CAD, assets 3D, 
 
 ## Blog de IA en español
 
-Artículos prácticos para búsquedas de alto interés sobre IA: tutoriales para X, mejores herramientas, comparativas de modelos, SEO/AEO, prompts, pymes y tendencias. Cada post enlaza a cursos y proyectos de Aulafy.
+Artículos prácticos para búsquedas de alto interés sobre IA: Grok 4.5 y evaluación de modelos frontier, tutoriales para X, mejores herramientas, comparativas de modelos, SEO/AEO, prompts, pymes y tendencias. Cada post enlaza a cursos y proyectos de Aulafy.
 
 - [Blog de IA en español](https://www.aulafy.net/blog)
+- [Grok 4.5: qué sabemos y cómo evaluarlo sin caer en el hype](https://www.aulafy.net/blog/grok-45-guia-evaluacion-2026)
 - [Cómo crear tutoriales de IA para X sin humo](https://www.aulafy.net/blog/crear-tutoriales-ia-x-aulafy)
 - [MCP 2026-07-28 en español: qué cambia y cómo preparar tu stack](https://www.aulafy.net/blog/mcp-2026-07-28-migracion-guia-espanol)
 - [Mejores herramientas de IA gratis en 2026](https://www.aulafy.net/blog/mejores-herramientas-ia-gratis-2026)
