@@ -125,6 +125,7 @@ export const searchData: SearchItem[] = [
   { href: "/cursos/ia-local/hermes-agente-coding-local", title: "Agente coding local con Hermes y Ollama", section: "IA local", keywords: "hermes agent ollama gemma qwen coding agent local tool calling stop logic memoria" },
   { href: "/cursos/ia-local/hermes-gemma-mlx-avanzado", title: "Hermes avanzado con Gemma y MLX", section: "IA local", keywords: "hermes agent gemma mlx apple silicon mixture of agents skills local" },
   { href: "/cursos/ia-local/tool-calling-modelos-locales", title: "Tool calling con modelos locales", section: "IA local", keywords: "tool calling modelos locales ollama hermes mcp open webui function calling parser" },
+  { href: "/cursos/ia-local/webapp-tipo-lexia", title: "Web app tipo Lexia con RAG local", section: "IA local", keywords: "lexia web app rag local lm studio embeddings citas guardrails vercel node" },
   { href: "/cursos/ia-local/ollama-vllm-sglang-mlx", title: "Ollama, vLLM, SGLang y MLX: qué usar", section: "IA local", keywords: "ollama vs vllm sglang mlx apple silicon serving llm local runtime inferencia modelos locales" },
   { href: "/cursos/rag-seguro/chunking-avanzado", title: "Chunking avanzado para RAG privado", section: "RAG seguro", keywords: "chunking avanzado rag semantic overlap metadata headings qdrant" },
   { href: "/cursos/rag-seguro/graphrag-local", title: "GraphRAG local y memoria con grafos", section: "RAG seguro", keywords: "graphrag local rag grafos knowledge graph memoria agentes relaciones entidades" },

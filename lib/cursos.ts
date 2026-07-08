@@ -128,6 +128,7 @@ export const cursos: Curso[] = [
         title: "Construye tus herramientas",
         lecciones: [
           { slug: "chatbot-legal", title: "Chatbot que cita la ley (RAG)" },
+          { slug: "webapp-tipo-lexia", title: "Web app tipo Lexia con RAG" },
           { slug: "pdf", title: "Pregúntale a tus PDF" },
           { slug: "voz", title: "Chatbot que escucha y habla" },
           { slug: "texto-a-audio", title: "Texto a audio" },

@@ -175,6 +175,7 @@ Guía práctica para construir herramientas de IA que se ejecutan en el propio o
 - [Open WebUI + Ollama + Qdrant](https://www.aulafy.net/cursos/ia-local/open-webui-qdrant)
 - [Open WebUI troubleshooting y producción ligera](https://www.aulafy.net/cursos/ia-local/open-webui-troubleshooting)
 - [Chatbot legal RAG local](https://www.aulafy.net/cursos/ia-local/chatbot-legal)
+- [Web app tipo Lexia con RAG local](https://www.aulafy.net/cursos/ia-local/webapp-tipo-lexia): arquitectura paso a paso para crear una app web con corpus, embeddings, búsqueda híbrida, citas, guardrails y despliegue prudente.
 - [Pregúntale a tus PDF](https://www.aulafy.net/cursos/ia-local/pdf)
 - [Chatbot con voz](https://www.aulafy.net/cursos/ia-local/voz)
 - [Texto a audio](https://www.aulafy.net/cursos/ia-local/texto-a-audio)
