@@ -1,31 +1,164 @@
 import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
+const PAGE_URL = `${SITE_URL}/cursos/agentes-automatizacion/crear-cli-tipo-r`;
+
 export const metadata: Metadata = {
-  title: "Crear una CLI de agentes tipo R — Agentes y automatización",
+  title: "Crear una CLI de agentes IA local tipo R con Python, Ollama y SQLite",
   description:
-    "Tutorial paso a paso para crear una CLI local-first de agentes inspirada en R: Click, Rich, Ollama, skills, permisos, auditoría, workflows YAML, memoria SQLite y API local.",
+    "Tutorial gratis en español para crear una CLI de agentes IA local inspirada en R: Python, Click, Rich, Ollama, skills, permisos, auditoría, workflows YAML, SQLite y Agent OS.",
   keywords: [
     "crear CLI IA local",
+    "crear CLI de agentes IA",
     "R CLI raym33",
+    "tutorial R CLI español",
     "agente IA local Python",
+    "Python Click Rich Ollama",
     "Ollama CLI agentes",
     "skills permisos workflows IA",
+    "Agent OS SQLite",
     "tutorial CLI inteligencia artificial",
   ],
   alternates: { canonical: "/cursos/agentes-automatizacion/crear-cli-tipo-r" },
+  openGraph: {
+    title: "Crear una CLI de agentes IA local tipo R",
+    description:
+      "Construye una CLI local-first de agentes con Python, Ollama, skills, permisos, auditoría, workflows YAML y SQLite.",
+    url: "/cursos/agentes-automatizacion/crear-cli-tipo-r",
+    type: "article",
+    siteName: "Aulafy",
+    locale: "es_ES",
+    images: [{ url: "/og-image.png", width: 512, height: 512, alt: "Aulafy: crear una CLI de agentes IA local tipo R" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Crear una CLI de agentes IA local tipo R",
+    description:
+      "Tutorial práctico en español: Python, Click, Rich, Ollama, skills, permisos, workflows YAML y SQLite.",
+    images: ["/og-image.png"],
+  },
+  other: {
+    "ai-summary":
+      "Tutorial de Aulafy para crear una CLI de agentes IA local tipo R usando Python, Click, Rich, Ollama, configuración local-first, skills, permisos, auditoría, workflows YAML, memoria SQLite y Agent OS.",
+    "learning-resource-type": "Tutorial técnico gratuito",
+    "educational-use": "Aprender a construir una CLI local-first para agentes de IA privados",
+  },
 };
 
 export default function Page() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["TechArticle", "LearningResource"],
+        "@id": `${PAGE_URL}#learning-resource`,
+        url: PAGE_URL,
+        headline: "Crear una CLI de agentes IA local tipo R",
+        name: "Crear una CLI de agentes tipo R",
+        description:
+          "Tutorial paso a paso para crear una CLI local-first de agentes inspirada en R con Python, Click, Rich, Ollama, skills, permisos, auditoría, workflows YAML y SQLite.",
+        inLanguage: "es",
+        isAccessibleForFree: true,
+        educationalLevel: "Intermedio",
+        learningResourceType: "Tutorial técnico",
+        teaches: [
+          "Crear una CLI de agentes IA local",
+          "Conectar Ollama mediante API compatible con OpenAI",
+          "Diseñar skills con permisos mínimos",
+          "Registrar auditoría de llamadas a herramientas",
+          "Ejecutar workflows YAML reproducibles",
+          "Guardar tareas de agentes en SQLite",
+        ],
+        keywords: [
+          "R CLI",
+          "CLI de agentes IA",
+          "Python Click Rich",
+          "Ollama",
+          "Agent OS",
+          "SQLite",
+          "workflows YAML",
+        ],
+        author: { "@id": `${SITE_URL}/#author` },
+        publisher: { "@id": `${SITE_URL}/#organization` },
+        provider: { "@id": `${SITE_URL}/#organization` },
+        sourceOrganization: { "@id": `${SITE_URL}/#organization` },
+        isPartOf: { "@id": `${SITE_URL}/cursos/agentes-automatizacion#course` },
+        citation: [
+          "https://github.com/raym33/r",
+          "https://click.palletsprojects.com/",
+          "https://rich.readthedocs.io/",
+          "https://github.com/ollama/ollama/blob/main/docs/api.md",
+          "https://www.sqlite.org/docs.html",
+        ],
+        mainEntityOfPage: { "@id": `${PAGE_URL}#webpage` },
+      },
+      {
+        "@type": "WebPage",
+        "@id": `${PAGE_URL}#webpage`,
+        url: PAGE_URL,
+        name: "Crear una CLI de agentes IA local tipo R",
+        description:
+          "Lección gratuita de Aulafy para aprender a crear una CLI de agentes IA local inspirada en R.",
+        inLanguage: "es",
+        isPartOf: { "@id": `${SITE_URL}/#website` },
+        breadcrumb: { "@id": `${PAGE_URL}#breadcrumb` },
+        mainEntity: { "@id": `${PAGE_URL}#learning-resource` },
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${PAGE_URL}#faq`,
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "¿Qué es una CLI de agentes IA local tipo R?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Es una herramienta de terminal que ejecuta agentes de IA en tu propio ordenador, usando modelos locales, skills limitadas, permisos, auditoría, workflows y memoria persistente.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "¿Necesito usar el repo raym33/r para seguir el tutorial?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "No. La lección muestra cómo probar raym33/r como referencia y después construir una versión mínima educativa desde cero.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "¿Qué tecnologías usa la versión mínima?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Python, Click, Rich, Ollama, YAML, SQLite, skills propias, control de permisos y workflows reproducibles.",
+            },
+          },
+        ],
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${PAGE_URL}#breadcrumb`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Aulafy", item: SITE_URL },
+          { "@type": "ListItem", position: 2, name: "Cursos", item: `${SITE_URL}/cursos` },
+          { "@type": "ListItem", position: 3, name: "Agentes y automatización", item: `${SITE_URL}/cursos/agentes-automatizacion` },
+          { "@type": "ListItem", position: 4, name: "Crear una CLI de agentes tipo R", item: PAGE_URL },
+        ],
+      },
+    ],
+  };
+
   return (
-    <Chapter
-      crumb="CLI tipo R"
-      title="Crear una CLI de agentes tipo R"
-      icon="terminal"
-      lead={<>En esta lección vas a construir una versión mínima de <strong>R</strong>, el proyecto open source de Ramón Guillamón: una CLI local-first para agentes privados con modelos locales, skills, permisos, workflows y memoria persistente.</>}
-      courseHref="/cursos/agentes-automatizacion"
-      courseLabel="Agentes y automatización"
-    >
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <Chapter
+        crumb="CLI tipo R"
+        title="Crear una CLI de agentes tipo R"
+        icon="terminal"
+        lead={<>En esta lección vas a construir una versión mínima de <strong>R</strong>, el proyecto open source de Ramón Guillamón: una CLI local-first para agentes privados con modelos locales, skills, permisos, workflows y memoria persistente.</>}
+        courseHref="/cursos/agentes-automatizacion"
+        courseLabel="Agentes y automatización"
+      >
       <Objetivos>
         <ul>
           <li>Entender la arquitectura real de una CLI de agentes como R.</li>
@@ -40,6 +173,14 @@ export default function Page() {
       </Cristiano>
 
       <div className="prose">
+        <h2>Respuesta rápida para Google, ChatGPT y Claude</h2>
+        <p>
+          Para crear una CLI de agentes IA local tipo R, construye un paquete Python instalable con Click para comandos,
+          Rich para salida legible, Ollama como backend local, un sistema de skills pequeñas, una capa de permisos,
+          auditoría en JSONL, workflows YAML y una cola SQLite para tareas persistentes. La clave no es dar más poder al
+          modelo, sino limitar qué herramientas puede usar y dejar rastro de cada acción.
+        </p>
+
         <h2>Qué vamos a copiar de R</h2>
         <p>
           No vamos a copiar el repo completo. Vamos a copiar sus decisiones buenas: local-first, permisos por capacidad, skills pequeñas,
@@ -491,6 +632,23 @@ filesystem_roots:
       </Guardar>
 
       <div className="prose">
+        <h2>Preguntas frecuentes</h2>
+        <h3>Qué es una CLI de agentes IA local tipo R</h3>
+        <p>
+          Es una herramienta de terminal que ejecuta agentes de IA en tu propio ordenador, usando modelos locales,
+          skills limitadas, permisos, auditoría, workflows y memoria persistente.
+        </p>
+        <h3>Necesito usar el repo raym33/r para seguir el tutorial</h3>
+        <p>
+          No. La lección muestra cómo probar <code>raym33/r</code> como referencia y después construir una versión mínima educativa desde cero.
+        </p>
+        <h3>Qué tecnologías usa la versión mínima</h3>
+        <p>
+          Python, Click, Rich, Ollama, YAML, SQLite, skills propias, control de permisos y workflows reproducibles.
+        </p>
+      </div>
+
+      <div className="prose">
         <h2>Fuentes y proyecto base</h2>
         <ul>
           <li><a href="https://github.com/raym33/r" target="_blank" rel="noopener noreferrer">raym33/r en GitHub</a></li>
@@ -505,6 +663,7 @@ filesystem_roots:
         prev={{ href: "/cursos/agentes-automatizacion/subagentes", label: "Subagentes" }}
         next={{ href: "/cursos/agentes-automatizacion/hooks", label: "Hooks" }}
       />
-    </Chapter>
+      </Chapter>
+    </>
   );
 }

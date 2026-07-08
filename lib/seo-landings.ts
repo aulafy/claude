@@ -1302,6 +1302,81 @@ export const seoLandings: SeoLanding[] = [
     ],
   },
   {
+    slug: "crear-cli-agentes-ia-local",
+    title: "Crear una CLI de agentes IA local en Python",
+    h1: "Crear una CLI de agentes IA local: Python, Ollama, skills y permisos",
+    description:
+      "Tutorial gratuito en español para crear una CLI de agentes IA local inspirada en R: Python, Click, Rich, Ollama, skills, permisos, workflows YAML, auditoría y SQLite.",
+    keywords: [
+      "crear CLI agentes IA",
+      "CLI IA local Python",
+      "R CLI tutorial español",
+      "raym33 r cli",
+      "Ollama agentes Python",
+      "Click Rich IA local",
+      "Agent OS SQLite",
+    ],
+    icon: "terminal",
+    primaryHref: "/cursos/agentes-automatizacion/crear-cli-tipo-r",
+    primaryLabel: "Ver el tutorial completo",
+    audience:
+      "Para personas técnicas, makers, docentes y perfiles de automatización que quieren construir una herramienta de terminal para agentes IA sin depender de una nube ni regalar permisos al modelo.",
+    promise:
+      "Aprenderás a pasar de una demo de chat en terminal a una CLI con configuración local-first, backends Ollama/LM Studio, tools pequeñas, permisos, logs, workflows y una cola de tareas persistente.",
+    sections: [
+      {
+        title: "Qué problema resuelve",
+        body:
+          "Un agente de IA útil necesita algo más que un prompt largo. Necesita una interfaz clara, herramientas limitadas, política de permisos, memoria, auditoría y una forma de repetir tareas. Una CLI local-first permite ejecutar todo eso desde tu ordenador con modelos abiertos.",
+        bullets: [
+          "Comandos reproducibles en vez de sesiones opacas.",
+          "Modelos locales con Ollama o API compatible.",
+          "Permisos explícitos antes de tocar archivos, red o acciones críticas.",
+        ],
+      },
+      {
+        title: "Qué construyes paso a paso",
+        body:
+          "La ruta se inspira en raym33/r, pero no exige copiarlo entero. Primero pruebas el proyecto real, luego creas una versión mínima educativa: paquete Python, comando instalable, cliente LLM, skills, auditoría, workflows YAML y SQLite para tareas.",
+        bullets: [
+          "CLI con Click y salida cuidada con Rich.",
+          "Configuración YAML local-first.",
+          "Skills pequeñas y auditables.",
+          "Agent OS mínimo con SQLite.",
+        ],
+      },
+      {
+        title: "Por qué ayuda a ChatGPT, Claude y Google",
+        body:
+          "La página responde de forma directa a una intención concreta: cómo crear una CLI de agentes IA local. Incluye pasos, comandos, código, fuentes, FAQ y datos estructurados para que buscadores y asistentes puedan entenderla, citarla y enlazarla.",
+        bullets: [
+          "Respuesta rápida al inicio.",
+          "Código y comandos copiables.",
+          "Fuentes primarias enlazadas.",
+        ],
+      },
+    ],
+    examples: [
+      "Crear un comando `ar chat` para hablar con Ollama desde terminal.",
+      "Bloquear endpoints no locales si `local_only` está activo.",
+      "Registrar cada tool call en `audit.jsonl`.",
+      "Ejecutar un workflow YAML con pasos y dependencias.",
+      "Guardar tareas de agentes en SQLite para poder pausarlas o reintentarlas.",
+    ],
+    related: [
+      { title: "Crear una CLI de agentes tipo R", href: "/cursos/agentes-automatizacion/crear-cli-tipo-r", desc: "Lección completa paso a paso." },
+      { title: "Subagentes con roles y límites", href: "/cursos/agentes-automatizacion/subagentes", desc: "Diseña agentes especializados antes de empaquetarlos." },
+      { title: "Skills seguras y auditables", href: "/cursos/agentes-automatizacion/skills-seguras", desc: "Convierte capacidades en herramientas estrechas." },
+      { title: "MCP para herramientas locales", href: "/cursos/agentes-automatizacion/mcp-herramientas-locales", desc: "Expón herramientas locales con más estándar." },
+    ],
+    faqs: [
+      { q: "¿Qué es una CLI de agentes IA local?", a: "Es una herramienta de terminal que permite hablar con modelos locales y ejecutar herramientas limitadas con permisos, logs y memoria en tu propio ordenador." },
+      { q: "¿Es lo mismo que Claude Code?", a: "No. Claude Code es una CLI comercial de Anthropic para trabajar con proyectos. Esta lección enseña a crear una CLI propia inspirada en R, con enfoque local-first y modelos como Ollama." },
+      { q: "¿Necesito programar?", a: "Sí, al menos Python básico. El tutorial está escrito paso a paso, pero el objetivo es construir una herramienta real." },
+      { q: "¿Por qué usar permisos?", a: "Porque una CLI de agentes puede leer archivos, llamar red o ejecutar acciones. Sin permisos y auditoría, una demo se convierte en riesgo." },
+    ],
+  },
+  {
     slug: "curso-videojuegos-3d-ia-fable-godot-blender",
     title: "Curso de videojuegos 3D con IA, Fable 5, Godot y Blender",
     h1: "Curso de videojuegos 3D con IA: Fable 5, Godot y Blender",

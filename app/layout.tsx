@@ -49,6 +49,11 @@ const courseTopics = [
   "LiteLLM",
   "Langfuse",
   "Agentes de IA",
+  "CLI de agentes",
+  "R CLI",
+  "Python para agentes",
+  "Click",
+  "Rich",
   "LangGraph",
   "n8n",
   "MCP",
@@ -87,6 +92,9 @@ export const metadata: Metadata = {
     "RAG avanzado",
     "RAG con PDF",
     "curso agentes IA",
+    "crear CLI agentes IA",
+    "R CLI raym33",
+    "CLI IA local Python",
     "LangGraph",
     "n8n IA",
     "MCP",
@@ -169,7 +177,7 @@ const jsonLd = {
       name: "Aulafy",
       url: SITE_URL,
       description:
-        "Web educativa con cursos gratuitos de inteligencia artificial open source en español, sin registro, con IA local, Fable 5, videojuegos 3D, CAD, RAG, prompts, Claude Code, agentes y automatización.",
+        "Web educativa con cursos gratuitos de inteligencia artificial open source en español, sin registro, con IA local, Fable 5, videojuegos 3D, CAD, RAG, prompts, Claude Code, CLI de agentes tipo R, agentes y automatización.",
       inLanguage: "es",
       areaServed: ["España", "Latinoamérica", "Hispanohablantes"],
       audience: {
@@ -179,6 +187,7 @@ const jsonLd = {
       knowsAbout: courseTopics,
       sameAs: [
         "https://github.com/raym33/claude",
+        "https://github.com/raym33/r",
         "https://x.com/learntouseai",
         "https://www.linkedin.com/in/rguillamon/",
       ],
@@ -200,7 +209,7 @@ const jsonLd = {
       url: `${SITE_URL}/cursos`,
       name: "Cursos gratuitos de IA open source en español",
       description:
-        "Catálogo de cursos prácticos de Aulafy sobre IA local, Claude Code, Fable 5, videojuegos 3D, CAD, RAG, agentes, fine-tuning, MLOps, seguridad, evals y automatización.",
+        "Catálogo de cursos prácticos de Aulafy sobre IA local, Claude Code, Fable 5, videojuegos 3D, CAD, RAG, CLI de agentes tipo R, agentes, fine-tuning, MLOps, seguridad, evals y automatización.",
       inLanguage: "es",
       isPartOf: { "@id": `${SITE_URL}/#website` },
       mainEntity: { "@id": `${SITE_URL}/#course-list` },

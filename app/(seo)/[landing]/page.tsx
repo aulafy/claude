@@ -52,6 +52,12 @@ export default async function LandingPage({ params }: { params: Promise<{ landin
   const landing = getSeoLanding(slug);
   if (!landing) notFound();
 
+  const primaryPathParts = landing.primaryHref.split("/").filter(Boolean);
+  const primaryEntityId =
+    primaryPathParts[0] === "cursos" && primaryPathParts.length > 2
+      ? `${SITE_URL}${landing.primaryHref}#learning-resource`
+      : `${SITE_URL}${landing.primaryHref}#course`;
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -65,7 +71,7 @@ export default async function LandingPage({ params }: { params: Promise<{ landin
         inLanguage: "es",
         isPartOf: { "@id": `${SITE_URL}/#website` },
         about: landing.keywords,
-        mainEntity: { "@id": `${SITE_URL}${landing.primaryHref}#course` },
+        mainEntity: { "@id": primaryEntityId },
       },
       {
         "@type": "FAQPage",

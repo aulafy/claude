@@ -97,6 +97,7 @@ export const searchData: SearchItem[] = [
   { href: "/cursos/agentes-automatizacion", title: "Agentes y automatización", section: "Agentes IA", keywords: "agentes ia automatizacion claude code skills subagentes hooks mcp loops routines" },
   { href: "/cursos/agentes-automatizacion/mapa", title: "Mapa real de agentes en 2026", section: "Agentes IA", keywords: "taxonomia agentes skills subagentes hooks mcp loop routines github actions" },
   { href: "/cursos/agentes-automatizacion/subagentes", title: "Subagentes con roles y límites", section: "Agentes IA", keywords: "subagentes roles reviewer investigator implementador contexto aislado" },
+  { href: "/crear-cli-agentes-ia-local", title: "Crear una CLI de agentes IA local", section: "Agentes IA", keywords: "crear cli agentes ia local python r cli raym33 ollama click rich sqlite workflows permisos tutorial" },
   { href: "/cursos/agentes-automatizacion/crear-cli-tipo-r", title: "Crear una CLI de agentes tipo R", section: "Agentes IA", keywords: "r cli raym33 crear cli agentes ia local python click rich ollama skills permisos workflows sqlite" },
   { href: "/cursos/agentes-automatizacion/hooks", title: "Hooks: automatización determinista", section: "Agentes IA", keywords: "hooks pretooluse posttooluse bloquear comandos tests seguridad" },
   { href: "/cursos/agentes-automatizacion/skills-seguras", title: "Skills seguras y auditables", section: "Agentes IA", keywords: "skills seguras skill.md allowed-tools auditoria bash secretos" },
