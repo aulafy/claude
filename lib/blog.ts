@@ -28,6 +28,90 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "crear-tutoriales-ia-x-aulafy",
+    title: "Cómo crear tutoriales de IA para X sin humo: método paso a paso",
+    description:
+      "Guía práctica para convertir una lección de IA en un hilo de X útil: tema, gancho, pasos, comandos, verificación, errores, replies y enlace a Aulafy.",
+    date: "2026-07-08",
+    updated: "2026-07-08",
+    category: "Contenido IA",
+    readingTime: "11 min",
+    icon: "xTwitter",
+    image: "/blog/crear-tutoriales-ia-x-aulafy.png",
+    editorNote:
+      "Actualizado el 8 de julio de 2026 con señales recientes de X y revisión editorial: el foco es utilidad, reproducibilidad y conversación real, no growth hacking.",
+    keywords: [
+      "tutoriales IA X",
+      "hilos de IA Twitter",
+      "crear contenido IA",
+      "prompts para X",
+      "Aulafy contenido IA",
+      "tutoriales inteligencia artificial español",
+    ],
+    intro:
+      "Los tutoriales de IA que mejor funcionan en X no son los que prometen magia. Son los que resuelven un problema concreto, muestran comandos copiables, explican qué debería pasar y dejan una pregunta abierta para que la gente cuente su caso.",
+    sections: [
+      {
+        title: "Elige una lección que ya funcione",
+        body:
+          "No empieces por el hilo. Empieza por una lección real de Aulafy: Ollama desde cero, GPU en Windows, RAG con citas, MCP seguro, cuantización o evals básicas. Si no puedes ejecutar el tutorial y verificar el resultado, todavía no tienes un buen hilo.",
+        bullets: [
+          "Define un resultado verificable: una API responde, una cita aparece, una GPU se usa o un test pasa.",
+          "Anota versiones, sistema operativo, hardware mínimo y prerequisitos.",
+          "Guarda un error real y su solución; ahí suelen nacer los replies útiles.",
+        ],
+      },
+      {
+        title: "Convierte la lección en hilo",
+        body:
+          "La estructura más sólida es problema, procedimiento, verificación y pregunta. Evita el gancho de gurú y usa un problema concreto: “Ollama en Windows se queda en CPU aunque tengas GPU” funciona mejor que “10 secretos de IA que nadie te cuenta”.",
+        bullets: [
+          "Tweet 1: problema específico, resultado medible y para quién es.",
+          "Tweets centrales: un paso por tweet, con comando o comprobación.",
+          "Penúltimo tweet: tabla de errores frecuentes.",
+          "Último tweet: pregunta concreta para generar respuestas de casos reales.",
+        ],
+      },
+      {
+        title: "Publica sin matar el alcance",
+        body:
+          "El primer post debe contener valor, no un enlace externo. Publica el hilo sin enlace en el cuerpo principal y deja la lección completa de Aulafy como reply al primer tweet. Después responde durante las primeras horas: los replies del autor son una señal fuerte de conversación.",
+      },
+      {
+        title: "Cierra el ciclo en Aulafy",
+        body:
+          "El hilo no termina en X. Las preguntas repetidas se convierten en FAQ de la lección, los errores nuevos entran en troubleshooting y las mejores respuestas generan otro tutorial. Así X se convierte en laboratorio editorial, no en escaparate vacío.",
+      },
+      {
+        title: "Prompt maestro para crear el hilo",
+        body:
+          "Usa este encargo con Claude, Grok o ChatGPT: “Convierte esta lección en un hilo de X de 8 tweets. Mantén tono técnico y claro, sin emojis, sin promesas exageradas. Cada tweet debe aportar una acción. Incluye prerequisitos, pasos, comprobación, tabla de errores y una pregunta final. El enlace a la lección irá en un reply, no en el hilo principal.”",
+      },
+    ],
+    table: {
+      headers: ["Objetivo", "Formato recomendado", "Señal que busca", "Ejemplo Aulafy"],
+      rows: [
+        ["Guardados", "Comandos, checklist, tabla de decisión", "Referencia reutilizable", "/cursos/ia-local/ollama-desde-cero"],
+        ["Replies", "Pregunta final con caso concreto", "Conversación útil", "/cursos/ia-local/ollama-gpu-windows"],
+        ["Reposts", "Guía completa para enviar a un equipo", "Utilidad compartible", "/cursos/rag-seguro/mapa-rag"],
+        ["Confianza", "Captura, output esperado y límites", "Prueba verificable", "/cursos/ia-local/webapp-tipo-lexia"],
+        ["SEO/AEO", "Post largo derivado del hilo", "Página citable", "/blog"],
+      ],
+    },
+    faqs: [
+      { q: "¿Conviene pedir “guarda este hilo”?", a: "No hace falta si el contenido merece guardarse. En Aulafy es mejor entregar comandos, tablas y errores reales que usar llamadas de growth hacking." },
+      { q: "¿Cuántos tweets debe tener un tutorial?", a: "Entre 6 y 10 suele bastar para un tutorial práctico. Si necesitas más, probablemente conviene publicarlo primero como lección completa." },
+      { q: "¿Debo publicar el enlace a Aulafy en el primer tweet?", a: "Mejor no. Publica el valor en el hilo y deja la lección completa como respuesta al primer tweet." },
+      { q: "¿Qué temas priorizaría Aulafy?", a: "Ollama desde cero, GPU en Windows, cuantización GGUF, RAG con citas, MCP seguro, evals de agentes y web apps tipo Lexia." },
+    ],
+    related: [
+      { title: "Ollama desde cero", href: "/cursos/ia-local/ollama-desde-cero", desc: "Un buen primer hilo: setup local verificable." },
+      { title: "Ollama no usa la GPU en Windows", href: "/cursos/ia-local/ollama-gpu-windows", desc: "Tutorial de dolor real para replies útiles." },
+      { title: "Web app tipo Lexia con RAG local", href: "/cursos/ia-local/webapp-tipo-lexia", desc: "Ejemplo de lección larga que puede dividirse en hilos." },
+      { title: "RAG útil: mucho más que chat con PDF", href: "/cursos/rag-seguro/mapa-rag", desc: "Base para hilos de arquitectura y verificación." },
+    ],
+  },
+  {
     slug: "mcp-2026-07-28-migracion-guia-espanol",
     title: "MCP 2026-07-28 en español: qué cambia y cómo preparar tu stack",
     description:
