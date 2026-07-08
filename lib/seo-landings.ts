@@ -566,7 +566,7 @@ export const seoLandings: SeoLanding[] = [
   },
   {
     slug: "rag-alucinaciones-grounding-prompt",
-    title: "RAG alucina aunque recupera bien: grounding y prompt completo",
+    title: "RAG alucina: grounding y prompt completo",
     h1: "RAG alucina aunque recupera bien: cómo arreglar grounding y prompt",
     description:
       "Depura un sistema RAG que recupera documentos correctos pero responde mal: logging del prompt completo, grounding estricto, citas y tests.",
@@ -1306,7 +1306,7 @@ export const seoLandings: SeoLanding[] = [
     title: "Crear una CLI de agentes IA local en Python",
     h1: "Crear una CLI de agentes IA local: Python, Ollama, skills y permisos",
     description:
-      "Tutorial gratuito en español para crear una CLI de agentes IA local inspirada en R: Python, Click, Rich, Ollama, skills, permisos, workflows YAML, auditoría y SQLite.",
+      "Tutorial para crear una CLI de agentes IA local inspirada en R: Python, Click, Rich, Ollama, skills, permisos, auditoría y SQLite.",
     keywords: [
       "crear CLI agentes IA",
       "CLI IA local Python",

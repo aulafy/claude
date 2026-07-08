@@ -3,8 +3,9 @@ import Link from "next/link";
 import PageTitle from "@/components/PageTitle";
 
 export const metadata: Metadata = {
-  title: "Configuración — Aprende Claude Code",
+  title: "Configuración",
   description: "Personaliza Claude Code con settings.json, CLAUDE.md, modelos y variables de entorno.",
+  alternates: { canonical: "/cursos/claude-code/configuracion" },
 };
 
 export default function Configuracion() {

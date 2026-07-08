@@ -3,8 +3,9 @@ import Link from "next/link";
 import PageTitle from "@/components/PageTitle";
 
 export const metadata: Metadata = {
-  title: "Hooks — Aprende Claude Code",
+  title: "Hooks",
   description: "Automatiza comportamientos de Claude Code con hooks: PreToolUse, PostToolUse, Stop y más.",
+  alternates: { canonical: "/cursos/claude-code/hooks" },
 };
 
 export default function Hooks() {

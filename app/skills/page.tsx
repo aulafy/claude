@@ -4,9 +4,10 @@ import PageTitle from "@/components/PageTitle";
 import Prompt from "@/components/Prompt";
 
 export const metadata: Metadata = {
-  title: "Skills (Agent Skills) — Aprende Claude Code",
+  title: "Skills (Agent Skills)",
   description:
     "Qué son las Skills de Claude Code, cómo crearlas con SKILL.md, invocarlas y compartirlas. Guía actualizada 2026.",
+  alternates: { canonical: "/cursos/claude-code/skills" },
 };
 
 export default function Skills() {

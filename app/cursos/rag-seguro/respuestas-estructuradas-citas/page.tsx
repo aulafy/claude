@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Respuestas estructuradas con citas en RAG — RAG avanzado y seguro",
+  title: "Respuestas estructuradas con citas en RAG",
   description:
     "Define contratos de respuesta para RAG profesional: answer, confidence, citations, missing_fields, no sé, evidencias y validación antes de responder.",
   keywords: ["RAG respuestas estructuradas citas", "RAG citations confidence JSON", "fix RAG hallucinations citations", "RAG no sé"],

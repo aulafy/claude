@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Búsqueda híbrida y reranking — RAG avanzado y seguro",
+  title: "Búsqueda híbrida y reranking",
   description:
     "Mejora la precisión del RAG combinando búsqueda semántica, búsqueda por palabras clave, filtros y reranking antes de generar respuestas.",
   keywords: ["búsqueda híbrida RAG", "reranking RAG", "Qdrant hybrid search", "RAG precisión"],

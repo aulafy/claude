@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Hooks: automatización determinista — Agentes y automatización",
+  title: "Hooks: automatización determinista",
   description:
     "Usa hooks para imponer reglas, ejecutar tests, bloquear comandos peligrosos y reducir errores en flujos agénticos.",
   keywords: ["hooks Claude Code", "automatización determinista IA", "PreToolUse PostToolUse", "seguridad agentes IA"],

@@ -6,9 +6,10 @@ import Prompt from "@/components/Prompt";
 import SectionHeading from "@/components/SectionHeading";
 
 export const metadata: Metadata = {
-  title: "Recetas prácticas — Aprende Claude Code",
+  title: "Recetas prácticas",
   description:
     "Más de 40 ejemplos reales para usar Claude Code en el día a día: aprender a programar, crear proyectos, depurar errores, automatizar tareas y más.",
+  alternates: { canonical: "/cursos/claude-code/recetas" },
 };
 
 const sections: Array<{ href: string; icon: IconName; label: string }> = [

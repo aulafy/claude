@@ -6,7 +6,7 @@ import { cursos, proximamente, totalLecciones } from "@/lib/cursos";
 export const metadata: Metadata = {
   title: "Cursos gratis de IA open source en español",
   description:
-    "Catálogo gratuito de cursos de inteligencia artificial open source en español: Claude Code, IA local, Ollama, RAG, agentes, fine-tuning, MLOps, seguridad, evals, prompts, imagen, voz, vídeo y automatización. Sin registro.",
+    "Catálogo gratuito de cursos de IA open source en español: Claude Code, IA local, Ollama, RAG, agentes, MLOps, seguridad y automatización.",
   keywords: [
     "cursos gratis de IA",
     "cursos inteligencia artificial español",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/cursos" },
   openGraph: {
-    title: "Cursos gratis de IA open source en español — Aulafy",
+    title: "Cursos gratis de IA open source en español",
     description:
       "Rutas prácticas, gratuitas y sin registro para aprender IA local, Claude Code, Fable 5, videojuegos 3D, RAG, agentes, MLOps, seguridad y automatización.",
     url: "/cursos",

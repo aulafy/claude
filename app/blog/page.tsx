@@ -5,9 +5,9 @@ import Icon from "@/components/Icon";
 import { blogPosts } from "@/lib/blog";
 
 export const metadata: Metadata = {
-  title: "Blog de IA en español: MCP, agentes, herramientas, SEO y automatización",
+  title: "Blog de IA: MCP, agentes y herramientas",
   description:
-    "Artículos prácticos de Aulafy sobre IA en español: MCP, agentes, Claude Code, herramientas, ChatGPT vs Claude vs Gemini vs Grok, SEO/AEO, prompts, pymes, IA local y RAG.",
+    "Guías prácticas sobre IA en español: MCP, agentes, Claude Code, herramientas, SEO/AEO, prompts, pymes, IA local y RAG.",
   keywords: [
     "blog IA español",
     "MCP español",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/blog" },
   openGraph: {
-    title: "Blog de IA en español — Aulafy",
+    title: "Blog de IA en español",
     description:
       "Guías prácticas, comparativas y listas actualizadas para aprender y aplicar IA sin humo.",
     url: "/blog",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Blog de IA en español — Aulafy",
+    title: "Blog de IA en español",
     description: "Herramientas, comparativas, SEO/AEO, prompts, pymes, agentes e IA local.",
     images: ["/og-image.png"],
   },
@@ -66,7 +66,7 @@ export default function BlogPage() {
       <Link href={`/blog/${featured.slug}`} className="group block rounded-2xl border border-[#8b5cf6]/30 bg-gradient-to-br from-[#8b5cf6]/12 to-[#22d3ee]/5 p-7 mb-8 hover:border-[#8b5cf6]/60 transition-colors">
         <div className="flex flex-col md:flex-row gap-6 md:items-center">
           <div className="relative w-full md:w-72 aspect-video rounded-xl overflow-hidden border border-white/10 bg-zinc-950 shrink-0">
-            <Image src={featured.image} alt="" fill sizes="(min-width: 768px) 288px, 100vw" className="object-cover" priority />
+            <Image src={featured.image} alt={featured.title} fill sizes="(min-width: 768px) 288px, 100vw" className="object-cover" priority />
           </div>
           <div className="flex-1">
             <div className="text-xs text-[#a78bfa] font-semibold mb-2">Destacado · {featured.category} · {featured.readingTime}</div>
@@ -97,7 +97,7 @@ export default function BlogPage() {
             className="group rounded-2xl border border-zinc-800 bg-zinc-900/30 p-6 hover:border-zinc-600 transition-colors"
           >
             <div className="relative aspect-video rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950 mb-4">
-              <Image src={post.image} alt="" fill sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" className="object-cover" />
+              <Image src={post.image} alt={post.title} fill sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" className="object-cover" />
             </div>
             <div className="text-xs text-zinc-500 mb-2">{post.category} · {post.readingTime}</div>
             <h2 className="font-display font-bold text-xl text-white group-hover:text-orange-300 transition-colors">{post.title}</h2>

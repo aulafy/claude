@@ -3,8 +3,9 @@ import Prompt from "@/components/Prompt";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, Nota, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Un chatbot que responde citando la ley — Claude Code + IA Local",
+  title: "Un chatbot que responde citando la ley",
   description: "Construye un asistente legal privado con RAG que responde citando tus documentos, 100% en tu ordenador. Con nota de privacidad y RGPD.",
+  alternates: { canonical: "/cursos/ia-local/chatbot-legal" },
 };
 
 export default function Page() {

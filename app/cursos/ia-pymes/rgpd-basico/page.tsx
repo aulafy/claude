@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "RGPD básico para usar IA sin sustos — IA para pymes y autónomos",
+  title: "RGPD básico para usar IA sin sustos",
   description:
     "Checklist básico de privacidad para usar IA en pymes: minimización, finalidad, transparencia, encargados, datos sensibles, logs y revisión humana.",
   keywords: ["RGPD IA pymes", "privacidad IA local", "IA datos personales empresa", "AEPD IA agéntica"],

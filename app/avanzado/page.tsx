@@ -3,8 +3,9 @@ import Link from "next/link";
 import PageTitle from "@/components/PageTitle";
 
 export const metadata: Metadata = {
-  title: "Uso avanzado — Aprende Claude Code",
+  title: "Uso avanzado",
   description: "Subagentes, git worktrees, modo headless, CI/CD y flujos de trabajo avanzados con Claude Code.",
+  alternates: { canonical: "/cursos/claude-code/avanzado" },
 };
 
 export default function Avanzado() {

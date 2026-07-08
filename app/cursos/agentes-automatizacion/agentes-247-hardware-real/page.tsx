@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Agentes 24/7 offline en hardware real — Agentes y automatización",
+  title: "Agentes 24/7 offline en hardware real",
   description:
     "Diseña agentes 24/7 locales para Mac M-series, RTX 3090/4090, mini PC o VPS: colas, watchdog, límites de compute, logs y recuperación.",
   keywords: [

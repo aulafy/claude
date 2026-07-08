@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "MCP para herramientas locales — Agentes y automatización",
+  title: "MCP para herramientas locales",
   description:
     "Diseña herramientas MCP locales para agentes: lectura de archivos, comandos permitidos, búsquedas, permisos mínimos, trazas y aprobación humana.",
   keywords: ["mcp herramientas locales", "MCP tools agentes locales", "MCP filesystem seguro", "agentes locales tools"],

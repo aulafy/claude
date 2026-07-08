@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Hardware mínimo para IA local en 2026 — Claude Code + IA Local",
+  title: "Hardware mínimo para IA local en 2026",
   description:
     "Qué ordenador necesitas para IA local en 2026: RAM, VRAM, CPU, NVIDIA, AMD, Apple Silicon, modelos 7B/14B/32B, RAG y agentes.",
   keywords: [

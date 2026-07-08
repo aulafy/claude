@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Retries, idempotencia y exactly-once — Agentes y automatización",
+  title: "Retries, idempotencia y exactly-once",
   description:
     "Aprende por qué reintentar un agente no es como reintentar una API y cómo evitar acciones duplicadas con idempotency keys.",
   keywords: ["retry logic agentes IA", "idempotencia LangGraph", "exactly once agents", "tool calling duplicado"],

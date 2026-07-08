@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Governance MCP y conocimiento fiable — Agentes y automatización",
+  title: "Governance MCP y conocimiento fiable",
   description:
     "Cómo pasar de conectar MCP a gobernar herramientas, permisos, fuentes, documentos contradictorios y aprobaciones humanas.",
   keywords: ["MCP governance", "gobernanza MCP Claude", "tool permissions MCP", "conocimiento fiable agentes IA"],

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Evals RAG con métricas — RAG avanzado y seguro",
+  title: "Evals RAG con métricas",
   description:
     "Cómo evaluar un RAG con métricas simples: recuperación, citas, abstención correcta, permisos y resistencia a prompt injection.",
   keywords: ["evals RAG", "métricas RAG", "evaluar RAG", "RAG faithfulness", "RAG retrieval quality"],

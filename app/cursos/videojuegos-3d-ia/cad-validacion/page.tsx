@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "IA, CAD y validación profesional — Aulafy",
+  title: "IA, CAD y validación profesional",
   description:
-    "Usa Fable 5 con CAD, AutoCAD, Fusion, Blender y BIM sin perder rigor: prompts espaciales, scripts, dimensiones, tolerancias, interferencias y responsabilidad profesional.",
+    "Usa Fable 5 con CAD, AutoCAD, Fusion, Blender y BIM: prompts espaciales, scripts, dimensiones, tolerancias y validación.",
   keywords: ["IA CAD AutoCAD Fusion", "Fable 5 CAD", "BIM IA validación", "AutoLISP IA", "diseño 3D validación"],
   alternates: { canonical: "/cursos/videojuegos-3d-ia/cad-validacion" },
 };

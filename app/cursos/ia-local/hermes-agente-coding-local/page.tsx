@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Agente coding local con Hermes y Ollama — Claude Code + IA Local",
+  title: "Agente coding local con Hermes y Ollama",
   description:
-    "Monta un agente de código local con Hermes Agent, Ollama y modelos abiertos: permisos, tool calling, stop logic, memoria y verificación antes de tocar repos reales.",
+    "Monta un agente de código local con Hermes, Ollama y modelos abiertos: permisos, tool calling, memoria y verificación.",
   keywords: [
     "agente coding local ollama hermes",
     "Hermes Agent Ollama",

@@ -71,7 +71,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: "Aulafy — Cursos gratis de IA open source en español",
-    template: "%s | Aulafy",
+    template: "%s",
   },
   description:
     "Cursos gratuitos de inteligencia artificial open source en español, sin registro y con ejemplos prácticos: IA local, Claude Code, Ollama, RAG, fine-tuning, MLOps, agentes, seguridad, evals, imagen, voz, vídeo y automatización.",
@@ -111,7 +111,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Ramón Guillamón", url: "https://www.linkedin.com/in/rguillamon/" }],
   creator: "Ramón Guillamón",
   publisher: "Aulafy",
-  alternates: { canonical: "/" },
+  manifest: "/manifest.webmanifest",
   category: "Education",
   verification: {
     // Google Search Console (valor fijo; también admite override por env).
@@ -269,11 +269,11 @@ const jsonLd = {
     })),
     {
       "@type": "LearningResource",
-      "@id": `${SITE_URL}/volumen-2#learning-resource`,
+      "@id": `${SITE_URL}/cursos/ia-local#learning-resource`,
       name: "Claude Code + IA Local",
       description:
         "Guía práctica en español para construir aplicaciones de IA local con Ollama, LM Studio, RAG, PDF, voz y modelos abiertos.",
-      url: `${SITE_URL}/volumen-2`,
+      url: `${SITE_URL}/cursos/ia-local`,
       inLanguage: "es",
       isAccessibleForFree: true,
       educationalLevel: "Intermedio",

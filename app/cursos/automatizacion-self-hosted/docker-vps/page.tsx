@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Docker y VPS barato sin liarla — Automatización self-hosted",
+  title: "Docker y VPS barato sin liarla",
   description:
     "Cómo preparar un VPS o mini PC para automatización IA con Docker, dominios, HTTPS, variables de entorno, volúmenes y backups.",
   keywords: ["VPS n8n Open WebUI Docker", "self hosted IA barato", "Docker IA pymes", "n8n VPS"],

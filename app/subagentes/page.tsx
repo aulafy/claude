@@ -4,9 +4,10 @@ import PageTitle from "@/components/PageTitle";
 import Prompt from "@/components/Prompt";
 
 export const metadata: Metadata = {
-  title: "Subagentes — Aprende Claude Code",
+  title: "Subagentes",
   description:
     "Crea subagentes especializados en Claude Code: definición en .claude/agents, frontmatter, paralelismo y ejecución en background. Guía 2026.",
+  alternates: { canonical: "/cursos/claude-code/subagentes" },
 };
 
 export default function Subagentes() {

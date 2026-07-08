@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Facturas: extraer datos y revisar — IA para pymes y autónomos",
+  title: "Facturas: extraer datos y revisar",
   description:
     "Cómo usar IA para extraer datos de facturas, convertirlos a JSON, detectar errores y preparar revisión sin sustituir a tu gestoría.",
   keywords: ["IA facturas", "extraer datos facturas IA", "facturas PDF IA local", "automatizar facturas autónomos"],

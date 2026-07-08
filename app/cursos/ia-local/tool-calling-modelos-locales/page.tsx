@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Tool calling con modelos locales: troubleshooting — Claude Code + IA Local",
+  title: "Tool calling con modelos locales: troubleshooting",
   description:
     "Diagnostica tool calling roto con modelos locales, Ollama, Open WebUI, Hermes, MCP y quants GGUF: parsers, formatos, permisos y pruebas pequeñas.",
   keywords: [

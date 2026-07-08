@@ -5,9 +5,10 @@ import PageTitle from "@/components/PageTitle";
 import Prompt from "@/components/Prompt";
 
 export const metadata: Metadata = {
-  title: "Plugins y marketplace — Aprende Claude Code",
+  title: "Plugins y marketplace",
   description:
     "Instala y gestiona plugins en Claude Code: añade marketplaces, instala bundles de skills, agentes, hooks y servidores MCP. Guía 2026.",
+  alternates: { canonical: "/cursos/claude-code/plugins" },
 };
 
 export default function Plugins() {

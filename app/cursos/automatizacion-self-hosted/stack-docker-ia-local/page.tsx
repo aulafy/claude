@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Docker Compose para stack completo de IA local — Automatización self-hosted",
+  title: "Docker Compose para stack completo de IA local",
   description:
     "Monta un stack local reproducible con Ollama, Open WebUI, Qdrant, n8n y perfiles Docker Compose para activar servicios según hardware y proyecto.",
   keywords: [

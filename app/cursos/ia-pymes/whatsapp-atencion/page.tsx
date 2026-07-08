@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "WhatsApp y Telegram con aprobación humana — IA para pymes y autónomos",
+  title: "WhatsApp y Telegram con aprobación humana",
   description:
     "Diseña un flujo de atención al cliente con n8n, WhatsApp Business Cloud o Telegram, IA local y revisión humana antes de responder.",
   keywords: ["n8n WhatsApp IA local", "WhatsApp IA pymes", "Telegram IA atención cliente", "n8n atención cliente"],

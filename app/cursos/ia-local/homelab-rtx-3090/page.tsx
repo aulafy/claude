@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Homelab IA con RTX 3090 usadas — Claude Code + IA Local",
+  title: "Homelab IA con RTX 3090 usadas",
   description:
     "Cómo pensar un homelab de IA local con RTX 3090 usadas: VRAM, consumo, caja, fuente, multi-GPU, llama.cpp, riesgos y ROI frente a suscripciones.",
   keywords: ["comprar rtx 3090 usada homelab ia local", "llama.cpp multi gpu tensor splitting sin nvlink", "4x RTX 3090 IA local", "homelab LLM"],

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "OOM y gestión de memoria — Agentes y automatización",
+  title: "OOM y gestión de memoria",
   description:
     "Cómo evitar errores OOM en agentes con LangGraph y n8n: truncado, resumen, checkpointers, colas, límites Docker y alertas.",
   keywords: ["OOM agentes IA", "LangGraph memory management", "n8n queue mode", "agentes IA producción memoria"],

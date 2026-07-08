@@ -3,8 +3,9 @@ import Link from "next/link";
 import PageTitle from "@/components/PageTitle";
 
 export const metadata: Metadata = {
-  title: "Instalación — Aprende Claude Code",
+  title: "Instalación",
   description: "Cómo instalar Claude Code paso a paso en macOS, Linux y Windows (WSL).",
+  alternates: { canonical: "/cursos/claude-code/instalacion" },
 };
 
 export default function Instalacion() {

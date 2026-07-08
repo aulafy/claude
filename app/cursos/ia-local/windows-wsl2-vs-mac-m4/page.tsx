@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Windows/WSL2 vs Mac M4 para IA local — Claude Code + IA Local",
+  title: "Windows/WSL2 vs Mac M4 para IA local",
   description:
     "Comparativa práctica entre Windows con WSL2/NVIDIA y Mac Apple Silicon para IA local: Ollama, MLX, Docker, GPU, contexto y errores comunes.",
   keywords: ["mejor setup ia local mac m4 pro ollama mlx", "docker gpu passthrough wsl2 ollama problemas", "Mac M4 vs RTX 4090 IA local"],

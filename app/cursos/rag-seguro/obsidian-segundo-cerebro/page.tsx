@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Segundo cerebro local con Obsidian y RAG — RAG avanzado y seguro",
+  title: "Segundo cerebro local con Obsidian y RAG",
   description:
     "Convierte notas Markdown de Obsidian en un RAG local con limpieza, frontmatter, backlinks, permisos, Qdrant y respuestas con citas.",
   keywords: ["segundo cerebro local ollama obsidian rag", "Obsidian RAG local", "RAG notas Markdown", "Qdrant Obsidian"],

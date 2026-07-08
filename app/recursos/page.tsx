@@ -4,9 +4,10 @@ import Icon from "@/components/Icon";
 import PageTitle from "@/components/PageTitle";
 
 export const metadata: Metadata = {
-  title: "Recursos — Aprende Claude Code",
+  title: "Recursos",
   description:
     "Enlaces oficiales y de la comunidad para profundizar en Claude Code, Skills, MCP, cursos y tutoriales.",
+  alternates: { canonical: "/cursos/claude-code/recursos" },
 };
 
 const resourceSections = [

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "GitHub Actions y routines — Agentes y automatización",
+  title: "GitHub Actions y routines",
   description:
     "Diseña automatizaciones de IA con GitHub Actions, cron local, loops y tareas programadas, separando CI determinista de trabajo agéntico.",
   keywords: ["GitHub Actions agentes IA", "routines Claude Code", "loop agentes IA", "automatización PR IA"],

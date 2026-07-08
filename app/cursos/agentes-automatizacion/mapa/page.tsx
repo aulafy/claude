@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Mapa real de agentes en 2026 — Agentes y automatización",
+  title: "Mapa real de agentes en 2026",
   description:
     "Taxonomía práctica de agentes de IA: skills, subagentes, hooks, MCP, loops, GitHub Actions y automatizaciones con límites claros.",
   keywords: ["agentes IA 2026", "Claude Code skills subagentes hooks", "automatización con IA", "MCP Claude Code"],

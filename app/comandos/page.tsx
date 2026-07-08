@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Comandos — Aprende Claude Code",
+  title: "Comandos",
   description: "Referencia completa de todos los slash commands y flags de Claude Code.",
+  alternates: { canonical: "/cursos/claude-code/comandos" },
 };
 
 const slashCommands = [

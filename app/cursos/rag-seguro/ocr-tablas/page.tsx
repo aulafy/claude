@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "OCR y tablas en PDFs reales — RAG avanzado y seguro",
+  title: "OCR y tablas en PDFs reales",
   description:
     "Cómo preparar PDFs escaneados, facturas y tablas para RAG con OCR, lectura de layout, extracción estructurada y revisión antes de indexar.",
   keywords: ["OCR RAG", "tablas PDF RAG", "Docling OCR", "extraer tablas PDF IA", "RAG facturas PDF"],

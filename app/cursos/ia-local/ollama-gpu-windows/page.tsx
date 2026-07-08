@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Ollama no usa la GPU en Windows: CUDA, AMD, WSL2 y fixes — Claude Code + IA Local",
+  title: "Ollama no usa la GPU en Windows: CUDA, AMD, WSL2 y fixes",
   description:
-    "Guía de diagnóstico para cuando Ollama usa CPU en Windows: comprobar GPU, drivers NVIDIA, AMD Radeon, WSL2, Docker, VRAM, Defender, logs y variables persistentes.",
+    "Diagnóstico de Ollama en CPU en Windows: GPU, drivers NVIDIA/AMD, WSL2, Docker, VRAM, Defender, logs y variables.",
   keywords: [
     "Ollama no usa GPU Windows",
     "Ollama NVIDIA Windows",

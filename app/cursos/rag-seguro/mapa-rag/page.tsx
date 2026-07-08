@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "RAG útil: mucho más que chat con PDF — RAG avanzado y seguro",
+  title: "RAG útil: mucho más que chat con PDF",
   description:
     "Aprende qué piezas necesita un sistema RAG fiable: ingesta, chunking, embeddings, vector DB, reranking, citaciones, permisos y evaluación.",
   keywords: ["RAG avanzado", "RAG local español", "chatbot documentos privados", "RAG producción"],

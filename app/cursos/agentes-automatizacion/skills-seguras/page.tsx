@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Skills seguras y auditables — Agentes y automatización",
+  title: "Skills seguras y auditables",
   description:
     "Cómo crear y auditar skills de Claude Code con frontmatter, herramientas permitidas, scripts revisables y permisos mínimos.",
   keywords: ["skills Claude Code seguras", "auditar skills IA", "SKILL.md allowed-tools", "Agent Skills seguridad"],

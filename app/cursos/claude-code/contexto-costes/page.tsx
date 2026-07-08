@@ -4,7 +4,7 @@ import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, Chapt
 export const metadata: Metadata = {
   title: "Controla el contexto y los costes — Claude Code",
   description:
-    "Por qué Claude Code 'olvida', por qué se queman los límites del plan y cómo evitarlo: CLAUDE.md, /compact, /clear, subagentes y el flujo híbrido con IA local.",
+    "Por qué Claude Code olvida y consume límites: CLAUDE.md, /compact, /clear, subagentes y flujo híbrido con IA local.",
   alternates: { canonical: "/cursos/claude-code/contexto-costes" },
 };
 

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "RAG privado con n8n, Qdrant y Ollama — Automatización self-hosted",
+  title: "RAG privado con n8n, Qdrant y Ollama",
   description:
     "Crea un agente RAG privado con n8n, Qdrant, Ollama y Open WebUI: ingesta, búsqueda, respuesta por chat o Telegram, permisos y troubleshooting.",
   keywords: [

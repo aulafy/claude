@@ -4,9 +4,10 @@ import Icon from "@/components/Icon";
 import PageTitle from "@/components/PageTitle";
 
 export const metadata: Metadata = {
-  title: "Volumen II · Claude Code + IA Local — Aprende Claude Code",
+  title: "Volumen II · Claude Code + IA Local",
   description:
     "La continuación de Aprende Claude Code. Construye herramientas de IA que se ejecutan en tu propio ordenador y publícalas en internet. Guía práctica para perfiles técnicos, en español.",
+  alternates: { canonical: "/cursos/ia-local" },
 };
 
 const partes = [
@@ -49,14 +50,14 @@ const partes = [
   },
 ];
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://aulafy.net";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 
 const bookJsonLd = {
   "@context": "https://schema.org",
   "@type": "Book",
   name: "Claude Code + IA Local — Guía práctica para perfiles técnicos (Volumen II)",
   inLanguage: "es",
-  url: `${SITE_URL}/volumen-2`,
+  url: `${SITE_URL}/cursos/ia-local`,
   bookFormat: "https://schema.org/EBook",
   license: "https://creativecommons.org/licenses/by/4.0/",
   isAccessibleForFree: true,

@@ -3,8 +3,9 @@ import Prompt from "@/components/Prompt";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, Nota, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Un asistente de oficina para autónomos — Claude Code + IA Local",
+  title: "Un asistente de oficina para autónomos",
   description: "Una app local que ayuda con el papeleo: crear facturas, llevar ingresos y gastos y consultar tus documentos. Sin cuotas y con tus datos privados.",
+  alternates: { canonical: "/cursos/ia-local/facturacion" },
 };
 
 export default function Page() {

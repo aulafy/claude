@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Axolotl para entrenamientos reproducibles — Fine-tuning local",
+  title: "Axolotl reproducible — Fine-tuning local",
   description:
     "Usa Axolotl para configurar fine-tuning de LLMs con YAML, datasets, LoRA, QLoRA, checkpoints, logging y ejecución reproducible.",
   keywords: ["Axolotl fine tuning", "config YAML LLM", "post training reproducible", "fine tuning Qwen Gemma Mistral"],

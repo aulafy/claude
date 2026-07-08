@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Open WebUI + Ollama + Qdrant con Docker Compose — Claude Code + IA Local",
+  title: "Open WebUI + Ollama + Qdrant con Docker Compose",
   description:
     "Monta un stack local de IA con Ollama, Open WebUI y Qdrant usando Docker Compose para chat privado, interfaz web y base vectorial RAG.",
   keywords: [

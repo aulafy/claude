@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "GraphRAG local y memoria con grafos — RAG avanzado y seguro",
+  title: "GraphRAG local y memoria con grafos",
   description:
     "Aprende cuándo usar GraphRAG local, cómo extraer entidades y relaciones, combinar búsqueda vectorial con grafos y evaluar si mejora un RAG privado.",
   keywords: ["GraphRAG local", "RAG con grafos", "memoria agentes grafos", "knowledge graph RAG", "RAG avanzado español"],

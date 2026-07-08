@@ -15,15 +15,17 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const post = getBlogPost(slug);
   if (!post) return {};
+  const title = seoTitleFor(post.slug, post.title);
+  const description = compactDescription(post.description);
 
   return {
-    title: post.title,
-    description: post.description,
+    title,
+    description,
     keywords: post.keywords,
     alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {
-      title: post.title,
-      description: post.description,
+      title,
+      description,
       url: `/blog/${post.slug}`,
       type: "article",
       publishedTime: post.date,
@@ -33,11 +35,33 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     },
     twitter: {
       card: "summary_large_image",
-      title: post.title,
-      description: post.description,
+      title,
+      description,
       images: [post.image],
     },
   };
+}
+
+function seoTitleFor(slug: string, fallback: string) {
+  const titles: Record<string, string> = {
+    "grok-45-guia-evaluacion-2026": "Grok 4.5: evaluación sin hype",
+    "crear-tutoriales-ia-x-aulafy": "Tutoriales de IA para X sin humo",
+    "mcp-2026-07-28-migracion-guia-espanol": "MCP 2026-07-28: guía de migración",
+    "mejores-herramientas-ia-gratis-2026": "Mejores herramientas de IA gratis en 2026",
+    "chatgpt-vs-claude-vs-gemini-vs-grok-2026": "ChatGPT vs Claude vs Gemini vs Grok",
+    "como-usar-ia-para-seo-aeo-2026": "IA para SEO y AEO en 2026",
+    "mejores-prompts-chatgpt-claude-blogs": "Prompts para ChatGPT y Claude en blogs",
+    "ia-para-pymes-autonomos-casos-uso-2026": "IA para pymes: 25 casos de uso",
+    "tendencias-ia-2026-agentes-ia-local-rag": "Tendencias IA 2026: agentes, local y RAG",
+  };
+  return titles[slug] ?? fallback;
+}
+
+function compactDescription(text: string) {
+  if (text.length <= 155) return text;
+  const trimmed = text.slice(0, 152);
+  const lastSpace = trimmed.lastIndexOf(" ");
+  return `${trimmed.slice(0, lastSpace > 120 ? lastSpace : 152)}...`;
 }
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -97,7 +121,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             </div>
           )}
           <div className="relative aspect-video rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-950 mt-8">
-            <Image src={post.image} alt="" fill sizes="(min-width: 768px) 768px, 100vw" className="object-cover" priority />
+            <Image src={post.image} alt={post.title} fill sizes="(min-width: 768px) 768px, 100vw" className="object-cover" priority />
           </div>
         </header>
 

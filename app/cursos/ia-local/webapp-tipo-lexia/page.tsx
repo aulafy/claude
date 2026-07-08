@@ -3,9 +3,9 @@ import Prompt from "@/components/Prompt";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, Nota, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Crea una web app tipo Lexia con RAG local — Claude Code + IA Local",
+  title: "Crea una web app tipo Lexia con RAG local",
   description:
-    "Lección paso a paso para crear una web app de IA inspirada en Lexia: interfaz web, backend Node.js, corpus, embeddings, RAG local, citas, guardrails y despliegue en Vercel.",
+    "Crea una web app de IA inspirada en Lexia: interfaz, backend Node.js, corpus, embeddings, RAG local, citas y despliegue.",
   alternates: { canonical: "/cursos/ia-local/webapp-tipo-lexia" },
   keywords: [
     "Lexia",

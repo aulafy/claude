@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Agentes de código locales con Ollama — Claude Code + IA Local",
+  title: "Agentes de código locales con Ollama",
   description:
     "Cómo montar un agente de código local con Ollama, modelos abiertos, contexto suficiente y verificación básica antes de tocar proyectos reales.",
   keywords: [

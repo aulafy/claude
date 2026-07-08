@@ -3,8 +3,9 @@ import Prompt from "@/components/Prompt";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, Nota, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Simulaciones 3D para explicar en clase — Claude Code + IA Local",
+  title: "Simulaciones 3D para explicar en clase",
   description: "Crea escenas 3D interactivas en el navegador con Three.js y React Three Fiber para clases, cursos y presentaciones.",
+  alternates: { canonical: "/cursos/ia-local/simulaciones-3d" },
 };
 
 export default function Page() {

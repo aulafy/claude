@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Proyecto: soporte interno para una pyme — Automatización self-hosted",
+  title: "Proyecto: soporte interno para una pyme",
   description:
     "Proyecto final: sistema self-hosted con n8n, Open WebUI, modelo local, bandeja de soporte, borradores, aprobación humana y logs.",
   keywords: ["proyecto IA pyme n8n", "soporte interno IA", "Open WebUI n8n pyme", "automatización soporte IA"],

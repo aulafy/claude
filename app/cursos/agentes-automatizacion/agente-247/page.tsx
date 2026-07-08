@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Proyecto: agente 24/7 con bandeja de entrada — Agentes y automatización",
+  title: "Proyecto: agente 24/7 con bandeja de entrada",
   description:
     "Proyecto final para montar un agente 24/7 con VPS o mini PC, Telegram o Discord, cola de tareas, aprobación humana y logs.",
   keywords: ["agente 24/7 IA", "Claude Code Telegram VPS", "automatización IA pyme", "agente Discord IA local"],

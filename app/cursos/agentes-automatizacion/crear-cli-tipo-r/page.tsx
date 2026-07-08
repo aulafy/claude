@@ -5,9 +5,9 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 const PAGE_URL = `${SITE_URL}/cursos/agentes-automatizacion/crear-cli-tipo-r`;
 
 export const metadata: Metadata = {
-  title: "Crear una CLI de agentes IA local tipo R con Python, Ollama y SQLite",
+  title: "CLI de agentes IA local con Python y Ollama",
   description:
-    "Tutorial gratis en español para crear una CLI de agentes IA local inspirada en R: Python, Click, Rich, Ollama, skills, permisos, auditoría, workflows YAML, SQLite y Agent OS.",
+    "Crea una CLI de agentes IA local inspirada en R: Python, Click, Rich, Ollama, skills, permisos, auditoría y SQLite.",
   keywords: [
     "crear CLI IA local",
     "crear CLI de agentes IA",

@@ -4,9 +4,10 @@ import Icon from "@/components/Icon";
 import PageTitle from "@/components/PageTitle";
 
 export const metadata: Metadata = {
-  title: "Glosario para principiantes — Aprende Claude Code",
+  title: "Glosario para principiantes",
   description:
     "Diccionario de términos técnicos que aparecen al usar Claude Code, explicados con palabras sencillas y analogías.",
+  alternates: { canonical: "/cursos/claude-code/glosario" },
 };
 
 const terms: { term: string; def: string; analogy?: string }[] = [

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Mapa del stack: n8n, Open WebUI y modelos — Automatización self-hosted",
+  title: "Mapa del stack: n8n, Open WebUI y modelos",
   description:
     "Arquitectura práctica para automatización IA self-hosted en pymes con n8n, Open WebUI, Ollama, vLLM, webhooks y aprobaciones.",
   keywords: ["automatización IA self-hosted", "n8n Open WebUI Ollama", "IA local pymes", "agentes IA baratos"],

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Memoria persistente compartida para agentes locales — Agentes y automatización",
+  title: "Memoria persistente compartida para agentes locales",
   description:
     "Diseña memoria persistente para multi-agentes locales con capas hot/warm/cold, Qdrant, Obsidian, task board, decay, permisos y trazas.",
   keywords: ["memoria persistente agentes locales", "multi agent memory Qdrant Obsidian", "shared memory agents", "Hermes ToolBridge Obsidian"],

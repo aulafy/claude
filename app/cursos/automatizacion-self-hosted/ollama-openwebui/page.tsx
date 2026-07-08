@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Ollama y Open WebUI como interfaz privada — Automatización self-hosted",
+  title: "Ollama y Open WebUI como interfaz privada",
   description:
     "Configura Ollama y Open WebUI como interfaz privada para modelos locales, APIs compatibles OpenAI, herramientas y conocimiento interno.",
   keywords: ["Open WebUI Ollama", "interfaz IA privada", "Ollama OpenAI compatible", "Open WebUI tools"],

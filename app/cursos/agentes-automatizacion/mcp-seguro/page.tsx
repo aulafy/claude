@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "MCP sin regalar tus llaves — Agentes y automatización",
+  title: "MCP sin regalar tus llaves",
   description:
     "Buenas prácticas para usar servidores MCP con agentes: allowlists, OAuth, variables de entorno, permisos por servidor y revisión de herramientas.",
   keywords: ["MCP seguro", "Model Context Protocol seguridad", "Claude Code MCP permisos", "MCP OAuth"],

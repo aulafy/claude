@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Presupuestos, Excel y Sheets — IA para pymes y autónomos",
+  title: "Presupuestos, Excel y Sheets",
   description:
     "Usa IA para crear presupuestos revisables, limpiar hojas de cálculo, cruzar datos y generar informes para una pyme.",
   keywords: ["IA Excel pymes", "IA presupuestos autónomos", "automatizar presupuestos IA", "IA Google Sheets"],

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Colas, backups y monitorización — Automatización self-hosted",
+  title: "Colas, backups y monitorización",
   description:
     "Opera automatizaciones IA self-hosted con queue mode, workers, backups, error workflows, alertas y límites de ejecución.",
   keywords: ["n8n queue mode", "n8n backups monitoring", "automatización IA producción", "workers Redis n8n"],

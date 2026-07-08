@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Loops infinitos y control de costes — Agentes y automatización",
+  title: "Loops infinitos y control de costes",
   description:
     "Cómo detectar loops, cortar ejecuciones repetidas y poner presupuestos duros a agentes con herramientas, n8n o LangGraph.",
   keywords: ["loops infinitos agentes IA", "control costes agentes IA", "budget guardrails LLM", "circuit breaker agentes"],

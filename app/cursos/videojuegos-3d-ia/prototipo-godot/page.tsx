@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Primer prototipo 3D en Godot con IA — Aulafy",
+  title: "Primer prototipo 3D en Godot con IA",
   description:
     "Construye un prototipo jugable 3D en Godot con ayuda de Fable 5: escena, personaje, cámara, colisiones, coleccionables, puerta y exportación web.",
   keywords: ["Godot 4 prototipo 3D IA", "CharacterBody3D Godot tutorial", "crear juego 3D Godot", "Fable 5 GDScript"],

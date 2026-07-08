@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "MCP de verificación antes de merge — Agentes y automatización",
+  title: "MCP de verificación antes de merge",
   description:
     "Diseña un workflow MCP seguro para que un agente edite código, cree una rama y otro proceso verifique dependencias, tests y logs antes de merge.",
   keywords: ["mcp server claude code local ollama", "mcp verify workflow", "github mcp agent code", "mcp seguridad agentes"],

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Soluciona errores de Ollama en Windows, macOS y Linux — Claude Code + IA Local",
+  title: "Soluciona errores de Ollama en Windows, macOS y Linux",
   description:
     "Guía de troubleshooting de Ollama: connection refused, modelos lentos, falta de memoria, puerto 11434, nombres de modelos y problemas con apps locales.",
   keywords: [

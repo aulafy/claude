@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Estado persistente y crash recovery — Agentes y automatización",
+  title: "Estado persistente y crash recovery",
   description:
     "Diseña agentes 24/7 que sobreviven a reinicios con checkpointers, estado hot/warm/cold, active-tasks y durable execution.",
   keywords: ["persistent state agentes IA", "crash recovery LangGraph", "Temporal durable execution", "memoria agentes 24/7"],

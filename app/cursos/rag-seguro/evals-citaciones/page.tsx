@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Evals, citaciones y trazabilidad — RAG avanzado y seguro",
+  title: "Evals, citaciones y trazabilidad",
   description:
     "Cómo evaluar un sistema RAG con preguntas de control, citas verificables, trazas de recuperación y métricas de calidad.",
   keywords: ["evals RAG", "citaciones RAG", "evaluar chatbot documentos", "trazabilidad RAG"],

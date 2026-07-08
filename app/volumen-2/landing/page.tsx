@@ -3,8 +3,9 @@ import Prompt from "@/components/Prompt";
 import { Chapter, Objetivos, Idea, Cristiano, Comprueba, Guardar, Nota, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Una web para tu servicio en minutos — Claude Code + IA Local",
+  title: "Una web para tu servicio en minutos",
   description: "Crea una landing page atractiva para presentar tu servicio, recoger contactos o vender, y prepárala para publicarla.",
+  alternates: { canonical: "/cursos/ia-local/landing" },
 };
 
 export default function Page() {

@@ -4,9 +4,10 @@ import PageTitle from "@/components/PageTitle";
 import Prompt from "@/components/Prompt";
 
 export const metadata: Metadata = {
-  title: "Solución de problemas — Aprende Claude Code",
+  title: "Solución de problemas",
   description:
     "Cómo resolver los errores y problemas más comunes al instalar y usar Claude Code: API key, Node.js, permisos, comandos no encontrados y más.",
+  alternates: { canonical: "/cursos/claude-code/problemas" },
 };
 
 export default function Problemas() {

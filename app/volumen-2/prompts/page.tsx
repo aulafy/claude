@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cristiano, Comprueba, Guardar, Nota, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Escribir buenos encargos (prompts) — Claude Code + IA Local",
+  title: "Escribir buenos encargos (prompts)",
   description: "En este libro no programas: le encargas. Aprende la receta de cuatro partes de un buen prompt y cómo corregir el rumbo.",
+  alternates: { canonical: "/cursos/ia-local/prompts" },
 };
 
 export default function Page() {

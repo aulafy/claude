@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Aprobaciones humanas antes de actuar — Automatización self-hosted",
+  title: "Aprobaciones humanas antes de actuar",
   description:
     "Diseña aprobaciones humanas para automatizaciones IA en n8n, Telegram, email o Open WebUI antes de enviar, publicar o modificar datos.",
   keywords: ["human in the loop n8n", "aprobaciones IA pymes", "automatización IA segura", "n8n Telegram aprobación"],

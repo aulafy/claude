@@ -4,9 +4,10 @@ import PageTitle from "@/components/PageTitle";
 import SectionHeading from "@/components/SectionHeading";
 
 export const metadata: Metadata = {
-  title: "Flujos de trabajo pro — Aprende Claude Code",
+  title: "Flujos de trabajo pro",
   description:
     "Plan mode, checkpoints/rewind, tareas en background, output styles y los flujos de trabajo más recomendados con Claude Code en 2026.",
+  alternates: { canonical: "/cursos/claude-code/flujos" },
 };
 
 export default function Flujos() {

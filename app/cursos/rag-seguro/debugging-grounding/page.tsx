@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Debugging RAG: grounding y prompt completo — RAG avanzado y seguro",
+  title: "Debugging RAG: grounding y prompt completo",
   description:
     "Cómo depurar un RAG que recupera documentos correctos pero alucina: logging del prompt completo, grounding estricto, citas y tests.",
   keywords: ["rag alucinaciones fix grounding prompt", "debug rag full prompt logging", "RAG recupera bien pero alucina", "grounding RAG"],

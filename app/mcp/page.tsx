@@ -3,8 +3,9 @@ import Link from "next/link";
 import PageTitle from "@/components/PageTitle";
 
 export const metadata: Metadata = {
-  title: "Servidores MCP — Aprende Claude Code",
+  title: "Servidores MCP",
   description: "Conecta herramientas externas a Claude Code con el Model Context Protocol (MCP).",
+  alternates: { canonical: "/cursos/claude-code/mcp" },
 };
 
 export default function Mcp() {

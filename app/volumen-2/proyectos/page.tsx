@@ -3,8 +3,9 @@ import Prompt from "@/components/Prompt";
 import { Chapter, Objetivos, Idea, Cristiano, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Cómo trabajar con tus proyectos — Claude Code + IA Local",
+  title: "Cómo trabajar con tus proyectos",
   description: "La columna vertebral del libro: crear, guardar, cerrar y reabrir tus proyectos sin perder nada. Git como máquina del tiempo.",
+  alternates: { canonical: "/cursos/ia-local/proyectos" },
 };
 
 export default function Page() {

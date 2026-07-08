@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Hermes avanzado con Gemma y MLX — Claude Code + IA Local",
+  title: "Hermes avanzado con Gemma y MLX",
   description:
     "Diseña workflows avanzados con Hermes Agent, Gemma, MLX y Ollama: skills, memoria, Mixture of Agents, límites de loops y pruebas en Apple Silicon.",
   keywords: ["hermes agent gemma mlx", "Gemma MLX Hermes Agent", "Hermes Agent Mixture of Agents", "Hermes skills local"],

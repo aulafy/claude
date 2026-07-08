@@ -5,9 +5,10 @@ import PageTitle from "@/components/PageTitle";
 import SectionHeading from "@/components/SectionHeading";
 
 export const metadata: Metadata = {
-  title: "CLI, app de escritorio, web y móvil — Aprende Claude Code",
+  title: "CLI, app de escritorio, web y móvil",
   description:
-    "Las formas de usar Claude Code: terminal (CLI), app de escritorio, web, extensiones de IDE y cómo controlarlo desde el móvil. Diferencias y cuándo usar cada una.",
+    "Formas de usar Claude Code: terminal, app de escritorio, web, extensiones de IDE y móvil. Diferencias y cuándo usar cada una.",
+  alternates: { canonical: "/cursos/claude-code/donde-usar" },
 };
 
 const surfaces = [

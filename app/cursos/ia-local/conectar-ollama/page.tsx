@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, Nota, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Conecta Claude Code con tu IA local — Claude Code + IA Local",
+  title: "Conecta Claude Code con tu IA local",
   description:
-    "Las tres formas de combinar Claude Code con Ollama y LM Studio: apps que usan tu modelo local, Claude Code apuntando a una pasarela local, y el flujo híbrido recomendado.",
+    "Tres formas de combinar Claude Code con Ollama y LM Studio: apps locales, pasarela local y flujo híbrido recomendado.",
   alternates: { canonical: "/cursos/ia-local/conectar-ollama" },
 };
 

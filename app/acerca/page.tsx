@@ -5,7 +5,7 @@ import Icon from "@/components/Icon";
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 
 export const metadata: Metadata = {
-  title: "Proyecto y fuentes — Aulafy",
+  title: "Proyecto y fuentes",
   description:
     "Qué es Aulafy, cómo se actualizan sus cursos de IA open source, qué fuentes usa y cómo citar la web.",
   alternates: { canonical: "/acerca" },

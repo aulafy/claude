@@ -3,8 +3,9 @@ import Prompt from "@/components/Prompt";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, Nota, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Una app para estudiar y aprender — Claude Code + IA Local",
+  title: "Una app para estudiar y aprender",
   description: "Convierte tus apuntes en tests, exámenes con corrección y explicaciones, con repetición espaciada y 100% en local.",
+  alternates: { canonical: "/cursos/ia-local/estudio" },
 };
 
 export default function Page() {

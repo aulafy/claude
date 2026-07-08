@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Embeddings y bases vectoriales — RAG avanzado y seguro",
+  title: "Embeddings y bases vectoriales",
   description:
     "Qué son los embeddings, cuándo usar Chroma, Qdrant o FAISS, y cómo diseñar una base vectorial para RAG local y privado.",
   keywords: ["embeddings locales", "Qdrant RAG", "Chroma RAG", "FAISS español"],

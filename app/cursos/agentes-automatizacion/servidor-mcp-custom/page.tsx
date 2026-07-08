@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Crear un servidor MCP personalizado — Agentes y automatización",
+  title: "Crear un servidor MCP personalizado",
   description:
-    "Crea un servidor MCP custom para exponer herramientas propias a agentes: FastMCP, tools, allowlists, stdio, validación, logs y pruebas antes de usarlo con código real.",
+    "Crea un servidor MCP custom con FastMCP, tools, allowlists, stdio, validación, logs y pruebas antes de usarlo con código real.",
   keywords: ["crear servidor MCP custom", "MCP server Python", "FastMCP tutorial español", "MCP tools custom"],
   alternates: { canonical: "/cursos/agentes-automatizacion/servidor-mcp-custom" },
 };

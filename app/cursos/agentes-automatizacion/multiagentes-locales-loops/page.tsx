@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Multi-agentes locales, memoria y control de loops — Agentes y automatización",
+  title: "Multi-agentes locales, memoria y control de loops",
   description:
     "Diseña sistemas multi-agente locales con subagentes, memoria persistente, presupuestos de compute, reglas de parada y trazas para evitar loops infinitos.",
   keywords: [

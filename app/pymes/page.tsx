@@ -6,9 +6,10 @@ import Prompt from "@/components/Prompt";
 import SectionHeading from "@/components/SectionHeading";
 
 export const metadata: Metadata = {
-  title: "Claude Code para pymes y oficina — Aprende Claude Code",
+  title: "Claude Code para pymes y oficina",
   description:
-    "Casos reales de oficina con Claude Code para autónomos y pymes: analizar Excel/CSV, generar facturas y documentos, automatizar tareas e informes. Con prompts listos para copiar.",
+    "Casos de oficina con Claude Code para autónomos y pymes: Excel/CSV, facturas, documentos, automatización, informes y prompts listos.",
+  alternates: { canonical: "/cursos/claude-code/pymes" },
 };
 
 const sections: Array<{ href: string; icon: IconName; label: string }> = [

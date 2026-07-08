@@ -3,8 +3,9 @@ import Link from "next/link";
 import PageTitle from "@/components/PageTitle";
 
 export const metadata: Metadata = {
-  title: "Primeros pasos — Aprende Claude Code",
+  title: "Primeros pasos",
   description: "Tu primera sesión con Claude Code: cómo iniciar, interactuar y entender la interfaz.",
+  alternates: { canonical: "/cursos/claude-code/primeros-pasos" },
 };
 
 export default function PrimerospasoS() {

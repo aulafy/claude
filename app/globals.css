@@ -159,6 +159,11 @@ kbd {
     linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
 }
 
+html:not(.light) [class*="text-zinc-500"],
+html:not(.light) [class*="text-zinc-600"] {
+  color: #a1a1aa !important;
+}
+
 .theme-toggle {
   display: inline-flex;
   align-items: center;

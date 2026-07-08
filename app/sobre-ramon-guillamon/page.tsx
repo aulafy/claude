@@ -7,7 +7,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 export const metadata: Metadata = {
   title: "Ramón Guillamón — Autor de Aulafy",
   description:
-    "Autoría y criterio editorial de Aulafy: cursos gratuitos de IA open source, IA local, Claude Code, RAG, automatización, seguridad y ejemplos prácticos en español.",
+    "Autoría y criterio editorial de Aulafy: cursos gratis de IA open source, IA local, Claude Code, RAG, automatización y seguridad.",
   keywords: [
     "Ramón Guillamón",
     "Aulafy autor",

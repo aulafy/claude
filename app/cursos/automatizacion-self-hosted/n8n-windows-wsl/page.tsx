@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "n8n en Windows: Docker, WSL y errores típicos — Automatización IA self-hosted",
+  title: "n8n en Windows: Docker, WSL y errores típicos",
   description:
     "Guía práctica para instalar n8n self-hosted en Windows con Docker Desktop y WSL sin perder horas antes de crear workflows de IA.",
   keywords: ["n8n self hosted docker windows ia", "n8n windows wsl", "n8n docker errores", "n8n ollama windows"],

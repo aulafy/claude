@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, Nota, ChapterNav } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Varios ordenadores, una sola IA — Claude Code + IA Local",
+  title: "Varios ordenadores, una sola IA",
   description: "Une varios ordenadores en red con exo para ejecutar modelos de IA más grandes de los que cabrían en uno solo. Tu mini centro de datos en casa.",
+  alternates: { canonical: "/cursos/ia-local/cluster" },
 };
 
 export default function Page() {

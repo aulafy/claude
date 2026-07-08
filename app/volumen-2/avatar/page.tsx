@@ -3,8 +3,9 @@ import Prompt from "@/components/Prompt";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, Nota, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Un avatar que habla para tus cursos — Claude Code + IA Local",
+  title: "Un avatar que habla para tus cursos",
   description: "Una cara animada que lee un texto moviendo la boca, para presentaciones, cursos online y vídeos explicativos.",
+  alternates: { canonical: "/cursos/ia-local/avatar" },
 };
 
 export default function Page() {

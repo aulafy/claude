@@ -3,8 +3,9 @@ import Prompt from "@/components/Prompt";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, Nota, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Un chatbot que te escucha y te habla — Claude Code + IA Local",
+  title: "Un chatbot que te escucha y te habla",
   description: "Un asistente de voz completo en local: reconocimiento de voz, cerebro y voz sintética con herramientas open source de 2026.",
+  alternates: { canonical: "/cursos/ia-local/voz" },
 };
 
 export default function Page() {

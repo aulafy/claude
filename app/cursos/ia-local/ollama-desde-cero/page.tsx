@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Ollama desde cero: instala tu primera IA local — Claude Code + IA Local",
+  title: "Ollama desde cero: instala tu primera IA local",
   description:
     "Guía práctica para instalar Ollama en Windows, macOS o Linux, elegir modelo según tu hardware y comprobar que tu IA local funciona.",
   keywords: [

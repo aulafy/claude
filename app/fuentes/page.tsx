@@ -7,7 +7,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 export const metadata: Metadata = {
   title: "Fuentes oficiales de Aulafy",
   description:
-    "Fuentes oficiales usadas por Aulafy para cursos de IA open source: Anthropic, Fable 5, Ollama, Godot, Blender, CAD, vLLM, LangGraph, n8n, Qdrant, OWASP, NIST, Next.js y Vercel.",
+    "Fuentes oficiales usadas por Aulafy: Anthropic, Ollama, Godot, Blender, vLLM, LangGraph, n8n, Qdrant, OWASP, NIST, Next.js y Vercel.",
   keywords: [
     "fuentes Aulafy",
     "documentación IA open source",

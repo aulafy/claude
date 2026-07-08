@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Qdrant multiusuario y permisos — RAG avanzado y seguro",
+  title: "Qdrant multiusuario y permisos",
   description:
     "Diseña RAG multiusuario con Qdrant usando payloads, filtros, tenant_id, document_id y permisos antes de recuperar contexto.",
   keywords: ["Qdrant multiusuario", "Qdrant permisos RAG", "RAG multiusuario", "payload filtering Qdrant", "RAG permisos por usuario"],

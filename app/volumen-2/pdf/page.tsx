@@ -3,8 +3,9 @@ import Prompt from "@/components/Prompt";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, Nota, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Pregúntale a tus PDF — Claude Code + IA Local",
+  title: "Pregúntale a tus PDF",
   description: "Suelta cualquier PDF y hazle preguntas en lenguaje normal, con IA local. Incluye una prueba guiada reproducible con la Constitución del BOE.",
+  alternates: { canonical: "/cursos/ia-local/pdf" },
 };
 
 export default function Page() {

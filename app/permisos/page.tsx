@@ -3,8 +3,9 @@ import Link from "next/link";
 import PageTitle from "@/components/PageTitle";
 
 export const metadata: Metadata = {
-  title: "Permisos — Aprende Claude Code",
+  title: "Permisos",
   description: "Controla qué puede hacer Claude Code en tu máquina con el sistema de permisos.",
+  alternates: { canonical: "/cursos/claude-code/permisos" },
 };
 
 export default function Permisos() {

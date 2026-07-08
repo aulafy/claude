@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "IA local: elige el modelo para tu máquina — Claude Code + IA Local",
+  title: "IA local: elige el modelo para tu máquina",
   description: "Pon un modelo de IA a funcionar en tu ordenador. Ollama y LM Studio, cuantización y qué modelo elegir según tu equipo (edición 2026).",
+  alternates: { canonical: "/cursos/ia-local/ia-local" },
 };
 
 export default function Page() {

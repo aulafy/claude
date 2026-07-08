@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Ingesta, limpieza y chunking — RAG avanzado y seguro",
+  title: "Ingesta, limpieza y chunking",
   description:
     "Cómo preparar documentos para RAG: extracción, limpieza, metadatos, chunking por estructura y control de calidad antes de indexar.",
   alternates: { canonical: "/cursos/rag-seguro/ingesta-chunking" },

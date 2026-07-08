@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Mapa de IA útil para una pyme — IA para pymes y autónomos",
+  title: "Mapa de IA útil para una pyme",
   description:
     "Qué automatizar con IA en una pyme: emails, facturas, presupuestos, atención al cliente, documentos y flujos con revisión humana.",
   keywords: ["IA para pymes", "automatización IA autónomos", "IA oficina", "IA local para empresas"],

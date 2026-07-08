@@ -239,10 +239,10 @@ export default function Home() {
         </div>
 
         {/* Destacado */}
-        <div id="curso-claude" className="glass rounded-2xl p-8 mb-8 relative overflow-hidden card-hover">
+        <div id="curso-claude" className="glass rounded-2xl p-6 sm:p-8 mb-8 relative overflow-hidden card-hover">
           <div className="absolute top-5 right-5 text-xs font-semibold text-[#0a0a12] bg-gradient-to-r from-[#22d3ee] to-[#8b5cf6] px-3 py-1 rounded-full">MÁS POPULAR</div>
-          <div className="grid md:grid-cols-[1fr_auto] gap-6 items-center">
-            <div>
+          <div className="grid min-w-0 md:grid-cols-[1fr_auto] gap-6 items-center">
+            <div className="min-w-0">
               <Icon name="advanced" className="text-4xl mb-3 text-[#22d3ee]" />
               <h3 className="font-display font-bold text-2xl text-white">Claude Code, de 0 a pro</h3>
               <p className="mt-3 text-zinc-400 max-w-xl leading-relaxed">Aprende a construir software y aplicaciones hablando con la IA en tu terminal. Desde la instalación hasta skills, subagentes, MCP y flujos profesionales. Incluye el módulo <strong className="text-zinc-200">Claude Code + IA Local</strong>: apps que corren en tu ordenador.</p>
@@ -252,12 +252,12 @@ export default function Home() {
                 <span className="px-2.5 py-1 rounded-md bg-white/5 text-zinc-300">Guía + PDF</span>
               </div>
             </div>
-            <div className="flex md:flex-col gap-3 md:w-48">
-              <Link href="/cursos/claude-code" className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-medium text-white bg-gradient-to-r from-[#8b5cf6] to-[#e879f9] hover:opacity-90 transition-opacity">
+            <div className="flex flex-col sm:flex-row md:flex-col gap-3 md:w-48">
+              <Link href="/cursos/claude-code" className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-medium text-white bg-gradient-to-r from-[#8b5cf6] to-[#e879f9] hover:opacity-90 transition-opacity">
                 <Icon name="book" />
                 Ver el curso
               </Link>
-              <a href="/guia-claude-code-vol2.pdf" className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-medium text-zinc-200 glass hover:border-white/20 transition-colors">
+              <a href="/guia-claude-code-vol2.pdf" className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-medium text-zinc-200 glass hover:border-white/20 transition-colors">
                 <Icon name="filePdf" />
                 Descargar PDF
               </a>

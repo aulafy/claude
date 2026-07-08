@@ -6,9 +6,10 @@ import Prompt from "@/components/Prompt";
 import SectionHeading from "@/components/SectionHeading";
 
 export const metadata: Metadata = {
-  title: "Cómo escribir buenos prompts — Aprende Claude Code",
+  title: "Cómo escribir buenos prompts",
   description:
     "Aprende a comunicarte con Claude Code para obtener mejores resultados. Ejemplos antes/después y plantillas para principiantes.",
+  alternates: { canonical: "/cursos/claude-code/prompts" },
 };
 
 function Comparison({

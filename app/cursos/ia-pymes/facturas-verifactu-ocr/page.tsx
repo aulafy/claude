@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Facturas, OCR y Verifactu con revisión humana — IA para pymes",
+  title: "Facturas, OCR y Verifactu — IA para pymes",
   description:
     "Flujo práctico para extraer facturas con OCR e IA, preparar datos revisables y evitar automatizar decisiones fiscales sin control humano.",
   keywords: ["Verifactu IA", "OCR facturas IA", "facturación electrónica IA", "automatizar facturas pyme", "IA autónomos España"],

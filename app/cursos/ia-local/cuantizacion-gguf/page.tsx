@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Cuantización GGUF: Q4, Q5 y Q8 para Ollama — Claude Code + IA Local",
+  title: "Cuantización GGUF: Q4, Q5 y Q8 para Ollama",
   description:
     "Aprende a elegir cuantización GGUF Q4, Q5 o Q8 para Ollama y llama.cpp según VRAM, velocidad, calidad y caso de uso: chat, RAG o coding.",
   keywords: [

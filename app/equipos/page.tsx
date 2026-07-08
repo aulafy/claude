@@ -6,9 +6,10 @@ import Prompt from "@/components/Prompt";
 import SectionHeading from "@/components/SectionHeading";
 
 export const metadata: Metadata = {
-  title: "Para perfiles técnicos y equipos — Aprende Claude Code",
+  title: "Para perfiles técnicos y equipos",
   description:
-    "Recetas avanzadas de Claude Code para developers y equipos: revisión de código, refactors a gran escala, testing/TDD, CI/CD headless, estandarización con .claude/ e integraciones MCP.",
+    "Recetas avanzadas de Claude Code para equipos: code review, refactors, testing/TDD, CI/CD headless, .claude/ e integraciones MCP.",
+  alternates: { canonical: "/cursos/claude-code/equipos" },
 };
 
 const sections: Array<{ href: string; icon: IconName; label: string }> = [

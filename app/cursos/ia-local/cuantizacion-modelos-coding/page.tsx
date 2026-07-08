@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Cuantización y modelos para coding — Claude Code + IA Local",
+  title: "Cuantización y modelos para coding",
   description:
     "Cómo elegir modelos locales y quants para tareas de código: Q4, Q5, Q8, GGUF, contexto, velocidad, calidad y pruebas antes de usar agentes.",
   keywords: ["cuantizacion fp8 vs q4 vllm problemas", "gemma 4 ollama mlx velocidad agents", "mejor modelo local para coding agents Ollama 2026", "GGUF Q4 Q5 coding"],

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Open WebUI troubleshooting y producción ligera — Claude Code + IA Local",
+  title: "Open WebUI troubleshooting y producción ligera",
   description:
     "Checklist para mantener Open WebUI estable: versiones, Docker, volúmenes, backups, Ollama, tool calling, Qdrant y actualizaciones sin romper tu stack.",
   keywords: ["open webui breaking changes tool calling", "Open WebUI troubleshooting Ollama", "Open WebUI Qdrant producción", "Open WebUI Docker backup"],

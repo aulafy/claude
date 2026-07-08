@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Prompt injection en RAG — RAG avanzado y seguro",
+  title: "Prompt injection en RAG",
   description:
-    "Cómo proteger sistemas RAG frente a indirect prompt injection en PDFs, webs y documentos externos con permisos, separación de datos e instrucciones y revisión humana.",
+    "Protege sistemas RAG frente a prompt injection en PDFs, webs y documentos con permisos, separación de datos y revisión humana.",
   keywords: ["prompt injection RAG", "indirect prompt injection", "seguridad RAG", "OWASP LLM01"],
   alternates: { canonical: "/cursos/rag-seguro/prompt-injection" },
 };

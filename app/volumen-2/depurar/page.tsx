@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Cuando algo se rompe: depurar y proteger tu trabajo — Claude Code + IA Local",
+  title: "Cuando algo se rompe: depurar y proteger tu trabajo",
   description: "Un método sereno para resolver errores y, sobre todo, para no perder nunca tu trabajo ni exponer tus datos: Git, claves y copias de seguridad.",
+  alternates: { canonical: "/cursos/ia-local/depurar" },
 };
 
 export default function Page() {

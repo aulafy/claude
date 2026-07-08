@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Publica tu aplicación en internet — Claude Code + IA Local",
+  title: "Publica tu aplicación en internet",
   description: "Saca tus proyectos de localhost a internet con Vercel y Hugging Face Spaces, y usa APIs gratuitas para dar IA a tu app publicada.",
+  alternates: { canonical: "/cursos/ia-local/publicar" },
 };
 
 export default function Page() {

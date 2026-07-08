@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "La terminal sin miedo (qué es un CLI) — Claude Code + IA Local",
+  title: "La terminal sin miedo (qué es un CLI)",
   description: "Haz las paces con la terminal en diez minutos: qué es un CLI, cómo abrirla y los cuatro comandos para moverte por tus carpetas.",
+  alternates: { canonical: "/cursos/ia-local/terminal" },
 };
 
 export default function Page() {

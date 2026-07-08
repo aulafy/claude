@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "n8n con webhooks y credenciales — Automatización self-hosted",
+  title: "n8n con webhooks y credenciales",
   description:
     "Diseña flujos n8n con webhooks, credenciales, normalización de entrada, logs y contratos de herramientas para agentes de IA.",
   keywords: ["n8n webhooks IA", "n8n credenciales agentes", "automatización pymes n8n", "webhook IA local"],

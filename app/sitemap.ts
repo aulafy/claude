@@ -21,53 +21,6 @@ const principales: SitemapEntry[] = [
   { route: "/sobre-ramon-guillamon", changeFrequency: "monthly", priority: 0.72 },
 ];
 
-const guiaClaude: SitemapEntry[] = [
-  "/instalacion",
-  "/primeros-pasos",
-  "/donde-usar",
-  "/recetas",
-  "/proyectos",
-  "/prompts",
-  "/glosario",
-  "/skills",
-  "/subagentes",
-  "/plugins",
-  "/flujos",
-  "/comandos",
-  "/configuracion",
-  "/mcp",
-  "/hooks",
-  "/permisos",
-  "/avanzado",
-  "/faq",
-  "/problemas",
-  "/recursos",
-  "/comparativa",
-  "/pymes",
-  "/equipos",
-].map((route) => ({ route, changeFrequency: "monthly", priority: 0.76 }));
-
-const volumen2: SitemapEntry[] = [
-  "/volumen-2",
-  "/volumen-2/avatar",
-  "/volumen-2/chatbot-legal",
-  "/volumen-2/cluster",
-  "/volumen-2/depurar",
-  "/volumen-2/estudio",
-  "/volumen-2/facturacion",
-  "/volumen-2/ia-local",
-  "/volumen-2/landing",
-  "/volumen-2/pdf",
-  "/volumen-2/prompts",
-  "/volumen-2/proyectos",
-  "/volumen-2/publicar",
-  "/volumen-2/simulaciones-3d",
-  "/volumen-2/terminal",
-  "/volumen-2/texto-a-audio",
-  "/volumen-2/voz",
-  "/volumen-2/wordpress",
-].map((route) => ({ route, changeFrequency: "monthly", priority: route === "/volumen-2" ? 0.86 : 0.74 }));
-
 const legales: SitemapEntry[] = [
   "/aviso-legal",
   "/licencia",
@@ -76,7 +29,9 @@ const legales: SitemapEntry[] = [
 ].map((route) => ({ route, changeFrequency: "yearly", priority: 0.42 }));
 
 const descargables: SitemapEntry[] = [
+  "/llms.txt",
   "/llms-full.txt",
+  "/aulafy-guia-completa.pdf",
   "/guia-claude-code.pdf",
   "/guia-claude-code-vol2.pdf",
 ].map((route) => ({ route, changeFrequency: "monthly", priority: 0.72 }));
@@ -107,8 +62,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const rutas = [
     ...principales,
-    ...guiaClaude,
-    ...volumen2,
     ...legales,
     ...descargables,
     ...landingsSeo,

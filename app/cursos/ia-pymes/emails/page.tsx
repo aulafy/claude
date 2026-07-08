@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Emails: clasificar y crear borradores — IA para pymes y autónomos",
+  title: "Emails: clasificar y crear borradores",
   description:
     "Automatiza emails con IA de forma segura: clasificar mensajes, resumir, crear borradores y pedir aprobación antes de enviar.",
   keywords: ["IA emails pymes", "automatizar emails IA", "n8n emails IA", "borradores email IA"],

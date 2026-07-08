@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Subagentes con roles y límites — Agentes y automatización",
+  title: "Subagentes con roles y límites",
   description:
     "Cómo diseñar subagentes especializados con herramientas mínimas, contexto aislado y salidas verificables para automatizaciones de IA.",
   keywords: ["subagentes Claude Code", "agentes especializados IA", "agent teams", "roles agentes IA"],

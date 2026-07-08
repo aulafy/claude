@@ -16,8 +16,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const curso = getCurso(slug);
   if (!curso) return {};
   const lecciones = curso.secciones.flatMap((seccion) => seccion.lecciones.map((leccion) => leccion.title));
-  const title = `${curso.title} — Curso gratuito de IA open source`;
-  const description = `${curso.desc} Curso gratis en español, sin registro, con ${totalLecciones(curso)} lecciones prácticas.`;
+  const title = curso.title;
+  const description = compactDescription(
+    `${curso.desc} Curso gratis en español, sin registro, con ${totalLecciones(curso)} lecciones.`,
+  );
   return {
     title,
     description,
@@ -55,6 +57,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       images: ["/og-image.png"],
     },
   };
+}
+
+function compactDescription(text: string) {
+  if (text.length <= 155) return text;
+  const trimmed = text.slice(0, 152);
+  const lastSpace = trimmed.lastIndexOf(" ");
+  return `${trimmed.slice(0, lastSpace > 120 ? lastSpace : 152)}...`;
 }
 
 export default async function CursoPage({ params }: { params: Promise<{ slug: string }> }) {

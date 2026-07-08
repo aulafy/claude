@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Assets 3D con IA: limpiar, exportar y reutilizar — Aulafy",
+  title: "Assets 3D con IA: limpiar, exportar y reutilizar",
   description:
     "Aprende un pipeline práctico para generar, limpiar y usar assets 3D con IA, Blender, GLB/glTF, Godot, Unity y Three.js sin romper el rendimiento.",
   keywords: ["assets 3D IA", "GLB glTF Blender Godot Unity", "texturas PBR IA", "pipeline assets 3D"],

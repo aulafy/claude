@@ -5,9 +5,10 @@ import Faq from "@/components/Faq";
 import SectionHeading from "@/components/SectionHeading";
 
 export const metadata: Metadata = {
-  title: "Preguntas frecuentes — Aprende Claude Code",
+  title: "Preguntas frecuentes",
   description:
     "Respuestas a las dudas más habituales sobre Claude Code: precio, seguridad, privacidad, si reemplaza a programadores y más.",
+  alternates: { canonical: "/cursos/claude-code/faq" },
 };
 
 export default function FaqPage() {

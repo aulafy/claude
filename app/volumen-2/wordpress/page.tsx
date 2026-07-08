@@ -3,8 +3,9 @@ import Prompt from "@/components/Prompt";
 import { Chapter, Objetivos, Idea, Cristiano, Comprueba, Guardar, Nota, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Crea un tema de WordPress con IA — Claude Code + IA Local",
+  title: "Crea un tema de WordPress con IA",
   description: "Crea un tema de bloques (Full Site Editing) para WordPress a tu medida con Claude Code, sin pagar plantillas ni depender de una agencia.",
+  alternates: { canonical: "/cursos/ia-local/wordpress" },
 };
 
 export default function Page() {

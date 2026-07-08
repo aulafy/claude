@@ -6,9 +6,10 @@ import Prompt from "@/components/Prompt";
 import SectionHeading from "@/components/SectionHeading";
 
 export const metadata: Metadata = {
-  title: "Proyectos guiados — Aprende Claude Code",
+  title: "Proyectos guiados",
   description:
     "Tres proyectos completos paso a paso con Claude Code: una web personal, una app de tareas y un script útil en Python. Con todos los prompts.",
+  alternates: { canonical: "/cursos/claude-code/proyectos" },
 };
 
 const projectCards: Array<{

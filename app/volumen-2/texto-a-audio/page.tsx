@@ -3,8 +3,9 @@ import Prompt from "@/components/Prompt";
 import { Chapter, Objetivos, Idea, Cristiano, Comprueba, Guardar, Nota, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Convierte cualquier texto en audio — Claude Code + IA Local",
+  title: "Convierte cualquier texto en audio",
   description: "Convierte artículos o apuntes en un MP3 para escuchar donde quieras, en cualquier idioma y en local. Audiolibros de tus propios materiales.",
+  alternates: { canonical: "/cursos/ia-local/texto-a-audio" },
 };
 
 export default function Page() {

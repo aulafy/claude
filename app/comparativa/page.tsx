@@ -3,9 +3,10 @@ import Link from "next/link";
 import PageTitle from "@/components/PageTitle";
 
 export const metadata: Metadata = {
-  title: "Comparativa — Aprende Claude Code",
+  title: "Comparativa",
   description:
     "Comparativa equilibrada entre Claude Code, Cursor, Windsurf, GitHub Copilot y ChatGPT web.",
+  alternates: { canonical: "/cursos/claude-code/comparativa" },
 };
 
 const tools = [
