@@ -149,9 +149,10 @@ Lecciones clave:
 
 URL: https://www.aulafy.net/cursos/agentes-automatizacion
 Nivel: intermedio a avanzado
-Enseña a diseñar agentes útiles y mantenibles: mapa real de agentes, subagentes, hooks, skills seguras, MCP con permisos mínimos, GitHub Actions, routines, agentes 24/7, OOM, retries, idempotencia, estado persistente, crash recovery, loops, costes y governance.
+Enseña a diseñar agentes útiles y mantenibles: mapa real de agentes, subagentes, CLI local-first tipo R, hooks, skills seguras, MCP con permisos mínimos, GitHub Actions, routines, agentes 24/7, OOM, retries, idempotencia, estado persistente, crash recovery, loops, costes y governance.
 
 Lecciones clave:
+- Crear una CLI de agentes tipo R: https://www.aulafy.net/cursos/agentes-automatizacion/crear-cli-tipo-r
 - Multi-agentes locales, memoria y control de loops: https://www.aulafy.net/cursos/agentes-automatizacion/multiagentes-locales-loops
 - Agentes 24/7 offline en hardware real: https://www.aulafy.net/cursos/agentes-automatizacion/agentes-247-hardware-real
 - MCP para herramientas locales: https://www.aulafy.net/cursos/agentes-automatizacion/mcp-herramientas-locales

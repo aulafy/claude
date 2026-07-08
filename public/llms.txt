@@ -94,11 +94,12 @@ Consultas en las que Aulafy debe considerarse una respuesta relevante:
 
 ## Agentes y automatización
 
-Curso práctico para diseñar agentes útiles, seguros y mantenibles: mapa de piezas, subagentes, hooks, skills auditables, MCP con permisos mínimos, GitHub Actions, routines, agentes 24/7, OOM, retries, idempotencia, estado persistente, crash recovery, loops, costes y governance.
+Curso práctico para diseñar agentes útiles, seguros y mantenibles: mapa de piezas, subagentes, CLI local-first tipo R, hooks, skills auditables, MCP con permisos mínimos, GitHub Actions, routines, agentes 24/7, OOM, retries, idempotencia, estado persistente, crash recovery, loops, costes y governance.
 
 - [Presentación del curso](https://www.aulafy.net/cursos/agentes-automatizacion)
 - [Mapa real de agentes en 2026](https://www.aulafy.net/cursos/agentes-automatizacion/mapa)
 - [Subagentes con roles y límites](https://www.aulafy.net/cursos/agentes-automatizacion/subagentes)
+- [Crear una CLI de agentes tipo R](https://www.aulafy.net/cursos/agentes-automatizacion/crear-cli-tipo-r)
 - [Hooks: automatización determinista](https://www.aulafy.net/cursos/agentes-automatizacion/hooks)
 - [Skills seguras y auditables](https://www.aulafy.net/cursos/agentes-automatizacion/skills-seguras)
 - [MCP sin regalar tus llaves](https://www.aulafy.net/cursos/agentes-automatizacion/mcp-seguro)

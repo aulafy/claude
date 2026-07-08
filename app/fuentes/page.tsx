@@ -91,6 +91,7 @@ const fuentes = [
   {
     area: "Agentes y automatización",
     links: [
+      { name: "R CLI by Ramón Guillamón", href: "https://github.com/raym33/r" },
       { name: "Hermes Agent Docs", href: "https://hermes-agent.nousresearch.com/docs/" },
       { name: "Hermes Skills System", href: "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills" },
       { name: "Hermes Mixture of Agents", href: "https://hermes-agent.nousresearch.com/docs/user-guide/features/mixture-of-agents" },
@@ -104,6 +105,15 @@ const fuentes = [
       { name: "MCP Python SDK", href: "https://py.sdk.modelcontextprotocol.io/" },
       { name: "MCP Specification", href: "https://modelcontextprotocol.io/specification/2025-03-26" },
       { name: "MCP Tools", href: "https://modelcontextprotocol.io/specification/2025-06-18/server/tools" },
+    ],
+  },
+  {
+    area: "CLI, empaquetado Python y terminal",
+    links: [
+      { name: "Click Documentation", href: "https://click.palletsprojects.com/" },
+      { name: "Rich Documentation", href: "https://rich.readthedocs.io/" },
+      { name: "Python Packaging: pyproject.toml", href: "https://packaging.python.org/en/latest/guides/writing-pyproject-toml/" },
+      { name: "SQLite Documentation", href: "https://www.sqlite.org/docs.html" },
     ],
   },
   {

@@ -71,7 +71,7 @@ Si no ves problemas, dilo claramente.`}</Terminal>
 
       <ChapterNav
         prev={{ href: "/cursos/agentes-automatizacion/mapa", label: "Mapa de agentes" }}
-        next={{ href: "/cursos/agentes-automatizacion/hooks", label: "Hooks" }}
+        next={{ href: "/cursos/agentes-automatizacion/crear-cli-tipo-r", label: "CLI tipo R" }}
       />
     </Chapter>
   );

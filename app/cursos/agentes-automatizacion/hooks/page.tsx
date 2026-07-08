@@ -86,7 +86,7 @@ export default function Page() {
       </Guardar>
 
       <ChapterNav
-        prev={{ href: "/cursos/agentes-automatizacion/subagentes", label: "Subagentes" }}
+        prev={{ href: "/cursos/agentes-automatizacion/crear-cli-tipo-r", label: "CLI tipo R" }}
         next={{ href: "/cursos/agentes-automatizacion/skills-seguras", label: "Skills seguras" }}
       />
     </Chapter>

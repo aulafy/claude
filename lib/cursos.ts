@@ -322,7 +322,7 @@ export const cursos: Curso[] = [
     slug: "agentes-automatizacion",
     title: "Agentes y automatización",
     short: "Diseña agentes útiles, seguros y mantenibles",
-    desc: "Aprende a convertir tareas repetitivas en sistemas agénticos: subagentes, hooks, skills, MCP, GitHub Actions, agentes 24/7, OOM, retries, estado persistente, loops, costes y governance.",
+    desc: "Aprende a convertir tareas repetitivas en sistemas agénticos: subagentes, CLI local-first tipo R, hooks, skills, MCP, GitHub Actions, agentes 24/7, OOM, retries, estado persistente, loops, costes y governance.",
     level: "Intermedio → avanzado",
     icon: "robot",
     gradient: ["#22d3ee", "#10b981"],
@@ -332,6 +332,7 @@ export const cursos: Curso[] = [
         lecciones: [
           { slug: "mapa", title: "Mapa real de agentes en 2026" },
           { slug: "subagentes", title: "Subagentes con roles y límites" },
+          { slug: "crear-cli-tipo-r", title: "Crear una CLI de agentes tipo R" },
         ],
       },
       {
