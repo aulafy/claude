@@ -1,0 +1,257 @@
+import { blogPosts } from "@/lib/blog";
+import { cursos, lecciones } from "@/lib/cursos";
+import { getEnglishLessonDescription, getEnglishLessons, getEnglishLessonTitle } from "@/lib/english-lessons";
+import { getLocalizedCursos } from "@/lib/i18n";
+import { seoLandings } from "@/lib/seo-landings";
+
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
+
+export type SeoIndexKind =
+  | "core"
+  | "courses"
+  | "english"
+  | "blog"
+  | "landings"
+  | "ai";
+
+export type SeoIndexEntry = {
+  route: string;
+  title: string;
+  description: string;
+  language: "es" | "en" | "multi";
+  kind: SeoIndexKind;
+  priority: number;
+  changeFrequency: "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never";
+  lastModified?: string;
+  alternateRoute?: string;
+};
+
+export function absoluteUrl(route: string) {
+  if (route === "") return SITE_URL;
+  return `${SITE_URL}${route}`;
+}
+
+const coreEntries: SeoIndexEntry[] = [
+  {
+    route: "",
+    title: "Aulafy",
+    description: "Cursos gratuitos de inteligencia artificial open source en español e inglés.",
+    language: "multi",
+    kind: "core",
+    priority: 1,
+    changeFrequency: "weekly",
+    alternateRoute: "/en",
+  },
+  {
+    route: "/en",
+    title: "Aulafy in English",
+    description: "Free practical open-source AI courses in English and Spanish.",
+    language: "en",
+    kind: "english",
+    priority: 0.98,
+    changeFrequency: "weekly",
+    alternateRoute: "",
+  },
+  {
+    route: "/cursos",
+    title: "Cursos gratis de IA open source",
+    description: "Catálogo de cursos gratuitos de IA local, Claude Code, RAG, agentes, seguridad y automatización.",
+    language: "es",
+    kind: "courses",
+    priority: 0.95,
+    changeFrequency: "weekly",
+    alternateRoute: "/en/courses",
+  },
+  {
+    route: "/en/courses",
+    title: "Free open-source AI courses",
+    description: "English catalog for Claude Code, local AI, RAG, agents, MLOps, security and automation.",
+    language: "en",
+    kind: "english",
+    priority: 0.93,
+    changeFrequency: "weekly",
+    alternateRoute: "/cursos",
+  },
+  {
+    route: "/blog",
+    title: "Blog de IA práctica",
+    description: "Análisis, guías y tutoriales sobre IA, modelos, prompts, automatización y SEO/AEO.",
+    language: "es",
+    kind: "blog",
+    priority: 0.92,
+    changeFrequency: "weekly",
+  },
+  {
+    route: "/que-es-aulafy",
+    title: "Qué es Aulafy",
+    description: "Definición breve de Aulafy para personas, buscadores y asistentes de IA.",
+    language: "es",
+    kind: "core",
+    priority: 0.82,
+    changeFrequency: "monthly",
+  },
+  {
+    route: "/acerca",
+    title: "Proyecto y fuentes",
+    description: "Criterios editoriales, licencias, fuentes y forma recomendada de citar Aulafy.",
+    language: "es",
+    kind: "core",
+    priority: 0.7,
+    changeFrequency: "monthly",
+  },
+  {
+    route: "/fuentes",
+    title: "Fuentes oficiales",
+    description: "Documentación y repositorios usados para contrastar los cursos de Aulafy.",
+    language: "es",
+    kind: "core",
+    priority: 0.68,
+    changeFrequency: "monthly",
+  },
+  {
+    route: "/sobre-ramon-guillamon",
+    title: "Ramón Guillamón",
+    description: "Autoría, criterio editorial, perfiles públicos y áreas de experiencia de Aulafy.",
+    language: "es",
+    kind: "core",
+    priority: 0.72,
+    changeFrequency: "monthly",
+  },
+];
+
+const legalEntries: SeoIndexEntry[] = [
+  ["/aviso-legal", "Aviso legal"],
+  ["/licencia", "Licencia"],
+  ["/privacidad", "Privacidad"],
+  ["/cookies", "Cookies"],
+].map(([route, title]) => ({
+  route,
+  title,
+  description: `${title} de Aulafy.`,
+  language: "es",
+  kind: "core",
+  priority: 0.42,
+  changeFrequency: "yearly",
+}));
+
+const downloadableEntries: SeoIndexEntry[] = [
+  ["/llms.txt", "llms.txt"],
+  ["/llms-full.txt", "llms-full.txt"],
+  ["/ai.txt", "AI crawler guide"],
+  ["/search-index.json", "Machine-readable search index"],
+  ["/aulafy-guia-completa.pdf", "Guía completa de Aulafy"],
+  ["/guia-claude-code.pdf", "Guía Claude Code"],
+  ["/guia-claude-code-vol2.pdf", "Guía Claude Code + IA local"],
+].map(([route, title]) => ({
+  route,
+  title,
+  description: "Recurso descargable o legible por máquinas para descubrir y citar Aulafy.",
+  language: "multi",
+  kind: "ai",
+  priority: 0.72,
+  changeFrequency: "monthly",
+}));
+
+const landingEntries: SeoIndexEntry[] = seoLandings.map((landing) => ({
+  route: `/${landing.slug}`,
+  title: landing.title,
+  description: landing.description,
+  language: "es",
+  kind: "landings",
+  priority: 0.88,
+  changeFrequency: "weekly",
+}));
+
+const blogEntries: SeoIndexEntry[] = blogPosts.map((post) => ({
+  route: `/blog/${post.slug}`,
+  title: post.title,
+  description: post.description,
+  language: "es",
+  kind: "blog",
+  priority: 0.86,
+  changeFrequency: "weekly",
+  lastModified: post.updated,
+}));
+
+const englishCourses = getLocalizedCursos("en");
+
+const courseEntries: SeoIndexEntry[] = cursos.flatMap((course) => [
+  {
+    route: `/cursos/${course.slug}`,
+    title: course.title,
+    description: course.desc,
+    language: "es" as const,
+    kind: "courses" as const,
+    priority: 0.9,
+    changeFrequency: "weekly" as const,
+    alternateRoute: `/en/courses/${course.slug}`,
+  },
+  ...lecciones(course).map((lesson) => ({
+    route: `/cursos/${course.slug}/${lesson.slug}`,
+    title: lesson.title,
+    description: `${lesson.title}. Lección gratuita del curso ${course.title} en Aulafy.`,
+    language: "es" as const,
+    kind: "courses" as const,
+    priority: 0.78,
+    changeFrequency: "monthly" as const,
+    alternateRoute: `/en/courses/${course.slug}/${lesson.slug}`,
+  })),
+]);
+
+const englishCourseEntries: SeoIndexEntry[] = englishCourses.flatMap((course) => [
+  {
+    route: `/en/courses/${course.slug}`,
+    title: course.title,
+    description: course.desc,
+    language: "en" as const,
+    kind: "english" as const,
+    priority: 0.86,
+    changeFrequency: "weekly" as const,
+    alternateRoute: `/cursos/${course.slug}`,
+  },
+  ...lecciones(course).map((lesson) => {
+    const translatedLesson = getEnglishLessons().find(
+      (item) => item.courseSlug === course.slug && item.slug === lesson.slug,
+    );
+    return {
+      route: `/en/courses/${course.slug}/${lesson.slug}`,
+      title: getEnglishLessonTitle(course.slug, lesson.slug, lesson.title),
+      description: translatedLesson
+        ? getEnglishLessonDescription(translatedLesson)
+        : `${lesson.title}. Free lesson from ${course.title} on Aulafy.`,
+      language: "en" as const,
+      kind: "english" as const,
+      priority: 0.72,
+      changeFrequency: "monthly" as const,
+      alternateRoute: `/cursos/${course.slug}/${lesson.slug}`,
+    };
+  }),
+]);
+
+export function getSeoIndexEntries() {
+  const entries = [
+    ...coreEntries,
+    ...legalEntries,
+    ...downloadableEntries,
+    ...landingEntries,
+    ...blogEntries,
+    ...courseEntries,
+    ...englishCourseEntries,
+  ];
+  return Array.from(new Map(entries.map((entry) => [entry.route, entry])).values());
+}
+
+export function getSeoEntriesByKind(kind: SeoIndexKind) {
+  if (kind === "ai") return getSeoIndexEntries().filter((entry) => entry.kind === "ai" || entry.priority >= 0.86);
+  return getSeoIndexEntries().filter((entry) => entry.kind === kind);
+}
+
+export function alternateLanguages(entry: SeoIndexEntry) {
+  if (!entry.alternateRoute) return undefined;
+  const esRoute = entry.language === "en" ? entry.alternateRoute : entry.route;
+  const enRoute = entry.language === "en" ? entry.route : entry.alternateRoute;
+  return {
+    "es-ES": absoluteUrl(esRoute),
+    "en-US": absoluteUrl(enRoute),
+  };
+}

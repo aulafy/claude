@@ -32,7 +32,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       "Aulafy",
       ...lecciones.slice(0, 16),
     ],
-    alternates: { canonical: `/cursos/${curso.slug}` },
+    alternates: {
+      canonical: `/cursos/${curso.slug}`,
+      languages: { "es-ES": `/cursos/${curso.slug}`, "en-US": `/en/courses/${curso.slug}` },
+    },
     openGraph: {
       title,
       description,

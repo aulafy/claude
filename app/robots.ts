@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
+import { SITE_URL } from "@/lib/seo-index";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
-const HOST = new URL(BASE_URL).host;
+const HOST = new URL(SITE_URL).host;
 
 // Rastreadores de IA / motores generativos con acceso explícito.
 // El userAgent "*" ya permite el acceso general; esta lista ayuda a que los
@@ -39,7 +39,16 @@ export default function robots(): MetadataRoute.Robots {
       // Acceso explícito para asistentes de IA (descubrimiento y citación)
       ...AI_BOTS.map((bot) => ({ userAgent: bot, allow: "/" })),
     ],
-    sitemap: `${BASE_URL}/sitemap.xml`,
+    sitemap: [
+      `${SITE_URL}/sitemap.xml`,
+      `${SITE_URL}/sitemap-index.xml`,
+      `${SITE_URL}/sitemaps/core.xml`,
+      `${SITE_URL}/sitemaps/courses.xml`,
+      `${SITE_URL}/sitemaps/english.xml`,
+      `${SITE_URL}/sitemaps/blog.xml`,
+      `${SITE_URL}/sitemaps/landings.xml`,
+      `${SITE_URL}/sitemaps/ai.xml`,
+    ],
     host: HOST,
   };
 }

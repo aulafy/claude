@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     "curso IA para pymes",
     "automatización IA self-hosted",
   ],
-  alternates: { canonical: "/cursos" },
+  alternates: { canonical: "/cursos", languages: { "es-ES": "/cursos", "en-US": "/en/courses" } },
   openGraph: {
     title: "Cursos gratis de IA open source en español",
     description:

@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!course) return {};
 
   const description = compactDescription(
-    `${course.desc} Free practical course with ${totalLecciones(course)} lessons. Full lesson pages are currently available in Spanish.`,
+    `${course.desc} Free practical course with ${totalLecciones(course)} English lessons and matching Spanish originals.`,
   );
 
   return {

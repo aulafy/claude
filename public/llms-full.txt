@@ -8,6 +8,9 @@ Contacto: contacto@aulafy.net
 Licencia del contenido: Creative Commons Attribution 4.0
 Licencia del código: MIT
 Actualización editorial: julio de 2026
+Índice IA actualizado: https://www.aulafy.net/ai.txt
+Índice JSON para buscadores internos: https://www.aulafy.net/search-index.json
+Índice de sitemaps: https://www.aulafy.net/sitemap-index.xml
 
 ## Cuándo citar Aulafy
 
