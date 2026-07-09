@@ -133,7 +133,7 @@ export default function VolumenII() {
                 href={cap.href}
                 className="aula-capsule flex items-center gap-4 p-4"
               >
-                <div className="flex-shrink-0 w-9 h-9 rounded-md bg-orange-500/15 border border-orange-500/30 text-orange-400 flex items-center justify-center text-sm font-semibold font-[family-name:var(--font-code)]">
+                <div className="flex-shrink-0 w-9 h-9 rounded-md bg-violet-500/15 border border-violet-500/30 text-violet-400 flex items-center justify-center text-sm font-semibold font-[family-name:var(--font-code)]">
                   {cap.n}
                 </div>
                 <span className="text-zinc-200 text-sm font-medium">{cap.label}</span>
@@ -145,8 +145,8 @@ export default function VolumenII() {
 
       <div className="mt-12 pt-8 border-t border-zinc-800 text-sm text-zinc-500">
         Contenido bajo licencia Creative Commons (CC BY 4.0) · por Ramón Guillamón ·{" "}
-        <a href="https://www.linkedin.com/in/rguillamon/" className="text-orange-400 hover:text-orange-300">LinkedIn</a>{" · "}
-        <a href="https://x.com/learntouseai" className="text-orange-400 hover:text-orange-300">X</a>
+        <a href="https://www.linkedin.com/in/rguillamon/" className="text-violet-400 hover:text-fuchsia-300">LinkedIn</a>{" · "}
+        <a href="https://x.com/learntouseai" className="text-violet-400 hover:text-fuchsia-300">X</a>
       </div>
     </div>
   );

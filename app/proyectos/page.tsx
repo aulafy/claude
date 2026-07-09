@@ -27,7 +27,7 @@ const projectCards: Array<{
 function Step({ n, title, children }: { n: number; title: string; children: React.ReactNode }) {
   return (
     <div className="flex gap-4 mb-2">
-      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-orange-500/15 border border-orange-500/30 text-orange-400 flex items-center justify-center text-sm font-semibold mt-1">
+      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-violet-500/15 border border-violet-500/30 text-violet-400 flex items-center justify-center text-sm font-semibold mt-1">
         {n}
       </div>
       <div className="flex-1 min-w-0">
@@ -67,7 +67,7 @@ export default function Proyectos() {
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-12">
         {projectCards.map((p) => (
           <a key={p.href} href={p.href} className="rounded-xl border border-zinc-800 bg-zinc-900/30 p-4 hover:border-zinc-600 transition-colors">
-            <Icon name={p.icon} className="text-2xl mb-2 text-orange-400" />
+            <Icon name={p.icon} className="text-2xl mb-2 text-violet-400" />
             <div className="font-semibold text-white text-sm">{p.title}</div>
             <div className="text-xs text-zinc-500 mt-1">{p.level} · {p.time}</div>
           </a>
@@ -185,7 +185,7 @@ export default function Proyectos() {
 
       <div className="mt-12 pt-8 border-t border-zinc-800 flex justify-between items-center">
         <Link href="/cursos/claude-code/recetas" className="text-sm text-zinc-500 hover:text-zinc-300">← Recetas prácticas</Link>
-        <Link href="/cursos/claude-code/faq" className="text-sm text-orange-400 hover:text-orange-300">Preguntas frecuentes →</Link>
+        <Link href="/cursos/claude-code/faq" className="text-sm text-violet-400 hover:text-fuchsia-300">Preguntas frecuentes →</Link>
       </div>
     </div>
   );

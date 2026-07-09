@@ -87,7 +87,7 @@ npm run dev`}</Terminal>
 
       <div className="prose">
         <p>Abre la app, sube (o reindexa) <code>constitucion.pdf</code> y escribe esta pregunta exacta:</p>
-        <blockquote className="border-l-2 border-orange-500/50 pl-4 italic text-zinc-400">¿Qué establece el artículo 14 de la Constitución Española sobre la igualdad ante la ley?</blockquote>
+        <blockquote className="border-l-2 border-violet-500/50 pl-4 italic text-zinc-400">¿Qué establece el artículo 14 de la Constitución Española sobre la igualdad ante la ley?</blockquote>
         <p><strong>Qué deberías ver:</strong> una respuesta que cite el <strong>artículo 14</strong> y mencione que los españoles son <strong>iguales ante la ley</strong>, sin discriminación por nacimiento, raza, sexo, religión, opinión u otra condición personal o social. La app debe indicar el <strong>archivo</strong> (<code>constitucion.pdf</code>) y una <strong>página</strong>. Si responde con contenido inventado o sin cita, reindexa el PDF y vuelve a preguntar.</p>
       </div>
 

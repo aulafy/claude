@@ -185,11 +185,11 @@ export default function Glosario() {
             key={t.term}
             className="rounded-lg border border-zinc-800 bg-zinc-900/30 p-4"
           >
-            <h3 className="text-base font-semibold text-orange-400 mb-1.5">{t.term}</h3>
+            <h3 className="text-base font-semibold text-violet-400 mb-1.5">{t.term}</h3>
             <p className="text-sm text-zinc-300 leading-relaxed m-0">{t.def}</p>
             {t.analogy && (
               <p className="text-sm text-zinc-500 leading-relaxed mt-2 m-0 italic flex gap-2">
-                <Icon name="idea" className="text-orange-400 mt-0.5" />
+                <Icon name="idea" className="text-violet-400 mt-0.5" />
                 <span>{t.analogy}</span>
               </p>
             )}
@@ -199,7 +199,7 @@ export default function Glosario() {
 
       <div className="mt-12 pt-8 border-t border-zinc-800 flex justify-between items-center">
         <Link href="/cursos/claude-code/prompts" className="text-sm text-zinc-500 hover:text-zinc-300">← Cómo escribir buenos prompts</Link>
-        <Link href="/" className="text-sm text-orange-400 hover:text-orange-300">Volver al inicio →</Link>
+        <Link href="/" className="text-sm text-violet-400 hover:text-fuchsia-300">Volver al inicio →</Link>
       </div>
     </div>
   );

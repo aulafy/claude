@@ -3,6 +3,7 @@ import Link from "next/link";
 import Icon, { type IconName } from "@/components/Icon";
 import LanguageSwitch from "@/components/LanguageSwitch";
 import ThemeToggle from "@/components/ThemeToggle";
+import LandingNetwork from "@/components/LandingNetwork";
 import { getLocalizedCursos } from "@/lib/i18n";
 import { totalLecciones } from "@/lib/cursos";
 
@@ -97,10 +98,10 @@ export default function EnglishHome() {
   const lessons = courses.reduce((sum, course) => sum + totalLecciones(course), 0);
 
   return (
-    <div className="aula-shell relative bg-[#0a0a12] text-zinc-200 min-h-screen overflow-hidden" lang="en">
+    <div className="aula-shell relative bg-[#0b0914] text-zinc-200 min-h-screen overflow-hidden" lang="en">
       <div className="fixed inset-0 -z-10 aurora" />
 
-      <header className="sticky top-0 z-50 border-b border-white/5 bg-[#0a0a12]/70 backdrop-blur-xl">
+      <header className="sticky top-0 z-50 border-b border-white/5 bg-[#0b0914]/70 backdrop-blur-xl">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link href="/en" className="flex items-center gap-2.5" aria-label="Aulafy home">
             <BrandIcon id="lg-nav-en" className="w-8 h-8" />
@@ -123,18 +124,19 @@ export default function EnglishHome() {
         </div>
       </header>
 
-      <section className="max-w-6xl mx-auto px-6 pt-20 pb-16 text-center">
+      <section className="max-w-6xl mx-auto px-6 pt-14 sm:pt-20 pb-12 sm:pb-16 grid lg:grid-cols-[minmax(0,0.94fr)_minmax(0,1.06fr)] gap-8 lg:gap-14 items-center">
+        <div>
         <div className="aula-chip mb-6" data-tone="cyan">
           <span className="w-1.5 h-1.5 rounded-full bg-[#22d3ee] animate-pulse" />
           Free open-source AI courses · English and Spanish
         </div>
-        <h1 className="font-display font-extrabold text-4xl sm:text-6xl leading-tight text-white max-w-4xl mx-auto">
+        <h1 className="font-display font-extrabold text-4xl sm:text-6xl leading-tight text-white max-w-4xl">
           Learn practical AI:<br /><span className="grad-text">Claude Code, local AI, RAG and automation</span>
         </h1>
-        <p className="mt-6 text-lg text-zinc-400 max-w-2xl mx-auto leading-relaxed">
+        <p className="mt-6 text-lg text-zinc-400 max-w-2xl leading-relaxed">
           Go from curious to capable with practical routes, real projects and local-first workflows that can run on <strong className="text-zinc-200">your own computer</strong>.
         </p>
-        <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
+        <div className="mt-9 flex flex-wrap items-center gap-4">
           <a href="#courses" className="aula-button aula-button-primary glow">
             <Icon name="book" />
             Browse courses
@@ -144,13 +146,17 @@ export default function EnglishHome() {
             Start with Claude Code
           </Link>
         </div>
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm text-zinc-500">
+        <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-zinc-500">
           {["Free", "Open source", `${courses.length} courses`, `${lessons} lessons`].map((item) => (
             <span key={item} className="inline-flex items-center gap-2">
               <Icon name="check" className="text-[#22d3ee]" />
               {item}
             </span>
           ))}
+        </div>
+        </div>
+        <div className="lg:pl-4">
+          <LandingNetwork />
         </div>
       </section>
 

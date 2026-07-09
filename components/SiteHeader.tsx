@@ -44,7 +44,7 @@ export default function SiteHeader({ locale = "es" }: { locale?: Locale }) {
             className="hidden sm:inline-flex aula-button aula-button-secondary min-h-9 px-3 py-2 text-sm"
           >
             <Icon name="search" />
-            Blog
+            {isEnglish ? "Spanish blog" : "Blog"}
           </Link>
           <LanguageSwitch />
           <ThemeToggle compact />

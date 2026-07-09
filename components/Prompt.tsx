@@ -25,7 +25,7 @@ export default function Prompt({
   return (
     <div className="my-4 rounded-lg border border-zinc-700 bg-zinc-900/60 overflow-hidden">
       <div className="flex items-center justify-between px-4 py-2 border-b border-zinc-800 bg-zinc-900">
-        <span className="text-xs font-medium text-orange-400 flex items-center gap-1.5">
+        <span className="text-xs font-medium text-violet-400 flex items-center gap-1.5">
           <Icon name="chat" />
           {label ?? "Escribe esto a Claude Code"}
         </span>

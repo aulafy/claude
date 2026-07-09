@@ -4,7 +4,7 @@ import Icon from "@/components/Icon";
 export default function NotFound() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-8 text-center">
-      <div className="text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-400 mb-4">
+      <div className="text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-fuchsia-400 mb-4">
         404
       </div>
       <h1 className="text-2xl font-bold text-white mb-3">Página no encontrada</h1>
@@ -15,7 +15,7 @@ export default function NotFound() {
       <div className="flex flex-wrap items-center justify-center gap-4">
         <Link
           href="/"
-          className="px-5 py-2.5 rounded-lg bg-orange-500 hover:bg-orange-400 text-white font-medium text-sm transition-colors"
+          className="px-5 py-2.5 rounded-lg bg-violet-500 hover:bg-fuchsia-500 text-white font-medium text-sm transition-colors"
         >
           Volver al inicio
         </Link>

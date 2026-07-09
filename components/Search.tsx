@@ -4,6 +4,25 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Icon from "@/components/Icon";
 import { searchData, type SearchItem } from "@/lib/search-data";
+import { getEnglishLessonTitle } from "@/lib/english-lessons";
+import { pathForLocale, type Locale } from "@/lib/i18n";
+
+const copy = {
+  es: { open: "Buscar...", label: "Buscar en la guía", placeholder: "Buscar en la guía...", empty: "Sin resultados para", navigate: "navegar", openResult: "abrir" },
+  en: { open: "Search...", label: "Search lessons", placeholder: "Search lessons...", empty: "No results for", navigate: "navigate", openResult: "open" },
+} satisfies Record<Locale, Record<string, string>>;
+
+function localizedSearchData(locale: Locale): SearchItem[] {
+  if (locale === "es") return searchData;
+  return searchData.map((item) => {
+    const parts = item.href.split("/").filter(Boolean);
+    const [section, courseSlug, lessonSlug] = parts;
+    const title = section === "cursos" && courseSlug && lessonSlug
+      ? getEnglishLessonTitle(courseSlug, lessonSlug, item.title)
+      : item.title;
+    return { ...item, title, section: "Course lessons", href: pathForLocale(item.href, "en") };
+  });
+}
 
 function score(item: SearchItem, q: string): number {
   const hay = `${item.title} ${item.section} ${item.keywords}`.toLowerCase();
@@ -18,12 +37,16 @@ function score(item: SearchItem, q: string): number {
   return 0;
 }
 
-export default function Search() {
+export default function Search({ locale = "es" }: { locale?: Locale }) {
   const router = useRouter();
+  const text = copy[locale];
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [active, setActive] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const items = useMemo(() => localizedSearchData(locale), [locale]);
 
   function openSearch() {
     setQuery("");
@@ -33,6 +56,7 @@ export default function Search() {
 
   function closeSearch() {
     setOpen(false);
+    window.requestAnimationFrame(() => triggerRef.current?.focus());
   }
 
   // Abrir con Cmd/Ctrl+K
@@ -57,14 +81,14 @@ export default function Search() {
 
   const results = useMemo(() => {
     const q = query.trim().toLowerCase();
-    if (!q) return searchData.slice(0, 8);
-    return searchData
+    if (!q) return items.slice(0, 8);
+    return items
       .map((item) => ({ item, s: score(item, q) }))
       .filter((r) => r.s > 0)
       .sort((a, b) => b.s - a.s)
       .slice(0, 8)
       .map((r) => r.item);
-  }, [query]);
+  }, [items, query]);
 
   function go(href: string) {
     closeSearch();
@@ -85,15 +109,31 @@ export default function Search() {
     }
   }
 
+  function trapFocus(e: React.KeyboardEvent<HTMLDivElement>) {
+    if (e.key !== "Tab") return;
+    const focusable = dialogRef.current?.querySelectorAll<HTMLElement>("button:not([disabled]), input, a[href]");
+    if (!focusable?.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  }
+
   return (
     <>
       {/* Disparador en el sidebar */}
       <button
         onClick={openSearch}
+        ref={triggerRef}
         className="w-full flex items-center gap-2 px-3 py-2 rounded-lg border border-zinc-800 bg-zinc-900/50 text-sm text-zinc-500 hover:border-zinc-700 hover:text-zinc-300 transition-colors"
       >
         <Icon name="search" />
-        <span className="flex-1 text-left">Buscar...</span>
+        <span className="flex-1 text-left">{text.open}</span>
         <kbd className="text-[10px] px-1.5 py-0.5 rounded bg-zinc-800 border border-zinc-700 text-zinc-400">⌘K</kbd>
       </button>
 
@@ -104,6 +144,11 @@ export default function Search() {
           onClick={closeSearch}
         >
           <div
+            role="dialog"
+            aria-modal="true"
+            aria-label={text.label}
+            ref={dialogRef}
+            onKeyDown={trapFocus}
             className="w-full max-w-lg rounded-xl border border-zinc-700 bg-zinc-900 shadow-2xl overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
@@ -112,13 +157,13 @@ export default function Search() {
               <input
                 ref={inputRef}
                 value={query}
-                aria-label="Buscar en la guía"
+                aria-label={text.label}
                 onChange={(e) => {
                   setQuery(e.target.value);
                   setActive(0);
                 }}
                 onKeyDown={onInputKey}
-                placeholder="Buscar en la guía..."
+                placeholder={text.placeholder}
                 className="flex-1 bg-transparent py-3.5 text-sm text-zinc-100 placeholder-zinc-500 focus:outline-none"
               />
               <kbd className="text-[10px] px-1.5 py-0.5 rounded bg-zinc-800 border border-zinc-700 text-zinc-500">esc</kbd>
@@ -127,7 +172,7 @@ export default function Search() {
             <div className="max-h-[50vh] overflow-y-auto py-2">
               {results.length === 0 ? (
                 <p className="px-4 py-6 text-center text-sm text-zinc-500">
-                  Sin resultados para &ldquo;{query}&rdquo;
+                  {text.empty} &ldquo;{query}&rdquo;
                 </p>
               ) : (
                 results.map((r, i) => (
@@ -136,11 +181,11 @@ export default function Search() {
                     onMouseEnter={() => setActive(i)}
                     onClick={() => go(r.href)}
                     className={`w-full flex items-center justify-between gap-3 px-4 py-2.5 text-left transition-colors ${
-                      i === active ? "bg-orange-500/15" : "hover:bg-zinc-800/50"
+                      i === active ? "bg-violet-500/15" : "hover:bg-zinc-800/50"
                     }`}
                   >
                     <div className="min-w-0">
-                      <div className={`text-sm font-medium ${i === active ? "text-orange-400" : "text-zinc-200"}`}>
+                      <div className={`text-sm font-medium ${i === active ? "text-violet-400" : "text-zinc-200"}`}>
                         {r.title}
                       </div>
                       <div className="text-xs text-zinc-500">{r.section}</div>
@@ -152,8 +197,8 @@ export default function Search() {
             </div>
 
             <div className="px-4 py-2 border-t border-zinc-800 flex items-center gap-3 text-[11px] text-zinc-600">
-              <span><kbd className="px-1 rounded bg-zinc-800 border border-zinc-700">↑</kbd> <kbd className="px-1 rounded bg-zinc-800 border border-zinc-700">↓</kbd> navegar</span>
-              <span><kbd className="px-1 rounded bg-zinc-800 border border-zinc-700">↵</kbd> abrir</span>
+              <span><kbd className="px-1 rounded bg-zinc-800 border border-zinc-700">↑</kbd> <kbd className="px-1 rounded bg-zinc-800 border border-zinc-700">↓</kbd> {text.navigate}</span>
+              <span><kbd className="px-1 rounded bg-zinc-800 border border-zinc-700">↵</kbd> {text.openResult}</span>
             </div>
           </div>
         </div>

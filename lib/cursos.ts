@@ -24,7 +24,7 @@ export const cursos: Curso[] = [
     desc: "Aprende a construir software y aplicaciones hablando con la IA en tu terminal: instalación, recetas, proyectos guiados, skills, subagentes, MCP y flujos profesionales.",
     level: "Principiante → avanzado",
     icon: "terminal",
-    gradient: ["#fb923c", "#8b5cf6"],
+    gradient: ["#e879f9", "#8b5cf6"],
     pdf: "/guia-claude-code.pdf",
     secciones: [
       {
@@ -410,7 +410,7 @@ export const cursos: Curso[] = [
     desc: "Monta una plataforma barata y privada para automatizar tareas de negocio con n8n, Open WebUI, Ollama o vLLM, webhooks, aprobaciones humanas, colas, backups, seguridad y monitorización básica.",
     level: "Intermedio",
     icon: "automation",
-    gradient: ["#14b8a6", "#f59e0b"],
+    gradient: ["#22d3ee", "#e879f9"],
     secciones: [
       {
         title: "Arquitectura base",
@@ -486,7 +486,7 @@ export const cursos: Curso[] = [
     desc: "Aprende a aplicar IA en tareas reales de negocio: emails, facturas, presupuestos, hojas de cálculo, atención al cliente y RGPD básico con flujos locales y revisables.",
     level: "Principiante → intermedio",
     icon: "briefcase",
-    gradient: ["#0ea5e9", "#f59e0b"],
+    gradient: ["#22d3ee", "#8b5cf6"],
     secciones: [
       {
         title: "Antes de automatizar",

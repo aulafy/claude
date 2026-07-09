@@ -58,7 +58,7 @@ export default function Recetas() {
         <p className="text-xs font-medium text-zinc-500 uppercase tracking-wider mb-3">En esta página</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-1.5 gap-x-4 text-sm">
           {sections.map((item) => (
-            <a key={item.href} href={item.href} className="inline-flex items-center gap-2 text-zinc-400 hover:text-orange-400 transition-colors">
+            <a key={item.href} href={item.href} className="inline-flex items-center gap-2 text-zinc-400 hover:text-fuchsia-300 transition-colors">
               <Icon name={item.icon} />
               {item.label}
             </a>
@@ -254,7 +254,7 @@ Explícame exactamente qué hace cada parte y dime si es seguro ejecutarlo.`}</P
 
       <div className="mt-12 pt-8 border-t border-zinc-800 flex justify-between items-center">
         <Link href="/cursos/claude-code/primeros-pasos" className="text-sm text-zinc-500 hover:text-zinc-300">← Primeros pasos</Link>
-        <Link href="/cursos/claude-code/prompts" className="text-sm text-orange-400 hover:text-orange-300">Cómo escribir buenos prompts →</Link>
+        <Link href="/cursos/claude-code/prompts" className="text-sm text-violet-400 hover:text-fuchsia-300">Cómo escribir buenos prompts →</Link>
       </div>
     </div>
   );

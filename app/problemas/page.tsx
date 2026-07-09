@@ -149,7 +149,7 @@ Explícame qué significa y cómo solucionarlo paso a paso. Soy principiante.`}<
 
       <div className="mt-12 pt-8 border-t border-zinc-800 flex justify-between items-center">
         <Link href="/cursos/claude-code/faq" className="text-sm text-zinc-500 hover:text-zinc-300">← Preguntas frecuentes</Link>
-        <Link href="/" className="text-sm text-orange-400 hover:text-orange-300">Volver al inicio →</Link>
+        <Link href="/" className="text-sm text-violet-400 hover:text-fuchsia-300">Volver al inicio →</Link>
       </div>
     </div>
   );

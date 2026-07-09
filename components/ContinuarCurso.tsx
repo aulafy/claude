@@ -4,10 +4,11 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import Icon from "@/components/Icon";
 import { getCurso, lecciones } from "@/lib/cursos";
+import type { Locale } from "@/lib/i18n";
 
 const STORAGE_KEY = "aulafy:progress:v1";
 
-export default function ContinuarCurso({ cursoSlug }: { cursoSlug: string }) {
+export default function ContinuarCurso({ cursoSlug, locale = "es" }: { cursoSlug: string; locale?: Locale }) {
   const curso = getCurso(cursoSlug);
   const [state, setState] = useState<{ done: number; next: string } | null>(null);
 
@@ -30,14 +31,20 @@ export default function ContinuarCurso({ cursoSlug }: { cursoSlug: string }) {
   if (!curso) return null;
   const first = lecciones(curso)[0].slug;
   const empezado = (state?.done ?? 0) > 0;
+  const href = locale === "en"
+    ? `/en/courses/${curso.slug}/${state?.next ?? first}`
+    : `/cursos/${curso.slug}/${state?.next ?? first}`;
+  const label = locale === "en"
+    ? empezado ? `Continue (${state!.done} completed)` : "Start course"
+    : empezado ? `Continuar (${state!.done} completadas)` : "Empezar el curso";
 
   return (
     <Link
-      href={`/cursos/${curso.slug}/${state?.next ?? first}`}
+      href={href}
       className="aula-button aula-button-primary"
     >
       <Icon name={empezado ? "route" : "rocket"} />
-      {empezado ? `Continuar (${state!.done} completadas)` : "Empezar el curso"}
+      {label}
     </Link>
   );
 }

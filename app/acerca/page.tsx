@@ -41,7 +41,7 @@ export default function Acerca() {
 
       <div className="mb-10">
         <h1 className="font-display font-extrabold text-4xl text-white mb-4 flex items-center gap-3">
-          <Icon name="shield" className="text-orange-400 text-3xl" />
+          <Icon name="shield" className="text-violet-400 text-3xl" />
           <span>Proyecto y fuentes</span>
         </h1>
         <p className="text-lg text-zinc-400 leading-relaxed">

@@ -3,6 +3,7 @@ import Link from "next/link";
 import Icon, { type IconName } from "@/components/Icon";
 import LanguageSwitch from "@/components/LanguageSwitch";
 import ThemeToggle from "@/components/ThemeToggle";
+import LandingNetwork from "@/components/LandingNetwork";
 import { cursos as catalogoCursos, totalLecciones } from "@/lib/cursos";
 
 export const metadata: Metadata = {
@@ -107,11 +108,11 @@ const ventajas = [
 export default function Home() {
   const year = new Date().getFullYear();
   return (
-    <div className="aula-shell relative bg-[#0a0a12] text-zinc-200 min-h-screen overflow-hidden">
+    <div className="aula-shell relative bg-[#0b0914] text-zinc-200 min-h-screen overflow-hidden">
       <div className="fixed inset-0 -z-10 aurora" />
 
       {/* Nav */}
-      <header className="sticky top-0 z-50 border-b border-white/5 bg-[#0a0a12]/70 backdrop-blur-xl">
+      <header className="sticky top-0 z-50 border-b border-white/5 bg-[#0b0914]/70 backdrop-blur-xl">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <a href="#" className="flex items-center gap-2.5" aria-label="Aulafy — inicio">
             <BrandIcon id="lg-nav" className="w-8 h-8" />
@@ -135,18 +136,19 @@ export default function Home() {
       </header>
 
       {/* Hero */}
-      <section className="max-w-6xl mx-auto px-6 pt-20 pb-16 text-center">
+      <section className="max-w-6xl mx-auto px-6 pt-14 sm:pt-20 pb-12 sm:pb-16 grid lg:grid-cols-[minmax(0,0.94fr)_minmax(0,1.06fr)] gap-8 lg:gap-14 items-center">
+        <div>
         <div className="aula-chip mb-6" data-tone="cyan">
           <span className="w-1.5 h-1.5 rounded-full bg-[#22d3ee] animate-pulse" />
           Cursos de IA open source en español · Gratis y prácticos
         </div>
-        <h1 className="font-display font-extrabold text-4xl sm:text-6xl leading-tight text-white max-w-4xl mx-auto">
+        <h1 className="font-display font-extrabold text-4xl sm:text-6xl leading-tight text-white max-w-4xl">
           Cursos gratis de IA en español:<br /><span className="grad-text">Claude Code, IA local, RAG y automatización</span>
         </h1>
-        <p className="mt-6 text-lg text-zinc-400 max-w-2xl mx-auto leading-relaxed">
+        <p className="mt-6 text-lg text-zinc-400 max-w-2xl leading-relaxed">
           De cero a crear tus propias herramientas de inteligencia artificial. Tutoriales de IA local, RAG, prompts y automatización, con proyectos reales y muchos ejecutándose en <strong className="text-zinc-200">tu propio ordenador</strong>.
         </p>
-        <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
+        <div className="mt-9 flex flex-wrap items-center gap-4">
           <a href="#cursos" className="aula-button aula-button-primary glow">
             <Icon name="book" />
             Ver los cursos
@@ -156,7 +158,7 @@ export default function Home() {
             Empezar con Claude Code
           </a>
         </div>
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm text-zinc-500">
+        <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-zinc-500">
           {["Gratis para siempre", "Código abierto", "En español", "Local-first y privado"].map((item) => (
             <span key={item} className="inline-flex items-center gap-2">
               <Icon name="check" className="text-[#22d3ee]" />
@@ -164,12 +166,16 @@ export default function Home() {
             </span>
           ))}
         </div>
+        </div>
+        <div className="lg:pl-4">
+          <LandingNetwork />
+        </div>
       </section>
 
       {/* Libro PDF */}
       <section id="libro" className="max-w-5xl mx-auto px-6 py-8">
         <div className="aula-frame p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-6">
-          <div className="aula-icon flex-shrink-0 text-orange-300 text-3xl" aria-hidden="true">
+          <div className="aula-icon flex-shrink-0 text-fuchsia-300 text-3xl" aria-hidden="true">
             <Icon name="filePdf" />
           </div>
           <div className="flex-1 text-center sm:text-left">

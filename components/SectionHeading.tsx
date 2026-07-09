@@ -14,7 +14,7 @@ export default function SectionHeading({
   const className = "flex items-center gap-2";
   const content = (
     <>
-      <Icon name={icon} className="text-orange-400" />
+      <Icon name={icon} className="text-violet-400" />
       <span>{children}</span>
     </>
   );

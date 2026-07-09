@@ -26,7 +26,7 @@ export default function Faq({
         </span>
       </button>
       {open && (
-        <div className="px-5 pb-4 pt-0 text-sm text-zinc-400 leading-relaxed [&_a]:text-orange-400 [&_a:hover]:text-orange-300 [&_code]:bg-zinc-800 [&_code]:text-violet-300 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-xs [&_strong]:text-zinc-200">
+        <div className="px-5 pb-4 pt-0 text-sm text-zinc-400 leading-relaxed [&_a]:text-violet-400 [&_a:hover]:text-fuchsia-300 [&_code]:bg-zinc-800 [&_code]:text-violet-300 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-xs [&_strong]:text-zinc-200">
           {children}
         </div>
       )}

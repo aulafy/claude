@@ -180,7 +180,7 @@ export default function Fuentes() {
       </div>
 
       <div className="aula-frame p-6 sm:p-8 mb-10">
-        <div className="aula-icon text-orange-300 text-xl mb-5">
+        <div className="aula-icon text-fuchsia-300 text-xl mb-5">
           <Icon name="link" />
         </div>
         <h1 className="font-display font-extrabold text-4xl text-white mb-4">

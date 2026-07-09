@@ -213,7 +213,7 @@ await server.connect(transport);`}</code></pre>
 
       <div className="mt-12 pt-8 border-t border-zinc-800 flex justify-between items-center">
         <Link href="/cursos/claude-code/configuracion" className="text-sm text-zinc-500 hover:text-zinc-300">← Configuración</Link>
-        <Link href="/cursos/claude-code/hooks" className="text-sm text-orange-400 hover:text-orange-300">Hooks →</Link>
+        <Link href="/cursos/claude-code/hooks" className="text-sm text-violet-400 hover:text-fuchsia-300">Hooks →</Link>
       </div>
     </div>
   );

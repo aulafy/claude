@@ -13,7 +13,7 @@ export default function AvisoLegal() {
   return (
     <div className="max-w-3xl mx-auto px-8 py-14">
       <div className="flex items-start gap-3 mb-4">
-        <Icon name="fileContract" className="mt-1 text-2xl text-orange-400 flex-none" />
+        <Icon name="fileContract" className="mt-1 text-2xl text-violet-400 flex-none" />
         <h1 className="min-w-0 text-3xl sm:text-4xl font-bold leading-tight text-white">Aviso legal</h1>
       </div>
       <p className="text-sm text-zinc-500 mb-8">Última actualización: 2 de julio de 2026</p>

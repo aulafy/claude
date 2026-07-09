@@ -79,7 +79,7 @@ export default function SobreRamon() {
       </div>
 
       <div className="mb-10">
-        <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-orange-500/10 text-orange-300 text-xl border border-orange-500/20 mb-5">
+        <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-violet-500/10 text-fuchsia-300 text-xl border border-violet-500/20 mb-5">
           <Icon name="userGraduate" />
         </div>
         <h1 className="font-display font-extrabold text-4xl text-white mb-4">

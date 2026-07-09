@@ -187,7 +187,7 @@ export default function FaqPage() {
 
       <div className="mt-12 pt-8 border-t border-zinc-800 flex justify-between items-center">
         <Link href="/cursos/claude-code/proyectos" className="text-sm text-zinc-500 hover:text-zinc-300">← Proyectos guiados</Link>
-        <Link href="/cursos/claude-code/problemas" className="text-sm text-orange-400 hover:text-orange-300">Solución de problemas →</Link>
+        <Link href="/cursos/claude-code/problemas" className="text-sm text-violet-400 hover:text-fuchsia-300">Solución de problemas →</Link>
       </div>
     </div>
   );

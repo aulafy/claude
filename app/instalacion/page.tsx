@@ -146,7 +146,7 @@ npm uninstall -g @anthropic-ai/claude-code`}</code></pre>
         <Link href="/" className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
           ← Inicio
         </Link>
-        <Link href="/cursos/claude-code/primeros-pasos" className="text-sm text-orange-400 hover:text-orange-300 transition-colors">
+        <Link href="/cursos/claude-code/primeros-pasos" className="text-sm text-violet-400 hover:text-fuchsia-300 transition-colors">
           Primeros pasos →
         </Link>
       </div>

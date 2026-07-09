@@ -5,6 +5,7 @@ import Icon, { type IconName } from "@/components/Icon";
 import { cursos, totalLecciones } from "@/lib/cursos";
 import { getLocalizedCurso } from "@/lib/i18n";
 import { getEnglishLessonTitle } from "@/lib/english-lessons";
+import ContinuarCurso from "@/components/ContinuarCurso";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 
@@ -134,11 +135,7 @@ export default async function EnglishCoursePage({ params }: { params: Promise<{ 
             </div>
 
             <div className="mt-7 flex flex-wrap gap-3">
-              {firstLesson && (
-                <Link href={`/en/courses/${course.slug}/${firstLesson.slug}`} className="aula-button aula-button-primary">
-                  <Icon name="book" /> Start lessons
-                </Link>
-              )}
+              {firstLesson && <ContinuarCurso cursoSlug={course.slug} locale="en" />}
               {course.pdf && (
                 <a href={course.pdf} className="aula-button aula-button-secondary">
                   <Icon name="pdf" /> Spanish PDF
@@ -197,7 +194,7 @@ export default async function EnglishCoursePage({ params }: { params: Promise<{ 
                       href={`/en/courses/${course.slug}/${lesson.slug}`}
                       className="aula-capsule flex items-center gap-4 px-4 py-3.5 group"
                     >
-                      <span className="flex-shrink-0 w-9 h-9 rounded-md bg-orange-500/10 border border-orange-500/25 text-orange-400 flex items-center justify-center text-xs font-semibold font-[family-name:var(--font-code)]">
+                      <span className="flex-shrink-0 w-9 h-9 rounded-md bg-violet-500/10 border border-violet-500/25 text-violet-400 flex items-center justify-center text-xs font-semibold font-[family-name:var(--font-code)]">
                         {n}
                       </span>
                       <span className="min-w-0">
@@ -206,7 +203,7 @@ export default async function EnglishCoursePage({ params }: { params: Promise<{ 
                         </span>
                         <span className="aula-meta mt-0.5 block text-zinc-600">/{course.slug}/{lesson.slug}</span>
                       </span>
-                      <span className="ml-auto text-zinc-600 group-hover:text-orange-400 transition-colors">
+                      <span className="ml-auto text-zinc-600 group-hover:text-fuchsia-300 transition-colors">
                         <Icon name="chevronRight" />
                       </span>
                     </Link>

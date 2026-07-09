@@ -243,14 +243,14 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
                     href={`/cursos/${curso.slug}/${l.slug}`}
                     className="aula-capsule flex items-center gap-4 px-4 py-3.5 group"
                   >
-                    <span className="flex-shrink-0 w-9 h-9 rounded-md bg-orange-500/10 border border-orange-500/25 text-orange-400 flex items-center justify-center text-xs font-semibold font-[family-name:var(--font-code)]">
+                    <span className="flex-shrink-0 w-9 h-9 rounded-md bg-violet-500/10 border border-violet-500/25 text-violet-400 flex items-center justify-center text-xs font-semibold font-[family-name:var(--font-code)]">
                       {n}
                     </span>
                     <span className="min-w-0">
                       <span className="block text-sm text-zinc-300 group-hover:text-white transition-colors">{l.title}</span>
                       <span className="aula-meta mt-0.5 block text-zinc-600">/{curso.slug}/{l.slug}</span>
                     </span>
-                    <span className="ml-auto text-zinc-600 group-hover:text-orange-400 transition-colors">
+                    <span className="ml-auto text-zinc-600 group-hover:text-fuchsia-300 transition-colors">
                       <Icon name="chevronRight" />
                     </span>
                   </Link>

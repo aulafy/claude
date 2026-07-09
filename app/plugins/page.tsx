@@ -35,11 +35,11 @@ export default function Plugins() {
           Un plugin empaqueta varias extensiones en una sola unidad instalable:
         </p>
         <ul>
-          <li><Icon name="grid" className="text-orange-400" /> <strong>Skills</strong> — flujos y procedimientos especializados.</li>
-          <li><Icon name="robot" className="text-orange-400" /> <strong>Subagentes</strong> — ayudantes con roles concretos.</li>
-          <li><Icon name="command" className="text-orange-400" /> <strong>Comandos</strong> — slash commands listos para usar.</li>
-          <li><Icon name="hook" className="text-orange-400" /> <strong>Hooks</strong> — automatizaciones de eventos.</li>
-          <li><Icon name="link" className="text-orange-400" /> <strong>Servidores MCP</strong> — conexiones a herramientas externas.</li>
+          <li><Icon name="grid" className="text-violet-400" /> <strong>Skills</strong> — flujos y procedimientos especializados.</li>
+          <li><Icon name="robot" className="text-violet-400" /> <strong>Subagentes</strong> — ayudantes con roles concretos.</li>
+          <li><Icon name="command" className="text-violet-400" /> <strong>Comandos</strong> — slash commands listos para usar.</li>
+          <li><Icon name="hook" className="text-violet-400" /> <strong>Hooks</strong> — automatizaciones de eventos.</li>
+          <li><Icon name="link" className="text-violet-400" /> <strong>Servidores MCP</strong> — conexiones a herramientas externas.</li>
         </ul>
         <p>
           Un <strong>marketplace</strong> es un repositorio (normalmente en GitHub) con
@@ -104,7 +104,7 @@ export default function Plugins() {
 
       <div className="mt-12 pt-8 border-t border-zinc-800 flex justify-between items-center">
         <Link href="/cursos/claude-code/subagentes" className="text-sm text-zinc-500 hover:text-zinc-300">← Subagentes</Link>
-        <Link href="/cursos/claude-code/flujos" className="text-sm text-orange-400 hover:text-orange-300">Flujos de trabajo pro →</Link>
+        <Link href="/cursos/claude-code/flujos" className="text-sm text-violet-400 hover:text-fuchsia-300">Flujos de trabajo pro →</Link>
       </div>
     </div>
   );

@@ -70,7 +70,7 @@ export default function BlogPage() {
           </div>
           <div className="flex-1">
             <div className="aula-meta mb-2">Destacado · {featured.category} · {featured.readingTime}</div>
-            <h2 className="font-display font-bold text-2xl text-white group-hover:text-orange-300 transition-colors">{featured.title}</h2>
+            <h2 className="font-display font-bold text-2xl text-white group-hover:text-fuchsia-300 transition-colors">{featured.title}</h2>
             <p className="mt-2 text-sm text-zinc-400 leading-relaxed">{featured.description}</p>
             {featured.editorNote && (
               <p className="mt-3 text-xs text-[#22d3ee] leading-relaxed">{featured.editorNote}</p>
@@ -100,7 +100,7 @@ export default function BlogPage() {
               <Image src={post.image} alt={post.title} fill sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" className="object-cover" />
             </div>
             <div className="aula-meta mb-2">{post.category} · {post.readingTime}</div>
-            <h2 className="font-display font-bold text-xl text-white group-hover:text-orange-300 transition-colors">{post.title}</h2>
+            <h2 className="font-display font-bold text-xl text-white group-hover:text-fuchsia-300 transition-colors">{post.title}</h2>
             <p className="mt-3 text-sm text-zinc-400 leading-relaxed">{post.description}</p>
             {post.editorNote && (
               <p className="mt-3 text-xs text-[#22d3ee] leading-relaxed">{post.editorNote}</p>

@@ -132,7 +132,7 @@ claude "añade tipos TypeScript al archivo utils.js"`}</code></pre>
 
       <div className="mt-12 pt-8 border-t border-zinc-800 flex justify-between items-center">
         <Link href="/cursos/claude-code/instalacion" className="text-sm text-zinc-500 hover:text-zinc-300">← Instalación</Link>
-        <Link href="/cursos/claude-code/comandos" className="text-sm text-orange-400 hover:text-orange-300">Comandos →</Link>
+        <Link href="/cursos/claude-code/comandos" className="text-sm text-violet-400 hover:text-fuchsia-300">Comandos →</Link>
       </div>
     </div>
   );

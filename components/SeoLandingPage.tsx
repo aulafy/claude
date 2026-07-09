@@ -22,7 +22,7 @@ export default function SeoLandingPage({ landing }: Props) {
           <Icon name="calendar" />
           Actualizado: julio de 2026
         </div>
-        <div className="aula-icon mt-5 text-orange-300 text-xl">
+        <div className="aula-icon mt-5 text-fuchsia-300 text-xl">
           <Icon name={landing.icon} />
         </div>
         <h1 className="mt-6 font-display font-extrabold text-3xl sm:text-5xl leading-tight text-white">

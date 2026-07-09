@@ -105,7 +105,7 @@ export default function Cursos() {
         href="/aulafy-guia-completa.pdf"
         className="group aula-frame flex flex-col sm:flex-row sm:items-center gap-4 p-4 mb-10 hover:border-zinc-600 transition-colors"
       >
-        <span className="aula-icon flex-shrink-0 text-orange-300"><Icon name="filePdf" /></span>
+        <span className="aula-icon flex-shrink-0 text-fuchsia-300"><Icon name="filePdf" /></span>
         <span className="flex-1 text-sm">
           <strong className="text-white">¿Prefieres leerlo todo de un tirón?</strong>{" "}
           <span className="text-zinc-400">Descarga la guía completa de Aulafy en PDF, gratis.</span>
@@ -135,7 +135,7 @@ export default function Cursos() {
             </div>
             <div className="p-6">
               <div className="aula-meta mb-2 text-zinc-500">/cursos/{c.slug}</div>
-              <h2 className="font-display font-bold text-xl text-white group-hover:text-orange-300 transition-colors">
+              <h2 className="font-display font-bold text-xl text-white group-hover:text-fuchsia-300 transition-colors">
                 {c.title}
               </h2>
               <p className="mt-2 text-sm text-zinc-400 leading-relaxed">{c.desc}</p>

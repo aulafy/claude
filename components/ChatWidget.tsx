@@ -146,7 +146,7 @@ function renderContent(text: string, locale: Locale, onNavigate?: () => void) {
                   key={j}
                   href={href}
                   onClick={onNavigate}
-                  className="text-orange-400 underline underline-offset-2 hover:text-orange-300 font-medium"
+                  className="text-violet-400 underline underline-offset-2 hover:text-fuchsia-300 font-medium"
                 >
                   {name}
                 </Link>
@@ -169,6 +169,8 @@ export default function ChatWidget({ locale = "es" }: { locale?: Locale }) {
   const [loading, setLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
+  const openerRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
@@ -176,6 +178,7 @@ export default function ChatWidget({ locale = "es" }: { locale?: Locale }) {
 
   useEffect(() => {
     if (open) inputRef.current?.focus();
+    else openerRef.current?.focus();
   }, [open]);
 
   async function send(text: string) {
@@ -242,27 +245,43 @@ export default function ChatWidget({ locale = "es" }: { locale?: Locale }) {
     }
   }
 
+  function trapFocus(event: React.KeyboardEvent<HTMLDivElement>) {
+    if (event.key !== "Tab") return;
+    const focusable = dialogRef.current?.querySelectorAll<HTMLElement>("button:not([disabled]), textarea, a[href]");
+    if (!focusable?.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
+
   return (
     <>
       {/* Botón flotante */}
       <button
         onClick={() => setOpen((o) => !o)}
+        ref={openerRef}
         aria-label={copy.openLabel}
-        className="fixed bottom-5 right-5 z-50 w-14 h-14 rounded-lg border border-orange-300/35 bg-orange-500 hover:bg-orange-400 shadow-lg shadow-orange-500/25 flex items-center justify-center text-white text-2xl transition-transform hover:scale-105"
+        className="fixed bottom-5 right-5 z-50 w-14 h-14 rounded-lg border border-fuchsia-300/35 bg-violet-500 hover:bg-fuchsia-500 shadow-lg shadow-violet-500/25 flex items-center justify-center text-white text-2xl transition-transform hover:scale-105"
       >
         <Icon name={open ? "close" : "chat"} />
       </button>
 
       {/* Panel */}
       {open && (
-        <div className="fixed bottom-24 right-5 z-50 w-[calc(100vw-2.5rem)] max-w-[400px] h-[600px] max-h-[calc(100vh-8rem)] flex flex-col aula-frame bg-zinc-900 shadow-2xl">
+        <div ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="aulafy-chat-title" onKeyDown={trapFocus} className="fixed bottom-24 right-5 z-50 w-[calc(100vw-2.5rem)] max-w-[400px] h-[600px] max-h-[calc(100vh-8rem)] flex flex-col aula-frame bg-zinc-900 shadow-2xl">
           {/* Header */}
           <div className="flex items-center gap-3 px-4 py-3 border-b border-zinc-800 bg-zinc-950/80">
-            <div className="w-8 h-8 rounded-lg border border-orange-400/30 bg-orange-500/20 flex items-center justify-center text-orange-200 text-base">
+            <div className="w-8 h-8 rounded-lg border border-fuchsia-400/30 bg-violet-500/20 flex items-center justify-center text-fuchsia-200 text-base">
               <Icon name="robot" />
             </div>
             <div className="flex-1 min-w-0">
-              <div className="text-sm font-semibold text-white leading-tight">{copy.title}</div>
+              <div id="aulafy-chat-title" className="text-sm font-semibold text-white leading-tight">{copy.title}</div>
               <div className="aula-meta text-emerald-400 flex items-center gap-1">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block" /> {copy.online}
               </div>
@@ -287,7 +306,7 @@ export default function ChatWidget({ locale = "es" }: { locale?: Locale }) {
             {messages.map((m, i) =>
               m.role === "user" ? (
                 <div key={i} className="flex justify-end">
-                  <div className="rounded-lg border border-orange-300/25 bg-orange-500 px-3.5 py-2.5 text-sm text-white leading-relaxed max-w-[85%] whitespace-pre-wrap">
+                  <div className="rounded-lg border border-fuchsia-300/25 bg-violet-500 px-3.5 py-2.5 text-sm text-white leading-relaxed max-w-[85%] whitespace-pre-wrap">
                     {m.content}
                   </div>
                 </div>
@@ -314,12 +333,12 @@ export default function ChatWidget({ locale = "es" }: { locale?: Locale }) {
             {/* Sugerencias (solo al inicio) */}
             {messages.length === 0 && (
               <div className="pt-1 space-y-2">
-                <p className="text-xs text-zinc-500 px-1">Prueba a preguntar:</p>
+                <p className="text-xs text-zinc-500 px-1">{copy.tryAsking}</p>
                 {copy.suggestions.map((s) => (
                   <button
                     key={s}
                     onClick={() => send(s)}
-                    className="aula-panel block w-full text-left text-sm px-3 py-2 text-zinc-300 hover:border-orange-500/50 hover:bg-zinc-800/50 transition-colors"
+                    className="aula-panel block w-full text-left text-sm px-3 py-2 text-zinc-300 hover:border-violet-500/50 hover:bg-zinc-800/50 transition-colors"
                   >
                     {s}
                   </button>
@@ -350,12 +369,12 @@ export default function ChatWidget({ locale = "es" }: { locale?: Locale }) {
                 }}
                 rows={1}
                 placeholder={copy.placeholder}
-                className="flex-1 resize-none max-h-28 rounded-lg bg-zinc-800 border border-zinc-700 px-3 py-2.5 text-sm text-zinc-100 placeholder-zinc-500 focus:outline-none focus:border-orange-500/50"
+                className="flex-1 resize-none max-h-28 rounded-lg bg-zinc-800 border border-zinc-700 px-3 py-2.5 text-sm text-zinc-100 placeholder-zinc-500 focus:outline-none focus:border-violet-500/50"
               />
               <button
                 type="submit"
                 disabled={loading || !input.trim()}
-                className="flex-shrink-0 w-10 h-10 rounded-lg bg-orange-500 hover:bg-orange-400 disabled:opacity-40 disabled:cursor-not-allowed text-white flex items-center justify-center transition-colors"
+                className="flex-shrink-0 w-10 h-10 rounded-lg bg-violet-500 hover:bg-fuchsia-500 disabled:opacity-40 disabled:cursor-not-allowed text-white flex items-center justify-center transition-colors"
                 aria-label={copy.send}
               >
                 <Icon name="paperPlane" />

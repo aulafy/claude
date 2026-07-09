@@ -195,7 +195,7 @@ export function Chapter({
     <div className="aula-shell max-w-4xl mx-auto px-6 sm:px-8 py-12 sm:py-14">
       <Crumb label={crumb} courseHref={courseHref} courseLabel={courseLabel} />
       <header className="aula-frame p-6 sm:p-8 mb-10">
-        <div className="aula-icon text-orange-300 text-xl mb-5">
+        <div className="aula-icon text-fuchsia-300 text-xl mb-5">
           <Icon name={icon} />
         </div>
         <span className="aula-section-label">

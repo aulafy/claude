@@ -19,10 +19,10 @@ const footerContent = {
   en: {
     columns: [
       { title: "Start", links: [["/en/courses", "Courses"], ["/en/courses/claude-code", "Claude Code"], ["/en/courses/ia-local", "Local AI"]] },
-      { title: "Practice", links: [["/blog", "AI blog"], ["/en/courses/agentes-automatizacion", "Agents"], ["/en/courses/rag-seguro", "Secure RAG"]] },
+      { title: "Practice", links: [["/blog", "Spanish AI blog"], ["/en/courses/agentes-automatizacion", "Agents"], ["/en/courses/rag-seguro", "Secure RAG"]] },
       { title: "Build", links: [["/en/courses/agentes-produccion", "Production agents"], ["/en/courses/automatizacion-self-hosted", "Self-hosted AI"], ["/en/courses/mlops-local", "Local MLOps"]] },
-      { title: "Project", links: [["/fuentes", "Official sources"], ["/sobre-ramon-guillamon", "Author"], ["/acerca", "About"]] },
-      { title: "Legal", links: [["/que-es-aulafy", "What is Aulafy"], ["/aviso-legal", "Legal notice"], ["/licencia", "License"], ["/privacidad", "Privacy"]] },
+      { title: "Project", links: [["/fuentes", "Official sources (Spanish)"], ["/sobre-ramon-guillamon", "Author (Spanish)"], ["/acerca", "About (Spanish)"]] },
+      { title: "Legal", links: [["/que-es-aulafy", "What is Aulafy (Spanish)"], ["/aviso-legal", "Legal notice (Spanish)"], ["/licencia", "License (Spanish)"], ["/privacidad", "Privacy (Spanish)"]] },
     ],
     tagline: "Aulafy · Open-source AI courses in English and Spanish",
     note: "Unofficial educational training. All brands and tools belong to their owners. Always verify features with the official documentation linked in sources.",
@@ -54,7 +54,7 @@ export default function Footer({ locale = "es" }: { locale?: Locale }) {
                   <li key={href}>
                     <Link
                       href={href}
-                      className="text-sm text-zinc-400 hover:text-orange-400 transition-colors"
+                      className="text-sm text-zinc-400 hover:text-fuchsia-300 transition-colors"
                     >
                       {label}
                     </Link>
@@ -67,7 +67,7 @@ export default function Footer({ locale = "es" }: { locale?: Locale }) {
 
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-6 border-t border-zinc-800">
           <div className="flex items-center gap-2.5">
-            <div className="w-7 h-7 rounded-lg border border-orange-500/25 bg-orange-500/10 flex items-center justify-center text-orange-300 text-xs">
+            <div className="w-7 h-7 rounded-lg border border-violet-500/25 bg-violet-500/10 flex items-center justify-center text-fuchsia-300 text-xs">
               <Icon name="aulafy" />
             </div>
             <span className="aula-meta">
@@ -80,7 +80,7 @@ export default function Footer({ locale = "es" }: { locale?: Locale }) {
             <a
               href="mailto:contacto@aulafy.net"
               aria-label={content.emailLabel}
-              className="text-zinc-500 hover:text-orange-400 transition-colors"
+              className="text-zinc-500 hover:text-fuchsia-300 transition-colors"
             >
               <Icon name="email" className="text-lg" />
             </a>
@@ -89,7 +89,7 @@ export default function Footer({ locale = "es" }: { locale?: Locale }) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="X (Twitter)"
-              className="text-zinc-500 hover:text-orange-400 transition-colors"
+              className="text-zinc-500 hover:text-fuchsia-300 transition-colors"
             >
               <Icon name="xTwitter" family="brands" className="text-lg" />
             </a>
@@ -98,7 +98,7 @@ export default function Footer({ locale = "es" }: { locale?: Locale }) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="text-zinc-500 hover:text-orange-400 transition-colors"
+              className="text-zinc-500 hover:text-fuchsia-300 transition-colors"
             >
               <Icon name="linkedin" family="brands" className="text-lg" />
             </a>
@@ -107,7 +107,7 @@ export default function Footer({ locale = "es" }: { locale?: Locale }) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={content.sourceLabel}
-              className="text-zinc-500 hover:text-orange-400 transition-colors"
+              className="text-zinc-500 hover:text-fuchsia-300 transition-colors"
             >
               <Icon name="code" className="text-lg" />
             </a>

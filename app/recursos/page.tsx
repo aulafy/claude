@@ -101,16 +101,16 @@ export default function Recursos() {
       <a
         href="/guia-claude-code.pdf"
         download
-        className="flex items-center gap-4 rounded-xl border border-orange-500/30 bg-orange-500/10 p-5 mb-8 hover:bg-orange-500/15 transition-colors"
+        className="flex items-center gap-4 rounded-xl border border-violet-500/30 bg-violet-500/10 p-5 mb-8 hover:bg-violet-500/15 transition-colors"
       >
-        <Icon name="filePdf" className="text-3xl text-orange-400" />
+        <Icon name="filePdf" className="text-3xl text-violet-400" />
         <div className="flex-1">
           <div className="font-semibold text-white">Descarga la guía completa en PDF</div>
           <div className="text-sm text-zinc-400">
             89 páginas, lista para imprimir · licencia Creative Commons (CC BY 4.0)
           </div>
         </div>
-        <span className="inline-flex items-center gap-2 text-orange-400 text-sm font-medium">
+        <span className="inline-flex items-center gap-2 text-violet-400 text-sm font-medium">
           <Icon name="download" />
           Descargar
         </span>
@@ -151,7 +151,7 @@ export default function Recursos() {
 
       <div className="mt-12 pt-8 border-t border-zinc-800 flex justify-between items-center">
         <Link href="/cursos/claude-code/problemas" className="text-sm text-zinc-500 hover:text-zinc-300">← Solución de problemas</Link>
-        <Link href="/cursos/claude-code/comparativa" className="text-sm text-orange-400 hover:text-orange-300">Comparativa →</Link>
+        <Link href="/cursos/claude-code/comparativa" className="text-sm text-violet-400 hover:text-fuchsia-300">Comparativa →</Link>
       </div>
     </div>
   );
