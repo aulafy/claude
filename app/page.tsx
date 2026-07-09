@@ -240,10 +240,14 @@ export default function Home() {
 
         {/* Destacado */}
         <div id="curso-claude" className="aula-frame p-6 sm:p-8 mb-8">
-          <div className="absolute top-5 right-5 aula-chip" data-tone="cyan">Más popular</div>
           <div className="grid min-w-0 md:grid-cols-[1fr_auto] gap-6 items-center">
             <div className="min-w-0">
-              <Icon name="advanced" className="text-4xl mb-3 text-[#22d3ee]" />
+              <div className="mb-5 flex flex-wrap items-center gap-3">
+                <span className="aula-chip" data-tone="cyan">Más popular</span>
+                <span className="aula-icon text-[#22d3ee] text-xl" aria-hidden="true">
+                  <Icon name="advanced" />
+                </span>
+              </div>
               <h3 className="font-display font-bold text-2xl text-white">Claude Code, de 0 a pro</h3>
               <p className="mt-3 text-zinc-400 max-w-xl leading-relaxed">Aprende a construir software y aplicaciones hablando con la IA en tu terminal. Desde la instalación hasta skills, subagentes, MCP y flujos profesionales. Incluye el módulo <strong className="text-zinc-200">Claude Code + IA Local</strong>: apps que corren en tu ordenador.</p>
               <div className="mt-5 flex flex-wrap gap-2 text-xs">

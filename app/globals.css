@@ -260,7 +260,10 @@ kbd {
 .aula-capsule::before {
   content: "";
   position: absolute;
-  inset: 0 0 auto;
+  top: 0;
+  right: 0;
+  bottom: auto;
+  left: 0;
   height: 2px;
   background: linear-gradient(90deg, var(--signal-amber), var(--signal-cyan), var(--signal-green), transparent 78%);
   opacity: 0.78;
