@@ -1,60 +1,50 @@
 import Link from "next/link";
 import Icon from "@/components/Icon";
+import type { Locale } from "@/lib/i18n";
 
-const cols = [
-  {
-    title: "Empezar",
-    links: [
-      ["/instalacion", "Instalación"],
-      ["/primeros-pasos", "Primeros pasos"],
-      ["/proyectos", "Proyectos guiados"],
+const footerContent = {
+  es: {
+    columns: [
+      { title: "Empezar", links: [["/instalacion", "Instalación"], ["/primeros-pasos", "Primeros pasos"], ["/proyectos", "Proyectos guiados"]] },
+      { title: "Práctica", links: [["/blog", "Blog de IA"], ["/recetas", "Recetas prácticas"], ["/prompts", "Buenos prompts"], ["/glosario", "Glosario"]] },
+      { title: "Potenciar", links: [["/skills", "Skills"], ["/subagentes", "Subagentes"], ["/plugins", "Plugins"]] },
+      { title: "Ayuda", links: [["/faq", "Preguntas frecuentes"], ["/problemas", "Solución de problemas"], ["/comandos", "Comandos"]] },
+      { title: "Legal", links: [["/que-es-aulafy", "Qué es Aulafy"], ["/acerca", "Proyecto y fuentes"], ["/fuentes", "Fuentes oficiales"], ["/sobre-ramon-guillamon", "Autoría"], ["/aviso-legal", "Aviso legal"], ["/licencia", "Licencia"], ["/privacidad", "Privacidad"]] },
     ],
+    tagline: "Aulafy · Cursos de IA open source en español",
+    note: "Formación educativa no oficial. Las marcas y herramientas citadas pertenecen a sus titulares. Verifica siempre las funciones con la documentación oficial enlazada en fuentes.",
+    emailLabel: "Enviar un email",
+    sourceLabel: "Codigo fuente en GitHub",
   },
-  {
-    title: "Práctica",
-    links: [
-      ["/blog", "Blog de IA"],
-      ["/recetas", "Recetas prácticas"],
-      ["/prompts", "Buenos prompts"],
-      ["/glosario", "Glosario"],
+  en: {
+    columns: [
+      { title: "Start", links: [["/en/courses", "Courses"], ["/en/courses/claude-code", "Claude Code"], ["/en/courses/ia-local", "Local AI"]] },
+      { title: "Practice", links: [["/blog", "AI blog"], ["/en/courses/agentes-automatizacion", "Agents"], ["/en/courses/rag-seguro", "Secure RAG"]] },
+      { title: "Build", links: [["/en/courses/agentes-produccion", "Production agents"], ["/en/courses/automatizacion-self-hosted", "Self-hosted AI"], ["/en/courses/mlops-local", "Local MLOps"]] },
+      { title: "Project", links: [["/fuentes", "Official sources"], ["/sobre-ramon-guillamon", "Author"], ["/acerca", "About"]] },
+      { title: "Legal", links: [["/que-es-aulafy", "What is Aulafy"], ["/aviso-legal", "Legal notice"], ["/licencia", "License"], ["/privacidad", "Privacy"]] },
     ],
+    tagline: "Aulafy · Open-source AI courses in English and Spanish",
+    note: "Unofficial educational training. All brands and tools belong to their owners. Always verify features with the official documentation linked in sources.",
+    emailLabel: "Send an email",
+    sourceLabel: "Source code on GitHub",
   },
-  {
-    title: "Potenciar",
-    links: [
-      ["/skills", "Skills"],
-      ["/subagentes", "Subagentes"],
-      ["/plugins", "Plugins"],
-    ],
-  },
-  {
-    title: "Ayuda",
-    links: [
-      ["/faq", "Preguntas frecuentes"],
-      ["/problemas", "Solución de problemas"],
-      ["/comandos", "Comandos"],
-    ],
-  },
-  {
-    title: "Legal",
-    links: [
-      ["/que-es-aulafy", "Qué es Aulafy"],
-      ["/acerca", "Proyecto y fuentes"],
-      ["/fuentes", "Fuentes oficiales"],
-      ["/sobre-ramon-guillamon", "Autoría"],
-      ["/aviso-legal", "Aviso legal"],
-      ["/licencia", "Licencia"],
-      ["/privacidad", "Privacidad"],
-    ],
-  },
-];
+} satisfies Record<Locale, {
+  columns: Array<{ title: string; links: string[][] }>;
+  tagline: string;
+  note: string;
+  emailLabel: string;
+  sourceLabel: string;
+}>;
 
-export default function Footer() {
+export default function Footer({ locale = "es" }: { locale?: Locale }) {
+  const content = footerContent[locale];
+
   return (
     <footer className="border-t border-zinc-800 bg-zinc-950/62 mt-12">
       <div className="max-w-6xl mx-auto px-6 sm:px-8 py-12">
         <div className="grid grid-cols-2 sm:grid-cols-5 gap-8 mb-10">
-          {cols.map((col) => (
+          {content.columns.map((col) => (
             <div key={col.title}>
               <p className="aula-section-label mb-3">
                 {col.title}
@@ -81,7 +71,7 @@ export default function Footer() {
               <Icon name="aulafy" />
             </div>
             <span className="aula-meta">
-              Aulafy · Cursos de IA open source en español
+              {content.tagline}
             </span>
           </div>
 
@@ -89,7 +79,7 @@ export default function Footer() {
           <div className="flex items-center gap-4">
             <a
               href="mailto:contacto@aulafy.net"
-              aria-label="Enviar un email"
+              aria-label={content.emailLabel}
               className="text-zinc-500 hover:text-orange-400 transition-colors"
             >
               <Icon name="email" className="text-lg" />
@@ -116,7 +106,7 @@ export default function Footer() {
               href="https://github.com/raym33/claude"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Codigo fuente en GitHub"
+              aria-label={content.sourceLabel}
               className="text-zinc-500 hover:text-orange-400 transition-colors"
             >
               <Icon name="code" className="text-lg" />
@@ -124,8 +114,7 @@ export default function Footer() {
           </div>
 
           <p className="text-xs text-zinc-600 leading-relaxed">
-            Formación educativa no oficial. Las marcas y herramientas citadas pertenecen a sus titulares.
-            Verifica siempre las funciones con la documentación oficial enlazada en fuentes.
+            {content.note}
           </p>
         </div>
       </div>

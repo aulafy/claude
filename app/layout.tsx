@@ -74,7 +74,7 @@ export const metadata: Metadata = {
     template: "%s",
   },
   description:
-    "Cursos gratuitos de inteligencia artificial open source en español, sin registro y con ejemplos prácticos: IA local, Claude Code, Ollama, RAG, fine-tuning, MLOps, agentes, seguridad, evals, imagen, voz, vídeo y automatización.",
+    "Cursos gratuitos de inteligencia artificial open source en español e inglés, sin registro y con ejemplos prácticos: IA local, Claude Code, Ollama, RAG, fine-tuning, MLOps, agentes, seguridad, evals, imagen, voz, vídeo y automatización.",
   keywords: [
     "cursos de IA gratis",
     "cursos de inteligencia artificial en español",
@@ -113,6 +113,13 @@ export const metadata: Metadata = {
   publisher: "Aulafy",
   manifest: "/manifest.webmanifest",
   category: "Education",
+  alternates: {
+    canonical: "/",
+    languages: {
+      "es-ES": "/",
+      "en-US": "/en",
+    },
+  },
   verification: {
     // Google Search Console (valor fijo; también admite override por env).
     google:
@@ -160,10 +167,10 @@ export const metadata: Metadata = {
   },
   other: {
     "ai-summary":
-      "Aulafy es una web educativa en español con cursos gratuitos de inteligencia artificial open source, IA local, Claude Code, Fable 5, videojuegos 3D, Blender, Godot, CAD con IA, RAG, fine-tuning, MLOps, seguridad de modelos, IA generativa, prompts, n8n, Open WebUI, Ollama y automatización self-hosted.",
+      "Aulafy es una web educativa en español e inglés con cursos gratuitos de inteligencia artificial open source, IA local, Claude Code, Fable 5, videojuegos 3D, Blender, Godot, CAD con IA, RAG, fine-tuning, MLOps, seguridad de modelos, IA generativa, prompts, n8n, Open WebUI, Ollama y automatización self-hosted.",
     "llms.txt": `${SITE_URL}/llms.txt`,
     "llms-full.txt": `${SITE_URL}/llms-full.txt`,
-    "content-language": "es",
+    "content-language": "es, en",
     "educational-use": "Cursos gratuitos, tutoriales prácticos y ejemplos reproducibles de IA open source",
   },
 };

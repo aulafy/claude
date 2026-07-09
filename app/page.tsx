@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Icon, { type IconName } from "@/components/Icon";
+import LanguageSwitch from "@/components/LanguageSwitch";
 import ThemeToggle from "@/components/ThemeToggle";
 import { cursos as catalogoCursos, totalLecciones } from "@/lib/cursos";
 
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
   title: "Aulafy — Cursos de IA open source en español",
   description:
     "Cursos gratis de IA open source en español: Claude Code, Fable 5, IA local, videojuegos 3D, RAG, agentes, automatización, seguridad y proyectos prácticos.",
-  alternates: { canonical: "/" },
+  alternates: { canonical: "/", languages: { "es-ES": "/", "en-US": "/en" } },
   openGraph: {
     title: "Aulafy — Cursos de IA open source en español",
     description:
@@ -123,6 +124,7 @@ export default function Home() {
             <a href="#como" className="hover:text-white transition-colors">Cómo funciona</a>
           </nav>
           <div className="flex items-center gap-2">
+            <LanguageSwitch />
             <ThemeToggle compact />
             <a href="#cursos" className="aula-button aula-button-primary text-sm px-3 py-2">
               <Icon name="book" />

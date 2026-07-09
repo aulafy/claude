@@ -6,12 +6,15 @@ import SiteHeader from "@/components/SiteHeader";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
 import { getCurso } from "@/lib/cursos";
+import { isEnglishPath } from "@/lib/i18n";
 
 export default function Shell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const english = isEnglishPath(pathname);
+  const locale = english ? "en" : "es";
 
   // 1) Landing: pantalla completa, con su propio header y footer.
-  if (pathname === "/") {
+  if (pathname === "/" || pathname === "/en") {
     return <>{children}</>;
   }
 
@@ -24,7 +27,7 @@ export default function Shell({ children }: { children: React.ReactNode }) {
         <CourseSidebar />
         <div className="md:ml-[280px] min-h-screen flex flex-col">
           <main className="flex-1">{children}</main>
-          <Footer />
+          <Footer locale="es" />
         </div>
         <ChatWidget />
       </>
@@ -34,10 +37,10 @@ export default function Shell({ children }: { children: React.ReactNode }) {
   // 3) Resto (catálogo, páginas de curso, legales…): cabecera + pie del sitio.
   return (
     <>
-      <SiteHeader />
+      <SiteHeader locale={locale} />
       <main className="min-h-screen">{children}</main>
-      <Footer />
-      <ChatWidget />
+      <Footer locale={locale} />
+      {!english && <ChatWidget />}
     </>
   );
 }

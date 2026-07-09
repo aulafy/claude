@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Icon from "@/components/Icon";
+import LanguageSwitch from "@/components/LanguageSwitch";
 import ThemeToggle from "@/components/ThemeToggle";
+import type { Locale } from "@/lib/i18n";
 
 function BrandIcon({ id, className }: { id: string; className?: string }) {
   return (
@@ -23,11 +25,13 @@ function BrandIcon({ id, className }: { id: string; className?: string }) {
   );
 }
 
-export default function SiteHeader() {
+export default function SiteHeader({ locale = "es" }: { locale?: Locale }) {
+  const isEnglish = locale === "en";
+
   return (
     <header className="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/82 backdrop-blur-xl">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2.5" aria-label="Aulafy — inicio">
+        <Link href={isEnglish ? "/en" : "/"} className="flex items-center gap-2.5" aria-label={isEnglish ? "Aulafy home" : "Aulafy — inicio"}>
           <BrandIcon id="lg-site" className="w-8 h-8" />
           <span className="flex flex-col leading-none">
             <span className="font-display font-bold text-white text-lg">Aulafy</span>
@@ -42,13 +46,14 @@ export default function SiteHeader() {
             <Icon name="search" />
             Blog
           </Link>
+          <LanguageSwitch />
           <ThemeToggle compact />
           <Link
-            href="/cursos"
+            href={isEnglish ? "/en/courses" : "/cursos"}
             className="aula-button aula-button-primary min-h-9 px-3 py-2 text-sm"
           >
             <Icon name="book" />
-            Cursos
+            {isEnglish ? "Courses" : "Cursos"}
           </Link>
         </div>
       </div>

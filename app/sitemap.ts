@@ -13,7 +13,9 @@ type SitemapEntry = {
 
 const principales: SitemapEntry[] = [
   { route: "", changeFrequency: "weekly", priority: 1 },
+  { route: "/en", changeFrequency: "weekly", priority: 0.98 },
   { route: "/cursos", changeFrequency: "weekly", priority: 0.95 },
+  { route: "/en/courses", changeFrequency: "weekly", priority: 0.93 },
   { route: "/blog", changeFrequency: "weekly", priority: 0.92 },
   { route: "/que-es-aulafy", changeFrequency: "monthly", priority: 0.82 },
   { route: "/acerca", changeFrequency: "monthly", priority: 0.7 },
@@ -53,6 +55,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const rutasCursos: SitemapEntry[] = cursos.flatMap((c) => [
     { route: `/cursos/${c.slug}`, changeFrequency: "weekly", priority: 0.9 },
+    { route: `/en/courses/${c.slug}`, changeFrequency: "weekly", priority: 0.86 },
     ...lecciones(c).map((l) => ({
       route: `/cursos/${c.slug}/${l.slug}`,
       changeFrequency: "monthly" as const,
