@@ -1,4 +1,5 @@
 import { buildChatbotSystemPrompt } from "@/lib/chatbot-knowledge";
+import type { Locale } from "@/lib/i18n";
 
 // Runtime de Node.js (más robusto en Vercel para fetch + streaming + Upstash).
 export const runtime = "nodejs";
@@ -53,9 +54,11 @@ async function handleChat(req: Request) {
   }
 
   let messages: Msg[] = [];
+  let locale: Locale = "es";
   try {
     const body = await req.json();
     messages = Array.isArray(body?.messages) ? body.messages : [];
+    locale = body?.locale === "en" ? "en" : "es";
   } catch {
     return Response.json({ error: "Petición inválida." }, { status: 400 });
   }
@@ -76,7 +79,7 @@ async function handleChat(req: Request) {
     return Response.json({ error: "No hay mensaje que responder." }, { status: 400 });
   }
 
-  const systemPrompt = buildChatbotSystemPrompt(cleaned);
+  const systemPrompt = buildChatbotSystemPrompt(cleaned, locale);
 
   let groqRes: Response;
   try {

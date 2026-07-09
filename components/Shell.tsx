@@ -40,7 +40,7 @@ export default function Shell({ children }: { children: React.ReactNode }) {
       <SiteHeader locale={locale} />
       <main className="min-h-screen">{children}</main>
       <Footer locale={locale} />
-      {!english && <ChatWidget />}
+      <ChatWidget locale={locale} />
     </>
   );
 }

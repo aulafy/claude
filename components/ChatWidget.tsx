@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Icon from "@/components/Icon";
+import { getLocalizedCursos, type Locale } from "@/lib/i18n";
 import { searchData } from "@/lib/search-data";
 
 type Message = { role: "user" | "assistant"; content: string };
@@ -17,7 +18,7 @@ function linkKey(value: string) {
     .trim();
 }
 
-const SECTION_LINKS: Record<string, string> = {
+const SECTION_LINKS_ES: Record<string, string> = {
   ...Object.fromEntries(searchData.map((item) => [linkKey(item.title), item.href])),
   inicio: "/",
   aulafy: "/",
@@ -34,18 +35,83 @@ const SECTION_LINKS: Record<string, string> = {
   pymes: "/cursos/ia-pymes",
 };
 
-const SUGGESTIONS = [
-  "¿Qué curso me recomiendas para empezar?",
-  "Quiero montar IA local con Ollama",
-  "¿Dónde aprendo RAG con documentos?",
-  "¿Qué ruta sigo para agentes y automatización?",
-];
+const SECTION_LINKS_EN: Record<string, string> = {
+  ...Object.fromEntries(getLocalizedCursos("en").map((course) => [linkKey(course.title), `/en/courses/${course.slug}`])),
+  home: "/en",
+  aulafy: "/en",
+  courses: "/en/courses",
+  "claude code": "/en/courses/claude-code",
+  "local ai": "/en/courses/ia-local",
+  ollama: "/en/courses/ia-local",
+  rag: "/en/courses/rag-seguro",
+  agents: "/en/courses/agentes-automatizacion",
+  automation: "/en/courses/agentes-automatizacion",
+  mlops: "/en/courses/mlops-local",
+  "fine tuning": "/en/courses/fine-tuning-local",
+  security: "/en/courses/seguridad-evals",
+  "small business": "/en/courses/ia-pymes",
+};
 
-const WELCOME =
-  "Hola. Soy tu asistente de **Aulafy**. Pregúntame por cualquier curso: Claude Code, IA local, RAG, agentes, MLOps, fine-tuning, seguridad, pymes o multimedia.";
+const COPY = {
+  es: {
+    suggestions: [
+      "¿Qué curso me recomiendas para empezar?",
+      "Quiero montar IA local con Ollama",
+      "¿Dónde aprendo RAG con documentos?",
+      "¿Qué ruta sigo para agentes y automatización?",
+    ],
+    welcome:
+      "Hola. Soy tu asistente de **Aulafy**. Pregúntame por cualquier curso: Claude Code, IA local, RAG, agentes, MLOps, fine-tuning, seguridad, pymes o multimedia.",
+    openLabel: "Abrir chat de ayuda de Aulafy",
+    title: "Asistente Aulafy",
+    online: "En línea",
+    close: "Cerrar",
+    tryAsking: "Prueba a preguntar:",
+    inputLabel: "Pregunta para el asistente",
+    placeholder: "Escribe tu pregunta...",
+    send: "Enviar",
+    disclaimer: "IA con Groq · puede equivocarse, contrasta los pasos importantes",
+    genericError: "Ups, ha habido un problema al responder. Inténtalo de nuevo en un momento.",
+  },
+  en: {
+    suggestions: [
+      "Which course should I start with?",
+      "I want to run local AI with Ollama",
+      "Where do I learn RAG with documents?",
+      "What route should I follow for agents and automation?",
+    ],
+    welcome:
+      "Hi. I am your **Aulafy** assistant. Ask me about Claude Code, local AI, RAG, agents, MLOps, fine-tuning, security, small business workflows or multimedia AI.",
+    openLabel: "Open Aulafy help chat",
+    title: "Aulafy Assistant",
+    online: "Online",
+    close: "Close",
+    tryAsking: "Try asking:",
+    inputLabel: "Question for the assistant",
+    placeholder: "Write your question...",
+    send: "Send",
+    disclaimer: "AI via Groq · it can be wrong, verify important steps",
+    genericError: "Something went wrong while answering. Try again in a moment.",
+  },
+} satisfies Record<Locale, {
+  suggestions: string[];
+  welcome: string;
+  openLabel: string;
+  title: string;
+  online: string;
+  close: string;
+  tryAsking: string;
+  inputLabel: string;
+  placeholder: string;
+  send: string;
+  disclaimer: string;
+  genericError: string;
+}>;
 
 /** Render ligero de markdown: bloques de código, `inline`, **negrita**, enlaces [[Sección]] y saltos de línea. */
-function renderContent(text: string, onNavigate?: () => void) {
+function renderContent(text: string, locale: Locale, onNavigate?: () => void) {
+  const links = locale === "en" ? SECTION_LINKS_EN : SECTION_LINKS_ES;
+
   const parts = text.split(/(```[\s\S]*?```)/g);
   return parts.map((part, i) => {
     if (part.startsWith("```") && part.endsWith("```")) {
@@ -73,7 +139,7 @@ function renderContent(text: string, onNavigate?: () => void) {
           }
           if (tok.startsWith("[[") && tok.endsWith("]]")) {
             const name = tok.slice(2, -2).trim();
-            const href = SECTION_LINKS[linkKey(name)];
+            const href = links[linkKey(name)];
             if (href) {
               return (
                 <Link
@@ -95,7 +161,8 @@ function renderContent(text: string, onNavigate?: () => void) {
   });
 }
 
-export default function ChatWidget() {
+export default function ChatWidget({ locale = "es" }: { locale?: Locale }) {
+  const copy = COPY[locale];
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
@@ -124,12 +191,12 @@ export default function ChatWidget() {
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: next }),
+        body: JSON.stringify({ messages: next, locale }),
       });
 
       // Errores con mensaje (p. ej. límite de peticiones 429).
       if (!res.ok) {
-        let msg = "Ups, ha habido un problema al responder. Inténtalo de nuevo en un momento.";
+        let msg = copy.genericError;
         if (res.headers.get("content-type")?.includes("application/json")) {
           const data = await res.json().catch(() => null);
           if (data?.error) msg = data.error;
@@ -163,13 +230,12 @@ export default function ChatWidget() {
       if (!acc.trim()) throw new Error("empty");
     } catch {
       setMessages((prev) => {
-        const copy = [...prev];
-        copy[copy.length - 1] = {
+        const nextMessages = [...prev];
+        nextMessages[nextMessages.length - 1] = {
           role: "assistant",
-          content:
-            "Ups, ha habido un problema al responder. Inténtalo de nuevo en un momento.",
+          content: copy.genericError,
         };
-        return copy;
+        return nextMessages;
       });
     } finally {
       setLoading(false);
@@ -181,7 +247,7 @@ export default function ChatWidget() {
       {/* Botón flotante */}
       <button
         onClick={() => setOpen((o) => !o)}
-        aria-label="Abrir chat de ayuda de Aulafy"
+        aria-label={copy.openLabel}
         className="fixed bottom-5 right-5 z-50 w-14 h-14 rounded-lg border border-orange-300/35 bg-orange-500 hover:bg-orange-400 shadow-lg shadow-orange-500/25 flex items-center justify-center text-white text-2xl transition-transform hover:scale-105"
       >
         <Icon name={open ? "close" : "chat"} />
@@ -196,12 +262,12 @@ export default function ChatWidget() {
               <Icon name="robot" />
             </div>
             <div className="flex-1 min-w-0">
-              <div className="text-sm font-semibold text-white leading-tight">Asistente Aulafy</div>
+              <div className="text-sm font-semibold text-white leading-tight">{copy.title}</div>
               <div className="aula-meta text-emerald-400 flex items-center gap-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block" /> En línea
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block" /> {copy.online}
               </div>
             </div>
-            <button onClick={() => setOpen(false)} className="text-zinc-500 hover:text-zinc-300 text-lg" aria-label="Cerrar">
+            <button onClick={() => setOpen(false)} className="text-zinc-500 hover:text-zinc-300 text-lg" aria-label={copy.close}>
               <Icon name="close" />
             </button>
           </div>
@@ -214,7 +280,7 @@ export default function ChatWidget() {
                 <Icon name="robot" />
               </div>
               <div className="aula-panel px-3.5 py-2.5 text-sm text-zinc-300 leading-relaxed max-w-[85%]">
-                {renderContent(WELCOME)}
+                {renderContent(copy.welcome, locale)}
               </div>
             </div>
 
@@ -232,7 +298,7 @@ export default function ChatWidget() {
                   </div>
                   <div className="aula-panel px-3.5 py-2.5 text-sm text-zinc-300 leading-relaxed max-w-[85%]">
                     {m.content ? (
-                      renderContent(m.content, () => setOpen(false))
+                      renderContent(m.content, locale, () => setOpen(false))
                     ) : (
                       <span className="inline-flex gap-1">
                         <span className="w-1.5 h-1.5 rounded-full bg-zinc-500 animate-bounce [animation-delay:-0.3s]" />
@@ -249,7 +315,7 @@ export default function ChatWidget() {
             {messages.length === 0 && (
               <div className="pt-1 space-y-2">
                 <p className="text-xs text-zinc-500 px-1">Prueba a preguntar:</p>
-                {SUGGESTIONS.map((s) => (
+                {copy.suggestions.map((s) => (
                   <button
                     key={s}
                     onClick={() => send(s)}
@@ -274,7 +340,7 @@ export default function ChatWidget() {
               <textarea
                 ref={inputRef}
                 value={input}
-                aria-label="Pregunta para el asistente"
+                aria-label={copy.inputLabel}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => {
                   if (e.key === "Enter" && !e.shiftKey) {
@@ -283,20 +349,20 @@ export default function ChatWidget() {
                   }
                 }}
                 rows={1}
-                placeholder="Escribe tu pregunta..."
+                placeholder={copy.placeholder}
                 className="flex-1 resize-none max-h-28 rounded-lg bg-zinc-800 border border-zinc-700 px-3 py-2.5 text-sm text-zinc-100 placeholder-zinc-500 focus:outline-none focus:border-orange-500/50"
               />
               <button
                 type="submit"
                 disabled={loading || !input.trim()}
                 className="flex-shrink-0 w-10 h-10 rounded-lg bg-orange-500 hover:bg-orange-400 disabled:opacity-40 disabled:cursor-not-allowed text-white flex items-center justify-center transition-colors"
-                aria-label="Enviar"
+                aria-label={copy.send}
               >
                 <Icon name="paperPlane" />
               </button>
             </form>
             <p className="text-[10px] text-zinc-600 mt-1.5 text-center">
-              IA con Groq · puede equivocarse, contrasta los pasos importantes
+              {copy.disclaimer}
             </p>
           </div>
         </div>

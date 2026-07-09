@@ -1,4 +1,5 @@
 import chatbotContent from "./chatbot-course-content.json";
+import { getLocalizedCursos, pathForLocale, type Locale } from "@/lib/i18n";
 
 type ChatMessage = { role: "user" | "assistant"; content: string };
 
@@ -158,34 +159,53 @@ function latestUserContext(messages: ChatMessage[]) {
   return userTurns.join("\n");
 }
 
-function courseCatalog() {
-  return content.courses
+function courseCatalog(locale: Locale) {
+  const courses =
+    locale === "en"
+      ? getLocalizedCursos("en").map((course) => ({
+          ...course,
+          lessonCount: totalLessonsFor(course.slug),
+        }))
+      : content.courses;
+
+  return courses
     .map(
       (course) =>
-        `- [[${course.title}]] (${course.level}, ${course.lessonCount} lecciones): ${course.short}. ${course.desc}`
+        `- [[${course.title}]] (${course.level}, ${totalLessonsFor(course.slug, course.lessonCount)} ${
+          locale === "en" ? "lessons" : "lecciones"
+        }): ${course.short}. ${course.desc}`
     )
     .join("\n");
 }
 
-function renderContext(entries: KnowledgeEntry[]) {
+function totalLessonsFor(slug: string, fallback?: number) {
+  return content.courses.find((course) => course.slug === slug)?.lessonCount ?? fallback ?? 0;
+}
+
+function renderContext(entries: KnowledgeEntry[], locale: Locale) {
   if (entries.length === 0) {
-    return "No se encontro una leccion concreta para esta pregunta. Usa el catalogo general y pide una aclaracion si hace falta.";
+    return locale === "en"
+      ? "No specific lesson was found for this question. Use the general catalog and ask for clarification if needed."
+      : "No se encontro una leccion concreta para esta pregunta. Usa el catalogo general y pide una aclaracion si hace falta.";
   }
 
   return entries
     .map(
-      (entry, index) =>
-        `## Fuente ${index + 1}: [[${entry.title}]]
-Curso: ${entry.course}
-URL interna: ${entry.href}
-Tipo: ${entry.type === "course" ? "curso" : "leccion"}
-Contenido:
+      (entry, index) => {
+        const href = locale === "en" && entry.type === "course" ? pathForLocale(entry.href, "en") : entry.href;
+        return `## ${locale === "en" ? "Source" : "Fuente"} ${index + 1}: [[${entry.title}]]
+${locale === "en" ? "Course" : "Curso"}: ${entry.course}
+${locale === "en" ? "Internal URL" : "URL interna"}: ${href}
+${locale === "en" ? "Type" : "Tipo"}: ${entry.type === "course" ? (locale === "en" ? "course" : "curso") : locale === "en" ? "lesson" : "leccion"}
+${locale === "en" ? "Content" : "Contenido"}:
 ${entry.text}`
+      }
     )
     .join("\n\n");
 }
 
-const BASE_SYSTEM_PROMPT = `Eres "Asistente Aulafy", un tutor amable y experto de Aulafy para cursos gratis de inteligencia artificial open source en español.
+const BASE_SYSTEM_PROMPTS: Record<Locale, string> = {
+  es: `Eres "Asistente Aulafy", un tutor amable y experto de Aulafy para cursos gratis de inteligencia artificial open source en español.
 
 # Personalidad
 - Respondes SIEMPRE en español, con tono cercano, claro y motivador.
@@ -203,22 +223,45 @@ const BASE_SYSTEM_PROMPT = `Eres "Asistente Aulafy", un tutor amable y experto d
 - Prioriza el contexto recuperado bajo "Fragmentos relevantes".
 - Si el contexto no contiene el detalle pedido, no lo inventes: da una respuesta general y recomienda la leccion o curso mas cercano.
 - Cuando sea util, cita el curso o la leccion con [[Titulo exacto]].
-- Mantén las respuestas normalmente por debajo de 8-10 lineas salvo que el usuario pida una guia paso a paso.`;
+- Mantén las respuestas normalmente por debajo de 8-10 lineas salvo que el usuario pida una guia paso a paso.`,
+  en: `You are "Aulafy Assistant", a friendly expert tutor for Aulafy's free open-source AI courses.
 
-export function buildChatbotSystemPrompt(messages: ChatMessage[] = []) {
+# Personality
+- Always answer in English, with a clear, practical and encouraging tone.
+- Explain technical ideas in plain language.
+- Be concise. Use lists, steps and markdown code blocks when they help.
+- If you recommend a course page, write its EXACT English title inside double brackets, for example [[Claude Code, from zero to pro]]. Do not use markdown links.
+
+# Scope
+- Your scope is Aulafy: Claude Code, local AI, Ollama, RAG, agents, automation, MLOps, fine-tuning, security/evals, generative AI, games/3D/CAD and small-business AI.
+- You can guide users toward courses and lessons.
+- Full lesson pages may still be in Spanish. Be transparent about that when linking to a specific lesson.
+- If the question is unrelated to Aulafy, briefly say your specialty is Aulafy's AI courses and steer back.
+- If you are unsure about a version, date or external fact, say so and recommend checking official documentation.
+
+# Precision rules
+- Prioritize the context under "Relevant fragments".
+- The retrieved lesson fragments may be in Spanish; use them as source material, but answer in English.
+- If the context does not contain a requested detail, do not invent it: give a general answer and recommend the closest course or lesson.
+- Keep most answers under 8-10 lines unless the user asks for a step-by-step guide.`,
+};
+
+export function buildChatbotSystemPrompt(messages: ChatMessage[] = [], locale: Locale = "es") {
   const queryText = latestUserContext(messages);
   const selected = selectKnowledge(queryText, 8);
 
-  return `${BASE_SYSTEM_PROMPT}
+  return `${BASE_SYSTEM_PROMPTS[locale]}
 
-# Catalogo completo de cursos
-${courseCatalog()}
+# ${locale === "en" ? "Full course catalog" : "Catalogo completo de cursos"}
+${courseCatalog(locale)}
 
-# Fragmentos relevantes para esta conversacion
-${renderContext(selected)}
+# ${locale === "en" ? "Relevant fragments for this conversation" : "Fragmentos relevantes para esta conversacion"}
+${renderContext(selected, locale)}
 
-# Nota interna
-Indice del chatbot generado el ${content.generatedAt} desde ${content.source}.`;
+# ${locale === "en" ? "Internal note" : "Nota interna"}
+${locale === "en" ? "Chatbot index generated" : "Indice del chatbot generado"} ${content.generatedAt} ${
+    locale === "en" ? "from" : "desde"
+  } ${content.source}.`;
 }
 
 export const SYSTEM_PROMPT = buildChatbotSystemPrompt();
