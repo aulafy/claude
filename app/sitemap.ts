@@ -11,6 +11,39 @@ type SitemapEntry = {
   priority: number;
 };
 
+function alternatesFor(route: string) {
+  if (route === "") {
+    return { languages: { "es-ES": BASE_URL, "en-US": `${BASE_URL}/en` } };
+  }
+  if (route === "/en") {
+    return { languages: { "es-ES": BASE_URL, "en-US": `${BASE_URL}/en` } };
+  }
+  if (route === "/cursos" || route === "/en/courses") {
+    return { languages: { "es-ES": `${BASE_URL}/cursos`, "en-US": `${BASE_URL}/en/courses` } };
+  }
+  if (route.startsWith("/cursos/")) {
+    const parts = route.split("/").filter(Boolean);
+    if (parts.length === 2) {
+      return {
+        languages: {
+          "es-ES": `${BASE_URL}${route}`,
+          "en-US": `${BASE_URL}/en/courses/${parts[1]}`,
+        },
+      };
+    }
+  }
+  if (route.startsWith("/en/courses/")) {
+    const slug = route.split("/").filter(Boolean)[2];
+    return {
+      languages: {
+        "es-ES": `${BASE_URL}/cursos/${slug}`,
+        "en-US": `${BASE_URL}${route}`,
+      },
+    };
+  }
+  return undefined;
+}
+
 const principales: SitemapEntry[] = [
   { route: "", changeFrequency: "weekly", priority: 1 },
   { route: "/en", changeFrequency: "weekly", priority: 0.98 },
@@ -73,10 +106,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
   const unicas = Array.from(new Map(rutas.map((entry) => [entry.route, entry])).values());
 
-  return unicas.map(({ route, changeFrequency, priority }) => ({
-    url: `${BASE_URL}${route}`,
-    lastModified: now,
-    changeFrequency,
-    priority,
-  }));
+  return unicas.map(({ route, changeFrequency, priority }) => {
+    const alternates = alternatesFor(route);
+    return {
+      url: `${BASE_URL}${route}`,
+      lastModified: now,
+      changeFrequency,
+      priority,
+      ...(alternates ? { alternates } : {}),
+    };
+  });
 }

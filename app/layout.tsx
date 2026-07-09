@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Sora } from "next/font/google";
 import Script from "next/script";
 import Shell from "@/components/Shell";
 import { cursos, totalLecciones } from "@/lib/cursos";
+import { getLocalizedCursos } from "@/lib/i18n";
 import "./globals.css";
 import "./fontawesome.css";
 
@@ -65,7 +66,14 @@ const courseTopics = [
   "ComfyUI",
   "Whisper",
   "Piper",
+  "open-source AI courses",
+  "free AI courses",
+  "local AI",
+  "AI agents",
+  "RAG with documents",
+  "AI automation",
 ];
+const englishCourses = getLocalizedCursos("en");
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -107,6 +115,13 @@ export const metadata: Metadata = {
     "QLoRA",
     "IA para pymes",
     "automatización IA self-hosted",
+    "free AI courses",
+    "open-source AI courses",
+    "Claude Code course",
+    "local AI course",
+    "RAG course",
+    "AI agents course",
+    "self-hosted AI automation",
   ],
   authors: [{ name: "Ramón Guillamón", url: "https://www.linkedin.com/in/rguillamon/" }],
   creator: "Ramón Guillamón",
@@ -184,9 +199,10 @@ const jsonLd = {
       name: "Aulafy",
       url: SITE_URL,
       description:
-        "Web educativa con cursos gratuitos de inteligencia artificial open source en español, sin registro, con IA local, Fable 5, videojuegos 3D, CAD, RAG, prompts, Claude Code, CLI de agentes tipo R, agentes y automatización.",
-      inLanguage: "es",
-      areaServed: ["España", "Latinoamérica", "Hispanohablantes"],
+        "Web educativa con cursos gratuitos de inteligencia artificial open source en español e inglés, sin registro, con IA local, Fable 5, videojuegos 3D, CAD, RAG, prompts, Claude Code, CLI de agentes tipo R, agentes y automatización.",
+      inLanguage: ["es", "en"],
+      availableLanguage: ["Spanish", "English"],
+      areaServed: ["España", "Latinoamérica", "Hispanohablantes", "Global"],
       audience: {
         "@type": "Audience",
         audienceType: "Estudiantes, makers, autónomos, pymes, docentes y perfiles técnicos",
@@ -205,10 +221,15 @@ const jsonLd = {
       url: SITE_URL,
       name: "Aulafy",
       description:
-        "Cursos de Inteligencia Artificial open source en español, gratis y con ejemplos prácticos.",
-      inLanguage: "es",
+        "Cursos de Inteligencia Artificial open source en español e inglés, gratis y con ejemplos prácticos.",
+      inLanguage: ["es", "en"],
       publisher: { "@id": `${SITE_URL}/#organization` },
       creator: { "@id": `${SITE_URL}/#author` },
+      potentialAction: {
+        "@type": "SearchAction",
+        target: `${SITE_URL}/cursos?search={search_term_string}`,
+        "query-input": "required name=search_term_string",
+      },
     },
     {
       "@type": "CollectionPage",
@@ -220,6 +241,31 @@ const jsonLd = {
       inLanguage: "es",
       isPartOf: { "@id": `${SITE_URL}/#website` },
       mainEntity: { "@id": `${SITE_URL}/#course-list` },
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": `${SITE_URL}/en/courses#collection`,
+      url: `${SITE_URL}/en/courses`,
+      name: "Free open-source AI courses",
+      description:
+        "A practical Aulafy catalog for learning Claude Code, local AI, RAG, agents, MLOps, security, generative AI and automation.",
+      inLanguage: "en",
+      isPartOf: { "@id": `${SITE_URL}/#website` },
+      mainEntity: { "@id": `${SITE_URL}/en#course-list` },
+    },
+    {
+      "@type": "ItemList",
+      "@id": `${SITE_URL}/en#course-list`,
+      name: "Open-source AI course catalog",
+      itemListOrder: "https://schema.org/ItemListOrderAscending",
+      numberOfItems: englishCourses.length,
+      itemListElement: englishCourses.map((curso, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        url: `${SITE_URL}/en/courses/${curso.slug}`,
+        name: curso.title,
+        description: curso.desc,
+      })),
     },
     {
       "@type": "ItemList",
@@ -273,6 +319,35 @@ const jsonLd = {
           isPartOf: { "@id": `${SITE_URL}/cursos/${curso.slug}#course` },
         })),
       ),
+    })),
+    ...englishCourses.map((curso) => ({
+      "@type": "Course",
+      "@id": `${SITE_URL}/en/courses/${curso.slug}#course`,
+      name: curso.title,
+      description: curso.desc,
+      url: `${SITE_URL}/en/courses/${curso.slug}`,
+      inLanguage: "en",
+      isAccessibleForFree: true,
+      educationalLevel: curso.level,
+      learningResourceType: "Online course",
+      keywords: [curso.title, curso.short, ...curso.secciones.map((seccion) => seccion.title)].join(", "),
+      numberOfCredits: totalLecciones(curso),
+      provider: { "@id": `${SITE_URL}/#organization` },
+      author: { "@id": `${SITE_URL}/#author` },
+      audience: {
+        "@type": "Audience",
+        audienceType: "Learners, makers, developers, small businesses and technical profiles learning practical AI",
+      },
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "EUR",
+        availability: "https://schema.org/InStock",
+        category: "free",
+        url: `${SITE_URL}/en/courses/${curso.slug}`,
+      },
+      teaches: curso.secciones.map((seccion) => seccion.title),
+      isBasedOn: { "@id": `${SITE_URL}/cursos/${curso.slug}#course` },
     })),
     {
       "@type": "LearningResource",
