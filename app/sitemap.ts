@@ -31,12 +31,20 @@ function alternatesFor(route: string) {
         },
       };
     }
+    if (parts.length === 3) {
+      return {
+        languages: {
+          "es-ES": `${BASE_URL}${route}`,
+          "en-US": `${BASE_URL}/en/courses/${parts[1]}/${parts[2]}`,
+        },
+      };
+    }
   }
   if (route.startsWith("/en/courses/")) {
-    const slug = route.split("/").filter(Boolean)[2];
+    const [, , slug, lessonSlug] = route.split("/").filter(Boolean);
     return {
       languages: {
-        "es-ES": `${BASE_URL}/cursos/${slug}`,
+        "es-ES": `${BASE_URL}/cursos/${slug}${lessonSlug ? `/${lessonSlug}` : ""}`,
         "en-US": `${BASE_URL}${route}`,
       },
     };
@@ -93,6 +101,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       route: `/cursos/${c.slug}/${l.slug}`,
       changeFrequency: "monthly" as const,
       priority: 0.78,
+    })),
+    ...lecciones(c).map((l) => ({
+      route: `/en/courses/${c.slug}/${l.slug}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.72,
     })),
   ]);
 

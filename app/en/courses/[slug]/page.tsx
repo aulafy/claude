@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Icon, { type IconName } from "@/components/Icon";
 import { cursos, totalLecciones } from "@/lib/cursos";
 import { getLocalizedCurso } from "@/lib/i18n";
+import { getEnglishLessonTitle } from "@/lib/english-lessons";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 
@@ -134,8 +135,8 @@ export default async function EnglishCoursePage({ params }: { params: Promise<{ 
 
             <div className="mt-7 flex flex-wrap gap-3">
               {firstLesson && (
-                <Link href={`/cursos/${course.slug}/${firstLesson.slug}`} className="aula-button aula-button-primary">
-                  <Icon name="book" /> Start Spanish lessons
+                <Link href={`/en/courses/${course.slug}/${firstLesson.slug}`} className="aula-button aula-button-primary">
+                  <Icon name="book" /> Start lessons
                 </Link>
               )}
               {course.pdf && (
@@ -145,7 +146,7 @@ export default async function EnglishCoursePage({ params }: { params: Promise<{ 
               )}
             </div>
             <p className="mt-4 aula-meta text-zinc-600">
-              Lesson pages are being translated. For now, the full lessons open in Spanish.
+              Lessons are available in English. Code snippets keep original commands and file names intact.
             </p>
           </div>
 
@@ -193,15 +194,17 @@ export default async function EnglishCoursePage({ params }: { params: Promise<{ 
                 return (
                   <li key={lesson.slug}>
                     <Link
-                      href={`/cursos/${course.slug}/${lesson.slug}`}
+                      href={`/en/courses/${course.slug}/${lesson.slug}`}
                       className="aula-capsule flex items-center gap-4 px-4 py-3.5 group"
                     >
                       <span className="flex-shrink-0 w-9 h-9 rounded-md bg-orange-500/10 border border-orange-500/25 text-orange-400 flex items-center justify-center text-xs font-semibold font-[family-name:var(--font-code)]">
                         {n}
                       </span>
                       <span className="min-w-0">
-                        <span className="block text-sm text-zinc-300 group-hover:text-white transition-colors">{lesson.title}</span>
-                        <span className="aula-meta mt-0.5 block text-zinc-600">Spanish lesson /{course.slug}/{lesson.slug}</span>
+                        <span className="block text-sm text-zinc-300 group-hover:text-white transition-colors">
+                          {getEnglishLessonTitle(course.slug, lesson.slug, lesson.title)}
+                        </span>
+                        <span className="aula-meta mt-0.5 block text-zinc-600">/{course.slug}/{lesson.slug}</span>
                       </span>
                       <span className="ml-auto text-zinc-600 group-hover:text-orange-400 transition-colors">
                         <Icon name="chevronRight" />

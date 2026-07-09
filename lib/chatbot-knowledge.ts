@@ -1,5 +1,6 @@
 import chatbotContent from "./chatbot-course-content.json";
-import { getLocalizedCursos, pathForLocale, type Locale } from "@/lib/i18n";
+import { getEnglishLessons } from "@/lib/english-lessons";
+import { getLocalizedCurso, getLocalizedCursos, pathForLocale, type Locale } from "@/lib/i18n";
 
 type ChatMessage = { role: "user" | "assistant"; content: string };
 
@@ -27,6 +28,38 @@ const content = chatbotContent as {
   courses: CourseSummary[];
   entries: KnowledgeEntry[];
 };
+
+function renderEnglishLessonText(blocks: ReturnType<typeof getEnglishLessons>[number]["blocks"]) {
+  return blocks
+    .map((block) => {
+      if (block.type === "h2") return `## ${block.text}`;
+      if (block.type === "h3") return `### ${block.text}`;
+      if (block.type === "bullet") return `- ${block.text}`;
+      if (block.type === "code") return `Code: ${block.text}`;
+      return block.text;
+    })
+    .join("\n");
+}
+
+const englishEntries: KnowledgeEntry[] = [
+  ...getLocalizedCursos("en").map((course) => ({
+    type: "course" as const,
+    course: course.title,
+    title: course.title,
+    href: `/en/courses/${course.slug}`,
+    text: [course.short, course.desc, `Level: ${course.level}.`].join("\n"),
+  })),
+  ...getEnglishLessons().map((lesson) => {
+    const course = getLocalizedCurso(lesson.courseSlug, "en");
+    return {
+      type: "lesson" as const,
+      course: course?.title ?? lesson.courseTitle,
+      title: lesson.title,
+      href: `/en/courses/${lesson.courseSlug}/${lesson.slug}`,
+      text: renderEnglishLessonText(lesson.blocks),
+    };
+  }),
+];
 
 const STOP_WORDS = new Set([
   "aqui",
@@ -91,7 +124,8 @@ function tokenize(text: string) {
   );
 }
 
-const indexedEntries = content.entries.map((entry) => {
+function indexEntries(entries: KnowledgeEntry[]) {
+  return entries.map((entry) => {
   const title = normalize(entry.title);
   const course = normalize(entry.course);
   const href = normalize(entry.href.replace(/[-/]/g, " "));
@@ -105,6 +139,10 @@ const indexedEntries = content.entries.map((entry) => {
     normalizedText: text,
   };
 });
+}
+
+const indexedEntries = indexEntries(content.entries);
+const indexedEnglishEntries = indexEntries(englishEntries);
 
 function scoreEntry(entry: (typeof indexedEntries)[number], query: string, terms: string[]) {
   let score = 0;
@@ -127,15 +165,17 @@ function scoreEntry(entry: (typeof indexedEntries)[number], query: string, terms
   return score;
 }
 
-function selectKnowledge(queryText: string, limit = 8) {
+function selectKnowledge(queryText: string, limit = 8, locale: Locale = "es") {
+  const entries = locale === "en" ? englishEntries : content.entries;
+  const indexed = locale === "en" ? indexedEnglishEntries : indexedEntries;
   const query = normalize(queryText);
   const terms = tokenize(queryText);
 
   if (terms.length === 0) {
-    return content.entries.filter((entry) => entry.type === "course").slice(0, limit);
+    return entries.filter((entry) => entry.type === "course").slice(0, limit);
   }
 
-  return indexedEntries
+  return indexed
     .map((entry) => ({ entry, score: scoreEntry(entry, query, terms) }))
     .filter(({ score }) => score > 0)
     .sort((a, b) => b.score - a.score)
@@ -248,7 +288,7 @@ const BASE_SYSTEM_PROMPTS: Record<Locale, string> = {
 
 export function buildChatbotSystemPrompt(messages: ChatMessage[] = [], locale: Locale = "es") {
   const queryText = latestUserContext(messages);
-  const selected = selectKnowledge(queryText, 8);
+  const selected = selectKnowledge(queryText, 8, locale);
 
   return `${BASE_SYSTEM_PROMPTS[locale]}
 

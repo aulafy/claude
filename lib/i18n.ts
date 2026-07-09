@@ -143,8 +143,9 @@ export function pathForLocale(pathname: string, locale: Locale) {
   if (spanishPath === "/") return "/en";
   if (spanishPath === "/cursos") return "/en/courses";
   if (spanishPath.startsWith("/cursos/")) {
-    const [, , courseSlug] = spanishPath.split("/");
-    return courseSlug ? `/en/courses/${courseSlug}` : "/en/courses";
+    const [, , courseSlug, lessonSlug] = spanishPath.split("/");
+    if (!courseSlug) return "/en/courses";
+    return lessonSlug ? `/en/courses/${courseSlug}/${lessonSlug}` : `/en/courses/${courseSlug}`;
   }
 
   return "/en";
