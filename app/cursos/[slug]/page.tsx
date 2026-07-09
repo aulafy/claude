@@ -45,9 +45,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       locale: "es_ES",
       images: [
         {
-          url: "/og-image.png",
-          width: 512,
-          height: 512,
+          url: "/opengraph-image",
+        width: 1200,
+        height: 630,
           alt: `${curso.title} en Aulafy`,
         },
       ],
@@ -57,7 +57,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title,
       description,
       creator: "@learntouseai",
-      images: ["/og-image.png"],
+      images: ["/opengraph-image"],
     },
   };
 }
@@ -81,15 +81,15 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Course",
-        "@id": `${SITE_URL}/cursos/${curso.slug}#course`,
+        "@type": "LearningResource",
+        "@id": `${SITE_URL}/cursos/${curso.slug}#learning-resource`,
         name: curso.title,
         description: curso.desc,
         inLanguage: "es",
         url: `${SITE_URL}/cursos/${curso.slug}`,
         isAccessibleForFree: true,
         educationalLevel: curso.level,
-        learningResourceType: "Curso online",
+        learningResourceType: "Course",
         keywords: [
           curso.title,
           curso.short,
@@ -98,25 +98,8 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
           ...leccionTitles,
         ].join(", "),
         teaches: leccionTitles,
-        provider: { "@type": "Organization", name: "Aulafy", url: SITE_URL },
-        offers: {
-          "@type": "Offer",
-          price: "0",
-          priceCurrency: "EUR",
-          availability: "https://schema.org/InStock",
-          category: "free",
-          url: `${SITE_URL}/cursos/${curso.slug}`,
-        },
-        hasCourseInstance: {
-          "@type": "CourseInstance",
-          courseMode: "online",
-          courseWorkload: `PT${Math.max(2, Math.round(total * 0.4))}H`,
-        },
-        syllabusSections: curso.secciones.map((s) => ({
-          "@type": "Syllabus",
-          name: s.title,
-          description: s.lecciones.map((l) => l.title).join(" · "),
-        })),
+        provider: { "@id": `${SITE_URL}/#organization` },
+        author: { "@id": `${SITE_URL}/#author` },
         hasPart: leccionesCurso.map((leccion) => ({
           "@type": "LearningResource",
           name: leccion.title,
@@ -124,7 +107,7 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
           inLanguage: "es",
           isAccessibleForFree: true,
           learningResourceType: "Lección",
-          isPartOf: { "@id": `${SITE_URL}/cursos/${curso.slug}#course` },
+          isPartOf: { "@id": `${SITE_URL}/cursos/${curso.slug}#learning-resource` },
         })),
       },
       {

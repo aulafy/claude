@@ -44,14 +44,16 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       type: "website",
       siteName: "Aulafy",
       locale: "en_US",
-      images: [{ url: "/og-image.png", width: 512, height: 512, alt: `${course.title} on Aulafy` }],
+      images: [{ url: "/opengraph-image",
+        width: 1200,
+        height: 630, alt: `${course.title} on Aulafy` }],
     },
     twitter: {
       card: "summary_large_image",
       title: course.title,
       description,
       creator: "@learntouseai",
-      images: ["/og-image.png"],
+      images: ["/opengraph-image"],
     },
   };
 }
@@ -73,29 +75,28 @@ export default async function EnglishCoursePage({ params }: { params: Promise<{ 
   const firstLesson = lessons[0];
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Course",
-    "@id": `${SITE_URL}/en/courses/${course.slug}#course`,
+    "@type": "LearningResource",
+    "@id": `${SITE_URL}/en/courses/${course.slug}#learning-resource`,
     name: course.title,
     description: course.desc,
     inLanguage: "en",
     url: `${SITE_URL}/en/courses/${course.slug}`,
     isAccessibleForFree: true,
     educationalLevel: course.level,
-    learningResourceType: "Online course",
-    provider: { "@type": "Organization", name: "Aulafy", url: SITE_URL },
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "EUR",
-      availability: "https://schema.org/InStock",
-      category: "free",
-      url: `${SITE_URL}/en/courses/${course.slug}`,
-    },
-    syllabusSections: course.secciones.map((section) => ({
-      "@type": "Syllabus",
-      name: section.title,
-      description: `${section.lecciones.length} lessons`,
+    learningResourceType: "Course",
+    provider: { "@id": `${SITE_URL}/#organization` },
+    author: { "@id": `${SITE_URL}/#author` },
+    teaches: lessons.map((lesson) => lesson.title),
+    hasPart: lessons.map((lesson) => ({
+      "@type": "LearningResource",
+      name: lesson.title,
+      url: `${SITE_URL}/en/courses/${course.slug}/${lesson.slug}`,
+      inLanguage: "en",
+      isAccessibleForFree: true,
+      learningResourceType: "Lesson",
+      isPartOf: { "@id": `${SITE_URL}/en/courses/${course.slug}#learning-resource` },
     })),
+    isBasedOn: { "@id": `${SITE_URL}/cursos/${course.slug}#learning-resource` },
   };
 
   return (

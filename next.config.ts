@@ -74,6 +74,14 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        source: "/en/:path*",
+        headers: [{ key: "Content-Language", value: "en" }],
+      },
+      {
+        source: "/en",
+        headers: [{ key: "Content-Language", value: "en" }],
+      },
+      {
         source: "/:path*.png",
         headers: [{ key: "Cache-Control", value: "public, max-age=86400, stale-while-revalidate=604800" }],
       },
@@ -87,19 +95,31 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/llms.txt",
-        headers: [{ key: "Cache-Control", value: "public, max-age=3600, stale-while-revalidate=86400" }],
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=3600, stale-while-revalidate=86400" },
+          { key: "X-Robots-Tag", value: "noindex, noarchive, nosnippet" },
+        ],
       },
       {
         source: "/llms-full.txt",
-        headers: [{ key: "Cache-Control", value: "public, max-age=3600, stale-while-revalidate=86400" }],
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=3600, stale-while-revalidate=86400" },
+          { key: "X-Robots-Tag", value: "noindex, noarchive, nosnippet" },
+        ],
       },
       {
         source: "/ai.txt",
-        headers: [{ key: "Cache-Control", value: "public, max-age=3600, stale-while-revalidate=86400" }],
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=3600, stale-while-revalidate=86400" },
+          { key: "X-Robots-Tag", value: "noindex, noarchive, nosnippet" },
+        ],
       },
       {
         source: "/search-index.json",
-        headers: [{ key: "Cache-Control", value: "public, max-age=3600, stale-while-revalidate=86400" }],
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=3600, stale-while-revalidate=86400" },
+          { key: "X-Robots-Tag", value: "noindex, noarchive, nosnippet" },
+        ],
       },
       {
         source: "/sitemap-index.xml",

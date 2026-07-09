@@ -7,7 +7,7 @@ const SITEMAPS: Array<{ kind: SeoIndexKind; route: string }> = [
   { kind: "english", route: "/sitemaps/english.xml" },
   { kind: "blog", route: "/sitemaps/blog.xml" },
   { kind: "landings", route: "/sitemaps/landings.xml" },
-  { kind: "ai", route: "/sitemaps/ai.xml" },
+  { kind: "documents", route: "/sitemaps/documents.xml" },
 ];
 
 function escapeXml(value: string) {
@@ -15,10 +15,9 @@ function escapeXml(value: string) {
 }
 
 export function GET() {
-  const now = new Date().toISOString();
   const body = SITEMAPS.map(
     (item) =>
-      `<sitemap><loc>${escapeXml(`${SITE_URL}${item.route}`)}</loc><lastmod>${now}</lastmod></sitemap>`,
+      `<sitemap><loc>${escapeXml(`${SITE_URL}${item.route}`)}</loc></sitemap>`,
   ).join("");
 
   return new NextResponse(

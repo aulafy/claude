@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { absoluteUrl, alternateLanguages, getSeoEntriesByKind, type SeoIndexKind } from "@/lib/seo-index";
 
-const VALID_KINDS = new Set<SeoIndexKind>(["core", "courses", "english", "blog", "landings", "ai"]);
+const VALID_KINDS = new Set<SeoIndexKind>(["core", "courses", "english", "blog", "landings", "documents"]);
 
 function escapeXml(value: string) {
   return value
@@ -13,7 +13,6 @@ function escapeXml(value: string) {
 }
 
 function sitemapXml(kind: SeoIndexKind) {
-  const now = new Date().toISOString();
   const urls = getSeoEntriesByKind(kind)
     .map((entry) => {
       const alternates = alternateLanguages(entry);
@@ -29,7 +28,7 @@ function sitemapXml(kind: SeoIndexKind) {
       return [
         "<url>",
         `<loc>${escapeXml(absoluteUrl(entry.route))}</loc>`,
-        `<lastmod>${escapeXml(entry.lastModified ? new Date(entry.lastModified).toISOString() : now)}</lastmod>`,
+        entry.lastModified ? `<lastmod>${escapeXml(new Date(entry.lastModified).toISOString())}</lastmod>` : "",
         `<changefreq>${entry.changeFrequency}</changefreq>`,
         `<priority>${entry.priority.toFixed(2)}</priority>`,
         alternateTags,

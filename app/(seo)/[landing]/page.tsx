@@ -30,9 +30,9 @@ export async function generateMetadata({ params }: { params: Promise<{ landing: 
       locale: "es_ES",
       images: [
         {
-          url: "/og-image.png",
-          width: 512,
-          height: 512,
+          url: "/opengraph-image",
+        width: 1200,
+        height: 630,
           alt: `${landing.title} en Aulafy`,
         },
       ],
@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: { params: Promise<{ landing: 
       title: landing.title,
       description: landing.description,
       creator: "@learntouseai",
-      images: ["/og-image.png"],
+      images: ["/opengraph-image"],
     },
   };
 }
@@ -52,11 +52,7 @@ export default async function LandingPage({ params }: { params: Promise<{ landin
   const landing = getSeoLanding(slug);
   if (!landing) notFound();
 
-  const primaryPathParts = landing.primaryHref.split("/").filter(Boolean);
-  const primaryEntityId =
-    primaryPathParts[0] === "cursos" && primaryPathParts.length > 2
-      ? `${SITE_URL}${landing.primaryHref}#learning-resource`
-      : `${SITE_URL}${landing.primaryHref}#course`;
+  const primaryEntityId = `${SITE_URL}${landing.primaryHref}#learning-resource`;
 
   const jsonLd = {
     "@context": "https://schema.org",

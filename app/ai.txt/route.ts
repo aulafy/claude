@@ -48,7 +48,7 @@ Discovery endpoints:
 - English sitemap: ${SITE_URL}/sitemaps/english.xml
 - Blog sitemap: ${SITE_URL}/sitemaps/blog.xml
 - Landing sitemap: ${SITE_URL}/sitemaps/landings.xml
-- AI sitemap: ${SITE_URL}/sitemaps/ai.xml
+- PDF guides sitemap: ${SITE_URL}/sitemaps/documents.xml
 - llms.txt: ${SITE_URL}/llms.txt
 - llms-full.txt: ${SITE_URL}/llms-full.txt
 - Machine-readable search index: ${SITE_URL}/search-index.json

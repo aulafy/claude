@@ -48,14 +48,16 @@ export async function generateMetadata({
       type: "article",
       siteName: "Aulafy",
       locale: "en_US",
-      images: [{ url: "/og-image.png", width: 512, height: 512, alt: `${lesson.title} on Aulafy` }],
+      images: [{ url: "/opengraph-image",
+        width: 1200,
+        height: 630, alt: `${lesson.title} on Aulafy` }],
     },
     twitter: {
       card: "summary_large_image",
       title: lesson.title,
       description,
       creator: "@learntouseai",
-      images: ["/og-image.png"],
+      images: ["/opengraph-image"],
     },
   };
 }
@@ -148,17 +150,31 @@ export default async function EnglishLessonPage({
   const nav = lessonNavigation(slug, lessonSlug);
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "LearningResource",
-    "@id": `${SITE_URL}/en/courses/${slug}/${lessonSlug}#learning-resource`,
-    name: lesson.title,
-    description: getEnglishLessonDescription(lesson),
-    url: `${SITE_URL}/en/courses/${slug}/${lessonSlug}`,
-    inLanguage: "en",
-    isAccessibleForFree: true,
-    learningResourceType: "Lesson",
-    isPartOf: { "@id": `${SITE_URL}/en/courses/${slug}#course`, name: course.title },
-    provider: { "@type": "Organization", name: "Aulafy", url: SITE_URL },
-    isBasedOn: { "@id": `${SITE_URL}/cursos/${slug}/${lessonSlug}#learning-resource` },
+    "@graph": [
+      {
+        "@type": "LearningResource",
+        "@id": `${SITE_URL}/en/courses/${slug}/${lessonSlug}#learning-resource`,
+        name: lesson.title,
+        description: getEnglishLessonDescription(lesson),
+        url: `${SITE_URL}/en/courses/${slug}/${lessonSlug}`,
+        inLanguage: "en",
+        isAccessibleForFree: true,
+        learningResourceType: "Lesson",
+        isPartOf: { "@id": `${SITE_URL}/en/courses/${slug}#learning-resource`, name: course.title },
+        provider: { "@id": `${SITE_URL}/#organization` },
+        author: { "@id": `${SITE_URL}/#author` },
+        isBasedOn: { "@id": `${SITE_URL}/cursos/${slug}/${lessonSlug}#learning-resource` },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/en` },
+          { "@type": "ListItem", position: 2, name: "Courses", item: `${SITE_URL}/en/courses` },
+          { "@type": "ListItem", position: 3, name: course.title, item: `${SITE_URL}/en/courses/${slug}` },
+          { "@type": "ListItem", position: 4, name: lesson.title, item: `${SITE_URL}/en/courses/${slug}/${lessonSlug}` },
+        ],
+      },
+    ],
   };
 
   return (

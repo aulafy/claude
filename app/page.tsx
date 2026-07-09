@@ -20,9 +20,9 @@ export const metadata: Metadata = {
     url: "/",
     images: [
       {
-        url: "/og-image.png",
-        width: 512,
-        height: 512,
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
         alt: "Aulafy, cursos gratis de IA open source en español",
       },
     ],
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     title: "Aulafy — Cursos gratis de IA open source",
     description: "Aprende IA local, Claude Code, Fable 5, videojuegos 3D, RAG, agentes y automatización.",
     creator: "@learntouseai",
-    images: ["/og-image.png"],
+    images: ["/opengraph-image"],
   },
 };
 

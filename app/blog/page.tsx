@@ -27,13 +27,15 @@ export const metadata: Metadata = {
       "Guías prácticas, comparativas y listas actualizadas para aprender y aplicar IA sin humo.",
     url: "/blog",
     type: "website",
-    images: [{ url: "/og-image.png", width: 512, height: 512, alt: "Blog de IA de Aulafy" }],
+    images: [{ url: "/opengraph-image",
+        width: 1200,
+        height: 630, alt: "Blog de IA de Aulafy" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Blog de IA en español",
     description: "Herramientas, comparativas, SEO/AEO, prompts, pymes, agentes e IA local.",
-    images: ["/og-image.png"],
+    images: ["/opengraph-image"],
   },
 };
 

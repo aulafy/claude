@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Sora } from "next/font/google";
 import Script from "next/script";
 import Shell from "@/components/Shell";
-import { cursos, totalLecciones } from "@/lib/cursos";
-import { getLocalizedCursos } from "@/lib/i18n";
 import "./globals.css";
 import "./fontawesome.css";
 
@@ -73,8 +71,6 @@ const courseTopics = [
   "RAG with documents",
   "AI automation",
 ];
-const englishCourses = getLocalizedCursos("en");
-
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
@@ -126,6 +122,8 @@ export const metadata: Metadata = {
   authors: [{ name: "Ramón Guillamón", url: "https://www.linkedin.com/in/rguillamon/" }],
   creator: "Ramón Guillamón",
   publisher: "Aulafy",
+  applicationName: "Aulafy",
+  appleWebApp: { title: "Aulafy", statusBarStyle: "black-translucent" },
   manifest: "/manifest.webmanifest",
   category: "Education",
   alternates: {
@@ -166,9 +164,9 @@ export const metadata: Metadata = {
     url: "/",
     images: [
       {
-        url: "/og-image.png",
-        width: 512,
-        height: 512,
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
         alt: "Aulafy, cursos gratis de IA open source en español",
       },
     ],
@@ -178,7 +176,8 @@ export const metadata: Metadata = {
     title: "Aulafy — Cursos gratis de IA open source",
     description: "Cursos prácticos en español para aprender IA local, Claude Code, Fable 5, videojuegos 3D, RAG, MLOps, seguridad y automatización.",
     creator: "@learntouseai",
-    images: ["/og-image.png"],
+    site: "@learntouseai",
+    images: ["/opengraph-image"],
   },
   other: {
     "ai-summary":
@@ -201,6 +200,12 @@ const jsonLd = {
       "@id": `${SITE_URL}/#organization`,
       name: "Aulafy",
       url: SITE_URL,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/icon-512.png`,
+        width: 512,
+        height: 512,
+      },
       description:
         "Web educativa con cursos gratuitos de inteligencia artificial open source en español e inglés, sin registro, con IA local, Fable 5, videojuegos 3D, CAD, RAG, prompts, Claude Code, CLI de agentes tipo R, agentes y automatización.",
       inLanguage: ["es", "en"],
@@ -211,6 +216,7 @@ const jsonLd = {
         audienceType: "Estudiantes, makers, autónomos, pymes, docentes y perfiles técnicos",
       },
       knowsAbout: courseTopics,
+      founder: { "@id": `${SITE_URL}/#author` },
       sameAs: [
         "https://github.com/raym33/claude",
         "https://github.com/raym33/r",
@@ -228,149 +234,14 @@ const jsonLd = {
       inLanguage: ["es", "en"],
       publisher: { "@id": `${SITE_URL}/#organization` },
       creator: { "@id": `${SITE_URL}/#author` },
-      potentialAction: {
-        "@type": "SearchAction",
-        target: `${SITE_URL}/cursos?search={search_term_string}`,
-        "query-input": "required name=search_term_string",
-      },
-    },
-    {
-      "@type": "CollectionPage",
-      "@id": `${SITE_URL}/cursos#collection`,
-      url: `${SITE_URL}/cursos`,
-      name: "Cursos gratuitos de IA open source en español",
-      description:
-        "Catálogo de cursos prácticos de Aulafy sobre IA local, Claude Code, Fable 5, videojuegos 3D, CAD, RAG, CLI de agentes tipo R, agentes, fine-tuning, MLOps, seguridad, evals y automatización.",
-      inLanguage: "es",
-      isPartOf: { "@id": `${SITE_URL}/#website` },
-      mainEntity: { "@id": `${SITE_URL}/#course-list` },
-    },
-    {
-      "@type": "CollectionPage",
-      "@id": `${SITE_URL}/en/courses#collection`,
-      url: `${SITE_URL}/en/courses`,
-      name: "Free open-source AI courses",
-      description:
-        "A practical Aulafy catalog for learning Claude Code, local AI, RAG, agents, MLOps, security, generative AI and automation.",
-      inLanguage: "en",
-      isPartOf: { "@id": `${SITE_URL}/#website` },
-      mainEntity: { "@id": `${SITE_URL}/en#course-list` },
-    },
-    {
-      "@type": "ItemList",
-      "@id": `${SITE_URL}/en#course-list`,
-      name: "Open-source AI course catalog",
-      itemListOrder: "https://schema.org/ItemListOrderAscending",
-      numberOfItems: englishCourses.length,
-      itemListElement: englishCourses.map((curso, index) => ({
-        "@type": "ListItem",
-        position: index + 1,
-        url: `${SITE_URL}/en/courses/${curso.slug}`,
-        name: curso.title,
-        description: curso.desc,
-      })),
-    },
-    {
-      "@type": "ItemList",
-      "@id": `${SITE_URL}/#course-list`,
-      name: "Catálogo de cursos de IA open source",
-      itemListOrder: "https://schema.org/ItemListOrderAscending",
-      numberOfItems: cursos.length,
-      itemListElement: cursos.map((curso, index) => ({
-        "@type": "ListItem",
-        position: index + 1,
-        url: `${SITE_URL}/cursos/${curso.slug}`,
-        name: curso.title,
-        description: curso.desc,
-      })),
-    },
-    ...cursos.map((curso) => ({
-      "@type": "Course",
-      "@id": `${SITE_URL}/cursos/${curso.slug}#course`,
-      name: curso.title,
-      description: curso.desc,
-      url: `${SITE_URL}/cursos/${curso.slug}`,
-      inLanguage: "es",
-      isAccessibleForFree: true,
-      educationalLevel: curso.level,
-      learningResourceType: "Curso online",
-      keywords: [curso.title, curso.short, ...curso.secciones.flatMap((seccion) => seccion.lecciones.map((leccion) => leccion.title))].join(", "),
-      numberOfCredits: totalLecciones(curso),
-      provider: { "@id": `${SITE_URL}/#organization` },
-      author: { "@id": `${SITE_URL}/#author` },
-      audience: {
-        "@type": "Audience",
-        audienceType: "Personas que quieren aprender IA con ejemplos prácticos y herramientas abiertas",
-      },
-      offers: {
-        "@type": "Offer",
-        price: "0",
-        priceCurrency: "EUR",
-        availability: "https://schema.org/InStock",
-        category: "free",
-        url: `${SITE_URL}/cursos/${curso.slug}`,
-      },
-      teaches: curso.secciones.flatMap((seccion) => seccion.lecciones.map((leccion) => leccion.title)),
-      hasPart: curso.secciones.flatMap((seccion) =>
-        seccion.lecciones.map((leccion) => ({
-          "@type": "LearningResource",
-          name: leccion.title,
-          url: `${SITE_URL}/cursos/${curso.slug}/${leccion.slug}`,
-          inLanguage: "es",
-          isAccessibleForFree: true,
-          learningResourceType: "Lección",
-          isPartOf: { "@id": `${SITE_URL}/cursos/${curso.slug}#course` },
-        })),
-      ),
-    })),
-    ...englishCourses.map((curso) => ({
-      "@type": "Course",
-      "@id": `${SITE_URL}/en/courses/${curso.slug}#course`,
-      name: curso.title,
-      description: curso.desc,
-      url: `${SITE_URL}/en/courses/${curso.slug}`,
-      inLanguage: "en",
-      isAccessibleForFree: true,
-      educationalLevel: curso.level,
-      learningResourceType: "Online course",
-      keywords: [curso.title, curso.short, ...curso.secciones.map((seccion) => seccion.title)].join(", "),
-      numberOfCredits: totalLecciones(curso),
-      provider: { "@id": `${SITE_URL}/#organization` },
-      author: { "@id": `${SITE_URL}/#author` },
-      audience: {
-        "@type": "Audience",
-        audienceType: "Learners, makers, developers, small businesses and technical profiles learning practical AI",
-      },
-      offers: {
-        "@type": "Offer",
-        price: "0",
-        priceCurrency: "EUR",
-        availability: "https://schema.org/InStock",
-        category: "free",
-        url: `${SITE_URL}/en/courses/${curso.slug}`,
-      },
-      teaches: curso.secciones.map((seccion) => seccion.title),
-      isBasedOn: { "@id": `${SITE_URL}/cursos/${curso.slug}#course` },
-    })),
-    {
-      "@type": "LearningResource",
-      "@id": `${SITE_URL}/cursos/ia-local#learning-resource`,
-      name: "Claude Code + IA Local",
-      description:
-        "Guía práctica en español para construir aplicaciones de IA local con Ollama, LM Studio, RAG, PDF, voz y modelos abiertos.",
-      url: `${SITE_URL}/cursos/ia-local`,
-      inLanguage: "es",
-      isAccessibleForFree: true,
-      educationalLevel: "Intermedio",
-      learningResourceType: "Tutorial",
-      provider: { "@id": `${SITE_URL}/#organization` },
     },
     {
       "@type": "Person",
       "@id": `${SITE_URL}/#author`,
       name: "Ramón Guillamón",
-      email: "contacto@aulafy.net",
-      url: SITE_URL,
+      url: `${SITE_URL}/sobre-ramon-guillamon`,
+      jobTitle: "Autor y editor de cursos de IA",
+      worksFor: { "@id": `${SITE_URL}/#organization` },
       sameAs: [
         "https://www.linkedin.com/in/rguillamon/",
         "https://x.com/learntouseai",

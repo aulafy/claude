@@ -12,7 +12,7 @@ export type SeoIndexKind =
   | "english"
   | "blog"
   | "landings"
-  | "ai";
+  | "documents";
 
 export type SeoIndexEntry = {
   route: string;
@@ -134,22 +134,18 @@ const legalEntries: SeoIndexEntry[] = [
   changeFrequency: "yearly",
 }));
 
-const downloadableEntries: SeoIndexEntry[] = [
-  ["/llms.txt", "llms.txt"],
-  ["/llms-full.txt", "llms-full.txt"],
-  ["/ai.txt", "AI crawler guide"],
-  ["/search-index.json", "Machine-readable search index"],
+const documentEntries: SeoIndexEntry[] = [
   ["/aulafy-guia-completa.pdf", "Guía completa de Aulafy"],
   ["/guia-claude-code.pdf", "Guía Claude Code"],
   ["/guia-claude-code-vol2.pdf", "Guía Claude Code + IA local"],
 ].map(([route, title]) => ({
   route,
-  title,
-  description: "Recurso descargable o legible por máquinas para descubrir y citar Aulafy.",
-  language: "multi",
-  kind: "ai",
-  priority: 0.72,
-  changeFrequency: "monthly",
+  title: title as string,
+  description: "Guía PDF gratuita de Aulafy con contenido educativo de IA open source.",
+  language: "es" as const,
+  kind: "documents" as const,
+  priority: 0.68,
+  changeFrequency: "yearly" as const,
 }));
 
 const landingEntries: SeoIndexEntry[] = seoLandings.map((landing) => ({
@@ -232,7 +228,7 @@ export function getSeoIndexEntries() {
   const entries = [
     ...coreEntries,
     ...legalEntries,
-    ...downloadableEntries,
+    ...documentEntries,
     ...landingEntries,
     ...blogEntries,
     ...courseEntries,
@@ -242,7 +238,6 @@ export function getSeoIndexEntries() {
 }
 
 export function getSeoEntriesByKind(kind: SeoIndexKind) {
-  if (kind === "ai") return getSeoIndexEntries().filter((entry) => entry.kind === "ai" || entry.priority >= 0.86);
   return getSeoIndexEntries().filter((entry) => entry.kind === kind);
 }
 

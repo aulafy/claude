@@ -71,16 +71,24 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
+    "@id": `${SITE_URL}/blog/${post.slug}#article`,
+    url: `${SITE_URL}/blog/${post.slug}`,
     headline: post.title,
     description: post.description,
     datePublished: post.date,
     dateModified: post.updated,
     inLanguage: "es",
-    author: { "@type": "Person", name: "Ramón Guillamón" },
-    publisher: { "@type": "Organization", name: "Aulafy", url: SITE_URL },
-    image: [`${SITE_URL}${post.image}`],
-    mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
+    author: { "@id": `${SITE_URL}/#author`, name: "Ramón Guillamón", url: `${SITE_URL}/sobre-ramon-guillamon` },
+    publisher: { "@id": `${SITE_URL}/#organization` },
+    image: {
+      "@type": "ImageObject",
+      url: `${SITE_URL}${post.image}`,
+      width: 1672,
+      height: 941,
+    },
+    mainEntityOfPage: { "@id": `${SITE_URL}/blog/${post.slug}#webpage` },
+    isPartOf: { "@id": `${SITE_URL}/#website` },
     keywords: post.keywords.join(", "),
   };
 
@@ -94,10 +102,21 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     })),
   };
 
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Inicio", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog` },
+      { "@type": "ListItem", position: 3, name: post.title, item: `${SITE_URL}/blog/${post.slug}` },
+    ],
+  };
+
   return (
     <main className="aula-shell max-w-4xl mx-auto px-6 py-14">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
 
       <div className="mb-4 aula-meta">
         <Link href="/" className="hover:text-zinc-400">Inicio</Link>

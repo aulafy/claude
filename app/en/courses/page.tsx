@@ -6,6 +6,7 @@ import { getLocalizedCursos, getLocalizedProximamente } from "@/lib/i18n";
 
 const courses = getLocalizedCursos("en");
 const upcoming = getLocalizedProximamente("en");
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 
 export const metadata: Metadata = {
   title: "Free open-source AI courses",
@@ -20,22 +21,62 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "Aulafy",
     locale: "en_US",
-    images: [{ url: "/og-image.png", width: 512, height: 512, alt: "Aulafy AI course catalog" }],
+    images: [{ url: "/opengraph-image",
+        width: 1200,
+        height: 630, alt: "Aulafy AI course catalog" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Free open-source AI courses",
     description: "A practical Aulafy catalog for learning Claude Code, local AI, RAG, agents and automation.",
     creator: "@learntouseai",
-    images: ["/og-image.png"],
+    images: ["/opengraph-image"],
   },
 };
 
 export default function CoursesPage() {
   const total = courses.reduce((sum, course) => sum + totalLecciones(course), 0);
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": `${SITE_URL}/en/courses#webpage`,
+        url: `${SITE_URL}/en/courses`,
+        name: "Free open-source AI courses",
+        description: "Practical, free and open-source AI courses in English.",
+        inLanguage: "en",
+        isPartOf: { "@id": `${SITE_URL}/#website` },
+        mainEntity: { "@id": `${SITE_URL}/en/courses#course-list` },
+      },
+      {
+        "@type": "ItemList",
+        "@id": `${SITE_URL}/en/courses#course-list`,
+        name: "Aulafy English AI course catalog",
+        itemListOrder: "https://schema.org/ItemListOrderAscending",
+        numberOfItems: courses.length,
+        itemListElement: courses.map((course, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          url: `${SITE_URL}/en/courses/${course.slug}`,
+          item: {
+            "@type": "LearningResource",
+            "@id": `${SITE_URL}/en/courses/${course.slug}#learning-resource`,
+            name: course.title,
+            description: course.desc,
+            url: `${SITE_URL}/en/courses/${course.slug}`,
+            inLanguage: "en",
+            isAccessibleForFree: true,
+            learningResourceType: "Course",
+          },
+        })),
+      },
+    ],
+  };
 
   return (
     <div className="aula-shell max-w-6xl mx-auto px-6 py-14" lang="en">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="mb-4 aula-meta">
         <Link href="/en" className="hover:text-zinc-400">Home</Link>
         <span className="mx-2">/</span>

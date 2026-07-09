@@ -19,14 +19,16 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "/en",
-    images: [{ url: "/og-image.png", width: 512, height: 512, alt: "Aulafy, free open-source AI courses" }],
+    images: [{ url: "/opengraph-image",
+        width: 1200,
+        height: 630, alt: "Aulafy, free open-source AI courses" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Aulafy — Free open-source AI courses",
     description: "Learn Claude Code, local AI, RAG, agents and automation with practical projects.",
     creator: "@learntouseai",
-    images: ["/og-image.png"],
+    images: ["/opengraph-image"],
   },
 };
 

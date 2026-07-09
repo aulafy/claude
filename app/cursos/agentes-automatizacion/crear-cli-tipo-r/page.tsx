@@ -29,14 +29,16 @@ export const metadata: Metadata = {
     type: "article",
     siteName: "Aulafy",
     locale: "es_ES",
-    images: [{ url: "/og-image.png", width: 512, height: 512, alt: "Aulafy: crear una CLI de agentes IA local tipo R" }],
+    images: [{ url: "/opengraph-image",
+        width: 1200,
+        height: 630, alt: "Aulafy: crear una CLI de agentes IA local tipo R" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Crear una CLI de agentes IA local tipo R",
     description:
       "Tutorial práctico en español: Python, Click, Rich, Ollama, skills, permisos, workflows YAML y SQLite.",
-    images: ["/og-image.png"],
+    images: ["/opengraph-image"],
   },
   other: {
     "ai-summary":
@@ -83,7 +85,7 @@ export default function Page() {
         publisher: { "@id": `${SITE_URL}/#organization` },
         provider: { "@id": `${SITE_URL}/#organization` },
         sourceOrganization: { "@id": `${SITE_URL}/#organization` },
-        isPartOf: { "@id": `${SITE_URL}/cursos/agentes-automatizacion#course` },
+        isPartOf: { "@id": `${SITE_URL}/cursos/agentes-automatizacion#learning-resource` },
         citation: [
           "https://github.com/raym33/r",
           "https://click.palletsprojects.com/",
