@@ -11,12 +11,12 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 export const metadata: Metadata = {
   title: "Free open-source AI courses",
   description:
-    "Free practical AI courses in English and Spanish: Claude Code, local AI, Ollama, RAG, agents, MLOps, security and automation.",
+    "Free practical AI courses in English and Spanish: OpenAI Codex, Claude Code, local AI, RAG, agents, MLOps, security and automation.",
   alternates: { canonical: "/en/courses", languages: { "es-ES": "/cursos", "en-US": "/en/courses" } },
   openGraph: {
     title: "Free open-source AI courses",
     description:
-      "Practical routes to learn local AI, Claude Code, RAG, agents, MLOps, security and automation.",
+      "Practical routes to learn OpenAI Codex, local AI, Claude Code, RAG, agents, MLOps, security and automation.",
     url: "/en/courses",
     type: "website",
     siteName: "Aulafy",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Free open-source AI courses",
-    description: "A practical Aulafy catalog for learning Claude Code, local AI, RAG, agents and automation.",
+    description: "A practical Aulafy catalog for learning OpenAI Codex, Claude Code, local AI, RAG, agents and automation.",
     creator: "@learntouseai",
     images: ["/opengraph-image"],
   },
@@ -93,7 +93,7 @@ export default function CoursesPage() {
               Free open-source AI courses
             </h1>
             <p className="lesson-lead max-w-3xl">
-              Practical routes for going from curious to building real systems. No account required:
+              Practical routes for learning Codex, local AI, agents, and real production workflows. No account required:
               your progress stays in your browser.
             </p>
             <div className="mt-5 flex flex-wrap gap-2">

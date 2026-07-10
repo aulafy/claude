@@ -1,9 +1,62 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Icon, { type IconName } from "@/components/Icon";
-import { cursos, proximamente, totalLecciones } from "@/lib/cursos";
+import { cursos, proximamente, totalLecciones, type Curso } from "@/lib/cursos";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
+
+const courseGroups = [
+  {
+    id: "programacion",
+    title: "Programación con IA",
+    description: "Programa con agentes, domina la terminal y construye herramientas que puedes mantener.",
+    slugs: ["codex-programadores", "claude-code", "ia-local"],
+  },
+  {
+    id: "sistemas",
+    title: "Sistemas, modelos y agentes",
+    description: "Diseña, evalúa y opera sistemas de IA con control técnico y seguridad.",
+    slugs: ["agentes-automatizacion", "agentes-produccion", "rag-seguro", "seguridad-evals", "mlops-local", "fine-tuning-local", "automatizacion-self-hosted"],
+  },
+  {
+    id: "aplicaciones",
+    title: "Aplicaciones prácticas",
+    description: "Lleva la IA a contenidos, negocios, videojuegos y flujos de trabajo reales.",
+    slugs: ["ia-generativa", "videojuegos-3d-ia", "ia-pymes"],
+  },
+];
+
+function CourseCard({ course }: { course: Curso }) {
+  const index = cursos.findIndex((item) => item.slug === course.slug);
+  return (
+    <Link href={`/cursos/${course.slug}`} className="group aula-capsule block">
+      <div
+        className="aula-course-art h-36 flex items-end justify-between gap-4 p-5"
+        style={{ background: `linear-gradient(120deg, ${course.gradient[0]}, ${course.gradient[1]})` }}
+      >
+        <div className="relative w-12 h-12 rounded-lg bg-white/15 border border-white/25 backdrop-blur flex items-center justify-center text-white text-xl">
+          <Icon name={course.icon as IconName} />
+        </div>
+        <span className="relative rounded-md border border-white/25 bg-black/20 px-2.5 py-1 font-[family-name:var(--font-code)] text-xs text-white">
+          cap.{String(index + 1).padStart(2, "0")}
+        </span>
+      </div>
+      <div className="p-6">
+        <div className="aula-meta mb-2 text-zinc-500">/cursos/{course.slug}</div>
+        <h3 className="font-display font-bold text-xl text-white group-hover:text-fuchsia-300 transition-colors">
+          {course.title}
+        </h3>
+        <p className="mt-2 text-sm text-zinc-400 leading-relaxed">{course.desc}</p>
+        <div className="mt-4 flex flex-wrap items-center gap-2">
+          <span className="aula-chip"><Icon name="chart" /> {course.level}</span>
+          <span className="aula-chip" data-tone="cyan"><Icon name="book" /> {totalLecciones(course)} lecciones</span>
+          {course.pdf && <span className="aula-chip" data-tone="amber"><Icon name="pdf" /> PDF</span>}
+          <span className="aula-chip" data-tone="green">open</span>
+        </div>
+      </div>
+    </Link>
+  );
+}
 
 export const metadata: Metadata = {
   title: "Cursos gratis de IA open source en español",
@@ -14,6 +67,8 @@ export const metadata: Metadata = {
     "cursos inteligencia artificial español",
     "curso IA open source",
     "curso Claude Code",
+    "curso OpenAI Codex",
+    "tutorial Codex para programadores",
     "curso Fable 5",
     "curso videojuegos 3D IA",
     "curso Godot Blender IA",
@@ -113,7 +168,7 @@ export default function Cursos() {
               Cursos gratis de IA open source en español
             </h1>
             <p className="lesson-lead max-w-3xl">
-              Rutas prácticas para pasar de curioso a construir de verdad. Todos gratuitos,
+              Rutas prácticas para aprender Codex, IA local, agentes y automatización. Todos gratuitos,
               en español y de código abierto. Sin registro: tu progreso se guarda solo en tu navegador.
             </p>
             <div className="mt-5 flex flex-wrap gap-2">
@@ -153,42 +208,24 @@ export default function Cursos() {
         <span className="aula-chip" data-tone="amber"><Icon name="download" /> Descargar</span>
       </a>
 
-      {/* Cursos disponibles */}
-      <div className="grid md:grid-cols-2 gap-6 mb-14">
-        {cursos.map((c, index) => (
-          <Link
-            key={c.slug}
-            href={`/cursos/${c.slug}`}
-            className="group aula-capsule block"
-          >
-            {/* Portada */}
-            <div
-              className="aula-course-art h-36 flex items-end justify-between gap-4 p-5"
-              style={{ background: `linear-gradient(120deg, ${c.gradient[0]}, ${c.gradient[1]})` }}
-            >
-              <div className="relative w-12 h-12 rounded-lg bg-white/15 border border-white/25 backdrop-blur flex items-center justify-center text-white text-xl">
-                <Icon name={c.icon as IconName} />
-              </div>
-              <span className="relative rounded-md border border-white/25 bg-black/20 px-2.5 py-1 font-[family-name:var(--font-code)] text-xs text-white">
-                cap.{String(index + 1).padStart(2, "0")}
-              </span>
-            </div>
-            <div className="p-6">
-              <div className="aula-meta mb-2 text-zinc-500">/cursos/{c.slug}</div>
-              <h2 className="font-display font-bold text-xl text-white group-hover:text-fuchsia-300 transition-colors">
-                {c.title}
-              </h2>
-              <p className="mt-2 text-sm text-zinc-400 leading-relaxed">{c.desc}</p>
-              <div className="mt-4 flex flex-wrap items-center gap-2">
-                <span className="aula-chip"><Icon name="chart" /> {c.level}</span>
-                <span className="aula-chip" data-tone="cyan"><Icon name="book" /> {totalLecciones(c)} lecciones</span>
-                {c.pdf && <span className="aula-chip" data-tone="amber"><Icon name="pdf" /> PDF</span>}
-                <span className="aula-chip" data-tone="green">open</span>
-              </div>
-            </div>
-          </Link>
-        ))}
+      <div className="mb-6 flex flex-wrap items-center gap-2" aria-label="Rutas de aprendizaje">
+        <span className="aula-meta text-zinc-500">Empieza por</span>
+        <a href="#programacion" className="aula-chip" data-tone="green">Programación con IA</a>
+        <a href="#sistemas" className="aula-chip" data-tone="cyan">Sistemas y agentes</a>
+        <a href="#aplicaciones" className="aula-chip" data-tone="amber">Aplicaciones prácticas</a>
       </div>
+
+      {courseGroups.map((group) => (
+        <section id={group.id} key={group.id} aria-labelledby={`${group.id}-title`} className="mb-14 scroll-mt-24">
+          <h2 id={`${group.id}-title`} className="font-display text-2xl font-bold text-white mb-2">{group.title}</h2>
+          <p className="text-zinc-400 mb-6 max-w-3xl">{group.description}</p>
+          <div className="grid md:grid-cols-2 gap-6">
+            {group.slugs.map((slug) => cursos.find((course) => course.slug === slug)).filter((course): course is Curso => Boolean(course)).map((course) => (
+              <CourseCard key={course.slug} course={course} />
+            ))}
+          </div>
+        </section>
+      ))}
 
       {/* Próximamente */}
       <h2 className="aula-section-label mb-4"><Icon name="lab" /> Próximamente</h2>

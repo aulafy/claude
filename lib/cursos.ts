@@ -18,6 +18,46 @@ export type Curso = {
 
 export const cursos: Curso[] = [
   {
+    slug: "codex-programadores",
+    title: "Codex para programadores",
+    short: "Programa, prueba y entrega cambios con OpenAI Codex",
+    desc: "Aprende un flujo profesional con Codex: explorar repositorios, escribir encargos verificables, configurar AGENTS.md, implementar con tests, revisar Git, controlar permisos y automatizar tareas con codex exec.",
+    level: "Principiante → avanzado",
+    icon: "laptopCode",
+    gradient: ["#10b981", "#0ea5e9"],
+    secciones: [
+      {
+        title: "Preparar el entorno",
+        lecciones: [
+          { slug: "instalacion", title: "Instala Codex y entiende sus superficies" },
+          { slug: "explorar-repositorio", title: "Explora un repositorio sin perderte" },
+        ],
+      },
+      {
+        title: "Flujo de desarrollo",
+        lecciones: [
+          { slug: "pedir-cambios", title: "Pide cambios que se puedan verificar" },
+          { slug: "agents-md", title: "Enseña el repositorio con AGENTS.md" },
+          { slug: "implementar-verificar", title: "Implementa, prueba y revisa la interfaz" },
+          { slug: "git-revision", title: "Trabaja con Git y revisa cambios" },
+        ],
+      },
+      {
+        title: "Control y automatización",
+        lecciones: [
+          { slug: "permisos-seguridad", title: "Controla permisos, red y secretos" },
+          { slug: "automatizar-exec", title: "Automatiza tareas con codex exec" },
+        ],
+      },
+      {
+        title: "Proyecto final",
+        lecciones: [
+          { slug: "proyecto-final", title: "Proyecto final: entrega un cambio completo" },
+        ],
+      },
+    ],
+  },
+  {
     slug: "claude-code",
     title: "Claude Code, de 0 a pro",
     short: "Domina la CLI de IA de Anthropic",

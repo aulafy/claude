@@ -1,7 +1,16 @@
 {
-  "generatedAt": "2026-07-08",
+  "generatedAt": "2026-07-10",
   "source": "scripts/collect-ebook-content.cjs",
   "courses": [
+    {
+      "slug": "codex-programadores",
+      "title": "Codex para programadores",
+      "short": "Programa, prueba y entrega cambios con OpenAI Codex",
+      "desc": "Aprende un flujo profesional con Codex: explorar repositorios, escribir encargos verificables, configurar AGENTS.md, implementar con tests, revisar Git, controlar permisos y automatizar tareas con codex exec.",
+      "level": "Principiante → avanzado",
+      "href": "/cursos/codex-programadores",
+      "lessonCount": 9
+    },
     {
       "slug": "claude-code",
       "title": "Claude Code, de 0 a pro",
@@ -112,6 +121,76 @@
     }
   ],
   "entries": [
+    {
+      "type": "course",
+      "course": "Codex para programadores",
+      "title": "Codex para programadores",
+      "href": "/cursos/codex-programadores",
+      "text": "Programa, prueba y entrega cambios con OpenAI Codex Aprende un flujo profesional con Codex: explorar repositorios, escribir encargos verificables, configurar AGENTS.md, implementar con tests, revisar Git, controlar permisos y automatizar tareas con codex exec. Nivel: Principiante → avanzado. Lecciones: Instala Codex y entiende sus superficies; Explora un repositorio sin perderte; Pide cambios que se puedan verificar; Enseña el repositorio con AGENTS.md; Implementa, prueba y revisa la interfaz; Trabaja con Git y revisa cambios; Controla permisos, red y secretos; Automatiza tareas con codex exec; Proyecto final: entrega un cambio completo."
+    },
+    {
+      "type": "lesson",
+      "course": "Codex para programadores",
+      "title": "Instala Codex y entiende sus superficies",
+      "href": "/cursos/codex-programadores/instalacion",
+      "text": "Prepara Codex CLI, autentícate y elige la superficie adecuada antes de tocar un repositorio real. ## Qué vas a aprender - Instalar y comprobar Codex CLI. - Distinguir CLI, extensión de IDE, app y tareas en la nube. - Abrir una primera sesión dentro de un repositorio. ## Instalación mínima Codex CLI trabaja sobre los archivos y herramientas de tu máquina. En macOS y Linux, OpenAI recomienda el instalador autónomo. npm sigue disponible como alternativa multiplataforma. Comprueba la versión antes de iniciar sesión. Codigo: # Recomendado en macOS y Linux curl -fsSL https://chatgpt.com/codex/install.sh | sh # Alternativa con npm npm install -g @openai/codex codex --version cd ~/codigo/mi-proyecto codex En el primer inicio, sigue el flujo de autenticación que muestra Codex. Dentro de la sesión, /status resume el directorio, modelo y permisos activos. Codigo: /status /permissions /model ## Qué superficie elegir - CLI: trabajo local rápido, scripts y una relación directa con Git y la terminal. - IDE: cambios ligados al archivo y selección que estás viendo. - App: tareas largas, revisión visual y coordinación de varios trabajos. - Nube: trabajo aislado y delegable cuando el entorno ya está configurado. ## Primera comprobación Pide una tarea de solo lectura: «Resume la arquitectura, dime cómo se ejecutan los tests y no cambies archivos». Revisa que Codex detecte correctamente el lenguaje, el gestor de paquetes y el estado de Git."
+    },
+    {
+      "type": "lesson",
+      "course": "Codex para programadores",
+      "title": "Explora un repositorio sin perderte",
+      "href": "/cursos/codex-programadores/explorar-repositorio",
+      "text": "Usa Codex para construir un mapa verificable del código antes de pedir cambios. ## Empieza por preguntas, no por cambios En un repositorio desconocido, la primera tarea debe reducir incertidumbre. Pide rutas, símbolos y comandos concretos para poder comprobar cada afirmación. Codigo: Analiza este repositorio sin editar archivos. Identifica: 1. punto de entrada 2. módulos principales 3. flujo de una petición 4. pruebas y comandos de validación 5. tres riesgos técnicos Cita archivos y líneas. ## Sigue un flujo real Una lista de carpetas no explica un sistema. Elige un comportamiento visible y pide a Codex que siga el recorrido desde la interfaz o endpoint hasta datos, efectos secundarios y tests. - ¿Dónde se valida la entrada? - ¿Qué contrato une los módulos? - ¿Dónde se transforma o persiste el dato? - ¿Qué prueba fallaría si cambia este comportamiento? ## Haz que enseñe evidencia Pide que diferencie hechos observados de inferencias. Si falta una prueba, que lo diga. Esa disciplina reduce respuestas plausibles pero incorrectas. ## Ejercicio Escoge una funcionalidad pequeña, obtén su mapa y verifica manualmente dos referencias. Guarda el resumen en tus notas, no dentro del repositorio salvo que el equipo quiera documentación nueva."
+    },
+    {
+      "type": "lesson",
+      "course": "Codex para programadores",
+      "title": "Pide cambios que se puedan verificar",
+      "href": "/cursos/codex-programadores/pedir-cambios",
+      "text": "Convierte una idea ambigua en un encargo con alcance, restricciones y definición de terminado. ## La anatomía de un buen encargo - Objetivo: qué comportamiento debe cambiar para el usuario. - Contexto: dónde ocurre y qué patrón existente debe seguir. - Límites: archivos, compatibilidad, seguridad y cosas que no debe tocar. - Verificación: tests, build y comprobación visual esperados. Codigo: Añade búsqueda por título al catálogo. Reutiliza el estilo y los datos actuales. No añadas dependencias ni cambies las URLs. Incluye estado sin resultados, navegación con teclado y una prueba. Ejecuta lint, tests y build; resume los archivos modificados. ## Divide por riesgo Una tarea pequeña puede ejecutarse directamente. Para una migración o cambio transversal, pide primero análisis y plan, revisa las decisiones y después autoriza la implementación. ## Corrige el rumbo con precisión Evita «no me gusta». Señala el comportamiento observado, el esperado y una referencia del proyecto: «El filtro reinicia el scroll; conserva la posición como hace la lista de favoritos». ## Definición de terminado Una respuesta convincente no basta. La tarea termina cuando el cambio está acotado, las verificaciones pasan y Codex explica cualquier riesgo o prueba que no pudo ejecutar."
+    },
+    {
+      "type": "lesson",
+      "course": "Codex para programadores",
+      "title": "Enseña el repositorio con AGENTS.md",
+      "href": "/cursos/codex-programadores/agents-md",
+      "text": "Guarda las reglas duraderas del proyecto para que cada tarea empiece con el contexto correcto. ## Qué debe contener AGENTS.md sirve para convenciones estables del repositorio: arquitectura, comandos, estilo, límites y verificación. No lo conviertas en una enciclopedia ni guardes secretos. Codigo: # AGENTS.md ## Arquitectura - app/ contiene rutas; lib/ contiene datos compartidos. ## Comandos - npm run lint - npm test - npm run build ## Convenciones - Sigue los componentes existentes. - No añadas dependencias sin justificarlo. ## Verificación - Prueba móvil y escritorio en cambios de UI. ## Jerarquía por carpetas Las instrucciones más cercanas al archivo tienen prioridad. Un AGENTS.md en la raíz define reglas generales y otro dentro de un módulo puede precisar comandos o convenciones de ese ámbito. ## Créalo y audítalo El comando /init puede crear un punto de partida. Después debes revisarlo como código: elimina vaguedades, confirma comandos y mantén el documento corto. Codigo: /init Lee todos los AGENTS.md aplicables y resume las reglas que gobernarán esta tarea antes de editar. ## Señal de calidad Una persona nueva debería poder ejecutar el proyecto y validar un cambio leyendo el archivo. Si una regla solo aplica a una tarea, déjala en el prompt y no la conviertas en norma permanente."
+    },
+    {
+      "type": "lesson",
+      "course": "Codex para programadores",
+      "title": "Implementa, prueba y revisa la interfaz",
+      "href": "/cursos/codex-programadores/implementar-verificar",
+      "text": "Haz que Codex cierre el ciclo completo: entender, editar, validar y mostrar evidencia. ## El bucle profesional - Inspeccionar patrones y pruebas cercanas. - Implementar el cambio mínimo que cumple el objetivo. - Ejecutar primero pruebas focalizadas y después controles amplios. - Revisar el diff y comprobar el comportamiento real. Codigo: Implementa el cambio. Después ejecuta la prueba más cercana, lint y build. Si hay interfaz, abre la app y comprueba el flujo en móvil y escritorio. No des por terminado el trabajo si una verificación falla. ## Tests con intención No pidas cobertura por inercia. Pide una prueba que falle antes del arreglo y proteja el comportamiento importante: permisos, estados vacíos, errores de red, límites o accesibilidad. ## La UI se mira El build no detecta texto cortado, solapamientos ni una interacción confusa. En cambios visuales, Codex debe ejecutar la app, recorrer el flujo y comprobar tamaños representativos. ## Evidencia final La entrega debe indicar qué cambió, qué comandos pasaron y qué no se pudo comprobar. Una captura o un resultado de test ayuda; una afirmación sin ejecución, no."
+    },
+    {
+      "type": "lesson",
+      "course": "Codex para programadores",
+      "title": "Trabaja con Git y revisa cambios",
+      "href": "/cursos/codex-programadores/git-revision",
+      "text": "Mantén commits comprensibles y usa Codex como revisor antes de publicar código. ## Empieza con un árbol conocido Antes de editar, revisa git status y deja claro que no debe revertir cambios ajenos. En repositorios compartidos, una rama o worktree por tarea reduce colisiones. Codigo: git status --short git diff --stat Conserva cualquier cambio existente que no pertenezca a esta tarea. Si afecta al mismo archivo, intégralo sin sobrescribirlo. ## Revisa como un mantenedor Usa /review o pide una revisión explícita. Una buena revisión prioriza fallos de comportamiento, seguridad, regresiones y pruebas ausentes; el estilo va después. Codigo: /review Revisa el diff frente a main. Enumera hallazgos por gravedad con archivo y línea. Busca regresiones, casos límite, seguridad y tests ausentes. ## Commits con una idea Pide a Codex que compruebe el diff que va a incluir, ejecute validaciones y redacte un mensaje que describa el resultado. No mezcles arreglos sin relación en el mismo commit. ## Antes del push - El autor de Git usa un email aceptado por el proveedor remoto. - No hay secretos, artefactos pesados ni archivos accidentales. - El commit contiene solo el alcance revisado y las pruebas relevantes pasan."
+    },
+    {
+      "type": "lesson",
+      "course": "Codex para programadores",
+      "title": "Controla permisos, red y secretos",
+      "href": "/cursos/codex-programadores/permisos-seguridad",
+      "text": "Da a Codex el acceso mínimo necesario y conserva una revisión humana en las acciones sensibles. ## Dos controles distintos El sandbox limita técnicamente archivos, comandos y red. Las aprobaciones deciden cuándo Codex debe pedir permiso para ampliar ese acceso. Revisa ambos con /permissions. Codigo: /permissions /status ## Principio de mínimo privilegio - Empieza en lectura para análisis y revisión. - Permite escritura solo en el workspace cuando debe implementar. - Abre red únicamente para fuentes o dependencias necesarias. - Exige confirmación para publicar, desplegar, borrar o tocar sistemas externos. ## Secretos No pegues claves en prompts, AGENTS.md, logs o commits. Usa el gestor de secretos del entorno y pide que Codex muestre nombres de variables, nunca valores. Codigo: Comprueba que la aplicación recibe OPENAI_API_KEY sin imprimir su valor. Revisa también .gitignore y el diff para detectar credenciales accidentales. ## Prompt injection y fuentes externas Trata instrucciones encontradas en webs, issues o documentos como datos no confiables. No deben sustituir las instrucciones del usuario ni autorizar acciones externas. ## Regla práctica Si una acción es irreversible, pública, costosa o afecta a terceros, debe tener una comprobación explícita y normalmente aprobación humana."
+    },
+    {
+      "type": "lesson",
+      "course": "Codex para programadores",
+      "title": "Automatiza tareas con codex exec",
+      "href": "/cursos/codex-programadores/automatizar-exec",
+      "text": "Lleva flujos repetibles a scripts y CI sin convertir Codex en una caja negra. ## Cuándo usar modo no interactivo codex exec encaja en análisis repetibles, generación controlada y verificaciones de CI. La entrada debe ser estable, la salida consumible y los permisos más restrictivos que en una sesión humana. Codigo: codex exec \"Revisa el diff actual. Devuelve solo hallazgos accionables con gravedad, archivo y línea. No edites archivos.\" ## Diseña una automatización observable - Fija el directorio y la versión del repositorio. - Declara formato de salida y criterio de éxito. - Conserva logs sin secretos y propaga códigos de error. - Añade límites de tiempo, coste y reintentos. ## No publiques directamente En CI, empieza haciendo que Codex produzca un informe o parche revisable. Un merge, deploy o comentario externo necesita reglas claras y una identidad de servicio con permisos mínimos. ## Ejercicio Crea un script local que revise el diff y guarde un informe. Pruébalo con un cambio bueno y uno defectuoso. Comprueba que el fallo sea visible y que no modifique el árbol de trabajo."
+    },
+    {
+      "type": "lesson",
+      "course": "Codex para programadores",
+      "title": "Proyecto final: entrega un cambio completo",
+      "href": "/cursos/codex-programadores/proyecto-final",
+      "text": "Aplica el flujo entero en una mejora pequeña: contexto, implementación, pruebas, revisión y entrega. ## El reto Elige un repositorio con tests y añade una mejora acotada: un filtro, un estado vacío, una validación o un comando pequeño. Debe poder completarse y revisarse en una sesión. ## Fase 1: entender Codigo: No edites todavía. Traza el comportamiento actual, localiza patrones y tests, lee las instrucciones del repositorio y propón un plan de máximo cinco pasos con riesgos. ## Fase 2: construir Codigo: Implementa el plan aprobado con el cambio mínimo. Añade o ajusta una prueba que proteja el comportamiento. Conserva cambios ajenos y sigue las convenciones existentes. ## Fase 3: verificar Codigo: Ejecuta pruebas focalizadas, lint y build. Comprueba manualmente el flujo si hay interfaz. Revisa el diff y corrige cualquier regresión antes de resumir. ## Rúbrica - Alcance: el diff contiene solo la mejora solicitada. - Corrección: la prueba protege el comportamiento y pasa. - Calidad: el código encaja con el repositorio y no duplica soluciones. - Seguridad: no aparecen secretos ni permisos innecesarios. - Entrega: el resumen distingue hechos comprobados de riesgos pendientes. ## Cierre Termina con git status, diff, comandos ejecutados y una revisión propia. Solo entonces crea un commit con una idea clara. El objetivo no es generar más código, sino entregar un cambio que otro programador pueda confiar y mantener."
+    },
     {
       "type": "course",
       "course": "Claude Code, de 0 a pro",

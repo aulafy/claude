@@ -6,6 +6,16 @@ export type SearchItem = {
 };
 
 export const searchData: SearchItem[] = [
+  { href: "/cursos/codex-programadores", title: "Codex para programadores", section: "Codex", keywords: "openai codex curso tutorial programadores cli app agentes codigo" },
+  { href: "/cursos/codex-programadores/instalacion", title: "Instala Codex y entiende sus superficies", section: "Codex", keywords: "instalar codex cli npm autenticacion app ide cloud status permissions model" },
+  { href: "/cursos/codex-programadores/explorar-repositorio", title: "Explora un repositorio sin perderte", section: "Codex", keywords: "codex repositorio arquitectura entender codebase rutas simbolos flujo tests" },
+  { href: "/cursos/codex-programadores/pedir-cambios", title: "Pide cambios que se puedan verificar", section: "Codex", keywords: "prompt codex tarea alcance restricciones verificacion definicion terminado" },
+  { href: "/cursos/codex-programadores/agents-md", title: "Enseña el repositorio con AGENTS.md", section: "Codex", keywords: "agents md instrucciones repositorio convenciones comandos jerarquia init" },
+  { href: "/cursos/codex-programadores/implementar-verificar", title: "Implementa, prueba y revisa la interfaz", section: "Codex", keywords: "codex implementar tests lint build playwright ui ux verificar evidencia" },
+  { href: "/cursos/codex-programadores/git-revision", title: "Trabaja con Git y revisa cambios", section: "Codex", keywords: "codex git status diff review commit branch worktree push revision codigo" },
+  { href: "/cursos/codex-programadores/permisos-seguridad", title: "Controla permisos, red y secretos", section: "Codex", keywords: "codex sandbox approvals permisos red secretos prompt injection seguridad" },
+  { href: "/cursos/codex-programadores/automatizar-exec", title: "Automatiza tareas con codex exec", section: "Codex", keywords: "codex exec no interactivo ci automatizacion scripts logs" },
+  { href: "/cursos/codex-programadores/proyecto-final", title: "Proyecto final: entrega un cambio completo", section: "Codex", keywords: "codex proyecto final programacion tests revision entrega commit" },
   { href: "/cursos/claude-code", title: "Inicio de la guía", section: "Empezar", keywords: "home portada qué es claude code introducción" },
   { href: "/", title: "Aulafy", section: "Cursos", keywords: "aulafy portada cursos ia inteligencia artificial open source" },
   { href: "/blog", title: "Blog de IA en español", section: "Blog", keywords: "blog ia español grok modelos mcp agentes herramientas comparativas seo aeo prompts tendencias" },

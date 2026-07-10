@@ -7,12 +7,13 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 export const metadata: Metadata = {
   title: "Fuentes oficiales de Aulafy",
   description:
-    "Fuentes oficiales usadas por Aulafy: Anthropic, Ollama, Godot, Blender, vLLM, LangGraph, n8n, Qdrant, OWASP, NIST, Next.js y Vercel.",
+    "Fuentes oficiales usadas por Aulafy: OpenAI Codex, Anthropic, Ollama, Godot, Blender, vLLM, LangGraph, n8n, Qdrant, OWASP, NIST, Next.js y Vercel.",
   keywords: [
     "fuentes Aulafy",
     "documentación IA open source",
     "fuentes cursos IA",
     "documentación Claude Code",
+    "documentación OpenAI Codex",
     "documentación Fable 5",
     "documentación Godot Blender",
     "documentación Ollama",
@@ -31,6 +32,17 @@ export const metadata: Metadata = {
 };
 
 const fuentes = [
+  {
+    area: "OpenAI Codex",
+    links: [
+      { name: "Codex CLI", href: "https://developers.openai.com/codex/cli" },
+      { name: "Comandos de Codex", href: "https://developers.openai.com/codex/cli/reference" },
+      { name: "Instrucciones con AGENTS.md", href: "https://developers.openai.com/codex/guides/agents-md" },
+      { name: "Configuración de Codex", href: "https://developers.openai.com/codex/config-basic" },
+      { name: "Seguridad y permisos", href: "https://developers.openai.com/codex/security" },
+      { name: "Casos de uso de Codex", href: "https://developers.openai.com/codex/use-cases" },
+    ],
+  },
   {
     area: "Claude Code y Claude",
     links: [

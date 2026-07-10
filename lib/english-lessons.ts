@@ -1,4 +1,5 @@
 import englishLessonContent from "@/lib/english-lesson-content.json";
+import { codexLessons } from "@/lib/codex-course-content";
 
 export type EnglishLessonBlock = {
   type: "h2" | "h3" | "p" | "bullet" | "code";
@@ -20,18 +21,28 @@ const content = englishLessonContent as {
   lessons: EnglishLesson[];
 };
 
-const lessonsByKey = new Map(content.lessons.map((lesson) => [`${lesson.courseSlug}/${lesson.slug}`, lesson]));
+const codexEnglishLessons: EnglishLesson[] = codexLessons.map((lesson) => ({
+  courseSlug: "codex-programadores",
+  courseTitle: "Codex for programmers",
+  slug: lesson.slug,
+  title: lesson.title.en,
+  href: `/en/courses/codex-programadores/${lesson.slug}`,
+  blocks: [{ type: "p", text: lesson.lead.en }, ...lesson.blocks.en],
+}));
+
+const allLessons = [...content.lessons, ...codexEnglishLessons];
+const lessonsByKey = new Map(allLessons.map((lesson) => [`${lesson.courseSlug}/${lesson.slug}`, lesson]));
 
 export function getEnglishLesson(courseSlug: string, lessonSlug: string) {
   return lessonsByKey.get(`${courseSlug}/${lessonSlug}`);
 }
 
 export function getEnglishLessons() {
-  return content.lessons;
+  return allLessons;
 }
 
 export function getEnglishLessonsByCourse(courseSlug: string) {
-  return content.lessons.filter((lesson) => lesson.courseSlug === courseSlug);
+  return allLessons.filter((lesson) => lesson.courseSlug === courseSlug);
 }
 
 export function getEnglishLessonTitle(courseSlug: string, lessonSlug: string, fallback: string) {
