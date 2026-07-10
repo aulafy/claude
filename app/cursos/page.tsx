@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Icon, { type IconName } from "@/components/Icon";
 import { cursos, proximamente, totalLecciones, type Curso } from "@/lib/cursos";
+import { getCourseGuidance } from "@/lib/course-guidance";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 
@@ -28,6 +29,7 @@ const courseGroups = [
 
 function CourseCard({ course }: { course: Curso }) {
   const index = cursos.findIndex((item) => item.slug === course.slug);
+  const guidance = getCourseGuidance(course.slug, "es");
   return (
     <Link href={`/cursos/${course.slug}`} className="group aula-capsule block">
       <div
@@ -47,11 +49,13 @@ function CourseCard({ course }: { course: Curso }) {
           {course.title}
         </h3>
         <p className="mt-2 text-sm text-zinc-400 leading-relaxed">{course.desc}</p>
+        {guidance && <p className="mt-4 text-sm text-zinc-300 leading-relaxed border-l-2 border-emerald-500/40 pl-3"><strong className="text-zinc-100">Terminas con:</strong> {guidance.deliverable}</p>}
         <div className="mt-4 flex flex-wrap items-center gap-2">
           <span className="aula-chip"><Icon name="chart" /> {course.level}</span>
           <span className="aula-chip" data-tone="cyan"><Icon name="book" /> {totalLecciones(course)} lecciones</span>
           {course.pdf && <span className="aula-chip" data-tone="amber"><Icon name="pdf" /> PDF</span>}
           <span className="aula-chip" data-tone="green">open</span>
+          {guidance && <span className="aula-chip"><Icon name="calendar" /> ≈ {guidance.estimatedHours} h</span>}
         </div>
       </div>
     </Link>

@@ -3,6 +3,7 @@ import { cursos, lecciones } from "@/lib/cursos";
 import { getEnglishLessonDescription, getEnglishLessons, getEnglishLessonTitle } from "@/lib/english-lessons";
 import { getLocalizedCursos } from "@/lib/i18n";
 import { seoLandings } from "@/lib/seo-landings";
+import { getCourseGuidance } from "@/lib/course-guidance";
 
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 
@@ -55,7 +56,7 @@ const coreEntries: SeoIndexEntry[] = [
   {
     route: "/cursos",
     title: "Cursos gratis de IA open source",
-    description: "Catálogo de cursos gratuitos de IA local, Claude Code, RAG, agentes, seguridad y automatización.",
+    description: "Catálogo de cursos gratuitos de Codex, IA local, Claude Code, RAG, agentes, seguridad y automatización.",
     language: "es",
     kind: "courses",
     priority: 0.95,
@@ -71,6 +72,26 @@ const coreEntries: SeoIndexEntry[] = [
     priority: 0.93,
     changeFrequency: "weekly",
     alternateRoute: "/cursos",
+  },
+  {
+    route: "/rutas",
+    title: "Rutas para aprender inteligencia artificial",
+    description: "Itinerarios por objetivo para programación con IA, agentes, RAG, modelos abiertos y automatización.",
+    language: "es",
+    kind: "core",
+    priority: 0.94,
+    changeFrequency: "monthly",
+    alternateRoute: "/en/paths",
+  },
+  {
+    route: "/en/paths",
+    title: "AI learning paths",
+    description: "Outcome-based paths for AI-assisted programming, agents, RAG, open models and automation.",
+    language: "en",
+    kind: "english",
+    priority: 0.92,
+    changeFrequency: "monthly",
+    alternateRoute: "/rutas",
   },
   {
     route: "/blog",
@@ -180,6 +201,7 @@ const courseEntries: SeoIndexEntry[] = cursos.flatMap((course) => [
     kind: "courses" as const,
     priority: 0.9,
     changeFrequency: "weekly" as const,
+    lastModified: getCourseGuidance(course.slug, "es")?.updated,
     alternateRoute: `/en/courses/${course.slug}`,
   },
   ...lecciones(course).map((lesson) => ({
@@ -190,6 +212,7 @@ const courseEntries: SeoIndexEntry[] = cursos.flatMap((course) => [
     kind: "courses" as const,
     priority: 0.78,
     changeFrequency: "monthly" as const,
+    lastModified: getCourseGuidance(course.slug, "es")?.updated,
     alternateRoute: `/en/courses/${course.slug}/${lesson.slug}`,
   })),
 ]);
@@ -203,6 +226,7 @@ const englishCourseEntries: SeoIndexEntry[] = englishCourses.flatMap((course) =>
     kind: "english" as const,
     priority: 0.86,
     changeFrequency: "weekly" as const,
+    lastModified: getCourseGuidance(course.slug, "en")?.updated,
     alternateRoute: `/cursos/${course.slug}`,
   },
   ...lecciones(course).map((lesson) => {
@@ -219,6 +243,7 @@ const englishCourseEntries: SeoIndexEntry[] = englishCourses.flatMap((course) =>
       kind: "english" as const,
       priority: 0.72,
       changeFrequency: "monthly" as const,
+      lastModified: getCourseGuidance(course.slug, "en")?.updated,
       alternateRoute: `/cursos/${course.slug}/${lesson.slug}`,
     };
   }),

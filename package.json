@@ -9,6 +9,7 @@
     "start": "next start",
     "lint": "eslint",
     "test:content": "node scripts/verify-content.mjs",
+    "test:education": "node --experimental-strip-types scripts/audit-education.mjs",
     "indexnow": "node scripts/indexnow.mjs"
   },
   "dependencies": {

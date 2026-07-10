@@ -25,6 +25,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 const courseTopics = [
   "IA open source",
   "IA local",
+  "OpenAI Codex",
   "Claude Code",
   "Fable 5",
   "Videojuegos 3D con IA",
@@ -78,12 +79,13 @@ export const metadata: Metadata = {
     template: "%s",
   },
   description:
-    "Cursos gratuitos de inteligencia artificial open source en español e inglés, sin registro y con ejemplos prácticos: IA local, Claude Code, Ollama, RAG, fine-tuning, MLOps, agentes, seguridad, evals, imagen, voz, vídeo y automatización.",
+    "Cursos gratuitos de inteligencia artificial en español e inglés, con objetivos, proyectos y fuentes: OpenAI Codex, Claude Code, IA local, RAG, agentes, seguridad, MLOps y automatización.",
   keywords: [
     "cursos de IA gratis",
     "cursos de inteligencia artificial en español",
     "curso IA open source",
     "curso Claude Code español",
+    "curso OpenAI Codex español",
     "curso Fable 5",
     "curso videojuegos 3D IA",
     "curso Godot Blender IA",

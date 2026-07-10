@@ -10,7 +10,7 @@ import { totalLecciones } from "@/lib/cursos";
 export const metadata: Metadata = {
   title: "Aulafy — Free open-source AI courses in English and Spanish",
   description:
-    "Free practical AI courses: Claude Code, local AI, RAG, agents, automation, security and hands-on projects.",
+    "Free practical AI courses: OpenAI Codex, Claude Code, local AI, RAG, agents, automation, security and hands-on projects.",
   alternates: { canonical: "/en", languages: { "es-ES": "/", "en-US": "/en" } },
   openGraph: {
     title: "Aulafy — Free open-source AI courses",
@@ -110,6 +110,7 @@ export default function EnglishHome() {
             <span className="font-display font-bold text-white text-lg">Aulafy</span>
           </Link>
           <nav className="hidden md:flex items-center gap-8 text-sm text-zinc-400">
+            <Link href="/en/paths" className="hover:text-white transition-colors">Paths</Link>
             <a href="#courses" className="hover:text-white transition-colors">Courses</a>
             <Link href="/blog" className="hover:text-white transition-colors">Blog</Link>
             <a href="#why" className="hover:text-white transition-colors">Why Aulafy</a>
@@ -143,10 +144,7 @@ export default function EnglishHome() {
             <Icon name="book" />
             Browse courses
           </a>
-          <Link href="/en/courses/claude-code" className="aula-button aula-button-secondary">
-            <Icon name="terminal" />
-            Start with Claude Code
-          </Link>
+          <Link href="/en/paths" className="aula-button aula-button-secondary"><Icon name="route" /> Choose a path</Link>
         </div>
         <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-zinc-500">
           {["Free", "Open source", `${courses.length} courses`, `${lessons} lessons`].map((item) => (

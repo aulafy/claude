@@ -6,6 +6,7 @@ import { cursos, totalLecciones } from "@/lib/cursos";
 import { getLocalizedCurso } from "@/lib/i18n";
 import { getEnglishLessonTitle } from "@/lib/english-lessons";
 import ContinuarCurso from "@/components/ContinuarCurso";
+import { getCourseGuidance } from "@/lib/course-guidance";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 
@@ -72,6 +73,7 @@ export default async function EnglishCoursePage({ params }: { params: Promise<{ 
   if (!course) notFound();
 
   const total = totalLecciones(course);
+  const guidance = getCourseGuidance(course.slug, "en");
   const lessons = course.secciones.flatMap((section) => section.lecciones);
   const firstLesson = lessons[0];
   const jsonLd = {
@@ -84,10 +86,14 @@ export default async function EnglishCoursePage({ params }: { params: Promise<{ 
     url: `${SITE_URL}/en/courses/${course.slug}`,
     isAccessibleForFree: true,
     educationalLevel: course.level,
+    timeRequired: `PT${guidance.estimatedHours}H`,
+    dateModified: guidance.updated,
+    audience: { "@type": "Audience", audienceType: guidance.audience },
+    competencyRequired: guidance.prerequisites,
     learningResourceType: "Course",
     provider: { "@id": `${SITE_URL}/#organization` },
     author: { "@id": `${SITE_URL}/#author` },
-    teaches: lessons.map((lesson) => getEnglishLessonTitle(course.slug, lesson.slug, lesson.title)),
+    teaches: guidance.outcomes,
     hasPart: lessons.map((lesson) => ({
       "@type": "LearningResource",
       name: getEnglishLessonTitle(course.slug, lesson.slug, lesson.title),
@@ -165,6 +171,39 @@ export default async function EnglishCoursePage({ params }: { params: Promise<{ 
           </div>
         </div>
       </div>
+
+      <section className="mb-12" aria-labelledby="course-outcomes">
+        <div className="grid lg:grid-cols-[1.35fr_0.65fr] gap-6">
+          <div className="aula-panel p-6 sm:p-8">
+            <span className="aula-section-label"><Icon name="prompt" /> Learning outcome</span>
+            <h2 id="course-outcomes" className="font-display text-2xl font-bold text-white mt-3">What you will be able to do</h2>
+            <ul className="mt-5 grid gap-3">
+              {guidance.outcomes.map((outcome) => (
+                <li key={outcome} className="flex gap-3 text-zinc-300 leading-relaxed">
+                  <Icon name="check" className="text-emerald-400 mt-1" />
+                  <span>{outcome}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-6 pt-5 border-t border-zinc-800">
+              <div className="aula-meta text-zinc-500">Final deliverable</div>
+              <p className="mt-2 text-zinc-300 leading-relaxed">{guidance.deliverable}</p>
+            </div>
+          </div>
+          <div className="aula-panel p-6 sm:p-8">
+            <span className="aula-section-label"><Icon name="userGraduate" /> Before you start</span>
+            <p className="mt-4 text-sm text-zinc-300 leading-relaxed">{guidance.audience}</p>
+            <ul className="mt-5 space-y-3 text-sm text-zinc-400">
+              {guidance.prerequisites.map((item) => <li key={item}>• {item}</li>)}
+            </ul>
+            <div className="mt-6 flex flex-wrap gap-2">
+              <span className="aula-chip" data-tone="cyan"><Icon name="calendar" /> ≈ {guidance.estimatedHours} h</span>
+              <span className="aula-chip" data-tone="green">{guidance.track}</span>
+            </div>
+            <p className="mt-5 aula-meta text-zinc-600">Editorial review: {new Intl.DateTimeFormat("en", { dateStyle: "long" }).format(new Date(`${guidance.updated}T12:00:00Z`))}</p>
+          </div>
+        </div>
+      </section>
 
       <div className="flex items-end justify-between gap-4 mb-6">
         <div>

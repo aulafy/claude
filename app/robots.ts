@@ -5,7 +5,13 @@ const HOST = new URL(SITE_URL).host;
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: { userAgent: "*", allow: "/", disallow: ["/api/"] },
+    rules: [
+      { userAgent: "*", allow: "/", disallow: ["/api/"] },
+      { userAgent: "OAI-SearchBot", allow: "/", disallow: ["/api/"] },
+      { userAgent: "ChatGPT-User", allow: "/", disallow: ["/api/"] },
+      { userAgent: "Googlebot", allow: "/", disallow: ["/api/"] },
+      { userAgent: "Bingbot", allow: "/", disallow: ["/api/"] },
+    ],
     sitemap: [
       `${SITE_URL}/sitemap.xml`,
       `${SITE_URL}/sitemap-index.xml`,

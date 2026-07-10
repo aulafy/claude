@@ -143,12 +143,14 @@ export function pathForLocale(pathname: string, locale: Locale) {
   const spanishPath = path === "/en" ? "/" : path.startsWith("/en/") ? path.slice(3) || "/" : path;
 
   if (locale === "es") {
+    if (spanishPath === "/paths") return "/rutas";
     if (spanishPath === "/courses") return "/cursos";
     if (spanishPath.startsWith("/courses/")) return `/cursos/${spanishPath.slice("/courses/".length)}`;
     return spanishPath;
   }
 
   if (spanishPath === "/") return "/en";
+  if (spanishPath === "/rutas") return "/en/paths";
   if (spanishPath === "/cursos") return "/en/courses";
   if (spanishPath.startsWith("/cursos/")) {
     const [, , courseSlug, lessonSlug] = spanishPath.split("/");

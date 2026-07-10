@@ -3,6 +3,7 @@ import Link from "next/link";
 import Icon, { type IconName } from "@/components/Icon";
 import { totalLecciones } from "@/lib/cursos";
 import { getLocalizedCursos, getLocalizedProximamente } from "@/lib/i18n";
+import { getCourseGuidance } from "@/lib/course-guidance";
 
 const courses = getLocalizedCursos("en");
 const upcoming = getLocalizedProximamente("en");
@@ -152,11 +153,13 @@ export default function CoursesPage() {
                 {course.title}
               </h2>
               <p className="mt-2 text-sm text-zinc-400 leading-relaxed">{course.desc}</p>
+              <p className="mt-4 text-sm text-zinc-300 leading-relaxed border-l-2 border-emerald-500/40 pl-3"><strong className="text-zinc-100">You finish with:</strong> {getCourseGuidance(course.slug, "en").deliverable}</p>
               <div className="mt-4 flex flex-wrap items-center gap-2">
                 <span className="aula-chip"><Icon name="chart" /> {course.level}</span>
                 <span className="aula-chip" data-tone="cyan"><Icon name="book" /> {totalLecciones(course)} lessons</span>
                 {course.pdf && <span className="aula-chip" data-tone="amber"><Icon name="pdf" /> PDF</span>}
                 <span className="aula-chip" data-tone="green">open</span>
+                <span className="aula-chip"><Icon name="calendar" /> ≈ {getCourseGuidance(course.slug, "en").estimatedHours} h</span>
               </div>
             </div>
           </Link>

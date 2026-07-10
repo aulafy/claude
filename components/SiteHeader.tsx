@@ -40,8 +40,15 @@ export default function SiteHeader({ locale = "es" }: { locale?: Locale }) {
         </Link>
         <div className="flex items-center gap-2">
           <Link
+            href={isEnglish ? "/en/paths" : "/rutas"}
+            className="hidden! md:inline-flex! aula-button aula-button-secondary min-h-9 px-3 py-2 text-sm"
+          >
+            <Icon name="route" />
+            {isEnglish ? "Paths" : "Rutas"}
+          </Link>
+          <Link
             href="/blog"
-            className="hidden sm:inline-flex aula-button aula-button-secondary min-h-9 px-3 py-2 text-sm"
+            className="hidden! sm:inline-flex! aula-button aula-button-secondary min-h-9 px-3 py-2 text-sm"
           >
             <Icon name="search" />
             {isEnglish ? "Spanish blog" : "Blog"}

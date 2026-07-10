@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { absoluteUrl, alternateLanguages, getSeoIndexEntries, SITE_URL } from "@/lib/seo-index";
+import { educationalReviewDate } from "@/lib/course-guidance";
 
 export function GET() {
   const entries = getSeoIndexEntries().map((entry) => ({
@@ -21,7 +22,7 @@ export function GET() {
         "Free practical open-source AI courses in Spanish and English: Claude Code, local AI, RAG, agents, MLOps, security, automation, generative AI and small-business AI workflows.",
       license: "Content: CC BY 4.0. Code: MIT.",
       author: "Ramón Guillamón",
-      updatedAt: new Date().toISOString(),
+      updatedAt: educationalReviewDate,
       entries,
     },
     {

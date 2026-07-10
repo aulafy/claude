@@ -61,22 +61,22 @@ const cursosPortada = catalogoCursos.filter((curso) => curso.slug !== "claude-co
 
 const rutas = [
   {
-    title: "Empieza desde cero",
-    desc: "Instala Claude Code, aprende a pedir bien y crea tus primeros proyectos guiados.",
-    href: "/cursos/claude-code/instalacion",
-    steps: ["Instalación", "Primeros pasos", "Proyectos guiados"],
+    title: "Programa con agentes",
+    desc: "Aprende Codex y Claude Code con Git, pruebas, permisos y revisión profesional.",
+    href: "/rutas#programacion",
+    steps: ["Codex", "Claude Code", "IA local"],
   },
   {
     title: "Construye con IA local",
     desc: "Monta apps con modelos en tu ordenador: RAG, PDF, voz y herramientas privadas.",
-    href: "/cursos/ia-local",
-    steps: ["IA local", "PDF y RAG", "Voz y audio"],
+    href: "/rutas#modelos",
+    steps: ["Modelos locales", "MLOps", "Fine-tuning"],
   },
   {
     title: "Llévalo a tu trabajo",
     desc: "Automatiza tareas de oficina, documentos, informes y flujos de equipo con IA.",
-    href: "/cursos/claude-code/pymes",
-    steps: ["Pymes", "Recetas", "Flujos pro"],
+    href: "/rutas#negocio-creativo",
+    steps: ["Pymes", "Automatización", "Contenido"],
   },
 ];
 
@@ -119,6 +119,7 @@ export default function Home() {
             <span className="font-display font-bold text-white text-lg">Aulafy</span>
           </a>
           <nav className="hidden md:flex items-center gap-8 text-sm text-zinc-400">
+            <Link href="/rutas" className="hover:text-white transition-colors">Rutas</Link>
             <a href="#cursos" className="hover:text-white transition-colors">Cursos</a>
             <Link href="/blog" className="hover:text-white transition-colors">Blog</Link>
             <a href="#porque" className="hover:text-white transition-colors">Por qué Aulafy</a>
@@ -153,10 +154,7 @@ export default function Home() {
             <Icon name="book" />
             Ver los cursos
           </a>
-          <a href="#curso-claude" className="aula-button aula-button-secondary">
-            <Icon name="terminal" />
-            Empezar con Claude Code
-          </a>
+          <Link href="/rutas" className="aula-button aula-button-secondary"><Icon name="route" /> Elegir una ruta</Link>
         </div>
         <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-zinc-500">
           {["Gratis para siempre", "Código abierto", "En español", "Local-first y privado"].map((item) => (
@@ -196,8 +194,8 @@ export default function Home() {
       {/* Rutas */}
       <section id="rutas" className="max-w-6xl mx-auto px-6 py-10">
         <div className="mb-8 text-center">
-          <h2 className="font-display font-bold text-3xl text-white">Elige tu ruta</h2>
-          <p className="mt-3 text-zinc-400">Aprende en orden, con práctica desde el primer día.</p>
+          <h2 className="font-display font-bold text-3xl text-white">Elige una ruta con resultado</h2>
+          <p className="mt-3 text-zinc-400">No acumules tutoriales: sigue una secuencia y termina con un proyecto verificable.</p>
         </div>
         <div className="grid md:grid-cols-3 gap-5">
           {rutas.map((ruta) => (
@@ -219,6 +217,9 @@ export default function Home() {
           ))}
         </div>
       </section>
+      <div className="max-w-6xl mx-auto px-6 -mt-2 mb-6 text-center">
+        <Link href="/rutas" className="aula-button aula-button-secondary"><Icon name="route" /> Ver las rutas completas</Link>
+      </div>
 
       {/* Método */}
       <section id="metodo" className="max-w-6xl mx-auto px-6 py-12">

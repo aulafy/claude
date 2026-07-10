@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Icon, { type IconName } from "@/components/Icon";
 import ContinuarCurso from "@/components/ContinuarCurso";
 import { cursos, getCurso, totalLecciones } from "@/lib/cursos";
+import { getCourseGuidance } from "@/lib/course-guidance";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 
@@ -75,6 +76,7 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
   if (!curso) notFound();
 
   const total = totalLecciones(curso);
+  const guidance = getCourseGuidance(curso.slug, "es");
   const leccionesCurso = curso.secciones.flatMap((seccion) => seccion.lecciones);
   const leccionTitles = leccionesCurso.map((leccion) => leccion.title);
   const jsonLd = {
@@ -89,6 +91,10 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
         url: `${SITE_URL}/cursos/${curso.slug}`,
         isAccessibleForFree: true,
         educationalLevel: curso.level,
+        timeRequired: guidance ? `PT${guidance.estimatedHours}H` : undefined,
+        dateModified: guidance?.updated,
+        audience: guidance ? { "@type": "Audience", audienceType: guidance.audience } : undefined,
+        competencyRequired: guidance?.prerequisites,
         learningResourceType: "Course",
         keywords: [
           curso.title,
@@ -97,7 +103,7 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
           "IA open source en español",
           ...leccionTitles,
         ].join(", "),
-        teaches: leccionTitles,
+        teaches: guidance?.outcomes ?? leccionTitles,
         provider: { "@id": `${SITE_URL}/#organization` },
         author: { "@id": `${SITE_URL}/#author` },
         hasPart: leccionesCurso.map((leccion) => ({
@@ -195,6 +201,41 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
           </div>
         </div>
       </div>
+
+      {guidance && (
+        <section className="mb-12" aria-labelledby="course-outcomes">
+          <div className="grid lg:grid-cols-[1.35fr_0.65fr] gap-6">
+            <div className="aula-panel p-6 sm:p-8">
+              <span className="aula-section-label"><Icon name="prompt" /> Resultado educativo</span>
+              <h2 id="course-outcomes" className="font-display text-2xl font-bold text-white mt-3">Qué serás capaz de hacer</h2>
+              <ul className="mt-5 grid gap-3">
+                {guidance.outcomes.map((outcome) => (
+                  <li key={outcome} className="flex gap-3 text-zinc-300 leading-relaxed">
+                    <Icon name="check" className="text-emerald-400 mt-1" />
+                    <span>{outcome}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-6 pt-5 border-t border-zinc-800">
+                <div className="aula-meta text-zinc-500">Entregable final</div>
+                <p className="mt-2 text-zinc-300 leading-relaxed">{guidance.deliverable}</p>
+              </div>
+            </div>
+            <div className="aula-panel p-6 sm:p-8">
+              <span className="aula-section-label"><Icon name="userGraduate" /> Antes de empezar</span>
+              <p className="mt-4 text-sm text-zinc-300 leading-relaxed">{guidance.audience}</p>
+              <ul className="mt-5 space-y-3 text-sm text-zinc-400">
+                {guidance.prerequisites.map((item) => <li key={item}>• {item}</li>)}
+              </ul>
+              <div className="mt-6 flex flex-wrap gap-2">
+                <span className="aula-chip" data-tone="cyan"><Icon name="calendar" /> ≈ {guidance.estimatedHours} h</span>
+                <span className="aula-chip" data-tone="green">{guidance.track}</span>
+              </div>
+              <p className="mt-5 aula-meta text-zinc-600">Revisión editorial: {new Intl.DateTimeFormat("es-ES", { dateStyle: "long" }).format(new Date(`${guidance.updated}T12:00:00Z`))}</p>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Temario */}
       <div className="flex items-end justify-between gap-4 mb-6">

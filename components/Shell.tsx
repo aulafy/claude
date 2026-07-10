@@ -8,6 +8,7 @@ import ChatWidget from "@/components/ChatWidget";
 import DocumentLanguage from "@/components/DocumentLanguage";
 import { getCurso } from "@/lib/cursos";
 import { isEnglishPath } from "@/lib/i18n";
+import LessonStructuredData from "@/components/LessonStructuredData";
 
 export default function Shell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -27,6 +28,7 @@ export default function Shell({ children }: { children: React.ReactNode }) {
     return (
       <>
         <DocumentLanguage locale={locale} />
+        {esLeccion && <LessonStructuredData courseSlug={parts[1]} lessonSlug={parts[2]} />}
         <CourseSidebar locale={locale} />
         <div className="md:ml-[280px] min-h-screen flex flex-col">
           <a href="#main-content" className="aula-skip-link">{locale === "en" ? "Skip to content" : "Saltar al contenido"}</a>

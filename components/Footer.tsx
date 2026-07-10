@@ -5,7 +5,7 @@ import type { Locale } from "@/lib/i18n";
 const footerContent = {
   es: {
     columns: [
-      { title: "Empezar", links: [["/instalacion", "Instalación"], ["/primeros-pasos", "Primeros pasos"], ["/proyectos", "Proyectos guiados"]] },
+      { title: "Empezar", links: [["/rutas", "Rutas de aprendizaje"], ["/cursos/codex-programadores", "Codex para programadores"], ["/cursos/claude-code", "Claude Code"]] },
       { title: "Práctica", links: [["/blog", "Blog de IA"], ["/recetas", "Recetas prácticas"], ["/prompts", "Buenos prompts"], ["/glosario", "Glosario"]] },
       { title: "Potenciar", links: [["/skills", "Skills"], ["/subagentes", "Subagentes"], ["/plugins", "Plugins"]] },
       { title: "Ayuda", links: [["/faq", "Preguntas frecuentes"], ["/problemas", "Solución de problemas"], ["/comandos", "Comandos"]] },
@@ -18,7 +18,7 @@ const footerContent = {
   },
   en: {
     columns: [
-      { title: "Start", links: [["/en/courses", "Courses"], ["/en/courses/claude-code", "Claude Code"], ["/en/courses/ia-local", "Local AI"]] },
+      { title: "Start", links: [["/en/paths", "Learning paths"], ["/en/courses", "Courses"], ["/en/courses/codex-programadores", "Codex for programmers"]] },
       { title: "Practice", links: [["/blog", "Spanish AI blog"], ["/en/courses/agentes-automatizacion", "Agents"], ["/en/courses/rag-seguro", "Secure RAG"]] },
       { title: "Build", links: [["/en/courses/agentes-produccion", "Production agents"], ["/en/courses/automatizacion-self-hosted", "Self-hosted AI"], ["/en/courses/mlops-local", "Local MLOps"]] },
       { title: "Project", links: [["/fuentes", "Official sources (Spanish)"], ["/sobre-ramon-guillamon", "Author (Spanish)"], ["/acerca", "About (Spanish)"]] },
