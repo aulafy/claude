@@ -22,7 +22,13 @@ export default function AulafyNexusLanding({ courseCount, lessonCount, paths, co
         <nav aria-label="Navegación principal">
           <a href="#rutas">Rutas</a><a href="#cursos">Cursos</a><Link href="/fuentes">Fuentes</Link>
         </nav>
-        <div className="nx-status"><i /> AULA ABIERTA</div>
+        <div className="nx-header-tools">
+          <nav className="nx-language" aria-label="Idioma">
+            <Link href="/" aria-current="page">ES</Link>
+            <Link href="/en">EN</Link>
+          </nav>
+          <div className="nx-status"><i /> AULA ABIERTA</div>
+        </div>
       </header>
 
       <main id="contenido">
