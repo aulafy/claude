@@ -16,7 +16,7 @@ export default function Shell({ children }: { children: React.ReactNode }) {
   const locale = english ? "en" : "es";
 
   // 1) Landing: pantalla completa, con su propio header y footer.
-  if (pathname === "/" || pathname === "/en") {
+  if (pathname === "/" || pathname === "/en" || pathname === "/laboratorio/landing") {
     return <><DocumentLanguage locale={locale} />{children}</>;
   }
 
