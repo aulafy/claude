@@ -30,22 +30,25 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "ProfilePage",
-      "@id": `${SITE_URL}/sobre-ramon-guillamon#profile`,
-      url: `${SITE_URL}/sobre-ramon-guillamon`,
-      name: "Ramón Guillamón — Autor de Aulafy",
-      inLanguage: "es",
-      about: { "@id": `${SITE_URL}/#author` },
-      isPartOf: { "@id": `${SITE_URL}/#website` },
-    },
-    {
+  "@type": "ProfilePage",
+  "@id": `${SITE_URL}/sobre-ramon-guillamon#profile`,
+  url: `${SITE_URL}/sobre-ramon-guillamon`,
+  name: "Ramón Guillamón — Autor de Aulafy",
+  description: "Perfil de Ramón Guillamón, autor y editor de los cursos prácticos de inteligencia artificial de Aulafy.",
+  inLanguage: "es",
+  dateModified: "2026-07-11",
+  isPartOf: { "@id": `${SITE_URL}/#website` },
+  mainEntity: {
       "@type": "Person",
       "@id": `${SITE_URL}/#author`,
       name: "Ramón Guillamón",
+      alternateName: "@learntouseai",
+      identifier: "ramon-guillamon",
+      description: "Autor y editor de Aulafy, especializado en formación práctica sobre IA open source, agentes, IA local, RAG y automatización.",
+      jobTitle: "Autor y editor de cursos de inteligencia artificial",
       email: "contacto@aulafy.net",
       url: `${SITE_URL}/sobre-ramon-guillamon`,
+      worksFor: { "@id": `${SITE_URL}/#organization`, name: "Aulafy" },
       sameAs: [
         "https://www.linkedin.com/in/rguillamon/",
         "https://x.com/learntouseai",
@@ -63,8 +66,7 @@ const jsonLd = {
         "Seguridad LLM",
         "MLOps LLM",
       ],
-    },
-  ],
+  },
 };
 
 export default function SobreRamon() {

@@ -27,13 +27,32 @@ const leccionesClaudeCode = [
   "comparativa",
 ];
 
+const legacyCourseSlugs = [
+  "codex-programadores",
+  "claude-code",
+  "ia-local",
+  "ia-generativa",
+  "videojuegos-3d-ia",
+  "seguridad-evals",
+  "mlops-local",
+  "fine-tuning-local",
+  "agentes-automatizacion",
+  "agentes-produccion",
+  "automatizacion-self-hosted",
+  "rag-seguro",
+  "ia-pymes",
+];
+
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   async redirects() {
     return [
       // La guía y el Volumen II ahora son cursos.
       { source: "/guia", destination: "/cursos/claude-code", permanent: true },
-      { source: "/course/:path*", destination: "/", permanent: true },
+      ...legacyCourseSlugs.flatMap((slug) => [
+        { source: `/course/${slug}`, destination: `/cursos/${slug}`, permanent: true },
+        { source: `/course/${slug}/:lesson`, destination: `/cursos/${slug}/:lesson`, permanent: true },
+      ]),
       { source: "/volumen-2", destination: "/cursos/ia-local", permanent: true },
       { source: "/volumen-2/:leccion", destination: "/cursos/ia-local/:leccion", permanent: true },
       ...leccionesClaudeCode.map((slug) => ({
