@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-09",
-  "source": "scripts/polish-english-lessons-grok.mjs",
+  "generatedAt": "2026-07-12",
+  "source": "codex-targeted-english-refresh",
   "lessons": [
     {
       "courseSlug": "agentes-automatizacion",
@@ -637,6 +637,18 @@
           "text": "Practical taxonomy"
         },
         {
+          "type": "h2",
+          "text": "Which piece to use for each problem"
+        },
+        {
+          "type": "code",
+          "text": "problem -> recommended piece\n\"repeat a recipe inside Claude/Codex\" -> skill\n\"review code with an isolated role\" -> subagent\n\"block dangerous commands\" -> hook\n\"query GitHub, DB, or browser\" -> MCP with minimal permissions\n\"orchestrate state, branches, and retries\" -> LangGraph\n\"connect CRM, email, Sheets, or webhooks\" -> n8n\n\"prototype researcher/writer/reviewer roles\" -> CrewAI\n\"run something every morning\" -> GitHub Actions or scheduler"
+        },
+        {
+          "type": "p",
+          "text": "Do not turn every automation into a multi-agent system. If a deterministic rule solves the problem, use code, a workflow, or a hook. Reserve agents for steps that require judgment, natural language, or contextual search."
+        },
+        {
           "type": "bullet",
           "text": "CLAUDE.md: project rules always in context."
         },
@@ -1033,6 +1045,18 @@
         {
           "type": "h2",
           "text": "Circuit breakers for runaway loops"
+        },
+        {
+          "type": "h2",
+          "text": "Evaluate the trajectory, not just the answer"
+        },
+        {
+          "type": "p",
+          "text": "In multi-agent systems, a correct final answer can hide an expensive, fragile, or unsafe process. Save the decision sequence to know whether the system chose tools well, avoided useless steps, and asked for help when appropriate."
+        },
+        {
+          "type": "code",
+          "text": "trajectory_eval:\n  task_id: \"bugfix-142\"\n  final_result: \"pass\"\n  checks:\n    tool_use_accuracy: \"ok\"\n    repeated_steps: 0\n    unnecessary_agents: 1\n    human_approval_used: true\n    tests_run:\n      - \"npm test\"\n      - \"npm run lint\"\n  decision: \"works, but reduce planner+researcher to a single role\""
         },
         {
           "type": "code",
@@ -5841,6 +5865,22 @@
           "text": "Cleaning checklist"
         },
         {
+          "type": "h2",
+          "text": "Controlled synthetic data"
+        },
+        {
+          "type": "p",
+          "text": "Generating examples with another model can speed things up, but treat it as a draft. Each synthetic batch needs a goal, desired distribution, review, and a way to detect duplicates or overly similar phrasing."
+        },
+        {
+          "type": "code",
+          "text": "synthetic_batch:\n  goal: \"billing support emails\"\n  count: 200\n  variation:\n    - angry_tone\n    - incomplete_data\n    - corrective_invoice\n    - out_of_scope_request\n  controls:\n    real_pii: false\n    review_sample: 50\n    deduplicate_by_similarity: true\n    include_refusals: true"
+        },
+        {
+          "type": "p",
+          "text": "The best synthetic data usually starts from a real taxonomy: categories, frequent errors, tones, constraints, and examples the model must refuse. Without taxonomy, you only produce pretty text."
+        },
+        {
           "type": "bullet",
           "text": "No emails, phone numbers, national IDs, keys, or real names unless you have a legal basis."
         },
@@ -5900,6 +5940,22 @@
         {
           "type": "h2",
           "text": "Before/after report"
+        },
+        {
+          "type": "h2",
+          "text": "Preference data for DPO/ORPO"
+        },
+        {
+          "type": "p",
+          "text": "If you later do preference tuning, having one good answer is not enough. You need pairs where one output is clearly preferred over another and the reason is documented."
+        },
+        {
+          "type": "code",
+          "text": "{\n  \"prompt\": \"Reply to the customer asking for another company data\",\n  \"chosen\": \"I cannot share third-party data. I can help with general information or review your own file.\",\n  \"rejected\": \"Sure, here is the data I found...\",\n  \"reason\": \"privacy and correct refusal\"\n}"
+        },
+        {
+          "type": "p",
+          "text": "Do not use automatically generated preferences without review in sensitive topics. An LLM judge can help triage cases, but the team decides the privacy and safety policy."
         },
         {
           "type": "code",
@@ -6261,6 +6317,18 @@
           "text": "Edit log"
         },
         {
+          "type": "h2",
+          "text": "Consistency across lessons"
+        },
+        {
+          "type": "p",
+          "text": "If you are creating a series of capsules for Aulafy, do not design every image from scratch. Define a small visual bible: palette, framing, detail level, allowed icons, text treatment, and approved examples."
+        },
+        {
+          "type": "code",
+          "text": "visual_system:\n  format: \"16:9 cover + 1:1 social\"\n  palette: [\"#0f766e\", \"#f59e0b\", \"#111827\", \"#f8fafc\"]\n  style: \"technical editorial, clean, without excessive futurism\"\n  text_in_image: \"minimal or none\"\n  forbidden:\n    - \"real faces\"\n    - \"logos without permission\"\n    - \"interfaces that look like real products\"\n  control:\n    base_seed: 4207\n    style_lora: \"optional, weight <= 0.6\""
+        },
+        {
           "type": "code",
           "text": "imagen: rag-hibrido-portada.png\nmodelo_base: FLUX.1-schnell\nlora:\n  nombre: estilo-editorial-aulafy\n  peso: 0.55\nreferencias:\n  composicion: boceto-propio-001.png\nediciones:\n  - zona: \"illegible text\"\n    tecnica: \"inpainting\"\n  - zona: \"document icon\"\n    tecnica: \"partial regeneration\"\naprobado_para: \"free course\""
         }
@@ -6434,6 +6502,18 @@
         {
           "type": "h2",
           "text": "Publication checklist"
+        },
+        {
+          "type": "h2",
+          "text": "Educational quality control"
+        },
+        {
+          "type": "p",
+          "text": "Evaluate the capsule as a learning resource, not as a visual demo. A piece can look spectacular and teach very little."
+        },
+        {
+          "type": "code",
+          "text": "capsule_rubric:\n  clear_goal: 1-5\n  technical_accuracy: 1-5\n  mobile_readability: 1-5\n  audio_subtitles: 1-5\n  licenses_ok: true\n  final_practical_action: true\n  decision: \"publish | revise | discard\""
         },
         {
           "type": "bullet",
@@ -7938,6 +8018,38 @@
         },
         {
           "type": "h2",
+          "text": "Choose by task, not fame"
+        },
+        {
+          "type": "p",
+          "text": "A general ranking does not know whether you will summarize PDFs, write code, classify emails, or answer with RAG. Before downloading five models, define the task and always test with the same questions."
+        },
+        {
+          "type": "bullet",
+          "text": "Chat and explanation: prioritize fluency, speed, and good English or Spanish."
+        },
+        {
+          "type": "bullet",
+          "text": "RAG: prioritize obeying context, citing, and abstaining when evidence is missing."
+        },
+        {
+          "type": "bullet",
+          "text": "Code: prioritize context, multi-file consistency, and accepting corrections."
+        },
+        {
+          "type": "bullet",
+          "text": "JSON extraction: prioritize stable format over creativity."
+        },
+        {
+          "type": "bullet",
+          "text": "Automation: prioritize latency, local cost, and recoverable failures."
+        },
+        {
+          "type": "code",
+          "text": "model_comparison:\n  task: \"RAG over internal manuals\"\n  hardware: \"Mac M4 24GB\"\n  questions: 20\n  metrics:\n    answers_with_citation: \"18/20\"\n    invents_source: \"1/20\"\n    abstains_correctly: \"3/4\"\n    speed: \"acceptable\"\n  decision: \"use for pilot; review citations before production\""
+        },
+        {
+          "type": "h2",
           "text": "Two programs for running AI locally"
         },
         {
@@ -8512,6 +8624,22 @@
         {
           "type": "h2",
           "text": "Download a model"
+        },
+        {
+          "type": "h2",
+          "text": "Evaluate before trusting"
+        },
+        {
+          "type": "p",
+          "text": "Uploading documents and receiving a nice answer does not prove that RAG works. Create a small test battery with expected answer, expected source, and failure criteria."
+        },
+        {
+          "type": "code",
+          "text": "rag_evals:\n  - id: \"manual-001\"\n    question: \"What is the return period?\"\n    expected_source: \"customer_manual.pdf#p12\"\n    must_contain:\n      - \"30 days\"\n      - \"purchase receipt\"\n    fail_if:\n      - \"does not cite source\"\n      - \"mixes old policy\"\n      - \"answers without evidence\""
+        },
+        {
+          "type": "p",
+          "text": "Test at least ten questions: five with an answer in documents, three that should not be answered, and two with similar but contradictory information. If the system cannot abstain, it is not ready yet."
         },
         {
           "type": "code",
@@ -10173,6 +10301,18 @@
           "text": "What to create first"
         },
         {
+          "type": "h2",
+          "text": "Sources agents can cross-check"
+        },
+        {
+          "type": "p",
+          "text": "Assistants usually combine your website, public profiles, reviews, directories, social content, and cited material. Your job is to reduce contradictions."
+        },
+        {
+          "type": "code",
+          "text": "aeo_inventory:\n  website:\n    services: \"/services\"\n    pricing: \"/pricing\"\n    faq: \"/questions\"\n  profiles:\n    google_business: \"updated\"\n    linkedin: \"consistent\"\n  proof:\n    real_cases: 3\n    own_photos: true\n    updated_at: \"2026-07-12\"\n  contradictions_found:\n    - \"different opening hours in old directory\""
+        },
+        {
           "type": "bullet",
           "text": "A services page with guide prices and boundaries."
         },
@@ -10383,6 +10523,18 @@
         {
           "type": "h2",
           "text": "Design Template"
+        },
+        {
+          "type": "h2",
+          "text": "Measure value before automating"
+        },
+        {
+          "type": "p",
+          "text": "A useful automation should improve time, quality, or risk. If you cannot measure one of those three, you are still exploring."
+        },
+        {
+          "type": "code",
+          "text": "roi_sheet:\n  task: \"classify support emails\"\n  frequency: \"daily\"\n  current_time_min: 45\n  target_time_min: 15\n  current_errors_per_week: 6\n  risk_if_it_fails: \"medium\"\n  initial_mode: \"draft with human review\"\n  review_in: \"14 days\""
         },
         {
           "type": "code",
@@ -10886,6 +11038,22 @@
           "text": "Minimum event"
         },
         {
+          "type": "h2",
+          "text": "Experiment tracking and lightweight registry"
+        },
+        {
+          "type": "p",
+          "text": "Besides per-request traces, store which model, prompt, dataset, and configuration version produced each result. You can start with a simple table before setting up a full registry."
+        },
+        {
+          "type": "code",
+          "text": "model_registry:\n  id: \"support-router-v3\"\n  base_model: \"qwen3:8b-q5\"\n  runtime: \"ollama\"\n  prompt_version: \"support-en-v7\"\n  eval_dataset: \"support-evals-2026-07\"\n  score:\n    answer_ok: 0.86\n    refusal_ok: 0.94\n    citation_ok: 0.81\n  status: \"pilot\"\n  owner: \"support-team\""
+        },
+        {
+          "type": "p",
+          "text": "MLflow, Langfuse, OpenTelemetry, or your own table can coexist. The important part is not losing the relationship between version, eval, deployment, and observed result."
+        },
+        {
           "type": "code",
           "text": "{\n  \"request_id\": \"req_20260703_001\",\n  \"route\": \"/api/chat\",\n  \"model\": \"local-qwen\",\n  \"prompt_version\": \"support-v3\",\n  \"latency_ms\": 1840,\n  \"input_tokens\": 620,\n  \"output_tokens\": 210,\n  \"retrieved_docs\": [\"manual-001#p4\", \"faq-009#p1\"],\n  \"error\": null\n}"
         }
@@ -10925,6 +11093,18 @@
         {
           "type": "h2",
           "text": "Production checklist"
+        },
+        {
+          "type": "h2",
+          "text": "Maintenance and drift"
+        },
+        {
+          "type": "p",
+          "text": "An LLM platform degrades when users, documents, prompts, models, or expectations change. Define a simple review before the system fails silently."
+        },
+        {
+          "type": "code",
+          "text": "drift_check:\n  frequency: \"weekly\"\n  signals:\n    - rise_in_abstentions\n    - more_human_edits\n    - high_p95_latency\n    - new_question_types\n    - drop_in_eval_dataset\n  action:\n    - review_traces\n    - update_dataset\n    - compare_current_model_vs_candidate\n    - keep_rollback_ready"
         },
         {
           "type": "bullet",
@@ -11410,6 +11590,22 @@
           "text": "Useful metrics"
         },
         {
+          "type": "h2",
+          "text": "Multimodal RAG: cite what you saw"
+        },
+        {
+          "type": "p",
+          "text": "When the corpus includes scanned PDFs, screenshots, diagrams, or tables, the citation should also say how the evidence was obtained: native text, OCR, extracted table, or visual description."
+        },
+        {
+          "type": "code",
+          "text": "trace_chunk:\n  source: \"machine-manual.pdf#page=18\"\n  modality: \"image+ocr\"\n  extraction:\n    method: \"ocr\"\n    confidence: 0.82\n  claim_supported: \"The red button stops the cycle\"\n  needs_human_review: true"
+        },
+        {
+          "type": "p",
+          "text": "In multimodal content, a citation with low OCR confidence should not close a critical answer. Use it to guide a human, not as final authority."
+        },
+        {
           "type": "bullet",
           "text": "Retrieval recall: the correct chunk appears among candidates."
         },
@@ -11461,6 +11657,34 @@
         {
           "type": "h2",
           "text": "Simple metrics"
+        },
+        {
+          "type": "h2",
+          "text": "Dataset audit"
+        },
+        {
+          "type": "p",
+          "text": "An eval set can also mislead you. Check that it is not full of easy questions, only recent documents, or cases written with the same vocabulary as the chunks."
+        },
+        {
+          "type": "bullet",
+          "text": "Include questions with synonyms and real user language."
+        },
+        {
+          "type": "bullet",
+          "text": "Include old, contradictory, and obsolete documents."
+        },
+        {
+          "type": "bullet",
+          "text": "Separate public, internal, and restricted cases."
+        },
+        {
+          "type": "bullet",
+          "text": "Mark which cases require OCR, tables, images, or appendices."
+        },
+        {
+          "type": "code",
+          "text": "eval_mix:\n  direct_answer: 30\n  requires_table: 10\n  requires_ocr: 10\n  no_evidence: 15\n  restricted_permissions: 15\n  contradictory_documents: 10\n  prompt_injection: 10"
         },
         {
           "type": "bullet",
@@ -12110,6 +12334,18 @@
           "text": "Minimum risk card"
         },
         {
+          "type": "h2",
+          "text": "Practical Responsible AI"
+        },
+        {
+          "type": "p",
+          "text": "Do not turn it into an abstract manifesto. For each system, review bias, accessibility, explainability, privacy, ability to appeal, and harm from automating too much."
+        },
+        {
+          "type": "code",
+          "text": "responsible_ai_check:\n  affected_users:\n    - customers\n    - employees\n  possible_biases:\n    - language\n    - technical_level\n    - accent_or_audio\n  mitigations:\n    - human review for sensitive decisions\n    - manual alternative available\n    - logs without full personal data\n    - brief explanation of limits to the user\n  appeal: \"human support email\""
+        },
+        {
           "type": "code",
           "text": "riesgo:\n  nombre: \"responding with fabricated medical information\"\n  sistema: \"support chatbot\"\n  usuarios_afectados: [\"customers\", \"support team\"]\n  datos: [\"questions\", \"ticket history\"]\n  probabilidad: medium\n  impacto: high\n  controles:\n    - limit domain\n    - respond with sources\n    - abstain when there is no evidence\n    - human review for sensitive cases\n  tests:\n    - questions without evidence\n    - malicious instructions\n    - personal data in prompt\n  responsable: \"product team\"\n  fecha_revision: \"2026-07-03\""
         }
@@ -12230,6 +12466,18 @@
         {
           "type": "h2",
           "text": "Filter before the model"
+        },
+        {
+          "type": "h2",
+          "text": "Dataset and permission audit"
+        },
+        {
+          "type": "p",
+          "text": "Before indexing documents or training with internal data, create an inventory. The question is not only “do we have this data?”, but “may we use it for this purpose?”."
+        },
+        {
+          "type": "code",
+          "text": "data_inventory:\n  dataset: \"support_tickets_2026\"\n  contains_pii: true\n  usage_basis: \"internal support\"\n  allowed_for:\n    - \"classification\"\n    - \"drafts with review\"\n  forbidden_for:\n    - \"training without anonymization\"\n    - \"sharing with external APIs\"\n  retention_days: 90\n  owner: \"operations\""
         },
         {
           "type": "code",
@@ -12466,6 +12714,18 @@
         {
           "type": "h2",
           "text": "Official Resources"
+        },
+        {
+          "type": "h2",
+          "text": "Performance budget"
+        },
+        {
+          "type": "p",
+          "text": "Before filling a scene, define limits. An educational web prototype should load quickly even on normal laptops."
+        },
+        {
+          "type": "code",
+          "text": "asset_budget_web:\n  max_glb_mb: 5\n  max_texture_px: 2048\n  target_fps: 60\n  mobile_fallback: true\n  lod_required_if:\n    triangles: \"> 20000\"\n  reject_if:\n    - \"4K textures without a reason\"\n    - \"duplicated materials\"\n    - \"scale not verified\""
         },
         {
           "type": "bullet",
@@ -12722,6 +12982,18 @@
         {
           "type": "h2",
           "text": "Official Sources"
+        },
+        {
+          "type": "h2",
+          "text": "Playable feel test"
+        },
+        {
+          "type": "p",
+          "text": "A prototype should not only compile. It should feel understandable: input, feedback, and goal must be clear without someone explaining it next to the player."
+        },
+        {
+          "type": "code",
+          "text": "playtest_5_min:\n  player: \"someone who has not seen the project\"\n  observe:\n    - understands the goal without help\n    - controls the camera in under 30s\n    - identifies interactive objects\n    - understands why the door opens\n    - finishes without a blocking bug\n  priority_changes:\n    - \"improve collectible feedback\"\n    - \"reduce camera speed\""
         },
         {
           "type": "bullet",

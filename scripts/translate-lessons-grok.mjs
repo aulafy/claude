@@ -151,7 +151,7 @@ function validate(original, translated) {
 }
 
 function loadExisting() {
-  if (!fs.existsSync(outputPath) || force) {
+  if (!fs.existsSync(outputPath)) {
     return { generatedAt: "", source: "scripts/translate-lessons-grok.mjs", lessons: [] };
   }
   return JSON.parse(fs.readFileSync(outputPath, "utf8"));
