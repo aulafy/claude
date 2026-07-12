@@ -67,6 +67,29 @@ export default function Page() {
 
       <Idea>Regla sencilla: <strong>empieza pequeño</strong>. Un modelo de 4B que responde al instante es más útil para aprender que uno enorme que va a trompicones. Cuando domines el flujo, sube de tamaño y compara.</Idea>
 
+      <div className="prose">
+        <h2>Elige por tarea, no por fama</h2>
+        <p>Un ranking general no sabe si vas a resumir PDFs, escribir código, clasificar emails o responder con RAG. Antes de descargar cinco modelos, define la tarea y prueba siempre con las mismas preguntas.</p>
+        <ul>
+          <li><strong>Chat y explicación:</strong> prioriza fluidez, rapidez y buen español.</li>
+          <li><strong>RAG:</strong> prioriza obedecer contexto, citar y abstenerse cuando falta evidencia.</li>
+          <li><strong>Código:</strong> prioriza contexto, consistencia multiarchivo y que acepte correcciones.</li>
+          <li><strong>Extracción JSON:</strong> prioriza formato estable por encima de creatividad.</li>
+          <li><strong>Automatización:</strong> prioriza latencia, coste local y fallos recuperables.</li>
+        </ul>
+      </div>
+
+      <Terminal>{`# ficha mínima para comparar modelos
+tarea: "RAG de manuales internos"
+hardware: "Mac M4 24GB"
+preguntas: 20
+metricas:
+  responde_con_cita: "18/20"
+  inventa_fuente: "1/20"
+  se_abstiene_bien: "3/4"
+  velocidad: "aceptable"
+decision: "usar para piloto; revisar citas antes de producción"`}</Terminal>
+
       <Cristiano term="¿y un PC sin GPU potente, o un Mac?">
         Los <strong>Mac con chip M</strong> (Apple Silicon) ejecutan modelos sorprendentemente bien gracias a su memoria unificada; Ollama los aprovecha automáticamente. En un <strong>PC con tarjeta NVIDIA RTX</strong>, el modelo corre en la GPU y vuela. Y equipos nuevos tipo <strong>NVIDIA DGX Spark</strong> están pensados justo para esto. Sin GPU, funciona igual pero más despacio: usa modelos pequeños.
       </Cristiano>
@@ -85,7 +108,7 @@ ollama run qwen3:4b "Explícame qué es la energía solar en dos frases"`}</Term
 
       <div className="prose">
         <h2>Reto para practicar</h2>
-        <p>Descarga dos modelos de distinto tamaño (por ejemplo <code>qwen3:4b</code> y un Gemma). Hazles la misma pregunta con <code>ollama run</code> y compara la calidad y la velocidad. Así aprendes a elegir el equilibrio que te conviene.</p>
+        <p>Descarga dos modelos de distinto tamaño (por ejemplo <code>qwen3:4b</code> y un Gemma). Hazles cinco preguntas iguales: una fácil, una con instrucciones largas, una que requiera JSON, una con texto inventado que debe rechazar y una de tu caso real. Así aprendes a elegir el equilibrio que te conviene.</p>
       </div>
 
       <ChapterNav prev={{ href: "/cursos/ia-local/prompts", label: "Escribir buenos encargos" }} next={{ href: "/cursos/ia-local/conectar-ollama", label: "Conecta Claude Code con tu IA local" }} />

@@ -113,6 +113,27 @@ docker exec -it aulafy-ollama ollama run qwen3:4b`}</Terminal>
         Para muchos portátiles, conviene ejecutar Ollama nativo fuera de Docker y dejar Docker solo para Open WebUI y Qdrant. Si el rendimiento GPU falla en Docker, prueba esa arquitectura híbrida.
       </Idea>
 
+      <div className="prose">
+        <h2>Evalúa antes de confiar</h2>
+        <p>Subir documentos y recibir una respuesta bonita no demuestra que el RAG funcione. Crea una mini batería de preguntas con respuesta esperada, fuente esperada y criterio de fallo.</p>
+      </div>
+
+      <Terminal>{`evals_rag:
+  - id: "manual-001"
+    pregunta: "¿Cuál es el plazo de devolución?"
+    fuente_esperada: "manual_cliente.pdf#p12"
+    debe_contener:
+      - "30 días"
+      - "ticket de compra"
+    fallo_si:
+      - "no cita fuente"
+      - "mezcla política antigua"
+      - "responde sin evidencia"`}</Terminal>
+
+      <Comprueba>
+        Prueba al menos diez preguntas: cinco con respuesta en documentos, tres que no deberían responderse y dos con información parecida pero contradictoria. Si el sistema no sabe abstenerse, todavía no está listo.
+      </Comprueba>
+
       <Cuidado>
         Este compose es para laboratorio local. Si lo expones a internet, necesitas autenticación fuerte, HTTPS, backups, actualizaciones y revisar permisos. No publiques Qdrant abierto.
       </Cuidado>
@@ -129,7 +150,7 @@ docker compose up -d
 docker compose down`}</Terminal>
 
       <Guardar>
-        Este stack es tu laboratorio de IA local: Open WebUI para conversar, Ollama para modelos y Qdrant para RAG. Guárdalo como plantilla y crea una copia por proyecto importante.
+        Este stack es tu laboratorio de IA local: Open WebUI para conversar, Ollama para modelos y Qdrant para RAG. Guárdalo como plantilla junto con una batería de evals; sin preguntas de control, cada cambio de modelo o documentos será una apuesta.
       </Guardar>
 
       <ChapterNav

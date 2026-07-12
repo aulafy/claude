@@ -119,6 +119,26 @@ Corregir validación de email sin cambiar contratos públicos.
         Haz un ensayo con una tarea pequeña y una tool falsa que falla. El sistema debe parar, explicar el bloqueo y no repetir la misma llamada hasta agotar recursos.
       </Comprueba>
 
+      <div className="prose">
+        <h2>Evalúa la trayectoria, no solo la respuesta</h2>
+        <p>
+          En multiagente, una respuesta final correcta puede esconder un proceso caro, frágil o inseguro. Guarda la secuencia de decisiones para saber si el sistema eligió bien las herramientas, evitó pasos inútiles y pidió ayuda cuando tocaba.
+        </p>
+      </div>
+
+      <Terminal>{`trajectory_eval:
+  task_id: "bugfix-142"
+  final_result: "pass"
+  checks:
+    tool_use_accuracy: "ok"
+    repeated_steps: 0
+    unnecessary_agents: 1
+    human_approval_used: true
+    tests_run:
+      - "npm test"
+      - "npm run lint"
+  decision: "funciona, pero reducir planner+researcher a un solo rol"`}</Terminal>
+
       <Guardar>
         El mejor multi-agente local es pequeño, observable y aburrido: roles estrechos, memoria breve, límites duros y una salida clara cuando no sabe avanzar.
       </Guardar>

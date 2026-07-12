@@ -61,6 +61,24 @@ limites:
         La mayoría de agentes buenos son aburridos por diseño: hacen pocas cosas, las registran bien y piden permiso antes de tocar algo irreversible.
       </Idea>
 
+      <div className="prose">
+        <h2>Qué pieza usar según el problema</h2>
+      </div>
+
+      <Terminal>{`problema -> pieza recomendable
+"repetir una receta dentro de Claude/Codex" -> skill
+"revisar código con rol aislado" -> subagente
+"bloquear comandos peligrosos" -> hook
+"consultar GitHub, DB o navegador" -> MCP con permisos mínimos
+"orquestar estado, ramas y reintentos" -> LangGraph
+"conectar CRM, email, Sheets o webhooks" -> n8n
+"prototipar roles investigador/redactor/revisor" -> CrewAI
+"ejecutar algo cada mañana" -> GitHub Actions o scheduler`}</Terminal>
+
+      <Cuidado>
+        No conviertas cada automatización en multiagente. Si una regla determinista resuelve el problema, usa código, workflow o hook. Reserva agentes para pasos donde haga falta criterio, lenguaje natural o búsqueda contextual.
+      </Cuidado>
+
       <Cuidado>
         Si no puedes explicar qué herramientas puede usar, qué datos ve y cuándo debe parar, todavía no tienes un agente: tienes una conversación larga con permisos de más.
       </Cuidado>
