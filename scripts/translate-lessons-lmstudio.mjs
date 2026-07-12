@@ -15,7 +15,7 @@ for (const arg of process.argv.slice(2)) {
 }
 
 const endpoint = args.get("endpoint") || "http://127.0.0.1:1234/v1/chat/completions";
-const model = args.get("model") || "google/gemma-4-12b-qat";
+const model = args.get("model") || "translategemma-4b-it";
 const onlyCourse = args.get("course");
 const lessonFilter = new Set((args.get("lessons") || "").split(",").map((item) => item.trim()).filter(Boolean));
 const timeoutMs = Number(args.get("timeout") || 180000);

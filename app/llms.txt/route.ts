@@ -32,7 +32,7 @@ ${catalog}
 - Autor y editor: Ramón Guillamón — ${SITE_URL}/sobre-ramon-guillamon
 - Fuentes oficiales: ${SITE_URL}/fuentes
 - Licencia de contenido: CC BY 4.0
-- Código: MIT — https://github.com/raym33/claude
+- Código: MIT — https://github.com/aulafy/claude
 - Última revisión editorial global: ${educationalReviewDate}
 
 ## Índices

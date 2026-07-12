@@ -103,7 +103,7 @@ const fuentes = [
   {
     area: "Agentes y automatización",
     links: [
-      { name: "R CLI by Ramón Guillamón", href: "https://github.com/raym33/r" },
+      { name: "R CLI by Ramón Guillamón", href: "https://github.com/aulafy/r" },
       { name: "Hermes Agent Docs", href: "https://hermes-agent.nousresearch.com/docs/" },
       { name: "Hermes Skills System", href: "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills" },
       { name: "Hermes Mixture of Agents", href: "https://hermes-agent.nousresearch.com/docs/user-guide/features/mixture-of-agents" },

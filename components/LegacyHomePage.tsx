@@ -409,7 +409,7 @@ export default function LegacyHomePage() {
               Cookies
             </Link>
             <a
-              href="https://github.com/raym33/claude"
+              href="https://github.com/aulafy/claude"
               target="_blank"
               rel="noopener noreferrer"
               className="text-xs hover:text-white transition-colors"

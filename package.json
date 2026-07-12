@@ -9,6 +9,7 @@
     "start": "next start",
     "lint": "eslint",
     "verify-content": "node scripts/verify-content.mjs",
+    "verify-links": "node scripts/verify-main-links.mjs",
     "audit-education": "node --experimental-strip-types scripts/audit-education.mjs",
     "test:content": "node scripts/verify-content.mjs",
     "test:education": "node --experimental-strip-types scripts/audit-education.mjs",

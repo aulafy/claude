@@ -213,7 +213,7 @@
         },
         {
           "type": "code",
-          "text": "# Try the real R as a reference\ngit clone https://github.com/raym33/r.git\ncd r\npython -m venv .venv\nsource .venv/bin/activate\npython -m pip install -e \".[dev]\"\n\n# Local model\nollama pull qwen2.5:7b\nollama serve\n\n# Minimal configuration\nmkdir -p ~/.r-cli\ncat > ~/.r-cli/config.yaml <<'YAML'\nllm:\n  backend: ollama\n  model: qwen2.5:7b\n  base_url: http://127.0.0.1:11434/v1\n\nsecurity:\n  local_only: true\n  network_access: false\n  mode: ask\nYAML\n\nr doctor\nr chat \"Summarize this repository in 5 points\""
+          "text": "# Try the real R as a reference\ngit clone https://github.com/aulafy/r.git\ncd r\npython -m venv .venv\nsource .venv/bin/activate\npython -m pip install -e \".[dev]\"\n\n# Local model\nollama pull qwen2.5:7b\nollama serve\n\n# Minimal configuration\nmkdir -p ~/.r-cli\ncat > ~/.r-cli/config.yaml <<'YAML'\nllm:\n  backend: ollama\n  model: qwen2.5:7b\n  base_url: http://127.0.0.1:11434/v1\n\nsecurity:\n  local_only: true\n  network_access: false\n  mode: ask\nYAML\n\nr doctor\nr chat \"Summarize this repository in 5 points\""
         },
         {
           "type": "h2",
@@ -389,11 +389,11 @@
         },
         {
           "type": "h3",
-          "text": "Do I need to use the raym33/r repo to follow the tutorial"
+          "text": "Do I need to use the aulafy/r repo to follow the tutorial"
         },
         {
           "type": "p",
-          "text": "No. The lesson shows how to try raym33/r as a reference and then build a minimal educational version from scratch."
+          "text": "No. The lesson shows how to try aulafy/r as a reference and then build a minimal educational version from scratch."
         },
         {
           "type": "h3",
@@ -409,7 +409,7 @@
         },
         {
           "type": "bullet",
-          "text": "raym33/r on GitHub"
+          "text": "aulafy/r on GitHub"
         },
         {
           "type": "bullet",
@@ -9891,7 +9891,7 @@
         },
         {
           "type": "code",
-          "text": "git clone https://github.com/raym33/lexia.git\ncd lexia\ncp .env.example .env\nnpm start"
+          "text": "git clone https://github.com/aulafy/lexia.git\ncd lexia\ncp .env.example .env\nnpm start"
         },
         {
           "type": "p",

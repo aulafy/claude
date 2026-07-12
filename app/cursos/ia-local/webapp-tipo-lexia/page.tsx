@@ -65,7 +65,7 @@ export default function Page() {
       </div>
 
       <Nota title="Repositorio de referencia">
-        Puedes estudiar el patrón completo en <a href="https://github.com/raym33/lexia">github.com/raym33/lexia</a>. En esta lección lo usamos como inspiración práctica: <code>public/</code> para la interfaz, <code>server.mjs</code> para la API, <code>ingest.mjs</code> para preparar corpus y <code>embed.mjs</code> para generar embeddings.
+        Puedes estudiar el patrón completo en <a href="https://github.com/aulafy/lexia">github.com/aulafy/lexia</a>. En esta lección lo usamos como inspiración práctica: <code>public/</code> para la interfaz, <code>server.mjs</code> para la API, <code>ingest.mjs</code> para preparar corpus y <code>embed.mjs</code> para generar embeddings.
       </Nota>
 
       <div className="prose">
@@ -102,7 +102,7 @@ Límites: no inventar temario ni calificaciones`}</Terminal>
         <p>Para aprender el patrón desde Lexia, clona el repositorio y arráncalo en local:</p>
       </div>
 
-      <Terminal>{`git clone https://github.com/raym33/lexia.git
+      <Terminal>{`git clone https://github.com/aulafy/lexia.git
 cd lexia
 cp .env.example .env
 npm start`}</Terminal>
@@ -301,7 +301,7 @@ vercel deploy`}</Terminal>
       </Nota>
 
       <Nota title="Fuentes y repositorios para contrastar">
-        Revisa el repositorio de referencia <a href="https://github.com/raym33/lexia">raym33/lexia</a>, la documentación oficial de <a href="https://lmstudio.ai/docs">LM Studio</a>, <a href="https://docs.ollama.com/">Ollama</a>, <a href="https://qdrant.tech/documentation/">Qdrant</a> y <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/">OWASP Top 10 for LLM Applications</a> antes de usar este patrón con datos reales.
+        Revisa el repositorio de referencia <a href="https://github.com/aulafy/lexia">aulafy/lexia</a>, la documentación oficial de <a href="https://lmstudio.ai/docs">LM Studio</a>, <a href="https://docs.ollama.com/">Ollama</a>, <a href="https://qdrant.tech/documentation/">Qdrant</a> y <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/">OWASP Top 10 for LLM Applications</a> antes de usar este patrón con datos reales.
       </Nota>
 
       <Guardar>

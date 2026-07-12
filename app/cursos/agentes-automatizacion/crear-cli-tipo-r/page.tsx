@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   keywords: [
     "crear CLI IA local",
     "crear CLI de agentes IA",
-    "R CLI raym33",
+    "R CLI Aulafy",
     "tutorial R CLI español",
     "agente IA local Python",
     "Python Click Rich Ollama",
@@ -87,7 +87,7 @@ export default function Page() {
         sourceOrganization: { "@id": `${SITE_URL}/#organization` },
         isPartOf: { "@id": `${SITE_URL}/cursos/agentes-automatizacion#learning-resource` },
         citation: [
-          "https://github.com/raym33/r",
+          "https://github.com/aulafy/r",
           "https://click.palletsprojects.com/",
           "https://rich.readthedocs.io/",
           "https://github.com/ollama/ollama/blob/main/docs/api.md",
@@ -121,10 +121,10 @@ export default function Page() {
           },
           {
             "@type": "Question",
-            name: "¿Necesito usar el repo raym33/r para seguir el tutorial?",
+            name: "¿Necesito usar el repo aulafy/r para seguir el tutorial?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "No. La lección muestra cómo probar raym33/r como referencia y después construir una versión mínima educativa desde cero.",
+              text: "No. La lección muestra cómo probar aulafy/r como referencia y después construir una versión mínima educativa desde cero.",
             },
           },
           {
@@ -171,7 +171,7 @@ export default function Page() {
       </Objetivos>
 
       <Cristiano term="R CLI">
-        R no es el lenguaje estadístico R. En este curso hablamos de <a href="https://github.com/raym33/r" target="_blank" rel="noopener noreferrer">raym33/r</a>: una capa local para ejecutar agentes de IA privados en tu propio ordenador.
+        R no es el lenguaje estadístico R. En este curso hablamos de <a href="https://github.com/aulafy/r" target="_blank" rel="noopener noreferrer">aulafy/r</a>: una capa local para ejecutar agentes de IA privados en tu propio ordenador.
       </Cristiano>
 
       <div className="prose">
@@ -198,7 +198,7 @@ export default function Page() {
       </div>
 
       <Terminal>{`# Probar el R real como referencia
-git clone https://github.com/raym33/r.git
+git clone https://github.com/aulafy/r.git
 cd r
 python -m venv .venv
 source .venv/bin/activate
@@ -640,9 +640,9 @@ filesystem_roots:
           Es una herramienta de terminal que ejecuta agentes de IA en tu propio ordenador, usando modelos locales,
           skills limitadas, permisos, auditoría, workflows y memoria persistente.
         </p>
-        <h3>Necesito usar el repo raym33/r para seguir el tutorial</h3>
+        <h3>Necesito usar el repo aulafy/r para seguir el tutorial</h3>
         <p>
-          No. La lección muestra cómo probar <code>raym33/r</code> como referencia y después construir una versión mínima educativa desde cero.
+          No. La lección muestra cómo probar <code>aulafy/r</code> como referencia y después construir una versión mínima educativa desde cero.
         </p>
         <h3>Qué tecnologías usa la versión mínima</h3>
         <p>
@@ -653,7 +653,7 @@ filesystem_roots:
       <div className="prose">
         <h2>Fuentes y proyecto base</h2>
         <ul>
-          <li><a href="https://github.com/raym33/r" target="_blank" rel="noopener noreferrer">raym33/r en GitHub</a></li>
+          <li><a href="https://github.com/aulafy/r" target="_blank" rel="noopener noreferrer">aulafy/r en GitHub</a></li>
           <li><a href="https://click.palletsprojects.com/" target="_blank" rel="noopener noreferrer">Click: documentación oficial</a></li>
           <li><a href="https://rich.readthedocs.io/" target="_blank" rel="noopener noreferrer">Rich: documentación oficial</a></li>
           <li><a href="https://github.com/ollama/ollama/blob/main/docs/api.md" target="_blank" rel="noopener noreferrer">Ollama API</a></li>

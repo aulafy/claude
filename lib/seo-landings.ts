@@ -1311,7 +1311,7 @@ export const seoLandings: SeoLanding[] = [
       "crear CLI agentes IA",
       "CLI IA local Python",
       "R CLI tutorial español",
-      "raym33 r cli",
+      "aulafy r cli",
       "Ollama agentes Python",
       "Click Rich IA local",
       "Agent OS SQLite",
@@ -1337,7 +1337,7 @@ export const seoLandings: SeoLanding[] = [
       {
         title: "Qué construyes paso a paso",
         body:
-          "La ruta se inspira en raym33/r, pero no exige copiarlo entero. Primero pruebas el proyecto real, luego creas una versión mínima educativa: paquete Python, comando instalable, cliente LLM, skills, auditoría, workflows YAML y SQLite para tareas.",
+          "La ruta se inspira en aulafy/r, pero no exige copiarlo entero. Primero pruebas el proyecto real, luego creas una versión mínima educativa: paquete Python, comando instalable, cliente LLM, skills, auditoría, workflows YAML y SQLite para tareas.",
         bullets: [
           "CLI con Click y salida cuidada con Rich.",
           "Configuración YAML local-first.",

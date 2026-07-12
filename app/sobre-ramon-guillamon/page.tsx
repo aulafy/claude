@@ -52,7 +52,7 @@ const jsonLd = {
       sameAs: [
         "https://www.linkedin.com/in/rguillamon/",
         "https://x.com/learntouseai",
-        "https://github.com/raym33/claude",
+        "https://github.com/aulafy/claude",
       ],
       knowsAbout: [
         "IA open source",
@@ -123,7 +123,7 @@ export default function SobreRamon() {
         <h2>Enlaces de confianza</h2>
         <p>
           Puedes revisar el código de la web en{" "}
-          <a href="https://github.com/raym33/claude" target="_blank" rel="noopener noreferrer">GitHub</a>,
+          <a href="https://github.com/aulafy/claude" target="_blank" rel="noopener noreferrer">GitHub</a>,
           el perfil profesional en{" "}
           <a href="https://www.linkedin.com/in/rguillamon/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           {" "}y las actualizaciones públicas en{" "}

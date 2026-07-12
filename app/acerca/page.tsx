@@ -85,7 +85,7 @@ export default function Acerca() {
         <h2>Código y licencias</h2>
         <p>
           El código de la web está disponible en{" "}
-          <a href="https://github.com/raym33/claude" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/aulafy/claude" target="_blank" rel="noopener noreferrer">
             GitHub
           </a>
           . El contenido se publica con licencia Creative Commons Attribution 4.0

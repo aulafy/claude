@@ -8,9 +8,16 @@ import { getEnglishLessonTitle } from "@/lib/english-lessons";
 import { pathForLocale, type Locale } from "@/lib/i18n";
 
 const copy = {
-  es: { open: "Buscar...", label: "Buscar en la guía", placeholder: "Buscar en la guía...", empty: "Sin resultados para", navigate: "navegar", openResult: "abrir" },
-  en: { open: "Search...", label: "Search lessons", placeholder: "Search lessons...", empty: "No results for", navigate: "navigate", openResult: "open" },
+  es: { open: "Buscar...", label: "Buscar en la guía", placeholder: "Buscar en la guía...", empty: "Sin resultados para", navigate: "navegar", openResult: "abrir", close: "Cerrar búsqueda" },
+  en: { open: "Search...", label: "Search lessons", placeholder: "Search lessons...", empty: "No results for", navigate: "navigate", openResult: "open", close: "Close search" },
 } satisfies Record<Locale, Record<string, string>>;
+
+function isMacPlatform() {
+  if (typeof navigator === "undefined") return true;
+  const nav = navigator as Navigator & { userAgentData?: { platform?: string } };
+  const platform = nav.userAgentData?.platform ?? nav.platform ?? "";
+  return /mac|iphone|ipad|ipod/i.test(platform);
+}
 
 function localizedSearchData(locale: Locale): SearchItem[] {
   if (locale === "es") return searchData;
@@ -43,6 +50,7 @@ export default function Search({ locale = "es" }: { locale?: Locale }) {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [active, setActive] = useState(0);
+  const [shortcut] = useState(() => (isMacPlatform() ? "⌘K" : "Ctrl+K"));
   const inputRef = useRef<HTMLInputElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
@@ -130,11 +138,15 @@ export default function Search({ locale = "es" }: { locale?: Locale }) {
       <button
         onClick={openSearch}
         ref={triggerRef}
+        type="button"
+        aria-haspopup="dialog"
+        aria-expanded={open}
+        aria-controls="aulafy-search-dialog"
         className="w-full flex items-center gap-2 px-3 py-2 rounded-lg border border-zinc-800 bg-zinc-900/50 text-sm text-zinc-500 hover:border-zinc-700 hover:text-zinc-300 transition-colors"
       >
         <Icon name="search" />
         <span className="flex-1 text-left">{text.open}</span>
-        <kbd className="text-[10px] px-1.5 py-0.5 rounded bg-zinc-800 border border-zinc-700 text-zinc-400">⌘K</kbd>
+        <kbd className="text-[10px] px-1.5 py-0.5 rounded bg-zinc-800 border border-zinc-700 text-zinc-400">{shortcut}</kbd>
       </button>
 
       {/* Modal */}
@@ -147,6 +159,7 @@ export default function Search({ locale = "es" }: { locale?: Locale }) {
             role="dialog"
             aria-modal="true"
             aria-label={text.label}
+            id="aulafy-search-dialog"
             ref={dialogRef}
             onKeyDown={trapFocus}
             className="w-full max-w-lg rounded-xl border border-zinc-700 bg-zinc-900 shadow-2xl overflow-hidden"
@@ -167,6 +180,14 @@ export default function Search({ locale = "es" }: { locale?: Locale }) {
                 className="flex-1 bg-transparent py-3.5 text-sm text-zinc-100 placeholder-zinc-500 focus:outline-none"
               />
               <kbd className="text-[10px] px-1.5 py-0.5 rounded bg-zinc-800 border border-zinc-700 text-zinc-500">esc</kbd>
+              <button
+                type="button"
+                onClick={closeSearch}
+                aria-label={text.close}
+                className="sr-only"
+              >
+                {text.close}
+              </button>
             </div>
 
             <div className="max-h-[50vh] overflow-y-auto py-2">

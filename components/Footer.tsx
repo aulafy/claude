@@ -14,7 +14,7 @@ const footerContent = {
     tagline: "Aulafy · Cursos de IA open source en español",
     note: "Formación educativa no oficial. Las marcas y herramientas citadas pertenecen a sus titulares. Verifica siempre las funciones con la documentación oficial enlazada en fuentes.",
     emailLabel: "Enviar un email",
-    sourceLabel: "Codigo fuente en GitHub",
+    sourceLabel: "Código fuente en GitHub",
   },
   en: {
     columns: [
@@ -103,7 +103,7 @@ export default function Footer({ locale = "es" }: { locale?: Locale }) {
               <Icon name="linkedin" family="brands" className="text-lg" />
             </a>
             <a
-              href="https://github.com/raym33/claude"
+              href="https://github.com/aulafy/claude"
               target="_blank"
               rel="noopener noreferrer"
               aria-label={content.sourceLabel}
