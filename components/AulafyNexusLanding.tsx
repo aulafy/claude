@@ -12,7 +12,7 @@ const copy = {
   es: {
     skip: "Saltar al contenido", navigation: "Navegación principal", paths: "Rutas", courses: "Cursos", sources: "Fuentes", language: "Idioma", status: "AULA ABIERTA",
     kicker: "INTELIGENCIA ARTIFICIAL / FORMACIÓN ABIERTA", title: <>APRENDE IA.<br /><span>CONSTRUYE</span><br />SISTEMAS REALES.</>, lead: "Cursos prácticos y gratuitos para pasar de entender las herramientas a usarlas con criterio, seguridad y código real.",
-    explore: "Explorar rutas", startCodex: "Empezar con Codex", coreLabel: "Red tridimensional de conocimiento y herramientas de inteligencia artificial", coreA: "MODELOS / 04", coreB: "AGENTES / 07", coreC: "SISTEMAS / LIVE",
+    explore: "Ver programa completo", startCodex: "Empezar con Codex", coreLabel: "Red tridimensional de conocimiento y herramientas de inteligencia artificial", coreA: "MODELOS / 04", coreB: "AGENTES / 07", coreC: "SISTEMAS / LIVE",
     telemetry: ["CURSOS", "LECCIONES", "ACCESO ABIERTO", "CONTENIDO ACTUAL"], ticker: "CODEX · CLAUDE CODE · IA LOCAL · RAG · AGENTES · MLOPS · SEGURIDAD · AUTOMATIZACIÓN · MODELOS ABIERTOS ·",
     principle: "[ 01 / PRINCIPIO ]", manifesto: <>LA IA NO SE MEMORIZA.<br />SE PRUEBA, SE ROMPE<br />Y SE VUELVE A <span>CONSTRUIR.</span></>, manifestoText: "Aprendizaje orientado a proyectos, fuentes oficiales y decisiones que sobreviven fuera del tutorial.",
     architecture: "[ 02 / ARQUITECTURA ]", architectureTitle: <>Elige una dirección.<br />Nosotros ordenamos el recorrido.</>, courseUnit: "cursos", activeRoute: "RUTA ACTIVA / PROGRAMACIÓN CON AGENTES", consoleTitle: <>De la petición<br />al cambio verificado.</>, consoleText: "Explora el repositorio, define una tarea comprobable, implementa con Codex y revisa cada decisión antes de entregar.", openCourse: "Abrir curso", terminal: ["› analiza el repositorio", "› implementa la tarea", "› ejecuta las pruebas", "✓ cambio verificado"],
@@ -21,7 +21,7 @@ const copy = {
   en: {
     skip: "Skip to content", navigation: "Main navigation", paths: "Paths", courses: "Courses", sources: "Sources", language: "Language", status: "OPEN LEARNING",
     kicker: "ARTIFICIAL INTELLIGENCE / OPEN LEARNING", title: <>LEARN AI.<br /><span>BUILD</span><br />REAL SYSTEMS.</>, lead: "Free, practical courses that take you from understanding the tools to using them with judgment, security, and real code.",
-    explore: "Explore paths", startCodex: "Start with Codex", coreLabel: "Three-dimensional network of artificial intelligence knowledge and tools", coreA: "MODELS / 04", coreB: "AGENTS / 07", coreC: "SYSTEMS / LIVE",
+    explore: "View full program", startCodex: "Start with Codex", coreLabel: "Three-dimensional network of artificial intelligence knowledge and tools", coreA: "MODELS / 04", coreB: "AGENTS / 07", coreC: "SYSTEMS / LIVE",
     telemetry: ["COURSES", "LESSONS", "OPEN ACCESS", "CURRENT CONTENT"], ticker: "CODEX · CLAUDE CODE · LOCAL AI · RAG · AGENTS · MLOPS · SECURITY · AUTOMATION · OPEN MODELS ·",
     principle: "[ 01 / PRINCIPLE ]", manifesto: <>AI IS NOT MEMORIZED.<br />IT IS TESTED, BROKEN<br />AND <span>BUILT AGAIN.</span></>, manifestoText: "Project-led learning, official sources, and decisions that still hold up beyond the tutorial.",
     architecture: "[ 02 / ARCHITECTURE ]", architectureTitle: <>Choose a direction.<br />We will order the journey.</>, courseUnit: "courses", activeRoute: "ACTIVE PATH / PROGRAMMING WITH AGENTS", consoleTitle: <>From the request<br />to a verified change.</>, consoleText: "Explore the repository, define a verifiable task, implement with Codex, and review every decision before shipping.", openCourse: "Open course", terminal: ["› analyse the repository", "› implement the task", "› run the tests", "✓ verified change"],
@@ -38,6 +38,7 @@ export default function AulafyNexusLanding({ courseCount, lessonCount, paths, co
 }) {
   const text = copy[locale];
   const english = locale === "en";
+  const programUrl = english ? "/en/program" : "/programa";
   const pathsUrl = english ? "/en/paths" : "/rutas";
   const coursesUrl = english ? "/en/courses" : "/cursos";
   const courseUrl = (slug: string) => `${coursesUrl}/${slug}`;
@@ -68,7 +69,7 @@ export default function AulafyNexusLanding({ courseCount, lessonCount, paths, co
             <h1 id="nx-title">{text.title}</h1>
             <p className="nx-lead">{text.lead}</p>
             <div className="nx-actions">
-              <Link className="nx-primary" href={pathsUrl}>{text.explore} <span>↗</span></Link>
+              <Link className="nx-primary" href={programUrl}>{text.explore} <span>↗</span></Link>
               <Link className="nx-secondary" href={courseUrl("codex-programadores")}>{text.startCodex}</Link>
             </div>
           </div>
