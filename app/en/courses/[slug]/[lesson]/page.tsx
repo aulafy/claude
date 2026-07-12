@@ -11,6 +11,7 @@ import {
   getEnglishLessonTitle,
   type EnglishLessonBlock,
 } from "@/lib/english-lessons";
+import { getCodexLesson, getCodexLessonPractice, type CodexLessonPractice } from "@/lib/codex-course-content";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 
@@ -110,6 +111,61 @@ function renderBlocks(blocks: EnglishLessonBlock[]) {
   });
 }
 
+function EnglishPracticeCard({ practice }: { practice: CodexLessonPractice }) {
+  return (
+    <section className="aula-panel p-6 sm:p-8 mt-10" aria-labelledby="codex-practice">
+      <span className="aula-section-label"><Icon name="testTube" /> Verifiable practice</span>
+      <h2 id="codex-practice" className="font-display text-2xl font-bold text-white mt-3">Lesson deliverable</h2>
+      <div className="mt-6 grid gap-5">
+        <div><h3 className="text-white font-semibold">What you will build</h3><p className="mt-2 text-zinc-300 leading-relaxed">{practice.build.en}</p></div>
+        <div><h3 className="text-white font-semibold">Why it matters</h3><p className="mt-2 text-zinc-300 leading-relaxed">{practice.why.en}</p></div>
+        <div><h3 className="text-white font-semibold">Starter repository or files</h3><p className="mt-2 text-zinc-300 leading-relaxed">{practice.starter.en}</p></div>
+        <div>
+          <h3 className="text-white font-semibold">Steps</h3>
+          <ol className="mt-3 grid gap-2 text-zinc-300">
+            {practice.steps.en.map((step, index) => <li key={step}>{index + 1}. {step}</li>)}
+          </ol>
+        </div>
+        <div>
+          <h3 className="text-white font-semibold">Copy-ready Codex request</h3>
+          <div className="aula-terminal my-5">
+            <pre className="px-4 py-3 text-sm text-zinc-200 leading-relaxed whitespace-pre-wrap overflow-x-auto font-[family-name:var(--font-code)]">{practice.codexPrompt.en}</pre>
+          </div>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-4">
+          <div><h3 className="text-white font-semibold">Expected result</h3><p className="mt-2 text-zinc-300 leading-relaxed">{practice.expected.en}</p></div>
+          <div>
+            <h3 className="text-white font-semibold">Verification command</h3>
+            <div className="aula-terminal my-5">
+              <pre className="px-4 py-3 text-sm text-zinc-200 leading-relaxed whitespace-pre-wrap overflow-x-auto font-[family-name:var(--font-code)]">{practice.verify}</pre>
+            </div>
+          </div>
+        </div>
+        <div><h3 className="text-white font-semibold">Manual check</h3><p className="mt-2 text-zinc-300 leading-relaxed">{practice.manualCheck.en}</p></div>
+        <div className="callout callout-warning"><strong>Common error.</strong> {practice.commonError.en}</div>
+        <div>
+          <h3 className="text-white font-semibold">Mini exercise</h3>
+          <p className="mt-2 text-zinc-300 leading-relaxed">{practice.exercise.en}</p>
+          <details className="mt-3 rounded-lg border border-zinc-800 bg-zinc-950/70 p-4">
+            <summary className="cursor-pointer text-fuchsia-300 font-semibold">Show solution</summary>
+            <p className="mt-3 text-zinc-300 leading-relaxed">{practice.solution.en}</p>
+          </details>
+        </div>
+        <div><h3 className="text-white font-semibold">Evidence to save</h3><p className="mt-2 text-zinc-300 leading-relaxed">{practice.evidence.en}</p></div>
+        <div>
+          <h3 className="text-white font-semibold">Official sources and tested version</h3>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {practice.sources.map((source) => (
+              <a key={source.href} href={source.href} className="aula-chip" target="_blank" rel="noreferrer"><Icon name="external" /> {source.label}</a>
+            ))}
+            <span className="aula-chip" data-tone="green">Tested: {practice.tested}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function lessonNavigation(courseSlug: string, lessonSlug: string) {
   const course = cursos.find((item) => item.slug === courseSlug);
   if (!course) return {};
@@ -148,6 +204,8 @@ export default async function EnglishLessonPage({
 
   const [lead, ...body] = lesson.blocks;
   const nav = lessonNavigation(slug, lessonSlug);
+  const codexLesson = slug === "codex-programadores" ? getCodexLesson(lessonSlug) : undefined;
+  const codexPractice = codexLesson ? getCodexLessonPractice(codexLesson) : undefined;
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -209,6 +267,7 @@ export default async function EnglishLessonPage({
         <div className="prose">
           {renderBlocks(lead?.type === "p" ? body : lesson.blocks)}
         </div>
+        {codexPractice ? <EnglishPracticeCard practice={codexPractice} /> : null}
       </article>
 
       <div className="mt-12 pt-8 border-t border-zinc-800 flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-3">

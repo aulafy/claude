@@ -8,7 +8,29 @@ export type CodexLessonContent = {
   title: { es: string; en: string };
   lead: { es: string; en: string };
   blocks: { es: CodexLessonBlock[]; en: CodexLessonBlock[] };
+  practice?: CodexLessonPractice;
 };
+
+export type CodexLessonPractice = {
+  build: { es: string; en: string };
+  why: { es: string; en: string };
+  starter: { es: string; en: string };
+  steps: { es: string[]; en: string[] };
+  codexPrompt: { es: string; en: string };
+  expected: { es: string; en: string };
+  verify: string;
+  manualCheck: { es: string; en: string };
+  commonError: { es: string; en: string };
+  exercise: { es: string; en: string };
+  solution: { es: string; en: string };
+  evidence: { es: string; en: string };
+  sources: { label: string; href: string }[];
+  tested: string;
+};
+
+function practice(input: CodexLessonPractice) {
+  return input;
+}
 
 export const codexLessons: CodexLessonContent[] = [
   {
@@ -62,6 +84,22 @@ export const codexLessons: CodexLessonContent[] = [
         { type: "p", text: "Start with a read-only request: “Summarize the architecture, tell me how tests run, and do not edit files.” Confirm that Codex identifies the language, package manager, and Git state correctly." },
       ],
     },
+    practice: practice({
+      build: { es: "Un entorno Codex funcional y una primera sesión de solo lectura.", en: "A working Codex setup and a first read-only session." },
+      why: { es: "Antes de delegar cambios necesitas saber qué superficie usar, qué permisos están activos y cómo comprobar la instalación.", en: "Before delegating changes you need to know which surface to use, which permissions are active, and how to verify the setup." },
+      starter: { es: "Cualquier repositorio pequeño con Git inicializado. Si no tienes uno, crea una carpeta vacía con README.md.", en: "Any small Git repository. If you do not have one, create an empty folder with README.md." },
+      steps: { es: ["Instala Codex CLI.", "Comprueba la versión.", "Abre Codex dentro del repositorio.", "Ejecuta /status, /permissions y /model.", "Pide un análisis sin editar archivos."], en: ["Install Codex CLI.", "Check the version.", "Open Codex inside the repository.", "Run /status, /permissions, and /model.", "Ask for analysis without edits."] },
+      codexPrompt: { es: "Resume la arquitectura de este repositorio, dime cómo se ejecutan los tests y no cambies archivos. Cita rutas concretas y separa hechos observados de inferencias.", en: "Summarize this repository's architecture, tell me how tests run, and do not edit files. Cite concrete paths and separate observed facts from inferences." },
+      expected: { es: "Codex identifica el tipo de proyecto, comandos probables y límites de lo que todavía no ha inspeccionado.", en: "Codex identifies the project type, likely commands, and boundaries of what it has not inspected yet." },
+      verify: "codex --version && git status --short",
+      manualCheck: { es: "Confirma que no aparecen cambios en git status después del análisis.", en: "Confirm that git status shows no changes after the analysis." },
+      commonError: { es: "Abrir Codex fuera del repositorio. Solución: entra primero en la carpeta raíz del proyecto.", en: "Opening Codex outside the repository. Fix: cd into the project root first." },
+      exercise: { es: "Abre una segunda sesión y pide el mismo análisis limitándolo a una carpeta concreta.", en: "Open a second session and request the same analysis limited to one specific folder." },
+      solution: { es: "Usa un prompt con alcance explícito: «Céntrate solo en app/ y di qué partes no has leído».", en: "Use explicit scope: “Focus only on app/ and state which parts you did not read.”" },
+      evidence: { es: "Guarda versión de Codex, salida de /status y git status limpio.", en: "Save Codex version, /status output, and clean git status." },
+      sources: [{ label: "OpenAI Codex", href: "https://developers.openai.com/codex" }],
+      tested: "2026-07-12",
+    }),
   },
   {
     slug: "explorar-repositorio",
@@ -390,4 +428,69 @@ export const codexLessons: CodexLessonContent[] = [
 
 export function getCodexLesson(slug: string) {
   return codexLessons.find((lesson) => lesson.slug === slug);
+}
+
+export function getCodexLessonPractice(lesson: CodexLessonContent): CodexLessonPractice {
+  if (lesson.practice) return lesson.practice;
+  return practice({
+    build: {
+      es: `Una evidencia práctica para "${lesson.title.es}" aplicada a un repositorio real o de entrenamiento.`,
+      en: `Practical evidence for "${lesson.title.en}" applied to a real or training repository.`,
+    },
+    why: {
+      es: "El objetivo es convertir la idea de la lección en una acción verificable, no solo en una lectura.",
+      en: "The goal is to turn the lesson into a verifiable action, not just reading.",
+    },
+    starter: {
+      es: "Un repositorio pequeño con Git, README y un comando de validación conocido.",
+      en: "A small Git repository with Git, README, and one known validation command.",
+    },
+    steps: {
+      es: [
+        "Revisa el estado de Git antes de empezar.",
+        "Pide a Codex que trabaje con alcance limitado.",
+        "Ejecuta el comando de verificación.",
+        "Revisa el diff o la evidencia producida.",
+        "Anota qué queda comprobado y qué queda pendiente.",
+      ],
+      en: [
+        "Inspect Git status before starting.",
+        "Ask Codex to work with limited scope.",
+        "Run the verification command.",
+        "Review the diff or produced evidence.",
+        "Record what is verified and what remains open.",
+      ],
+    },
+    codexPrompt: {
+      es: `Aplica la lección "${lesson.title.es}" en este repositorio. Trabaja con cambios pequeños, cita archivos concretos, ejecuta una verificación y termina con resumen de evidencias y riesgos.`,
+      en: `Apply the lesson "${lesson.title.en}" in this repository. Work in small changes, cite concrete files, run one verification, and finish with evidence and risks.`,
+    },
+    expected: {
+      es: "Una salida revisable: mapa, plan, diff, prueba o informe según el tipo de lección.",
+      en: "A reviewable output: map, plan, diff, test, or report depending on the lesson.",
+    },
+    verify: "git status --short && git diff --stat",
+    manualCheck: {
+      es: "Comprueba que el resultado coincide con el alcance pedido y que Codex no ha tocado archivos ajenos.",
+      en: "Check that the result matches the requested scope and Codex did not touch unrelated files.",
+    },
+    commonError: {
+      es: "Pedir una tarea demasiado grande. Solución: limita la carpeta, el comportamiento y la verificación esperada.",
+      en: "Requesting too much at once. Fix: limit the folder, behavior, and expected verification.",
+    },
+    exercise: {
+      es: "Repite la práctica en otra carpeta del mismo repositorio cambiando solo una restricción.",
+      en: "Repeat the practice in another folder of the same repository, changing only one constraint.",
+    },
+    solution: {
+      es: "Mantén el mismo objetivo, añade una restricción explícita y compara si la evidencia final mejora.",
+      en: "Keep the same goal, add one explicit constraint, and compare whether the final evidence improves.",
+    },
+    evidence: {
+      es: "Guarda el prompt usado, comandos ejecutados, salida relevante y git diff --stat.",
+      en: "Save the prompt, commands run, relevant output, and git diff --stat.",
+    },
+    sources: [{ label: "OpenAI Codex", href: "https://developers.openai.com/codex" }],
+    tested: "2026-07-12",
+  });
 }
