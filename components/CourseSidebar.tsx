@@ -9,19 +9,7 @@ import { getLocalizedCurso, type Locale } from "@/lib/i18n";
 import Icon from "@/components/Icon";
 import Search from "@/components/Search";
 import ThemeToggle from "@/components/ThemeToggle";
-
-const STORAGE_KEY = "aulafy:progress:v1";
-
-type Progress = Record<string, string[]>;
-
-function readProgress(): Progress {
-  if (typeof window === "undefined") return {};
-  try {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY) ?? "{}") as Progress;
-  } catch {
-    return {};
-  }
-}
+import { readProgress, writeProgress } from "@/lib/progress";
 
 const copy = {
   es: {
@@ -83,7 +71,7 @@ export default function CourseSidebar({ locale = "es" }: { locale?: Locale }) {
     else done.add(leccionSlug);
     const next = [...done];
     progress[sourceCurso.slug] = next;
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(progress)); } catch { /* storage unavailable */ }
+    try { writeProgress(progress); } catch { /* storage unavailable */ }
     setVisited(next);
   }
 

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Icon, { type IconName } from "@/components/Icon";
 import ContinuarCurso from "@/components/ContinuarCurso";
+import PortableProgress from "@/components/PortableProgress";
 import { cursos, getCurso, totalLecciones } from "@/lib/cursos";
 import { getCourseGuidance } from "@/lib/course-guidance";
 import { pluralLabel } from "@/lib/plural";
@@ -237,6 +238,8 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
           </div>
         </section>
       )}
+
+      <PortableProgress course={curso} />
 
       {/* Temario */}
       <div className="flex items-end justify-between gap-4 mb-6">

@@ -5,8 +5,7 @@ import { useEffect, useState } from "react";
 import Icon from "@/components/Icon";
 import { getCurso, lecciones } from "@/lib/cursos";
 import type { Locale } from "@/lib/i18n";
-
-const STORAGE_KEY = "aulafy:progress:v1";
+import { readProgress } from "@/lib/progress";
 
 export default function ContinuarCurso({ cursoSlug, locale = "es" }: { cursoSlug: string; locale?: Locale }) {
   const curso = getCurso(cursoSlug);
@@ -15,7 +14,7 @@ export default function ContinuarCurso({ cursoSlug, locale = "es" }: { cursoSlug
   useEffect(() => {
     if (!curso) return;
     try {
-      const progress = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? "{}") as Record<string, string[]>;
+      const progress = readProgress();
       const visited = new Set(progress[curso.slug] ?? []);
       const all = lecciones(curso);
       const next = all.find((l) => !visited.has(l.slug)) ?? all[0];

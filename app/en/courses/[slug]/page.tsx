@@ -6,6 +6,7 @@ import { cursos, totalLecciones } from "@/lib/cursos";
 import { getLocalizedCurso } from "@/lib/i18n";
 import { getEnglishLessonTitle } from "@/lib/english-lessons";
 import ContinuarCurso from "@/components/ContinuarCurso";
+import PortableProgress from "@/components/PortableProgress";
 import { getCourseGuidance } from "@/lib/course-guidance";
 import { pluralLabel } from "@/lib/plural";
 
@@ -205,6 +206,8 @@ export default async function EnglishCoursePage({ params }: { params: Promise<{ 
           </div>
         </div>
       </section>
+
+      <PortableProgress course={course} locale="en" />
 
       <div className="flex items-end justify-between gap-4 mb-6">
         <div>
