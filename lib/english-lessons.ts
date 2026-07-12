@@ -1,4 +1,5 @@
 import englishLessonContent from "@/lib/english-lesson-content.json";
+import { aiRouterLessons } from "@/lib/ai-router-course-content";
 import { codexLessons } from "@/lib/codex-course-content";
 import { foundationLessons } from "@/lib/foundation-course-content";
 
@@ -40,7 +41,16 @@ const foundationEnglishLessons: EnglishLesson[] = foundationLessons.map((lesson)
   blocks: [{ type: "p", text: lesson.lead.en }, ...lesson.blocks.en],
 }));
 
-const allLessons = [...content.lessons, ...codexEnglishLessons, ...foundationEnglishLessons];
+const aiRouterEnglishLessons: EnglishLesson[] = aiRouterLessons.map((lesson) => ({
+  courseSlug: "ai-router",
+  courseTitle: "AI Router and content system",
+  slug: lesson.slug,
+  title: lesson.title.en,
+  href: `/en/courses/ai-router/${lesson.slug}`,
+  blocks: [{ type: "p", text: lesson.lead.en }, ...lesson.blocks.en],
+}));
+
+const allLessons = [...content.lessons, ...codexEnglishLessons, ...foundationEnglishLessons, ...aiRouterEnglishLessons];
 const lessonsByKey = new Map(allLessons.map((lesson) => [`${lesson.courseSlug}/${lesson.slug}`, lesson]));
 
 export function getEnglishLesson(courseSlug: string, lessonSlug: string) {

@@ -31,6 +31,15 @@ const guidanceEs: Record<string, CourseGuidance> = {
     estimatedHours: 5,
     updated,
   },
+  "ai-router": {
+    track: "Sistemas, modelos y agentes",
+    audience: "Equipos y creadores que combinan modelos locales, APIs frontier y revisión humana en pipelines reales.",
+    prerequisites: ["Python básico", "Entender APIs LLM y modelos locales", "Haber visto LiteLLM u observabilidad LLM ayuda"],
+    outcomes: ["Diseñar políticas de routing por privacidad, coste y dificultad", "Usar LiteLLM como gateway con claves, presupuestos y fallbacks", "Medir calidad con scoring, shadow mode y trazas"],
+    deliverable: "Un prototipo de AI Router para generar y revisar contenido educativo con rutas auditables.",
+    estimatedHours: 7,
+    updated,
+  },
   "claude-code": {
     track: "Programación con IA",
     audience: "Personas técnicas y no técnicas que quieren construir software desde la terminal.",
@@ -146,6 +155,7 @@ const guidanceEn: Record<string, CourseGuidance> = {};
 Object.assign(guidanceEn, {
   "fundamentos-aulafy": { ...guidanceEs["fundamentos-aulafy"], track: "Foundations", audience: "Learners entering local AI, agents, RAG, or MLOps courses who need a clear technical base.", prerequisites: ["Your own computer", "Willingness to use the terminal calmly"], outcomes: ["Prepare a reproducible local-first environment", "Use Python with uv, Git, AGENTS.md, and Docker with judgment", "Create a base template for AI projects"], deliverable: "An Aulafy base project with README, AGENTS.md, Python environment, clean Git history, and services ready." },
   "codex-programadores": { ...guidanceEs["codex-programadores"], track: "AI-assisted programming", audience: "Developers and teams adopting coding agents professionally.", prerequisites: ["Basic Git skills", "A small repository for practice"], outcomes: ["Explore unfamiliar code with evidence", "Request and implement verifiable changes", "Control permissions, review, and automation"], deliverable: "A complete repository change with a test, review, and clean commit." },
+  "ai-router": { ...guidanceEs["ai-router"], track: "Systems, models, and agents", audience: "Teams and creators combining local models, frontier APIs, and human review in real pipelines.", prerequisites: ["Basic Python", "Understanding of LLM APIs and local models", "Some LiteLLM or LLM observability context helps"], outcomes: ["Design routing policies by privacy, cost, and difficulty", "Use LiteLLM as a gateway with keys, budgets, and fallbacks", "Measure quality with scoring, shadow mode, and traces"], deliverable: "An AI Router prototype for generating and reviewing educational content with auditable routes." },
   "claude-code": { ...guidanceEs["claude-code"], track: "AI-assisted programming", audience: "Technical and non-technical builders who want to create software from the terminal.", prerequisites: ["A computer with terminal access", "No previous agent experience required"], outcomes: ["Install and configure Claude Code", "Build projects from clear requests", "Use skills, subagents, MCP, and hooks safely"], deliverable: "An AI-assisted development workflow adapted to your work." },
   "ia-local": { ...guidanceEs["ia-local"], track: "AI-assisted programming", audience: "Makers and developers who need privacy and local control.", prerequisites: ["Basic terminal use", "8 GB RAM minimum; 16 GB recommended"], outcomes: ["Choose and run local models", "Connect tools through Ollama or LM Studio", "Build and publish private applications"], deliverable: "A working local AI application using RAG, voice, PDF, or productivity tools." },
 });

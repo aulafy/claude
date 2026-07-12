@@ -15,6 +15,11 @@ const englishCourseCopy: Record<string, CourseCopy> = {
     short: "Build, test, and ship changes with OpenAI Codex.",
     desc: "Learn a professional Codex workflow: explore repositories, write verifiable requests, configure AGENTS.md, implement with tests, review Git changes, control permissions, and automate tasks with codex exec.",
   },
+  "ai-router": {
+    title: "AI Router and content system",
+    short: "Route local and frontier models with quality, cost, and privacy controls.",
+    desc: "Design an AI router that chooses between local models and frontier APIs with LiteLLM, privacy policies, quality scoring, shadow mode, observability, and human review for educational content.",
+  },
   "claude-code": {
     title: "Claude Code, from zero to pro",
     short: "Build real software by talking to AI in your terminal.",
@@ -90,6 +95,8 @@ const sectionTitleEn: Record<string, string> = {
   "Herramientas de trabajo": "Working tools",
   "Flujo de desarrollo": "Development workflow",
   "Control y automatización": "Control and automation",
+  "Arquitectura del router": "Router architecture",
+  "Calidad y producción": "Quality and production",
   "Empezar": "Getting started",
   "Practica diaria": "Daily practice",
   "Práctica diaria": "Daily practice",

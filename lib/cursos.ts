@@ -85,6 +85,33 @@ export const cursos: Curso[] = [
     ],
   },
   {
+    slug: "ai-router",
+    title: "AI Router y sistema de contenido",
+    short: "Enruta modelos locales y frontier con calidad, coste y privacidad",
+    desc: "Diseña un router de IA para elegir entre modelos locales y APIs frontier con LiteLLM, políticas de privacidad, scoring de calidad, shadow mode, observabilidad y revisión humana para contenido educativo.",
+    level: "Intermedio → avanzado",
+    icon: "route",
+    gradient: ["#f59e0b", "#22c55e"],
+    secciones: [
+      {
+        title: "Arquitectura del router",
+        lecciones: [
+          { slug: "mapa-router", title: "Mapa de un AI Router útil" },
+          { slug: "litellm-gateway", title: "LiteLLM como gateway" },
+          { slug: "politicas-routing", title: "Políticas de routing" },
+        ],
+      },
+      {
+        title: "Calidad y producción",
+        lecciones: [
+          { slug: "quality-scoring", title: "Quality scoring sin humo" },
+          { slug: "shadow-mode", title: "Shadow mode y comparativas" },
+          { slug: "proyecto-content-system", title: "Proyecto: content system para Aulafy" },
+        ],
+      },
+    ],
+  },
+  {
     slug: "claude-code",
     title: "Claude Code, de 0 a pro",
     short: "Domina la CLI de IA de Anthropic",
