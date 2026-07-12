@@ -58,6 +58,26 @@ faq:
         </ul>
       </div>
 
+      <div className="prose">
+        <h2>Fuentes que los agentes pueden contrastar</h2>
+        <p>Los asistentes suelen combinar web propia, perfiles públicos, reseñas, directorios, redes y contenido citado. Tu trabajo es reducir contradicciones.</p>
+      </div>
+
+      <Terminal>{`aeo_inventory:
+  web:
+    servicios: "/servicios"
+    precios: "/precios"
+    faq: "/preguntas"
+  perfiles:
+    google_business: "actualizado"
+    linkedin: "coherente"
+  pruebas:
+    casos_reales: 3
+    fotos_propias: true
+    fecha_actualizacion: "2026-07-12"
+  contradicciones_detectadas:
+    - "horario distinto en directorio antiguo"`}</Terminal>
+
       <Cuidado>
         No inventes autoridad. Si un agente detecta contradicciones entre web, redes, reseñas y directorios, puede omitir tu negocio o mezclar datos.
       </Cuidado>

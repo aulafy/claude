@@ -79,6 +79,24 @@ export default function Page() {
 safe_prompt = redact(user_prompt)
 response = model.generate(safe_prompt)`}</Terminal>
 
+      <div className="prose">
+        <h2>Auditoría de dataset y permisos</h2>
+        <p>Antes de indexar documentos o entrenar con datos internos, crea un inventario. La pregunta no es solo “¿tenemos estos datos?”, sino “¿podemos usarlos para esta finalidad?”.</p>
+      </div>
+
+      <Terminal>{`data_inventory:
+  dataset: "tickets_soporte_2026"
+  contiene_pii: true
+  base_uso: "soporte interno"
+  permitido_para:
+    - "clasificación"
+    - "borradores con revisión"
+  prohibido_para:
+    - "entrenamiento sin anonimizar"
+    - "compartir con APIs externas"
+  retencion_dias: 90
+  owner: "operaciones"`}</Terminal>
+
       <Comprueba>
         Busca en tus logs locales tres tipos de dato: email, token y contrato. Si aparecen sin necesidad, tienes una tarea de privacidad.
       </Comprueba>

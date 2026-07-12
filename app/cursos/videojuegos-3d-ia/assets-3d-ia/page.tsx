@@ -81,6 +81,23 @@ Devuélveme:
 - textura máxima 1024 o 2048 si está justificado
 - probado en una escena vacía`}</Terminal>
 
+      <div className="prose">
+        <h2>Presupuesto de rendimiento</h2>
+        <p>Antes de llenar una escena, define límites. Un prototipo web educativo debe cargar rápido incluso en portátiles normales.</p>
+      </div>
+
+      <Terminal>{`asset_budget_web:
+  max_glb_mb: 5
+  max_texture_px: 2048
+  target_fps: 60
+  mobile_fallback: true
+  lod_required_if:
+    triangles: "> 20000"
+  reject_if:
+    - "texturas 4K sin motivo"
+    - "materiales duplicados"
+    - "escala no verificada"`}</Terminal>
+
       <Comprueba>
         Importa el mismo GLB en Godot y en un visor web con Three.js. Si se ve distinto, revisa materiales, luces, color management y texturas.
       </Comprueba>

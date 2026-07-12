@@ -82,6 +82,24 @@ ediciones:
     tecnica: "regeneracion parcial"
 aprobado_para: "curso gratuito"`}</Terminal>
 
+      <div className="prose">
+        <h2>Consistencia entre lecciones</h2>
+        <p>Si vas a crear una serie de cápsulas para Aulafy, no diseñes cada imagen desde cero. Define una biblia visual pequeña: paleta, encuadre, nivel de detalle, iconos permitidos, tratamiento de texto y ejemplos aprobados.</p>
+      </div>
+
+      <Terminal>{`visual_system:
+  formato: "16:9 portada + 1:1 social"
+  paleta: ["#0f766e", "#f59e0b", "#111827", "#f8fafc"]
+  estilo: "editorial tecnico, limpio, sin exceso futurista"
+  texto_en_imagen: "minimo o ninguno"
+  prohibido:
+    - "caras reales"
+    - "logos sin permiso"
+    - "interfaces que parezcan productos reales"
+  control:
+    seed_base: 4207
+    lora_estilo: "opcional, peso <= 0.6"`}</Terminal>
+
       <Comprueba>
         Mira la imagen a tamaño móvil. Si el concepto no se entiende en tres segundos, no es una buena portada educativa aunque sea bonita.
       </Comprueba>

@@ -68,6 +68,26 @@ export default function Page() {
   responsable: "equipo producto"
   fecha_revision: "2026-07-03"`}</Terminal>
 
+      <div className="prose">
+        <h2>Responsible AI práctico</h2>
+        <p>No lo conviertas en un manifiesto abstracto. Para cada sistema, revisa sesgo, accesibilidad, explicabilidad, privacidad, posibilidad de apelación y daño por automatizar demasiado.</p>
+      </div>
+
+      <Terminal>{`responsible_ai_check:
+  usuarios_afectados:
+    - clientes
+    - empleados
+  posibles_sesgos:
+    - idioma
+    - nivel_tecnico
+    - acento_o_audio
+  mitigaciones:
+    - revisión humana en decisiones sensibles
+    - alternativa manual disponible
+    - logs sin datos personales completos
+    - explicación breve de límites al usuario
+  apelacion: "email de soporte humano"`}</Terminal>
+
       <Cuidado>
         En Europa, el AI Act ya aplica por fases. Las prácticas prohibidas y alfabetización en IA empezaron el 2 de febrero de 2025; las obligaciones para modelos de propósito general aplican desde el 2 de agosto de 2025. No conviertas esto en asesoría legal: úsalo como señal para revisar casos de uso.
       </Cuidado>

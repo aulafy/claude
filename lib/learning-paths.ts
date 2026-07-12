@@ -19,7 +19,7 @@ const paths: Record<Locale, LearningPath[]> = {
       audience: "Programadores, makers y equipos de producto",
       duration: "4–6 semanas",
       outcome: "Entregar cambios de software con pruebas, revisión y un flujo de agente controlado.",
-      courses: ["codex-programadores", "claude-code", "ia-local"],
+      courses: ["fundamentos-aulafy", "codex-programadores", "claude-code", "ia-local"],
     },
     {
       slug: "sistemas",
@@ -28,7 +28,7 @@ const paths: Record<Locale, LearningPath[]> = {
       audience: "Desarrolladores backend, ML engineers y perfiles DevOps",
       duration: "8–12 semanas",
       outcome: "Operar una aplicación de IA medible, segura y recuperable ante fallos.",
-      courses: ["rag-seguro", "agentes-automatizacion", "agentes-produccion", "seguridad-evals", "mlops-local"],
+      courses: ["fundamentos-aulafy", "rag-seguro", "agentes-automatizacion", "agentes-produccion", "ai-router", "seguridad-evals", "mlops-local"],
     },
     {
       slug: "modelos",
@@ -37,7 +37,7 @@ const paths: Record<Locale, LearningPath[]> = {
       audience: "Perfiles técnicos con Python y acceso a GPU",
       duration: "5–8 semanas",
       outcome: "Publicar un modelo adaptado y evaluado detrás de una API controlada.",
-      courses: ["ia-local", "mlops-local", "fine-tuning-local", "seguridad-evals"],
+      courses: ["fundamentos-aulafy", "ia-local", "mlops-local", "fine-tuning-local", "ai-router", "seguridad-evals"],
     },
     {
       slug: "negocio-creativo",
@@ -46,7 +46,16 @@ const paths: Record<Locale, LearningPath[]> = {
       audience: "Autónomos, pymes, docentes y creadores",
       duration: "3–5 semanas",
       outcome: "Construir un flujo útil para tu actividad con evidencia, permisos y revisión humana.",
-      courses: ["ia-pymes", "automatizacion-self-hosted", "ia-generativa", "videojuegos-3d-ia"],
+      courses: ["fundamentos-aulafy", "ia-pymes", "automatizacion-self-hosted", "ia-generativa", "videojuegos-3d-ia"],
+    },
+    {
+      slug: "capstone-ai-privada",
+      title: "Capstone: plataforma de IA privada",
+      description: "Integra RAG seguro, agentes, MLOps local y AI Router en un proyecto final auditable.",
+      audience: "Equipos que quieren pasar de cursos sueltos a un sistema completo",
+      duration: "10–14 semanas",
+      outcome: "Construir una plataforma privada con RAG, agente con herramientas, gateway, evals, trazas, rollback y revisión humana.",
+      courses: ["fundamentos-aulafy", "rag-seguro", "agentes-automatizacion", "agentes-produccion", "mlops-local", "ai-router", "seguridad-evals"],
     },
   ],
   en: [
@@ -57,7 +66,7 @@ const paths: Record<Locale, LearningPath[]> = {
       audience: "Developers, makers, and product teams",
       duration: "4–6 weeks",
       outcome: "Ship tested software changes through a controlled agent workflow.",
-      courses: ["codex-programadores", "claude-code", "ia-local"],
+      courses: ["fundamentos-aulafy", "codex-programadores", "claude-code", "ia-local"],
     },
     {
       slug: "systems",
@@ -66,7 +75,7 @@ const paths: Record<Locale, LearningPath[]> = {
       audience: "Backend developers, ML engineers, and DevOps practitioners",
       duration: "8–12 weeks",
       outcome: "Operate a measurable, secure AI application that recovers from failures.",
-      courses: ["rag-seguro", "agentes-automatizacion", "agentes-produccion", "seguridad-evals", "mlops-local"],
+      courses: ["fundamentos-aulafy", "rag-seguro", "agentes-automatizacion", "agentes-produccion", "ai-router", "seguridad-evals", "mlops-local"],
     },
     {
       slug: "open-models",
@@ -75,7 +84,7 @@ const paths: Record<Locale, LearningPath[]> = {
       audience: "Technical learners with Python and GPU access",
       duration: "5–8 weeks",
       outcome: "Publish an evaluated adapted model behind a controlled API.",
-      courses: ["ia-local", "mlops-local", "fine-tuning-local", "seguridad-evals"],
+      courses: ["fundamentos-aulafy", "ia-local", "mlops-local", "fine-tuning-local", "ai-router", "seguridad-evals"],
     },
     {
       slug: "applied-ai",
@@ -84,7 +93,16 @@ const paths: Record<Locale, LearningPath[]> = {
       audience: "Small businesses, educators, freelancers, and creators",
       duration: "3–5 weeks",
       outcome: "Build a useful workflow with evidence, permissions, and human approval.",
-      courses: ["ia-pymes", "automatizacion-self-hosted", "ia-generativa", "videojuegos-3d-ia"],
+      courses: ["fundamentos-aulafy", "ia-pymes", "automatizacion-self-hosted", "ia-generativa", "videojuegos-3d-ia"],
+    },
+    {
+      slug: "private-ai-capstone",
+      title: "Capstone: private AI platform",
+      description: "Integrate secure RAG, agents, local MLOps, and an AI Router into an auditable final project.",
+      audience: "Teams moving from individual courses to a complete system",
+      duration: "10–14 weeks",
+      outcome: "Build a private platform with RAG, tool-using agent, gateway, evals, traces, rollback, and human review.",
+      courses: ["fundamentos-aulafy", "rag-seguro", "agentes-automatizacion", "agentes-produccion", "mlops-local", "ai-router", "seguridad-evals"],
     },
   ],
 };

@@ -91,6 +91,23 @@ Restricciones:
 - el proyecto arranca desde main.tscn
 - exportación web probada en navegador`}</Terminal>
 
+      <div className="prose">
+        <h2>Test de sensación jugable</h2>
+        <p>Un prototipo no solo debe compilar. Debe sentirse comprensible: entrada, feedback y objetivo tienen que estar claros sin explicar nada al lado.</p>
+      </div>
+
+      <Terminal>{`playtest_5_min:
+  jugador: "persona que no vio el proyecto"
+  observa:
+    - entiende objetivo sin ayuda
+    - controla cámara en menos de 30s
+    - identifica objetos interactivos
+    - entiende por qué se abre la puerta
+    - termina sin bug bloqueante
+  cambios_prioritarios:
+    - "mejorar feedback de coleccionable"
+    - "reducir velocidad de cámara"`}</Terminal>
+
       <Comprueba>
         Rompe el juego a propósito: recoge dos objetos, vuelve atrás, salta contra la puerta, recarga escena y exporta. Un prototipo educativo debe enseñar también a detectar fallos.
       </Comprueba>

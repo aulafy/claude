@@ -94,6 +94,20 @@ export default function Page() {
         </ul>
       </div>
 
+      <div className="prose">
+        <h2>Control de calidad educativo</h2>
+        <p>Evalúa la cápsula como recurso didáctico, no como demo visual. Una pieza puede ser espectacular y enseñar poco.</p>
+      </div>
+
+      <Terminal>{`rubrica_capsula:
+  objetivo_claro: 1-5
+  precisión_tecnica: 1-5
+  legibilidad_mobile: 1-5
+  audio_subtitulos: 1-5
+  licencias_ok: true
+  accion_practica_final: true
+  decision: "publicar | revisar | descartar"`}</Terminal>
+
       <Comprueba>
         Enseña la cápsula a una persona que no haya hecho el curso. Si puede decir qué aprendió y qué haría después, funciona.
       </Comprueba>

@@ -60,6 +60,21 @@ Quién revisa:
 Cuándo se borra o archiva:
 Cómo se registra la decisión:`}</Terminal>
 
+      <div className="prose">
+        <h2>Mide valor antes de automatizar</h2>
+        <p>Una automatización útil debe mejorar tiempo, calidad o riesgo. Si no puedes medir una de esas tres cosas, todavía estás en fase de exploración.</p>
+      </div>
+
+      <Terminal>{`ficha_roi:
+  tarea: "clasificar emails de soporte"
+  frecuencia: "diaria"
+  tiempo_actual_min: 45
+  tiempo_objetivo_min: 15
+  errores_actuales_semana: 6
+  riesgo_si_falla: "medio"
+  modo_inicial: "borrador con revisión humana"
+  revisar_en: "14 días"`}</Terminal>
+
       <Cuidado>
         No empieces conectando la IA directamente a WhatsApp, email o facturación real. Empieza creando borradores y logs. La autonomía viene después de comprobar que acierta.
       </Cuidado>
