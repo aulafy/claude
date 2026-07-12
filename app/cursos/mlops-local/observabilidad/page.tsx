@@ -62,6 +62,28 @@ export default function Page() {
   "error": null
 }`}</Terminal>
 
+      <div className="prose">
+        <h2>Tracking de experimentos y registry ligero</h2>
+        <p>Además de trazas por petición, guarda qué versión de modelo, prompt, dataset y configuración produjo cada resultado. Puedes empezar con una tabla simple antes de montar un registry completo.</p>
+      </div>
+
+      <Terminal>{`model_registry:
+  id: "support-router-v3"
+  base_model: "qwen3:8b-q5"
+  runtime: "ollama"
+  prompt_version: "support-es-v7"
+  eval_dataset: "support-evals-2026-07"
+  score:
+    answer_ok: 0.86
+    refusal_ok: 0.94
+    citation_ok: 0.81
+  status: "pilot"
+  owner: "equipo-soporte"`}</Terminal>
+
+      <Idea>
+        MLflow, Langfuse, OpenTelemetry o una tabla propia pueden convivir. Lo importante es no perder la relación entre versión, eval, despliegue y resultado observado.
+      </Idea>
+
       <Cuidado>
         Observabilidad no significa guardar todo. Si guardas prompts completos con datos personales, acabas creando otra base sensible.
       </Cuidado>

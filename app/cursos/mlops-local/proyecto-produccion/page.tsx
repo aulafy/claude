@@ -59,6 +59,8 @@ export default function Page() {
           <li>Las trazas muestran modelo, latencia, tokens y errores.</li>
           <li>Hay evals mínimas antes de cambiar prompts o modelos.</li>
           <li>Hay plan de fallback si el modelo local cae.</li>
+          <li>Hay registro de versiones de modelo, prompt, dataset y runtime.</li>
+          <li>Hay una métrica de drift o degradación revisada periódicamente.</li>
         </ul>
       </div>
 
@@ -70,6 +72,25 @@ export default function Page() {
   datos_permitidos: ["manuales internos", "FAQs"]
   datos_prohibidos: ["contratos personales", "secretos", "credenciales"]
   siguiente_revision: "2026-07-17"`}</Terminal>
+
+      <div className="prose">
+        <h2>Mantenimiento y drift</h2>
+        <p>Una plataforma LLM se degrada cuando cambian usuarios, documentos, prompts, modelos o expectativas. Define una revisión sencilla antes de que el sistema falle en silencio.</p>
+      </div>
+
+      <Terminal>{`drift_check:
+  frecuencia: "semanal"
+  señales:
+    - subida_de_abstenciones
+    - mas_ediciones_humanas
+    - latencia_p95_alta
+    - nuevos_tipos_de_pregunta
+    - caída_en_eval_dataset
+  accion:
+    - revisar_trazas
+    - actualizar_dataset
+    - comparar_modelo_actual_vs_candidato
+    - mantener_rollback_listo`}</Terminal>
 
       <Cuidado>
         No llames producción a una demo sin operación. Producción significa que alguien puede mantenerla cuando falla, cuesta demasiado o responde mal.

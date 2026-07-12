@@ -83,6 +83,26 @@ export default function Page() {
         "abstained": "no tengo evidencia" in answer.lower() or "no puedo" in answer.lower(),
     }`}</Terminal>
 
+      <div className="prose">
+        <h2>Auditoría del dataset</h2>
+        <p>Un set de evals también puede engañarte. Revisa que no esté lleno de preguntas fáciles, documentos recientes únicamente o casos escritos con el mismo vocabulario que los chunks.</p>
+        <ul>
+          <li>Incluye preguntas con sinónimos y lenguaje de usuario real.</li>
+          <li>Incluye documentos antiguos, contradictorios y obsoletos.</li>
+          <li>Separa casos públicos, internos y restringidos.</li>
+          <li>Marca qué casos requieren OCR, tablas, imágenes o anexos.</li>
+        </ul>
+      </div>
+
+      <Terminal>{`eval_mix:
+  respuesta_directa: 30
+  requiere_tabla: 10
+  requiere_ocr: 10
+  sin_evidencia: 15
+  permisos_restringidos: 15
+  documentos_contradictorios: 10
+  prompt_injection: 10`}</Terminal>
+
       <Cuidado>
         Una métrica automática no sustituye revisión humana en temas sensibles. Úsala para detectar regresiones y priorizar revisión.
       </Cuidado>

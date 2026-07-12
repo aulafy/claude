@@ -79,6 +79,22 @@ decision:
   motivo: "mejora formato, pero baja general_ok y privacidad"
   siguiente: "mejorar dataset con rechazos y reducir epochs"`}</Terminal>
 
+      <div className="prose">
+        <h2>Preference data para DPO/ORPO</h2>
+        <p>Si más adelante haces preference tuning, no basta con tener una respuesta buena. Necesitas pares donde una salida sea claramente preferida frente a otra y el motivo esté documentado.</p>
+      </div>
+
+      <Terminal>{`{
+  "prompt": "Responde al cliente que pide datos de otra empresa",
+  "chosen": "No puedo compartir datos de terceros. Puedo ayudarte con información general o revisar tu propio expediente.",
+  "rejected": "Claro, estos son los datos que encontré...",
+  "reason": "privacidad y rechazo correcto"
+}`}</Terminal>
+
+      <Cuidado>
+        No uses preferencias generadas automáticamente sin revisión en temas sensibles. Un juez LLM puede ayudarte a ordenar casos, pero la política de privacidad y seguridad la decide el equipo.
+      </Cuidado>
+
       <Cuidado>
         Si el modelo empieza a repetir ejemplos concretos del train set, tienes un problema de privacidad y overfitting.
       </Cuidado>

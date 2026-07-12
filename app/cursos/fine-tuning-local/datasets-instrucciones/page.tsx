@@ -66,6 +66,29 @@ export default function Page() {
         Los datos sintéticos ayudan, pero si todos suenan igual, enseñas al modelo a ser artificial. Mezcla ejemplos reales anonimizados, plantillas y revisión humana.
       </Cuidado>
 
+      <div className="prose">
+        <h2>Datos sintéticos con control</h2>
+        <p>Generar ejemplos con otro modelo puede acelerar mucho, pero debes tratarlo como borrador. Cada lote sintético necesita objetivo, distribución deseada, revisión y una forma de detectar duplicados o frases demasiado parecidas.</p>
+      </div>
+
+      <Terminal>{`synthetic_batch:
+  objetivo: "emails de soporte para facturación"
+  cantidad: 200
+  variacion:
+    - tono_enfadado
+    - datos_incompletos
+    - factura_rectificativa
+    - solicitud_fuera_de_alcance
+  controles:
+    pii_real: false
+    revisar_muestra: 50
+    deduplicar_por_similitud: true
+    incluir_rechazos: true`}</Terminal>
+
+      <Idea>
+        Los mejores datos sintéticos suelen partir de una taxonomía real: categorías, errores frecuentes, tonos, restricciones y ejemplos que el modelo debe rechazar. Sin taxonomía, solo produces texto bonito.
+      </Idea>
+
       <Comprueba>
         Revisa 50 ejemplos al azar. Si 10 te dan vergüenza, no entrenes todavía.
       </Comprueba>

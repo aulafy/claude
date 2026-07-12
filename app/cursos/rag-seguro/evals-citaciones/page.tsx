@@ -61,6 +61,24 @@ export default function Page() {
         </ul>
       </div>
 
+      <div className="prose">
+        <h2>RAG multimodal: cita lo que viste</h2>
+        <p>Cuando el corpus incluye PDFs escaneados, capturas, diagramas o tablas, la cita debe decir también cómo se obtuvo la evidencia: texto nativo, OCR, tabla extraída o descripción visual.</p>
+      </div>
+
+      <Terminal>{`trace_chunk:
+  source: "manual-maquina.pdf#page=18"
+  modality: "image+ocr"
+  extraction:
+    method: "ocr"
+    confidence: 0.82
+  claim_supported: "El botón rojo detiene el ciclo"
+  needs_human_review: true`}</Terminal>
+
+      <Idea>
+        En contenido multimodal, una cita con baja confianza de OCR no debería cerrar una respuesta crítica. Úsala para orientar al humano, no como autoridad final.
+      </Idea>
+
       <Cuidado>
         Una cita no convierte una respuesta falsa en verdadera. Comprueba que la cita respalda exactamente la afirmación, no solo que viene de un documento relacionado.
       </Cuidado>
