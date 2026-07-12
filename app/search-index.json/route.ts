@@ -3,7 +3,8 @@ import { absoluteUrl, alternateLanguages, getSeoIndexEntries, SITE_URL } from "@
 import { educationalReviewDate } from "@/lib/course-guidance";
 
 export function GET() {
-  const entries = getSeoIndexEntries().map((entry) => ({
+  const seoEntries = getSeoIndexEntries();
+  const entries = seoEntries.map((entry) => ({
     url: absoluteUrl(entry.route),
     route: entry.route || "/",
     title: entry.title,
@@ -11,8 +12,22 @@ export function GET() {
     language: entry.language,
     type: entry.kind,
     priority: entry.priority,
+    changeFrequency: entry.changeFrequency,
+    lastModified: entry.lastModified ?? educationalReviewDate,
     alternateLanguages: alternateLanguages(entry),
   }));
+  const totals = seoEntries.reduce(
+    (acc, entry) => {
+      acc.byLanguage[entry.language] = (acc.byLanguage[entry.language] ?? 0) + 1;
+      acc.byType[entry.kind] = (acc.byType[entry.kind] ?? 0) + 1;
+      return acc;
+    },
+    {
+      entries: seoEntries.length,
+      byLanguage: {} as Record<string, number>,
+      byType: {} as Record<string, number>,
+    },
+  );
 
   return NextResponse.json(
     {
@@ -23,6 +38,14 @@ export function GET() {
       license: "Content: CC BY 4.0. Code: MIT.",
       author: "Ramón Guillamón",
       updatedAt: educationalReviewDate,
+      discovery: {
+        sitemap: `${SITE_URL}/sitemap.xml`,
+        sitemapIndex: `${SITE_URL}/sitemap-index.xml`,
+        llms: `${SITE_URL}/llms.txt`,
+        llmsFull: `${SITE_URL}/llms-full.txt`,
+        ai: `${SITE_URL}/ai.txt`,
+      },
+      totals,
       entries,
     },
     {
