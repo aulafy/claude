@@ -32,7 +32,7 @@ const slashCommands = [
 
 const cliFlags = [
   { flag: "-p / --print", desc: "Modo no interactivo: responde una vez y sale. Ideal para scripts." },
-  { flag: "--dangerously-skip-permissions", desc: "Omite todas las confirmaciones de permisos. Usar con precaución." },
+  { flag: "--permission-mode bypassPermissions", desc: "Omite prompts de permisos. Solo para entornos aislados, desechables y sin secretos." },
   { flag: "--model <alias|id>", desc: "Especifica el modelo a usar. Ej: --model opus" },
   { flag: "--max-tokens <n>", desc: "Limita los tokens de salida por respuesta." },
   { flag: "--no-color", desc: "Desactiva el color en la salida del terminal." },

@@ -1346,11 +1346,11 @@ export const seoLandings: SeoLanding[] = [
         ],
       },
       {
-        title: "Por qué ayuda a ChatGPT, Claude y Google",
+        title: "Cómo está documentado",
         body:
-          "La página responde de forma directa a una intención concreta: cómo crear una CLI de agentes IA local. Incluye pasos, comandos, código, fuentes, FAQ y datos estructurados para que buscadores y asistentes puedan entenderla, citarla y enlazarla.",
+          "La lección responde de forma directa a una intención concreta: cómo crear una CLI de agentes IA local. Incluye pasos, comandos, código, fuentes, FAQ y datos estructurados sin interrumpir la práctica principal.",
         bullets: [
-          "Respuesta rápida al inicio.",
+          "Resumen técnico al inicio.",
           "Código y comandos copiables.",
           "Fuentes primarias enlazadas.",
         ],

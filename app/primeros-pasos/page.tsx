@@ -75,16 +75,24 @@ export default function PrimerospasoS() {
           comandos importantes. Ideal para empezar y mantener control.
         </p>
 
-        <h3>Modo auto</h3>
+        <h3>Modo con más autonomía</h3>
         <p>
-          Claude completa tareas de forma autónoma sin pedir confirmación en
-          cada paso. Útil cuando confías en la tarea y quieres velocidad:
+          Para trabajar más rápido, empieza por encargos acotados y permisos explícitos. El flujo normal no consiste
+          en saltarse todas las confirmaciones, sino en revisar qué acciones acepta la sesión con <code>/permissions</code>.
         </p>
-        <pre><code>{`claude --dangerously-skip-permissions`}</code></pre>
+        <pre><code>{`/permissions`}</code></pre>
+
+        <h3>Omisión total de permisos</h3>
+        <p>
+          <code>--dangerously-skip-permissions</code> no es el modo automático normal. Equivale a
+          <code>--permission-mode bypassPermissions</code>: omite los prompts de permisos y solo debería usarse en
+          entornos desechables, aislados y sin secretos accesibles.
+        </p>
+        <pre><code>{`# Evítalo como flujo habitual
+claude --permission-mode bypassPermissions`}</code></pre>
         <div className="callout callout-warning">
-          Usa el modo auto con precaución. Claude puede modificar archivos,
-          instalar paquetes o ejecutar comandos sin pausa. Úsalo en entornos
-          controlados o con proyectos que tengan git para revertir cambios.
+          Para principiantes, la recomendación es no usar bypass de permisos. Usa Git, revisa diffs y concede permisos
+          concretos. Incluso en Docker o una VM, cualquier archivo, variable o red accesible al proceso puede quedar expuesto.
         </div>
 
         <h3>Modo plan</h3>

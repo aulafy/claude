@@ -52,7 +52,7 @@ export default function SeoLandingPage({ landing }: Props) {
       <section className="mt-6 aula-panel p-6 border-[#22d3ee]/25">
         <h2 className="font-display font-bold text-lg text-white flex items-center gap-2">
           <Icon name="quote" />
-          Respuesta corta para citar
+          Resumen rápido
         </h2>
         <p className="mt-3 text-sm leading-relaxed text-zinc-300">
           {landing.description} En Aulafy es gratuito, está en español y enlaza con lecciones prácticas

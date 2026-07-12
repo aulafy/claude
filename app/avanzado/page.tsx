@@ -79,9 +79,9 @@ claude -p "revisa el código en busca de vulnerabilidades SQL"
 # Con output JSON para parsear
 claude -p --output-format json "lista todos los TODO del proyecto" | jq '.result'
 
-# En un Makefile o script CI
-claude -p --dangerously-skip-permissions \\
-  "ejecuta los tests, si hay fallos corrígelos y haz commit"
+# En un Makefile o script CI: genera un informe revisable, no publiques cambios directamente
+claude -p --output-format json \\
+  "ejecuta los tests y resume fallos, archivos afectados y comandos sugeridos sin editar ni hacer commit" > claude-report.json
 
 # En GitHub Actions
 - name: Claude Code Review

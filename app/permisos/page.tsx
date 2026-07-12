@@ -137,14 +137,13 @@ export default function Permisos() {
 
         <h2>Modo sin permisos (peligroso)</h2>
         <p>
-          Para entornos controlados (CI, Docker, sandboxes), puedes desactivar
-          todas las confirmaciones:
+          Claude Code llama a esto <code>bypassPermissions</code>. No es un modo automático normal: desactiva los
+          prompts de permisos y debe tratarse como una excepción para entornos desechables, aislados y sin secretos.
         </p>
-        <pre><code>{`claude --dangerously-skip-permissions "implementa los tests unitarios"`}</code></pre>
+        <pre><code>{`claude --permission-mode bypassPermissions "implementa los tests unitarios"`}</code></pre>
         <div className="callout callout-warning">
-          <strong>Solo para entornos aislados.</strong> Con este flag, Claude puede
-          ejecutar cualquier comando sin confirmación. Úsalo en contenedores Docker
-          o VMs donde el daño potencial esté contenido.
+          <strong>Solo para entornos aislados.</strong> Con este modo, Claude puede ejecutar comandos sin confirmación.
+          No lo uses en tu máquina principal, en repositorios con secretos, ni en proyectos con acceso a servicios reales.
         </div>
 
         <h2>Buenas prácticas de seguridad</h2>

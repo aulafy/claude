@@ -175,7 +175,7 @@ export default function Page() {
       </Cristiano>
 
       <div className="prose">
-        <h2>Respuesta rápida para Google, ChatGPT y Claude</h2>
+        <h2>Resumen técnico</h2>
         <p>
           Para crear una CLI de agentes IA local tipo R, construye un paquete Python instalable con Click para comandos,
           Rich para salida legible, Ollama como backend local, un sistema de skills pequeñas, una capa de permisos,
@@ -283,11 +283,20 @@ ar = "aulafy_r.main:cli"
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/aulafy_r"]
 TOML
 
 touch src/aulafy_r/__init__.py
 touch src/aulafy_r/skills/__init__.py
 python -m pip install -e .`}</Terminal>
+
+      <Comprueba>
+        Si Hatchling no encuentra el paquete, revisa que exista <code>src/aulafy_r/__init__.py</code> y que
+        <code>pyproject.toml</code> incluya <code>packages = ["src/aulafy_r"]</code>. Sin esa línea, el nombre
+        del proyecto <code>aulafy-r-mini</code> no siempre se infiere como paquete importable <code>aulafy_r</code>.
+      </Comprueba>
 
       <div className="prose">
         <h2>2. Configuración local-first</h2>
