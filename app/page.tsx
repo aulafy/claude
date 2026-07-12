@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "Aulafy — Cursos gratis de IA open source en español",
   description:
     "Aprende inteligencia artificial con cursos gratuitos y prácticos sobre OpenAI Codex, Claude Code, IA local, RAG, agentes, seguridad, MLOps y automatización.",
-  alternates: { canonical: "/", languages: { "es-ES": "/", "en-US": "/en" } },
+  alternates: { canonical: "/", languages: { "es-ES": "/", "en-US": "/en", "x-default": "/" } },
   robots: { index: true, follow: true },
   openGraph: {
     title: "Aulafy — Aprende IA construyendo sistemas reales",

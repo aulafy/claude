@@ -133,6 +133,7 @@ export const metadata: Metadata = {
     languages: {
       "es-ES": "/",
       "en-US": "/en",
+      "x-default": "/",
     },
   },
   verification: {

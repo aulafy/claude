@@ -273,5 +273,6 @@ export function alternateLanguages(entry: SeoIndexEntry) {
   return {
     "es-ES": absoluteUrl(esRoute),
     "en-US": absoluteUrl(enRoute),
+    "x-default": absoluteUrl(esRoute),
   };
 }

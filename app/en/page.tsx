@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Aulafy — Free open-source AI courses in English",
   description:
     "Free practical AI courses in English: OpenAI Codex, Claude Code, local AI, RAG, agents, security, MLOps and automation.",
-  alternates: { canonical: "/en", languages: { "es-ES": "/", "en-US": "/en" } },
+  alternates: { canonical: "/en", languages: { "es-ES": "/", "en-US": "/en", "x-default": "/" } },
   robots: { index: true, follow: true },
   openGraph: {
     title: "Aulafy — Learn AI by building real systems",
