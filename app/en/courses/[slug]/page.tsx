@@ -7,6 +7,7 @@ import { getLocalizedCurso } from "@/lib/i18n";
 import { getEnglishLessonTitle } from "@/lib/english-lessons";
 import ContinuarCurso from "@/components/ContinuarCurso";
 import { getCourseGuidance } from "@/lib/course-guidance";
+import { pluralLabel } from "@/lib/plural";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 
@@ -138,7 +139,7 @@ export default async function EnglishCoursePage({ params }: { params: Promise<{ 
 
             <div className="mt-5 flex flex-wrap items-center gap-2">
               <span className="aula-chip"><Icon name="chart" /> {course.level}</span>
-              <span className="aula-chip" data-tone="cyan"><Icon name="book" /> {total} lessons</span>
+              <span className="aula-chip" data-tone="cyan"><Icon name="book" /> {pluralLabel(total, "lesson", "en")}</span>
               <span className="aula-chip" data-tone="green"><Icon name="star" /> Free and open source</span>
             </div>
 
@@ -157,11 +158,11 @@ export default async function EnglishCoursePage({ params }: { params: Promise<{ 
 
           <div className="grid grid-cols-2 gap-3 lg:w-64">
             <div className="aula-panel p-4">
-              <div className="aula-meta text-zinc-500">modules</div>
+              <div className="aula-meta text-zinc-500">{pluralLabel(course.secciones.length, "module", "en").replace(/^\d+ /, "")}</div>
               <div className="font-display text-3xl font-bold text-white mt-1">{course.secciones.length}</div>
             </div>
             <div className="aula-panel p-4">
-              <div className="aula-meta text-zinc-500">lessons</div>
+              <div className="aula-meta text-zinc-500">{pluralLabel(total, "lesson", "en").replace(/^\d+ /, "")}</div>
               <div className="font-display text-3xl font-bold text-white mt-1">{total}</div>
             </div>
             <div className="aula-panel p-4 col-span-2">
@@ -210,7 +211,7 @@ export default async function EnglishCoursePage({ params }: { params: Promise<{ 
           <span className="aula-section-label"><Icon name="route" /> Roadmap</span>
           <h2 className="font-display font-bold text-2xl text-white mt-2">Syllabus</h2>
         </div>
-        <span className="aula-chip" data-tone="cyan">{total} steps</span>
+        <span className="aula-chip" data-tone="cyan">{pluralLabel(total, "step", "en")}</span>
       </div>
 
       {course.secciones.map((section, sectionIndex) => {
@@ -224,7 +225,7 @@ export default async function EnglishCoursePage({ params }: { params: Promise<{ 
               <h3 className="aula-section-label">
                 module {String(sectionIndex + 1).padStart(2, "0")} / {section.title}
               </h3>
-              <span className="aula-chip">{section.lecciones.length} lessons</span>
+              <span className="aula-chip">{pluralLabel(section.lecciones.length, "lesson", "en")}</span>
             </div>
             <ol className="grid gap-2">
               {section.lecciones.map((lesson, lessonIndex) => {

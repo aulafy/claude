@@ -5,6 +5,7 @@ import Icon, { type IconName } from "@/components/Icon";
 import ContinuarCurso from "@/components/ContinuarCurso";
 import { cursos, getCurso, totalLecciones } from "@/lib/cursos";
 import { getCourseGuidance } from "@/lib/course-guidance";
+import { pluralLabel } from "@/lib/plural";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 
@@ -165,7 +166,7 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
 
             <div className="mt-5 flex flex-wrap items-center gap-2">
               <span className="aula-chip"><Icon name="chart" /> {curso.level}</span>
-              <span className="aula-chip" data-tone="cyan"><Icon name="book" /> {total} lecciones</span>
+              <span className="aula-chip" data-tone="cyan"><Icon name="book" /> {pluralLabel(total, "lesson")}</span>
               <span className="aula-chip" data-tone="green"><Icon name="star" /> Gratis y open source</span>
             </div>
 
@@ -187,11 +188,11 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
 
           <div className="grid grid-cols-2 gap-3 lg:w-64">
             <div className="aula-panel p-4">
-              <div className="aula-meta text-zinc-500">módulos</div>
+              <div className="aula-meta text-zinc-500">{pluralLabel(curso.secciones.length, "module").replace(/^\d+ /, "")}</div>
               <div className="font-display text-3xl font-bold text-white mt-1">{curso.secciones.length}</div>
             </div>
             <div className="aula-panel p-4">
-              <div className="aula-meta text-zinc-500">lecciones</div>
+              <div className="aula-meta text-zinc-500">{pluralLabel(total, "lesson").replace(/^\d+ /, "")}</div>
               <div className="font-display text-3xl font-bold text-white mt-1">{total}</div>
             </div>
             <div className="aula-panel p-4 col-span-2">
@@ -243,7 +244,7 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
           <span className="aula-section-label"><Icon name="route" /> Itinerario</span>
           <h2 className="font-display font-bold text-2xl text-white mt-2">Temario</h2>
         </div>
-        <span className="aula-chip" data-tone="cyan">{total} pasos</span>
+        <span className="aula-chip" data-tone="cyan">{pluralLabel(total, "step")}</span>
       </div>
       {curso.secciones.map((seccion, seccionIndex) => {
         const start = curso.secciones
@@ -256,7 +257,7 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
               <h3 className="aula-section-label">
                 módulo {String(seccionIndex + 1).padStart(2, "0")} / {seccion.title}
               </h3>
-              <span className="aula-chip">{seccion.lecciones.length} lecciones</span>
+              <span className="aula-chip">{pluralLabel(seccion.lecciones.length, "lesson")}</span>
             </div>
             <ol className="grid gap-2">
               {seccion.lecciones.map((l, leccionIndex) => {
