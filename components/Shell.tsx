@@ -4,7 +4,6 @@ import { usePathname } from "next/navigation";
 import CourseSidebar from "@/components/CourseSidebar";
 import SiteHeader from "@/components/SiteHeader";
 import Footer from "@/components/Footer";
-import ChatWidget from "@/components/ChatWidget";
 import DocumentLanguage from "@/components/DocumentLanguage";
 import { getCurso } from "@/lib/cursos";
 import { isEnglishPath } from "@/lib/i18n";
@@ -43,7 +42,6 @@ export default function Shell({ children }: { children: React.ReactNode }) {
           </main>
           <Footer locale={locale} />
         </div>
-        <ChatWidget locale={locale} />
       </>
     );
   }
@@ -56,7 +54,6 @@ export default function Shell({ children }: { children: React.ReactNode }) {
       <SiteHeader locale={locale} />
       <main id="main-content" className="min-h-screen">{children}</main>
       <Footer locale={locale} />
-      <ChatWidget locale={locale} />
     </>
   );
 }
