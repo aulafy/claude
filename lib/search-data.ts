@@ -6,6 +6,13 @@ export type SearchItem = {
 };
 
 export const searchData: SearchItem[] = [
+  { href: "/cursos/fundamentos-aulafy", title: "Fundamentos para Aulafy", section: "Fundamentos", keywords: "python uv git terminal docker agents md ia local prerequisitos aulafy" },
+  { href: "/cursos/fundamentos-aulafy/mapa-entorno", title: "Mapa del entorno local-first", section: "Fundamentos", keywords: "local first stack ia local cloud modelos privados entorno reproducible" },
+  { href: "/cursos/fundamentos-aulafy/python-uv", title: "Python moderno con uv", section: "Fundamentos", keywords: "uv python venv pip entorno virtual pyproject ia local" },
+  { href: "/cursos/fundamentos-aulafy/git-agents-md", title: "Git, commits pequeños y AGENTS.md", section: "Fundamentos", keywords: "git commit diff agents md instrucciones agente repositorio prompts" },
+  { href: "/cursos/fundamentos-aulafy/terminal-sin-miedo", title: "Terminal sin miedo", section: "Fundamentos", keywords: "terminal cli comandos puertos procesos curl localhost" },
+  { href: "/cursos/fundamentos-aulafy/docker-servicios", title: "Docker para servicios de IA", section: "Fundamentos", keywords: "docker compose qdrant n8n open webui servicios ia local" },
+  { href: "/cursos/fundamentos-aulafy/proyecto-base", title: "Proyecto base listo para Aulafy", section: "Fundamentos", keywords: "plantilla proyecto ia readme gitignore pyproject verify reproducible" },
   { href: "/cursos/codex-programadores", title: "Codex para programadores", section: "Codex", keywords: "openai codex curso tutorial programadores cli app agentes codigo" },
   { href: "/cursos/codex-programadores/instalacion", title: "Instala Codex y entiende sus superficies", section: "Codex", keywords: "instalar codex cli npm autenticacion app ide cloud status permissions model" },
   { href: "/cursos/codex-programadores/explorar-repositorio", title: "Explora un repositorio sin perderte", section: "Codex", keywords: "codex repositorio arquitectura entender codebase rutas simbolos flujo tests" },

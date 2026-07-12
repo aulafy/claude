@@ -5,6 +5,11 @@ export type Locale = "es" | "en";
 type CourseCopy = Pick<Curso, "title" | "short" | "desc">;
 
 const englishCourseCopy: Record<string, CourseCopy> = {
+  "fundamentos-aulafy": {
+    title: "Aulafy foundations",
+    short: "Python, Git, terminal, and Docker for learning AI smoothly.",
+    desc: "Prepare a local-first environment for any Aulafy course: terminal, modern Python with uv, Git, AGENTS.md, Docker, local services, and a reproducible project template.",
+  },
   "codex-programadores": {
     title: "Codex for programmers",
     short: "Build, test, and ship changes with OpenAI Codex.",
@@ -81,6 +86,8 @@ const englishUpcomingCopy: Record<string, { title: string; desc: string }> = {
 
 const sectionTitleEn: Record<string, string> = {
   "Preparar el entorno": "Prepare your environment",
+  "Base local-first": "Local-first base",
+  "Herramientas de trabajo": "Working tools",
   "Flujo de desarrollo": "Development workflow",
   "Control y automatización": "Control and automation",
   "Empezar": "Getting started",
@@ -125,6 +132,7 @@ const sectionTitleEn: Record<string, string> = {
 };
 
 const levelEn: Record<string, string> = {
+  "Principiante": "Beginner",
   "Principiante -> avanzado": "Beginner to advanced",
   "Principiante → avanzado": "Beginner to advanced",
   "Principiante -> intermedio": "Beginner to intermediate",

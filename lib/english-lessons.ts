@@ -1,5 +1,6 @@
 import englishLessonContent from "@/lib/english-lesson-content.json";
 import { codexLessons } from "@/lib/codex-course-content";
+import { foundationLessons } from "@/lib/foundation-course-content";
 
 export type EnglishLessonBlock = {
   type: "h2" | "h3" | "p" | "bullet" | "code";
@@ -30,7 +31,16 @@ const codexEnglishLessons: EnglishLesson[] = codexLessons.map((lesson) => ({
   blocks: [{ type: "p", text: lesson.lead.en }, ...lesson.blocks.en],
 }));
 
-const allLessons = [...content.lessons, ...codexEnglishLessons];
+const foundationEnglishLessons: EnglishLesson[] = foundationLessons.map((lesson) => ({
+  courseSlug: "fundamentos-aulafy",
+  courseTitle: "Aulafy foundations",
+  slug: lesson.slug,
+  title: lesson.title.en,
+  href: `/en/courses/fundamentos-aulafy/${lesson.slug}`,
+  blocks: [{ type: "p", text: lesson.lead.en }, ...lesson.blocks.en],
+}));
+
+const allLessons = [...content.lessons, ...codexEnglishLessons, ...foundationEnglishLessons];
 const lessonsByKey = new Map(allLessons.map((lesson) => [`${lesson.courseSlug}/${lesson.slug}`, lesson]));
 
 export function getEnglishLesson(courseSlug: string, lessonSlug: string) {

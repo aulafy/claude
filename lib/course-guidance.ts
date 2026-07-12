@@ -13,6 +13,15 @@ export type CourseGuidance = {
 const updated = "2026-07-10";
 
 const guidanceEs: Record<string, CourseGuidance> = {
+  "fundamentos-aulafy": {
+    track: "Fundamentos",
+    audience: "Personas que quieren entrar en cursos de IA local, agentes, RAG o MLOps con una base técnica clara.",
+    prerequisites: ["Un ordenador propio", "Ganas de usar terminal sin miedo"],
+    outcomes: ["Preparar un entorno local-first reproducible", "Usar Python con uv, Git, AGENTS.md y Docker con criterio", "Crear una plantilla base para proyectos de IA"],
+    deliverable: "Un proyecto base de Aulafy con README, AGENTS.md, entorno Python, Git limpio y servicios preparados.",
+    estimatedHours: 4,
+    updated,
+  },
   "codex-programadores": {
     track: "Programación con IA",
     audience: "Programadores y equipos que quieren incorporar agentes de código con criterio profesional.",
@@ -135,6 +144,7 @@ const guidanceEs: Record<string, CourseGuidance> = {
 const guidanceEn: Record<string, CourseGuidance> = {};
 
 Object.assign(guidanceEn, {
+  "fundamentos-aulafy": { ...guidanceEs["fundamentos-aulafy"], track: "Foundations", audience: "Learners entering local AI, agents, RAG, or MLOps courses who need a clear technical base.", prerequisites: ["Your own computer", "Willingness to use the terminal calmly"], outcomes: ["Prepare a reproducible local-first environment", "Use Python with uv, Git, AGENTS.md, and Docker with judgment", "Create a base template for AI projects"], deliverable: "An Aulafy base project with README, AGENTS.md, Python environment, clean Git history, and services ready." },
   "codex-programadores": { ...guidanceEs["codex-programadores"], track: "AI-assisted programming", audience: "Developers and teams adopting coding agents professionally.", prerequisites: ["Basic Git skills", "A small repository for practice"], outcomes: ["Explore unfamiliar code with evidence", "Request and implement verifiable changes", "Control permissions, review, and automation"], deliverable: "A complete repository change with a test, review, and clean commit." },
   "claude-code": { ...guidanceEs["claude-code"], track: "AI-assisted programming", audience: "Technical and non-technical builders who want to create software from the terminal.", prerequisites: ["A computer with terminal access", "No previous agent experience required"], outcomes: ["Install and configure Claude Code", "Build projects from clear requests", "Use skills, subagents, MCP, and hooks safely"], deliverable: "An AI-assisted development workflow adapted to your work." },
   "ia-local": { ...guidanceEs["ia-local"], track: "AI-assisted programming", audience: "Makers and developers who need privacy and local control.", prerequisites: ["Basic terminal use", "8 GB RAM minimum; 16 GB recommended"], outcomes: ["Choose and run local models", "Connect tools through Ollama or LM Studio", "Build and publish private applications"], deliverable: "A working local AI application using RAG, voice, PDF, or productivity tools." },

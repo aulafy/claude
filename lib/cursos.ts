@@ -18,6 +18,33 @@ export type Curso = {
 
 export const cursos: Curso[] = [
   {
+    slug: "fundamentos-aulafy",
+    title: "Fundamentos para Aulafy",
+    short: "Python, Git, terminal y Docker para aprender IA sin fricción",
+    desc: "Prepara un entorno local-first para cualquier curso de Aulafy: terminal, Python moderno con uv, Git, AGENTS.md, Docker, servicios locales y una plantilla de proyecto reproducible.",
+    level: "Principiante",
+    icon: "tools",
+    gradient: ["#22c55e", "#f59e0b"],
+    secciones: [
+      {
+        title: "Base local-first",
+        lecciones: [
+          { slug: "mapa-entorno", title: "Mapa del entorno local-first" },
+          { slug: "python-uv", title: "Python moderno con uv" },
+          { slug: "git-agents-md", title: "Git, commits pequeños y AGENTS.md" },
+        ],
+      },
+      {
+        title: "Herramientas de trabajo",
+        lecciones: [
+          { slug: "terminal-sin-miedo", title: "Terminal sin miedo" },
+          { slug: "docker-servicios", title: "Docker para servicios de IA" },
+          { slug: "proyecto-base", title: "Proyecto base listo para Aulafy" },
+        ],
+      },
+    ],
+  },
+  {
     slug: "codex-programadores",
     title: "Codex para programadores",
     short: "Programa, prueba y entrega cambios con OpenAI Codex",
