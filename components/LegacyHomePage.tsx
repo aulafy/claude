@@ -416,7 +416,7 @@ export default function LegacyHomePage() {
             >
               Código
             </a>
-            <a href="mailto:contacto@aulafy.net" aria-label="Email" className="hover:text-white transition-colors">
+            <a href="mailto:learntouseai@gmail.com" aria-label="Email" className="hover:text-white transition-colors">
               <Icon name="email" className="text-lg" />
             </a>
             <a href="https://x.com/learntouseai" target="_blank" rel="noopener noreferrer" aria-label="X" className="hover:text-white transition-colors">

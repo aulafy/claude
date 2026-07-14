@@ -284,7 +284,7 @@ Este contenido se publica bajo licencia Creative Commons (CC BY 4.0). Puedes com
 
 const ending = String.raw`\chapter{Sugerencias y contacto}
 
-Si tienes sugerencias, dudas o quieres proponer mejoras para esta guía, puedes escribir a \href{mailto:contacto@aulafy.net}{contacto@aulafy.net}.
+Si tienes sugerencias, dudas o quieres proponer mejoras para esta guía, puedes escribir a \href{mailto:learntouseai@gmail.com}{learntouseai@gmail.com}.
 
 Este contenido se publica bajo licencia Creative Commons (CC BY 4.0). Puedes compartirlo y adaptarlo citando la fuente.
 

@@ -9,7 +9,7 @@ Gracias por ayudar a mejorar Aulafy. Se aceptan contribuciones de contenido, có
 - Busca si ya existe una incidencia o propuesta relacionada.
 - Para un cambio grande, abre primero una incidencia y explica el resultado esperado.
 
-Las dudas generales y propuestas privadas pueden enviarse a [contacto@aulafy.net](mailto:contacto@aulafy.net).
+Las dudas generales y propuestas privadas pueden enviarse a [learntouseai@gmail.com](mailto:learntouseai@gmail.com).
 
 ## Formas de colaborar
 
@@ -130,7 +130,7 @@ No abras una incidencia pública si encuentras:
 - una vulnerabilidad explotable;
 - una forma de eludir límites o ejecutar acciones no autorizadas.
 
-Escribe a [contacto@aulafy.net](mailto:contacto@aulafy.net) con el asunto `[Seguridad]`, una descripción breve, las rutas afectadas y una forma segura de reproducir el problema. No incluyas el secreto completo si basta con identificarlo parcialmente.
+Escribe a [learntouseai@gmail.com](mailto:learntouseai@gmail.com) con el asunto `[Seguridad]`, una descripción breve, las rutas afectadas y una forma segura de reproducir el problema. No incluyas el secreto completo si basta con identificarlo parcialmente.
 
 ## Trato y revisión
 

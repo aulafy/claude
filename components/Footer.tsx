@@ -78,7 +78,7 @@ export default function Footer({ locale = "es" }: { locale?: Locale }) {
           {/* Redes del autor */}
           <div className="flex items-center gap-4">
             <a
-              href="mailto:contacto@aulafy.net"
+              href="mailto:learntouseai@gmail.com"
               aria-label={content.emailLabel}
               className="text-zinc-500 hover:text-fuchsia-300 transition-colors"
             >

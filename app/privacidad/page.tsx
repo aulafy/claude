@@ -29,7 +29,7 @@ export default function Privacidad() {
         <p>
           Responsable editorial del sitio: Aulafy. Para consultas de privacidad,
           derechos o retirada de contenido, escribe a{" "}
-          <a href="mailto:contacto@aulafy.net">contacto@aulafy.net</a>.
+          <a href="mailto:learntouseai@gmail.com">learntouseai@gmail.com</a>.
         </p>
 
         <h2>Datos que no recogemos</h2>

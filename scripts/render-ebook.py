@@ -295,7 +295,7 @@ def build_pdf(data):
     story.append(Spacer(1, 35 * mm))
     story.append(p("toc_title", "Notas finales"))
     story.append(p("body", "Este ebook forma parte de Aulafy, una biblioteca educativa abierta para aprender inteligencia artificial con criterio practico, herramientas abiertas y proyectos reproducibles."))
-    story.append(p("body", "contacto@aulafy.net"))
+    story.append(p("body", "learntouseai@gmail.com"))
     story.append(p("body", "Creative Commons Attribution 4.0 (CC BY 4.0)."))
     story.append(p("body", "aulafy.net"))
     doc.build(story)
@@ -351,7 +351,7 @@ def build_tex(data):
     lines += [
         r"\chapter*{Notas finales}",
         tex_escape("Este ebook forma parte de Aulafy, una biblioteca educativa abierta para aprender inteligencia artificial con criterio practico, herramientas abiertas y proyectos reproducibles."),
-        tex_escape("contacto@aulafy.net"),
+        tex_escape("learntouseai@gmail.com"),
         tex_escape("Creative Commons Attribution 4.0 (CC BY 4.0)."),
         tex_escape("aulafy.net"),
         r"\end{document}",

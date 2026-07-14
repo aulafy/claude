@@ -56,7 +56,7 @@ export default function Cookies() {
         <h2>Contacto</h2>
         <p>
           Para cualquier duda sobre cookies o privacidad, escribe a{" "}
-          <a href="mailto:contacto@aulafy.net">contacto@aulafy.net</a>.
+          <a href="mailto:learntouseai@gmail.com">learntouseai@gmail.com</a>.
         </p>
       </div>
     </div>

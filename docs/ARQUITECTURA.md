@@ -111,4 +111,4 @@ Los tokens de verificación que deben ser públicos por protocolo se documentan 
 
 El destino principal es Vercel. `vercel.json` ejecuta `npm run build` y publica la salida de Next.js. Antes de desplegar deben estar configuradas la URL canónica y, si se usa el chat, sus credenciales de servidor.
 
-Contacto técnico y editorial: [contacto@aulafy.net](mailto:contacto@aulafy.net).
+Contacto técnico y editorial: [learntouseai@gmail.com](mailto:learntouseai@gmail.com).

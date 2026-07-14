@@ -21,7 +21,7 @@ export function GET() {
 Canonical URL: ${SITE_URL}
 Short name: Aulafy
 Author and curator: Ramón Guillamón
-Contact: contacto@aulafy.net
+Contact: learntouseai@gmail.com
 Content license: Creative Commons Attribution 4.0 (CC BY 4.0)
 Code license: MIT
 Languages: Spanish and English

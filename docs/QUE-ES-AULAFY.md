@@ -106,4 +106,4 @@ Aulafy no es:
 
 Aulafy está creado y editado por Ramón Guillamón. El repositorio histórico se llama `claude` porque el proyecto comenzó alrededor de Claude Code, pero su alcance actual es mucho más amplio.
 
-Contacto principal: [contacto@aulafy.net](mailto:contacto@aulafy.net).
+Contacto principal: [learntouseai@gmail.com](mailto:learntouseai@gmail.com).

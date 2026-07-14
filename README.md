@@ -163,7 +163,7 @@ docs/         documentación del proyecto y hoja de ruta
 
 Se aceptan correcciones, mejoras educativas, nuevas fuentes, ejemplos reproducibles, traducciones, mejoras de accesibilidad y cambios técnicos. Lee [CONTRIBUTING.md](CONTRIBUTING.md) antes de abrir una propuesta.
 
-Para dudas generales, propuestas privadas o avisos de seguridad, escribe a [contacto@aulafy.net](mailto:contacto@aulafy.net). No publiques claves, datos personales ni detalles de una vulnerabilidad en una incidencia pública.
+Para dudas generales, propuestas privadas o avisos de seguridad, escribe a [learntouseai@gmail.com](mailto:learntouseai@gmail.com). No publiques claves, datos personales ni detalles de una vulnerabilidad en una incidencia pública.
 
 ## Licencias
 
@@ -180,4 +180,4 @@ Aulafy está creado y editado por Ramón Guillamón.
 
 - Web: [aulafy.net](https://www.aulafy.net)
 - GitHub: [github.com/aulafy](https://github.com/aulafy)
-- Contacto principal: [contacto@aulafy.net](mailto:contacto@aulafy.net)
+- Contacto principal: [learntouseai@gmail.com](mailto:learntouseai@gmail.com)

@@ -84,6 +84,6 @@ Estas tareas no tienen una fecha de finalización:
 
 ## Cómo proponer una prioridad
 
-Abre una incidencia explicando el problema educativo, a quién afecta, qué evidencia tienes y cómo se podría verificar la mejora. Para propuestas privadas o que incluyan seguridad, escribe a [contacto@aulafy.net](mailto:contacto@aulafy.net).
+Abre una incidencia explicando el problema educativo, a quién afecta, qué evidencia tienes y cómo se podría verificar la mejora. Para propuestas privadas o que incluyan seguridad, escribe a [learntouseai@gmail.com](mailto:learntouseai@gmail.com).
 
 La guía completa está en [CONTRIBUTING.md](../CONTRIBUTING.md).

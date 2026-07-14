@@ -22,4 +22,4 @@ Esta carpeta explica el propósito, la arquitectura y la evolución del proyecto
 
 La documentación debe cambiar cuando cambien el propósito, la estructura, los comandos, las variables de entorno o las prioridades del proyecto. No debe describir funciones futuras como si ya estuvieran disponibles.
 
-Contacto principal: [contacto@aulafy.net](mailto:contacto@aulafy.net).
+Contacto principal: [learntouseai@gmail.com](mailto:learntouseai@gmail.com).

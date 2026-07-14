@@ -29,7 +29,7 @@ export default function AvisoLegal() {
         <p>
           Responsable editorial del sitio: Aulafy. Responsable de contenido:
           Ramón Guillamón. Contacto:{" "}
-          <a href="mailto:contacto@aulafy.net">contacto@aulafy.net</a>.
+          <a href="mailto:learntouseai@gmail.com">learntouseai@gmail.com</a>.
         </p>
         <p>
           La web no ofrece contratación online, pagos, suscripciones, cuentas de

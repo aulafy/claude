@@ -46,7 +46,7 @@ const jsonLd = {
       identifier: "ramon-guillamon",
       description: "Autor y editor de Aulafy, especializado en formación práctica sobre IA open source, agentes, IA local, RAG y automatización.",
       jobTitle: "Autor y editor de cursos de inteligencia artificial",
-      email: "contacto@aulafy.net",
+      email: "learntouseai@gmail.com",
       url: `${SITE_URL}/sobre-ramon-guillamon`,
       worksFor: { "@id": `${SITE_URL}/#organization`, name: "Aulafy" },
       sameAs: [
