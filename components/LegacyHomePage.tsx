@@ -7,12 +7,12 @@ import LandingNetwork from "@/components/LandingNetwork";
 import { cursos as catalogoCursos, totalLecciones } from "@/lib/cursos";
 
 export const metadata: Metadata = {
-  title: "Aulafy — Cursos de IA open source en español",
+  title: "Aulafy — Educación abierta para aprender IA",
   description:
-    "Cursos gratis de IA open source en español: Claude Code, Fable 5, IA local, videojuegos 3D, RAG, agentes, automatización, seguridad y proyectos prácticos.",
+    "Cursos, rutas y proyectos gratuitos en español sobre Codex, Claude Code, IA local, videojuegos 3D, RAG, agentes, automatización y seguridad.",
   alternates: { canonical: "/", languages: { "es-ES": "/", "en-US": "/en" } },
   openGraph: {
-    title: "Aulafy — Cursos de IA open source en español",
+    title: "Aulafy — Educación abierta para aprender IA",
     description:
       "Tutoriales prácticos para aprender IA local, Claude Code, Fable 5, videojuegos 3D, RAG, MLOps, seguridad, automatización e IA generativa multimedia. Gratis, en español y de código abierto.",
     type: "website",
@@ -23,13 +23,13 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Aulafy, cursos gratis de IA open source en español",
+        alt: "Aulafy, educación abierta para aprender inteligencia artificial",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aulafy — Cursos gratis de IA open source",
+    title: "Aulafy — Aprende IA construyendo sistemas reales",
     description: "Aprende IA local, Claude Code, Fable 5, videojuegos 3D, RAG, agentes y automatización.",
     creator: "@learntouseai",
     images: ["/opengraph-image"],
@@ -141,7 +141,7 @@ export default function LegacyHomePage() {
         <div>
         <div className="aula-chip mb-6" data-tone="cyan">
           <span className="w-1.5 h-1.5 rounded-full bg-[#22d3ee] animate-pulse" />
-          Cursos de IA open source en español · Gratis y prácticos
+          Educación abierta sobre IA práctica · Gratis y verificable
         </div>
         <h1 className="font-display font-extrabold text-4xl sm:text-6xl leading-tight text-white max-w-4xl">
           Cursos gratis de IA en español:<br /><span className="grad-text">Claude Code, IA local, RAG y automatización</span>
@@ -351,7 +351,7 @@ export default function LegacyHomePage() {
         </div>
       </section>
 
-      {/* Gratis y open source */}
+      {/* Acceso gratuito y contenido abierto */}
       <section id="opensource" className="max-w-4xl mx-auto px-6 py-20">
         <div className="aula-frame p-10 sm:p-14 text-center">
           <div className="aula-chip mb-6" data-tone="green">

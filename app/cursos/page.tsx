@@ -63,9 +63,9 @@ function CourseCard({ course }: { course: Curso }) {
 }
 
 export const metadata: Metadata = {
-  title: "Cursos gratis de IA open source en español",
+  title: "Cursos gratuitos de inteligencia artificial práctica",
   description:
-    "Catálogo gratuito de cursos de IA open source en español: Claude Code, IA local, Ollama, RAG, agentes, MLOps, seguridad y automatización.",
+    "Catálogo abierto de cursos prácticos en español sobre Codex, Claude Code, IA local, RAG, agentes, MLOps, seguridad y automatización.",
   keywords: [
     "cursos gratis de IA",
     "cursos inteligencia artificial español",
@@ -87,9 +87,9 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/cursos", languages: { "es-ES": "/cursos", "en-US": "/en/courses" } },
   openGraph: {
-    title: "Cursos gratis de IA open source en español",
+    title: "Cursos gratuitos de inteligencia artificial práctica",
     description:
-      "Rutas prácticas, gratuitas y sin registro para aprender IA local, Claude Code, Fable 5, videojuegos 3D, RAG, agentes, MLOps, seguridad y automatización.",
+      "Rutas prácticas, gratuitas y sin registro para aprender IA local, Codex, Claude Code, RAG, agentes, MLOps, seguridad y automatización.",
     url: "/cursos",
     type: "website",
     siteName: "Aulafy",
@@ -105,7 +105,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cursos gratis de IA open source en español",
+    title: "Cursos gratuitos de inteligencia artificial práctica",
     description:
       "Catálogo práctico de Aulafy para aprender IA local, Claude Code, Fable 5, videojuegos 3D, RAG, agentes, MLOps y seguridad.",
     creator: "@learntouseai",
@@ -122,8 +122,8 @@ export default function Cursos() {
         "@type": "CollectionPage",
         "@id": `${SITE_URL}/cursos#webpage`,
         url: `${SITE_URL}/cursos`,
-        name: "Cursos gratis de IA open source en español",
-        description: "Catálogo de cursos prácticos y gratuitos de IA open source en español.",
+        name: "Cursos gratuitos de inteligencia artificial práctica",
+        description: "Catálogo abierto de cursos prácticos y gratuitos de inteligencia artificial en español.",
         inLanguage: "es",
         isPartOf: { "@id": `${SITE_URL}/#website` },
         mainEntity: { "@id": `${SITE_URL}/cursos#course-list` },
@@ -169,7 +169,7 @@ export default function Cursos() {
               <Icon name="capsule" /> Biblioteca de cápsulas
             </span>
             <h1 className="font-display font-extrabold text-4xl sm:text-5xl text-white mt-4 mb-4">
-              Cursos gratis de IA open source en español
+              Cursos gratuitos de inteligencia artificial práctica
             </h1>
             <p className="lesson-lead max-w-3xl">
               Rutas prácticas para aprender Codex, IA local, agentes y automatización. Todos gratuitos,

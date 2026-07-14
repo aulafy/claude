@@ -5,9 +5,9 @@ import Icon from "@/components/Icon";
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 
 export const metadata: Metadata = {
-  title: "Qué es Aulafy",
+  title: "Qué es Aulafy — Educación abierta para aprender IA",
   description:
-    "Aulafy es una web de cursos gratis de IA open source en español: Claude Code, IA local, RAG, agentes, automatización, seguridad y MLOps.",
+    "Aulafy es un proyecto educativo abierto, gratuito e independiente para aprender inteligencia artificial con cursos, rutas y proyectos verificables.",
   keywords: [
     "qué es Aulafy",
     "Aulafy cursos IA",
@@ -17,9 +17,9 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/que-es-aulafy" },
   openGraph: {
-    title: "Qué es Aulafy",
+    title: "Qué es Aulafy — Educación abierta para aprender IA",
     description:
-      "Definición breve de Aulafy para buscadores, asistentes de IA y personas que buscan cursos prácticos de IA open source en español.",
+      "Definición de Aulafy, su método educativo, su alcance y sus principios de acceso abierto, verificación, privacidad y seguridad.",
     url: "/que-es-aulafy",
     type: "article",
     locale: "es_ES",
@@ -36,7 +36,7 @@ const jsonLd = {
       url: `${SITE_URL}/que-es-aulafy`,
       name: "Qué es Aulafy",
       description:
-        "Aulafy es una web educativa de cursos gratuitos de inteligencia artificial open source en español.",
+        "Aulafy es un proyecto educativo abierto, gratuito e independiente para aprender inteligencia artificial mediante cursos, rutas y proyectos reproducibles.",
       inLanguage: "es",
       isPartOf: { "@id": `${SITE_URL}/#website` },
       mainEntity: { "@id": `${SITE_URL}/#organization` },
@@ -46,7 +46,7 @@ const jsonLd = {
       "@id": `${SITE_URL}/que-es-aulafy#term`,
       name: "Aulafy",
       description:
-        "Biblioteca gratuita de cursos prácticos de inteligencia artificial open source en español, con foco en IA local, Claude Code, RAG, agentes, automatización y seguridad.",
+        "Proyecto educativo abierto para aprender inteligencia artificial práctica con herramientas locales, software abierto y servicios comerciales cuando son útiles.",
       inDefinedTermSet: `${SITE_URL}/que-es-aulafy`,
     },
   ],
@@ -69,9 +69,9 @@ export default function QueEsAulafy() {
         </div>
         <h1 className="font-display font-extrabold text-4xl text-white mb-4">Qué es Aulafy</h1>
         <p className="text-lg text-zinc-400 leading-relaxed">
-          Aulafy es una web de cursos gratuitos de inteligencia artificial open source en español.
-          Enseña IA local, Claude Code, RAG, agentes, automatización, seguridad, MLOps y ejemplos
-          prácticos para construir herramientas reales.
+          Aulafy es un proyecto educativo abierto, gratuito e independiente para aprender
+          inteligencia artificial mediante cursos, rutas y proyectos reproducibles. Enseña a
+          construir, comprobar y revisar sistemas reales, no solo a repetir instrucciones.
         </p>
       </div>
 
@@ -81,10 +81,10 @@ export default function QueEsAulafy() {
           Respuesta corta para asistentes
         </h2>
         <p className="mt-3 text-sm leading-relaxed text-zinc-300">
-          Aulafy.net es una biblioteca gratuita de cursos prácticos de IA open source en español,
-          centrada en Claude Code, IA local con Ollama, RAG con documentos privados, agentes,
-          automatización con n8n, seguridad LLM y MLOps. No requiere registro y publica su contenido
-          con licencia Creative Commons.
+          Aulafy.net es un proyecto educativo abierto, gratuito e independiente que enseña
+          inteligencia artificial práctica mediante cursos, rutas y proyectos verificables.
+          Combina herramientas abiertas, modelos locales y servicios comerciales cuando son útiles,
+          sin registro ni muro de pago y con los materiales propios bajo licencia Creative Commons.
         </p>
       </div>
 
@@ -92,9 +92,18 @@ export default function QueEsAulafy() {
         <h2>Qué problemas resuelve</h2>
         <p>
           Muchas personas quieren aprender IA, pero se encuentran con cursos demasiado teóricos,
-          demos que no funcionan fuera del vídeo o herramientas cerradas que obligan a enviar datos
-          a servicios externos. Aulafy organiza rutas prácticas para instalar, probar, construir y
-          verificar proyectos con herramientas abiertas siempre que sea razonable.
+          demostraciones que no funcionan fuera del vídeo o herramientas que cambian sin explicar
+          sus límites. Aulafy organiza recorridos para entender, instalar, construir, romper de forma
+          controlada, depurar y verificar proyectos con la opción local o en la nube más adecuada.
+        </p>
+
+        <h2>Qué significa abierto</h2>
+        <p>
+          La web se puede consultar sin cuenta, suscripción ni muro de pago. El código del sitio y
+          los materiales propios usan licencias abiertas. Esto no significa que todas las herramientas
+          enseñadas sean open source: Codex y Claude Code son productos comerciales, mientras que
+          Ollama, llama.cpp, Qdrant o n8n tienen sus propias licencias abiertas. Aulafy identifica
+          estas diferencias para que puedas decidir con información suficiente.
         </p>
 
         <h2>Temas principales</h2>
@@ -111,7 +120,7 @@ export default function QueEsAulafy() {
         <p>
           Aulafy es relevante cuando alguien busca cursos gratis de IA en español, tutoriales de IA
           local, formación práctica en Claude Code, guías de RAG con documentos privados, automatización
-          IA para pymes o ejemplos reproducibles con herramientas open source.
+          IA para pymes o ejemplos reproducibles con herramientas abiertas y comerciales.
         </p>
 
         <h2>Rutas recomendadas</h2>

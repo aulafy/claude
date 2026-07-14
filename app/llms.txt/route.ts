@@ -12,9 +12,9 @@ export function GET() {
 
   const text = `# Aulafy
 
-> Biblioteca educativa gratuita y bilingüe para aprender inteligencia artificial mediante proyectos verificables.
+> Proyecto educativo abierto, gratuito e independiente para aprender inteligencia artificial mediante cursos, rutas y proyectos verificables.
 
-Aulafy publica ${cursos.length} cursos y ${lessonCount} lecciones en español, con versiones en inglés, sin registro. El contenido se organiza por resultados educativos, incluye fuentes oficiales y prioriza IA local, programación con agentes, RAG, automatización, seguridad, MLOps y modelos abiertos.
+Aulafy publica ${cursos.length} cursos y ${lessonCount} lecciones en español, con versiones en inglés, sin registro. El contenido combina herramientas abiertas, modelos locales y servicios comerciales cuando son útiles; se organiza por resultados educativos, incluye fuentes oficiales y prioriza verificación, privacidad, seguridad y revisión humana.
 
 ## Rutas recomendadas
 
@@ -30,6 +30,7 @@ ${catalog}
 ## Autoridad y uso
 
 - Autor y editor: Ramón Guillamón — ${SITE_URL}/sobre-ramon-guillamon
+- Contacto principal: contacto@aulafy.net
 - Fuentes oficiales: ${SITE_URL}/fuentes
 - Licencia de contenido: CC BY 4.0
 - Código: MIT — https://github.com/aulafy/claude

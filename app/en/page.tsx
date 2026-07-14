@@ -6,23 +6,23 @@ import { getLearningPaths } from "@/lib/learning-paths";
 import "../laboratorio/landing/landing.css";
 
 export const metadata: Metadata = {
-  title: "Aulafy — Free open-source AI courses in English",
+  title: "Aulafy — Free practical AI education in English",
   description:
     "Free practical AI courses in English: OpenAI Codex, Claude Code, local AI, RAG, agents, security, MLOps and automation.",
   alternates: { canonical: "/en", languages: { "es-ES": "/", "en-US": "/en", "x-default": "/" } },
   robots: { index: true, follow: true },
   openGraph: {
     title: "Aulafy — Learn AI by building real systems",
-    description: "Free practical open-source AI courses: Codex, Claude Code, local AI, RAG, agents, security, and automation.",
+    description: "Free and open practical AI education: Codex, Claude Code, local AI, RAG, agents, security, and automation.",
     type: "website",
     locale: "en_US",
     url: "/en",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Aulafy, free open-source AI courses" }],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Aulafy, free and open practical AI education" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Aulafy — Learn AI by building real systems",
-    description: "Free practical open-source AI courses in English.",
+    description: "Free practical AI courses, learning paths and verifiable projects in English.",
     creator: "@learntouseai",
     images: ["/opengraph-image"],
   },

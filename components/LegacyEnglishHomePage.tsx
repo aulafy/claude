@@ -8,12 +8,12 @@ import { getLocalizedCursos } from "@/lib/i18n";
 import { totalLecciones } from "@/lib/cursos";
 
 export const metadata: Metadata = {
-  title: "Aulafy — Free open-source AI courses in English and Spanish",
+  title: "Aulafy — Free practical AI education in English and Spanish",
   description:
     "Free practical AI courses: OpenAI Codex, Claude Code, local AI, RAG, agents, automation, security and hands-on projects.",
   alternates: { canonical: "/en", languages: { "es-ES": "/", "en-US": "/en" } },
   openGraph: {
-    title: "Aulafy — Free open-source AI courses",
+    title: "Aulafy — Free practical AI education",
     description:
       "Practical routes to learn Claude Code, local AI, RAG, agents, automation, security and generative AI.",
     type: "website",
@@ -21,11 +21,11 @@ export const metadata: Metadata = {
     url: "/en",
     images: [{ url: "/opengraph-image",
         width: 1200,
-        height: 630, alt: "Aulafy, free open-source AI courses" }],
+        height: 630, alt: "Aulafy, free and open practical AI education" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aulafy — Free open-source AI courses",
+    title: "Aulafy — Learn AI by building real systems",
     description: "Learn Claude Code, local AI, RAG, agents and automation with practical projects.",
     creator: "@learntouseai",
     images: ["/opengraph-image"],
@@ -131,7 +131,7 @@ export default function LegacyEnglishHomePage() {
         <div>
         <div className="aula-chip mb-6" data-tone="cyan">
           <span className="w-1.5 h-1.5 rounded-full bg-[#22d3ee] animate-pulse" />
-          Free open-source AI courses · English and Spanish
+          Free practical AI education · English and Spanish
         </div>
         <h1 className="font-display font-extrabold text-4xl sm:text-6xl leading-tight text-white max-w-4xl">
           Learn practical AI:<br /><span className="grad-text">Claude Code, local AI, RAG and automation</span>
@@ -147,7 +147,7 @@ export default function LegacyEnglishHomePage() {
           <Link href="/en/paths" className="aula-button aula-button-secondary"><Icon name="route" /> Choose a path</Link>
         </div>
         <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-zinc-500">
-          {["Free", "Open source", `${courses.length} courses`, `${lessons} lessons`].map((item) => (
+          {["Free access", "Open content", `${courses.length} courses`, `${lessons} lessons`].map((item) => (
             <span key={item} className="inline-flex items-center gap-2">
               <Icon name="check" className="text-[#22d3ee]" />
               {item}

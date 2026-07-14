@@ -1,9 +1,10 @@
 #!/usr/bin/env node
-// Notifica a los buscadores (Bing, Yandex... y por tanto ChatGPT Search)
-// todas las URLs del sitio vía IndexNow. Lee las URLs del sitemap en producción.
+// Notifica a los buscadores compatibles con IndexNow sobre las URL del sitio.
+// Lee las URL del sitemap publicado.
 //
-// Uso:  node scripts/indexnow.mjs
-// Requiere el archivo de clave servido en /public/<KEY>.txt (ya incluido).
+// Uso: npm run indexnow
+// Host alternativo: INDEXNOW_HOST=ejemplo.com npm run indexnow
+// Requiere que la clave de `.indexnow-key` esté disponible en `public/<clave>.txt`.
 
 import fs from "node:fs";
 import path from "node:path";
@@ -54,7 +55,7 @@ async function main() {
   // IndexNow responde 200 (OK) o 202 (aceptado). 403 = clave no válida/servida.
   console.log(`Respuesta IndexNow: ${res.status} ${res.statusText}`);
   if (res.status === 200 || res.status === 202) {
-    console.log("Enviado. Bing/Yandex procesaran las URLs en breve.");
+    console.log("Enviado. Los buscadores compatibles procesarán las URL.");
   } else {
     console.log("Revisa que la clave este servida en:", `${SITE}/${key}.txt`);
     console.log(await res.text());

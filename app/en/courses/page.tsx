@@ -10,12 +10,12 @@ const upcoming = getLocalizedProximamente("en");
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 
 export const metadata: Metadata = {
-  title: "Free open-source AI courses",
+  title: "Free practical AI courses",
   description:
     "Free practical AI courses in English and Spanish: OpenAI Codex, Claude Code, local AI, RAG, agents, MLOps, security and automation.",
   alternates: { canonical: "/en/courses", languages: { "es-ES": "/cursos", "en-US": "/en/courses" } },
   openGraph: {
-    title: "Free open-source AI courses",
+    title: "Free practical AI courses",
     description:
       "Practical routes to learn OpenAI Codex, local AI, Claude Code, RAG, agents, MLOps, security and automation.",
     url: "/en/courses",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free open-source AI courses",
+    title: "Free practical AI courses",
     description: "A practical Aulafy catalog for learning OpenAI Codex, Claude Code, local AI, RAG, agents and automation.",
     creator: "@learntouseai",
     images: ["/opengraph-image"],
@@ -44,8 +44,8 @@ export default function CoursesPage() {
         "@type": "CollectionPage",
         "@id": `${SITE_URL}/en/courses#webpage`,
         url: `${SITE_URL}/en/courses`,
-        name: "Free open-source AI courses",
-        description: "Practical, free and open-source AI courses in English.",
+        name: "Free practical AI courses",
+        description: "Free and openly accessible practical AI courses in English.",
         inLanguage: "en",
         isPartOf: { "@id": `${SITE_URL}/#website` },
         mainEntity: { "@id": `${SITE_URL}/en/courses#course-list` },
@@ -91,7 +91,7 @@ export default function CoursesPage() {
               <Icon name="capsule" /> Capsule library
             </span>
             <h1 className="font-display font-extrabold text-4xl sm:text-5xl text-white mt-4 mb-4">
-              Free open-source AI courses
+              Free practical AI courses
             </h1>
             <p className="lesson-lead max-w-3xl">
               Practical routes for learning Codex, local AI, agents, and real production workflows. No account required:
@@ -100,7 +100,7 @@ export default function CoursesPage() {
             <div className="mt-5 flex flex-wrap gap-2">
               <span className="aula-chip" data-tone="green"><Icon name="check" /> Free</span>
               <span className="aula-chip" data-tone="cyan"><Icon name="globe" /> English + Spanish</span>
-              <span className="aula-chip" data-tone="amber"><Icon name="code" /> Open source</span>
+              <span className="aula-chip" data-tone="amber"><Icon name="code" /> Open content</span>
             </div>
           </div>
 

@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Aulafy, cursos gratuitos de inteligencia artificial open source";
+export const alt = "Aulafy, educación abierta para aprender inteligencia artificial";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -88,7 +88,7 @@ export default function OpenGraphImage() {
           </div>
           <div style={{ color: "#d9b5ff", display: "flex", fontSize: "22px", gap: "28px" }}>
             <span>Gratis</span>
-            <span>Open source</span>
+            <span>Acceso abierto</span>
             <span>Español e inglés</span>
           </div>
         </div>

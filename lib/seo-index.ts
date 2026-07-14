@@ -36,7 +36,7 @@ const coreEntries: SeoIndexEntry[] = [
   {
     route: "",
     title: "Aulafy",
-    description: "Cursos gratuitos de inteligencia artificial open source en español e inglés.",
+    description: "Proyecto educativo abierto y gratuito para aprender inteligencia artificial con cursos, rutas y proyectos verificables.",
     language: "multi",
     kind: "core",
     priority: 1,
@@ -46,7 +46,7 @@ const coreEntries: SeoIndexEntry[] = [
   {
     route: "/en",
     title: "Aulafy in English",
-    description: "Free practical open-source AI courses in English and Spanish.",
+    description: "Free and open education for learning practical AI through courses, paths and verifiable projects.",
     language: "en",
     kind: "english",
     priority: 0.98,
@@ -55,8 +55,8 @@ const coreEntries: SeoIndexEntry[] = [
   },
   {
     route: "/cursos",
-    title: "Cursos gratis de IA open source",
-    description: "Catálogo de cursos gratuitos de Codex, IA local, Claude Code, RAG, agentes, seguridad y automatización.",
+    title: "Cursos gratuitos de inteligencia artificial práctica",
+    description: "Catálogo abierto de Codex, IA local, Claude Code, RAG, agentes, seguridad, MLOps y automatización.",
     language: "es",
     kind: "courses",
     priority: 0.95,
@@ -85,8 +85,8 @@ const coreEntries: SeoIndexEntry[] = [
   },
   {
     route: "/en/courses",
-    title: "Free open-source AI courses",
-    description: "English catalog for Claude Code, local AI, RAG, agents, MLOps, security and automation.",
+    title: "Free practical AI courses",
+    description: "Open English catalog for Codex, Claude Code, local AI, RAG, agents, MLOps, security and automation.",
     language: "en",
     kind: "english",
     priority: 0.93,
@@ -182,7 +182,7 @@ const documentEntries: SeoIndexEntry[] = [
 ].map(([route, title]) => ({
   route,
   title: title as string,
-  description: "Guía PDF gratuita de Aulafy con contenido educativo de IA open source.",
+  description: "Guía PDF gratuita de Aulafy con contenido educativo de inteligencia artificial práctica.",
   language: "es" as const,
   kind: "documents" as const,
   priority: 0.68,

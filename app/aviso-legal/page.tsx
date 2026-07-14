@@ -20,9 +20,9 @@ export default function AvisoLegal() {
 
       <div className="prose">
         <p>
-          Aulafy es una web educativa de tutoriales y cursos gratuitos sobre
-          inteligencia artificial, IA open source, IA local, Claude Code, RAG,
-          prompts y automatización.
+          Aulafy es un proyecto educativo abierto, gratuito e independiente que
+          publica cursos, rutas, tutoriales y proyectos sobre inteligencia artificial,
+          herramientas abiertas, IA local, Codex, Claude Code, RAG, agentes y automatización.
         </p>
 
         <h2>Identificación y contacto</h2>

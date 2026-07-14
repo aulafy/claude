@@ -8,7 +8,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 export const metadata: Metadata = {
   title: "Proyecto y fuentes",
   description:
-    "Qué es Aulafy, cómo se actualizan sus cursos de IA open source, qué fuentes usa y cómo citar la web.",
+    "Cómo se crea y actualiza Aulafy, qué principios educativos sigue, qué fuentes usa y cómo citar el proyecto.",
   alternates: { canonical: "/acerca" },
 };
 
@@ -46,9 +46,10 @@ export default function Acerca() {
           <span>Proyecto y fuentes</span>
         </h1>
         <p className="text-lg text-zinc-400 leading-relaxed">
-          Aulafy es una biblioteca gratuita de cursos prácticos sobre IA open source,
-          IA local, Codex, Claude Code, agentes y automatización. El objetivo es que cada
-          lección sirva para construir algo verificable, no solo leer teoría.
+          Aulafy es un proyecto educativo abierto, gratuito e independiente sobre inteligencia
+          artificial práctica. Combina herramientas abiertas, modelos locales y servicios
+          comerciales cuando aportan valor educativo. El objetivo es que cada lección sirva para
+          construir, comprobar y revisar algo real, no solo para leer teoría.
         </p>
         <div className="mt-5 flex flex-wrap gap-2">
           <span className="aula-chip" data-tone="green">Revisión: {educationalReviewDate}</span>

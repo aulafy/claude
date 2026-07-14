@@ -18,7 +18,7 @@ function getLimiter(): Ratelimit | null {
       // 15 peticiones por minuto por IP (ventana deslizante).
       limiter: Ratelimit.slidingWindow(15, "60 s"),
       analytics: true,
-      prefix: "claude-code-es/chat",
+      prefix: "aulafy/chat",
     });
   }
   return limiter;

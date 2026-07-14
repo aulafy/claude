@@ -5,15 +5,15 @@ import { getLearningPaths } from "@/lib/learning-paths";
 import "./laboratorio/landing/landing.css";
 
 export const metadata: Metadata = {
-  title: "Aulafy — Cursos gratis de IA open source en español",
+  title: "Aulafy — Educación abierta para aprender IA construyendo",
   description:
-    "Aprende inteligencia artificial con cursos gratuitos y prácticos sobre OpenAI Codex, Claude Code, IA local, RAG, agentes, seguridad, MLOps y automatización.",
+    "Aprende inteligencia artificial con cursos, rutas y proyectos gratuitos sobre Codex, Claude Code, IA local, RAG, agentes, seguridad, MLOps y automatización.",
   alternates: { canonical: "/", languages: { "es-ES": "/", "en-US": "/en", "x-default": "/" } },
   robots: { index: true, follow: true },
   openGraph: {
     title: "Aulafy — Aprende IA construyendo sistemas reales",
     description:
-      "Cursos gratuitos y prácticos de IA open source en español: Codex, Claude Code, IA local, RAG, agentes y automatización.",
+      "Educación abierta y gratuita para aprender IA con proyectos verificables, herramientas locales y servicios comerciales cuando aportan valor.",
     type: "website",
     locale: "es_ES",
     url: "/",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Aulafy — Aprende IA construyendo sistemas reales",
-    description: "Cursos gratuitos y prácticos de IA open source en español.",
+    description: "Cursos, rutas y proyectos gratuitos para aprender IA construyendo sistemas reales.",
     creator: "@learntouseai",
     images: ["/opengraph-image"],
   },

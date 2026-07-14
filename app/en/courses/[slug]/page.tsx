@@ -141,7 +141,7 @@ export default async function EnglishCoursePage({ params }: { params: Promise<{ 
             <div className="mt-5 flex flex-wrap items-center gap-2">
               <span className="aula-chip"><Icon name="chart" /> {course.level}</span>
               <span className="aula-chip" data-tone="cyan"><Icon name="book" /> {pluralLabel(total, "lesson", "en")}</span>
-              <span className="aula-chip" data-tone="green"><Icon name="star" /> Free and open source</span>
+              <span className="aula-chip" data-tone="green"><Icon name="star" /> Free access · open content</span>
             </div>
 
             <div className="mt-7 flex flex-wrap gap-3">

@@ -52,7 +52,7 @@ RULE = colors.HexColor("#D6D3CC")
 
 
 def font_path(name: str) -> str:
-    p = Path("/Users/usuario/Library/Fonts") / name
+    p = Path.home() / "Library" / "Fonts" / name
     if not p.exists():
         raise FileNotFoundError(p)
     return str(p)

@@ -43,7 +43,7 @@ export const aiProgram: Record<Locale, ProgramCopy> = {
     eyebrow: "Programa abierto / IA 2026",
     title: "Hoja de ruta completa para aprender IA de verdad",
     lead:
-      "Un currículo futuro para convertir Aulafy en una academia completa: empieza sin perfil técnico, avanza hacia construcción real y termina con sistemas evaluables, seguros y reproducibles.",
+      "Un currículo abierto para convertir Aulafy en un programa educativo completo: empieza sin perfil técnico, avanza hacia construcción real y termina con sistemas evaluables, seguros y reproducibles.",
     promiseTitle: "La regla del programa",
     promise:
       "No se avanza por leer una página. Se avanza cuando puedes explicar la decisión, reproducir la práctica, romperla de forma controlada, depurarla, verificarla y guardar evidencia.",
@@ -127,7 +127,7 @@ export const aiProgram: Record<Locale, ProgramCopy> = {
     eyebrow: "Open program / AI 2026",
     title: "A complete roadmap for learning AI seriously",
     lead:
-      "A future curriculum to turn Aulafy into a complete academy: start without a technical background, move into real building, and finish with evaluated, secure, reproducible systems.",
+      "An open curriculum to turn Aulafy into a complete educational program: start without a technical background, move into real building, and finish with evaluated, secure, reproducible systems.",
     promiseTitle: "The program rule",
     promise:
       "You do not progress by reading a page. You progress when you can explain the decision, reproduce the practice, break it safely, debug it, verify it, and save evidence.",

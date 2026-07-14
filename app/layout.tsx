@@ -75,7 +75,7 @@ const courseTopics = [
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Aulafy — Cursos gratis de IA open source en español",
+    default: "Aulafy — Educación abierta para aprender IA construyendo",
     template: "%s",
   },
   description:
@@ -158,9 +158,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Aulafy — Cursos gratis de IA open source en español",
+    title: "Aulafy — Educación abierta para aprender IA construyendo",
     description:
-      "Tutoriales gratuitos y prácticos para aprender IA local, Claude Code, Fable 5, videojuegos 3D, RAG, MLOps, seguridad, IA generativa y automatización con herramientas abiertas.",
+      "Cursos, rutas y proyectos gratuitos para aprender IA local, Codex, Claude Code, RAG, agentes, MLOps, seguridad y automatización.",
     type: "website",
     locale: "es_ES",
     siteName: "Aulafy",
@@ -170,13 +170,13 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Aulafy, cursos gratis de IA open source en español",
+        alt: "Aulafy, educación abierta para aprender inteligencia artificial",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aulafy — Cursos gratis de IA open source",
+    title: "Aulafy — Aprende IA construyendo sistemas reales",
     description: "Cursos prácticos en español para aprender IA local, Claude Code, Fable 5, videojuegos 3D, RAG, MLOps, seguridad y automatización.",
     creator: "@learntouseai",
     site: "@learntouseai",
@@ -184,14 +184,14 @@ export const metadata: Metadata = {
   },
   other: {
     "ai-summary":
-      "Aulafy es una web educativa en español e inglés con cursos gratuitos de inteligencia artificial open source, IA local, Claude Code, Fable 5, videojuegos 3D, Blender, Godot, CAD con IA, RAG, fine-tuning, MLOps, seguridad de modelos, IA generativa, prompts, n8n, Open WebUI, Ollama y automatización self-hosted.",
+      "Aulafy es un proyecto educativo abierto, gratuito e independiente en español e inglés para aprender inteligencia artificial con cursos, rutas y proyectos verificables sobre Codex, Claude Code, IA local, RAG, agentes, MLOps, seguridad, modelos abiertos y automatización.",
     "llms.txt": `${SITE_URL}/llms.txt`,
     "llms-full.txt": `${SITE_URL}/llms-full.txt`,
     "ai.txt": `${SITE_URL}/ai.txt`,
     "search-index": `${SITE_URL}/search-index.json`,
     "sitemap-index": `${SITE_URL}/sitemap-index.xml`,
     "content-language": "es, en",
-    "educational-use": "Cursos gratuitos, tutoriales prácticos y ejemplos reproducibles de IA open source",
+    "educational-use": "Cursos gratuitos, rutas y proyectos reproducibles de inteligencia artificial práctica",
   },
 };
 
@@ -210,7 +210,7 @@ const jsonLd = {
         height: 512,
       },
       description:
-        "Web educativa con cursos gratuitos de inteligencia artificial open source en español e inglés, sin registro, con IA local, Fable 5, videojuegos 3D, CAD, RAG, prompts, Claude Code, CLI de agentes tipo R, agentes y automatización.",
+        "Proyecto educativo abierto, gratuito e independiente en español e inglés, sin registro, con cursos, rutas y proyectos verificables sobre IA local, Codex, Claude Code, RAG, agentes, seguridad, MLOps y automatización.",
       inLanguage: ["es", "en"],
       availableLanguage: ["Spanish", "English"],
       areaServed: ["España", "Latinoamérica", "Hispanohablantes", "Global"],
@@ -233,7 +233,7 @@ const jsonLd = {
       url: SITE_URL,
       name: "Aulafy",
       description:
-        "Cursos de Inteligencia Artificial open source en español e inglés, gratis y con ejemplos prácticos.",
+        "Educación abierta y gratuita en español e inglés para aprender inteligencia artificial mediante proyectos verificables.",
       inLanguage: ["es", "en"],
       publisher: { "@id": `${SITE_URL}/#organization` },
       creator: { "@id": `${SITE_URL}/#author` },

@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "Aulafy",
     short_name: "Aulafy",
-    description: "Cursos gratis de IA open source en español e inglés.",
+    description: "Educación abierta y gratuita para aprender inteligencia artificial construyendo proyectos reales.",
     start_url: "/",
     scope: "/",
     display: "standalone",

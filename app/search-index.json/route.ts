@@ -34,7 +34,7 @@ export function GET() {
       name: "Aulafy",
       url: SITE_URL,
       description:
-        "Free practical open-source AI courses in Spanish and English: Claude Code, local AI, RAG, agents, MLOps, security, automation, generative AI and small-business AI workflows.",
+        "Free and open practical AI education in Spanish and English: Codex, Claude Code, local AI, RAG, agents, MLOps, security, automation, generative AI and small-business workflows.",
       license: "Content: CC BY 4.0. Code: MIT.",
       author: "Ramón Guillamón",
       updatedAt: educationalReviewDate,
