@@ -179,6 +179,7 @@ const documentEntries: SeoIndexEntry[] = [
   ["/aulafy-guia-completa.pdf", "Guía completa de Aulafy"],
   ["/guia-claude-code.pdf", "Guía Claude Code"],
   ["/guia-claude-code-vol2.pdf", "Guía Claude Code + IA local"],
+  ["/manual-codex-desde-cero-aulafy.pdf", "Manual Codex desde cero"],
 ].map(([route, title]) => ({
   route,
   title: title as string,
@@ -222,7 +223,7 @@ const courseEntries: SeoIndexEntry[] = cursos.flatMap((course) => [
     priority: 0.9,
     changeFrequency: "weekly" as const,
     lastModified: getCourseGuidance(course.slug, "es")?.updated,
-    alternateRoute: `/en/courses/${course.slug}`,
+    alternateRoute: course.availableInEnglish === false ? undefined : `/en/courses/${course.slug}`,
   },
   ...lecciones(course).map((lesson) => ({
     route: `/cursos/${course.slug}/${lesson.slug}`,
@@ -233,7 +234,9 @@ const courseEntries: SeoIndexEntry[] = cursos.flatMap((course) => [
     priority: 0.78,
     changeFrequency: "monthly" as const,
     lastModified: getCourseGuidance(course.slug, "es")?.updated,
-    alternateRoute: `/en/courses/${course.slug}/${lesson.slug}`,
+    alternateRoute: course.availableInEnglish === false
+      ? undefined
+      : `/en/courses/${course.slug}/${lesson.slug}`,
   })),
 ]);
 

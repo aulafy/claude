@@ -8,6 +8,12 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 
 const courseGroups = [
   {
+    id: "empezar",
+    title: "Empieza desde cero",
+    description: "Aprende a trabajar con Codex y prepara una base técnica solo cuando realmente la necesites.",
+    slugs: ["codex-desde-cero", "fundamentos-aulafy"],
+  },
+  {
     id: "programacion",
     title: "Programación con IA",
     description: "Programa con agentes, domina la terminal y construye herramientas que puedes mantener.",
@@ -214,6 +220,7 @@ export default function Cursos() {
 
       <div className="mb-6 flex flex-wrap items-center gap-2" aria-label="Rutas de aprendizaje">
         <span className="aula-meta text-zinc-500">Empieza por</span>
+        <a href="#empezar" className="aula-chip" data-tone="violet">Desde cero</a>
         <a href="#programacion" className="aula-chip" data-tone="green">Programación con IA</a>
         <a href="#sistemas" className="aula-chip" data-tone="cyan">Sistemas y agentes</a>
         <a href="#aplicaciones" className="aula-chip" data-tone="amber">Aplicaciones prácticas</a>

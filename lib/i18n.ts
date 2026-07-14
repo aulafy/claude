@@ -2,6 +2,10 @@ import { cursos, proximamente, type Curso } from "@/lib/cursos";
 
 export type Locale = "es" | "en";
 
+export function isCourseAvailableInLocale(course: Curso, locale: Locale) {
+  return locale === "es" || course.availableInEnglish !== false;
+}
+
 type CourseCopy = Pick<Curso, "title" | "short" | "desc">;
 
 const englishCourseCopy: Record<string, CourseCopy> = {
@@ -170,6 +174,8 @@ export function pathForLocale(pathname: string, locale: Locale) {
   if (spanishPath.startsWith("/cursos/")) {
     const [, , courseSlug, lessonSlug] = spanishPath.split("/");
     if (!courseSlug) return "/en/courses";
+    const course = cursos.find((item) => item.slug === courseSlug);
+    if (course && !isCourseAvailableInLocale(course, "en")) return "/en/courses";
     return lessonSlug ? `/en/courses/${courseSlug}/${lessonSlug}` : `/en/courses/${courseSlug}`;
   }
 
@@ -179,7 +185,7 @@ export function pathForLocale(pathname: string, locale: Locale) {
 export function getLocalizedCursos(locale: Locale) {
   if (locale === "es") return cursos;
 
-  return cursos.map((curso) => {
+  return cursos.filter((curso) => isCourseAvailableInLocale(curso, locale)).map((curso) => {
     const copy = englishCourseCopy[curso.slug];
 
     return {

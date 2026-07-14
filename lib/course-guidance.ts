@@ -22,6 +22,19 @@ const guidanceEs: Record<string, CourseGuidance> = {
     estimatedHours: 4,
     updated,
   },
+  "codex-desde-cero": {
+    track: "Iniciación práctica",
+    audience: "Cualquier persona que quiera usar Codex con seguridad, aunque no haya programado ni utilizado Git o una terminal.",
+    prerequisites: ["Saber crear y copiar una carpeta", "Una cuenta de ChatGPT y conexión a internet"],
+    outcomes: [
+      "Elegir la superficie de Codex adecuada para cada resultado",
+      "Trabajar con archivos, investigación y automatizaciones de forma verificable",
+      "Construir un proyecto completo y avanzar hacia CLI, IDE o Git cuando sea útil",
+    ],
+    deliverable: "Un proyecto final adaptado a tu perfil, con resultado comprobado, evidencia, fuentes y un método claro para repetirlo o deshacerlo.",
+    estimatedHours: 18,
+    updated: "2026-07-14",
+  },
   "codex-programadores": {
     track: "Programación con IA",
     audience: "Programadores y equipos que quieren incorporar agentes de código con criterio profesional.",

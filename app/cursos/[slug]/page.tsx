@@ -6,6 +6,7 @@ import ContinuarCurso from "@/components/ContinuarCurso";
 import PortableProgress from "@/components/PortableProgress";
 import { cursos, getCurso, totalLecciones } from "@/lib/cursos";
 import { getCourseGuidance } from "@/lib/course-guidance";
+import { isCourseAvailableInLocale } from "@/lib/i18n";
 import { pluralLabel } from "@/lib/plural";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
@@ -20,6 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!curso) return {};
   const lecciones = curso.secciones.flatMap((seccion) => seccion.lecciones.map((leccion) => leccion.title));
   const title = curso.title;
+  const hasEnglishVersion = isCourseAvailableInLocale(curso, "en");
   const description = compactDescription(
     `${curso.desc} Curso gratis en español, sin registro, con ${totalLecciones(curso)} lecciones.`,
   );
@@ -37,7 +39,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     ],
     alternates: {
       canonical: `/cursos/${curso.slug}`,
-      languages: { "es-ES": `/cursos/${curso.slug}`, "en-US": `/en/courses/${curso.slug}` },
+      languages: hasEnglishVersion
+        ? { "es-ES": `/cursos/${curso.slug}`, "en-US": `/en/courses/${curso.slug}` }
+        : { "es-ES": `/cursos/${curso.slug}` },
     },
     openGraph: {
       title,
@@ -182,6 +186,16 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
                 </a>
               )}
             </div>
+            {curso.resources?.length ? (
+              <div className="mt-4 flex flex-wrap items-center gap-2" aria-label="Fuentes editables del curso">
+                <span className="aula-meta text-zinc-500">Fuentes editables</span>
+                {curso.resources.map((resource) => (
+                  <a key={resource.href} href={resource.href} download className="aula-chip">
+                    <Icon name="download" /> {resource.label} · {resource.format}
+                  </a>
+                ))}
+              </div>
+            ) : null}
             <p className="mt-4 aula-meta text-zinc-600">
               Sin registro. Tu progreso se guarda únicamente en tu navegador.
             </p>

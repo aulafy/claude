@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Icon, { type IconName } from "@/components/Icon";
-import { cursos, totalLecciones } from "@/lib/cursos";
-import { getLocalizedCurso } from "@/lib/i18n";
+import { totalLecciones } from "@/lib/cursos";
+import { getLocalizedCurso, getLocalizedCursos } from "@/lib/i18n";
 import { getEnglishLessonTitle } from "@/lib/english-lessons";
 import ContinuarCurso from "@/components/ContinuarCurso";
 import PortableProgress from "@/components/PortableProgress";
@@ -13,7 +13,7 @@ import { pluralLabel } from "@/lib/plural";
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 
 export function generateStaticParams() {
-  return cursos.map((course) => ({ slug: course.slug }));
+  return getLocalizedCursos("en").map((course) => ({ slug: course.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {

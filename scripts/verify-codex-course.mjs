@@ -1,5 +1,11 @@
 import assert from "node:assert/strict";
+import fs from "node:fs";
 import { codexLessons, getCodexLessonPractice } from "../lib/codex-course-content.ts";
+import {
+  CODEX_ZERO_SOURCE_FILE,
+  codexZeroLessons,
+  getCodexZeroLesson,
+} from "../lib/codex-zero-course-content.ts";
 
 const requiredStringFields = [
   "build",
@@ -33,4 +39,31 @@ for (const lesson of codexLessons) {
   assert.match(practice.tested, /^\d{4}-\d{2}-\d{2}$/, `Missing tested date: ${key}`);
 }
 
-console.log(`Verified flagship Codex practice structure for ${codexLessons.length} lessons.`);
+assert.equal(codexZeroLessons.length, 20, "Codex desde cero must publish exactly 20 lessons");
+assert.equal(new Set(codexZeroLessons.map((lesson) => lesson.slug)).size, 20, "Codex desde cero lesson slugs must be unique");
+
+for (const lesson of codexZeroLessons) {
+  const parsed = getCodexZeroLesson(lesson.slug);
+  const key = `codex-desde-cero/${lesson.slug}`;
+  assert.ok(parsed, `Missing parsed Markdown lesson: ${key}`);
+  assert.ok(parsed.markdown.length >= 3000, `Lesson is not complete enough: ${key}`);
+  assert.match(parsed.markdown, /### Qué vas a aprender/, `Missing objectives: ${key}`);
+  assert.match(parsed.markdown, /### Ejemplo resuelto/, `Missing worked example: ${key}`);
+  assert.match(parsed.markdown, /### Comprueba que lo has entendido/, `Missing self-assessment: ${key}`);
+  assert.match(parsed.markdown, /### Fuentes oficiales/, `Missing official sources: ${key}`);
+  assert.ok(fs.existsSync(`app/cursos/${key}/page.tsx`), `Missing web route: ${key}`);
+}
+
+const zeroSource = fs.readFileSync(CODEX_ZERO_SOURCE_FILE, "utf8");
+assert.equal((zeroSource.match(/^# Apéndice [A-J]\./gm) ?? []).length, 10, "Codex desde cero must retain its 10 appendices");
+assert.match(zeroSource, /Estado:\*\* aprobado y publicado/, "Published source must record its approved status");
+
+for (const [file, minimumBytes] of [
+  ["public/manual-codex-desde-cero-aulafy.pdf", 400_000],
+  ["public/recursos/codex-desde-cero/manual-codex-desde-cero-aulafy.tex", 200_000],
+  [CODEX_ZERO_SOURCE_FILE, 150_000],
+]) {
+  assert.ok(fs.statSync(file).size >= minimumBytes, `Published artifact is missing or truncated: ${file}`);
+}
+
+console.log(`Verified ${codexLessons.length} developer Codex lessons and ${codexZeroLessons.length} Codex desde cero lessons with complete source artifacts.`);

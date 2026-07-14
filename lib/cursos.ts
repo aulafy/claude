@@ -3,6 +3,7 @@
 
 export type Leccion = { slug: string; title: string };
 export type Seccion = { title: string; lecciones: Leccion[] };
+export type RecursoCurso = { href: string; label: string; format: string };
 
 export type Curso = {
   slug: string;
@@ -14,6 +15,8 @@ export type Curso = {
   gradient: [string, string]; // portada
   secciones: Seccion[];
   pdf?: string;
+  resources?: RecursoCurso[];
+  availableInEnglish?: boolean;
 };
 
 export const cursos: Curso[] = [
@@ -40,6 +43,91 @@ export const cursos: Curso[] = [
           { slug: "terminal-sin-miedo", title: "Terminal sin miedo" },
           { slug: "docker-servicios", title: "Docker para servicios de IA" },
           { slug: "proyecto-base", title: "Proyecto base listo para Aulafy" },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "codex-desde-cero",
+    title: "Codex desde cero",
+    short: "Trabaja con archivos, automatiza tareas y construye proyectos sin experiencia previa",
+    desc: "Curso para cualquier perfil: aprende a elegir la herramienta, trabajar con archivos de forma segura, crear entregables, automatizar tareas y construir una web. Da el salto a CLI, IDE y Git solo cuando lo necesites.",
+    level: "Cero absoluto → intermedio",
+    icon: "laptopCode",
+    gradient: ["#7c3aed", "#06b6d4"],
+    pdf: "/manual-codex-desde-cero-aulafy.pdf",
+    availableInEnglish: false,
+    resources: [
+      {
+        href: "/recursos/codex-desde-cero/curso-codex-desde-cero.md",
+        label: "Contenido completo en Markdown",
+        format: "MD",
+      },
+      {
+        href: "/recursos/codex-desde-cero/manual-codex-desde-cero-aulafy.tex",
+        label: "Fuente editable en LaTeX",
+        format: "TEX",
+      },
+      {
+        href: "/recursos/codex-desde-cero/README.md",
+        label: "Instrucciones de compilación",
+        format: "README",
+      },
+    ],
+    secciones: [
+      {
+        title: "Orientarse antes de actuar",
+        lecciones: [
+          { slug: "que-es-codex", title: "Qué es Codex y qué no es" },
+          { slug: "donde-usar-codex", title: "Dónde utilizar Codex: app, web, CLI e IDE" },
+          { slug: "instalacion", title: "Instala e inicia sesión en tu plataforma" },
+        ],
+      },
+      {
+        title: "Tu primer resultado seguro",
+        lecciones: [
+          { slug: "primera-carpeta", title: "Crea una carpeta de práctica y empieza en solo lectura" },
+          { slug: "pedir-resultados-claros", title: "Pide resultados claros sin aprender «prompt engineering»" },
+          { slug: "planificar-verificar", title: "Planifica, corrige el rumbo y cierra con evidencia" },
+        ],
+      },
+      {
+        title: "Trabajo cotidiano sin programar",
+        lecciones: [
+          { slug: "organizar-archivos", title: "Organiza archivos sin perder los originales" },
+          { slug: "crear-documentos-datos-presentaciones", title: "Crea documentos, datos, presentaciones, PDF e imágenes" },
+          { slug: "investigar-web", title: "Investiga en la web y utiliza el navegador con criterio" },
+          { slug: "computer-use-seguro", title: "Usa Computer Use sin entregar el control de tu equipo" },
+        ],
+      },
+      {
+        title: "Construir sin saber programar",
+        lecciones: [
+          { slug: "primera-web-local", title: "Construye tu primera web local" },
+          { slug: "automatizar-con-vista-previa", title: "Automatiza una tarea repetitiva con vista previa" },
+        ],
+      },
+      {
+        title: "Organización, control y recuperación",
+        lecciones: [
+          { slug: "proyectos-tareas-entornos", title: "Organiza proyectos, tareas y entornos" },
+          { slug: "permisos-privacidad-secretos", title: "Permisos, privacidad, secretos y acciones externas" },
+          { slug: "copias-seguridad-git", title: "Copias de seguridad y Git sin miedo" },
+        ],
+      },
+      {
+        title: "Personalizar y reutilizar",
+        lecciones: [
+          { slug: "instrucciones-agents-md", title: "Instrucciones personales y AGENTS.md" },
+          { slug: "skills-plugins-mcp", title: "Elige entre skills, plugins y MCP" },
+          { slug: "tareas-programadas", title: "Programa tareas que puedas revisar" },
+        ],
+      },
+      {
+        title: "Puente técnico y proyecto final",
+        lecciones: [
+          { slug: "cli-ide-repositorios", title: "Da el salto a CLI, IDE y repositorios cuando lo necesites" },
+          { slug: "proyecto-final", title: "Proyecto final según tu perfil" },
         ],
       },
     ],
