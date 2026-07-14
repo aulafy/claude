@@ -25,6 +25,11 @@ assert.equal(pluralLabel(1, "lesson", "en"), "1 lesson");
 assert.equal(pluralLabel(2, "lesson", "en"), "2 lessons");
 
 for (const course of cursos) {
+  if (course.availableInEnglish === false) {
+    assert.ok(!generatedEnglish.some((lesson) => lesson.courseSlug === course.slug), `Spanish-only course leaked into English lessons: ${course.slug}`);
+    continue;
+  }
+
   assert.ok(i18nSource.includes(`"${course.slug}"`), `Missing English course copy: ${course.slug}`);
   assert.ok(i18nSource.includes(`if (spanishPath === "/cursos") return "/en/courses";`), "Spanish catalog must map to English catalog");
   assert.ok(i18nSource.includes(`if (spanishPath.startsWith("/cursos/"))`), "Spanish course paths must map to English course paths");
@@ -41,5 +46,7 @@ for (const course of cursos) {
     assert.doesNotMatch(translatedTitle, /[¿¡]/, `Spanish punctuation in English title: ${key}`);
   }
 }
+
+assert.match(i18nSource, /availableInEnglish !== false/, "English catalog must filter Spanish-only courses");
 
 console.log(`Verified ES/EN parity and pluralization for ${cursos.length} courses and ${cursos.flatMap(lecciones).length} lessons.`);

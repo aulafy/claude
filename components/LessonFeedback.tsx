@@ -33,7 +33,7 @@ export default function LessonFeedback({
   const path = locale === "en"
     ? `/en/courses/${courseSlug}/${lessonSlug}`
     : `/cursos/${courseSlug}/${lessonSlug}`;
-  const url = typeof window === "undefined" ? `https://www.aulafy.net${path}` : window.location.href;
+  const url = `https://www.aulafy.net${path}`;
   const params = new URLSearchParams({
     title: `${text.title}: ${courseSlug}/${lessonSlug}`,
     labels: "content,lesson",

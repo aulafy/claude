@@ -138,6 +138,13 @@ body {
   font-family: var(--font-sora), "Sora", var(--font-ui);
   color: var(--text);
 }
+.prose h4 {
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  font-weight: 650;
+  color: var(--text);
+}
 .prose p {
   margin-bottom: 1rem;
   font-family: var(--font-reading);
@@ -220,6 +227,37 @@ table { width: 100%; border-collapse: collapse; margin: 1.25rem 0; font-size: 0.
 th { background: #18181b; color: #e4e4e7; font-weight: 600; text-align: left; padding: 0.6rem 1rem; border: 1px solid var(--border); }
 td { padding: 0.6rem 1rem; border: 1px solid var(--border); color: var(--muted); vertical-align: top; }
 tr:nth-child(even) td { background: #0f0f11; }
+.aula-table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  margin: 1.25rem 0;
+  padding-bottom: 0.25rem;
+  scrollbar-color: var(--accent) var(--panel);
+  scrollbar-width: thin;
+}
+.aula-table-scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.aula-table-scroll table { margin: 0; min-width: 36rem; }
+
+.codex-zero-prose hr {
+  margin: 2rem 0;
+  border: 0;
+  border-top: 1px solid var(--border);
+}
+.codex-answer {
+  margin: 1rem 0 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--panel) 86%, transparent);
+  padding: 0.9rem 1rem;
+}
+.codex-answer summary {
+  cursor: pointer;
+  color: var(--accent);
+  font-family: var(--font-ui);
+  font-weight: 650;
+}
+.codex-answer[open] summary { margin-bottom: 0.9rem; }
+.codex-answer > :last-child { margin-bottom: 0; }
 
 /* kbd */
 kbd {
