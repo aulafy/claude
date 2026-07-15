@@ -27,6 +27,10 @@ export const SOCIAL_PILOT_UNITS = [
 
 export type SocialPilotUnit = (typeof SOCIAL_PILOT_UNITS)[number];
 
+export function isSocialEnabled() {
+  return process.env.NEXT_PUBLIC_AULAFY_SOCIAL_ENABLED === "true";
+}
+
 export function getSocialPilotUnit(courseSlug: string, lessonSlug: string) {
   return SOCIAL_PILOT_UNITS.find(
     (unit) => unit.courseSlug === courseSlug && unit.lessonSlug === lessonSlug,

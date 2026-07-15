@@ -4,6 +4,7 @@ import { getEnglishLessonDescription, getEnglishLessons, getEnglishLessonTitle }
 import { getLocalizedCursos } from "@/lib/i18n";
 import { seoLandings } from "@/lib/seo-landings";
 import { getCourseGuidance } from "@/lib/course-guidance";
+import { isSocialEnabled } from "@/lib/social/config";
 
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 
@@ -123,15 +124,6 @@ const coreEntries: SeoIndexEntry[] = [
     changeFrequency: "weekly",
   },
   {
-    route: "/comunidad",
-    title: "Aulafy Comunidad",
-    description: "Proyectos vinculados a lecciones y revisiones educativas para aprender inteligencia artificial construyendo.",
-    language: "es",
-    kind: "core",
-    priority: 0.9,
-    changeFrequency: "daily",
-  },
-  {
     route: "/que-es-aulafy",
     title: "Qué es Aulafy",
     description: "Definición breve de Aulafy para personas, buscadores y asistentes de IA.",
@@ -170,7 +162,6 @@ const coreEntries: SeoIndexEntry[] = [
 ];
 
 const legalEntries: SeoIndexEntry[] = [
-  ["/comunidad/normas", "Normas de Aulafy Comunidad"],
   ["/aviso-legal", "Aviso legal"],
   ["/licencia", "Licencia"],
   ["/privacidad", "Privacidad"],
@@ -184,6 +175,29 @@ const legalEntries: SeoIndexEntry[] = [
   priority: 0.42,
   changeFrequency: "yearly",
 }));
+
+const socialEntries: SeoIndexEntry[] = isSocialEnabled()
+  ? [
+      {
+        route: "/comunidad",
+        title: "Aulafy Comunidad",
+        description: "Proyectos vinculados a lecciones y revisiones educativas para aprender inteligencia artificial construyendo.",
+        language: "es",
+        kind: "core",
+        priority: 0.9,
+        changeFrequency: "daily",
+      },
+      {
+        route: "/comunidad/normas",
+        title: "Normas de Aulafy Comunidad",
+        description: "Normas de Aulafy Comunidad.",
+        language: "es",
+        kind: "core",
+        priority: 0.42,
+        changeFrequency: "yearly",
+      },
+    ]
+  : [];
 
 const documentEntries: SeoIndexEntry[] = [
   ["/aulafy-guia-completa.pdf", "Guía completa de Aulafy"],
@@ -286,6 +300,7 @@ export function getSeoIndexEntries() {
   const entries = [
     ...coreEntries,
     ...legalEntries,
+    ...socialEntries,
     ...documentEntries,
     ...landingEntries,
     ...blogEntries,

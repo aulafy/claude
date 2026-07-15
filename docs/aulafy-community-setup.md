@@ -1,6 +1,12 @@
 # Aulafy Comunidad — puesta en marcha del piloto
 
-Este documento activa la capa social que ya está integrada en la aplicación. Los cursos permanecen públicos; Supabase solo interviene cuando una persona entra, publica, revisa o denuncia contenido.
+La capa social está integrada, pero permanece oculta y bloqueada por defecto hasta
+que el piloto esté terminado y aprobado. Los cursos siguen públicos y no dependen
+de Supabase.
+
+El interruptor `NEXT_PUBLIC_AULAFY_SOCIAL_ENABLED` controla conjuntamente la
+navegación, las llamadas desde las lecciones, el buscador, el índice SEO y el
+acceso a todas las rutas sociales. Debe permanecer en `false` durante el desarrollo.
 
 ## Alcance deliberado del piloto
 
@@ -66,6 +72,7 @@ La aplicación usa PKCE, cookies de sesión y `proxy.ts` para renovar la sesión
 Añade en `.env.local` y en Vercel:
 
 ```dotenv
+NEXT_PUBLIC_AULAFY_SOCIAL_ENABLED=false
 NEXT_PUBLIC_SUPABASE_URL=https://TU-PROYECTO.supabase.co
 NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_...
 NEXT_PUBLIC_SUPABASE_GOOGLE_ENABLED=false
@@ -73,6 +80,8 @@ NEXT_PUBLIC_SITE_URL=https://www.aulafy.net
 ```
 
 No añadas `service_role` al frontend ni a variables con prefijo `NEXT_PUBLIC_`.
+No cambies `NEXT_PUBLIC_AULAFY_SOCIAL_ENABLED` a `true` hasta completar la prueba
+mínima, revisar los textos legales y aprobar expresamente el lanzamiento.
 Pon `NEXT_PUBLIC_SUPABASE_GOOGLE_ENABLED=true` únicamente después de que el
 proveedor de Google haya quedado configurado y probado en Supabase.
 
@@ -116,6 +125,8 @@ Utiliza dos cuentas normales y una administradora:
 8. La cuenta administradora restaura el proyecto y la decisión queda en `moderation_actions`.
 9. Un usuario no puede actualizar `user_roles`, `published_at`, `created_at` ni el autor de un proyecto mediante la API pública.
 10. El email nunca aparece en `profiles`, el HTML público ni las consultas anónimas.
+11. Solo después de superar todas las comprobaciones, cambia
+    `NEXT_PUBLIC_AULAFY_SOCIAL_ENABLED=true` y realiza una última prueba en preview.
 
 ## 7. Operación del piloto
 
@@ -145,7 +156,7 @@ Si aparece un problema de seguridad o moderación:
 update public.social_learning_units set enabled = false;
 ```
 
-2. Retira temporalmente el enlace de Comunidad de la navegación.
+2. Cambia `NEXT_PUBLIC_AULAFY_SOCIAL_ENABLED=false` y vuelve a desplegar.
 3. Conserva la tabla `moderation_actions` para auditoría.
 4. No borres denuncias abiertas mientras se investiga el incidente.
 
