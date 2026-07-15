@@ -49,7 +49,7 @@ const guidanceEs: Record<string, CourseGuidance> = {
       "Publicar con formularios, datos, accesibilidad, SEO, seguridad y un plan de mantenimiento",
     ],
     deliverable: "Una web real publicada con dominio o URL de producción, repositorio recuperable, pruebas de aceptación, evidencia visual y un plan de mantenimiento de 90 días.",
-    estimatedHours: 65,
+    estimatedHours: 70,
     updated: "2026-07-15",
   },
   "codex-programadores": {

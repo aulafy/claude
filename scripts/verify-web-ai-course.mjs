@@ -9,8 +9,8 @@ import {
 
 const course = getCurso("crear-webs-con-ia");
 assert.ok(course, "The web with AI course must be registered");
-assert.equal(webAiLessons.length, 46, "The course must publish exactly 46 lessons");
-assert.equal(new Set(webAiLessons.map((lesson) => lesson.slug)).size, 46, "Lesson slugs must be unique");
+assert.equal(webAiLessons.length, 47, "The course must publish exactly 47 lessons");
+assert.equal(new Set(webAiLessons.map((lesson) => lesson.slug)).size, 47, "Lesson slugs must be unique");
 assert.equal(
   course.secciones.flatMap((section) => section.lecciones).length,
   webAiLessons.length,

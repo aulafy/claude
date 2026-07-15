@@ -60,7 +60,8 @@ export const webAiLessons: WebAiLesson[] = [
   { number: 43, slug: "taller-app-saas", title: "Taller: landing y aplicación SaaS", lead: "Valida una propuesta, diseña onboarding, estados de cuenta y una demo honesta antes de construir funciones caras.", minutes: 165, kind: "workshop" },
   { number: 44, slug: "taller-clinica-estetica", title: "Taller: web para una clínica estética", lead: "Informa sobre tratamientos y citas con límites sanitarios, privacidad reforzada y sin resultados garantizados.", minutes: 150, kind: "workshop" },
   { number: 45, slug: "taller-academia-ingles", title: "Taller: web para una academia de inglés", lead: "Organiza niveles, metodología, horarios y prueba de nivel sin confundir una herramienta orientativa con una evaluación oficial.", minutes: 145, kind: "workshop" },
-  { number: 46, slug: "proyecto-final-publicar-mantener", title: "Proyecto final: publica y mantén una web real", lead: "Entrega una web útil con evidencia de calidad, seguridad, accesibilidad, despliegue y un plan de mantenimiento.", minutes: 240, kind: "project" },
+  { number: 46, slug: "taller-meteo-saas-geoespacial", title: "Taller técnico: SaaS geoespacial con mapas, APIs e IA", lead: "Construye una demo técnica con MapLibre, APIs públicas, Supabase/PostGIS, funciones Vercel e IA limitada, calculando costes y riesgos antes de escalar.", minutes: 300, kind: "workshop" },
+  { number: 47, slug: "proyecto-final-publicar-mantener", title: "Proyecto final: publica y mantén una web real", lead: "Entrega una web útil con evidencia de calidad, seguridad, accesibilidad, despliegue y un plan de mantenimiento.", minutes: 240, kind: "project" },
 ];
 
 export type ParsedWebAiLesson = WebAiLesson & { markdown: string };

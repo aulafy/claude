@@ -136,7 +136,7 @@ export const cursos: Curso[] = [
     slug: "crear-webs-con-ia",
     title: "Crea webs profesionales con IA desde cero",
     short: "De una idea a una web seria, publicada y mantenible con Codex y GPT-5.6 Sol",
-    desc: "Aprende sin experiencia previa a planificar, construir, revisar, publicar y mantener webs que resuelven problemas reales. Incluye diseño, accesibilidad, formularios, Supabase, SEO/AEO, Vercel, dominios, chatbot, 3D opcional y siete talleres sectoriales.",
+    desc: "Aprende sin experiencia previa a planificar, construir, revisar, publicar y mantener webs que resuelven problemas reales. Incluye diseño, accesibilidad, formularios, Supabase, SEO/AEO, Vercel, dominios, chatbot, 3D opcional y ocho talleres prácticos.",
     level: "Cero absoluto → profesional",
     icon: "laptopCode",
     gradient: ["#06b6d4", "#8b5cf6"],
@@ -165,6 +165,11 @@ export const cursos: Curso[] = [
       {
         href: "https://github.com/aulafy/taller",
         label: "Código de ejemplos en Aulafy Taller",
+        format: "GITHUB",
+      },
+      {
+        href: "https://github.com/aulafy/meteo",
+        label: "Proyecto técnico METEO",
         format: "GITHUB",
       },
     ],
@@ -257,6 +262,7 @@ export const cursos: Curso[] = [
           { slug: "taller-app-saas", title: "Taller: landing y aplicación SaaS" },
           { slug: "taller-clinica-estetica", title: "Taller: web para una clínica estética" },
           { slug: "taller-academia-ingles", title: "Taller: web para una academia de inglés" },
+          { slug: "taller-meteo-saas-geoespacial", title: "Taller técnico: SaaS geoespacial con mapas, APIs e IA" },
           { slug: "proyecto-final-publicar-mantener", title: "Proyecto final: publica y mantén una web real" },
         ],
       },
