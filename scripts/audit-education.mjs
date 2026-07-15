@@ -87,4 +87,22 @@ assert.deepEqual(pathCourseSlugs, courseSlugs, "Every published course must belo
 assert.ok(spanishPaths.find((path) => path.slug === "desde-cero")?.courses.includes("codex-desde-cero"), "Missing zero-experience path");
 assert.ok(spanishPaths.find((path) => path.slug === "web-saas")?.courses.includes("crear-webs-con-ia"), "Missing web and SaaS path");
 
+const pathFinder = fs.readFileSync("components/LearningPathFinder.tsx", "utf8");
+const pathsPage = fs.readFileSync("components/LearningPathsPage.tsx", "utf8");
+const catalogPage = fs.readFileSync("app/cursos/page.tsx", "utf8");
+const coursePage = fs.readFileSync("app/cursos/[slug]/page.tsx", "utf8");
+const startingCheck = fs.readFileSync("components/CodexStartingCheck.tsx", "utf8");
+const profileChoices = pathFinder.slice(pathFinder.indexOf("const profiles"), pathFinder.indexOf("const goals"));
+const goalChoices = pathFinder.slice(pathFinder.indexOf("const goals"), pathFinder.indexOf("const paces"));
+
+assert.match(pathsPage, /<LearningPathFinder/, "Spanish paths must include the short learning-path finder");
+assert.equal((profileChoices.match(/id: "/g) ?? []).length, 3, "The finder must keep three clear entry profiles");
+assert.equal((goalChoices.match(/id: "/g) ?? []).length, 5, "The finder must recommend by learner goal");
+assert.match(pathFinder, /No es un examen ni pide datos personales/, "The finder must explain its privacy and assessment limits");
+assert.match(catalogPage, /open=\{group\.id === "empezar"\}/, "Only the beginner catalog group should start expanded");
+assert.match(coursePage, /curso\.slug === "codex-desde-cero" && <CodexStartingCheck/, "Codex from zero must include the starting check");
+assert.equal((startingCheck.match(/prompt: "/g) ?? []).length, 4, "The Codex starting check must cover four practical decisions");
+assert.equal((startingCheck.match(/explanation: "/g) ?? []).length, 4, "Every starting-check answer needs immediate explanatory feedback");
+assert.match(coursePage, /open=\{seccionIndex === 0\}/, "Only the first course module should start expanded");
+
 console.log(`Educational audit passed: ${cursos.length} courses, ${lessonCount} lessons, ${spanishPaths.length} paths and no orphaned courses.`);

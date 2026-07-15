@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Icon, { type IconName } from "@/components/Icon";
+import CodexStartingCheck from "@/components/CodexStartingCheck";
 import ContinuarCurso from "@/components/ContinuarCurso";
 import PortableProgress from "@/components/PortableProgress";
 import { cursos, getCurso, totalLecciones } from "@/lib/cursos";
@@ -186,17 +187,22 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
               )}
             </div>
             {curso.resources?.length ? (
-              <div className="mt-4 flex flex-wrap items-center gap-2" aria-label="Fuentes editables del curso">
-                <span className="aula-meta text-zinc-500">Fuentes editables</span>
-                {curso.resources.map((resource) => (
-                  <a key={resource.href} href={resource.href} download className="aula-chip">
-                    <Icon name="download" /> {resource.label} · {resource.format}
-                  </a>
-                ))}
-              </div>
+              <details className="aula-disclosure mt-4 max-w-3xl rounded-lg border border-zinc-800 bg-zinc-950/25">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-4 py-3 text-sm text-zinc-400 hover:text-white">
+                  <span><Icon name="download" /> Fuentes editables y código del curso</span>
+                  <Icon name="chevronRight" className="aula-disclosure-icon text-zinc-600" />
+                </summary>
+                <div className="flex flex-wrap gap-2 border-t border-zinc-800 p-3" aria-label="Fuentes editables del curso">
+                  {curso.resources.map((resource) => (
+                    <a key={resource.href} href={resource.href} download className="aula-chip">
+                      <Icon name="download" /> {resource.label} · {resource.format}
+                    </a>
+                  ))}
+                </div>
+              </details>
             ) : null}
             <p className="mt-4 aula-meta text-zinc-600">
-              Sin registro. Tu progreso se guarda únicamente en tu navegador.
+              Sin registro. Tu progreso se guarda en este navegador y puedes exportarlo cuando quieras.
             </p>
           </div>
 
@@ -252,7 +258,7 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
         </section>
       )}
 
-      <PortableProgress course={curso} />
+      {curso.slug === "codex-desde-cero" && <CodexStartingCheck />}
 
       {/* Temario */}
       <div className="flex items-end justify-between gap-4 mb-6">
@@ -262,20 +268,25 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
         </div>
         <span className="aula-chip" data-tone="cyan">{pluralLabel(total, "step")}</span>
       </div>
+      <div className="grid gap-3">
       {curso.secciones.map((seccion, seccionIndex) => {
         const start = curso.secciones
           .slice(0, seccionIndex)
           .reduce((sum, item) => sum + item.lecciones.length, 0);
 
         return (
-          <div key={seccion.title} className="mb-8">
-            <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
-              <h3 className="aula-section-label">
-                módulo {String(seccionIndex + 1).padStart(2, "0")} / {seccion.title}
-              </h3>
-              <span className="aula-chip">{pluralLabel(seccion.lecciones.length, "lesson")}</span>
-            </div>
-            <ol className="grid gap-2">
+          <details key={seccion.title} open={seccionIndex === 0} className="aula-disclosure aula-panel">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-4 sm:p-5">
+              <span>
+                <span className="aula-meta text-zinc-600">módulo {String(seccionIndex + 1).padStart(2, "0")}</span>
+                <strong className="mt-1 block font-display text-base sm:text-lg text-zinc-100">{seccion.title}</strong>
+              </span>
+              <span className="flex shrink-0 items-center gap-3">
+                <span className="aula-chip">{pluralLabel(seccion.lecciones.length, "lesson")}</span>
+                <Icon name="chevronRight" className="aula-disclosure-icon text-zinc-600" />
+              </span>
+            </summary>
+            <ol className="grid gap-2 border-t border-zinc-800 p-3 sm:p-4">
               {seccion.lecciones.map((l, leccionIndex) => {
                 const n = start + leccionIndex + 1;
                 return (
@@ -299,9 +310,12 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
                 );
               })}
             </ol>
-          </div>
+          </details>
         );
       })}
+      </div>
+
+      <PortableProgress course={curso} />
 
       {/* Otros cursos */}
       <div className="mt-12 pt-8 border-t border-zinc-800">

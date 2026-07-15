@@ -11,7 +11,7 @@ type LandingLocale = "es" | "en";
 
 const copy = {
   es: {
-    skip: "Saltar al contenido", navigation: "Navegación principal", paths: "Rutas", courses: "Cursos", sources: "Fuentes", language: "Idioma", status: "AULA ABIERTA",
+    skip: "Saltar al contenido", navigation: "Navegación principal", start: "Empieza", learn: "Aprende", library: "Biblioteca", paths: "Rutas", courses: "Cursos", sources: "Fuentes", language: "Idioma", status: "AULA ABIERTA",
     kicker: "INTELIGENCIA ARTIFICIAL / FORMACIÓN ABIERTA", title: <>APRENDE IA.<br /><span>CONSTRUYE</span><br />SISTEMAS REALES.</>, lead: "Cursos prácticos y gratuitos para pasar de entender las herramientas a usarlas con criterio, seguridad y código real.",
     explore: "Encontrar mi itinerario", startCodex: "Empiezo desde cero", coreLabel: "Red tridimensional de conocimiento y herramientas de inteligencia artificial", coreA: "MODELOS / 04", coreB: "AGENTES / 07", coreC: "SISTEMAS / LIVE",
     telemetry: ["CURSOS", "LECCIONES", "ACCESO ABIERTO", "CONTENIDO ACTUAL"], ticker: "CODEX · CLAUDE CODE · IA LOCAL · RAG · AGENTES · MLOPS · SEGURIDAD · AUTOMATIZACIÓN · MODELOS ABIERTOS ·",
@@ -20,7 +20,7 @@ const copy = {
     transmissions: "[ 03 / TRANSMISIONES ]", courseTitle: <>Cursos para construir<br />con herramientas actuales.</>, lessons: "LECCIONES", catalog: "Ver catálogo completo", discovery: "[ 04 / OBJETIVOS FRECUENTES ]", discoveryTitle: <>¿Qué quieres aprender<br />con inteligencia artificial?</>, next: "[ SIGUIENTE TRANSMISIÓN ]", finalTitle: <>EMPIEZA POR UNA<br />PREGUNTA REAL.</>, finalAction: "Encontrar mi ruta", footer: "Educación abierta sobre inteligencia artificial.", about: "Acerca de",
   },
   en: {
-    skip: "Skip to content", navigation: "Main navigation", paths: "Paths", courses: "Courses", sources: "Sources", language: "Language", status: "OPEN LEARNING",
+    skip: "Skip to content", navigation: "Main navigation", start: "Start", learn: "Learn", library: "Library", paths: "Paths", courses: "Courses", sources: "Sources", language: "Language", status: "OPEN LEARNING",
     kicker: "ARTIFICIAL INTELLIGENCE / OPEN LEARNING", title: <>LEARN AI.<br /><span>BUILD</span><br />REAL SYSTEMS.</>, lead: "Free, practical courses that take you from understanding the tools to using them with judgment, security, and real code.",
     explore: "Find my learning path", startCodex: "Start with Codex", coreLabel: "Three-dimensional network of artificial intelligence knowledge and tools", coreA: "MODELS / 04", coreB: "AGENTS / 07", coreC: "SYSTEMS / LIVE",
     telemetry: ["COURSES", "LESSONS", "OPEN ACCESS", "CURRENT CONTENT"], ticker: "CODEX · CLAUDE CODE · LOCAL AI · RAG · AGENTS · MLOPS · SECURITY · AUTOMATION · OPEN MODELS ·",
@@ -42,7 +42,13 @@ export default function AulafyNexusLanding({ courseCount, lessonCount, paths, co
   const pathsUrl = english ? "/en/paths" : "/rutas";
   const coursesUrl = english ? "/en/courses" : "/cursos";
   const courseUrl = (slug: string) => `${coursesUrl}/${slug}`;
-  const landingPaths = paths.filter((path) => path.featured);
+  const landingPathSlugs = english
+    ? ["programming", "applied-ai", "systems"]
+    : ["desde-cero", "negocio-creativo", "programacion"];
+  const landingPaths = landingPathSlugs
+    .map((slug) => paths.find((path) => path.slug === slug))
+    .filter((path): path is LearningPath => Boolean(path));
+  const profileIds = ["cero", "trabajo", "tecnico"];
   return (
     <div className="nexus-landing" lang={locale}>
       <a className="nx-skip" href="#contenido">{text.skip}</a>
@@ -51,12 +57,14 @@ export default function AulafyNexusLanding({ courseCount, lessonCount, paths, co
           <span className="nx-mark">A</span><span>AULAFY</span><small>EDU / 01</small>
         </Link>
         <nav aria-label={text.navigation}>
-          <a href="#rutas">{text.paths}</a><a href="#cursos">{text.courses}</a><Link href="/fuentes">{text.sources}</Link>
+          <Link href={english ? pathsUrl : `${pathsUrl}#orientador`}>{text.start}</Link>
+          <Link href={pathsUrl}>{text.learn}</Link>
+          <Link href={coursesUrl}>{text.library}</Link>
         </nav>
         <div className="nx-header-tools">
           <nav className="nx-mobile-nav" aria-label={english ? "Quick navigation" : "Navegación rápida"}>
-            <a href="#rutas">{text.paths}</a>
-            <a href="#cursos">{text.courses}</a>
+            <Link href={english ? pathsUrl : `${pathsUrl}#orientador`}>{text.start}</Link>
+            <Link href={coursesUrl}>{text.library}</Link>
             <Link href={english ? "/" : "/en"}>{english ? "ES" : "EN"}</Link>
           </nav>
           <nav className="nx-language" aria-label={text.language}>
@@ -75,7 +83,7 @@ export default function AulafyNexusLanding({ courseCount, lessonCount, paths, co
             <h1 id="nx-title">{text.title}</h1>
             <p className="nx-lead">{text.lead}</p>
             <div className="nx-actions">
-              <Link className="nx-primary" href="#rutas">{text.explore} <span>↓</span></Link>
+              <Link className="nx-primary" href={english ? pathsUrl : `${pathsUrl}#orientador`}>{text.explore} <span>↗</span></Link>
               <Link className="nx-secondary" href={courseUrl(english ? "codex-programadores" : "codex-desde-cero")}>{text.startCodex}</Link>
             </div>
           </div>
@@ -103,7 +111,7 @@ export default function AulafyNexusLanding({ courseCount, lessonCount, paths, co
           <div className="nx-section-heading"><p>{text.architecture}</p><h2>{text.architectureTitle}</h2></div>
           <div className="nx-path-grid">
             {landingPaths.map((path, index) => (
-              <Link className="nx-path" href={`${pathsUrl}#${path.slug}`} key={path.slug}>
+              <Link className="nx-path" href={english ? `${pathsUrl}#${path.slug}` : `${pathsUrl}?perfil=${profileIds[index]}#orientador`} key={path.slug}>
                 <span className="nx-path-number">0{index + 1}</span>
                 <h3>{path.title}</h3><p>{path.description}</p>
                 <dl>
@@ -157,7 +165,7 @@ export default function AulafyNexusLanding({ courseCount, lessonCount, paths, co
         )}
 
         <section className="nx-final">
-          <p>{text.next}</p><h2>{text.finalTitle}</h2><Link href={pathsUrl}>{text.finalAction} <span>↗</span></Link>
+          <p>{text.next}</p><h2>{text.finalTitle}</h2><Link href={english ? pathsUrl : `${pathsUrl}#orientador`}>{text.finalAction} <span>↗</span></Link>
           <div className="nx-final-orbit" aria-hidden="true"><span>A</span></div>
         </section>
       </main>

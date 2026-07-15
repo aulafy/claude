@@ -79,3 +79,18 @@
   .nx-mobile-nav a{font-size:.6rem}
   .nx-hero h1{font-size:clamp(2.65rem,12.5vw,3.5rem);letter-spacing:-.025em}
 }
+
+/* La portada ofrece tres puertas de entrada; el resto vive en el orientador. */
+.nx-path-grid{grid-template-columns:repeat(3,1fr)}
+.nx-path{min-height:480px}
+.nx-path:nth-child(5):last-child{grid-column:auto;min-height:480px}
+
+@media(max-width:900px){
+  .nx-path-grid{grid-template-columns:repeat(2,1fr)}
+  .nx-path:nth-child(3){grid-column:1/-1}
+}
+
+@media(max-width:620px){
+  .nx-path-grid{grid-template-columns:1fr}
+  .nx-path,.nx-path:nth-child(3),.nx-path:nth-child(5):last-child{grid-column:auto;min-height:480px}
+}
