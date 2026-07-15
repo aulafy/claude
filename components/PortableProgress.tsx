@@ -9,8 +9,8 @@ import { pluralLabel } from "@/lib/plural";
 
 const copy = {
   es: {
-    title: "Progreso portable",
-    body: "Tu avance sigue en este navegador. Puedes llevarlo a otro equipo con un JSON, imprimir un resumen o reiniciar este curso.",
+    title: "Guardar, trasladar o reiniciar el progreso",
+    body: "Tu avance se guarda en este navegador y no se envía a Aulafy. Puedes exportarlo como JSON para recuperarlo o llevarlo a otro equipo.",
     export: "Exportar JSON",
     import: "Importar",
     print: "Imprimir resumen",
@@ -22,7 +22,7 @@ const copy = {
     backupName: "aulafy-progreso",
   },
   en: {
-    title: "Portable progress",
+    title: "Save, move, or reset progress",
     body: "Your progress stays in this browser. Export it as JSON, move it to another machine, print a summary, or reset this course.",
     export: "Export JSON",
     import: "Import",
@@ -85,21 +85,21 @@ export default function PortableProgress({ course, locale = "es" }: { course: Cu
   }
 
   return (
-    <section className="aula-panel p-6 sm:p-8 mt-8" aria-labelledby={`portable-progress-${course.slug}`}>
-      <div className="flex flex-col lg:flex-row lg:items-start gap-6">
-        <div className="flex-1">
-          <span className="aula-section-label"><Icon name="save" /> local-first</span>
-          <h2 id={`portable-progress-${course.slug}`} className="font-display text-2xl font-bold text-white mt-3">
-            {text.title}
-          </h2>
-          <p className="mt-3 text-sm text-zinc-400 leading-relaxed max-w-2xl">{text.body}</p>
-          <p className="mt-4 aula-meta text-zinc-500">
+    <details className="aula-disclosure aula-panel mt-8" aria-labelledby={`portable-progress-${course.slug}`}>
+      <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 sm:p-6">
+        <span>
+          <span className="aula-section-label"><Icon name="save" /> progreso privado y portable</span>
+          <strong id={`portable-progress-${course.slug}`} className="mt-2 block font-display text-lg text-white">{text.title}</strong>
+          <span className="aula-meta mt-2 block text-zinc-500">
             {done}/{allLessons.length} {locale === "en" ? pluralLabel(allLessons.length, "lesson", "en").replace(/^\d+ /, "") : pluralLabel(allLessons.length, "lesson").replace(/^\d+ /, "")} {text.done}
-          </p>
-          {message && <p className="mt-3 text-sm text-emerald-300" role="status">{message}</p>}
-        </div>
-
-        <div className="flex flex-wrap lg:justify-end gap-2">
+          </span>
+        </span>
+        <Icon name="chevronRight" className="aula-disclosure-icon text-zinc-500" />
+      </summary>
+      <div className="border-t border-zinc-800 p-5 sm:p-6">
+        <p className="text-sm text-zinc-400 leading-relaxed max-w-2xl">{text.body}</p>
+        {message && <p className="mt-3 text-sm text-emerald-300" role="status">{message}</p>}
+        <div className="mt-5 flex flex-wrap gap-2">
           <button type="button" onClick={exportProgress} className="aula-button aula-button-secondary">
             <Icon name="download" /> {text.export}
           </button>
@@ -125,6 +125,6 @@ export default function PortableProgress({ course, locale = "es" }: { course: Cu
           />
         </div>
       </div>
-    </section>
+    </details>
   );
 }

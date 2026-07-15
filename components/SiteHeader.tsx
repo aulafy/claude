@@ -41,18 +41,18 @@ export default function SiteHeader({ locale = "es" }: { locale?: Locale }) {
         </Link>
         <div className="flex items-center gap-2">
           <Link
-            href={isEnglish ? "/en/program" : "/programa"}
-            className="hidden! lg:inline-flex! aula-button aula-button-secondary min-h-9 px-3 py-2 text-sm"
-          >
-            <Icon name="route" />
-            {isEnglish ? "Program" : "Programa"}
-          </Link>
-          <Link
             href={isEnglish ? "/en/paths" : "/rutas"}
             className="hidden! md:inline-flex! aula-button aula-button-secondary min-h-9 px-3 py-2 text-sm"
           >
             <Icon name="route" />
-            {isEnglish ? "Paths" : "Rutas"}
+            {isEnglish ? "Learn" : "Aprende"}
+          </Link>
+          <Link
+            href={isEnglish ? "/en/courses" : "/cursos"}
+            className="hidden! sm:inline-flex! aula-button aula-button-secondary min-h-9 px-3 py-2 text-sm"
+          >
+            <Icon name="book" />
+            {isEnglish ? "Library" : "Biblioteca"}
           </Link>
           <Link
             href="/blog"
@@ -62,21 +62,18 @@ export default function SiteHeader({ locale = "es" }: { locale?: Locale }) {
             {isEnglish ? "Spanish blog" : "Blog"}
           </Link>
           {!isEnglish && isSocialEnabled() && (
-            <Link
-              href="/comunidad"
-              className="hidden! sm:inline-flex! aula-button aula-button-secondary min-h-9 px-3 py-2 text-sm"
-            >
+            <Link href="/comunidad" className="hidden! xl:inline-flex! aula-button aula-button-secondary min-h-9 px-3 py-2 text-sm">
               <Icon name="users" /> Comunidad
             </Link>
           )}
           <LanguageSwitch />
           <ThemeToggle compact />
           <Link
-            href={isEnglish ? "/en/courses" : "/cursos"}
+            href={isEnglish ? "/en/paths" : "/rutas#orientador"}
             className="aula-button aula-button-primary min-h-9 px-3 py-2 text-sm"
           >
-            <Icon name="book" />
-            {isEnglish ? "Courses" : "Cursos"}
+            <Icon name="rocket" />
+            {isEnglish ? "Start" : "Empieza aquí"}
           </Link>
         </div>
       </div>

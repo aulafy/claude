@@ -181,64 +181,90 @@ export default function Cursos() {
         </div>
       </section>
 
-      <section className="aula-panel p-5 sm:p-6 mb-8" aria-labelledby="course-goals-title">
-        <h2 id="course-goals-title" className="font-display text-xl font-bold text-white">Elige por lo que quieres conseguir</h2>
-        <p className="mt-2 text-sm text-zinc-400">Si todavía no conoces el nombre de la herramienta, empieza por tu objetivo.</p>
-        <div className="mt-5 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-          {spanishSearchIntents.filter((item) => item.canonical !== "/cursos").map((item) => (
-            <Link key={item.canonical} href={item.linkHref} className="aula-capsule p-4 group">
-              <strong className="text-zinc-100 group-hover:text-cyan-200">{item.linkLabel}</strong>
-              <span className="block mt-2 text-sm text-zinc-500 leading-relaxed">{item.linkDescription}</span>
-            </Link>
-          ))}
+      <section className="aula-panel p-5 sm:p-6 mb-8" aria-labelledby="catalog-help-title">
+        <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <span className="aula-section-label"><Icon name="route" /> Recomendación personal</span>
+            <h2 id="catalog-help-title" className="mt-2 font-display text-xl font-bold text-white">¿No sabes qué curso elegir?</h2>
+            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-zinc-400">Responde tres preguntas y recibe un solo curso para empezar. No necesitas entender todavía nombres como RAG, MLOps o agentes.</p>
+          </div>
+          <Link href="/rutas#orientador" className="aula-button aula-button-primary shrink-0"><Icon name="rocket" /> Orientarme en 30 segundos</Link>
         </div>
       </section>
 
-      {/* Descarga del libro completo */}
+      <details className="aula-disclosure aula-panel mb-10" aria-labelledby="course-goals-title">
+        <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 sm:p-6">
+          <span>
+            <span className="aula-section-label"><Icon name="search" /> Búsqueda por objetivo</span>
+            <strong id="course-goals-title" className="mt-2 block font-display text-lg text-white">Ya sé qué quiero conseguir</strong>
+          </span>
+          <Icon name="chevronRight" className="aula-disclosure-icon text-zinc-500" />
+        </summary>
+        <div className="border-t border-zinc-800 p-5 sm:p-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {spanishSearchIntents.filter((item) => item.canonical !== "/cursos").map((item) => (
+              <Link key={item.canonical} href={item.linkHref} className="aula-capsule p-4 group">
+                <strong className="text-zinc-100 group-hover:text-cyan-200">{item.linkLabel}</strong>
+                <span className="block mt-2 text-sm text-zinc-500 leading-relaxed">{item.linkDescription}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </details>
+
+      <div className="mb-6">
+        <span className="aula-section-label"><Icon name="book" /> Biblioteca completa</span>
+        <h2 className="mt-2 font-display text-2xl font-bold text-white">Abre solo el bloque que necesitas</h2>
+        <p className="mt-2 max-w-3xl text-zinc-400">«Empieza desde cero» aparece abierto. Los bloques técnicos y de aplicación quedan disponibles sin competir por tu atención.</p>
+      </div>
+
+      {courseGroups.map((group) => {
+        const groupCourses = group.slugs.map((slug) => cursos.find((course) => course.slug === slug)).filter((course): course is Curso => Boolean(course));
+        return (
+          <details id={group.id} key={group.id} open={group.id === "empezar"} className="aula-disclosure aula-panel mb-5 scroll-mt-24">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-5 p-5 sm:p-6">
+              <span>
+                <strong id={`${group.id}-title`} className="font-display text-xl sm:text-2xl font-bold text-white">{group.title}</strong>
+                <span className="mt-2 block max-w-3xl text-sm leading-relaxed text-zinc-400">{group.description}</span>
+              </span>
+              <span className="flex shrink-0 items-center gap-3"><span className="aula-chip" data-tone={group.id === "empezar" ? "green" : "cyan"}>{groupCourses.length} cursos</span><Icon name="chevronRight" className="aula-disclosure-icon text-zinc-500" /></span>
+            </summary>
+            <div className="border-t border-zinc-800 p-5 sm:p-6">
+              <div className="grid md:grid-cols-2 gap-6">
+                {groupCourses.map((course) => <CourseCard key={course.slug} course={course} />)}
+              </div>
+            </div>
+          </details>
+        );
+      })}
+
       <a
         href="/aulafy-guia-completa.pdf"
-        className="group aula-frame flex flex-col sm:flex-row sm:items-center gap-4 p-4 mb-10 hover:border-zinc-600 transition-colors"
+        className="group aula-frame mt-10 flex flex-col sm:flex-row sm:items-center gap-4 p-4 hover:border-zinc-600 transition-colors"
       >
         <span className="aula-icon flex-shrink-0 text-fuchsia-300"><Icon name="filePdf" /></span>
         <span className="flex-1 text-sm">
-          <strong className="text-white">¿Prefieres leerlo todo de un tirón?</strong>{" "}
+          <strong className="text-white">¿Prefieres una lectura continua?</strong>{" "}
           <span className="text-zinc-400">Descarga la guía completa de Aulafy en PDF, gratis.</span>
         </span>
         <span className="aula-chip" data-tone="amber"><Icon name="download" /> Descargar</span>
       </a>
 
-      <div className="mb-6 flex flex-wrap items-center gap-2" aria-label="Rutas de aprendizaje">
-        <span className="aula-meta text-zinc-500">Empieza por</span>
-        <a href="#empezar" className="aula-chip" data-tone="violet">Desde cero</a>
-        <a href="#programacion" className="aula-chip" data-tone="green">Programación con IA</a>
-        <a href="#sistemas" className="aula-chip" data-tone="cyan">Sistemas y agentes</a>
-        <a href="#aplicaciones" className="aula-chip" data-tone="amber">Aplicaciones prácticas</a>
-      </div>
-
-      {courseGroups.map((group) => (
-        <section id={group.id} key={group.id} aria-labelledby={`${group.id}-title`} className="mb-14 scroll-mt-24">
-          <h2 id={`${group.id}-title`} className="font-display text-2xl font-bold text-white mb-2">{group.title}</h2>
-          <p className="text-zinc-400 mb-6 max-w-3xl">{group.description}</p>
-          <div className="grid md:grid-cols-2 gap-6">
-            {group.slugs.map((slug) => cursos.find((course) => course.slug === slug)).filter((course): course is Curso => Boolean(course)).map((course) => (
-              <CourseCard key={course.slug} course={course} />
-            ))}
-          </div>
-        </section>
-      ))}
-
-      {/* Próximamente */}
-      <h2 className="aula-section-label mb-4"><Icon name="lab" /> Próximamente</h2>
-      <div className="grid sm:grid-cols-2 gap-5">
-        {proximamente.map((c) => (
-          <div key={c.title} className="aula-panel p-6 opacity-80">
-            <div className="aula-icon text-zinc-400 mb-4"><Icon name={c.icon as IconName} /></div>
-            <h3 className="font-display font-semibold text-lg text-zinc-300">{c.title}</h3>
-            <p className="mt-2 text-sm text-zinc-500 leading-relaxed">{c.desc}</p>
-            <div className="mt-4 aula-chip" data-tone="violet">En preparación</div>
-          </div>
-        ))}
-      </div>
+      <details className="aula-disclosure aula-panel mt-5">
+        <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 sm:p-6">
+          <span><span className="aula-section-label"><Icon name="lab" /> En preparación</span><strong className="mt-2 block font-display text-lg text-white">Ver próximos cursos</strong></span>
+          <Icon name="chevronRight" className="aula-disclosure-icon text-zinc-500" />
+        </summary>
+        <div className="grid gap-5 border-t border-zinc-800 p-5 sm:grid-cols-2 sm:p-6">
+          {proximamente.map((c) => (
+            <div key={c.title} className="rounded-lg border border-zinc-800 p-5 opacity-80">
+              <div className="aula-icon text-zinc-400 mb-4"><Icon name={c.icon as IconName} /></div>
+              <h3 className="font-display font-semibold text-lg text-zinc-300">{c.title}</h3>
+              <p className="mt-2 text-sm text-zinc-500 leading-relaxed">{c.desc}</p>
+            </div>
+          ))}
+        </div>
+      </details>
     </div>
   );
 }

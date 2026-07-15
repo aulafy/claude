@@ -7,4 +7,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/rutas", languages: { "es-ES": "/rutas", "en-US": "/en/paths" } },
 };
 
-export default function Page() { return <LearningPathsPage locale="es" />; }
+export default async function Page({ searchParams }: { searchParams: Promise<{ perfil?: string | string[] }> }) {
+  const { perfil } = await searchParams;
+  return <LearningPathsPage locale="es" initialProfile={typeof perfil === "string" ? perfil : undefined} />;
+}
