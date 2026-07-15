@@ -15,7 +15,7 @@ export default function Licencia() {
         <Icon name="legal" className="mt-1 text-2xl text-violet-400 flex-none" />
         <h1 className="min-w-0 text-3xl sm:text-4xl font-bold leading-tight text-white">Licencia y reutilización</h1>
       </div>
-      <p className="text-sm text-zinc-500 mb-8">Última actualización: 2 de julio de 2026</p>
+      <p className="text-sm text-zinc-500 mb-8">Última actualización: 14 de julio de 2026</p>
       <div className="prose">
         <p>
           Aulafy es un proyecto educativo abierto. Puedes estudiar, compartir y
@@ -34,6 +34,15 @@ export default function Licencia() {
         <p>
           El código de la web se publica bajo licencia MIT. Puedes revisarlo,
           reutilizarlo y adaptarlo respetando el aviso de copyright y la licencia.
+        </p>
+
+        <h2>Contenido publicado por la comunidad</h2>
+        <p>
+          Las publicaciones de los usuarios no pasan automáticamente a estar bajo
+          CC BY 4.0. Cada autor conserva sus derechos y concede a Aulafy únicamente
+          el permiso necesario para alojar y mostrar el contenido dentro de la
+          plataforma, conforme a las normas de la comunidad. Los repositorios y
+          materiales enlazados mantienen la licencia indicada por sus titulares.
         </p>
 
         <h2>Marcas y productos mencionados</h2>

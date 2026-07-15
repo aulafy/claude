@@ -9,6 +9,7 @@ import { getCurso } from "@/lib/cursos";
 import { isEnglishPath } from "@/lib/i18n";
 import LessonStructuredData from "@/components/LessonStructuredData";
 import LessonFeedback from "@/components/LessonFeedback";
+import LessonCommunityCta from "@/components/social/LessonCommunityCta";
 
 export default function Shell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -34,6 +35,7 @@ export default function Shell({ children }: { children: React.ReactNode }) {
           <a href="#main-content" className="aula-skip-link">{locale === "en" ? "Skip to content" : "Saltar al contenido"}</a>
           <main id="main-content" className="flex-1">
             {children}
+            {esLeccion && <LessonCommunityCta courseSlug={parts[1]} lessonSlug={parts[2]} />}
             <LessonFeedback
               courseSlug={esLeccion ? parts[1] : parts[2]}
               lessonSlug={esLeccion ? parts[2] : parts[3]}

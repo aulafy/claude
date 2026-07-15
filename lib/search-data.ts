@@ -1,3 +1,5 @@
+import { getCurso } from "@/lib/cursos";
+
 export type SearchItem = {
   href: string;
   title: string;
@@ -5,7 +7,28 @@ export type SearchItem = {
   keywords: string;
 };
 
+const webAiSearchLessons =
+  getCurso("crear-webs-con-ia")?.secciones.flatMap((section) => section.lecciones) ?? [];
+
 export const searchData: SearchItem[] = [
+  {
+    href: "/cursos/crear-webs-con-ia",
+    title: "Crea webs profesionales con IA desde cero",
+    section: "Web con IA",
+    keywords: "crear web pagina profesional codex gpt 5.6 sol español desde cero nextjs supabase vercel seo aeo chatbot threejs",
+  },
+  ...webAiSearchLessons.map((lesson) => ({
+    href: `/cursos/crear-webs-con-ia/${lesson.slug}`,
+    title: lesson.title,
+    section: lesson.title.startsWith("Taller:")
+      ? "Talleres web con IA"
+      : lesson.title.startsWith("Laboratorio:")
+        ? "Laboratorios web con IA"
+        : "Web con IA",
+    keywords: `${lesson.title.toLowerCase()} codex sol crear web tutorial español práctica evidencia`,
+  })),
+  { href: "/comunidad", title: "Aulafy Comunidad", section: "Comunidad", keywords: "proyectos evidencias aprendizaje revisiones publicar resultados codex comunidad ia" },
+  { href: "/comunidad/normas", title: "Normas de Aulafy Comunidad", section: "Comunidad", keywords: "normas moderacion denuncias seguridad contenido usuarios" },
   { href: "/cursos/codex-desde-cero", title: "Codex desde cero", section: "Codex desde cero", keywords: "codex principiantes cero archivos automatizar proyectos curso general manual pdf" },
   { href: "/cursos/codex-desde-cero/que-es-codex", title: "Qué es Codex y qué no es", section: "Codex desde cero", keywords: "codex chat work elegir herramienta agente ia" },
   { href: "/cursos/codex-desde-cero/donde-usar-codex", title: "Dónde utilizar Codex: app, web, CLI e IDE", section: "Codex desde cero", keywords: "codex app web cli ide mac windows linux superficies" },

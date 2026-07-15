@@ -133,6 +133,136 @@ export const cursos: Curso[] = [
     ],
   },
   {
+    slug: "crear-webs-con-ia",
+    title: "Crea webs profesionales con IA desde cero",
+    short: "De una idea a una web seria, publicada y mantenible con Codex y GPT-5.6 Sol",
+    desc: "Aprende sin experiencia previa a planificar, construir, revisar, publicar y mantener webs que resuelven problemas reales. Incluye diseño, accesibilidad, formularios, Supabase, SEO/AEO, Vercel, dominios, chatbot, 3D opcional y siete talleres sectoriales.",
+    level: "Cero absoluto → profesional",
+    icon: "laptopCode",
+    gradient: ["#06b6d4", "#8b5cf6"],
+    availableInEnglish: false,
+    resources: [
+      {
+        href: "/recursos/crear-webs-con-ia/curso-crear-webs-con-ia.md",
+        label: "Contenido completo en Markdown",
+        format: "MD",
+      },
+      {
+        href: "/recursos/crear-webs-con-ia/plantilla-informe-laboratorio.md",
+        label: "Plantilla de informe de laboratorio",
+        format: "MD",
+      },
+      {
+        href: "/recursos/crear-webs-con-ia/plantilla-ficha-web-seria.md",
+        label: "Plantilla para definir una web seria",
+        format: "MD",
+      },
+      {
+        href: "/recursos/crear-webs-con-ia/plantilla-alcance-web-v1.md",
+        label: "Plantilla de alcance para la primera versión",
+        format: "MD",
+      },
+      {
+        href: "https://github.com/aulafy/taller",
+        label: "Código de ejemplos en Aulafy Taller",
+        format: "GITHUB",
+      },
+    ],
+    secciones: [
+      {
+        title: "Antes de construir",
+        lecciones: [
+          { slug: "una-web-seria", title: "Qué hace que una web sea seria y útil" },
+          { slug: "elegir-tipo-web", title: "Elige el tipo de web y evita complejidad innecesaria" },
+          { slug: "preparar-codex-sol", title: "Prepara Codex y GPT-5.6 Sol" },
+          { slug: "briefing-verificable", title: "Convierte la idea en un briefing verificable" },
+        ],
+      },
+      {
+        title: "Contenido y prototipo local",
+        lecciones: [
+          { slug: "inventario-contenido-real", title: "Reúne contenido real sin inventar autoridad" },
+          { slug: "arquitectura-informacion", title: "Diseña páginas, navegación y llamada a la acción" },
+          { slug: "primer-prototipo-local", title: "Construye el primer prototipo local" },
+          { slug: "revisar-con-browser", title: "Revisa y corrige con el navegador integrado" },
+        ],
+      },
+      {
+        title: "Diseño profesional",
+        lecciones: [
+          { slug: "sistema-diseno", title: "Crea un sistema visual coherente" },
+          { slug: "responsive-accesible", title: "Diseña para móvil, teclado y lectores de pantalla" },
+          { slug: "imagenes-identidad", title: "Usa imágenes, iconos e identidad sin perder rendimiento" },
+          { slug: "estados-interacciones", title: "Diseña estados, formularios y microinteracciones" },
+        ],
+      },
+      {
+        title: "Arquitectura profesional",
+        lecciones: [
+          { slug: "cuando-usar-nextjs", title: "Decide cuándo pasar a Next.js" },
+          { slug: "componentes-rutas", title: "Organiza componentes, páginas y rutas" },
+          { slug: "formularios-validacion", title: "Crea formularios con validación y estados" },
+          { slug: "supabase-rls", title: "Guarda contactos en Supabase con RLS" },
+        ],
+      },
+      {
+        title: "Calidad y visibilidad",
+        lecciones: [
+          { slug: "seo-tecnico", title: "Configura metadata, canonical, sitemap y robots" },
+          { slug: "datos-estructurados-aeo", title: "Añade datos estructurados y contenido para buscadores y agentes" },
+          { slug: "rendimiento-core-web-vitals", title: "Mejora rendimiento y Core Web Vitals" },
+          { slug: "seguridad-privacidad-legal", title: "Aplica seguridad, privacidad y límites legales" },
+        ],
+      },
+      {
+        title: "Publicar y operar",
+        lecciones: [
+          { slug: "git-github", title: "Versiona con Git y publica el código en GitHub" },
+          { slug: "vercel-preview-produccion", title: "Despliega en Vercel con preview y producción" },
+          { slug: "dominio-dns-https", title: "Conecta dominio, DNS y HTTPS" },
+          { slug: "monitorizar-mantener-recuperar", title: "Monitoriza, mantén y recupera la web" },
+        ],
+      },
+      {
+        title: "IA y experiencias avanzadas",
+        lecciones: [
+          { slug: "faq-base-conocimiento", title: "Diseña una FAQ y una base de conocimiento fiable" },
+          { slug: "chatbot-groq-seguro", title: "Añade un chatbot con Groq sin exponer claves" },
+          { slug: "sol-api-y-ultra", title: "Integra Sol y usa Ultra o multiagente con criterio" },
+          { slug: "threejs-con-proposito", title: "Añade 3D con Three.js solo cuando aporte valor" },
+        ],
+      },
+      {
+        title: "Laboratorios de fallos reales",
+        lecciones: [
+          { slug: "laboratorio-prompt-vago", title: "Laboratorio: convierte un prompt vago en una especificación" },
+          { slug: "laboratorio-ui-generica", title: "Laboratorio: detecta y corrige una interfaz genérica" },
+          { slug: "laboratorio-responsive-roto", title: "Laboratorio: reproduce y repara un móvil roto" },
+          { slug: "laboratorio-servidores-duplicados", title: "Laboratorio: encuentra servidores locales duplicados" },
+          { slug: "laboratorio-build-produccion", title: "Laboratorio: descubre un fallo que solo aparece en producción" },
+          { slug: "laboratorio-formulario-rls", title: "Laboratorio: diagnostica un formulario bloqueado por RLS" },
+          { slug: "laboratorio-rls-rendimiento", title: "Laboratorio: mide y optimiza una política RLS" },
+          { slug: "laboratorio-secretos-expuestos", title: "Laboratorio: localiza y rota un secreto de prueba" },
+          { slug: "laboratorio-preview-produccion", title: "Laboratorio: separa preview y producción" },
+          { slug: "laboratorio-deuda-tecnica", title: "Laboratorio: rescata código generado difícil de mantener" },
+        ],
+      },
+      {
+        title: "Talleres sectoriales y proyecto final",
+        lecciones: [
+          { slug: "taller-portafolio-estudiante", title: "Taller: portafolio de estudiante" },
+          { slug: "taller-restaurante", title: "Taller: web para un restaurante" },
+          { slug: "taller-despacho-abogados", title: "Taller: web para un despacho de abogados" },
+          { slug: "taller-consultoria-informatica", title: "Taller: web para una consultoría informática" },
+          { slug: "taller-app-saas", title: "Taller: landing y aplicación SaaS" },
+          { slug: "taller-clinica-estetica", title: "Taller: web para una clínica estética" },
+          { slug: "taller-academia-ingles", title: "Taller: web para una academia de inglés" },
+          { slug: "proyecto-final-publicar-mantener", title: "Proyecto final: publica y mantén una web real" },
+        ],
+      },
+    ],
+  },
+  {
     slug: "codex-programadores",
     title: "Codex para programadores",
     short: "Programa, prueba y entrega cambios con OpenAI Codex",

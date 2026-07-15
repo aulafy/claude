@@ -123,6 +123,15 @@ const coreEntries: SeoIndexEntry[] = [
     changeFrequency: "weekly",
   },
   {
+    route: "/comunidad",
+    title: "Aulafy Comunidad",
+    description: "Proyectos vinculados a lecciones y revisiones educativas para aprender inteligencia artificial construyendo.",
+    language: "es",
+    kind: "core",
+    priority: 0.9,
+    changeFrequency: "daily",
+  },
+  {
     route: "/que-es-aulafy",
     title: "Qué es Aulafy",
     description: "Definición breve de Aulafy para personas, buscadores y asistentes de IA.",
@@ -161,6 +170,7 @@ const coreEntries: SeoIndexEntry[] = [
 ];
 
 const legalEntries: SeoIndexEntry[] = [
+  ["/comunidad/normas", "Normas de Aulafy Comunidad"],
   ["/aviso-legal", "Aviso legal"],
   ["/licencia", "Licencia"],
   ["/privacidad", "Privacidad"],

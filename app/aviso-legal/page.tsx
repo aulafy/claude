@@ -16,7 +16,7 @@ export default function AvisoLegal() {
         <Icon name="fileContract" className="mt-1 text-2xl text-violet-400 flex-none" />
         <h1 className="min-w-0 text-3xl sm:text-4xl font-bold leading-tight text-white">Aviso legal</h1>
       </div>
-      <p className="text-sm text-zinc-500 mb-8">Última actualización: 2 de julio de 2026</p>
+      <p className="text-sm text-zinc-500 mb-8">Última actualización: 14 de julio de 2026</p>
 
       <div className="prose">
         <p>
@@ -32,8 +32,9 @@ export default function AvisoLegal() {
           <a href="mailto:learntouseai@gmail.com">learntouseai@gmail.com</a>.
         </p>
         <p>
-          La web no ofrece contratación online, pagos, suscripciones, cuentas de
-          usuario ni venta directa de servicios desde el sitio. Si necesitas datos
+          La web no ofrece contratación online, pagos, suscripciones ni venta
+          directa de servicios. Las cuentas opcionales de la comunidad se ofrecen
+          gratuitamente para publicar y revisar evidencias de aprendizaje. Si necesitas datos
           identificativos adicionales para una relación jurídica o administrativa
           concreta, puedes solicitarlos por el email de contacto.
         </p>
@@ -45,6 +46,12 @@ export default function AvisoLegal() {
           medidas técnicas, introducir contenido ilegal en herramientas
           interactivas o reutilizar materiales de forma que induzca a confusión
           sobre su autoría.
+        </p>
+        <p>
+          La participación en la comunidad está sujeta además a las{" "}
+          <Link href="/comunidad/normas">Normas de Aulafy Comunidad</Link>. Aulafy
+          puede ocultar o retirar contenido que incumpla esas normas, vulnere
+          derechos o ponga en riesgo a otras personas.
         </p>
 
         <h2>Propiedad intelectual y licencias</h2>
@@ -64,7 +71,8 @@ export default function AvisoLegal() {
 
         <h2>Responsabilidad sobre el contenido</h2>
         <p>
-          Los materiales se preparan para ayudar a aprender y practicar, pero no
+          Los materiales y las publicaciones de la comunidad se preparan para
+          ayudar a aprender y practicar, pero no
           sustituyen asesoramiento profesional, legal, médico, financiero ni de
           seguridad. Verifica siempre comandos, dependencias, costes y políticas
           de terceros antes de aplicarlos en un entorno real.
@@ -79,8 +87,8 @@ export default function AvisoLegal() {
 
         <h2>Privacidad y cookies</h2>
         <p>
-          Aulafy no recoge emails mediante formularios, no crea cuentas de usuario
-          y no usa cookies de analítica o publicidad. Puedes ampliar información
+          Aulafy no usa cookies de analítica o publicidad. Las cuentas son
+          opcionales y emplean cookies técnicas de sesión. Puedes ampliar información
           en la <Link href="/privacidad">Política de privacidad</Link> y en la{" "}
           <Link href="/cookies">Política de cookies</Link>.
         </p>

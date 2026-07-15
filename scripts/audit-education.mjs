@@ -16,7 +16,7 @@ const officialSourceHints = [
   "https://www.nist.gov/itl/ai-risk-management-framework",
 ];
 
-const finalProjectWords = /\b(proyecto|entregable|auditoría|aplicación|prototipo|servicio|agente|flujo|plataforma|adaptador|cambio|cápsula|entrega|modelo|sistema)\b/i;
+const finalProjectWords = /\b(proyecto|entregable|auditoría|aplicación|prototipo|servicio|agente|flujo|plataforma|adaptador|cambio|cápsula|entrega|modelo|sistema|web)\b/i;
 
 for (const course of cursos) {
   assert.ok(!courseSlugs.has(course.slug), `Duplicate course slug: ${course.slug}`);
@@ -47,7 +47,12 @@ for (const course of cursos) {
     assert.ok(!lessonUrls.has(key), `Duplicate lesson URL: ${key}`);
     lessonUrls.add(key);
     assert.ok(lesson.title.length >= 5, `Lesson title is too short: ${key}`);
-    assert.ok(fs.existsSync(`app/cursos/${key}/page.tsx`), `Missing Spanish lesson page: ${key}`);
+    const directLessonPage = `app/cursos/${key}/page.tsx`;
+    const generatedLessonPage = `app/cursos/${course.slug}/[lesson]/page.tsx`;
+    assert.ok(
+      fs.existsSync(directLessonPage) || fs.existsSync(generatedLessonPage),
+      `Missing Spanish lesson page: ${key}`,
+    );
     assert.ok(index === 0 || courseLessons[index - 1], `Missing previous lesson relation: ${key}`);
     assert.ok(index === courseLessons.length - 1 || courseLessons[index + 1], `Missing next lesson relation: ${key}`);
     lessonCount += 1;

@@ -16,6 +16,8 @@
     "verify-links": "node scripts/verify-main-links.mjs",
     "verify-progress": "node scripts/verify-progress.mjs",
     "verify-seo": "node --experimental-strip-types scripts/verify-seo.mjs",
+    "verify-social": "node scripts/verify-social.mjs",
+    "verify-web-ai": "node --experimental-strip-types scripts/verify-web-ai-course.mjs",
     "audit-education": "node --experimental-strip-types scripts/audit-education.mjs",
     "test:content": "node scripts/verify-content.mjs",
     "test:codex": "node --experimental-strip-types scripts/verify-codex-course.mjs",
@@ -24,10 +26,14 @@
     "test:i18n": "node --experimental-strip-types scripts/verify-i18n.mjs",
     "test:progress": "node scripts/verify-progress.mjs",
     "test:seo": "node --experimental-strip-types scripts/verify-seo.mjs",
+    "test:social": "node scripts/verify-social.mjs",
+    "test:web-ai": "node --experimental-strip-types scripts/verify-web-ai-course.mjs",
     "test:education": "node --experimental-strip-types scripts/audit-education.mjs",
     "indexnow": "node scripts/indexnow.mjs"
   },
   "dependencies": {
+    "@supabase/ssr": "^0.12.2",
+    "@supabase/supabase-js": "^2.110.5",
     "@upstash/ratelimit": "^2.0.8",
     "@upstash/redis": "^1.38.0",
     "next": "16.2.9",
@@ -36,7 +42,8 @@
     "react-markdown": "^10.1.0",
     "rehype-raw": "^7.0.0",
     "remark-gfm": "^4.0.1",
-    "three": "^0.185.1"
+    "three": "^0.185.1",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
