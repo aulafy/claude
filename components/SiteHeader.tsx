@@ -3,6 +3,7 @@ import Icon from "@/components/Icon";
 import LanguageSwitch from "@/components/LanguageSwitch";
 import ThemeToggle from "@/components/ThemeToggle";
 import type { Locale } from "@/lib/i18n";
+import { isSocialEnabled } from "@/lib/social/config";
 
 function BrandIcon({ id, className }: { id: string; className?: string }) {
   return (
@@ -60,7 +61,7 @@ export default function SiteHeader({ locale = "es" }: { locale?: Locale }) {
             <Icon name="search" />
             {isEnglish ? "Spanish blog" : "Blog"}
           </Link>
-          {!isEnglish && (
+          {!isEnglish && isSocialEnabled() && (
             <Link
               href="/comunidad"
               className="hidden! sm:inline-flex! aula-button aula-button-secondary min-h-9 px-3 py-2 text-sm"

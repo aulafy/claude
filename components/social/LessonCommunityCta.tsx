@@ -1,8 +1,10 @@
 import Link from "next/link";
 import Icon from "@/components/Icon";
-import { getSocialPilotUnit } from "@/lib/social/config";
+import { getSocialPilotUnit, isSocialEnabled } from "@/lib/social/config";
 
 export default function LessonCommunityCta({ courseSlug, lessonSlug }: { courseSlug: string; lessonSlug: string }) {
+  if (!isSocialEnabled()) return null;
+
   const unit = getSocialPilotUnit(courseSlug, lessonSlug);
   if (!unit) return null;
 

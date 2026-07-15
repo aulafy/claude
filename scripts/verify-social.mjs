@@ -43,6 +43,10 @@ const expectedUnits = [
   "proyecto-final",
 ];
 const config = read("lib/social/config.ts");
+assert(
+  config.includes('NEXT_PUBLIC_AULAFY_SOCIAL_ENABLED === "true"'),
+  "La comunidad debe permanecer desactivada salvo activación explícita",
+);
 for (const lesson of expectedUnits) {
   assert(migration.includes(`'${lesson}'`), `La migración no incluye ${lesson}`);
   assert(config.includes(`lessonSlug: "${lesson}"`), `La configuración no incluye ${lesson}`);
@@ -62,11 +66,34 @@ for (const file of requiredFiles) {
   assert(fs.existsSync(path.join(root, file)), `Falta ${file}`);
 }
 
-const privacy = read("app/privacidad/page.tsx");
-assert(privacy.includes("El email no se incluye en"), "Privacidad debe aclarar que el email no es público");
-assert(privacy.includes("eliminación de la cuenta"), "Privacidad debe explicar cómo solicitar la eliminación");
+const proxy = read("proxy.ts");
+for (const route of [
+  "/comunidad",
+  "/acceso",
+  "/cuenta",
+  "/perfil",
+  "/proyectos",
+  "/admin/moderacion",
+  "/auth/callback",
+]) {
+  assert(proxy.includes(`"${route}"`), `El interruptor no protege ${route}`);
+}
+assert(proxy.includes("!isSocialEnabled()"), "El proxy debe bloquear las rutas sociales por defecto");
 
-console.log(`Verified social MVP: ${tables.length} RLS tables, ${expectedUnits.length} pilot lessons, auth, moderation and privacy.`);
+for (const file of [
+  "components/SiteHeader.tsx",
+  "components/Footer.tsx",
+  "components/social/LessonCommunityCta.tsx",
+  "lib/search-data.ts",
+  "lib/seo-index.ts",
+]) {
+  assert(
+    read(file).includes("isSocialEnabled"),
+    `${file} debe respetar el interruptor de publicación`,
+  );
+}
+
+console.log(`Verified dormant social MVP: ${tables.length} RLS tables, ${expectedUnits.length} pilot lessons and publication gate.`);
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);

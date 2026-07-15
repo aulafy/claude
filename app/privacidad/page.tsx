@@ -5,7 +5,7 @@ import Icon from "@/components/Icon";
 export const metadata: Metadata = {
   title: "Política de privacidad - Aulafy",
   description:
-    "Información sobre privacidad, cuentas opcionales, perfiles públicos, comunidad, chat y datos técnicos en Aulafy.",
+    "Información sobre privacidad, chat opcional y datos técnicos en Aulafy.",
   alternates: { canonical: "/privacidad" },
 };
 
@@ -16,14 +16,12 @@ export default function Privacidad() {
         <Icon name="userShield" className="mt-1 text-2xl text-violet-400 flex-none" />
         <h1 className="min-w-0 text-3xl sm:text-4xl font-bold leading-tight text-white">Política de privacidad</h1>
       </div>
-      <p className="text-sm text-zinc-500 mb-8">Última actualización: 14 de julio de 2026</p>
+      <p className="text-sm text-zinc-500 mb-8">Última actualización: 15 de julio de 2026</p>
       <div className="prose">
         <p>
           Aulafy es una web educativa que puedes leer sin registro y sin muro de
-          pago. La cuenta es opcional y solo se necesita para participar en Aulafy
-          Comunidad: publicar proyectos, revisar trabajos y mantener un perfil de
-          aprendizaje. No vendemos datos, no creamos perfiles publicitarios y no
-          usamos analítica de marketing.
+          pago. No vendemos datos, no creamos perfiles publicitarios y no usamos
+          analítica de marketing.
         </p>
 
         <h2>Responsable y contacto</h2>
@@ -33,32 +31,11 @@ export default function Privacidad() {
           <a href="mailto:learntouseai@gmail.com">learntouseai@gmail.com</a>.
         </p>
 
-        <h2>Cuenta y acceso</h2>
+        <h2>Datos que no recogemos</h2>
         <p>
-          Si eliges crear una cuenta, tratamos el email y los identificadores
-          técnicos necesarios para autenticarte. Puedes entrar mediante un enlace
-          enviado por email o, si lo prefieres, mediante Google. La autenticación y
-          la base de datos se prestan mediante Supabase. El email no se incluye en
-          el perfil público.
-        </p>
-
-        <h2>Perfil y contenido público</h2>
-        <p>
-          El nombre visible, nombre de usuario, biografía, intereses, web y los
-          proyectos o revisiones que publiques serán visibles públicamente. No
-          introduzcas datos personales de terceros, claves, contraseñas, información
-          confidencial ni datos que no quieras hacer públicos. Las denuncias y las
-          decisiones internas de moderación no son públicas.
-        </p>
-
-        <h2>Finalidad y bases de tratamiento</h2>
-        <p>
-          Los datos de la cuenta y las publicaciones se utilizan para prestar la
-          funcionalidad que solicitas y aplicar las condiciones de la comunidad. La
-          prevención de abusos, seguridad y moderación se basan en el interés
-          legítimo de mantener un servicio educativo seguro. Cuando una operación
-          requiera consentimiento, podrás retirarlo sin afectar a los tratamientos
-          realizados anteriormente.
+          Aulafy no ofrece cuentas de usuario, formularios de registro, newsletter
+          ni pagos. El progreso de los cursos y la preferencia visual se guardan
+          únicamente en el navegador y no identifican a la persona en el servidor.
         </p>
 
         <h2>Chat de ayuda</h2>
@@ -83,42 +60,32 @@ export default function Privacidad() {
         <h2>Cookies</h2>
         <p>
           Aulafy no usa cookies propias de analítica, publicidad ni seguimiento.
-          Solo se guardan las cookies estrictamente necesarias para mantener la
-          sesión cuando decides entrar. El progreso del curso y la preferencia de
-          modo claro u oscuro continúan en el almacenamiento local del navegador.
+          El progreso del curso y la preferencia de modo claro u oscuro se guardan
+          en el almacenamiento local del navegador, no en una cuenta.
           Puedes ver el detalle en la{" "}
           <Link href="/cookies">Política de cookies</Link>.
         </p>
 
         <h2>Conservación</h2>
         <p>
-          La cuenta, el perfil y sus publicaciones se conservan mientras mantengas
-          la cuenta o hasta que solicites su eliminación. Algunas evidencias de
-          seguridad y moderación podrán conservarse durante el tiempo necesario
-          para gestionar reclamaciones, prevenir abusos o cumplir obligaciones
-          legales. El chat no conserva conversaciones con finalidad comercial.
+          Aulafy no conserva una base de datos de usuarios. El proveedor de
+          alojamiento puede mantener registros técnicos durante el tiempo necesario
+          para operar y proteger el servicio. El chat no conserva conversaciones
+          con finalidad comercial.
         </p>
 
         <h2>Derechos</h2>
         <p>
-          Puedes editar los datos públicos desde tu perfil. También puedes solicitar
-          acceso, rectificación, supresión, oposición, limitación o portabilidad,
-          incluida la eliminación de la cuenta, escribiendo al email de contacto
-          desde la dirección asociada. También puedes acudir a la autoridad de
-          control competente.
-        </p>
-
-        <h2>Menores</h2>
-        <p>
-          La comunidad no está dirigida a menores de 14 años. Una persona menor de
-          esa edad no debe crear una cuenta ni publicar datos sin la intervención y
-          autorización de sus representantes legales.
+          Puedes solicitar información, acceso, rectificación, supresión, oposición,
+          limitación o portabilidad sobre cualquier dato personal que pudiera haber
+          sido tratado escribiendo al email de contacto. También puedes acudir a la
+          autoridad de control competente.
         </p>
 
         <h2>Enlaces externos</h2>
         <p>
-          La web utiliza o enlaza servicios de terceros como Supabase, Google,
-          GitHub, Anthropic, X, LinkedIn y otras herramientas educativas. Cuando
+          La web utiliza o enlaza servicios de terceros como GitHub, Anthropic, X,
+          LinkedIn y otras herramientas educativas. Cuando
           eliges utilizarlos se aplican también sus condiciones y políticas.
         </p>
       </div>

@@ -4,7 +4,7 @@ import Icon from "@/components/Icon";
 export const metadata: Metadata = {
   title: "Política de cookies - Aulafy",
   description:
-    "Política de cookies de Aulafy: sesión opcional, sin analítica, publicidad ni seguimiento.",
+    "Política de cookies de Aulafy: sin analítica, publicidad ni seguimiento.",
   alternates: { canonical: "/cookies" },
 };
 
@@ -15,21 +15,19 @@ export default function Cookies() {
         <Icon name="cookie" className="mt-1 text-2xl text-violet-400 flex-none" />
         <h1 className="min-w-0 text-3xl sm:text-4xl font-bold leading-tight text-white">Política de cookies</h1>
       </div>
-      <p className="text-sm text-zinc-500 mb-8">Última actualización: 14 de julio de 2026</p>
+      <p className="text-sm text-zinc-500 mb-8">Última actualización: 15 de julio de 2026</p>
 
       <div className="prose">
         <p>
           Aulafy no utiliza cookies de analítica, publicidad, remarketing, redes
-          sociales ni seguimiento entre sitios. Si decides entrar en Aulafy
-          Comunidad, se utilizan cookies estrictamente necesarias para mantener y
-          proteger tu sesión.
+          sociales ni seguimiento entre sitios.
         </p>
 
         <h2>Por qué no ves un banner de cookies</h2>
         <p>
           No mostramos un banner de consentimiento porque no instalamos cookies no
-          esenciales. Los cursos se pueden leer sin aceptar nada ni registrarse. Las
-          cookies de sesión solo aparecen cuando solicitas el acceso a la comunidad.
+          esenciales. Los cursos se pueden leer sin aceptar nada, registrarse ni
+          suscribirse.
         </p>
 
         <h2>Preferencia de modo claro u oscuro</h2>
@@ -44,15 +42,7 @@ export default function Cookies() {
         <p>
           Las lecciones completadas se guardan en almacenamiento local bajo la
           clave <code>aulafy:progress:v1</code>. Este dato permanece en tu navegador
-          y no se sincroniza con la cuenta durante el piloto social.
-        </p>
-
-        <h2>Cookies de autenticación</h2>
-        <p>
-          Supabase utiliza cookies técnicas para completar el acceso, conservar la
-          sesión y renovarla de forma segura. Son necesarias únicamente para las
-          funciones que requieren cuenta y desaparecen al cerrar sesión o al
-          caducar, según su configuración técnica.
+          y no se envía al servidor.
         </p>
 
         <h2>Servicios externos</h2>
@@ -64,8 +54,8 @@ export default function Cookies() {
 
         <h2>Cambios futuros</h2>
         <p>
-          Si en el futuro Aulafy incorpora analítica, publicidad u otra cookie no
-          esencial, esta política se actualizará y se pedirá
+          Si en el futuro Aulafy incorpora cuentas, analítica, publicidad u otra
+          cookie no esencial, esta política se actualizará y se pedirá
           consentimiento cuando sea obligatorio.
         </p>
 
