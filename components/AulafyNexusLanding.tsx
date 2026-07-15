@@ -54,6 +54,11 @@ export default function AulafyNexusLanding({ courseCount, lessonCount, paths, co
           <a href="#rutas">{text.paths}</a><a href="#cursos">{text.courses}</a><Link href="/fuentes">{text.sources}</Link>
         </nav>
         <div className="nx-header-tools">
+          <nav className="nx-mobile-nav" aria-label={english ? "Quick navigation" : "Navegación rápida"}>
+            <a href="#rutas">{text.paths}</a>
+            <a href="#cursos">{text.courses}</a>
+            <Link href={english ? "/" : "/en"}>{english ? "ES" : "EN"}</Link>
+          </nav>
           <nav className="nx-language" aria-label={text.language}>
             <Link href="/" aria-current={english ? undefined : "page"}>ES</Link>
             <Link href="/en" aria-current={english ? "page" : undefined}>EN</Link>
