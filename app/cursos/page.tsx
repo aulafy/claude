@@ -3,35 +3,9 @@ import Link from "next/link";
 import Icon, { type IconName } from "@/components/Icon";
 import { cursos, proximamente, totalLecciones, type Curso } from "@/lib/cursos";
 import { getCourseGuidance } from "@/lib/course-guidance";
+import { courseGroups } from "@/lib/course-groups";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
-
-const courseGroups = [
-  {
-    id: "empezar",
-    title: "Empieza desde cero",
-    description: "Aprende a trabajar con Codex y prepara una base técnica solo cuando realmente la necesites.",
-    slugs: ["codex-desde-cero", "fundamentos-aulafy"],
-  },
-  {
-    id: "programacion",
-    title: "Programación con IA",
-    description: "Programa con agentes, domina la terminal y construye herramientas que puedes mantener.",
-    slugs: ["codex-programadores", "claude-code", "ia-local"],
-  },
-  {
-    id: "sistemas",
-    title: "Sistemas, modelos y agentes",
-    description: "Diseña, evalúa y opera sistemas de IA con control técnico y seguridad.",
-    slugs: ["agentes-automatizacion", "agentes-produccion", "rag-seguro", "seguridad-evals", "mlops-local", "fine-tuning-local", "automatizacion-self-hosted"],
-  },
-  {
-    id: "aplicaciones",
-    title: "Aplicaciones prácticas",
-    description: "Lleva la IA a contenidos, negocios, videojuegos y flujos de trabajo reales.",
-    slugs: ["ia-generativa", "videojuegos-3d-ia", "ia-pymes"],
-  },
-];
 
 function CourseCard({ course }: { course: Curso }) {
   const index = cursos.findIndex((item) => item.slug === course.slug);

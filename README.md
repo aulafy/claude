@@ -25,11 +25,11 @@ La definición editorial completa está en [docs/QUE-ES-AULAFY.md](docs/QUE-ES-A
 
 ## Estado actual
 
-En la revisión del 14 de julio de 2026, el repositorio contiene:
+En la revisión del 15 de julio de 2026, el repositorio contiene:
 
-- 15 cursos y 177 lecciones en español;
+- 17 cursos y 244 lecciones en español;
 - versiones en inglés de los cursos y las lecciones;
-- 5 rutas de aprendizaje por objetivo y perfil;
+- 7 rutas de aprendizaje por nivel, objetivo y perfil;
 - un programa abierto de 28 semanas, desde fundamentos hasta un proyecto final;
 - guías PDF y un índice preparado para buscadores y asistentes de IA;
 - progreso local y exportable, sin necesidad de crear una cuenta;
@@ -42,6 +42,7 @@ Las cifras del catálogo se calculan desde `lib/cursos.ts` y seguirán creciendo
 | Área | Contenido |
 | --- | --- |
 | Fundamentos | Terminal, Git, Python, Docker, entornos reproducibles y criterio local frente a nube |
+| Web y SaaS | Diseño, accesibilidad, Next.js, Supabase, Vercel, APIs, mapas, costes y seguridad |
 | Programación con IA | OpenAI Codex, Claude Code, AGENTS.md, permisos, pruebas y revisión de cambios |
 | IA local | Ollama, LM Studio, Open WebUI, modelos cuantizados y APIs compatibles |
 | RAG | Ingesta, OCR, embeddings, Qdrant, búsqueda híbrida, citas, permisos y evaluación |

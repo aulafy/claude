@@ -24,4 +24,8 @@ for (const locale of ["es", "en"]) {
   }
 }
 
+const spanishProgramCourses = new Set(aiProgram.es.stages.flatMap((stage) => stage.courses));
+assert.ok(spanishProgramCourses.has("codex-desde-cero"), "Spanish program must include the zero-experience Codex course");
+assert.ok(spanishProgramCourses.has("crear-webs-con-ia"), "Spanish program must include the web and SaaS course");
+
 console.log("Verified complete AI program roadmap in ES/EN.");

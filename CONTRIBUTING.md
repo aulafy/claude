@@ -77,6 +77,7 @@ Evita:
 | Cambio | Fuente principal |
 | --- | --- |
 | Catálogo, orden o título de un curso | `lib/cursos.ts` |
+| Grupo visible del catálogo | `lib/course-groups.ts` |
 | Público, requisitos, duración o entregable | `lib/course-guidance.ts` |
 | Ruta de aprendizaje | `lib/learning-paths.ts` |
 | Programa completo | `lib/ai-program.ts` |

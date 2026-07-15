@@ -2,6 +2,8 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import { cursos, lecciones } from "../lib/cursos.ts";
 import { getCourseGuidance } from "../lib/course-guidance.ts";
+import { courseGroups } from "../lib/course-groups.ts";
+import { getLearningPaths } from "../lib/learning-paths.ts";
 
 const courseSlugs = new Set();
 const lessonUrls = new Set();
@@ -63,4 +65,26 @@ assert.ok(cursos.length >= 3, "Google course-list markup needs at least three re
 assert.ok(fs.existsSync("app/rutas/page.tsx"), "Missing Spanish learning paths");
 assert.ok(fs.existsSync("app/en/paths/page.tsx"), "Missing English learning paths");
 
-console.log(`Educational audit passed: ${cursos.length} courses, ${lessonCount} lessons, ${lessonUrls.size} unique lesson URLs.`);
+const catalogCourseSlugs = courseGroups.flatMap((group) => group.slugs);
+assert.equal(new Set(catalogCourseSlugs).size, catalogCourseSlugs.length, "A course appears in more than one catalog group");
+assert.deepEqual(
+  new Set(catalogCourseSlugs),
+  courseSlugs,
+  "Every published course must appear exactly once in the visible Spanish catalog",
+);
+
+const spanishPaths = getLearningPaths("es");
+const pathCourseSlugs = new Set(spanishPaths.flatMap((path) => path.courses));
+assert.ok(spanishPaths.filter((path) => path.featured).length >= 4, "The landing needs at least four clear starting profiles");
+for (const path of spanishPaths) {
+  assert.ok(path.entry.length >= 8, `Learning path needs an entry level: ${path.slug}`);
+  assert.ok(path.firstStep.length >= 8, `Learning path needs a first step: ${path.slug}`);
+  assert.ok(path.outcome.length >= 60, `Learning path needs a concrete outcome: ${path.slug}`);
+  assert.ok(path.courses.length >= 1, `Learning path needs at least one course: ${path.slug}`);
+  assert.ok(path.courses.every((slug) => courseSlugs.has(slug)), `Unknown course in learning path: ${path.slug}`);
+}
+assert.deepEqual(pathCourseSlugs, courseSlugs, "Every published course must belong to at least one Spanish learning path");
+assert.ok(spanishPaths.find((path) => path.slug === "desde-cero")?.courses.includes("codex-desde-cero"), "Missing zero-experience path");
+assert.ok(spanishPaths.find((path) => path.slug === "web-saas")?.courses.includes("crear-webs-con-ia"), "Missing web and SaaS path");
+
+console.log(`Educational audit passed: ${cursos.length} courses, ${lessonCount} lessons, ${spanishPaths.length} paths and no orphaned courses.`);

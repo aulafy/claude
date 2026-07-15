@@ -3,7 +3,7 @@ import LearningPathsPage from "@/components/LearningPathsPage";
 
 export const metadata: Metadata = {
   title: "Rutas para aprender inteligencia artificial",
-  description: "Itinerarios gratuitos y ordenados para aprender programación con IA, RAG, agentes, modelos locales, MLOps, seguridad y automatización.",
+  description: "Itinerarios gratuitos por nivel y objetivo: empezar sin programar, crear webs y SaaS, aplicar IA a un negocio o avanzar en RAG, agentes y MLOps.",
   alternates: { canonical: "/rutas", languages: { "es-ES": "/rutas", "en-US": "/en/paths" } },
 };
 
