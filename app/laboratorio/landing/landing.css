@@ -59,3 +59,23 @@
   .nx-discovery-grid{grid-template-columns:1fr}
   .nx-discovery-grid>a{min-height:180px}
 }
+
+/* La landing es larga: la orientación principal debe seguir disponible al avanzar. */
+.nx-header{position:fixed}
+#rutas,#cursos{scroll-margin-top:72px}
+.nx-header .nx-mobile-nav{display:none}
+.nexus-landing a:focus-visible{outline:2px solid var(--nx-cyan);outline-offset:4px}
+
+@media(max-width:900px){
+  .nx-header .nx-mobile-nav{display:flex;align-items:center;gap:1rem}
+  .nx-mobile-nav a{font:600 .65rem var(--font-geist-mono);color:#aaa6b5}
+}
+
+@media(max-width:620px){
+  #rutas,#cursos{scroll-margin-top:64px}
+  .nx-header{padding-inline:1rem}
+  .nx-header-tools{gap:0}
+  .nx-header .nx-mobile-nav{gap:.72rem}
+  .nx-mobile-nav a{font-size:.6rem}
+  .nx-hero h1{font-size:clamp(2.65rem,12.5vw,3.5rem);letter-spacing:-.025em}
+}
