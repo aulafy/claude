@@ -55,11 +55,19 @@ export default function SiteHeader({ locale = "es" }: { locale?: Locale }) {
           </Link>
           <Link
             href="/blog"
-            className="hidden! sm:inline-flex! aula-button aula-button-secondary min-h-9 px-3 py-2 text-sm"
+            className="hidden! xl:inline-flex! aula-button aula-button-secondary min-h-9 px-3 py-2 text-sm"
           >
             <Icon name="search" />
             {isEnglish ? "Spanish blog" : "Blog"}
           </Link>
+          {!isEnglish && (
+            <Link
+              href="/comunidad"
+              className="hidden! sm:inline-flex! aula-button aula-button-secondary min-h-9 px-3 py-2 text-sm"
+            >
+              <Icon name="users" /> Comunidad
+            </Link>
+          )}
           <LanguageSwitch />
           <ThemeToggle compact />
           <Link

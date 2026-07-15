@@ -5,7 +5,7 @@ import Icon from "@/components/Icon";
 export const metadata: Metadata = {
   title: "Política de privacidad - Aulafy",
   description:
-    "Información sobre privacidad, ausencia de captación comercial de datos, uso del chat opcional y datos técnicos en Aulafy.",
+    "Información sobre privacidad, cuentas opcionales, perfiles públicos, comunidad, chat y datos técnicos en Aulafy.",
   alternates: { canonical: "/privacidad" },
 };
 
@@ -16,12 +16,13 @@ export default function Privacidad() {
         <Icon name="userShield" className="mt-1 text-2xl text-violet-400 flex-none" />
         <h1 className="min-w-0 text-3xl sm:text-4xl font-bold leading-tight text-white">Política de privacidad</h1>
       </div>
-      <p className="text-sm text-zinc-500 mb-8">Última actualización: 2 de julio de 2026</p>
+      <p className="text-sm text-zinc-500 mb-8">Última actualización: 14 de julio de 2026</p>
       <div className="prose">
         <p>
-          Aulafy es una web educativa que puedes leer sin registro, sin cuenta de
-          usuario, sin muro de pago, sin newsletter y sin formularios de captación
-          comercial. No vendemos datos, no hacemos perfiles publicitarios y no
+          Aulafy es una web educativa que puedes leer sin registro y sin muro de
+          pago. La cuenta es opcional y solo se necesita para participar en Aulafy
+          Comunidad: publicar proyectos, revisar trabajos y mantener un perfil de
+          aprendizaje. No vendemos datos, no creamos perfiles publicitarios y no
           usamos analítica de marketing.
         </p>
 
@@ -32,11 +33,32 @@ export default function Privacidad() {
           <a href="mailto:learntouseai@gmail.com">learntouseai@gmail.com</a>.
         </p>
 
-        <h2>Datos que no recogemos</h2>
+        <h2>Cuenta y acceso</h2>
         <p>
-          No recogemos emails mediante formularios, no creamos cuentas, no
-          almacenamos perfiles de alumnos, no insertamos píxeles publicitarios y
-          no instalamos cookies de analítica, publicidad o redes sociales.
+          Si eliges crear una cuenta, tratamos el email y los identificadores
+          técnicos necesarios para autenticarte. Puedes entrar mediante un enlace
+          enviado por email o, si lo prefieres, mediante Google. La autenticación y
+          la base de datos se prestan mediante Supabase. El email no se incluye en
+          el perfil público.
+        </p>
+
+        <h2>Perfil y contenido público</h2>
+        <p>
+          El nombre visible, nombre de usuario, biografía, intereses, web y los
+          proyectos o revisiones que publiques serán visibles públicamente. No
+          introduzcas datos personales de terceros, claves, contraseñas, información
+          confidencial ni datos que no quieras hacer públicos. Las denuncias y las
+          decisiones internas de moderación no son públicas.
+        </p>
+
+        <h2>Finalidad y bases de tratamiento</h2>
+        <p>
+          Los datos de la cuenta y las publicaciones se utilizan para prestar la
+          funcionalidad que solicitas y aplicar las condiciones de la comunidad. La
+          prevención de abusos, seguridad y moderación se basan en el interés
+          legítimo de mantener un servicio educativo seguro. Cuando una operación
+          requiera consentimiento, podrás retirarlo sin afectar a los tratamientos
+          realizados anteriormente.
         </p>
 
         <h2>Chat de ayuda</h2>
@@ -61,33 +83,43 @@ export default function Privacidad() {
         <h2>Cookies</h2>
         <p>
           Aulafy no usa cookies propias de analítica, publicidad ni seguimiento.
-          Solo se guarda en tu navegador la preferencia de modo claro u oscuro
-          mediante almacenamiento local. Puedes ver el detalle en la{" "}
+          Solo se guardan las cookies estrictamente necesarias para mantener la
+          sesión cuando decides entrar. El progreso del curso y la preferencia de
+          modo claro u oscuro continúan en el almacenamiento local del navegador.
+          Puedes ver el detalle en la{" "}
           <Link href="/cookies">Política de cookies</Link>.
         </p>
 
-        <h2>Base jurídica y conservación</h2>
+        <h2>Conservación</h2>
         <p>
-          El tratamiento técnico necesario para servir la web y protegerla se
-          basa en el interés legítimo de mantener un servicio seguro y accesible.
-          El uso del chat se basa en tu solicitud expresa al enviar una pregunta.
-          Aulafy no mantiene una base de datos de usuarios ni conserva
-          conversaciones con finalidad comercial.
+          La cuenta, el perfil y sus publicaciones se conservan mientras mantengas
+          la cuenta o hasta que solicites su eliminación. Algunas evidencias de
+          seguridad y moderación podrán conservarse durante el tiempo necesario
+          para gestionar reclamaciones, prevenir abusos o cumplir obligaciones
+          legales. El chat no conserva conversaciones con finalidad comercial.
         </p>
 
         <h2>Derechos</h2>
         <p>
-          Si consideras que Aulafy trata algún dato personal tuyo, puedes solicitar
-          acceso, rectificación, supresión, oposición, limitación o portabilidad
-          escribiendo al email de contacto. También puedes acudir a la autoridad de
-          control competente si lo necesitas.
+          Puedes editar los datos públicos desde tu perfil. También puedes solicitar
+          acceso, rectificación, supresión, oposición, limitación o portabilidad,
+          incluida la eliminación de la cuenta, escribiendo al email de contacto
+          desde la dirección asociada. También puedes acudir a la autoridad de
+          control competente.
+        </p>
+
+        <h2>Menores</h2>
+        <p>
+          La comunidad no está dirigida a menores de 14 años. Una persona menor de
+          esa edad no debe crear una cuenta ni publicar datos sin la intervención y
+          autorización de sus representantes legales.
         </p>
 
         <h2>Enlaces externos</h2>
         <p>
-          La web enlaza a servicios de terceros como GitHub, Anthropic, X,
-          LinkedIn u otras herramientas educativas. Al salir de Aulafy se aplican
-          las políticas de privacidad de esos servicios.
+          La web utiliza o enlaza servicios de terceros como Supabase, Google,
+          GitHub, Anthropic, X, LinkedIn y otras herramientas educativas. Cuando
+          eliges utilizarlos se aplican también sus condiciones y políticas.
         </p>
       </div>
     </div>

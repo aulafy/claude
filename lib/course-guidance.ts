@@ -35,6 +35,23 @@ const guidanceEs: Record<string, CourseGuidance> = {
     estimatedHours: 18,
     updated: "2026-07-14",
   },
+  "crear-webs-con-ia": {
+    track: "Construcción web con IA",
+    audience: "Personas sin experiencia previa, estudiantes, autónomos y pequeños equipos que quieren crear una web útil sin depender de saber programar de antemano.",
+    prerequisites: [
+      "Saber crear una carpeta y descargar un archivo",
+      "Una cuenta de ChatGPT con acceso a Codex",
+      "Haber completado la lección «Tu primera web local» de Codex desde cero o tener una web sencilla para practicar",
+    ],
+    outcomes: [
+      "Convertir un problema real en una web verificable y comprensible",
+      "Construir y revisar con Codex y GPT-5.6 Sol sin delegar decisiones críticas",
+      "Publicar con formularios, datos, accesibilidad, SEO, seguridad y un plan de mantenimiento",
+    ],
+    deliverable: "Una web real publicada con dominio o URL de producción, repositorio recuperable, pruebas de aceptación, evidencia visual y un plan de mantenimiento de 90 días.",
+    estimatedHours: 65,
+    updated: "2026-07-15",
+  },
   "codex-programadores": {
     track: "Programación con IA",
     audience: "Programadores y equipos que quieren incorporar agentes de código con criterio profesional.",

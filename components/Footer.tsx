@@ -6,10 +6,10 @@ const footerContent = {
   es: {
     columns: [
       { title: "Empezar", links: [["/rutas", "Rutas de aprendizaje"], ["/cursos/codex-programadores", "Codex para programadores"], ["/cursos/claude-code", "Claude Code"]] },
-      { title: "Práctica", links: [["/blog", "Blog de IA"], ["/recetas", "Recetas prácticas"], ["/prompts", "Buenos prompts"], ["/glosario", "Glosario"]] },
+      { title: "Práctica", links: [["/comunidad", "Comunidad"], ["/blog", "Blog de IA"], ["/recetas", "Recetas prácticas"], ["/prompts", "Buenos prompts"], ["/glosario", "Glosario"]] },
       { title: "Potenciar", links: [["/skills", "Skills"], ["/subagentes", "Subagentes"], ["/plugins", "Plugins"]] },
       { title: "Ayuda", links: [["/faq", "Preguntas frecuentes"], ["/problemas", "Solución de problemas"], ["/comandos", "Comandos"]] },
-      { title: "Legal", links: [["/que-es-aulafy", "Qué es Aulafy"], ["/acerca", "Proyecto y fuentes"], ["/fuentes", "Fuentes oficiales"], ["/sobre-ramon-guillamon", "Autoría"], ["/aviso-legal", "Aviso legal"], ["/licencia", "Licencia"], ["/privacidad", "Privacidad"]] },
+      { title: "Legal", links: [["/que-es-aulafy", "Qué es Aulafy"], ["/acerca", "Proyecto y fuentes"], ["/fuentes", "Fuentes oficiales"], ["/sobre-ramon-guillamon", "Autoría"], ["/comunidad/normas", "Normas de comunidad"], ["/aviso-legal", "Aviso legal"], ["/licencia", "Licencia"], ["/privacidad", "Privacidad"]] },
     ],
     tagline: "Aulafy · Educación abierta para aprender IA",
     note: "Formación educativa no oficial. Las marcas y herramientas citadas pertenecen a sus titulares. Verifica siempre las funciones con la documentación oficial enlazada en fuentes.",

@@ -553,6 +553,59 @@ kbd {
   border-color: var(--capsule-border-strong);
 }
 
+.social-label {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-family: var(--font-code);
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: color-mix(in srgb, var(--muted) 72%, var(--text));
+}
+
+.social-input,
+.social-textarea,
+.social-select {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--capsule-border);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--capsule-bg-strong) 84%, #050507);
+  color: var(--text);
+  padding: 0.72rem 0.8rem;
+  font: inherit;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  transition: border-color .15s ease, box-shadow .15s ease, background-color .15s ease;
+}
+
+.social-textarea { resize: vertical; }
+
+.social-input::placeholder,
+.social-textarea::placeholder { color: color-mix(in srgb, var(--muted) 68%, transparent); }
+
+.social-input:focus,
+.social-textarea:focus,
+.social-select:focus {
+  outline: none;
+  border-color: color-mix(in srgb, var(--brand-cyan) 55%, var(--capsule-border));
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand-cyan) 14%, transparent);
+}
+
+.social-input:disabled,
+.social-textarea:disabled,
+.social-select:disabled,
+.aula-button:disabled {
+  cursor: not-allowed;
+  opacity: .58;
+}
+
+html.light .social-input,
+html.light .social-textarea,
+html.light .social-select {
+  background: #fff;
+  border-color: var(--border);
+}
+
 .aula-terminal {
   overflow: hidden;
   border: 1px solid var(--capsule-border);
