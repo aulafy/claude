@@ -177,16 +177,20 @@ export default function LegacyHomePage() {
             <Icon name="filePdf" />
           </div>
           <div className="flex-1 text-center sm:text-left">
+            <div className="mb-2 flex flex-wrap justify-center gap-2 sm:justify-start">
+              <span className="aula-chip" data-tone="amber">Borrador editorial</span>
+              <span className="aula-chip" data-tone="cyan">Edición julio 2026</span>
+            </div>
             <h2 className="font-display font-bold text-xl text-white">Toda la plataforma en un libro</h2>
             <p className="mt-1 text-sm text-zinc-400 leading-relaxed">
-              Una guía extensa de Aulafy en PDF de <strong className="text-zinc-200">225 páginas</strong>, lista para leer sin conexión o imprimir. Gratis y con licencia Creative Commons.
+              Borrador revisable de <strong className="text-zinc-200">654 páginas</strong> para aprender IA construyendo: rutas, lecciones, proyectos, seguridad, fuentes y ejercicios. Gratis y con licencia Creative Commons.
             </p>
           </div>
           <a
             href="/aulafy-guia-completa.pdf"
             className="aula-button aula-button-primary flex-shrink-0"
           >
-            <Icon name="download" /> Descargar el libro (PDF)
+            <Icon name="download" /> Descargar borrador (PDF)
           </a>
         </div>
       </section>
