@@ -9,6 +9,7 @@ Esta carpeta explica el propósito, la arquitectura y la evolución del proyecto
 | [Qué es Aulafy](QUE-ES-AULAFY.md) | Define el proyecto, su alcance, su público y sus límites |
 | [Arquitectura y contenido](ARQUITECTURA.md) | Describe la aplicación, las fuentes de verdad y el flujo editorial |
 | [Hoja de ruta](HOJA-DE-RUTA.md) | Ordena las prioridades actuales y futuras |
+| [SEO y Search Console](SEO-SEARCH-CONSOLE.md) | Define las intenciones de búsqueda en español, el rastreo y la medición |
 | [Cómo colaborar](../CONTRIBUTING.md) | Explica cómo proponer cambios y verificarlos |
 | [Licencias](../LICENSE.md) | Separa la licencia del código y la de los materiales educativos |
 

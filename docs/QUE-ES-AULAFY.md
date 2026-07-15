@@ -32,7 +32,7 @@ Aulafy publica:
 - índices legibles por buscadores y asistentes de IA;
 - un asistente opcional para orientar dentro del contenido.
 
-El catálogo incluye programación con Codex y Claude Code, IA local, RAG, agentes, automatización, seguridad, evaluaciones, MLOps, fine-tuning, IA generativa, 3D, videojuegos y aplicaciones para pymes.
+El catálogo incluye un inicio con Codex para personas sin experiencia técnica, creación de webs y demos SaaS, programación con Codex y Claude Code, IA local, RAG, agentes, automatización, seguridad, evaluaciones, MLOps, fine-tuning, IA generativa, 3D, videojuegos y aplicaciones para pymes.
 
 ## A quién se dirige
 

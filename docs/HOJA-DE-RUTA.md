@@ -1,6 +1,6 @@
 # Hoja de ruta de Aulafy
 
-Última actualización: 14 de julio de 2026.
+Última actualización: 15 de julio de 2026.
 
 Esta hoja de ruta expresa prioridades, no promesas ni fechas cerradas. Una función solo se considera disponible cuando está implementada, verificada y documentada en la rama principal.
 
@@ -22,9 +22,10 @@ Una propuesta tiene más prioridad cuando:
 
 ## Completado
 
-- [x] Catálogo unificado con 15 cursos y 177 lecciones en español.
+- [x] Catálogo unificado con 17 cursos y 244 lecciones en español.
 - [x] Versión inglesa del catálogo y las lecciones.
-- [x] Rutas por perfil: programación, sistemas, modelos, negocio creativo y proyecto final.
+- [x] Siete rutas por nivel y objetivo: desde cero, web/SaaS, programación, negocio, sistemas, modelos y proyecto final.
+- [x] Selector inicial visible para orientar a principiantes, perfiles de negocio y perfiles técnicos.
 - [x] Programa abierto desde fundamentos hasta un proyecto final verificable.
 - [x] Progreso local, exportable e importable sin cuentas de usuario.
 - [x] Índices para buscadores y asistentes: sitemaps, `llms.txt`, `ai.txt` y JSON.
@@ -44,7 +45,7 @@ Una propuesta tiene más prioridad cuando:
 
 ## Siguiente: mejorar la experiencia de aprendizaje
 
-- [ ] Añadir diagnósticos iniciales para recomendar una ruta según experiencia, hardware y objetivo.
+- [ ] Convertir el selector inicial en un diagnóstico opcional que también tenga en cuenta hardware y tiempo disponible.
 - [ ] Reforzar los proyectos finales con rúbricas, evidencias y listas de revisión descargables.
 - [ ] Mostrar con más claridad prerrequisitos y dependencias entre cursos.
 - [ ] Mejorar búsqueda, filtros y continuidad entre lecciones relacionadas.

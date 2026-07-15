@@ -8,6 +8,7 @@ import { cursos, getCurso, totalLecciones } from "@/lib/cursos";
 import { getCourseGuidance } from "@/lib/course-guidance";
 import { isCourseAvailableInLocale } from "@/lib/i18n";
 import { pluralLabel } from "@/lib/plural";
+import { courseSeoOverrides } from "@/lib/seo-strategy";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 
@@ -20,20 +21,18 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const curso = getCurso(slug);
   if (!curso) return {};
   const lecciones = curso.secciones.flatMap((seccion) => seccion.lecciones.map((leccion) => leccion.title));
-  const title = curso.title;
+  const seoOverride = courseSeoOverrides[curso.slug];
+  const title = seoOverride?.title ?? curso.title;
   const hasEnglishVersion = isCourseAvailableInLocale(curso, "en");
-  const description = compactDescription(
-    `${curso.desc} Curso gratis en español, sin registro, con ${totalLecciones(curso)} lecciones.`,
-  );
+  const description = compactDescription(seoOverride?.description ??
+    `${curso.desc} Curso gratis en español, sin registro, con ${totalLecciones(curso)} lecciones.`);
   return {
     title,
     description,
     keywords: [
       curso.title,
       curso.short,
-      "curso gratis IA",
-      "curso IA open source",
-      "tutorial IA español",
+      ...(seoOverride?.keywords ?? []),
       "Aulafy",
       ...lecciones.slice(0, 16),
     ],

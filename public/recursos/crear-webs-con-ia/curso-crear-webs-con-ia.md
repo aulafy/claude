@@ -2607,7 +2607,207 @@ Una persona necesita B2 para trabajo, pero desconoce su nivel. La web explica re
 - [Council of Europe: CEFR](https://www.coe.int/en/web/common-european-framework-reference-languages)
 - [W3C: lenguaje de la página](https://www.w3.org/WAI/WCAG22/Understanding/language-of-page.html)
 
-## Lección 46. Proyecto final: publica y mantén una web real
+## Lección 46. Taller técnico: SaaS geoespacial con mapas, APIs e IA
+
+### Encargo
+
+Reconstruye por capas una demo geoespacial basada en
+[Aulafy METEO](https://github.com/aulafy/meteo): mapa, fuentes públicas,
+análisis determinista, backend serverless, PostGIS, alertas e IA opcional.
+No copiarás una pantalla terminada. Cada capa debe funcionar, fallar con claridad
+y poder medirse antes de conectar la siguiente.
+
+### Resultado visible
+
+Entregarás una aplicación técnica que permite elegir una ubicación, representa
+datos GeoJSON con procedencia, calcula distancia y antigüedad, explica el contexto
+sin inventar una alerta y conserva una tarea principal aunque Supabase o la IA estén
+apagados.
+
+El tutorial ejecutable completo está en
+[docs/tutorial](https://github.com/aulafy/meteo/tree/main/docs/tutorial). Esta
+lección organiza el recorrido y lo conecta con los conceptos ya estudiados.
+
+### Por qué este caso es educativo
+
+METEO obliga a resolver problemas que aparecen en muchas demos SaaS:
+
+- una biblioteca de mapas no incluye necesariamente el alojamiento de teselas;
+- una API pública puede tener licencia, cuota y cobertura diferentes;
+- TypeScript no valida el JSON recibido en ejecución;
+- una ubicación precisa es dato personal aunque no exista cuenta;
+- una clave `VITE_*` se publica en el navegador;
+- RLS no protege una `service_role` usada sin límites;
+- una respuesta convincente de IA no es una fuente ni una decisión oficial;
+- un plan gratuito deja de ser suficiente cuando aumentan usuarios, polling o cron.
+
+### Arquitectura por zonas de confianza
+
+```text
+navegador React
+  ├─ MapLibre + fuentes GeoJSON
+  ├─ Open-Meteo, USGS y servicios públicos permitidos
+  └─ /api/*
+       ├─ validación, caché y límites
+       ├─ secretos y proveedores IA
+       └─ tareas de alertas
+             └─ Supabase/PostGIS con RLS y retención
+```
+
+El navegador dibuja y permite explorar. El servidor protege claves, reduce datos y
+aplica límites. PostGIS conserva solo lo necesario para proximidad y alertas
+consentidas. La IA entra al final para explicar una evaluación ya calculada.
+
+### Paso 1. Arranca una versión sin cuentas ni IA
+
+```text
+Clona https://github.com/aulafy/meteo, instala con npm ci y ejecuta npm run check.
+Después abre la app con npm run dev. Prueba primero con geolocalización denegada.
+No configures Supabase, Vercel ni Groq todavía. Escribe qué funciona sin ellos,
+qué dato falta cuando una fuente cae y qué parte del código produce cada estado.
+```
+
+La aplicación no debe tratar el centro inicial del mapa como posición personal.
+Esta regla parece pequeña, pero evita una interpretación falsa cuando faltan permisos.
+
+### Paso 2. Separa mapa, teselas y datos
+
+MapLibre renderiza. OpenFreeMap entrega un estilo y teselas. Tus puntos, líneas y
+polígonos llegan como GeoJSON. Usa una fuente por conjunto lógico y varias capas
+para representaciones distintas; actualiza con `setData` en vez de reconstruir el
+mapa.
+
+Comprueba atribución, lista HTML alternativa, teclado, contraste y fallo del
+proveedor de teselas. La instancia pública de OpenFreeMap declara actualmente uso
+gratuito, pero sin SLA: una empresa necesita sustitución o autoalojamiento previsto.
+
+### Paso 3. Trata cada API como un contrato inestable
+
+Implementa primero Open-Meteo y después USGS. Para cada adapter prueba respuesta
+válida, vacía, 429, 500, JSON incorrecto y fecha imposible. Conserva unidades,
+fuente y actualización. Nunca sustituyas un fallo por cero grados, cero viento o
+una lista ficticia que parezca real.
+
+La API abierta de Open-Meteo es para aprendizaje y uso no comercial dentro de sus
+límites. Una demo SaaS con suscripción, publicidad o uso comercial debe revisar un
+plan comercial o autoalojamiento antes de publicar.
+
+### Paso 4. Haz los cálculos fuera del modelo
+
+Normaliza GeoJSON como `[longitud, latitud]`, calcula distancias geodésicas con Turf
+y filtra tiempo y confianza antes de ordenar. Cuando el volumen pase a la base de
+datos, usa `geography(Point, 4326)`, índice GiST y `ST_DWithin`.
+
+Prueba bordes: observación futura, justo doce horas, confianza 69/70, mismo punto,
+coordenadas invertidas y meteorología ausente. La IA no debe participar en ninguna
+de esas decisiones.
+
+### Paso 5. Mueve secretos y privilegios al servidor
+
+Las funciones de `api/` aceptan métodos concretos, validan entrada, limitan tamaño,
+aplican timeout, normalizan salida y ocultan errores internos. `GROQ_API_KEY`,
+`SUPABASE_SERVICE_ROLE_KEY`, la VAPID privada y `CRON_SECRET` nunca llevan prefijo
+`VITE_`.
+
+El rate limit en memoria sirve como defensa básica por instancia, no como límite
+global. Antes de una campaña añade WAF o almacenamiento distribuido, presupuesto,
+caché y un interruptor para las funciones caras.
+
+### Paso 6. Añade Supabase después del modelo de amenazas
+
+Aplica las migraciones del repo en orden. Las tablas de suscripciones y entregas
+tienen RLS activa sin acceso de navegador; solo las funciones estrechas usan
+`service_role`. Verifica alta, baja, deduplicación, retención y que una clave pública
+no puede leer ubicaciones.
+
+Conecta este bloque con la lección
+[Guarda contactos en Supabase con RLS](/cursos/crear-webs-con-ia/supabase-rls),
+pero observa una diferencia: aquí no basta aislar usuarios; el navegador no necesita
+acceso directo a las tablas sensibles.
+
+### Paso 7. Integra IA como explicación apagable
+
+El endpoint recibe JSON validado y limitado, no una conversación abierta. El modelo
+no recibe GPS preciso, no selecciona detecciones, no calcula riesgo y no crea
+enlaces. La salida máxima, el número de solicitudes y el contexto tienen límites.
+
+Prueba sin ubicación, proveedor caído, DGT ausente, ruta local no verificada y texto
+malicioso en una etiqueta. El mapa, las fuentes y la guía determinista deben seguir
+funcionando cuando la clave falta o se agota el presupuesto.
+
+### Paso 8. Calcula antes de desplegar
+
+```text
+llamadas = usuarios × sesiones × acciones × reintentos
+egress = llamadas × bytes medios de respuesta
+tokens = solicitudes IA × (entrada media + salida máxima)
+cron = ejecuciones/día × días × operaciones por ejecución
+```
+
+Calcula 1.000, 10.000 y 100.000 usuarios, más un bot que llama diez veces por
+segundo durante una hora. Une cada umbral a una acción: caché, 429, WAF, reducción
+de frecuencia o apagado de IA.
+
+### Paso 9. Publica una preview, no una promesa
+
+Separa variables y bases de local, preview y producción. Vercel Hobby permite
+actualmente cron como mínimo diario; una evaluación cada 15 minutos requiere un
+plan compatible o un programador externo protegido. Comprueba cabeceras, CSP,
+funciones, logs sin GPS, rollback y alertas de gasto antes de producción.
+
+### Prompt maestro para Codex
+
+```text
+Trabaja en este repositorio como revisor técnico y educativo.
+
+OBJETIVO
+Implementar solo la siguiente etapa del tutorial METEO, sin adelantar Supabase,
+IA o despliegue si la etapa anterior todavía no tiene evidencia.
+
+ANTES DE EDITAR
+- Lee AGENTS.md, README.md y el capítulo correspondiente de docs/tutorial.
+- Dibuja entrada, validación, salida, fallo y servicio externo afectado.
+- Indica qué dato personal, secreto, cuota y licencia intervienen.
+
+LÍMITES
+- No inventes datos de emergencia ni uses ubicaciones reales en pruebas.
+- No expongas claves mediante VITE_*.
+- No delegues cálculos o decisiones a la IA.
+- No llames gratis a un servicio sin verificar su uso comercial y cuota.
+- Conserva un modo funcional sin IA ni persistencia.
+
+TERMINADO
+- Implementación pequeña y explicable.
+- Tests de éxito, vacío, error, 429 y dato antiguo cuando apliquen.
+- npm run check aprobado.
+- Documentación, .env.example y costes actualizados.
+- Diff revisado y procedimiento de rollback descrito.
+```
+
+### Aceptación
+
+- otra persona puede reconstruir el flujo siguiendo los capítulos en orden;
+- cada fuente externa indica procedencia, actualización, licencia y fallo;
+- navegador, servidor y base tienen responsabilidades distinguibles;
+- ninguna clave privada aparece en el bundle;
+- una baja elimina ubicación y suscripción;
+- la IA es limitada, evaluada, presupuestada y apagable;
+- el cálculo de costes incluye abuso, no solo usuarios ideales;
+- preview y producción usan datos y secretos separados;
+- la interfaz no se presenta como alerta oficial ni ruta de evacuación.
+
+### Fuentes oficiales
+
+- [MapLibre GL JS](https://maplibre.org/maplibre-gl-js/docs/)
+- [OpenFreeMap](https://openfreemap.org/) y [términos](https://openfreemap.org/tos/)
+- [Open-Meteo: precios](https://open-meteo.com/en/pricing) y [términos](https://open-meteo.com/en/terms)
+- [NASA FIRMS Area API](https://firms.modaps.eosdis.nasa.gov/api/area/)
+- [Supabase: control de costes](https://supabase.com/docs/guides/platform/cost-control)
+- [Vercel: cron y precios](https://vercel.com/docs/cron-jobs/usage-and-pricing)
+- [OWASP: seguridad de APIs](https://owasp.org/API-Security/)
+- [Código y tutorial de Aulafy METEO](https://github.com/aulafy/meteo)
+
+## Lección 47. Proyecto final: publica y mantén una web real
 
 ### Entregable
 

@@ -33,6 +33,7 @@ La aplicación usa Next.js 16 con App Router, React 19, TypeScript y Tailwind CS
 ### Contenido y catálogo
 
 - `lib/cursos.ts`: fuente principal del catálogo español y del orden de las lecciones.
+- `lib/course-groups.ts`: agrupación visible del catálogo español; todos los cursos deben aparecer exactamente una vez.
 - `app/cursos/`: páginas de las lecciones que tienen implementación propia.
 - `lib/foundation-course-content.ts`: bloques del curso de fundamentos.
 - `lib/codex-course-content.ts`: contenido estructurado del curso de Codex.
@@ -87,7 +88,7 @@ Si se modifica contenido que aparece en un PDF, debe indicarse si el PDF necesit
 | --- | --- |
 | Documentación Markdown | Revisar enlaces y ejecutar `npm run verify-links` |
 | Texto o lección | `npm run verify-content` y la verificación específica del curso |
-| Catálogo o rutas | `npm run verify-content`, `npm run verify-i18n`, `npm run verify-links` |
+| Catálogo o rutas | `npm run audit-education`, `npm run verify-program`, `npm run verify-i18n`, `npm run verify-links` |
 | Metadatos o SEO | `npm run verify-seo` y `npm run build` |
 | Progreso | `npm run verify-progress` |
 | Código o componentes | `npm run lint` y `npm run build` |

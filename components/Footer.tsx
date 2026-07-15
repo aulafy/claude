@@ -11,7 +11,7 @@ const communityLegalLinks = isSocialEnabled()
 const footerContent = {
   es: {
     columns: [
-      { title: "Empezar", links: [["/rutas", "Rutas de aprendizaje"], ["/cursos/codex-programadores", "Codex para programadores"], ["/cursos/claude-code", "Claude Code"]] },
+      { title: "Empezar", links: [["/cursos", "Cursos de IA gratis"], ["/rutas", "Aprender IA por rutas"], ["/curso-codex-espanol", "Codex desde cero"], ["/crear-pagina-web-con-ia", "Crear una web con IA"]] },
       { title: "Práctica", links: [...communityPracticeLinks, ["/blog", "Blog de IA"], ["/recetas", "Recetas prácticas"], ["/prompts", "Buenos prompts"], ["/glosario", "Glosario"]] },
       { title: "Potenciar", links: [["/skills", "Skills"], ["/subagentes", "Subagentes"], ["/plugins", "Plugins"]] },
       { title: "Ayuda", links: [["/faq", "Preguntas frecuentes"], ["/problemas", "Solución de problemas"], ["/comandos", "Comandos"]] },
