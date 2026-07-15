@@ -245,9 +245,9 @@ export default function Cursos() {
         <span className="aula-icon flex-shrink-0 text-fuchsia-300"><Icon name="filePdf" /></span>
         <span className="flex-1 text-sm">
           <strong className="text-white">¿Prefieres una lectura continua?</strong>{" "}
-          <span className="text-zinc-400">Descarga la guía completa de Aulafy en PDF, gratis.</span>
+          <span className="text-zinc-400">Descarga el borrador editorial de la guía completa de Aulafy en PDF. Edición julio 2026, 654 páginas.</span>
         </span>
-        <span className="aula-chip" data-tone="amber"><Icon name="download" /> Descargar</span>
+        <span className="aula-chip" data-tone="amber"><Icon name="download" /> Borrador PDF</span>
       </a>
 
       <details className="aula-disclosure aula-panel mt-5">

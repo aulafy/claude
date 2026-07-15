@@ -200,14 +200,14 @@ const socialEntries: SeoIndexEntry[] = isSocialEnabled()
   : [];
 
 const documentEntries: SeoIndexEntry[] = [
-  ["/aulafy-guia-completa.pdf", "Guía completa de Aulafy"],
+  ["/aulafy-guia-completa.pdf", "Borrador de la guía completa de Aulafy"],
   ["/guia-claude-code.pdf", "Guía Claude Code"],
   ["/guia-claude-code-vol2.pdf", "Guía Claude Code + IA local"],
   ["/manual-codex-desde-cero-aulafy.pdf", "Manual Codex desde cero"],
 ].map(([route, title]) => ({
   route,
   title: title as string,
-  description: "Guía PDF gratuita de Aulafy con contenido educativo de inteligencia artificial práctica.",
+  description: "Borrador PDF gratuito de Aulafy con contenido educativo de inteligencia artificial práctica.",
   language: "es" as const,
   kind: "documents" as const,
   priority: 0.68,
