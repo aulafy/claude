@@ -23,6 +23,115 @@ export type SeoLanding = {
 
 export const seoLandings: SeoLanding[] = [
   {
+    slug: "curso-codex-espanol",
+    title: "Curso de Codex en español gratis",
+    h1: "Curso de Codex en español: empieza desde cero y aprende con proyectos",
+    description:
+      "Aprende Codex desde cero en español con prácticas guiadas, seguridad, prompts claros y proyectos verificables. Curso gratis, abierto y sin registro.",
+    keywords: ["curso de Codex en español", "Codex desde cero", "tutorial Codex español", "aprender Codex"],
+    icon: "terminal",
+    primaryHref: "/cursos/codex-desde-cero",
+    primaryLabel: "Empezar el curso de Codex desde cero",
+    audience:
+      "Para cualquier persona que quiera aprender a trabajar con Codex, aunque todavía no programe. La ruta técnica para desarrolladores queda disponible cuando necesites más profundidad.",
+    promise:
+      "Aprenderás a convertir una idea en una tarea concreta, pedir cambios con contexto, revisar lo que hace el agente y comprobar el resultado antes de aceptarlo.",
+    sections: [
+      {
+        title: "Codex explicado desde el principio",
+        body:
+          "Codex puede explorar archivos, proponer cambios y ejecutar comprobaciones, pero necesita un objetivo claro y límites. La ruta empieza por entender qué puede hacer, cómo preparar un entorno seguro y cómo leer cada resultado sin tratar a la IA como una caja negra.",
+        bullets: [
+          "Distinguir una conversación, un plan y una modificación real del proyecto.",
+          "Dar contexto suficiente sin compartir secretos ni datos innecesarios.",
+          "Revisar archivos modificados, comandos ejecutados y pruebas realizadas.",
+          "Saber cuándo detenerse, corregir la petición o pedir ayuda humana.",
+        ],
+      },
+      {
+        title: "Aprender haciendo proyectos verificables",
+        body:
+          "Cada práctica tiene una salida observable. No basta con que Codex diga que ha terminado: debes abrir la web, ejecutar la prueba o comparar el cambio con los criterios que definiste al empezar.",
+        bullets: [
+          "Crear una primera web local y verla en el navegador.",
+          "Corregir un fallo pequeño con un criterio de aceptación.",
+          "Pasar de una petición vaga a una instrucción que se pueda comprobar.",
+        ],
+      },
+    ],
+    examples: [
+      "Pedir a Codex que explique un repositorio antes de tocarlo.",
+      "Crear una página local y verificarla en varios tamaños de pantalla.",
+      "Añadir una función pequeña, revisar el diff y ejecutar las pruebas.",
+      "Detectar una petición peligrosa y reducir permisos antes de continuar.",
+    ],
+    related: [
+      { title: "Qué es Codex", href: "/cursos/codex-desde-cero/que-es-codex", desc: "Entiende capacidades y límites antes de empezar." },
+      { title: "Primera web local", href: "/cursos/codex-desde-cero/primera-web-local", desc: "Construye y comprueba un resultado visible." },
+      { title: "Codex para programadores", href: "/cursos/codex-programadores", desc: "Continúa con repositorios, pruebas y flujos técnicos." },
+    ],
+    faqs: [
+      { q: "¿Necesito saber programar para empezar?", a: "No. La primera ruta explica el vocabulario y las comprobaciones desde cero; después puedes avanzar al itinerario técnico." },
+      { q: "¿El curso de Codex es gratis?", a: "El contenido de Aulafy es gratuito y no exige registro. El uso de productos o APIs externas puede tener sus propios límites o costes." },
+      { q: "¿Codex crea el proyecto sin supervisión?", a: "Puede realizar muchas tareas, pero el curso enseña a revisar cambios, permisos, pruebas y resultados antes de aceptar o publicar nada." },
+    ],
+  },
+  {
+    slug: "crear-pagina-web-con-ia",
+    title: "Crear una página web con IA: curso gratis",
+    h1: "Cómo crear una página web con IA desde cero",
+    description:
+      "Aprende a crear una página web con IA desde cero: requisitos, prototipo, código, APIs, seguridad, costes, Supabase y despliegue en Vercel.",
+    keywords: ["crear una página web con IA", "crear web con IA", "curso páginas web con IA", "web con IA desde cero"],
+    icon: "laptopCode",
+    primaryHref: "/cursos/crear-webs-con-ia",
+    primaryLabel: "Empezar el curso para crear webs con IA",
+    audience:
+      "Para estudiantes, profesionales, autónomos y pequeños negocios que quieren convertir un problema real en una web útil, aunque empiecen sin experiencia técnica.",
+    promise:
+      "Pasarás de definir el problema a construir un prototipo local, revisar calidad y seguridad, integrar servicios cuando hagan falta y publicar una primera versión mantenible.",
+    sections: [
+      {
+        title: "Una web seria empieza antes del código",
+        body:
+          "La IA acelera la construcción, pero no decide por ti qué problema resolver, qué datos pedir o qué debe ocurrir cuando algo falla. Por eso la ruta empieza por usuarios, necesidades, contenido, criterios de aceptación y límites de la primera versión.",
+        bullets: [
+          "Definir usuario, problema, resultado y alcance mínimo.",
+          "Diseñar navegación, estados vacíos, errores y mensajes claros.",
+          "Construir primero en local y comprobar cada avance en el navegador.",
+          "Separar una demo visual de un producto preparado para usuarios reales.",
+        ],
+      },
+      {
+        title: "APIs, datos, despliegue y costes sin sorpresas",
+        body:
+          "Cuando una web incorpora mapas, Supabase, Vercel o una API de IA aparecen cuotas, credenciales y riesgos. El curso enseña a mantener secretos fuera del navegador, validar entradas, limitar consumo y estimar el coste antes de compartir la aplicación.",
+        bullets: [
+          "Consumir APIs públicas y tratar fallos, límites y datos incompletos.",
+          "Usar Supabase con autenticación y políticas de acceso cuando sea necesario.",
+          "Desplegar en Vercel distinguiendo variables públicas y privadas.",
+          "Añadir límites, caché, registros y avisos cuando una integración pueda generar gasto.",
+        ],
+      },
+    ],
+    examples: [
+      "Landing de un negocio con formulario validado y medición respetuosa.",
+      "Herramienta para estudiantes que guarda progreso sin exponer datos.",
+      "Panel para una clínica o despacho con permisos y datos ficticios en la demo.",
+      "METEO: un SaaS geoespacial con mapas, APIs públicas e integración opcional de IA.",
+    ],
+    related: [
+      { title: "Qué hace seria una web", href: "/cursos/crear-webs-con-ia/una-web-seria", desc: "Calidad, utilidad y confianza antes de programar." },
+      { title: "Primer prototipo local", href: "/cursos/crear-webs-con-ia/primer-prototipo-local", desc: "Construye una primera versión comprobable." },
+      { title: "Taller METEO", href: "/cursos/crear-webs-con-ia/taller-meteo-saas-geoespacial", desc: "Mapas, APIs, Supabase, Vercel, IA, seguridad y costes." },
+    ],
+    faqs: [
+      { q: "¿Puedo crear una web con IA sin saber programar?", a: "Sí, puedes empezar desde cero. Para publicar servicios con datos, pagos o usuarios tendrás que aprender comprobaciones técnicas y de seguridad que el curso introduce paso a paso." },
+      { q: "¿Crear y publicar la web es siempre gratis?", a: "No. Muchas plataformas tienen planes gratuitos con límites; el tráfico, el almacenamiento, las APIs, los mapas o los modelos de IA pueden generar costes al crecer." },
+      { q: "¿La IA sustituye una revisión profesional?", a: "No en ámbitos de riesgo. Una web clínica, legal, financiera o que trate datos personales necesita revisión especializada, pruebas y cumplimiento aplicable." },
+    ],
+  },
+  {
     slug: "curso-claude-code-espanol",
     title: "Curso Claude Code en español gratis",
     h1: "Curso Claude Code en español gratis: de cero a proyectos reales",

@@ -4,6 +4,7 @@ import Icon, { type IconName } from "@/components/Icon";
 import { cursos, proximamente, totalLecciones, type Curso } from "@/lib/cursos";
 import { getCourseGuidance } from "@/lib/course-guidance";
 import { courseGroups } from "@/lib/course-groups";
+import { spanishSearchIntents } from "@/lib/seo-strategy";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 
@@ -43,9 +44,9 @@ function CourseCard({ course }: { course: Curso }) {
 }
 
 export const metadata: Metadata = {
-  title: "Cursos gratuitos de inteligencia artificial práctica",
+  title: "Cursos de IA gratis en español: de cero a avanzado",
   description:
-    "Catálogo abierto de cursos prácticos en español sobre Codex, Claude Code, IA local, RAG, agentes, MLOps, seguridad y automatización.",
+    "Cursos de IA gratis en español para aprender desde cero o avanzar en Codex, webs con IA, IA para pymes, RAG, agentes, seguridad y MLOps.",
   keywords: [
     "cursos gratis de IA",
     "cursos inteligencia artificial español",
@@ -67,7 +68,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/cursos", languages: { "es-ES": "/cursos", "en-US": "/en/courses" } },
   openGraph: {
-    title: "Cursos gratuitos de inteligencia artificial práctica",
+    title: "Cursos de IA gratis en español: de cero a avanzado",
     description:
       "Rutas prácticas, gratuitas y sin registro para aprender IA local, Codex, Claude Code, RAG, agentes, MLOps, seguridad y automatización.",
     url: "/cursos",
@@ -85,7 +86,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cursos gratuitos de inteligencia artificial práctica",
+    title: "Cursos de IA gratis en español: de cero a avanzado",
     description:
       "Catálogo práctico de Aulafy para aprender IA local, Claude Code, Fable 5, videojuegos 3D, RAG, agentes, MLOps y seguridad.",
     creator: "@learntouseai",
@@ -102,8 +103,8 @@ export default function Cursos() {
         "@type": "CollectionPage",
         "@id": `${SITE_URL}/cursos#webpage`,
         url: `${SITE_URL}/cursos`,
-        name: "Cursos gratuitos de inteligencia artificial práctica",
-        description: "Catálogo abierto de cursos prácticos y gratuitos de inteligencia artificial en español.",
+        name: "Cursos de IA gratis en español: de cero a avanzado",
+        description: "Catálogo abierto de cursos prácticos y gratuitos para aprender inteligencia artificial en español.",
         inLanguage: "es",
         isPartOf: { "@id": `${SITE_URL}/#website` },
         mainEntity: { "@id": `${SITE_URL}/cursos#course-list` },
@@ -149,11 +150,12 @@ export default function Cursos() {
               <Icon name="capsule" /> Biblioteca de cápsulas
             </span>
             <h1 className="font-display font-extrabold text-4xl sm:text-5xl text-white mt-4 mb-4">
-              Cursos gratuitos de inteligencia artificial práctica
+              Cursos de IA gratis en español: empieza desde cero o avanza
             </h1>
             <p className="lesson-lead max-w-3xl">
-              Rutas prácticas para aprender Codex, IA local, agentes y automatización. Todos gratuitos,
-              en español y de código abierto. Sin registro: tu progreso se guarda solo en tu navegador.
+              Aprende inteligencia artificial con rutas prácticas para principiantes y perfiles técnicos:
+              Codex, creación de webs con IA, casos para pymes, IA local, agentes y automatización.
+              Todo es gratuito, en español y sin registro.
             </p>
             <div className="mt-5 flex flex-wrap gap-2">
               <span className="aula-chip" data-tone="green"><Icon name="check" /> Gratis</span>
@@ -176,6 +178,19 @@ export default function Cursos() {
               <div className="font-display text-xl font-bold text-white mt-1">web + PDF</div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="aula-panel p-5 sm:p-6 mb-8" aria-labelledby="course-goals-title">
+        <h2 id="course-goals-title" className="font-display text-xl font-bold text-white">Elige por lo que quieres conseguir</h2>
+        <p className="mt-2 text-sm text-zinc-400">Si todavía no conoces el nombre de la herramienta, empieza por tu objetivo.</p>
+        <div className="mt-5 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          {spanishSearchIntents.filter((item) => item.canonical !== "/cursos").map((item) => (
+            <Link key={item.canonical} href={item.linkHref} className="aula-capsule p-4 group">
+              <strong className="text-zinc-100 group-hover:text-cyan-200">{item.linkLabel}</strong>
+              <span className="block mt-2 text-sm text-zinc-500 leading-relaxed">{item.linkDescription}</span>
+            </Link>
+          ))}
         </div>
       </section>
 

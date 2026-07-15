@@ -125,6 +125,11 @@ export default function QueEsAulafy() {
 
         <h2>Rutas recomendadas</h2>
         <ul>
+          <li><Link href="/cursos">Cursos de IA gratis en español</Link></li>
+          <li><Link href="/rutas">Aprender inteligencia artificial desde cero por itinerarios</Link></li>
+          <li><Link href="/curso-codex-espanol">Curso de Codex en español desde cero</Link></li>
+          <li><Link href="/crear-pagina-web-con-ia">Crear una página web con IA paso a paso</Link></li>
+          <li><Link href="/ia-para-pymes">IA para pymes y autónomos</Link></li>
           <li><Link href="/curso-claude-code-espanol">Curso Claude Code en español gratis</Link></li>
           <li><Link href="/curso-ia-local-ollama">Curso IA local con Ollama</Link></li>
           <li><Link href="/curso-rag-pdf-ia">Curso RAG con PDF y documentos privados</Link></li>

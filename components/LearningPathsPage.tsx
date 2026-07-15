@@ -3,9 +3,10 @@ import Icon, { type IconName } from "@/components/Icon";
 import { getLocalizedCursos, type Locale } from "@/lib/i18n";
 import { getLearningPaths } from "@/lib/learning-paths";
 import { totalLecciones } from "@/lib/cursos";
+import { spanishSearchIntents } from "@/lib/seo-strategy";
 
 const copy = {
-  es: { home: "Inicio", title: "Rutas de aprendizaje de IA", lead: "No necesitas recorrer todo Aulafy. Elige la situación que más se parece a la tuya y sigue los cursos en el orden propuesto.", choose: "¿Cuál se parece más a ti?", path: "Ruta", entry: "Nivel de entrada", first: "Primer paso", audience: "Para quién", result: "Resultado", lessons: "lecciones", open: "Abrir curso", start: "Empezar esta ruta", recommended: "Empieza aquí", note: "Las duraciones son orientativas. Avanza cuando puedas explicar el resultado y repetir la práctica sin copiar los pasos." },
+  es: { home: "Inicio", title: "Aprender IA desde cero: rutas por nivel y objetivo", lead: "No necesitas saber programar ni recorrer todo Aulafy. Elige la situación que más se parece a la tuya y sigue cursos gratuitos de inteligencia artificial en el orden propuesto.", choose: "¿Cuál se parece más a ti?", path: "Ruta", entry: "Nivel de entrada", first: "Primer paso", audience: "Para quién", result: "Resultado", lessons: "lecciones", open: "Abrir curso", start: "Empezar esta ruta", recommended: "Empieza aquí", note: "Las duraciones son orientativas. Avanza cuando puedas explicar el resultado y repetir la práctica sin copiar los pasos." },
   en: { home: "Home", title: "AI learning paths", lead: "You do not need to complete all of Aulafy. Choose the situation closest to yours and follow the courses in the proposed order.", choose: "Which one sounds most like you?", path: "Path", entry: "Entry level", first: "First step", audience: "For", result: "Outcome", lessons: "lessons", open: "Open course", start: "Start this path", recommended: "Start here", note: "Durations are estimates. Move forward when you can explain the result and repeat the practice without copying every step." },
 } satisfies Record<Locale, Record<string, string>>;
 
@@ -80,6 +81,17 @@ export default function LearningPathsPage({ locale }: { locale: Locale }) {
         })}
       </div>
       <p className="mt-10 text-sm text-zinc-500 leading-relaxed max-w-3xl">{text.note}</p>
+      {locale === "es" && (
+        <section className="aula-panel p-6 sm:p-8 mt-10" aria-labelledby="popular-topics-title">
+          <span className="aula-section-label"><Icon name="search" /> Objetivos populares</span>
+          <h2 id="popular-topics-title" className="font-display text-2xl font-bold text-white mt-3">Continúa por una aplicación concreta</h2>
+          <div className="mt-5 flex flex-wrap gap-2">
+            {spanishSearchIntents.filter((item) => item.canonical !== "/rutas").map((item) => (
+              <Link key={item.canonical} href={item.linkHref} className="aula-chip" data-tone="cyan">{item.linkLabel}</Link>
+            ))}
+          </div>
+        </section>
+      )}
     </div>
   );
 }

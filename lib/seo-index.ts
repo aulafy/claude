@@ -56,8 +56,8 @@ const coreEntries: SeoIndexEntry[] = [
   },
   {
     route: "/cursos",
-    title: "Cursos gratuitos de inteligencia artificial práctica",
-    description: "Catálogo abierto de Codex, IA local, Claude Code, RAG, agentes, seguridad, MLOps y automatización.",
+    title: "Cursos de IA gratis en español: de cero a avanzado",
+    description: "Cursos gratuitos para aprender IA desde cero o avanzar en Codex, webs con IA, pymes, RAG, agentes, seguridad y MLOps.",
     language: "es",
     kind: "courses",
     priority: 0.95,
@@ -96,8 +96,8 @@ const coreEntries: SeoIndexEntry[] = [
   },
   {
     route: "/rutas",
-    title: "Rutas para aprender inteligencia artificial",
-    description: "Itinerarios por objetivo para programación con IA, agentes, RAG, modelos abiertos y automatización.",
+    title: "Aprender IA desde cero: rutas gratuitas por nivel",
+    description: "Itinerarios gratuitos para aprender inteligencia artificial según tu nivel y objetivo, desde cero hasta RAG, agentes y MLOps.",
     language: "es",
     kind: "core",
     priority: 0.94,
