@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Sora } from "next/font/google";
 import Script from "next/script";
+import { Analytics } from '@vercel/analytics/next';
 import Shell from "@/components/Shell";
 import "./globals.css";
 import "./fontawesome.css";
@@ -278,6 +279,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <Shell>{children}</Shell>
+        <Analytics />
       </body>
     </html>
   );
