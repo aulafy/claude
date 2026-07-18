@@ -153,7 +153,7 @@ export default function AulafyNexusLanding({ courseCount, lessonCount, paths, co
           <div className="nx-final-orbit" aria-hidden="true"><span>A</span></div>
         </section>
       </main>
-      <footer className="nx-footer"><Link className="nx-brand" href={english ? "/en" : "/"}><span className="nx-mark">A</span><span>AULAFY</span></Link><p>{text.footer}</p><div><Link href="/fuentes">{text.sources}</Link><Link href="/acerca">{text.about}</Link><Link href={english ? "/" : "/en"}>{english ? "Español" : "English"}</Link></div></footer>
+      <footer className="nx-footer"><Link className="nx-brand" href={english ? "/en" : "/"}><span className="nx-mark">A</span><span>AULAFY</span></Link><p>{text.footer}</p><div>{!english && <Link href="/curso-codex-espanol">Codex en español</Link>}<Link href="/fuentes">{text.sources}</Link><Link href="/acerca">{text.about}</Link><Link href={english ? "/" : "/en"}>{english ? "Español" : "English"}</Link></div></footer>
     </div>
   );
 }

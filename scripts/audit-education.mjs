@@ -4,6 +4,9 @@ import { cursos, lecciones } from "../lib/cursos.ts";
 import { getCourseGuidance } from "../lib/course-guidance.ts";
 import { courseGroups } from "../lib/course-groups.ts";
 import { getLearningPaths } from "../lib/learning-paths.ts";
+import { iaBasicsLessons } from "../lib/ia-basics-course-content.ts";
+import { getSessionlessPractice } from "../lib/sessionless-practices.ts";
+import { getIaBasicsQuality } from "../lib/ia-basics-quality.ts";
 
 const courseSlugs = new Set();
 const lessonUrls = new Set();
@@ -19,6 +22,21 @@ const officialSourceHints = [
 ];
 
 const finalProjectWords = /\b(proyecto|entregable|auditoría|aplicación|prototipo|servicio|agente|flujo|plataforma|adaptador|cambio|cápsula|entrega|modelo|sistema|web)\b/i;
+
+for (const lesson of iaBasicsLessons) {
+  const practice = getSessionlessPractice(lesson.slug);
+  const quality = getIaBasicsQuality(lesson.slug);
+  assert.ok(practice, `IA basics lesson needs an active mission: ${lesson.slug}`);
+  assert.equal(practice.steps.length, 3, `Mission needs exactly three manageable steps: ${lesson.slug}`);
+  assert.equal(practice.options.length, 3, `Criterion check needs three deliberate options: ${lesson.slug}`);
+  assert.equal(practice.options.filter((option) => option.correct).length, 1, `Criterion check needs one defensible answer: ${lesson.slug}`);
+  assert.ok(practice.options.every((option) => option.explanation.length >= 60), `Every answer needs explanatory feedback: ${lesson.slug}`);
+  assert.ok(practice.evidence.split("\n").length >= 4, `Mission needs a reusable evidence template: ${lesson.slug}`);
+  assert.ok(quality, `IA basics lesson needs a quality record: ${lesson.slug}`);
+  assert.match(quality.reviewedAt, /^\d{4}-\d{2}-\d{2}$/, `Quality review date must be ISO: ${lesson.slug}`);
+  assert.ok(quality.sources.length >= 1, `Quality record needs a primary source: ${lesson.slug}`);
+  assert.ok([7, 30, 180].includes(quality.reviewDays), `Quality record needs a defined review cadence: ${lesson.slug}`);
+}
 
 for (const course of cursos) {
   assert.ok(!courseSlugs.has(course.slug), `Duplicate course slug: ${course.slug}`);

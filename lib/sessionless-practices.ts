@@ -88,6 +88,86 @@ const practices: Record<string, SessionlessPractice> = {
     ],
     evidence: "Objetivo: ____\nContexto: ____\nLímites: ____\nFormato: ____\nCómo lo comprobaré: ____",
   },
+  "alucinaciones-verificar": {
+    mission: "Comprueba dos afirmaciones antes de decidir si una respuesta merece confianza.",
+    result: "Una ficha que separa hechos comprobados, inferencias y datos sin evidencia.",
+    steps: [
+      "Subraya las afirmaciones que incluyen cifras, fechas, normas, nombres o consecuencias.",
+      "Abre una fuente primaria para dos afirmaciones y localiza el fragmento que las respalda.",
+      "Clasifica cada afirmación como comprobada, incompleta, incorrecta o no verificable.",
+    ],
+    question: "La IA atribuye una frase a un informe y proporciona un enlace. ¿Qué demuestra que la cita es válida?",
+    options: [
+      { label: "El documento original contiene el fragmento y respalda exactamente la afirmación", correct: true, explanation: "Correcto: un enlace solo es evidencia cuando la fuente existe, es pertinente y sostiene lo que se afirma." },
+      { label: "La respuesta emplea un tono seguro y presenta una URL plausible", correct: false, explanation: "No: la fluidez, el formato y una URL verosímil no demuestran que la fuente exista ni sea pertinente." },
+      { label: "Varias herramientas de IA repiten la misma frase", correct: false, explanation: "No: varios modelos pueden reproducir el mismo error o depender de información secundaria similar." },
+    ],
+    evidence: "Afirmación crítica: ____\nFuente primaria: ____\nFragmento que la respalda: ____\nClasificación: ____\nFecha de comprobación: ____",
+  },
+  "elegir-modelo-herramienta": {
+    mission: "Compara dos herramientas con la misma tarea y criterios definidos antes de probarlas.",
+    result: "Una decisión reproducible basada en evidencia propia, no en una clasificación viral.",
+    steps: [
+      "Prepara tres casos representativos y un resultado mínimo aceptable.",
+      "Prueba las mismas entradas y registra calidad, tiempo, coste, privacidad y facilidad de integración.",
+      "Elige la opción suficiente para el caso y anota cuándo volverías a evaluarla.",
+    ],
+    question: "¿Cuál es una comparación justa entre dos modelos para resumir facturas?",
+    options: [
+      { label: "Mismos documentos autorizados, mismo formato esperado y revisión ciega de errores críticos", correct: true, explanation: "Correcto: mantiene constantes las condiciones y mide el resultado que importa al proceso." },
+      { label: "Preguntas diferentes y elegir el texto que suene más convincente", correct: false, explanation: "No: cambia la prueba y premia el estilo aunque los datos críticos sean incorrectos." },
+      { label: "Escoger el modelo con más parámetros sin ejecutar ningún caso", correct: false, explanation: "No: tamaño, popularidad o novedad no sustituyen una prueba representativa de tu tarea." },
+    ],
+    evidence: "Tarea y casos: ____\nCriterios de aceptación: ____\nOpción A: ____\nOpción B: ____\nDecisión y motivo: ____\nPróxima revisión: ____",
+  },
+  "privacidad-derechos-seguridad": {
+    mission: "Reduce un caso de uso hasta que solo utilice los datos y permisos imprescindibles.",
+    result: "Un inventario mínimo de datos, autorización, conservación y revisión humana.",
+    steps: [
+      "Enumera los datos que entrarían y elimina los que no cambian el resultado.",
+      "Comprueba quién autorizó el uso, dónde se procesa y cuánto tiempo se conserva.",
+      "Define secretos prohibidos, permisos máximos y qué persona revisará la salida.",
+    ],
+    question: "Quieres probar un clasificador de consultas de clientes. ¿Cuál es el conjunto inicial más prudente?",
+    options: [
+      { label: "Ejemplos sintéticos o anonimizados que representen los casos necesarios", correct: true, explanation: "Correcto: permite aprender sobre el flujo reduciendo la exposición de datos personales reales." },
+      { label: "La bandeja completa con firmas, teléfonos, contratos y contraseñas", correct: false, explanation: "No: incorpora datos y secretos que la clasificación probablemente no necesita." },
+      { label: "Una exportación pública de conversaciones sin informar a nadie", correct: false, explanation: "No: publicar o reutilizar conversaciones requiere revisar autorización, finalidad y derechos." },
+    ],
+    evidence: "Finalidad: ____\nDatos imprescindibles: ____\nDatos retirados: ____\nBase o autorización que debo comprobar: ____\nConservación: ____\nResponsable de revisión: ____",
+  },
+  "imagen-voz-video-responsable": {
+    mission: "Diseña una pieza generativa que pueda publicarse sin engañar, suplantar ni excluir.",
+    result: "Una ficha de publicación con procedencia, permisos, licencia y alternativa accesible.",
+    steps: [
+      "Comprueba los derechos sobre materiales de entrada, voces, rostros, marcas y modelo utilizado.",
+      "Evita imitar a una persona real sin autorización y etiqueta lo sintético cuando pueda inducir a error.",
+      "Añade texto alternativo, subtítulos o transcripción y conserva el registro de creación.",
+    ],
+    question: "¿Qué opción es más responsable para narrar una demo comercial?",
+    options: [
+      { label: "Una voz autorizada o sintética no atribuida a una persona real, con aviso y transcripción", correct: true, explanation: "Correcto: reduce el riesgo de suplantación y hace el contenido más transparente y accesible." },
+      { label: "Clonar la voz de una actriz sin permiso porque el audio dura pocos segundos", correct: false, explanation: "No: la duración no sustituye el consentimiento ni resuelve los derechos de identidad y uso." },
+      { label: "Presentar como grabación real una escena generada que cambia hechos", correct: false, explanation: "No: ocultar una alteración material puede engañar a la audiencia." },
+    ],
+    evidence: "Pieza: ____\nMateriales y permisos: ____\nModelo y licencia comprobados: ____\nAviso de contenido sintético: ____\nAlternativa accesible: ____",
+  },
+  "primer-proyecto-repetible": {
+    mission: "Convierte lo aprendido en un flujo pequeño que otra persona pueda repetir y auditar.",
+    result: "Un proyecto de bajo riesgo con entrada, salida, prueba, límites y procedimiento de repetición.",
+    steps: [
+      "Define una tarea, una entrada autorizada y una salida que puedas revisar en menos de diez minutos.",
+      "Ejecuta al menos tres casos: normal, incompleto y problemático; registra qué ocurrió.",
+      "Escribe el procedimiento, los fallos conocidos y la condición que obliga a detenerse o pedir ayuda.",
+    ],
+    question: "¿Cuándo puede considerarse terminado tu primer proyecto del curso?",
+    options: [
+      { label: "Cuando otra persona puede repetirlo, comprobar el resultado y conocer sus límites", correct: true, explanation: "Correcto: el valor está en un proceso visible y repetible, no en una demostración afortunada." },
+      { label: "Cuando una respuesta sale bien una vez y parece profesional", correct: false, explanation: "No: un único ejemplo no revela cómo responde el flujo ante variaciones o fallos." },
+      { label: "Cuando utiliza el modelo más reciente aunque nadie mida el resultado", correct: false, explanation: "No: la novedad de la herramienta no demuestra utilidad, seguridad ni repetibilidad." },
+    ],
+    evidence: "Proyecto: ____\nEntrada autorizada: ____\nSalida esperada: ____\nPruebas ejecutadas: ____\nLímites y parada segura: ____\nCómo repetirlo: ____\nSiguiente mejora justificada: ____",
+  },
 };
 
 export function getSessionlessPractice(slug: string) {

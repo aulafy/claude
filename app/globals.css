@@ -854,8 +854,8 @@ html.light .callout-orange {
 .sessionless-practice__result strong { color: var(--text); font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; }
 .sessionless-practice__result span { color: var(--muted); }
 .sessionless-practice fieldset { border: 0; padding: 1.5rem; }
-.sessionless-practice legend { width: 100%; margin-bottom: 1rem; font-family: var(--font-sora); font-weight: 700; color: var(--text); }
-.sessionless-practice legend span { float: right; font-family: var(--font-geist-sans); color: var(--muted); font-size: .75rem; font-weight: 500; }
+.sessionless-practice legend { display: flex; width: 100%; align-items: baseline; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; font-family: var(--font-sora); font-weight: 700; color: var(--text); }
+.sessionless-practice legend span { flex: none; font-family: var(--font-geist-sans); color: var(--muted); font-size: .75rem; font-weight: 500; }
 .sessionless-practice__steps { display: grid; gap: .6rem; }
 .sessionless-practice__steps label { display: flex; align-items: flex-start; gap: .75rem; border: 1px solid var(--border); border-radius: .75rem; padding: .85rem; cursor: pointer; color: var(--muted); background: color-mix(in srgb, var(--panel-soft) 60%, transparent); }
 .sessionless-practice__steps label.is-checked { border-color: color-mix(in srgb, #34d399 50%, var(--border)); color: var(--text); }
@@ -882,4 +882,5 @@ html.light .callout-orange {
 @media (max-width: 700px) {
   .sessionless-practice__header { flex-direction: column; }
   .sessionless-practice__privacy { align-self: flex-start; }
+  .sessionless-practice legend { align-items: flex-start; }
 }

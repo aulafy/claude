@@ -4,7 +4,7 @@ Este documento describe cómo se organiza Aulafy y dónde debe realizarse cada t
 
 ## Resumen
 
-Aulafy es una aplicación Next.js que genera páginas educativas desde un catálogo central, páginas de lección, contenido estructurado e índices derivados. La navegación y el progreso funcionan en el navegador. El único servicio de IA en tiempo de ejecución es el chat opcional, que usa Groq y puede limitar peticiones con Upstash Redis.
+Aulafy es una aplicación Next.js que genera páginas educativas desde un catálogo central, páginas de lección, contenido estructurado e índices derivados. La navegación y las prácticas funcionan sin cuenta, cookies ni persistencia de respuestas. El único servicio de IA en tiempo de ejecución es el chat opcional, que usa Groq y puede limitar peticiones con Upstash Redis.
 
 ```mermaid
 flowchart LR
@@ -14,7 +14,7 @@ flowchart LR
     A --> E["Contenido del asistente"]
     B --> F["Aplicación Next.js"]
     E --> G["API opcional de Groq"]
-    H["Progreso en localStorage"] --> F
+    H["Prácticas efímeras en memoria"] --> F
     I["Scripts de verificación"] --> A
     I --> B
     A --> J["Guías PDF y artefactos derivados"]
@@ -55,9 +55,9 @@ No debe duplicarse manualmente una lista de cursos si puede derivarse de `lib/cu
 
 Cuando cambie la definición de Aulafy, deben revisarse el README, `docs/QUE-ES-AULAFY.md`, `app/que-es-aulafy/page.tsx`, `app/layout.tsx`, `app/ai.txt/route.ts`, `app/llms.txt/route.ts` y `lib/seo-index.ts`.
 
-### Progreso
+### Prácticas sin sesión
 
-El avance se guarda en `localStorage` mediante `lib/progress.ts`. No existe una cuenta de usuario ni una base de datos central de alumnos. El progreso puede exportarse e importarse como JSON.
+No existe una cuenta de alumno ni se guarda progreso en cookies, `localStorage` o `sessionStorage`. Las microprácticas usan estado temporal de React y se reinician al recargar. Si un alumno quiere conservar una evidencia, la copia en sus propios apuntes. `npm run verify-progress` mantiene esta restricción comprobable mientras el proyecto permanezca en su etapa estática.
 
 ### Chat opcional
 
@@ -75,6 +75,8 @@ Si se modifica contenido que aparece en un PDF, debe indicarse si el PDF necesit
 
 ## Flujo recomendado para contenido
 
+El contrato completo está en [`docs/ESTANDAR-EDITORIAL.md`](./ESTANDAR-EDITORIAL.md). Una fecha solo cambia después de una revisión sustancial y trazable.
+
 1. Identificar la fuente de verdad correspondiente.
 2. Corregir primero el contenido canónico en español.
 3. Actualizar la versión inglesa si el cambio afecta significado, seguridad o navegación.
@@ -90,7 +92,7 @@ Si se modifica contenido que aparece en un PDF, debe indicarse si el PDF necesit
 | Texto o lección | `npm run verify-content` y la verificación específica del curso |
 | Catálogo o rutas | `npm run audit-education`, `npm run verify-program`, `npm run verify-i18n`, `npm run verify-links` |
 | Metadatos o SEO | `npm run verify-seo` y `npm run build` |
-| Progreso | `npm run verify-progress` |
+| Privacidad y prácticas sin sesión | `npm run verify-progress` |
 | Código o componentes | `npm run lint` y `npm run build` |
 | Cambio educativo amplio | `npm run audit-education` |
 
