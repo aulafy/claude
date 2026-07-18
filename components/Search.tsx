@@ -12,13 +12,6 @@ const copy = {
   en: { open: "Search...", label: "Search lessons", placeholder: "Search lessons...", empty: "No results for", navigate: "navigate", openResult: "open", close: "Close search" },
 } satisfies Record<Locale, Record<string, string>>;
 
-function isMacPlatform() {
-  if (typeof navigator === "undefined") return true;
-  const nav = navigator as Navigator & { userAgentData?: { platform?: string } };
-  const platform = nav.userAgentData?.platform ?? nav.platform ?? "";
-  return /mac|iphone|ipad|ipod/i.test(platform);
-}
-
 function localizedSearchData(locale: Locale): SearchItem[] {
   if (locale === "es") return searchData;
   return searchData.map((item) => {
@@ -50,7 +43,6 @@ export default function Search({ locale = "es" }: { locale?: Locale }) {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [active, setActive] = useState(0);
-  const [shortcut] = useState(() => (isMacPlatform() ? "⌘K" : "Ctrl+K"));
   const inputRef = useRef<HTMLInputElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
@@ -146,7 +138,7 @@ export default function Search({ locale = "es" }: { locale?: Locale }) {
       >
         <Icon name="search" />
         <span className="flex-1 text-left">{text.open}</span>
-        <kbd className="text-[10px] px-1.5 py-0.5 rounded bg-zinc-800 border border-zinc-700 text-zinc-400">{shortcut}</kbd>
+        <kbd className="text-[10px] px-1.5 py-0.5 rounded bg-zinc-800 border border-zinc-700 text-zinc-400">⌘/Ctrl K</kbd>
       </button>
 
       {/* Modal */}
