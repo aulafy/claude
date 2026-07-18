@@ -1,6 +1,6 @@
 # Auditoría de nombres de modelos y herramientas
 
-**Fecha de verificación:** 18 de julio de 2026 (`2026-07-18`).  
+**Fecha de verificación:** 18 de julio de 2026 (`2026-07-18`).
 **Ámbito:** contenido publicado en `app/`, `lib/`, recursos educativos y scripts de soporte. No se consideran modelos los nombres internos de una aplicación, los alias de un gateway ni los ejemplos marcados como `local-*`.
 
 Los modelos cambian de disponibilidad, nombre comercial y precio. Por eso Aulafy publica un identificador concreto únicamente si existe una fuente primaria del proveedor y la fecha de esta auditoría queda junto al catálogo. Cuando una integración permite elegir proveedor, el curso usa un alias local (`local-fast`, `local-coder`) o pide el identificador que muestre la instalación del alumno.

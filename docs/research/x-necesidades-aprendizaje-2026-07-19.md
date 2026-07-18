@@ -1,8 +1,8 @@
 # Necesidades de aprendizaje observadas en X en español
 
-**Fecha de auditoría:** 19 de julio de 2026.  
-**Periodo aportado:** 20 de abril a 19 de julio de 2026.  
-**Tamaño:** 15 publicaciones públicas seleccionadas por Grok.  
+**Fecha de auditoría:** 19 de julio de 2026.
+**Periodo aportado:** 20 de abril a 19 de julio de 2026.
+**Tamaño:** 15 publicaciones públicas seleccionadas por Grok.
 **Estado:** enlaces e intervalo temporal comprobados; texto y contexto no verificables de forma independiente desde el entorno de auditoría.
 
 ## Cómo debe utilizarse esta muestra
