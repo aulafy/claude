@@ -28,6 +28,169 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "como-empezar-usar-ia-2026",
+    title: "Cómo empezar a usar IA en 2026: qué herramienta elegir y qué aprender primero",
+    description:
+      "Guía práctica en español para empezar con IA sin perderse: elige una tarea, compara herramientas con criterio, protege datos y aprende con un plan de 30 días.",
+    date: "2026-07-18",
+    updated: "2026-07-18",
+    category: "Empezar con IA",
+    readingTime: "16 min",
+    icon: "brain",
+    image: "/blog/como-empezar-usar-ia-2026.png",
+    editorNote:
+      "Actualizado el 18 de julio de 2026. Esta guía no presenta un ranking de herramientas ni afirma cuáles son las preguntas más frecuentes de X: parte de bloqueos recurrentes observados en conversaciones públicas y los convierte en un método de aprendizaje verificable.",
+    keywords: [
+      "cómo empezar a usar inteligencia artificial",
+      "aprender IA desde cero 2026",
+      "qué IA usar para empezar",
+      "guía inteligencia artificial principiantes",
+      "ChatGPT Claude Gemini Grok elegir",
+      "aprender IA en español",
+    ],
+    intro:
+      "Empezar con inteligencia artificial no consiste en abrir cinco chats y probar prompts al azar. Consiste en elegir una tarea pequeña, usar una herramienta con límites claros, comprobar el resultado y repetir. Esta guía te da ese orden para aprender sin depender de la herramienta de moda.",
+    sections: [
+      {
+        title: "La primera decisión no es qué IA es mejor",
+        body:
+          "La pregunta «¿cuál es la mejor IA?» parece lógica, pero suele bloquear más de lo que ayuda. No hay un ganador universal: un modelo puede ir muy bien para resumir, otro para programar y otro para trabajar dentro de un ecosistema concreto. Antes de comparar nombres, escribe una frase: «quiero usar IA para [tarea] y sabré que me ayuda si [resultado comprobable]». Esa frase te ahorra semanas de pruebas sin rumbo.",
+        bullets: [
+          "Mala primera meta: aprender todas las herramientas de IA.",
+          "Buena primera meta: convertir tres emails largos en borradores revisables durante una semana.",
+          "Buena primera meta: estudiar un tema con preguntas, fuentes y explicación de errores.",
+          "Buena primera meta: crear una página sencilla y verla funcionar en tu navegador.",
+        ],
+      },
+      {
+        title: "Elige una tarea de bajo riesgo y con resultado visible",
+        body:
+          "Tu primer uso no debería ser enviar un contrato, contestar a un cliente sin revisión, tomar una decisión médica o subir una base de datos. Elige una tarea reversible: resumir un texto que ya conoces, proponer un esquema, clasificar ideas, preparar una lista de comprobación o crear un borrador. Si la salida es mala, puedes compararla con tu criterio sin causar daño.",
+        bullets: [
+          "Bajo riesgo: borradores, esquemas, lluvia de ideas, explicaciones y ejercicios ficticios.",
+          "Riesgo medio: documentos internos, datos de clientes, código de un proyecto o contenido que otra persona va a leer.",
+          "Alto riesgo: salud, derecho, finanzas, evaluación académica, contratación, pagos, publicación o acciones automáticas.",
+          "A mayor riesgo, más fuentes, permisos, revisión humana y trazabilidad necesitas.",
+        ],
+      },
+      {
+        title: "Cómo elegir entre ChatGPT, Claude, Gemini, Grok y opciones locales",
+        body:
+          "No elijas por fanatismo ni por una captura viral. Abre una cuenta o prueba disponible que encaje con tus condiciones y compara la misma tarea en dos opciones como máximo. Para empezar, un asistente generalista puede bastar. Si trabajas mucho con documentos, investigación, código o el ecosistema de una empresa, mira después la integración, los límites, las fuentes, la privacidad y el coste por resultado útil.",
+        bullets: [
+          "Chat general y planificación: busca claridad, edición y facilidad de revisión.",
+          "Documentos e investigación: exige fechas, fuentes y la posibilidad de volver al original.",
+          "Programación: mide tests, cambios pequeños, permisos y tiempo hasta que algo funciona.",
+          "Datos sensibles: estudia opciones locales o un proveedor con condiciones adecuadas; local también tiene coste de hardware y mantenimiento.",
+        ],
+      },
+      {
+        title: "Gratis, de pago y local: calcula el coste completo",
+        body:
+          "Gratis no significa ilimitado ni necesariamente adecuado para datos de trabajo. Un plan sin coste puede tener cupos, colas, funciones reducidas o condiciones que cambian. Una suscripción puede ahorrar tiempo, pero no sustituye la revisión. Y una instalación local puede reducir exposición de datos, aunque añade equipo, energía, configuración, actualizaciones y soporte. El coste correcto es el de llegar a una salida buena y segura, no solo el precio por mes o por token.",
+        bullets: [
+          "Anota cuántos intentos necesitas hasta conseguir un resultado utilizable.",
+          "Cuenta el tiempo que tardas en comprobar y corregir la salida.",
+          "No subas datos personales, secretos o documentos confidenciales solo porque una prueba sea gratis.",
+          "Si dependes de una cuota, prepara una alternativa para cuando llegue al límite.",
+        ],
+      },
+      {
+        title: "Un prompt útil se parece a un buen encargo",
+        body:
+          "No necesitas aprender fórmulas mágicas. Una petición útil explica contexto, objetivo, formato, límites y comprobación. La IA no conoce tu situación salvo que la describas; tampoco debe decidir por ti qué es correcto. Empieza con instrucciones cortas y mejora una variable cada vez, en lugar de copiar un mega-prompt que no entiendes.",
+        bullets: [
+          "Contexto: para quién es, qué material existe y qué no debe asumir.",
+          "Objetivo: qué resultado concreto quieres obtener.",
+          "Formato: tabla, esquema, borrador, lista de pasos o código con tests.",
+          "Límites: tono, extensión, datos que no debe usar y cuándo debe abstenerse.",
+          "Comprobación: pide fuentes, supuestos, dudas y una lista para revisar.",
+        ],
+      },
+      {
+        title: "Estudiar y trabajar con IA sin delegar tu criterio",
+        body:
+          "La IA puede explicar un concepto de tres formas, generar ejercicios, señalar lagunas en un borrador o preparar preguntas de repaso. No puede aprender por ti ni convertir una entrega no leída en trabajo propio. En universidad y trabajo, revisa las normas de tu centro u organización, declara el uso cuando corresponda y conserva las fuentes y decisiones importantes. La meta es entender mejor y trabajar con menos fricción, no esconder la herramienta.",
+        bullets: [
+          "Para estudiar: pide una explicación, resuélvela tú y usa la IA para corregir tu razonamiento.",
+          "Para escribir: usa un borrador como punto de partida y reescribe desde tu conocimiento y tus fuentes.",
+          "Para trabajo: empieza por preparar, clasificar o resumir; no envíes ni publiques sin revisión.",
+          "Si la respuesta afecta a otra persona, considera qué evidencia necesitaría para confiar en ella.",
+        ],
+      },
+      {
+        title: "Programar y crear webs: empieza por algo que puedas abrir y probar",
+        body:
+          "La IA permite a más personas acercarse al código, pero no elimina la necesidad de comprobar. Un buen primer proyecto es una web local de una sola tarea: una página de servicios ficticia, una calculadora, un portafolio o un formulario sin datos reales. Define antes qué debe hacer, abre el resultado en el navegador y revisa cada cambio. Si introduces cuentas, pagos, datos personales o automatizaciones, el nivel de exigencia cambia.",
+        bullets: [
+          "Pide primero que explique la carpeta o el plan antes de modificar archivos.",
+          "Haz cambios pequeños y comprueba la web tras cada uno.",
+          "No publiques claves API, archivos .env ni datos de clientes.",
+          "Una demo visual no es todavía una aplicación segura para usuarios reales.",
+        ],
+      },
+      {
+        title: "Qué son los agentes y por qué no son el siguiente paso obligatorio",
+        body:
+          "Un agente combina un modelo con herramientas, estado y reglas para completar varios pasos. Tiene sentido cuando la tarea es repetible, el resultado se puede comprobar y existe una salida segura si falla. No tiene sentido dar permisos amplios a un chat para que «haga de todo». Antes de automatizar, ejecuta el proceso manualmente, define límites de gasto y llamadas, registra qué ocurre y mantiene aprobación humana para acciones sensibles.",
+        bullets: [
+          "Primero: una herramienta de lectura sobre datos sintéticos.",
+          "Después: límites de tiempo, reintentos y presupuesto.",
+          "Después: logs o trazas que expliquen cada paso.",
+          "Solo entonces: una aprobación humana para acciones externas concretas.",
+        ],
+      },
+      {
+        title: "Privacidad y errores: la parte que no debes saltarte",
+        body:
+          "Los modelos pueden equivocarse, simplificar en exceso o inventar una fuente. También pueden enviar el contenido de un prompt a un proveedor externo según el producto y la configuración. Antes de pegar información, pregunta: ¿es necesaria?, ¿puedo anonimizarla?, ¿quién verá el resultado?, ¿cuánto tiempo quedará almacenado?, ¿qué pasará si es incorrecto? Cuando no tengas una respuesta clara, usa un ejemplo ficticio o detente.",
+        bullets: [
+          "Nunca pegues contraseñas, claves API, tokens o secretos.",
+          "Minimiza nombres, correos, historias clínicas, contratos y documentos identificables.",
+          "Verifica afirmaciones relevantes contra fuentes primarias o una persona responsable.",
+          "Guarda la versión del prompt y el criterio usado si una salida afecta a un proceso importante.",
+        ],
+      },
+      {
+        title: "Plan de 30 días para no perderte",
+        body:
+          "El objetivo del primer mes no es ser experto. Es adquirir un hábito de trabajo seguro: definir una tarea, pedir un resultado concreto, comprobarlo y aprender del error. Dedica poco tiempo, pero repite. Cada semana debe dejar una evidencia: una nota, un ejercicio, una web local o una comparación breve que puedas revisar después.",
+        bullets: [
+          "Semana 1: elige una tarea de bajo riesgo y prueba dos prompts; conserva el que puedas explicar.",
+          "Semana 2: compara dos herramientas con la misma tarea y escribe qué cambia en calidad, límites y privacidad.",
+          "Semana 3: crea un resultado visible: un documento revisado, una hoja de trabajo o una web local sencilla.",
+          "Semana 4: repite el proceso con una tarea real pero reversible; anota qué automatizarías y qué debe seguir revisando una persona.",
+        ],
+      },
+    ],
+    table: {
+      headers: ["Si eres…", "Empieza por", "Primera práctica", "No hagas todavía"],
+      rows: [
+        ["Principiante", "Una tarea cotidiana de bajo riesgo", "Resume y revisa un texto que conozcas", "Probar diez herramientas a la vez"],
+        ["Estudiante", "Explicar, practicar y contrastar", "Crear preguntas de repaso y corregir tu respuesta", "Entregar texto que no entiendes"],
+        ["Profesional", "Un cuello de botella repetitivo", "Preparar un borrador y revisarlo con tu criterio", "Enviar, publicar o decidir sin revisión"],
+        ["Persona técnica", "Un proyecto local pequeño", "Crear una web y ejecutar sus comprobaciones", "Dar acceso total al repositorio o a producción"],
+        ["Pyme", "Un proceso de bajo riesgo y medible", "Clasificar consultas o preparar respuestas", "Subir datos de clientes o automatizar cobros"],
+      ],
+    },
+    faqs: [
+      { q: "¿Qué IA debería usar primero?", a: "La que te permita probar una tarea concreta con el menor riesgo. No busques un ganador universal: compara dos opciones con tu caso, tu presupuesto, tus datos y una forma de verificar el resultado." },
+      { q: "¿Puedo aprender IA sin saber programar?", a: "Sí. Puedes empezar con tareas de escritura, estudio, análisis y organización. Si después quieres crear webs, automatizaciones o productos, aprenderás lo técnico paso a paso y con comprobaciones." },
+      { q: "¿Las herramientas gratuitas bastan para empezar?", a: "Suelen bastar para practicar, pero tienen límites y no son una garantía de privacidad ni de disponibilidad. Usa datos sintéticos al principio y elige después según el trabajo real." },
+      { q: "¿Cómo sé si una respuesta de IA es correcta?", a: "Comprueba la salida contra el material original, pide supuestos y fuentes, revisa cálculos y no confundas una respuesta segura con una respuesta verdadera." },
+      { q: "¿Es ético usar IA para estudiar o trabajar?", a: "Depende del propósito y de las normas aplicables. Úsala para comprender, practicar, preparar y revisar; no para ocultar autoría, eludir una evaluación o delegar una decisión que requiere responsabilidad humana." },
+      { q: "¿Cuándo debería usar un agente de IA?", a: "Cuando ya conoces el proceso manual, la tarea está acotada, el resultado se puede verificar y has definido permisos, límites, trazas y una revisión humana para acciones sensibles." },
+    ],
+    related: [
+      { title: "Elige tu ruta de aprendizaje", href: "/rutas", desc: "Encuentra un punto de inicio según tu nivel y objetivo." },
+      { title: "Comparativa de modelos por tarea", href: "/blog/chatgpt-vs-claude-vs-gemini-vs-grok-2026", desc: "Cómo elegir sin buscar un ganador universal." },
+      { title: "Herramientas de IA gratis", href: "/blog/mejores-herramientas-ia-gratis-2026", desc: "Límites, privacidad e IA local para empezar." },
+      { title: "Crear webs con IA", href: "/cursos/crear-webs-con-ia", desc: "Pasa de una idea a una web verificable." },
+      { title: "Agentes en producción", href: "/cursos/agentes-produccion", desc: "Herramientas, límites, evaluación y revisión humana." },
+      { title: "IA para pymes", href: "/cursos/ia-pymes", desc: "Casos prácticos para procesos de negocio." },
+    ],
+  },
+  {
     slug: "grok-45-guia-evaluacion-2026",
     title: "Grok 4.5: qué sabemos y cómo evaluarlo sin caer en el hype",
     description:
