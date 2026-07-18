@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import AulafyCoreScene from "@/components/AulafyCoreScene";
+import LandingLearningGuide from "@/components/LandingLearningGuide";
 import type { LearningPath } from "@/lib/learning-paths";
 
 type CoursePreview = { slug: string; title: string; short: string; level: string; lessons: number };
@@ -89,11 +89,8 @@ export default function AulafyNexusLanding({ courseCount, lessonCount, paths, co
               <Link className="nx-secondary" href={secondaryEntryUrl}>{text.startCodex}</Link>
             </div>
           </div>
-          <div className="nx-core" role="img" aria-label={text.coreLabel}>
-            <AulafyCoreScene />
-            <div className="nx-core-label nx-core-label-a">{text.coreA}</div>
-            <div className="nx-core-label nx-core-label-b">{text.coreB}</div>
-            <div className="nx-core-label nx-core-label-c">{text.coreC}</div>
+          <div className="nx-core">
+            <LandingLearningGuide locale={locale} />
           </div>
           <div className="nx-telemetry" aria-label="Datos de Aulafy">
             <span><b>{String(courseCount).padStart(2, "0")}</b> {text.telemetry[0]}</span>

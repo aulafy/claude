@@ -20,6 +20,7 @@
     "verify-social": "node scripts/verify-social.mjs",
     "verify-web-ai": "node --experimental-strip-types scripts/verify-web-ai-course.mjs",
     "audit-education": "node --experimental-strip-types scripts/audit-education.mjs",
+    "audit:ai-discovery": "node scripts/audit-ai-discovery.mjs",
     "test:content": "node scripts/verify-content.mjs",
     "test:codex": "node --experimental-strip-types scripts/verify-codex-course.mjs",
     "test:critical": "node scripts/verify-critical-examples.mjs",

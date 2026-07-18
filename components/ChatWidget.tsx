@@ -109,7 +109,7 @@ const COPY = {
 }>;
 
 /** Render ligero de markdown: bloques de código, `inline`, **negrita**, enlaces [[Sección]] y saltos de línea. */
-function renderContent(text: string, locale: Locale, onNavigate?: () => void) {
+export function renderAssistantContent(text: string, locale: Locale, onNavigate?: () => void) {
   const links = locale === "en" ? SECTION_LINKS_EN : SECTION_LINKS_ES;
 
   const parts = text.split(/(```[\s\S]*?```)/g);
@@ -299,7 +299,7 @@ export default function ChatWidget({ locale = "es" }: { locale?: Locale }) {
                 <Icon name="robot" />
               </div>
               <div className="aula-panel px-3.5 py-2.5 text-sm text-zinc-300 leading-relaxed max-w-[85%]">
-                {renderContent(copy.welcome, locale)}
+                {renderAssistantContent(copy.welcome, locale)}
               </div>
             </div>
 
@@ -317,7 +317,7 @@ export default function ChatWidget({ locale = "es" }: { locale?: Locale }) {
                   </div>
                   <div className="aula-panel px-3.5 py-2.5 text-sm text-zinc-300 leading-relaxed max-w-[85%]">
                     {m.content ? (
-                      renderContent(m.content, locale, () => setOpen(false))
+                      renderAssistantContent(m.content, locale, () => setOpen(false))
                     ) : (
                       <span className="inline-flex gap-1">
                         <span className="w-1.5 h-1.5 rounded-full bg-zinc-500 animate-bounce [animation-delay:-0.3s]" />
