@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
@@ -92,6 +93,17 @@ export default function IaBasicsLessonPage({ slug }: { slug: string }) {
           <Icon name="shield" /> Sin herramienta obligatoria
         </span>
       </div>
+
+      {slug === "pedir-resultados-utiles" ? (
+        <aside className="ia-lab-entry" aria-labelledby="ia-lab-entry-title">
+          <div>
+            <span>PRÁCTICA INMERSIVA · 10–15 MIN</span>
+            <h2 id="ia-lab-entry-title">Lleva esta lección a una oficina o a un campus virtual</h2>
+            <p>Construye una instrucción, prueba una respuesta simulada y detecta el dato inventado. Funciona sin cuenta, cookies ni API.</p>
+          </div>
+          <Link href="/laboratorio/ia-en-accion">Entrar al laboratorio 3D <span aria-hidden="true">→</span></Link>
+        </aside>
+      ) : null}
 
       {practice ? <SessionlessPractice practice={practice} /> : null}
 

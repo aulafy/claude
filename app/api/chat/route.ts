@@ -53,6 +53,11 @@ async function handleChat(req: Request) {
     // Si el rate limiter falla, seguimos sin bloquear.
   }
 
+  const declaredLength = Number(req.headers.get("content-length") || 0);
+  if (declaredLength > 24_000) {
+    return Response.json({ error: "La pregunta es demasiado larga." }, { status: 413 });
+  }
+
   let messages: Msg[] = [];
   let locale: Locale = "es";
   try {
@@ -79,9 +84,15 @@ async function handleChat(req: Request) {
     return Response.json({ error: "No hay mensaje que responder." }, { status: 400 });
   }
 
+  if (cleaned[cleaned.length - 1]?.role !== "user") {
+    return Response.json({ error: "La conversación debe terminar con una pregunta." }, { status: 400 });
+  }
+
   const systemPrompt = buildChatbotSystemPrompt(cleaned, locale);
 
   let groqRes: Response;
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 20_000);
   try {
     groqRes = await fetch(GROQ_URL, {
       method: "POST",
@@ -96,12 +107,15 @@ async function handleChat(req: Request) {
         stream: true,
         messages: [{ role: "system", content: systemPrompt }, ...cleaned],
       }),
+      signal: controller.signal,
     });
   } catch {
     return Response.json(
       { error: "No se pudo conectar con el servicio de IA." },
       { status: 502 }
     );
+  } finally {
+    clearTimeout(timeout);
   }
 
   if (!groqRes.ok || !groqRes.body) {
@@ -158,6 +172,7 @@ async function handleChat(req: Request) {
     headers: {
       "Content-Type": "text/plain; charset=utf-8",
       "Cache-Control": "no-store",
+      "X-Content-Type-Options": "nosniff",
     },
   });
 }
