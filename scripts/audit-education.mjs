@@ -33,7 +33,7 @@ for (const course of cursos) {
   const guidance = getCourseGuidance(course.slug, "es");
   assert.ok(guidance, `Missing educational guidance: ${course.slug}`);
   assert.ok(guidance.estimatedHours >= 1, `Course needs estimated duration: ${course.slug}`);
-  assert.ok(/^\d{4}-\d{2}-\d{2}$/.test(guidance.updated), `Course needs ISO review date: ${course.slug}`);
+  assert.ok(/^\d{4}-\d{2}-\d{2}$/.test(course.updatedAt), `Course needs required ISO update date: ${course.slug}`);
   assert.ok(guidance.audience.length >= 40, `Course audience is too vague: ${course.slug}`);
   assert.ok(guidance.outcomes.length >= 3, `Course needs three outcomes: ${course.slug}`);
   assert.ok(guidance.prerequisites.length >= 2, `Course needs two prerequisites: ${course.slug}`);

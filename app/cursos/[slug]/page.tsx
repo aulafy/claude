@@ -102,7 +102,7 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
         isAccessibleForFree: true,
         educationalLevel: curso.level,
         timeRequired: guidance ? `PT${guidance.estimatedHours}H` : undefined,
-        dateModified: guidance?.updated,
+        dateModified: curso.updatedAt,
         audience: guidance ? { "@type": "Audience", audienceType: guidance.audience } : undefined,
         competencyRequired: guidance?.prerequisites,
         learningResourceType: "Course",
@@ -272,7 +272,7 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
                 )}
                 <span className="aula-chip" data-tone="green">{guidance.track}</span>
               </div>
-              <p className="mt-5 aula-meta text-zinc-600">Revisión editorial: {new Intl.DateTimeFormat("es-ES", { dateStyle: "long" }).format(new Date(`${guidance.updated}T12:00:00Z`))}</p>
+              <p className="mt-5 aula-meta text-zinc-600">Actualizado: {new Intl.DateTimeFormat("es-ES", { dateStyle: "long" }).format(new Date(`${curso.updatedAt}T12:00:00Z`))}</p>
             </div>
           </div>
         </section>

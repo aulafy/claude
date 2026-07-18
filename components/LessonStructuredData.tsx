@@ -1,7 +1,6 @@
 "use client";
 
 import { getCurso } from "@/lib/cursos";
-import { getCourseGuidance } from "@/lib/course-guidance";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 
@@ -9,7 +8,6 @@ export default function LessonStructuredData({ courseSlug, lessonSlug }: { cours
   const course = getCurso(courseSlug);
   const lesson = course?.secciones.flatMap((section) => section.lecciones).find((item) => item.slug === lessonSlug);
   if (!course || !lesson) return null;
-  const guidance = getCourseGuidance(courseSlug, "es");
   const url = `${SITE_URL}/cursos/${courseSlug}/${lessonSlug}`;
 
   const jsonLd = {
@@ -25,7 +23,7 @@ export default function LessonStructuredData({ courseSlug, lessonSlug }: { cours
         isAccessibleForFree: true,
         learningResourceType: "Lesson",
         educationalLevel: course.level,
-        dateModified: guidance?.updated,
+        dateModified: course.updatedAt,
         provider: { "@id": `${SITE_URL}/#organization` },
         author: { "@id": `${SITE_URL}/#author` },
         isPartOf: { "@id": `${SITE_URL}/cursos/${courseSlug}#learning-resource`, name: course.title },

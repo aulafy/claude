@@ -25,6 +25,8 @@ export type Curso = {
   short: string;
   desc: string;
   level: string;
+  /** Fecha ISO obligatoria para la ficha, sitemap y datos estructurados. */
+  updatedAt: string;
   icon: string; // nombre de icono de components/Icon
   gradient: [string, string]; // portada
   secciones: Seccion[];
@@ -34,6 +36,10 @@ export type Curso = {
   availableInEnglish?: boolean;
 };
 
+// Actualizada cuando una pasada editorial revisa el curso completo. Cada ficha
+// debe declararla de forma explícita para que TypeScript no permita omitirla.
+const courseCatalogUpdatedAt = "2026-07-18";
+
 export const cursos: Curso[] = [
   {
     slug: "ia-desde-cero",
@@ -41,6 +47,7 @@ export const cursos: Curso[] = [
     short: "Entiende, usa y verifica la IA generativa antes de elegir una herramienta",
     desc: "Curso breve para cualquier persona que quiere aprender inteligencia artificial con criterio: modelos, chat, RAG, agentes, contexto, verificación, privacidad, herramientas y un primer proyecto propio.",
     level: "Cero absoluto",
+    updatedAt: courseCatalogUpdatedAt,
     icon: "sparkle",
     gradient: ["#f59e0b", "#ec4899"],
     availableInEnglish: false,
@@ -95,6 +102,7 @@ export const cursos: Curso[] = [
     short: "Python, Git, terminal y Docker para aprender IA sin fricción",
     desc: "Prepara un entorno local-first para cualquier curso de Aulafy: terminal, Python moderno con uv, Git, AGENTS.md, Docker, servicios locales y una plantilla de proyecto reproducible.",
     level: "Principiante",
+    updatedAt: courseCatalogUpdatedAt,
     icon: "tools",
     gradient: ["#22c55e", "#f59e0b"],
     secciones: [
@@ -122,6 +130,7 @@ export const cursos: Curso[] = [
     short: "Trabaja con archivos, automatiza tareas y construye proyectos sin experiencia previa",
     desc: "Curso para cualquier perfil: aprende a elegir la herramienta, trabajar con archivos de forma segura, crear entregables, automatizar tareas y construir una web. Da el salto a CLI, IDE y Git solo cuando lo necesites.",
     level: "Cero absoluto → intermedio",
+    updatedAt: courseCatalogUpdatedAt,
     icon: "laptopCode",
     gradient: ["#7c3aed", "#06b6d4"],
     pdf: "/manual-codex-desde-cero-aulafy.pdf",
@@ -207,6 +216,7 @@ export const cursos: Curso[] = [
     short: "De una idea a una web seria, publicada y mantenible con Codex y GPT-5.6 Sol",
     desc: "Aprende sin experiencia previa a planificar, construir, revisar, publicar y mantener webs que resuelven problemas reales. Incluye diseño, accesibilidad, formularios, Supabase, SEO/AEO, Vercel, dominios, chatbot, 3D opcional y ocho talleres prácticos.",
     level: "Cero absoluto → profesional",
+    updatedAt: courseCatalogUpdatedAt,
     icon: "laptopCode",
     gradient: ["#06b6d4", "#8b5cf6"],
     availableInEnglish: false,
@@ -386,6 +396,7 @@ export const cursos: Curso[] = [
     short: "Programa, prueba y entrega cambios con OpenAI Codex",
     desc: "Aprende un flujo profesional con Codex: explorar repositorios, escribir encargos verificables, configurar AGENTS.md, implementar con tests, revisar Git, controlar permisos y automatizar tareas con codex exec.",
     level: "Principiante → avanzado",
+    updatedAt: courseCatalogUpdatedAt,
     icon: "laptopCode",
     gradient: ["#10b981", "#0ea5e9"],
     secciones: [
@@ -426,6 +437,7 @@ export const cursos: Curso[] = [
     short: "Enruta modelos locales y frontier con calidad, coste y privacidad",
     desc: "Diseña un router de IA para elegir entre modelos locales y APIs frontier con LiteLLM, políticas de privacidad, scoring de calidad, shadow mode, observabilidad y revisión humana para contenido educativo.",
     level: "Intermedio → avanzado",
+    updatedAt: courseCatalogUpdatedAt,
     icon: "route",
     gradient: ["#f59e0b", "#22c55e"],
     secciones: [
@@ -453,6 +465,7 @@ export const cursos: Curso[] = [
     short: "Domina la CLI de IA de Anthropic",
     desc: "Aprende a construir software y aplicaciones hablando con la IA en tu terminal: instalación, recetas, proyectos guiados, skills, subagentes, MCP y flujos profesionales.",
     level: "Principiante → avanzado",
+    updatedAt: courseCatalogUpdatedAt,
     icon: "terminal",
     gradient: ["#e879f9", "#8b5cf6"],
     pdf: "/guia-claude-code.pdf",
@@ -519,6 +532,7 @@ export const cursos: Curso[] = [
     short: "Construye apps de IA en tu ordenador",
     desc: "Construye herramientas de IA que se ejecutan en tu propio equipo (RAG, PDF, voz, 3D, WordPress…) y aprende a publicarlas en internet. La continuación práctica del curso de Claude Code.",
     level: "Intermedio",
+    updatedAt: courseCatalogUpdatedAt,
     icon: "brain",
     gradient: ["#8b5cf6", "#22d3ee"],
     pdf: "/guia-claude-code-vol2.pdf",
@@ -586,6 +600,7 @@ export const cursos: Curso[] = [
     short: "Crea recursos multimedia con modelos abiertos",
     desc: "Aprende a generar y editar imágenes, voces, transcripciones y clips de vídeo con ComfyUI, FLUX, Diffusers, Whisper, Piper y Wan, cuidando licencias, reproducibilidad y uso educativo.",
     level: "Principiante → intermedio",
+    updatedAt: courseCatalogUpdatedAt,
     icon: "palette",
     gradient: ["#ec4899", "#22c55e"],
     secciones: [
@@ -619,6 +634,7 @@ export const cursos: Curso[] = [
     short: "Godot, Blender, Fable 5 y pipelines 3D",
     desc: "Aprende a crear prototipos 3D, assets, escenas jugables y flujos CAD con Fable 5, Blender, Godot, Unity y validación profesional. Una ruta práctica para pasar de idea a demo jugable sin perder control técnico.",
     level: "Principiante → intermedio",
+    updatedAt: courseCatalogUpdatedAt,
     icon: "cube",
     gradient: ["#22c55e", "#0ea5e9"],
     secciones: [
@@ -651,6 +667,7 @@ export const cursos: Curso[] = [
     short: "Prueba sistemas de IA antes de publicarlos",
     desc: "Aprende a evaluar modelos y aplicaciones de IA con criterios prácticos: OWASP Top 10 LLM, NIST AI RMF, red teaming, privacidad, supply chain, logs, benchmarks y auditoría previa a producción.",
     level: "Intermedio",
+    updatedAt: courseCatalogUpdatedAt,
     icon: "shield",
     gradient: ["#ef4444", "#0ea5e9"],
     secciones: [
@@ -684,6 +701,7 @@ export const cursos: Curso[] = [
     short: "Sirve modelos abiertos con control",
     desc: "Aprende a llevar modelos abiertos de tu portátil a un servicio usable: llama.cpp, vLLM, LiteLLM, colas, caché, costes, observabilidad, evals y despliegue con límites claros.",
     level: "Intermedio → avanzado",
+    updatedAt: courseCatalogUpdatedAt,
     icon: "server",
     gradient: ["#06b6d4", "#84cc16"],
     secciones: [
@@ -720,6 +738,7 @@ export const cursos: Curso[] = [
     short: "Adapta modelos abiertos con tus datos",
     desc: "Aprende a preparar datasets, entrenar LoRA/QLoRA con PEFT, TRL, Unsloth o Axolotl, evitar overfitting, evaluar mejoras y exportar modelos a GGUF/Ollama para usarlos en local.",
     level: "Intermedio → avanzado",
+    updatedAt: courseCatalogUpdatedAt,
     icon: "experiment",
     gradient: ["#a855f7", "#f97316"],
     secciones: [
@@ -754,6 +773,7 @@ export const cursos: Curso[] = [
     short: "Diseña agentes útiles, seguros y mantenibles",
     desc: "Aprende a convertir tareas repetitivas en sistemas agénticos: subagentes, CLI local-first tipo R, hooks, skills, MCP, GitHub Actions, agentes 24/7, OOM, retries, estado persistente, loops, costes y governance.",
     level: "Intermedio → avanzado",
+    updatedAt: courseCatalogUpdatedAt,
     icon: "robot",
     gradient: ["#22d3ee", "#10b981"],
     secciones: [
@@ -804,6 +824,7 @@ export const cursos: Curso[] = [
     short: "Agentes fiables para tareas reales",
     desc: "Construye agentes con estado, herramientas, revisión humana y automatizaciones de negocio usando LangGraph, n8n, Ollama y buenas prácticas de seguridad.",
     level: "Intermedio → avanzado",
+    updatedAt: courseCatalogUpdatedAt,
     icon: "network",
     gradient: ["#10b981", "#6366f1"],
     secciones: [
@@ -839,6 +860,7 @@ export const cursos: Curso[] = [
     short: "n8n, Open WebUI y Ollama en tu servidor",
     desc: "Monta una plataforma barata y privada para automatizar tareas de negocio con n8n, Open WebUI, Ollama o vLLM, webhooks, aprobaciones humanas, colas, backups, seguridad y monitorización básica.",
     level: "Intermedio",
+    updatedAt: courseCatalogUpdatedAt,
     icon: "automation",
     gradient: ["#22d3ee", "#e879f9"],
     secciones: [
@@ -875,6 +897,7 @@ export const cursos: Curso[] = [
     short: "Chatbots con documentos que sí se pueden usar",
     desc: "Aprende a construir sistemas RAG con PDFs y documentos privados: chunking, embeddings, búsqueda híbrida, reranking, citaciones, permisos, evals y defensa frente a prompt injection.",
     level: "Intermedio",
+    updatedAt: courseCatalogUpdatedAt,
     icon: "database",
     gradient: ["#f97316", "#14b8a6"],
     secciones: [
@@ -915,6 +938,7 @@ export const cursos: Curso[] = [
     short: "Automatiza oficina sin perder control",
     desc: "Aprende a aplicar IA en tareas reales de negocio: diagnostica un piloto, conviértelo en un flujo fiable, prueba sus fallos y opera con control antes de automatizar emails, facturas, presupuestos o atención.",
     level: "Principiante → intermedio",
+    updatedAt: courseCatalogUpdatedAt,
     icon: "briefcase",
     gradient: ["#22d3ee", "#8b5cf6"],
     resources: [
