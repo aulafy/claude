@@ -105,6 +105,15 @@ const coreEntries: SeoIndexEntry[] = [
     alternateRoute: "/en/paths",
   },
   {
+    route: "/que-aprender-ia",
+    title: "Qué aprender de IA: elige tu primer paso",
+    description: "Guía para elegir qué aprender de inteligencia artificial según tu objetivo: empezar, estudiar, trabajar, crear webs o construir sistemas de IA.",
+    language: "es",
+    kind: "core",
+    priority: 0.93,
+    changeFrequency: "monthly",
+  },
+  {
     route: "/en/paths",
     title: "AI learning paths",
     description: "Outcome-based paths for AI-assisted programming, agents, RAG, open models and automation.",
