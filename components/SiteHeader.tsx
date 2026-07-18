@@ -1,9 +1,7 @@
 import Link from "next/link";
-import Icon from "@/components/Icon";
 import LanguageSwitch from "@/components/LanguageSwitch";
 import ThemeToggle from "@/components/ThemeToggle";
 import type { Locale } from "@/lib/i18n";
-import { isSocialEnabled } from "@/lib/social/config";
 
 function BrandIcon({ id, className }: { id: string; className?: string }) {
   return (
@@ -39,51 +37,22 @@ export default function SiteHeader({ locale = "es" }: { locale?: Locale }) {
             <span className="hidden sm:block aula-meta text-[10px] text-zinc-500">{isEnglish ? "open learning" : "educación abierta"}</span>
           </span>
         </Link>
-        <div className="flex items-center gap-2">
+        <nav className="flex items-center gap-2" aria-label={isEnglish ? "Main navigation" : "Navegación principal"}>
           <Link
-            href={isEnglish ? "/en/paths" : "/rutas"}
-            className="hidden! md:inline-flex! aula-button aula-button-secondary min-h-9 px-3 py-2 text-sm"
+            href={isEnglish ? "/en/paths" : "/que-aprender-ia"}
+            className="hidden! sm:inline-flex! min-h-9 items-center px-3 py-2 text-sm text-zinc-300 hover:text-white"
           >
-            <Icon name="route" />
-            {isEnglish ? "Learn" : "Rutas"}
+            {isEnglish ? "Start" : "Empezar"}
           </Link>
           <Link
             href={isEnglish ? "/en/courses" : "/cursos"}
-            className="hidden! sm:inline-flex! aula-button aula-button-secondary min-h-9 px-3 py-2 text-sm"
+            className="hidden! md:inline-flex! min-h-9 items-center px-3 py-2 text-sm text-zinc-400 hover:text-white"
           >
-            <Icon name="book" />
             {isEnglish ? "Courses" : "Cursos"}
           </Link>
-          {!isEnglish && (
-            <Link
-              href="/proyectos"
-              className="hidden! xl:inline-flex! aula-button aula-button-secondary min-h-9 px-3 py-2 text-sm"
-            >
-              <Icon name="hammer" /> Proyectos
-            </Link>
-          )}
-          <Link
-            href="/blog"
-            className="hidden! 2xl:inline-flex! aula-button aula-button-secondary min-h-9 px-3 py-2 text-sm"
-          >
-            <Icon name="search" />
-            {isEnglish ? "Spanish blog" : "Blog"}
-          </Link>
-          {!isEnglish && isSocialEnabled() && (
-            <Link href="/comunidad" className="hidden! xl:inline-flex! aula-button aula-button-secondary min-h-9 px-3 py-2 text-sm">
-              <Icon name="users" /> Comunidad
-            </Link>
-          )}
           <LanguageSwitch />
           <ThemeToggle compact />
-          <Link
-            href={isEnglish ? "/en/paths" : "/que-aprender-ia"}
-            className="aula-button aula-button-primary min-h-9 px-3 py-2 text-sm"
-          >
-            <Icon name="rocket" />
-            {isEnglish ? "Start" : "Empieza aquí"}
-          </Link>
-        </div>
+        </nav>
       </div>
     </header>
   );

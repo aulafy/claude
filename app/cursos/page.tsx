@@ -2,50 +2,21 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Icon, { type IconName } from "@/components/Icon";
 import { cursos, proximamente, totalLecciones, type Curso } from "@/lib/cursos";
-import { getCourseGuidance } from "@/lib/course-guidance";
 import { courseGroups } from "@/lib/course-groups";
 import { spanishSearchIntents } from "@/lib/seo-strategy";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 
-function formatCourseUpdatedAt(value: string) {
-  return new Intl.DateTimeFormat("es-ES", { month: "short", year: "numeric" })
-    .format(new Date(`${value}T12:00:00Z`))
-    .replace(".", "");
-}
-
 function CourseCard({ course }: { course: Curso }) {
-  const index = cursos.findIndex((item) => item.slug === course.slug);
-  const guidance = getCourseGuidance(course.slug, "es");
   return (
-    <Link href={`/cursos/${course.slug}`} className="group aula-capsule block">
-      <div
-        className="aula-course-art h-36 flex items-end justify-between gap-4 p-5"
-        style={{ background: `linear-gradient(120deg, ${course.gradient[0]}, ${course.gradient[1]})` }}
-      >
-        <div className="relative w-12 h-12 rounded-lg bg-white/15 border border-white/25 backdrop-blur flex items-center justify-center text-white text-xl">
-          <Icon name={course.icon as IconName} />
-        </div>
-        <span className="relative rounded-md border border-white/25 bg-black/20 px-2.5 py-1 font-[family-name:var(--font-code)] text-xs text-white">
-          cap.{String(index + 1).padStart(2, "0")}
-        </span>
-      </div>
-      <div className="p-6">
-        <div className="aula-meta mb-2 text-zinc-500">/cursos/{course.slug}</div>
-        <h3 className="font-display font-bold text-xl text-white group-hover:text-fuchsia-300 transition-colors">
-          {course.title}
-        </h3>
-        <p className="mt-2 text-sm text-zinc-400 leading-relaxed">{course.desc}</p>
-        {guidance && <p className="mt-4 text-sm text-zinc-300 leading-relaxed border-l-2 border-emerald-500/40 pl-3"><strong className="text-zinc-100">Terminas con:</strong> {guidance.deliverable}</p>}
-        <div className="mt-4 flex flex-wrap items-center gap-2">
-          <span className="aula-chip"><Icon name="chart" /> {course.level}</span>
-          <span className="aula-chip" data-tone="cyan"><Icon name="book" /> {totalLecciones(course)} lecciones</span>
-          {course.pdf && <span className="aula-chip" data-tone="amber"><Icon name="pdf" /> PDF</span>}
-          <span className="aula-chip" data-tone="green">open</span>
-          {guidance && <span className="aula-chip"><Icon name="calendar" /> ≈ {guidance.estimatedHours} h</span>}
-          <span className="aula-chip" title={`Última actualización: ${course.updatedAt}`}><Icon name="calendar" /> Actualizado: {formatCourseUpdatedAt(course.updatedAt)}</span>
-        </div>
-      </div>
+    <Link href={`/cursos/${course.slug}`} className="group aula-panel p-5 flex items-start gap-4 hover:border-violet-500/40">
+      <span className="aula-icon flex-none text-violet-300"><Icon name={course.icon as IconName} /></span>
+      <span className="min-w-0 flex-1">
+        <strong className="font-display text-base text-zinc-100 group-hover:text-fuchsia-200">{course.title}</strong>
+        <span className="block mt-1 text-sm text-zinc-500 leading-relaxed">{course.short}</span>
+        <span className="block mt-3 aula-meta text-zinc-600">{course.level} · {totalLecciones(course)} lecciones</span>
+      </span>
+      <span aria-hidden="true" className="text-zinc-600 group-hover:text-violet-300">→</span>
     </Link>
   );
 }
@@ -151,8 +122,7 @@ export default function Cursos() {
       </div>
 
       <section className="aula-frame p-6 sm:p-8 mb-8">
-        <div className="grid lg:grid-cols-[1fr_280px] gap-8 items-end">
-          <div>
+          <div className="max-w-4xl">
             <span className="aula-section-label">
               <Icon name="capsule" /> Biblioteca de cápsulas
             </span>
@@ -169,23 +139,8 @@ export default function Cursos() {
               <span className="aula-chip" data-tone="cyan"><Icon name="globe" /> En español</span>
               <span className="aula-chip" data-tone="amber"><Icon name="check" /> Proyectos verificables</span>
             </div>
+          <p className="mt-5 aula-meta text-zinc-500">{cursos.length} cursos · {leccionesTotales} lecciones</p>
           </div>
-
-          <div className="grid grid-cols-2 gap-3">
-            <div className="aula-panel p-4">
-              <div className="aula-meta text-zinc-500">cursos</div>
-              <div className="font-display text-3xl font-bold text-white mt-1">{cursos.length}</div>
-            </div>
-            <div className="aula-panel p-4">
-              <div className="aula-meta text-zinc-500">lecciones</div>
-              <div className="font-display text-3xl font-bold text-white mt-1">{leccionesTotales}</div>
-            </div>
-            <div className="aula-panel p-4 col-span-2">
-              <div className="aula-meta text-zinc-500">formato</div>
-              <div className="font-display text-xl font-bold text-white mt-1">web + PDF</div>
-            </div>
-          </div>
-        </div>
       </section>
 
       <section className="aula-panel p-5 sm:p-6 mb-8" aria-labelledby="catalog-help-title">
@@ -197,6 +152,9 @@ export default function Cursos() {
           </div>
           <Link href="/que-aprender-ia" className="aula-button aula-button-primary shrink-0"><Icon name="rocket" /> Elegir mi primer paso</Link>
         </div>
+        <p className="mt-3 text-sm text-[var(--text-secondary)]">
+          ¿Ya programas? Ve directamente al <Link href="/curso-codex-espanol" className="font-semibold text-[var(--accent)] underline underline-offset-4">curso de Codex en español</Link>.
+        </p>
       </section>
 
       <details className="aula-disclosure aula-panel mb-10" aria-labelledby="course-goals-title">
@@ -222,13 +180,13 @@ export default function Cursos() {
       <div className="mb-6">
         <span className="aula-section-label"><Icon name="book" /> Biblioteca completa</span>
         <h2 className="mt-2 font-display text-2xl font-bold text-white">Abre solo el bloque que necesitas</h2>
-        <p className="mt-2 max-w-3xl text-zinc-400">«Empieza desde cero» aparece abierto. Los bloques técnicos y de aplicación quedan disponibles sin competir por tu atención.</p>
+        <p className="mt-2 max-w-3xl text-zinc-400">Todos los bloques empiezan cerrados. Abre únicamente el que coincide con tu objetivo.</p>
       </div>
 
       {courseGroups.map((group) => {
         const groupCourses = group.slugs.map((slug) => cursos.find((course) => course.slug === slug)).filter((course): course is Curso => Boolean(course));
         return (
-          <details id={group.id} key={group.id} open={group.id === "empezar"} className="aula-disclosure aula-panel mb-5 scroll-mt-24">
+          <details id={group.id} key={group.id} className="aula-disclosure aula-panel mb-5 scroll-mt-24">
             <summary className="flex cursor-pointer list-none items-center justify-between gap-5 p-5 sm:p-6">
               <span>
                 <strong id={`${group.id}-title`} className="font-display text-xl sm:text-2xl font-bold text-white">{group.title}</strong>
@@ -237,7 +195,7 @@ export default function Cursos() {
               <span className="flex shrink-0 items-center gap-3"><span className="aula-chip" data-tone={group.id === "empezar" ? "green" : "cyan"}>{groupCourses.length} cursos</span><Icon name="chevronRight" className="aula-disclosure-icon text-zinc-500" /></span>
             </summary>
             <div className="border-t border-zinc-800 p-5 sm:p-6">
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid md:grid-cols-2 gap-3">
                 {groupCourses.map((course) => <CourseCard key={course.slug} course={course} />)}
               </div>
             </div>
