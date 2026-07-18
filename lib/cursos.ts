@@ -47,7 +47,7 @@ export const cursos: Curso[] = [
     short: "Entiende, usa y verifica la IA generativa antes de elegir una herramienta",
     desc: "Curso breve para cualquier persona que quiere aprender inteligencia artificial con criterio: modelos, chat, RAG, agentes, contexto, verificación, privacidad, herramientas y un primer proyecto propio.",
     level: "Cero absoluto",
-    updatedAt: courseCatalogUpdatedAt,
+    updatedAt: "2026-07-19",
     icon: "sparkle",
     gradient: ["#f59e0b", "#ec4899"],
     availableInEnglish: false,

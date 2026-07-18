@@ -216,6 +216,10 @@ Una **alucinación** es una afirmación que parece segura pero no está sustenta
 3. **Separa hecho, inferencia y propuesta.** No tienen el mismo nivel de certeza.
 4. **Guarda la evidencia.** Una URL, una captura fechada, una fórmula o una prueba repetible.
 
+Preguntar lo mismo a varios modelos puede ayudarte a descubrir discrepancias, pero **no convierte una respuesta en verdadera**. Los modelos pueden repetir el mismo dato secundario, el mismo error o una formulación muy extendida. La comprobación termina en la fuente primaria o en una prueba reproducible, no en una votación entre asistentes.
+
+Tampoco necesitas pedir el razonamiento interno del modelo. Solicita algo que sí puedas examinar: fuentes, cálculos, supuestos, fragmentos del documento y criterios utilizados. Después compruébalos fuera de la respuesta.
+
 > En educación, la IA puede ayudarte a formular preguntas o estructurar un texto. No debe ocultar qué aprendiste, qué verificaste y qué parte procede de una fuente.
 
 La orientación de UNESCO sobre IA generativa en educación propone un uso centrado en las personas, con privacidad, validación ética y diseño pedagógico. Para sistemas con riesgo, el marco AI RMF de NIST sirve como referencia para pensar en responsabilidades y controles.
@@ -249,6 +253,12 @@ Los modelos y planes cambian con frecuencia. Por eso una lista fija de «el mejo
 | Control | ¿Puedes limitar herramientas, exportar datos y revisar resultados? |
 
 Un modelo local puede aportar control de datos, pero exige equipo, instalación, mantenimiento y evaluación. Una API puede dar capacidades y velocidad, pero añade coste variable, gestión de claves y dependencia de un proveedor. Un chat comercial puede ser cómodo para tareas puntuales, pero no sustituye un proceso de trabajo.
+
+### «Open weights» no siempre significa «open source»
+
+Que puedas descargar los pesos de un modelo no demuestra que tengas libertad para cualquier uso, acceso suficiente al proceso de entrenamiento o todos los elementos necesarios para estudiarlo y modificarlo. Antes de recomendar un modelo de Hugging Face, abre su model card y comprueba como mínimo: autor, licencia, uso previsto, limitaciones, modelo base, datos declarados, evaluación y requisitos de ejecución. Si alguno no consta, anótalo como una incertidumbre; no lo completes por intuición.
+
+La Open Source Initiative distingue expresamente los pesos accesibles de un sistema de IA verdaderamente open source. Para Aulafy, «abierto», «open weights», «código abierto» y «open source AI» no son etiquetas intercambiables.
 
 ### Prueba justa en una hora
 
@@ -318,6 +328,12 @@ Entregable: una imagen y una descripción alternativa de 120 caracteres.
 
 El resultado no se publica solo. Comprueba legibilidad, coherencia con el mensaje, licencia y si puede confundir al público.
 
+### Un detector no demuestra quién escribió un texto
+
+Los detectores automáticos pueden producir falsos positivos, cambiar de resultado ante pequeñas modificaciones y perjudicar especialmente a personas que escriben en una lengua que no dominan. Úsalos, como máximo, como una señal débil que exige contexto adicional; nunca como prueba suficiente para acusar, sancionar o atribuir autoría.
+
+Para demostrar un proceso creativo son más útiles los borradores, fuentes, decisiones, historial de cambios y una declaración honesta de qué ayuda se utilizó. «Hacer que un texto no parezca IA» no es el objetivo educativo: el objetivo es que el trabajo sea propio, transparente y defendible.
+
 ### Práctica
 
 Diseña un encargo multimodal para tu proyecto final. Incluye audiencia, propósito, restricciones y la alternativa accesible que acompañará el resultado.
@@ -379,5 +395,8 @@ Tu proyecto está listo cuando puedes responder «sí» a todo:
 - [NIST: AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) — marco voluntario para gestionar riesgos de IA.
 - [OWASP Top 10 for LLM Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/) — riesgos y controles habituales al integrar LLM en productos.
 - [Regulatory framework for AI de la Comisión Europea](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai) — información oficial para seguir el marco europeo aplicable.
+- [Open Source AI Definition 1.0 de OSI](https://opensource.org/ai/open-source-ai-definition) — libertades y elementos necesarios para hablar de IA open source.
+- [Hugging Face: Model Cards](https://huggingface.co/docs/hub/en/model-cards) — campos que deben documentar uso, licencia, limitaciones, datos y evaluación de un modelo.
+- [Liang et al.: sesgo de detectores contra autores no nativos en inglés](https://arxiv.org/abs/2304.02819) — evidencia primaria sobre falsos positivos y límites de estos detectores.
 
 Las políticas, precios, capacidades y condiciones de las herramientas cambian. Verifica siempre la documentación oficial y las obligaciones aplicables a tu contexto antes de usar IA con datos reales o acciones externas.
