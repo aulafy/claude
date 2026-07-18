@@ -15,7 +15,7 @@ export default function Cookies() {
         <Icon name="cookie" className="mt-1 text-2xl text-violet-400 flex-none" />
         <h1 className="min-w-0 text-3xl sm:text-4xl font-bold leading-tight text-white">Política de cookies</h1>
       </div>
-      <p className="text-sm text-zinc-500 mb-8">Última actualización: 15 de julio de 2026</p>
+      <p className="text-sm text-zinc-500 mb-8">Última actualización: 18 de julio de 2026</p>
 
       <div className="prose">
         <p>
@@ -25,24 +25,15 @@ export default function Cookies() {
 
         <h2>Por qué no ves un banner de cookies</h2>
         <p>
-          No mostramos un banner de consentimiento porque no instalamos cookies no
-          esenciales. Los cursos se pueden leer sin aceptar nada, registrarse ni
-          suscribirse.
+          No mostramos un banner de consentimiento porque Aulafy no instala cookies.
+          Los cursos se pueden leer sin aceptar nada, registrarse ni suscribirse.
         </p>
 
-        <h2>Preferencia de modo claro u oscuro</h2>
+        <h2>Preferencias y progreso</h2>
         <p>
-          Para recordar si prefieres el modo día o noche, Aulafy guarda en tu
-          navegador una preferencia local llamada <code>aulafy-theme</code>. No es
-          una cookie, no se envía al servidor y puedes eliminarla borrando los
-          datos del sitio desde la configuración de tu navegador.
-        </p>
-
-        <h2>Progreso de los cursos</h2>
-        <p>
-          Las lecciones completadas se guardan en almacenamiento local bajo la
-          clave <code>aulafy:progress:v1</code>. Este dato permanece en tu navegador
-          y no se envía al servidor.
+          Aulafy tampoco usa almacenamiento local para recordar el tema, una sesión
+          o el progreso. Las respuestas de las prácticas viven únicamente en la
+          memoria temporal de la página y desaparecen al recargarla.
         </p>
 
         <h2>Servicios externos</h2>
@@ -54,9 +45,9 @@ export default function Cookies() {
 
         <h2>Cambios futuros</h2>
         <p>
-          Si en el futuro Aulafy incorpora cuentas, analítica, publicidad u otra
-          cookie no esencial, esta política se actualizará y se pedirá
-          consentimiento cuando sea obligatorio.
+          Si en el futuro Aulafy incorpora cuentas, analítica, publicidad o cookies,
+          esta política se actualizará antes de activar esas funciones y se pedirá
+          consentimiento cuando corresponda.
         </p>
 
         <h2>Contacto</h2>

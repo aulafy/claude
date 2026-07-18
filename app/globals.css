@@ -837,3 +837,49 @@ html.light .callout-orange {
     font-size: 0.8125rem;
   }
 }
+
+.sessionless-practice {
+  margin: 2rem 0;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--brand-cyan) 28%, var(--border));
+  border-radius: 1rem;
+  background: linear-gradient(145deg, color-mix(in srgb, var(--brand-cyan) 7%, var(--panel)), var(--panel));
+}
+
+.sessionless-practice__header { display: flex; justify-content: space-between; gap: 1.5rem; padding: 1.5rem; }
+.sessionless-practice__header h2 { margin-top: .55rem; font-family: var(--font-sora); font-size: clamp(1.25rem, 3vw, 1.7rem); font-weight: 800; color: var(--text); }
+.sessionless-practice__header p { max-width: 45rem; margin-top: .65rem; line-height: 1.65; color: var(--muted); }
+.sessionless-practice__privacy { align-self: flex-start; flex: none; border: 1px solid color-mix(in srgb, #34d399 35%, var(--border)); border-radius: 999px; padding: .45rem .7rem; color: #6ee7b7; font-size: .72rem; font-weight: 700; }
+.sessionless-practice__result { display: grid; gap: .25rem; padding: 1rem 1.5rem; border-block: 1px solid var(--border); background: color-mix(in srgb, var(--brand-fuchsia) 5%, transparent); }
+.sessionless-practice__result strong { color: var(--text); font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; }
+.sessionless-practice__result span { color: var(--muted); }
+.sessionless-practice fieldset { border: 0; padding: 1.5rem; }
+.sessionless-practice legend { width: 100%; margin-bottom: 1rem; font-family: var(--font-sora); font-weight: 700; color: var(--text); }
+.sessionless-practice legend span { float: right; font-family: var(--font-geist-sans); color: var(--muted); font-size: .75rem; font-weight: 500; }
+.sessionless-practice__steps { display: grid; gap: .6rem; }
+.sessionless-practice__steps label { display: flex; align-items: flex-start; gap: .75rem; border: 1px solid var(--border); border-radius: .75rem; padding: .85rem; cursor: pointer; color: var(--muted); background: color-mix(in srgb, var(--panel-soft) 60%, transparent); }
+.sessionless-practice__steps label.is-checked { border-color: color-mix(in srgb, #34d399 50%, var(--border)); color: var(--text); }
+.sessionless-practice__steps input { position: absolute; opacity: 0; pointer-events: none; }
+.sessionless-practice__steps label:focus-within { outline: 2px solid var(--brand-cyan); outline-offset: 2px; }
+.sessionless-practice__step-number { display: grid; place-items: center; flex: none; width: 1.6rem; height: 1.6rem; border-radius: 50%; background: var(--panel-soft); color: var(--brand-cyan); font-size: .75rem; font-weight: 800; }
+.sessionless-practice__question { border-top: 1px solid var(--border) !important; }
+.sessionless-practice__question > p { margin-bottom: 1rem; line-height: 1.6; color: var(--text); }
+.sessionless-practice__options { display: grid; gap: .65rem; }
+.sessionless-practice__options button { display: flex; gap: .75rem; align-items: flex-start; width: 100%; border: 1px solid var(--border); border-radius: .75rem; padding: .85rem; text-align: left; color: var(--muted); background: var(--panel-soft); }
+.sessionless-practice__options button:hover { border-color: var(--brand-cyan); color: var(--text); }
+.sessionless-practice__options button:focus-visible { outline: 2px solid var(--brand-cyan); outline-offset: 2px; }
+.sessionless-practice__options button > span { display: grid; place-items: center; flex: none; width: 1.5rem; height: 1.5rem; border-radius: .35rem; background: var(--panel); font-size: .7rem; font-weight: 800; }
+.sessionless-practice__options button.is-correct { border-color: #34d399; color: var(--text); }
+.sessionless-practice__options button.is-wrong { border-color: #fb923c; color: var(--text); }
+.sessionless-practice__feedback { display: flex; gap: .65rem; margin: 0 1.5rem 1.5rem; border-radius: .75rem; padding: .9rem 1rem; background: var(--panel-soft); color: var(--muted); line-height: 1.5; }
+.sessionless-practice__feedback.is-correct { background: color-mix(in srgb, #34d399 12%, var(--panel)); color: #a7f3d0; }
+.sessionless-practice__feedback.is-wrong { background: color-mix(in srgb, #fb923c 12%, var(--panel)); color: #fed7aa; }
+.sessionless-practice__evidence { margin: 0 1.5rem 1.5rem; border: 1px solid var(--border); border-radius: .75rem; padding: 1rem; }
+.sessionless-practice__evidence summary { cursor: pointer; color: var(--text); font-weight: 700; }
+.sessionless-practice__evidence pre { margin: 1rem 0 0; white-space: pre-wrap; }
+.sessionless-practice__footnote { padding: 0 1.5rem 1.5rem; color: var(--muted); font-size: .75rem; line-height: 1.5; }
+
+@media (max-width: 700px) {
+  .sessionless-practice__header { flex-direction: column; }
+  .sessionless-practice__privacy { align-self: flex-start; }
+}

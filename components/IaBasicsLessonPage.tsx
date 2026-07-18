@@ -5,11 +5,13 @@ import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import { Chapter, ChapterNav } from "@/components/Book";
 import Icon from "@/components/Icon";
+import SessionlessPractice from "@/components/SessionlessPractice";
 import {
   IA_BASICS_COURSE_SLUG,
   getIaBasicsLesson,
   iaBasicsLessons,
 } from "@/lib/ia-basics-course-content";
+import { getSessionlessPractice } from "@/lib/sessionless-practices";
 
 const COURSE_HREF = `/cursos/${IA_BASICS_COURSE_SLUG}`;
 const COURSE_LABEL = "IA desde cero";
@@ -60,6 +62,7 @@ export default function IaBasicsLessonPage({ slug }: { slug: string }) {
   const index = iaBasicsLessons.findIndex((item) => item.slug === slug);
   const prev = iaBasicsLessons[index - 1];
   const next = iaBasicsLessons[index + 1];
+  const practice = getSessionlessPractice(slug);
 
   return (
     <Chapter
@@ -84,6 +87,10 @@ export default function IaBasicsLessonPage({ slug }: { slug: string }) {
           <Icon name="shield" /> Sin herramienta obligatoria
         </span>
       </div>
+
+      {practice ? <SessionlessPractice practice={practice} /> : null}
+
+      <h2 className="mb-4 mt-10 font-display text-2xl font-bold text-white">Explicación, ejemplos y práctica completa</h2>
 
       <div className="prose codex-zero-prose">
         <ReactMarkdown

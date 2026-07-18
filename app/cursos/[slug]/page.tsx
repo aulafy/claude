@@ -213,7 +213,7 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
               </details>
             ) : null}
             <p className="mt-4 aula-meta text-zinc-600">
-              Sin registro. Tu progreso se guarda solo en este navegador. <a href={`#progress-${curso.slug}`} className="text-cyan-300 hover:text-cyan-200">Haz una copia antes de cambiar de equipo o borrar datos.</a>
+              Sin registro, cookies ni seguimiento. Aulafy no guarda tu progreso. <a href={`#progress-${curso.slug}`} className="text-cyan-300 hover:text-cyan-200">Cómo funciona la privacidad.</a>
             </p>
           </div>
 
