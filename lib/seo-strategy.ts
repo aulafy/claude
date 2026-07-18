@@ -19,7 +19,7 @@ export const spanishSearchIntents = [
     primaryQuery: "aprender IA",
     variants: ["aprender inteligencia artificial", "IA desde cero", "cómo aprender IA"],
     canonical: "/rutas",
-    linkHref: "/rutas#desde-cero",
+    linkHref: "/rutas?ruta=desde-cero#desde-cero",
     linkLabel: "Aprender IA desde cero",
     linkDescription: "Elige un itinerario según tu experiencia y el resultado que quieres conseguir.",
   },

@@ -106,12 +106,21 @@ const coreEntries: SeoIndexEntry[] = [
   },
   {
     route: "/que-aprender-ia",
-    title: "Qué aprender de IA: elige tu primer paso",
-    description: "Guía para elegir qué aprender de inteligencia artificial según tu objetivo: empezar, estudiar, trabajar, crear webs o construir sistemas de IA.",
+    title: "Empieza con IA: elige tu primer paso",
+    description: "Guía para empezar a aprender inteligencia artificial según tu objetivo: estudiar, trabajar, crear webs, programar o construir sistemas de IA.",
     language: "es",
     kind: "core",
     priority: 0.93,
     changeFrequency: "monthly",
+  },
+  {
+    route: "/proyectos",
+    title: "Proyectos de IA guiados: aprende construyendo",
+    description: "Elige un proyecto práctico de IA: primer resultado, web, automatización, RAG, agentes, SaaS geoespacial o plataforma privada.",
+    language: "es",
+    kind: "core",
+    priority: 0.91,
+    changeFrequency: "weekly",
   },
   {
     route: "/en/paths",

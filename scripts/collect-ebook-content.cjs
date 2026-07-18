@@ -111,14 +111,32 @@ function getPageComponent(file) {
   return mod.default || mod;
 }
 
-function render(file) {
+function renderComponent(Component, props = {}) {
   try {
-    const Component = getPageComponent(file);
-    const html = ReactDOMServer.renderToStaticMarkup(React.createElement(Component));
+    const html = ReactDOMServer.renderToStaticMarkup(React.createElement(Component, props));
     return extractBlocks(html);
   } catch (error) {
     return [{ type: "p", text: `No se pudo extraer automaticamente esta leccion: ${error.message}` }];
   }
+}
+
+function render(file) {
+  return renderComponent(getPageComponent(file));
+}
+
+const generatedLessonComponents = {
+  "crear-webs-con-ia": "components/WebAiLessonPage.tsx",
+  "ia-desde-cero": "components/IaBasicsLessonPage.tsx",
+};
+
+function renderLesson(courseSlug, lesson) {
+  const directPage = `app/cursos/${courseSlug}/${lesson.slug}/page.tsx`;
+  if (fs.existsSync(path.join(root, directPage))) return render(directPage);
+
+  const componentFile = generatedLessonComponents[courseSlug];
+  if (componentFile) return renderComponent(getPageComponent(componentFile), { slug: lesson.slug });
+
+  return [{ type: "p", text: "No se pudo extraer automaticamente esta leccion." }];
 }
 
 const { cursos, lecciones } = require(path.join(root, "lib", "cursos.ts"));
@@ -138,7 +156,7 @@ const ebook = {
       slug: lesson.slug,
       title: lesson.title,
       href: `/cursos/${course.slug}/${lesson.slug}`,
-      blocks: render(`app/cursos/${course.slug}/${lesson.slug}/page.tsx`),
+      blocks: renderLesson(course.slug, lesson),
     })),
   })),
 };

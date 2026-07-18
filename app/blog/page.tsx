@@ -5,7 +5,7 @@ import Icon from "@/components/Icon";
 import { blogPosts } from "@/lib/blog";
 
 export const metadata: Metadata = {
-  title: "Blog de IA: MCP, agentes y herramientas",
+  title: "Blog de IA en español: guías, comparativas y actualidad",
   description:
     "Guías prácticas sobre IA en español: MCP, agentes, Claude Code, herramientas, SEO/AEO, prompts, pymes, IA local y RAG.",
   keywords: [
@@ -54,14 +54,14 @@ export default function BlogPage() {
       <section className="mb-12">
         <div className="aula-chip mb-5" data-tone="cyan">
           <Icon name="search" />
-          Guías para Google, lectores y asistentes de IA
+          Guías para aprender y aplicar IA
         </div>
         <h1 className="font-display font-extrabold text-4xl sm:text-5xl text-white max-w-4xl">
-          Blog de IA en español: MCP, agentes, herramientas y guías prácticas
+          Guías y actualidad sobre inteligencia artificial
         </h1>
         <p className="mt-5 lesson-lead max-w-3xl">
-          Artículos pensados para búsquedas reales: MCP, agentes, mejores herramientas de IA, comparativas entre modelos,
-          SEO/AEO, prompts, casos de uso para pymes, IA local y RAG. Sin relleno: cada post enlaza a cursos y proyectos de Aulafy.
+          Explicaciones prácticas, comparativas y análisis para entender qué está cambiando y qué merece realmente la pena aprender.
+          Cada guía enlaza a cursos y proyectos para que puedas pasar de la lectura a la práctica.
         </p>
       </section>
 

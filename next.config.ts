@@ -6,7 +6,6 @@ const leccionesClaudeCode = [
   "primeros-pasos",
   "donde-usar",
   "recetas",
-  "proyectos",
   "prompts",
   "glosario",
   "pymes",

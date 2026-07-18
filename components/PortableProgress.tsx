@@ -10,7 +10,8 @@ import { pluralLabel } from "@/lib/plural";
 const copy = {
   es: {
     title: "Guardar, trasladar o reiniciar el progreso",
-    body: "Tu avance se guarda en este navegador y no se envía a Aulafy. Puedes exportarlo como JSON para recuperarlo o llevarlo a otro equipo.",
+    body: "Tu avance se guarda en este navegador y no se envía a Aulafy. Si borras los datos del navegador o cambias de equipo sin importarlo, no podremos recuperarlo. Exporta un JSON para conservarlo o trasladarlo.",
+    backupHint: "Si este curso te importa, descarga una copia después de cada módulo o antes de limpiar el navegador.",
     export: "Exportar JSON",
     import: "Importar",
     print: "Imprimir resumen",
@@ -23,7 +24,8 @@ const copy = {
   },
   en: {
     title: "Save, move, or reset progress",
-    body: "Your progress stays in this browser. Export it as JSON, move it to another machine, print a summary, or reset this course.",
+    body: "Your progress stays in this browser and is never sent to Aulafy. If you clear browser data or change devices without importing it, we cannot recover it. Export JSON to keep or move it.",
+    backupHint: "If this course matters to you, download a copy after each module or before clearing browser data.",
     export: "Export JSON",
     import: "Import",
     print: "Print summary",
@@ -85,7 +87,7 @@ export default function PortableProgress({ course, locale = "es" }: { course: Cu
   }
 
   return (
-    <details className="aula-disclosure aula-panel mt-8" aria-labelledby={`portable-progress-${course.slug}`}>
+    <details id={`progress-${course.slug}`} className="aula-disclosure aula-panel mt-8 scroll-mt-24" aria-labelledby={`portable-progress-${course.slug}`}>
       <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 sm:p-6">
         <span>
           <span className="aula-section-label"><Icon name="save" /> progreso privado y portable</span>
@@ -98,6 +100,7 @@ export default function PortableProgress({ course, locale = "es" }: { course: Cu
       </summary>
       <div className="border-t border-zinc-800 p-5 sm:p-6">
         <p className="text-sm text-zinc-400 leading-relaxed max-w-2xl">{text.body}</p>
+        <p className="mt-3 flex max-w-2xl gap-2 text-sm leading-relaxed text-amber-200"><Icon name="warning" className="mt-0.5 shrink-0" /> {text.backupHint}</p>
         {message && <p className="mt-3 text-sm text-emerald-300" role="status">{message}</p>}
         <div className="mt-5 flex flex-wrap gap-2">
           <button type="button" onClick={exportProgress} className="aula-button aula-button-secondary">

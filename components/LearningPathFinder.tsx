@@ -29,6 +29,10 @@ const paces: { id: Pace; label: string; detail: string }[] = [
 ];
 
 const courses = {
+  "ia-desde-cero": {
+    title: "IA desde cero",
+    firstWin: "Elegir una tarea de bajo riesgo, pedir un resultado verificable y saber qué parte debes revisar.",
+  },
   "codex-desde-cero": {
     title: "Codex desde cero",
     firstWin: "Trabajar en una carpeta de práctica y obtener un resultado verificable sin arriesgar tus originales.",
@@ -56,8 +60,8 @@ type CourseSlug = keyof typeof courses;
 function recommendation(profile: Profile, goal: Goal) {
   let pathSlug = "desde-cero";
   let pathTitle = "Empieza desde cero, sin programar";
-  let courseSlug: CourseSlug = "codex-desde-cero";
-  let reason = "Primero ganarás control sobre archivos, permisos y verificación; después podrás especializarte sin depender de recetas.";
+  let courseSlug: CourseSlug = "ia-desde-cero";
+  let reason = "Primero aprenderás a plantear una tarea, contrastar una respuesta y proteger tus datos; después podrás elegir una herramienta sin depender de recetas.";
 
   if (goal === "web") {
     pathSlug = "web-saas";
@@ -69,10 +73,8 @@ function recommendation(profile: Profile, goal: Goal) {
   } else if (goal === "trabajo") {
     pathSlug = "negocio-creativo";
     pathTitle = "Aplica IA a tu trabajo o negocio";
-    courseSlug = profile === "cero" ? "codex-desde-cero" : "ia-pymes";
-    reason = profile === "cero"
-      ? "Aprenderás a delegar tareas sin entregar el control de tus datos ni de tu equipo."
-      : "Partirás de un proceso y una métrica reales, no de una herramienta elegida de antemano.";
+    courseSlug = "ia-pymes";
+    reason = "Partirás de un proceso y una métrica reales, no de una herramienta elegida de antemano. Aprenderás a mantener el control de los datos y de la revisión humana.";
   } else if (goal === "programar") {
     pathSlug = "programacion";
     pathTitle = "Programación con agentes de IA";
@@ -184,7 +186,7 @@ export default function LearningPathFinder({ initialProfile }: { initialProfile?
           </div>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link href={`/cursos/${result.courseSlug}`} className="aula-button aula-button-primary"><Icon name="rocket" /> Empezar ahora</Link>
-            <a href={`#${result.pathSlug}`} className="aula-button aula-button-secondary"><Icon name="route" /> Ver la ruta completa</a>
+            <Link href={`/rutas?ruta=${result.pathSlug}#${result.pathSlug}`} className="aula-button aula-button-secondary"><Icon name="route" /> Ver la ruta completa</Link>
           </div>
           <p className="mt-4 text-xs leading-relaxed text-zinc-500">Ruta sugerida: {result.pathTitle}. Puedes cambiar cualquier respuesta; la recomendación se actualiza al instante.</p>
         </div>

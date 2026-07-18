@@ -8,13 +8,12 @@ const socialRoutePrefixes = [
   "/acceso",
   "/cuenta",
   "/perfil",
-  "/proyectos",
   "/admin/moderacion",
   "/auth/callback",
 ];
 
 function isSocialRoute(pathname: string) {
-  return socialRoutePrefixes.some(
+  return pathname.startsWith("/proyectos/") || socialRoutePrefixes.some(
     (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`),
   );
 }

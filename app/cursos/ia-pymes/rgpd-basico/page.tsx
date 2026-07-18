@@ -67,7 +67,7 @@ export default function Page() {
       </Guardar>
 
       <ChapterNav
-        prev={{ href: "/cursos/ia-pymes/mapa", label: "Mapa para pymes" }}
+        prev={{ href: "/cursos/ia-pymes/diagnostico-piloto", label: "Diagnóstico y piloto" }}
         next={{ href: "/cursos/ia-pymes/emails", label: "Emails" }}
       />
     </Chapter>

@@ -160,7 +160,7 @@ export default function Cursos() {
             <div className="mt-5 flex flex-wrap gap-2">
               <span className="aula-chip" data-tone="green"><Icon name="check" /> Gratis</span>
               <span className="aula-chip" data-tone="cyan"><Icon name="globe" /> En español</span>
-              <span className="aula-chip" data-tone="amber"><Icon name="code" /> Código abierto</span>
+              <span className="aula-chip" data-tone="amber"><Icon name="check" /> Proyectos verificables</span>
             </div>
           </div>
 
@@ -188,7 +188,7 @@ export default function Cursos() {
             <h2 id="catalog-help-title" className="mt-2 font-display text-xl font-bold text-white">¿No sabes qué curso elegir?</h2>
             <p className="mt-2 max-w-2xl text-sm leading-relaxed text-zinc-400">Responde tres preguntas y recibe un solo curso para empezar. No necesitas entender todavía nombres como RAG, MLOps o agentes.</p>
           </div>
-          <Link href="/rutas#orientador" className="aula-button aula-button-primary shrink-0"><Icon name="rocket" /> Orientarme en 30 segundos</Link>
+          <Link href="/que-aprender-ia" className="aula-button aula-button-primary shrink-0"><Icon name="rocket" /> Elegir mi primer paso</Link>
         </div>
       </section>
 

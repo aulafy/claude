@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Icon, { type IconName } from "@/components/Icon";
+import { getLocalizedCursos } from "@/lib/i18n";
+import { getLearningPaths } from "@/lib/learning-paths";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 
 export const metadata: Metadata = {
-  title: "Qué aprender de IA: elige tu primer paso",
+  title: "Empieza con IA: elige tu primer paso",
   description:
-    "Descubre qué aprender de inteligencia artificial según tu objetivo: empezar desde cero, estudiar, trabajar, crear una web, automatizar un negocio o construir sistemas de IA.",
+    "Empieza a aprender inteligencia artificial con un primer paso según tu objetivo: estudiar, trabajar, crear una web, programar o construir sistemas de IA.",
   alternates: { canonical: "/que-aprender-ia" },
   openGraph: {
-    title: "Qué aprender de IA: elige tu primer paso | Aulafy",
+    title: "Empieza con IA: elige tu primer paso | Aulafy",
     description: "Una guía clara para elegir una ruta de IA sin perderte entre herramientas, cursos y tendencias.",
     url: "/que-aprender-ia",
     type: "website",
@@ -18,6 +20,7 @@ export const metadata: Metadata = {
 };
 
 type StartingPoint = {
+  pathSlug: string;
   title: string;
   audience: string;
   description: string;
@@ -28,54 +31,46 @@ type StartingPoint = {
   icon: IconName;
 };
 
-const startingPoints: StartingPoint[] = [
+type StartingPointDefinition = Omit<StartingPoint, "firstStep" | "href" | "routeHref">;
+
+const startingPointDefinitions: StartingPointDefinition[] = [
   {
+    pathSlug: "desde-cero",
     title: "Quiero empezar desde cero",
     audience: "No programas, tienes curiosidad o aún no sabes qué aplicación te conviene.",
     description: "Aprende a pedir, revisar y comprobar resultados antes de perseguir herramientas o automatizaciones.",
-    firstStep: "Codex desde cero",
-    href: "/cursos/codex-desde-cero",
-    routeHref: "/rutas#desde-cero",
     routeLabel: "Ruta desde cero",
     icon: "rocket",
   },
   {
+    pathSlug: "negocio-creativo",
     title: "Quiero estudiar o trabajar mejor",
     audience: "Estudias, enseñas, trabajas con documentos o llevas una pequeña empresa.",
     description: "Empieza por una tarea de bajo riesgo y aprende a proteger datos, revisar respuestas y medir si realmente ahorras tiempo.",
-    firstStep: "IA práctica para pymes",
-    href: "/cursos/ia-pymes",
-    routeHref: "/rutas#negocio-creativo",
     routeLabel: "Ruta para trabajo y negocio",
     icon: "briefcase",
   },
   {
+    pathSlug: "web-saas",
     title: "Quiero crear una web o una demo",
     audience: "Tienes una idea, un servicio o un proyecto y quieres verlo funcionar en el navegador.",
     description: "Convierte una necesidad en un briefing, construye un prototipo local y aprende qué cambia cuando publicas una web para otras personas.",
-    firstStep: "Crea webs profesionales con IA",
-    href: "/cursos/crear-webs-con-ia",
-    routeHref: "/rutas#web-saas",
     routeLabel: "Ruta para webs y SaaS",
     icon: "landing",
   },
   {
+    pathSlug: "programacion",
     title: "Quiero programar con agentes de IA",
     audience: "Ya programas, mantienes un repositorio o quieres aprender un flujo técnico fiable.",
     description: "Trabaja con un proceso sencillo: entender el código, acotar el cambio, ejecutar pruebas y revisar lo que hace el agente.",
-    firstStep: "Codex para programadores",
-    href: "/cursos/codex-programadores",
-    routeHref: "/rutas#programacion",
     routeLabel: "Ruta de programación",
     icon: "laptopCode",
   },
   {
+    pathSlug: "sistemas",
     title: "Quiero construir sistemas de IA",
     audience: "Eres perfil técnico y necesitas RAG, agentes, evaluación, observabilidad o despliegue.",
     description: "No empieces por un agente con permisos totales: aprende primero la base reproducible que permite medir, limitar y recuperar un sistema.",
-    firstStep: "Fundamentos para Aulafy",
-    href: "/cursos/fundamentos-aulafy",
-    routeHref: "/rutas#sistemas",
     routeLabel: "Ruta de sistemas de IA",
     icon: "network",
   },
@@ -101,12 +96,26 @@ const faqs = [
 ];
 
 export default function QueAprenderIaPage() {
+  const paths = getLearningPaths("es");
+  const courses = getLocalizedCursos("es");
+  const startingPoints: StartingPoint[] = startingPointDefinitions.flatMap((definition) => {
+    const path = paths.find((item) => item.slug === definition.pathSlug);
+    const firstCourse = path && courses.find((course) => course.slug === path.courses[0]);
+    if (!path || !firstCourse) return [];
+
+    return [{
+      ...definition,
+      firstStep: path.firstStep,
+      href: `/cursos/${firstCourse.slug}`,
+      routeHref: `/rutas?ruta=${path.slug}#${path.slug}`,
+    }];
+  });
   const breadcrumbLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Inicio", item: SITE_URL },
-      { "@type": "ListItem", position: 2, name: "Qué aprender de IA", item: `${SITE_URL}/que-aprender-ia` },
+      { "@type": "ListItem", position: 2, name: "Empieza con IA", item: `${SITE_URL}/que-aprender-ia` },
     ],
   };
   const faqLd = {
@@ -127,16 +136,16 @@ export default function QueAprenderIaPage() {
       <div className="mb-4 aula-meta">
         <Link href="/" className="hover:text-zinc-300">Inicio</Link>
         <span className="mx-2">/</span>
-        <span className="text-zinc-400">Qué aprender de IA</span>
+        <span className="text-zinc-400">Empieza con IA</span>
       </div>
 
       <header className="aula-frame p-7 sm:p-10">
-        <span className="aula-section-label"><Icon name="route" /> Orientación para aprender</span>
-        <h1 className="mt-4 max-w-4xl font-display text-4xl font-extrabold leading-tight text-white sm:text-5xl">¿Qué aprender de IA según lo que quieres conseguir?</h1>
+        <span className="aula-section-label"><Icon name="route" /> Empieza aquí</span>
+        <h1 className="mt-4 max-w-4xl font-display text-4xl font-extrabold leading-tight text-white sm:text-5xl">Aprende IA empezando por un resultado que te importe</h1>
         <p className="lesson-lead mt-5 max-w-3xl">No necesitas entender todas las herramientas ni elegir una profesión hoy. Elige una situación que se parezca a la tuya, consigue un primer resultado y abre la siguiente parte de la ruta solo cuando la necesites.</p>
         <div className="mt-7 flex flex-wrap gap-3">
           <a href="#elige-objetivo" className="aula-button aula-button-primary"><Icon name="rocket" /> Elegir mi punto de partida</a>
-          <Link href="/rutas#orientador" className="aula-button aula-button-secondary"><Icon name="route" /> Usar el orientador de 30 segundos</Link>
+          <Link href="/rutas#orientador" className="aula-button aula-button-secondary"><Icon name="route" /> Prefiero responder tres preguntas</Link>
         </div>
       </header>
 
@@ -146,7 +155,7 @@ export default function QueAprenderIaPage() {
         <p className="mt-3 max-w-3xl leading-relaxed text-zinc-400">No son niveles de prestigio. Son puntos de entrada: puedes cambiar de ruta más adelante y no tienes que terminar un catálogo completo para construir algo útil.</p>
         <div className="mt-7 grid gap-5 lg:grid-cols-2">
           {startingPoints.map((point) => (
-            <article key={point.title} className="aula-panel flex flex-col p-6 sm:p-7">
+            <article id={`ruta-${point.pathSlug}`} key={point.title} className="aula-panel flex flex-col p-6 sm:p-7">
               <div className="flex items-start gap-4">
                 <span className="aula-icon text-xl text-cyan-300"><Icon name={point.icon} /></span>
                 <div>

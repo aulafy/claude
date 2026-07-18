@@ -36,27 +36,35 @@ export default function SiteHeader({ locale = "es" }: { locale?: Locale }) {
           <BrandIcon id="lg-site" className="w-8 h-8" />
           <span className="flex flex-col leading-none">
             <span className="font-display font-bold text-white text-lg">Aulafy</span>
-            <span className="hidden sm:block aula-meta text-[10px] text-zinc-500">open-source learning</span>
+            <span className="hidden sm:block aula-meta text-[10px] text-zinc-500">{isEnglish ? "open learning" : "educación abierta"}</span>
           </span>
         </Link>
         <div className="flex items-center gap-2">
           <Link
-            href={isEnglish ? "/en/paths" : "/que-aprender-ia"}
+            href={isEnglish ? "/en/paths" : "/rutas"}
             className="hidden! md:inline-flex! aula-button aula-button-secondary min-h-9 px-3 py-2 text-sm"
           >
             <Icon name="route" />
-            {isEnglish ? "Learn" : "Qué aprender"}
+            {isEnglish ? "Learn" : "Rutas"}
           </Link>
           <Link
             href={isEnglish ? "/en/courses" : "/cursos"}
             className="hidden! sm:inline-flex! aula-button aula-button-secondary min-h-9 px-3 py-2 text-sm"
           >
             <Icon name="book" />
-            {isEnglish ? "Library" : "Biblioteca"}
+            {isEnglish ? "Courses" : "Cursos"}
           </Link>
+          {!isEnglish && (
+            <Link
+              href="/proyectos"
+              className="hidden! xl:inline-flex! aula-button aula-button-secondary min-h-9 px-3 py-2 text-sm"
+            >
+              <Icon name="hammer" /> Proyectos
+            </Link>
+          )}
           <Link
             href="/blog"
-            className="hidden! xl:inline-flex! aula-button aula-button-secondary min-h-9 px-3 py-2 text-sm"
+            className="hidden! 2xl:inline-flex! aula-button aula-button-secondary min-h-9 px-3 py-2 text-sm"
           >
             <Icon name="search" />
             {isEnglish ? "Spanish blog" : "Blog"}
@@ -69,7 +77,7 @@ export default function SiteHeader({ locale = "es" }: { locale?: Locale }) {
           <LanguageSwitch />
           <ThemeToggle compact />
           <Link
-            href={isEnglish ? "/en/paths" : "/rutas#orientador"}
+            href={isEnglish ? "/en/paths" : "/que-aprender-ia"}
             className="aula-button aula-button-primary min-h-9 px-3 py-2 text-sm"
           >
             <Icon name="rocket" />

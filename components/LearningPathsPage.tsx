@@ -10,13 +10,13 @@ const copy = {
   es: {
     home: "Inicio", title: "Aprender IA desde cero: rutas por nivel y objetivo", lead: "No necesitas saber programar ni recorrer todo Aulafy. Recibe un primer paso según tu situación y abre el resto de la ruta solo cuando lo necesites.",
     path: "Ruta", entry: "Nivel de entrada", first: "Primer paso", audience: "Para quién", result: "Resultado", lessons: "lecciones", start: "Empezar esta ruta", recommended: "Empieza aquí", nextCourses: "Ver los siguientes cursos", firstSession: "Primera sesión: 30–60 min",
-    startingTitle: "Tres puntos de partida", startingLead: "Estas rutas sirven para empezar. El orientador de arriba te recomienda una según tu objetivo concreto.", specializationTitle: "Especializaciones", specializationLead: "No tienes que decidirlas hoy. Vuelve cuando ya sepas qué quieres construir o profundizar.",
+    startingTitle: "Tres puntos de partida", startingLead: "Estas rutas sirven para empezar. El orientador de arriba te recomienda una según tu objetivo concreto.", specializationTitle: "Especializaciones", specializationLead: "No tienes que decidirlas hoy. Vuelve cuando ya sepas qué quieres construir o profundizar.", showSpecializations: "Explorar especializaciones cuando tengas una base",
     note: "Las duraciones son orientativas. Avanza cuando puedas explicar el resultado, mostrar una evidencia y repetir la práctica sin copiar los pasos.",
   },
   en: {
     home: "Home", title: "AI learning paths", lead: "You do not need to complete all of Aulafy. Choose the situation closest to yours and reveal the rest of the path only when you need it.",
     path: "Path", entry: "Entry level", first: "First step", audience: "For", result: "Outcome", lessons: "lessons", start: "Start this path", recommended: "Start here", nextCourses: "Show the next courses", firstSession: "First session: 30–60 min",
-    startingTitle: "Recommended starting paths", startingLead: "Choose the closest match. You can change direction after completing the first practical result.", specializationTitle: "Specialisations", specializationLead: "You do not need to choose one today. Return when you know what you want to build or deepen.",
+    startingTitle: "Recommended starting paths", startingLead: "Choose the closest match. You can change direction after completing the first practical result.", specializationTitle: "Specialisations", specializationLead: "You do not need to choose one today. Return when you know what you want to build or deepen.", showSpecializations: "Explore specialisations when you have a foundation",
     note: "Durations are estimates. Move forward when you can explain the result, show evidence, and repeat the practice without copying every step.",
   },
 } satisfies Record<Locale, Record<string, string>>;
@@ -38,7 +38,7 @@ function CourseStep({ course, index, base, lessons, recommended }: { course: Cur
   );
 }
 
-export default function LearningPathsPage({ locale, initialProfile }: { locale: Locale; initialProfile?: string }) {
+export default function LearningPathsPage({ locale, initialProfile, initialPath }: { locale: Locale; initialProfile?: string; initialPath?: string }) {
   const text = copy[locale];
   const courses = getLocalizedCursos(locale);
   const paths = getLearningPaths(locale);
@@ -48,6 +48,7 @@ export default function LearningPathsPage({ locale, initialProfile }: { locale: 
     : ["programming", "applied-ai", "systems"];
   const startingPaths = startingSlugs.map((slug) => paths.find((path) => path.slug === slug)).filter((path): path is LearningPath => Boolean(path));
   const specializationPaths = paths.filter((path) => !startingSlugs.includes(path.slug));
+  const openSpecializations = specializationPaths.some((path) => path.slug === initialPath);
 
   function renderPath(path: LearningPath) {
     const pathIndex = paths.findIndex((item) => item.slug === path.slug);
@@ -128,10 +129,18 @@ export default function LearningPathsPage({ locale, initialProfile }: { locale: 
 
       {specializationPaths.length > 0 && (
         <section className="mt-16" aria-labelledby="specialization-paths-title">
-          <span className="aula-section-label"><Icon name="network" /> Siguiente nivel</span>
-          <h2 id="specialization-paths-title" className="mt-2 font-display text-3xl font-bold text-white">{text.specializationTitle}</h2>
-          <p className="mt-2 max-w-3xl text-zinc-400">{text.specializationLead}</p>
-          <div className="mt-6 grid gap-8">{specializationPaths.map(renderPath)}</div>
+          <h2 id="specialization-paths-title" className="sr-only">{text.specializationTitle}</h2>
+          <details open={openSpecializations} className="aula-disclosure aula-panel">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-5 p-6 sm:p-8">
+              <span>
+                <span className="aula-section-label"><Icon name="network" /> {text.specializationTitle}</span>
+                <strong className="mt-2 block font-display text-2xl text-white sm:text-3xl">{text.showSpecializations} ({specializationPaths.length})</strong>
+                <span className="mt-2 block max-w-3xl text-sm leading-relaxed text-zinc-400">{text.specializationLead}</span>
+              </span>
+              <Icon name="chevronRight" className="aula-disclosure-icon shrink-0 text-zinc-500" />
+            </summary>
+            <div className="grid gap-8 border-t border-zinc-800 p-6 sm:p-8">{specializationPaths.map(renderPath)}</div>
+          </details>
         </section>
       )}
 

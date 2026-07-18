@@ -4,6 +4,20 @@
 export type Leccion = { slug: string; title: string };
 export type Seccion = { title: string; lecciones: Leccion[] };
 export type RecursoCurso = { href: string; label: string; format: string };
+export type FaseItinerario = {
+  title: string;
+  eyebrow: string;
+  description: string;
+  start: number;
+  end: number;
+  recommended?: boolean;
+};
+export type ItinerarioCurso = {
+  headline: string;
+  description: string;
+  primaryHours: number;
+  phases: FaseItinerario[];
+};
 
 export type Curso = {
   slug: string;
@@ -16,10 +30,65 @@ export type Curso = {
   secciones: Seccion[];
   pdf?: string;
   resources?: RecursoCurso[];
+  itinerary?: ItinerarioCurso;
   availableInEnglish?: boolean;
 };
 
 export const cursos: Curso[] = [
+  {
+    slug: "ia-desde-cero",
+    title: "IA desde cero",
+    short: "Entiende, usa y verifica la IA generativa antes de elegir una herramienta",
+    desc: "Curso breve para cualquier persona que quiere aprender inteligencia artificial con criterio: modelos, chat, RAG, agentes, contexto, verificación, privacidad, herramientas y un primer proyecto propio.",
+    level: "Cero absoluto",
+    icon: "sparkle",
+    gradient: ["#f59e0b", "#ec4899"],
+    availableInEnglish: false,
+    resources: [
+      {
+        href: "/recursos/ia-desde-cero/curso-ia-desde-cero.md",
+        label: "Contenido completo en Markdown",
+        format: "MD",
+      },
+    ],
+    secciones: [
+      {
+        title: "Entender sin mitificar",
+        lecciones: [
+          { slug: "que-puede-hacer-ia-generativa", title: "Qué puede hacer la IA generativa y qué no conviene delegarle" },
+          { slug: "modelos-chat-llm", title: "Modelo, chat y LLM: las palabras que necesitas para orientarte" },
+        ],
+      },
+      {
+        title: "Elegir el tipo de ayuda correcto",
+        lecciones: [
+          { slug: "chat-rag-agentes-automatizacion", title: "Chat, automatización, RAG y agentes: no son sinónimos" },
+          { slug: "contexto-tokens-memoria", title: "Contexto, tokens y memoria: por qué la misma pregunta cambia de respuesta" },
+        ],
+      },
+      {
+        title: "Pedir, comprobar y corregir",
+        lecciones: [
+          { slug: "pedir-resultados-utiles", title: "Cómo pedir un resultado útil sin depender de trucos de prompts" },
+          { slug: "alucinaciones-verificar", title: "Alucinaciones: cómo detectar una respuesta convincente pero incorrecta" },
+        ],
+      },
+      {
+        title: "Elegir herramientas y proteger a las personas",
+        lecciones: [
+          { slug: "elegir-modelo-herramienta", title: "Elegir modelo o herramienta según la tarea, no por una clasificación viral" },
+          { slug: "privacidad-derechos-seguridad", title: "Privacidad, derechos y seguridad antes de compartir datos" },
+          { slug: "imagen-voz-video-responsable", title: "Imagen, voz y vídeo: creatividad, licencia y transparencia" },
+        ],
+      },
+      {
+        title: "Convertir comprensión en un resultado propio",
+        lecciones: [
+          { slug: "primer-proyecto-repetible", title: "Tu primer proyecto: una tarea pequeña, comprobada y repetible" },
+        ],
+      },
+    ],
+  },
   {
     slug: "fundamentos-aulafy",
     title: "Fundamentos para Aulafy",
@@ -173,6 +242,49 @@ export const cursos: Curso[] = [
         format: "GITHUB",
       },
     ],
+    itinerary: {
+      headline: "No necesitas completar 47 lecciones para publicar tu primera web",
+      description: "Sigue primero la ruta de publicación. Cuando tengas una base real, elige solo los laboratorios y talleres que respondan a tu proyecto.",
+      primaryHours: 26,
+      phases: [
+        {
+          title: "Ruta de publicación",
+          eyebrow: "EMPIEZA AQUÍ",
+          description: "De la idea al despliegue: briefing, prototipo, diseño, datos, seguridad, SEO y mantenimiento básico.",
+          start: 1,
+          end: 24,
+          recommended: true,
+        },
+        {
+          title: "Extensiones con criterio",
+          eyebrow: "CUANDO LO NECESITES",
+          description: "FAQ, chatbot limitado, agentes y 3D: incorpóralos solo si resuelven una necesidad demostrable.",
+          start: 25,
+          end: 28,
+        },
+        {
+          title: "Laboratorios de fallos",
+          eyebrow: "PRACTICA EN SEGURO",
+          description: "Practica errores reales de responsive, RLS, secretos, entornos y deuda técnica sin arriesgar tu proyecto.",
+          start: 29,
+          end: 38,
+        },
+        {
+          title: "Taller sectorial",
+          eyebrow: "ELIGE UNO",
+          description: "Elige uno de ocho casos: estudiante, restaurante, despacho, clínica, academia, SaaS o METEO técnico.",
+          start: 39,
+          end: 46,
+        },
+        {
+          title: "Proyecto final",
+          eyebrow: "CIERRA LA RUTA",
+          description: "Publica, revisa y deja un plan de mantenimiento para una web que puedas defender y recuperar.",
+          start: 47,
+          end: 47,
+        },
+      ],
+    },
     secciones: [
       {
         title: "Antes de construir",
@@ -801,15 +913,23 @@ export const cursos: Curso[] = [
     slug: "ia-pymes",
     title: "IA para pymes y autónomos",
     short: "Automatiza oficina sin perder control",
-    desc: "Aprende a aplicar IA en tareas reales de negocio: emails, facturas, presupuestos, hojas de cálculo, atención al cliente y RGPD básico con flujos locales y revisables.",
+    desc: "Aprende a aplicar IA en tareas reales de negocio: diagnóstico, emails, facturas, presupuestos, hojas de cálculo, atención al cliente y RGPD básico con flujos locales, cloud o híbridos y siempre revisables.",
     level: "Principiante → intermedio",
     icon: "briefcase",
     gradient: ["#22d3ee", "#8b5cf6"],
+    resources: [
+      {
+        href: "/recursos/ia-pymes/diagnostico-piloto-ia-pymes.md",
+        label: "Plantilla de diagnóstico y piloto",
+        format: "MD",
+      },
+    ],
     secciones: [
       {
         title: "Antes de automatizar",
         lecciones: [
           { slug: "mapa", title: "Mapa de IA útil para una pyme" },
+          { slug: "diagnostico-piloto", title: "Diagnóstico y primer piloto de IA para una pyme" },
           { slug: "rgpd-basico", title: "RGPD básico para usar IA sin sustos" },
         ],
       },
