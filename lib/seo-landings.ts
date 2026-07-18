@@ -358,7 +358,7 @@ export const seoLandings: SeoLanding[] = [
     title: "IA para pymes y autónomos",
     h1: "IA para pymes y autónomos: casos prácticos, RGPD y automatización",
     description:
-      "Aprende IA para pymes en español con ejemplos prácticos: emails, facturas, presupuestos, Excel, WhatsApp, RGPD básico y flujos revisables.",
+      "Aprende IA para pymes en español: diagnóstico, flujos fiables, pruebas, operación mínima, emails, facturas, presupuestos, Excel, RGPD y automatización con control.",
     keywords: ["IA para pymes", "IA autónomos", "automatización pymes IA", "RGPD IA pymes", "IA oficina"],
     icon: "briefcase",
     primaryHref: "/cursos/ia-pymes",
@@ -366,7 +366,7 @@ export const seoLandings: SeoLanding[] = [
     audience:
       "Para autónomos, pequeñas empresas y equipos que quieren ahorrar tiempo en tareas repetitivas sin montar una infraestructura compleja ni regalar datos sensibles.",
     promise:
-      "La ruta empieza por diagnosticar un proceso y medir un piloto; después entra en tareas reales: emails, facturas, presupuestos, hojas de cálculo, atención y mínimos de privacidad.",
+      "La ruta empieza por diagnosticar y medir un piloto; después enseña a convertirlo en un flujo fiable, probar fallos, operar con un responsable y solo entonces automatizar tareas reales.",
     sections: [
       {
         title: "Diagnóstico antes de herramientas",
@@ -389,6 +389,17 @@ export const seoLandings: SeoLanding[] = [
           "Registro de decisiones y revisión.",
         ],
       },
+      {
+        title: "Del piloto a un sistema que se puede explicar",
+        body:
+          "Una demo no basta para operar. Antes de activar permisos, el flujo define su entrada y salida, cita sus fuentes cuando trabaja con documentos, se abstiene si no tiene evidencia y valida lo que va a entregar. Después se prueba contra fallos previsibles y se asigna una persona responsable, logs mínimos, copia y modo manual de respaldo.",
+        bullets: [
+          "Esquema y validación de campos críticos.",
+          "Pruebas normales, ambiguas, erróneas y fuera de alcance.",
+          "Métricas de calidad, coste, tiempo y abstenciones.",
+          "Permisos mínimos y aprobación humana antes de actuar.",
+        ],
+      },
     ],
     examples: [
       "Responder emails frecuentes manteniendo tono de marca.",
@@ -399,6 +410,8 @@ export const seoLandings: SeoLanding[] = [
     related: [
       { title: "Mapa IA pymes", href: "/cursos/ia-pymes/mapa", desc: "Prioriza casos de uso." },
       { title: "Diagnóstico y piloto", href: "/cursos/ia-pymes/diagnostico-piloto", desc: "Plantilla para probar un caso con control." },
+      { title: "De piloto a flujo fiable", href: "/cursos/ia-pymes/flujo-fiable", desc: "Esquema, fuentes, abstención y validación." },
+      { title: "Pruebas y métricas", href: "/cursos/ia-pymes/pruebas-metricas", desc: "Mide fallos antes de dar permisos." },
       { title: "Facturas", href: "/cursos/ia-pymes/facturas", desc: "Extrae datos y revisa errores." },
       { title: "RGPD básico", href: "/cursos/ia-pymes/rgpd-basico", desc: "Reduce riesgos desde el inicio." },
     ],

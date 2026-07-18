@@ -913,7 +913,7 @@ export const cursos: Curso[] = [
     slug: "ia-pymes",
     title: "IA para pymes y autónomos",
     short: "Automatiza oficina sin perder control",
-    desc: "Aprende a aplicar IA en tareas reales de negocio: diagnóstico, emails, facturas, presupuestos, hojas de cálculo, atención al cliente y RGPD básico con flujos locales, cloud o híbridos y siempre revisables.",
+    desc: "Aprende a aplicar IA en tareas reales de negocio: diagnostica un piloto, conviértelo en un flujo fiable, prueba sus fallos y opera con control antes de automatizar emails, facturas, presupuestos o atención.",
     level: "Principiante → intermedio",
     icon: "briefcase",
     gradient: ["#22d3ee", "#8b5cf6"],
@@ -921,6 +921,11 @@ export const cursos: Curso[] = [
       {
         href: "/recursos/ia-pymes/diagnostico-piloto-ia-pymes.md",
         label: "Plantilla de diagnóstico y piloto",
+        format: "MD",
+      },
+      {
+        href: "/recursos/ia-pymes/kit-flujo-fiable-pyme.md",
+        label: "Kit: del piloto al flujo fiable",
         format: "MD",
       },
     ],
@@ -931,6 +936,15 @@ export const cursos: Curso[] = [
           { slug: "mapa", title: "Mapa de IA útil para una pyme" },
           { slug: "diagnostico-piloto", title: "Diagnóstico y primer piloto de IA para una pyme" },
           { slug: "rgpd-basico", title: "RGPD básico para usar IA sin sustos" },
+        ],
+      },
+      {
+        title: "Del piloto al flujo fiable",
+        lecciones: [
+          { slug: "flujo-fiable", title: "De piloto a flujo fiable: esquema, fuentes, abstención y validación" },
+          { slug: "pruebas-metricas", title: "Pruebas de fallo y métricas antes de automatizar" },
+          { slug: "operacion-minima", title: "Operación mínima: logs, responsable, copias y modo degradado" },
+          { slug: "permisos-agentes", title: "Permisos y agentes: automatiza solo cuando el flujo esté listo" },
         ],
       },
       {

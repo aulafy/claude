@@ -49,6 +49,7 @@ function seoTitleFor(slug: string, fallback: string) {
     "grok-45-guia-evaluacion-2026": "Grok 4.5: evaluación sin hype",
     "crear-tutoriales-ia-x-aulafy": "Tutoriales de IA para X sin humo",
     "mcp-2026-07-28-migracion-guia-espanol": "MCP 2026-07-28: guía de migración",
+    "kimi-k3-moonshot-modelo-abierto-2026": "Kimi K3: modelo abierto de 2,8T",
     "mejores-herramientas-ia-gratis-2026": "Mejores herramientas de IA gratis en 2026",
     "chatgpt-vs-claude-vs-gemini-vs-grok-2026": "ChatGPT vs Claude vs Gemini vs Grok",
     "como-usar-ia-para-seo-aeo-2026": "IA para SEO y AEO en 2026",
@@ -92,6 +93,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     mainEntityOfPage: { "@id": `${SITE_URL}/blog/${post.slug}#webpage` },
     isPartOf: { "@id": `${SITE_URL}/#website` },
     keywords: post.keywords.join(", "),
+    ...(post.sources ? { citation: post.sources.map((source) => source.href) } : {}),
   };
 
   const faqLd = {
@@ -190,6 +192,20 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               </div>
             ))}
           </section>
+
+          {post.sources?.length ? (
+            <section>
+              <h2>Fuentes consultadas</h2>
+              <ul>
+                {post.sources.map((source) => (
+                  <li key={source.href}>
+                    <a href={source.href} target="_blank" rel="noreferrer">{source.title}</a>
+                    {source.note ? ` — ${source.note}` : null}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ) : null}
         </div>
 
         <section className="mt-12 border-t border-zinc-800 pt-8">

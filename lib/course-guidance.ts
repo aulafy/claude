@@ -186,10 +186,10 @@ const guidanceEs: Record<string, CourseGuidance> = {
     track: "Aplicaciones prácticas",
     audience: "Autónomos, pequeñas empresas y profesionales de operaciones.",
     prerequisites: ["Conocer una tarea repetitiva de tu negocio", "No hace falta programar"],
-    outcomes: ["Priorizar un caso de uso a partir de su proceso, riesgo y métrica", "Elegir con criterio una opción local, cloud o híbrida", "Automatizar documentos y atención con revisión", "Aplicar privacidad y límites básicos"],
-    deliverable: "Un diagnóstico de piloto y un flujo de oficina revisable, con datos, costes y responsables documentados.",
-    estimatedHours: 7,
-    updated,
+    outcomes: ["Priorizar un caso de uso a partir de su proceso, riesgo y métrica", "Convertir un piloto en un flujo con esquema, fuentes, abstención y validación", "Probar fallos, medir calidad y preparar operación mínima antes de permisos", "Elegir con criterio una opción local, cloud o híbrida"],
+    deliverable: "Un piloto y un flujo de oficina revisable, con contrato de salida, pruebas, costes, responsables, copia y modo degradado documentados.",
+    estimatedHours: 10,
+    updated: "2026-07-18",
   },
 };
 

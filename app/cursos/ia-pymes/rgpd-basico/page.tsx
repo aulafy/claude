@@ -68,7 +68,7 @@ export default function Page() {
 
       <ChapterNav
         prev={{ href: "/cursos/ia-pymes/diagnostico-piloto", label: "Diagnóstico y piloto" }}
-        next={{ href: "/cursos/ia-pymes/emails", label: "Emails" }}
+        next={{ href: "/cursos/ia-pymes/flujo-fiable", label: "De piloto a flujo fiable" }}
       />
     </Chapter>
   );
