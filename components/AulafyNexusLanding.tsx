@@ -3,7 +3,6 @@
 import Link from "next/link";
 import AulafyCoreScene from "@/components/AulafyCoreScene";
 import type { LearningPath } from "@/lib/learning-paths";
-import { spanishSearchIntents } from "@/lib/seo-strategy";
 
 type CoursePreview = { slug: string; title: string; short: string; level: string; lessons: number };
 
@@ -17,7 +16,7 @@ const copy = {
     telemetry: ["CURSOS", "LECCIONES", "ACCESO ABIERTO", "CONTENIDO ACTUAL"], ticker: "PRIMEROS PASOS · USO RESPONSABLE · WEBS · TRABAJO Y NEGOCIO · CODEX · IA LOCAL · RAG · AGENTES · SEGURIDAD · AUTOMATIZACIÓN ·",
     principle: "[ 01 / PRINCIPIO ]", manifesto: <>LA IA NO SE MEMORIZA.<br />SE PRUEBA, SE ROMPE<br />Y SE VUELVE A <span>CONSTRUIR.</span></>, manifestoText: "Aprendizaje orientado a proyectos, fuentes oficiales y decisiones que sobreviven fuera del tutorial.",
     architecture: "[ 02 / PUNTO DE PARTIDA ]", architectureTitle: <>Dinos dónde estás.<br />Te mostramos el primer paso.</>, entry: "NIVEL DE ENTRADA", startsWith: "EMPIEZA CON", result: "RESULTADO", routeAction: "Ver primer paso", allPaths: "Comparar todos los itinerarios", courseUnit: ["curso", "cursos"], activeRoute: "EJEMPLO / PRIMER RESULTADO", consoleTitle: <>De una idea<br />a una web que puedes revisar.</>, consoleText: "Describe una necesidad sencilla, crea una primera versión en una carpeta de práctica y ábrela en el navegador antes de decidir qué mejorar.", openCourse: "Abrir la primera práctica", terminal: ["› crea una carpeta de práctica", "› escribe un briefing corto", "› abre la vista previa", "✓ resultado comprobado"],
-    transmissions: "[ 03 / TRANSMISIONES ]", courseTitle: <>Cursos para construir<br />con herramientas actuales.</>, lessons: "LECCIONES", catalog: "Ver catálogo completo", discovery: "[ 04 / OBJETIVOS FRECUENTES ]", discoveryTitle: <>¿Qué quieres aprender<br />con inteligencia artificial?</>, next: "[ SIGUIENTE TRANSMISIÓN ]", finalTitle: <>EMPIEZA POR UNA<br />PREGUNTA REAL.</>, finalAction: "Encontrar mi ruta", footer: "Educación abierta sobre inteligencia artificial.", about: "Acerca de",
+    transmissions: "[ 03 / TRANSMISIONES ]", courseTitle: <>Cursos para construir<br />con herramientas actuales.</>, lessons: "LECCIONES", catalog: "Ver catálogo completo", next: "[ SIGUIENTE TRANSMISIÓN ]", finalTitle: <>EMPIEZA POR UNA<br />PREGUNTA REAL.</>, finalAction: "Encontrar mi ruta", footer: "Educación abierta sobre inteligencia artificial.", about: "Acerca de",
   },
   en: {
     skip: "Skip to content", navigation: "Main navigation", start: "Start", learn: "Learn", library: "Courses", projects: "Projects", paths: "Paths", courses: "Courses", sources: "Sources", language: "Language", status: "OPEN LEARNING",
@@ -26,7 +25,7 @@ const copy = {
     telemetry: ["COURSES", "LESSONS", "OPEN ACCESS", "CURRENT CONTENT"], ticker: "FIRST STEPS · RESPONSIBLE USE · WEBS · WORKFLOWS · CODEX · LOCAL AI · RAG · AGENTS · SECURITY · AUTOMATION ·",
     principle: "[ 01 / PRINCIPLE ]", manifesto: <>AI IS NOT MEMORIZED.<br />IT IS TESTED, BROKEN<br />AND <span>BUILT AGAIN.</span></>, manifestoText: "Project-led learning, official sources, and decisions that still hold up beyond the tutorial.",
     architecture: "[ 02 / STARTING POINT ]", architectureTitle: <>Tell us where you are.<br />We will show the first step.</>, entry: "ENTRY LEVEL", startsWith: "START WITH", result: "OUTCOME", routeAction: "View path", allPaths: "Compare every learning path", courseUnit: ["course", "courses"], activeRoute: "EXAMPLE / PROGRAMMING WITH AGENTS", consoleTitle: <>From the request<br />to a verified change.</>, consoleText: "Explore the repository, define a verifiable task, implement with Codex, and review every decision before shipping.", openCourse: "Open course", terminal: ["› analyse the repository", "› implement the task", "› run the tests", "✓ verified change"],
-    transmissions: "[ 03 / TRANSMISSIONS ]", courseTitle: <>Courses to build with<br />current tools.</>, lessons: "LESSONS", catalog: "View full catalogue", discovery: "[ 04 / COMMON GOALS ]", discoveryTitle: <>What do you want to learn<br />with artificial intelligence?</>, next: "[ NEXT TRANSMISSION ]", finalTitle: <>START WITH A<br />REAL QUESTION.</>, finalAction: "Find my path", footer: "Open education about artificial intelligence.", about: "About",
+    transmissions: "[ 03 / TRANSMISSIONS ]", courseTitle: <>Courses to build with<br />current tools.</>, lessons: "LESSONS", catalog: "View full catalogue", next: "[ NEXT TRANSMISSION ]", finalTitle: <>START WITH A<br />REAL QUESTION.</>, finalAction: "Find my path", footer: "Open education about artificial intelligence.", about: "About",
   },
 } as const;
 
@@ -148,24 +147,6 @@ export default function AulafyNexusLanding({ courseCount, lessonCount, paths, co
           </div>
           <Link className="nx-all-courses" href={coursesUrl}>{text.catalog} <span>↗</span></Link>
         </section>
-
-        {!english && (
-          <section className="nx-discovery" aria-labelledby="nx-discovery-title">
-            <div className="nx-section-heading">
-              <p>{text.discovery}</p>
-              <h2 id="nx-discovery-title">{text.discoveryTitle}</h2>
-            </div>
-            <div className="nx-discovery-grid">
-              {spanishSearchIntents.map((item) => (
-                <Link href={item.linkHref} key={item.canonical}>
-                  <h3>{item.linkLabel}</h3>
-                  <p>{item.linkDescription}</p>
-                  <span>Explorar →</span>
-                </Link>
-              ))}
-            </div>
-          </section>
-        )}
 
         <section className="nx-final">
           <p>{text.next}</p><h2>{text.finalTitle}</h2><Link href={entryUrl}>{text.finalAction} <span>↗</span></Link>
