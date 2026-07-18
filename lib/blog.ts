@@ -184,11 +184,135 @@ export const blogPosts: BlogPost[] = [
     related: [
       { title: "Qué aprender de IA", href: "/que-aprender-ia", desc: "Elige un primer paso según el resultado que quieres conseguir." },
       { title: "Elige tu ruta de aprendizaje", href: "/rutas", desc: "Encuentra un punto de inicio según tu nivel y objetivo." },
+      { title: "Estudiar con IA sin hacer trampas", href: "/blog/usar-ia-estudiar-sin-hacer-trampas-2026", desc: "Método para practicar, contrastar fuentes y respetar las normas de evaluación." },
       { title: "Comparativa de modelos por tarea", href: "/blog/chatgpt-vs-claude-vs-gemini-vs-grok-2026", desc: "Cómo elegir sin buscar un ganador universal." },
       { title: "Herramientas de IA gratis", href: "/blog/mejores-herramientas-ia-gratis-2026", desc: "Límites, privacidad e IA local para empezar." },
       { title: "Crear webs con IA", href: "/cursos/crear-webs-con-ia", desc: "Pasa de una idea a una web verificable." },
       { title: "Agentes en producción", href: "/cursos/agentes-produccion", desc: "Herramientas, límites, evaluación y revisión humana." },
       { title: "IA para pymes", href: "/cursos/ia-pymes", desc: "Casos prácticos para procesos de negocio." },
+    ],
+  },
+  {
+    slug: "usar-ia-estudiar-sin-hacer-trampas-2026",
+    title: "Cómo usar IA para estudiar sin hacer trampas: método, prompts y límites",
+    description:
+      "Guía práctica en español para estudiar con IA sin delegar el aprendizaje: explica, practica, contrasta fuentes, protege apuntes y respeta las normas de tu centro.",
+    date: "2026-07-18",
+    updated: "2026-07-18",
+    category: "IA para estudiar",
+    readingTime: "12 min",
+    icon: "userGraduate",
+    image: "/blog/usar-ia-estudiar-sin-hacer-trampas-2026.png",
+    editorNote:
+      "Actualizado el 18 de julio de 2026. Esta guía es educativa, no sustituye las normas de tu centro, asignatura o examen. Si no sabes si un uso está permitido, pregunta antes de entregar o compartir el resultado.",
+    keywords: [
+      "cómo usar IA para estudiar",
+      "estudiar con ChatGPT sin hacer trampas",
+      "inteligencia artificial para estudiantes",
+      "prompts para estudiar",
+      "usar IA en la universidad",
+      "IA para preparar exámenes",
+    ],
+    intro:
+      "La IA puede ayudarte a aprender más activamente o puede esconder que no has entendido nada. La diferencia no está en el nombre de la herramienta: está en si tú recuperas, contrastas y explicas el conocimiento. Este método te permite usarla como entrenador, no como sustituto de tu trabajo.",
+    sections: [
+      {
+        title: "Primero aclara qué estás intentando aprender",
+        body:
+          "No empieces pegando un tema entero y pidiendo un resumen. Escribe un objetivo observable: explicar una idea con tus palabras, resolver cinco problemas sin mirar la solución, distinguir dos conceptos o defender una conclusión con fuentes. Si no puedes comprobar que lo has logrado sin la IA abierta, todavía no es aprendizaje comprobable.",
+        bullets: [
+          "Meta débil: «hazme el trabajo de historia». ",
+          "Meta útil: «hazme tres preguntas sobre este tema, espera mi respuesta y señala el error conceptual si lo hay». ",
+          "Meta útil: «compara mi esquema con este material y dime qué afirmación necesita una fuente». ",
+          "Meta útil: «crea dos ejercicios parecidos, no idénticos, y no muestres la solución hasta que lo intente». ",
+        ],
+      },
+      {
+        title: "Cuatro usos que sí refuerzan el aprendizaje",
+        body:
+          "La mejor interacción obliga a tu cerebro a recuperar y relacionar ideas. Pide a la IA que adapte la práctica a tu nivel, pero conserva tú la tarea difícil: responder, justificar, comprobar y corregir.",
+        bullets: [
+          "Explicación gradual: pídele una explicación sencilla, un ejemplo y luego una versión más precisa con vocabulario de la asignatura.",
+          "Práctica activa: transforma tus apuntes en preguntas, tarjetas o ejercicios; responde antes de revelar la solución.",
+          "Tutor socrático: pide pistas y preguntas de seguimiento en vez de la respuesta directa.",
+          "Revisión de tu razonamiento: comparte tu solución y pide que identifique un salto lógico, una definición imprecisa o una fuente pendiente.",
+        ],
+      },
+      {
+        title: "Un prompt para estudiar se parece a un encargo al profesor particular",
+        body:
+          "No necesitas una fórmula secreta. Aporta el material permitido, di qué nivel tienes, define el tipo de práctica y pide un comportamiento concreto cuando te equivoques. Es mejor un prompt sencillo que entiendes y reutilizas que una plantilla larguísima que no sabes evaluar.",
+        bullets: [
+          "Contexto: «Estoy preparando [materia y tema] con estos apuntes; no inventes información fuera de ellos». ",
+          "Objetivo: «Quiero poder explicar [concepto] y resolver [tipo de ejercicio]». ",
+          "Dinámica: «Haz una pregunta cada vez, espera mi respuesta y dame una pista antes que la solución». ",
+          "Comprobación: «Al final crea una lista de errores y de conceptos que debo repasar con la fuente original». ",
+        ],
+      },
+      {
+        title: "Ciclo de estudio de 30 minutos con IA",
+        body:
+          "Elige un bloque breve y repítelo. La IA reduce el tiempo de preparar ejercicios, pero no debe quitarte el tiempo de pensar. Guarda al final una evidencia tuya: una solución escrita, un mapa conceptual o una explicación grabada sin ayuda.",
+        bullets: [
+          "5 minutos: lee el material original y escribe qué parte no entiendes todavía.",
+          "10 minutos: pide una explicación y dos ejemplos; vuelve a la fuente si aparece una afirmación nueva.",
+          "10 minutos: responde preguntas o resuelve ejercicios sin mirar la solución.",
+          "5 minutos: compara, corrige y anota un error que no repetirás en el siguiente bloque.",
+        ],
+      },
+      {
+        title: "Las respuestas convincentes también se equivocan",
+        body:
+          "Una explicación fluida no demuestra que sea cierta. La IA puede simplificar demasiado, confundir fechas, atribuir citas inexistentes o resolver un problema con un supuesto que no estaba en el enunciado. Tu material de clase, libro, docente o fuente primaria sigue siendo la referencia para aprender y citar.",
+        bullets: [
+          "Pide que separe hechos, interpretaciones y dudas en la respuesta.",
+          "No cites una fuente que no has abierto y comprobado tú mismo.",
+          "Para cálculos, repite el procedimiento a mano o con una segunda comprobación independiente.",
+          "Si una respuesta cambia tu conclusión, vuelve al original antes de incorporarla a tus apuntes.",
+        ],
+      },
+      {
+        title: "Qué usos cruzan la línea",
+        body:
+          "Una ayuda para practicar no es lo mismo que entregar texto generado como si fuera tuyo. Las reglas cambian entre centros, asignaturas y tipos de evaluación; por eso no hay una autorización universal. Si el resultado cuenta como evidencia de lo que tú sabes hacer, no dejes que la IA oculte el proceso ni la autoría.",
+        bullets: [
+          "No la uses para responder un examen, prueba o evaluación cuando las normas no la permiten.",
+          "No presentes un ensayo, código o análisis no revisado como producción propia.",
+          "Declara el uso cuando el centro, la persona docente o la actividad lo requieran.",
+          "Conserva borradores, fuentes y decisiones: te ayudan a demostrar cómo trabajaste y a aprender de verdad.",
+        ],
+      },
+      {
+        title: "Protege tus apuntes y los datos de otras personas",
+        body:
+          "Antes de subir apuntes, trabajos de clase o grabaciones a una herramienta, elimina nombres, calificaciones, datos de salud, información de compañeros y material que no tengas derecho a compartir. Un servicio gratuito puede tener límites y condiciones distintas de una instalación local; lee las condiciones que aplican a tu caso y usa fragmentos o datos ficticios para probar.",
+      },
+      {
+        title: "Cuando una conversación no basta, construye una práctica propia",
+        body:
+          "Si ya tienes material y quieres practicar de forma repetible, puedes crear una pequeña app que convierta apuntes en preguntas, explique fallos y guarde solo el progreso que tú decidas. Empieza con material de prueba y una función concreta; una herramienta educativa con usuarios reales requiere privacidad, seguridad, accesibilidad y revisión pedagógica.",
+      },
+    ],
+    table: {
+      headers: ["Situación", "Uso que ayuda a aprender", "Comprobación tuya", "Uso que debes evitar"],
+      rows: [
+        ["Entender un tema", "Explicación por niveles y ejemplos", "Explicarlo con tus palabras sin chat", "Copiar un resumen sin leer la fuente"],
+        ["Preparar examen", "Preguntas, pistas y corrección de razonamiento", "Resolver un ejercicio nuevo sin ayuda", "Pedir respuestas para una prueba no permitida"],
+        ["Escribir un trabajo", "Revisar estructura, claridad y fuentes pendientes", "Reescribir desde tus notas y comprobar cada cita", "Entregar texto generado como si fuera propio"],
+        ["Compartir apuntes", "Crear ejercicios con material autorizado", "Eliminar datos personales y revisar el resultado", "Subir información de compañeros o documentos confidenciales"],
+      ],
+    },
+    faqs: [
+      { q: "¿Es trampa usar IA para estudiar?", a: "No necesariamente. Usarla para explicar, practicar, recibir pistas o revisar tu razonamiento puede ayudar a aprender. Se vuelve problemática si vulnera las normas aplicables, oculta autoría o sustituye una evaluación que debe demostrar lo que sabes hacer tú." },
+      { q: "¿Puedo usar ChatGPT o Claude para preparar un examen?", a: "Puedes usarlos para crear preguntas, pedir explicaciones y practicar si las normas de tu centro lo permiten. No los uses durante una evaluación ni para obtener respuestas cuando la actividad exige trabajo individual sin esa ayuda." },
+      { q: "¿Cómo compruebo si la IA ha inventado una fuente?", a: "Busca tú mismo la fuente original, verifica autor, título, fecha y la afirmación concreta. Si no puedes encontrarla o no respalda lo que dices, no la cites." },
+      { q: "¿Qué datos no debería subir a una IA para estudiar?", a: "No subas datos personales, calificaciones, informes de salud, información de compañeros, credenciales ni material confidencial. Para probar, elimina identificadores o usa un fragmento ficticio." },
+    ],
+    related: [
+      { title: "Qué aprender de IA", href: "/que-aprender-ia", desc: "Elige una ruta según el resultado que quieres conseguir." },
+      { title: "Cómo empezar a usar IA", href: "/blog/como-empezar-usar-ia-2026", desc: "Un método general para aprender con criterio y seguridad." },
+      { title: "Una app para estudiar", href: "/cursos/ia-local/estudio", desc: "Construye una práctica local con preguntas, correcciones y explicaciones." },
+      { title: "Buenos prompts", href: "/prompts", desc: "Aprende a formular encargos claros y revisables." },
     ],
   },
   {

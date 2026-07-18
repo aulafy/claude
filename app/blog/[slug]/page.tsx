@@ -45,6 +45,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 function seoTitleFor(slug: string, fallback: string) {
   const titles: Record<string, string> = {
     "como-empezar-usar-ia-2026": "Cómo empezar a usar IA en 2026",
+    "usar-ia-estudiar-sin-hacer-trampas-2026": "Cómo usar IA para estudiar sin hacer trampas",
     "grok-45-guia-evaluacion-2026": "Grok 4.5: evaluación sin hype",
     "crear-tutoriales-ia-x-aulafy": "Tutoriales de IA para X sin humo",
     "mcp-2026-07-28-migracion-guia-espanol": "MCP 2026-07-28: guía de migración",
