@@ -182,6 +182,7 @@ export const blogPosts: BlogPost[] = [
       { q: "¿Cuándo debería usar un agente de IA?", a: "Cuando ya conoces el proceso manual, la tarea está acotada, el resultado se puede verificar y has definido permisos, límites, trazas y una revisión humana para acciones sensibles." },
     ],
     related: [
+      { title: "Qué aprender de IA", href: "/que-aprender-ia", desc: "Elige un primer paso según el resultado que quieres conseguir." },
       { title: "Elige tu ruta de aprendizaje", href: "/rutas", desc: "Encuentra un punto de inicio según tu nivel y objetivo." },
       { title: "Comparativa de modelos por tarea", href: "/blog/chatgpt-vs-claude-vs-gemini-vs-grok-2026", desc: "Cómo elegir sin buscar un ganador universal." },
       { title: "Herramientas de IA gratis", href: "/blog/mejores-herramientas-ia-gratis-2026", desc: "Límites, privacidad e IA local para empezar." },
