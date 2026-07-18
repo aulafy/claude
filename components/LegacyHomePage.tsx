@@ -63,19 +63,19 @@ const rutas = [
   {
     title: "Programa con agentes",
     desc: "Aprende Codex y Claude Code con Git, pruebas, permisos y revisión profesional.",
-    href: "/rutas#programacion",
+    href: "/rutas?ruta=programacion#programacion",
     steps: ["Codex", "Claude Code", "IA local"],
   },
   {
     title: "Construye con IA local",
     desc: "Monta apps con modelos en tu ordenador: RAG, PDF, voz y herramientas privadas.",
-    href: "/rutas#modelos",
+    href: "/rutas?ruta=modelos#modelos",
     steps: ["Modelos locales", "MLOps", "Fine-tuning"],
   },
   {
     title: "Llévalo a tu trabajo",
     desc: "Automatiza tareas de oficina, documentos, informes y flujos de equipo con IA.",
-    href: "/rutas#negocio-creativo",
+    href: "/rutas?ruta=negocio-creativo#negocio-creativo",
     steps: ["Pymes", "Automatización", "Contenido"],
   },
 ];

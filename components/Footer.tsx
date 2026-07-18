@@ -11,8 +11,8 @@ const communityLegalLinks = isSocialEnabled()
 const footerContent = {
   es: {
     columns: [
-      { title: "Empezar", links: [["/que-aprender-ia", "Qué aprender de IA"], ["/cursos", "Cursos de IA gratis"], ["/rutas", "Aprender IA por rutas"], ["/curso-codex-espanol", "Codex desde cero"], ["/crear-pagina-web-con-ia", "Crear una web con IA"]] },
-      { title: "Práctica", links: [...communityPracticeLinks, ["/blog", "Blog de IA"], ["/recetas", "Recetas prácticas"], ["/prompts", "Buenos prompts"], ["/glosario", "Glosario"]] },
+      { title: "Empezar", links: [["/que-aprender-ia", "Empieza con IA"], ["/cursos", "Cursos de IA gratis"], ["/rutas", "Aprender IA por rutas"], ["/curso-codex-espanol", "Codex desde cero"], ["/crear-pagina-web-con-ia", "Crear una web con IA"]] },
+      { title: "Práctica", links: [["/proyectos", "Proyectos guiados"], ...communityPracticeLinks, ["/blog", "Blog de IA"], ["/recetas", "Recetas prácticas"], ["/prompts", "Buenos prompts"], ["/glosario", "Glosario"]] },
       { title: "Potenciar", links: [["/skills", "Skills"], ["/subagentes", "Subagentes"], ["/plugins", "Plugins"]] },
       { title: "Ayuda", links: [["/faq", "Preguntas frecuentes"], ["/problemas", "Solución de problemas"], ["/comandos", "Comandos"]] },
       { title: "Legal", links: [["/que-es-aulafy", "Qué es Aulafy"], ["/acerca", "Proyecto y fuentes"], ["/fuentes", "Fuentes oficiales"], ["/sobre-ramon-guillamon", "Autoría"], ...communityLegalLinks, ["/aviso-legal", "Aviso legal"], ["/licencia", "Licencia"], ["/privacidad", "Privacidad"]] },

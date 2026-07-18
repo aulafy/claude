@@ -43,6 +43,20 @@ for (const course of cursos) {
 
   const courseLessons = lecciones(course);
   assert.ok(courseLessons.length >= 2, `Course needs at least two lessons: ${course.slug}`);
+  if (course.itinerary) {
+    assert.ok(course.itinerary.primaryHours >= 1, `Course itinerary needs a realistic primary duration: ${course.slug}`);
+    assert.ok(course.itinerary.phases.length >= 2, `Course itinerary needs at least two phases: ${course.slug}`);
+    assert.ok(course.itinerary.phases.some((phase) => phase.recommended), `Course itinerary needs one clear starting phase: ${course.slug}`);
+    let expectedStart = 1;
+    for (const phase of course.itinerary.phases) {
+      assert.equal(phase.start, expectedStart, `Course itinerary must not leave lesson gaps: ${course.slug}/${phase.title}`);
+      assert.ok(phase.end >= phase.start, `Course itinerary has an invalid lesson range: ${course.slug}/${phase.title}`);
+      assert.ok(phase.end <= courseLessons.length, `Course itinerary exceeds published lessons: ${course.slug}/${phase.title}`);
+      assert.ok(phase.eyebrow.length >= 4, `Course itinerary needs an explicit learner cue: ${course.slug}/${phase.title}`);
+      expectedStart = phase.end + 1;
+    }
+    assert.equal(expectedStart, courseLessons.length + 1, `Course itinerary must classify every published lesson: ${course.slug}`);
+  }
 
   for (const [index, lesson] of courseLessons.entries()) {
     const key = `${course.slug}/${lesson.slug}`;

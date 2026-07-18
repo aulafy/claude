@@ -366,17 +366,17 @@ export const seoLandings: SeoLanding[] = [
     audience:
       "Para autónomos, pequeñas empresas y equipos que quieren ahorrar tiempo en tareas repetitivas sin montar una infraestructura compleja ni regalar datos sensibles.",
     promise:
-      "La ruta se centra en tareas reales: redactar emails, revisar facturas, preparar presupuestos, trabajar con hojas de cálculo, atender consultas y aplicar mínimos de privacidad.",
+      "La ruta empieza por diagnosticar un proceso y medir un piloto; después entra en tareas reales: emails, facturas, presupuestos, hojas de cálculo, atención y mínimos de privacidad.",
     sections: [
       {
-        title: "Casos de uso con retorno rápido",
+        title: "Diagnóstico antes de herramientas",
         body:
-          "La IA en una pyme no empieza por un gran proyecto, sino por pequeñas tareas repetidas: resumir correos, convertir facturas en datos, preparar presupuestos, clasificar mensajes o revisar textos antes de enviarlos.",
+          "La IA en una pyme no empieza por un gran proyecto ni por una lista de herramientas. Empieza por una tarea repetida, su tiempo actual, una salida revisable y una prueba con datos controlados. Así puedes comparar coste, calidad y riesgo antes de ampliar.",
         bullets: [
-          "Emails comerciales y respuestas a clientes.",
-          "Facturas, presupuestos y hojas de cálculo.",
-          "Atención por WhatsApp con revisión humana.",
-          "Políticas internas y RGPD básico.",
+          "Elegir un proceso frecuente y reversible.",
+          "Definir datos mínimos, responsable y métrica.",
+          "Decidir entre local, cloud o híbrido según el caso.",
+          "Probar primero en modo borrador y con revisión humana.",
         ],
       },
       {
@@ -398,6 +398,7 @@ export const seoLandings: SeoLanding[] = [
     ],
     related: [
       { title: "Mapa IA pymes", href: "/cursos/ia-pymes/mapa", desc: "Prioriza casos de uso." },
+      { title: "Diagnóstico y piloto", href: "/cursos/ia-pymes/diagnostico-piloto", desc: "Plantilla para probar un caso con control." },
       { title: "Facturas", href: "/cursos/ia-pymes/facturas", desc: "Extrae datos y revisa errores." },
       { title: "RGPD básico", href: "/cursos/ia-pymes/rgpd-basico", desc: "Reduce riesgos desde el inicio." },
     ],

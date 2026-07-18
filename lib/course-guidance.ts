@@ -13,6 +13,19 @@ export type CourseGuidance = {
 const updated = "2026-07-10";
 
 const guidanceEs: Record<string, CourseGuidance> = {
+  "ia-desde-cero": {
+    track: "Alfabetización práctica en IA",
+    audience: "Cualquier persona que quiere entender y usar IA generativa con criterio antes de elegir una herramienta, una automatización o una ruta técnica.",
+    prerequisites: ["Un ordenador o móvil con acceso a una herramienta de IA", "Una tarea pequeña y de bajo riesgo que quieras mejorar"],
+    outcomes: [
+      "Distinguir chat, automatización, RAG y agentes sin confundir sus riesgos",
+      "Pedir resultados con contexto, límites y comprobaciones claras",
+      "Elegir una herramienta y un siguiente curso según privacidad, coste, evidencia y objetivo",
+    ],
+    deliverable: "Un proyecto breve, propio y repetible, con datos permitidos, una rúbrica de revisión y una decisión razonada sobre la siguiente ruta de aprendizaje.",
+    estimatedHours: 4,
+    updated: "2026-07-18",
+  },
   "fundamentos-aulafy": {
     track: "Fundamentos",
     audience: "Personas que quieren entrar en cursos de IA local, agentes, RAG o MLOps con una base técnica clara.",
@@ -173,9 +186,9 @@ const guidanceEs: Record<string, CourseGuidance> = {
     track: "Aplicaciones prácticas",
     audience: "Autónomos, pequeñas empresas y profesionales de operaciones.",
     prerequisites: ["Conocer una tarea repetitiva de tu negocio", "No hace falta programar"],
-    outcomes: ["Priorizar casos de uso con retorno real", "Automatizar documentos y atención con revisión", "Aplicar privacidad y límites básicos"],
-    deliverable: "Un flujo de oficina automatizado con revisión humana y datos protegidos.",
-    estimatedHours: 6,
+    outcomes: ["Priorizar un caso de uso a partir de su proceso, riesgo y métrica", "Elegir con criterio una opción local, cloud o híbrida", "Automatizar documentos y atención con revisión", "Aplicar privacidad y límites básicos"],
+    deliverable: "Un diagnóstico de piloto y un flujo de oficina revisable, con datos, costes y responsables documentados.",
+    estimatedHours: 7,
     updated,
   },
 };

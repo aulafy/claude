@@ -87,7 +87,7 @@ Cómo se registra la decisión:`}</Terminal>
         La IA útil para pymes debe ser pequeña, auditable y aburridamente fiable. Ese es el listón.
       </Guardar>
 
-      <ChapterNav next={{ href: "/cursos/ia-pymes/rgpd-basico", label: "RGPD básico" }} />
+      <ChapterNav next={{ href: "/cursos/ia-pymes/diagnostico-piloto", label: "Diagnóstico y primer piloto" }} />
     </Chapter>
   );
 }

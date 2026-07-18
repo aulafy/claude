@@ -10,6 +10,8 @@ export type SearchItem = {
 
 const webAiSearchLessons =
   getCurso("crear-webs-con-ia")?.secciones.flatMap((section) => section.lecciones) ?? [];
+const iaBasicsSearchLessons =
+  getCurso("ia-desde-cero")?.secciones.flatMap((section) => section.lecciones) ?? [];
 
 const socialSearchItems: SearchItem[] = isSocialEnabled()
   ? [
@@ -19,6 +21,24 @@ const socialSearchItems: SearchItem[] = isSocialEnabled()
   : [];
 
 export const searchData: SearchItem[] = [
+  {
+    href: "/proyectos",
+    title: "Proyectos de IA guiados",
+    section: "Proyectos",
+    keywords: "proyectos ia desde cero crear web automatizacion oficina rag documentos agentes ia saas mapas meteo plataforma llm privada",
+  },
+  {
+    href: "/cursos/ia-desde-cero",
+    title: "IA desde cero",
+    section: "Empieza con IA",
+    keywords: "aprender inteligencia artificial desde cero ia generativa principiantes llm chat rag agentes prompts alucinaciones privacidad modelos herramientas",
+  },
+  ...iaBasicsSearchLessons.map((lesson) => ({
+    href: `/cursos/ia-desde-cero/${lesson.slug}`,
+    title: lesson.title,
+    section: "IA desde cero",
+    keywords: `${lesson.title.toLowerCase()} inteligencia artificial generativa curso español principiantes verificar privacidad herramientas`,
+  })),
   {
     href: "/cursos/crear-webs-con-ia",
     title: "Crea webs profesionales con IA desde cero",
@@ -209,6 +229,7 @@ export const searchData: SearchItem[] = [
   { href: "/cursos/ia-local/webapp-tipo-lexia", title: "Web app tipo Lexia con RAG local", section: "IA local", keywords: "lexia web app rag local lm studio embeddings citas guardrails vercel node" },
   { href: "/cursos/ia-local/ollama-vllm-sglang-mlx", title: "Ollama, vLLM, SGLang y MLX: qué usar", section: "IA local", keywords: "ollama vs vllm sglang mlx apple silicon serving llm local runtime inferencia modelos locales" },
   { href: "/cursos/ia-pymes/mapa", title: "Mapa de IA útil para una pyme", section: "IA para pymes", keywords: "ia pyme casos uso oficina emails facturas presupuestos humano roi valor automatizacion" },
+  { href: "/cursos/ia-pymes/diagnostico-piloto", title: "Diagnóstico y primer piloto de IA para una pyme", section: "IA para pymes", keywords: "diagnostico ia pyme implementar inteligencia artificial empresa piloto ia roi local cloud hibrido n8n ollama rag facturas automatizacion revision humana" },
   { href: "/cursos/rag-seguro/chunking-avanzado", title: "Chunking avanzado para RAG privado", section: "RAG seguro", keywords: "chunking avanzado rag semantic overlap metadata headings qdrant" },
   { href: "/cursos/rag-seguro/graphrag-local", title: "GraphRAG local y memoria con grafos", section: "RAG seguro", keywords: "graphrag local rag grafos knowledge graph memoria agentes relaciones entidades" },
   { href: "/cursos/rag-seguro/respuestas-estructuradas-citas", title: "Respuestas estructuradas con citas", section: "RAG seguro", keywords: "rag respuestas estructuradas citas confidence no se json citations" },

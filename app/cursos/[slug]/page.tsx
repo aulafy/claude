@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Icon, { type IconName } from "@/components/Icon";
 import CodexStartingCheck from "@/components/CodexStartingCheck";
+import IaBasicsStartingCheck from "@/components/IaBasicsStartingCheck";
 import ContinuarCurso from "@/components/ContinuarCurso";
 import PortableProgress from "@/components/PortableProgress";
 import { cursos, getCurso, totalLecciones } from "@/lib/cursos";
@@ -85,6 +86,9 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
   const guidance = getCourseGuidance(curso.slug, "es");
   const leccionesCurso = curso.secciones.flatMap((seccion) => seccion.lecciones);
   const leccionTitles = leccionesCurso.map((leccion) => leccion.title);
+  const itinerary = curso.itinerary;
+  const primaryPhase = itinerary?.phases.find((phase) => phase.recommended);
+  const primaryLessonCount = primaryPhase ? primaryPhase.end - primaryPhase.start + 1 : 0;
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -171,7 +175,14 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
 
             <div className="mt-5 flex flex-wrap items-center gap-2">
               <span className="aula-chip"><Icon name="chart" /> {curso.level}</span>
-              <span className="aula-chip" data-tone="cyan"><Icon name="book" /> {pluralLabel(total, "lesson")}</span>
+              {itinerary && primaryPhase ? (
+                <>
+                  <span className="aula-chip" data-tone="cyan"><Icon name="rocket" /> Ruta principal · {pluralLabel(primaryLessonCount, "lesson")}</span>
+                  <span className="aula-chip"><Icon name="book" /> {pluralLabel(total, "lesson")} disponibles</span>
+                </>
+              ) : (
+                <span className="aula-chip" data-tone="cyan"><Icon name="book" /> {pluralLabel(total, "lesson")}</span>
+              )}
               <span className="aula-chip" data-tone="green"><Icon name="star" /> Acceso gratuito · contenido abierto</span>
             </div>
 
@@ -202,7 +213,7 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
               </details>
             ) : null}
             <p className="mt-4 aula-meta text-zinc-600">
-              Sin registro. Tu progreso se guarda en este navegador y puedes exportarlo cuando quieras.
+              Sin registro. Tu progreso se guarda solo en este navegador. <a href={`#progress-${curso.slug}`} className="text-cyan-300 hover:text-cyan-200">Haz una copia antes de cambiar de equipo o borrar datos.</a>
             </p>
           </div>
 
@@ -222,6 +233,8 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
           </div>
         </div>
       </div>
+
+      <PortableProgress course={curso} />
 
       {guidance && (
         <section className="mb-12" aria-labelledby="course-outcomes">
@@ -249,7 +262,14 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
                 {guidance.prerequisites.map((item) => <li key={item}>• {item}</li>)}
               </ul>
               <div className="mt-6 flex flex-wrap gap-2">
-                <span className="aula-chip" data-tone="cyan"><Icon name="calendar" /> ≈ {guidance.estimatedHours} h</span>
+                {itinerary ? (
+                  <>
+                    <span className="aula-chip" data-tone="cyan"><Icon name="calendar" /> Ruta principal · ≈ {itinerary.primaryHours} h</span>
+                    <span className="aula-chip">Completo · ≈ {guidance.estimatedHours} h</span>
+                  </>
+                ) : (
+                  <span className="aula-chip" data-tone="cyan"><Icon name="calendar" /> ≈ {guidance.estimatedHours} h</span>
+                )}
                 <span className="aula-chip" data-tone="green">{guidance.track}</span>
               </div>
               <p className="mt-5 aula-meta text-zinc-600">Revisión editorial: {new Intl.DateTimeFormat("es-ES", { dateStyle: "long" }).format(new Date(`${guidance.updated}T12:00:00Z`))}</p>
@@ -258,6 +278,29 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
         </section>
       )}
 
+      {itinerary && (
+        <section className="mb-12 aula-frame p-6 sm:p-8" aria-labelledby="course-itinerary-title">
+          <span className="aula-section-label"><Icon name="route" /> Cómo recorrer este curso</span>
+          <h2 id="course-itinerary-title" className="mt-3 font-display text-2xl font-bold text-white">{itinerary.headline}</h2>
+          <p className="mt-3 max-w-3xl leading-relaxed text-zinc-400">{itinerary.description}</p>
+          <div className="mt-7 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {itinerary.phases.map((phase) => {
+              const firstLesson = leccionesCurso[phase.start - 1];
+              const lessonCount = phase.end - phase.start + 1;
+              return (
+                <Link key={phase.title} href={`/cursos/${curso.slug}/${firstLesson.slug}`} className="aula-capsule flex flex-col p-5 group">
+                  <span className="aula-meta text-zinc-500">{phase.eyebrow} · {pluralLabel(lessonCount, "lesson")}</span>
+                  <h3 className="mt-2 font-display text-lg font-bold text-white group-hover:text-cyan-200">{phase.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-zinc-400">{phase.description}</p>
+                  <span className="mt-4 text-sm text-cyan-300">Abrir desde «{firstLesson.title}» <Icon name="chevronRight" /></span>
+                </Link>
+              );
+            })}
+          </div>
+        </section>
+      )}
+
+      {curso.slug === "ia-desde-cero" && <IaBasicsStartingCheck />}
       {curso.slug === "codex-desde-cero" && <CodexStartingCheck />}
 
       {/* Temario */}
@@ -314,8 +357,6 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
         );
       })}
       </div>
-
-      <PortableProgress course={curso} />
 
       {/* Otros cursos */}
       <div className="mt-12 pt-8 border-t border-zinc-800">

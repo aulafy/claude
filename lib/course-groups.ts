@@ -11,8 +11,8 @@ export const courseGroups: CourseGroup[] = [
   {
     id: "empezar",
     title: "Empieza desde cero",
-    description: "Usa Codex sin experiencia previa y, cuando quieras construir, continúa con una web real o prepara la base técnica.",
-    slugs: ["codex-desde-cero", "crear-webs-con-ia", "fundamentos-aulafy"],
+    description: "Entiende primero la IA generativa; después elige Codex, una web real o la base técnica solo cuando tu proyecto lo necesite.",
+    slugs: ["ia-desde-cero", "codex-desde-cero", "crear-webs-con-ia", "fundamentos-aulafy"],
   },
   {
     id: "programacion",
