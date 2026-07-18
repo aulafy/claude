@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
-  title: "Observabilidad para agentes locales — Agentes en producción",
+  title: "Observabilidad de agentes de IA: trazas, logs y Langfuse",
   description:
-    "Qué registrar en agentes locales: trazas, spans, herramientas, latencia, coste, modelo, contexto recuperado, errores repetidos y aprobación humana.",
-  keywords: ["observabilidad agentes locales", "tracing agentes IA", "Langfuse agentes", "OpenTelemetry agentes LLM"],
+    "Aprende observabilidad de agentes de IA con trazas, logs, tools, RAG, Langfuse, OpenTelemetry, latencia, errores, coste y aprobación humana.",
+  keywords: ["observabilidad de agentes", "observabilidad agentes IA", "Langfuse agentes", "tracing agentes IA", "OpenTelemetry agentes LLM"],
   alternates: { canonical: "/cursos/agentes-produccion/observabilidad-agentes-locales" },
 };
 
@@ -13,9 +14,9 @@ export default function Page() {
   return (
     <Chapter
       crumb="Observabilidad local"
-      title="Observabilidad para agentes locales"
+      title="Observabilidad de agentes de IA"
       icon="chart"
-      lead={<>Si no puedes reconstruir qué pensó, qué herramienta llamó y por qué falló, no tienes un agente: tienes una caja negra con permisos. La observabilidad convierte una demo en sistema mantenible.</>}
+      lead={<>Si no puedes reconstruir qué pensó, qué herramienta llamó y por qué falló, no tienes un agente mantenible: tienes una caja negra con permisos. La observabilidad convierte una demo en un sistema que se puede depurar, auditar y mejorar.</>}
       courseHref="/cursos/agentes-produccion"
       courseLabel="Agentes en producción"
     >
@@ -50,6 +51,14 @@ export default function Page() {
       <Idea>
         Para agentes locales, coste no es solo euros: también es tiempo, GPU ocupada, RAM, bloqueo de cola y fatiga de revisión humana.
       </Idea>
+
+      <div className="prose">
+        <p>
+          Si necesitas una explicación más amplia antes de instrumentar código, empieza por la página pilar:
+          {" "}<Link href="/observabilidad-agentes-locales-langfuse">observabilidad de agentes de IA con Langfuse y OpenTelemetry</Link>.
+          Después vuelve aquí para convertir el mapa en una checklist práctica.
+        </p>
+      </div>
 
       <div className="prose">
         <h2>Qué registrar siempre</h2>

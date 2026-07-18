@@ -1188,30 +1188,124 @@ export const seoLandings: SeoLanding[] = [
   },
   {
     slug: "observabilidad-agentes-locales-langfuse",
-    title: "Observabilidad para agentes locales con Langfuse",
-    h1: "Observabilidad para agentes locales: trazas, tools, RAG y errores",
+    title: "Observabilidad de agentes de IA con Langfuse y OpenTelemetry",
+    h1: "Observabilidad de agentes de IA: Langfuse, OpenTelemetry, trazas y errores",
     description:
-      "Aprende qué registrar en agentes locales: modelo, ruta, tools, chunks RAG, latencia, errores, aprobación humana y coste real.",
-    keywords: ["observabilidad agentes locales", "Langfuse agentes", "OpenTelemetry agentes LLM"],
+      "Tutorial en español para observar agentes de IA con Langfuse y OpenTelemetry: trazas, spans, tools, RAG, latencia, coste, errores, privacidad y evals.",
+    keywords: ["observabilidad de agentes", "observabilidad agentes IA", "Langfuse agentes", "OpenTelemetry agentes LLM", "tracing agentes IA"],
     icon: "chart",
     primaryHref: "/cursos/agentes-produccion/observabilidad-agentes-locales",
-    primaryLabel: "Ver observabilidad de agentes",
-    audience: "Para equipos que ya tienen agentes o workflows y necesitan saber por qué fallan, cuestan o responden mal.",
-    promise: "Aprenderás a reconstruir cada ejecución sin guardar más datos sensibles de los necesarios.",
+    primaryLabel: "Abrir la lección práctica",
+    audience:
+      "Para desarrolladores, equipos de datos, makers técnicos y pymes que ya tienen un chatbot, un RAG, un workflow n8n o un agente con tools y necesitan saber por qué responde mal, tarda demasiado, cuesta más de lo previsto o ejecuta pasos que nadie puede reconstruir.",
+    promise:
+      "Aprenderás a pasar de logs sueltos a trazas útiles: cada ejecución tendrá entrada, pasos, llamadas a herramientas, contexto recuperado, modelo, latencia, coste, errores, aprobación humana y resultado. El objetivo no es vigilarlo todo: es guardar la evidencia mínima para depurar sin convertir las trazas en una fuga de datos.",
     sections: [
-      { title: "Trazas útiles", body: "Una traza debe mostrar entrada, steps, tools, chunks, modelo y resultado.", bullets: ["Request id.", "Steps.", "Outcome."] },
-      { title: "Privacidad en logs", body: "Observabilidad no significa guardar todo. Registra lo justo para depurar.", bullets: ["Hashes.", "Extractos.", "IDs."] },
+      {
+        title: "Por qué observar un agente es distinto a observar una API normal",
+        body:
+          "Una API tradicional suele recibir una entrada, ejecutar código y devolver una salida. Un agente de IA puede decidir varios pasos, llamar tools, consultar documentos, reintentar, resumir memoria, cambiar de modelo o pedir aprobación humana. Si solo guardas el error final, no sabrás si falló el prompt, el modelo, la herramienta, el chunk recuperado, el permiso o el criterio de parada.",
+        bullets: [
+          "Una traza agrupa toda la ejecución de una petición o tarea.",
+          "Un span representa un paso: llamada al modelo, búsqueda RAG, tool, validación o aprobación.",
+          "Los eventos registran hechos puntuales: retry, timeout, bloqueo por política o feedback humano.",
+          "Las métricas ayudan a ver tendencias: latencia, coste, tokens, errores repetidos y tasa de abstención.",
+        ],
+      },
+      {
+        title: "Modelo mental: trace, span, generation y score",
+        body:
+          "OpenTelemetry aporta el lenguaje común de observabilidad: trazas, spans, logs, métricas y propagación de contexto. Langfuse lo adapta al mundo LLM: entiende generations, uso de tokens, coste, prompts, datasets, experimentos y evaluaciones. La combinación sana es usar OTel como base interoperable y Langfuse como capa específica para aplicaciones de IA.",
+        bullets: [
+          "Trace: una pregunta del usuario, un ticket procesado o una tarea completa.",
+          "Span: retrieve_docs, call_model, run_tool, validate_answer o human_review.",
+          "Generation: llamada concreta a un modelo con parámetros, uso y salida.",
+          "Score: evaluación automática o humana sobre grounding, utilidad, seguridad o formato.",
+        ],
+      },
+      {
+        title: "Tutorial paso a paso",
+        body:
+          "Empieza con una sola ruta crítica. No intentes instrumentar todo el producto el primer día. Elige una tarea real, por ejemplo: usuario pregunta, el agente busca en Qdrant, genera una respuesta, valida citas y crea un borrador pendiente de aprobación. Instrumenta esa cadena de principio a fin.",
+        bullets: [
+          "Paso 1: define un request_id y conserva el mismo identificador en todo el recorrido.",
+          "Paso 2: crea una traza por tarea, no una traza nueva por cada función interna.",
+          "Paso 3: registra spans para retrieval, modelo, tools, validación y aprobación humana.",
+          "Paso 4: guarda entradas y salidas resumidas; evita volcar datos personales completos.",
+          "Paso 5: añade scores: respuesta con cita correcta, tool exitosa, riesgo detectado, coste aceptable.",
+          "Paso 6: revisa tres ejecuciones malas y comprueba si puedes explicar la causa solo con la traza.",
+        ],
+      },
+      {
+        title: "Ejemplo mínimo de traza para un agente con RAG",
+        body:
+          "Un buen esquema cabe en pocas líneas. La clave es que cada campo responda a una pregunta de depuración: qué pasó, dónde pasó, cuánto tardó, qué datos usó, qué decidió y qué evidencia queda para revisarlo.",
+        bullets: [
+          "trace: support-1042, usuario anonimizado, entorno, versión del prompt y modelo elegido.",
+          "span retrieve_docs: colección, filtros, número de chunks, ids de fuente y latencia.",
+          "span call_model: proveedor o runtime, modelo, tokens aproximados, coste y temperatura.",
+          "span validate_answer: citas presentes, formato válido, abstención o riesgo detectado.",
+          "span human_review: aprobado, editado, rechazado o escalado.",
+        ],
+      },
+      {
+        title: "Privacidad: lo que no debes guardar por defecto",
+        body:
+          "La observabilidad puede convertirse en el sitio donde se filtra todo: prompts con datos personales, documentos completos, secretos pegados por error o respuestas sensibles. Por eso hay que diseñar una política antes de encender trazas en producción.",
+        bullets: [
+          "No guardes claves, tokens, .env ni cabeceras Authorization.",
+          "No guardes documentos completos si bastan ids, hashes, página y fragmento mínimo.",
+          "Separa trazas de desarrollo, preview y producción.",
+          "Define retención: cuánto tiempo se conservan trazas y quién puede leerlas.",
+          "En datos personales o regulados, valida base legal, finalidad, acceso y borrado.",
+        ],
+      },
+      {
+        title: "Checklist de producción",
+        body:
+          "Antes de decir que un agente está listo, debe poder explicar sus propios fallos. Esta checklist convierte la observabilidad en una puerta de calidad, no en un panel bonito que nadie mira.",
+        bullets: [
+          "Puedo reconstruir una respuesta mala sin preguntar al usuario qué pasó.",
+          "Puedo distinguir fallo de retrieval, fallo de modelo, fallo de tool y fallo de permisos.",
+          "Puedo ver coste, latencia y tokens por tarea o por cliente.",
+          "Puedo detectar loops, retries repetidos y herramientas llamadas demasiadas veces.",
+          "Puedo enlazar una versión de prompt o política con cada ejecución.",
+          "Puedo borrar o anonimizar trazas según la política de datos.",
+        ],
+      },
+      {
+        title: "Fuentes oficiales para seguir aprendiendo",
+        body:
+          "La base técnica debe contrastarse con documentación primaria. Langfuse documenta observabilidad LLM, tracing y OpenTelemetry; OpenTelemetry documenta los conceptos generales de trazas, spans, propagación de contexto, logs y métricas.",
+        bullets: [
+          "Langfuse observability overview: https://langfuse.com/docs/observability/overview",
+          "Langfuse tracing get started: https://langfuse.com/docs/observability/get-started",
+          "Langfuse OpenTelemetry integration: https://langfuse.com/integrations/native/opentelemetry",
+          "OpenTelemetry traces: https://opentelemetry.io/docs/concepts/signals/traces/",
+          "OpenTelemetry observability primer: https://opentelemetry.io/docs/concepts/observability-primer/",
+        ],
+      },
     ],
-    examples: ["Trace de soporte.", "Tool lenta.", "RAG sin grounding.", "Loop cortado."],
+    examples: [
+      "Un agente de soporte crea una respuesta mala: la traza muestra que recuperó chunks irrelevantes.",
+      "Un workflow n8n tarda 40 segundos: los spans separan latencia de modelo, API externa y validación.",
+      "Un RAG cita una página equivocada: el score de grounding queda en rojo y enlaza el documento usado.",
+      "Un agente entra en bucle: observas cinco llamadas repetidas a la misma tool y cortas por política.",
+      "Una pyme quiere estimar coste: agrupas tokens, runtime local, cola GPU y revisiones humanas por tipo de tarea.",
+    ],
     related: [
       { title: "Observabilidad local", href: "/cursos/agentes-produccion/observabilidad-agentes-locales", desc: "Lección completa." },
       { title: "Evals y logs", href: "/cursos/agentes-produccion/evals-logs", desc: "Base." },
-      { title: "Langfuse", href: "/cursos/mlops-local/observabilidad", desc: "MLOps." },
+      { title: "Recuperación de errores", href: "/cursos/agentes-produccion/recuperacion-errores", desc: "Retries, backoff y escalado." },
+      { title: "MLOps y observabilidad", href: "/cursos/mlops-local/observabilidad", desc: "Métrica, coste y dashboards." },
     ],
     faqs: [
-      { q: "¿Qué registro siempre?", a: "Modelo, route, tools, argumentos resumidos, chunks usados, latencia y resultado." },
-      { q: "¿Guardo prompts completos?", a: "Solo si la privacidad y finalidad lo permiten; muchas veces basta con IDs o extractos." },
-      { q: "¿Sirve para agentes locales?", a: "Sí. Local también necesita trazas y métricas." },
+      { q: "¿Qué diferencia hay entre logs y trazas?", a: "Un log registra un hecho aislado. Una traza une todos los pasos de una ejecución y permite ver la relación entre entrada, spans, tools, modelo, errores y resultado." },
+      { q: "¿Langfuse sustituye a OpenTelemetry?", a: "No. Langfuse usa y se integra con OpenTelemetry, pero aporta una capa específica para LLMs: generations, prompts, tokens, coste, datasets, experimentos y scores." },
+      { q: "¿Qué registro siempre en un agente?", a: "Request id, modelo, versión del prompt, tools llamadas, argumentos resumidos, chunks usados, latencia, coste aproximado, errores, aprobación humana y resultado." },
+      { q: "¿Debo guardar prompts completos?", a: "Solo si la finalidad, privacidad y permisos lo permiten. En muchos casos basta con ids, hashes, extractos mínimos y referencias a documentos." },
+      { q: "¿Sirve para agentes locales con Ollama?", a: "Sí. Local no significa invisible: también necesitas trazas para medir latencia, uso de GPU, cola, errores de tools, recuperación RAG y calidad de respuestas." },
+      { q: "¿Cuándo está listo para producción?", a: "Cuando puedes reconstruir fallos importantes desde la traza, limitar datos sensibles, medir coste y latencia, comparar versiones y detectar loops o respuestas sin evidencia." },
     ],
   },
   {
