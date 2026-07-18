@@ -34,11 +34,11 @@ export default function Page() {
       <Terminal>{`workflow:
   planner:
     provider: "ollama"
-    model: "gemma-local-fast"
+    model: "local-fast"
     max_steps: 4
   verifier:
     provider: "local"
-    model: "qwen-coder"
+    model: "local-coder"
     can_edit: false
   escalation:
     trigger:

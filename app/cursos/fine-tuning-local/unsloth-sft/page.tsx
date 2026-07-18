@@ -76,7 +76,7 @@ config = SFTConfig(
 )
 
 trainer = SFTTrainer(
-    model="Qwen/Qwen3-4B-Instruct",
+    model="Qwen/Qwen3-4B",
     args=config,
     train_dataset=dataset["train"],
     eval_dataset=dataset["validation"],

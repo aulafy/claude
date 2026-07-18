@@ -64,7 +64,7 @@ export default function Page() {
       </div>
 
       <Terminal>{`{
-  "base_model": "Qwen/Qwen3-4B-Instruct",
+  "base_model": "Qwen/Qwen3-4B",
   "method": "LoRA",
   "dataset": "soporte-pyme-v1",
   "train_examples": 1200,

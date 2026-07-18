@@ -119,8 +119,9 @@ claude -p "¿qué hace esta función?" < mi_archivo.py`}</code></pre>
         <h2>Modelos disponibles</h2>
         <p>
           Puedes cambiar el modelo con <code>--model</code>, <code>/model</code>{" "}
-          o en la configuración. El valor por defecto depende de tu tipo de
-          cuenta y proveedor, así que lo más estable es usar aliases:
+          o en la configuración. No hay una tabla de IDs universal: el valor
+          disponible depende de tu cuenta, proveedor y fecha. Compruébalo en el
+          selector de tu sesión antes de automatizarlo.
         </p>
       </div>
 
@@ -128,36 +129,36 @@ claude -p "¿qué hace esta función?" < mi_archivo.py`}</code></pre>
         <table>
           <thead>
             <tr>
-              <th>Modelo</th>
-              <th>Alias / ID</th>
-              <th>Velocidad</th>
-              <th>Ideal para</th>
+              <th>Decisión</th>
+              <th>Cómo comprobarla</th>
+              <th>Qué comparar</th>
+              <th>Regla práctica</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Claude Fable 5</td>
-              <td><code>fable</code> o <code>claude-fable-5</code></td>
-              <td>Lento</td>
-              <td>Tareas de máxima complejidad</td>
+              <td>Modelo disponible</td>
+              <td>Abre <code>/model</code> o la configuración de tu proveedor.</td>
+              <td>Capacidad, coste, latencia y límites de uso.</td>
+              <td>No asumas que el alias de otra cuenta existe en la tuya.</td>
             </tr>
             <tr>
-              <td>Claude Opus 4.8</td>
-              <td><code>opus</code> o <code>claude-opus-4-8</code></td>
-              <td>Medio</td>
-              <td>Razonamiento complejo, análisis profundo</td>
+              <td>Tarea exigente</td>
+              <td>Prueba primero con un caso representativo y una revisión humana.</td>
+              <td>Calidad frente a tiempo y consumo.</td>
+              <td>Sube esfuerzo solo si una evaluación muestra que hace falta.</td>
             </tr>
             <tr>
-              <td>Claude Sonnet 4.6</td>
-              <td><code>sonnet</code> o un ID Sonnet concreto</td>
-              <td>Rápido</td>
-              <td>Uso general y tareas diarias</td>
+              <td>Trabajo cotidiano</td>
+              <td>Compara dos encargos reales con la misma rúbrica.</td>
+              <td>Errores, tiempo, coste y necesidad de correcciones.</td>
+              <td>El modelo más rápido no siempre reduce el trabajo total.</td>
             </tr>
             <tr>
-              <td>Claude Haiku 4.5</td>
-              <td><code>haiku</code> o <code>claude-haiku-4-5</code></td>
-              <td>Muy rápido</td>
-              <td>Tareas simples, alta frecuencia, bajo costo</td>
+              <td>Automatización repetitiva</td>
+              <td>Fija un presupuesto, límite de reintentos y casos de abstención.</td>
+              <td>Consistencia de formato y fallos recuperables.</td>
+              <td>No des permisos externos solo porque el modelo sea barato.</td>
             </tr>
           </tbody>
         </table>
@@ -204,8 +205,9 @@ claude -p --output-format json "resume los cambios del último commit"
 claude -p "revisa posibles vulnerabilidades en src/api/auth.ts" < /dev/null`}</code></pre>
 
         <h3>Cambiar modelo para una sesión</h3>
-        <pre><code>{`claude --model opus
-# Ahora usas el alias Opus para la sesión completa`}</code></pre>
+        <pre><code>{`# Sustituye el marcador por un alias que aparezca en /model
+claude --model <alias-disponible-en-tu-cuenta>
+# Registra en el proyecto la fecha y el ID elegido si afecta a un resultado reproducible.`}</code></pre>
 
         <h3>Ver diagnóstico de instalación</h3>
         <pre><code>{`# Dentro de Claude Code:

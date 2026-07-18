@@ -35,7 +35,7 @@ export default function Page() {
         <h2>YAML mínimo orientativo</h2>
       </div>
 
-      <Terminal>{`base_model: Qwen/Qwen3-4B-Instruct
+      <Terminal>{`base_model: Qwen/Qwen3-4B
 model_type: AutoModelForCausalLM
 tokenizer_type: AutoTokenizer
 

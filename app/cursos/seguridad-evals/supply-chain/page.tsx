@@ -36,7 +36,7 @@ export default function Page() {
       </div>
 
       <Terminal>{`modelo:
-  nombre: "qwen3-8b"
+  nombre: "qwen3:8b"
   fuente: "repositorio oficial"
   version_o_commit: "..."
   licencia: "revisada"

@@ -5797,7 +5797,7 @@
         },
         {
           "type": "code",
-          "text": "base_model: Qwen/Qwen3-4B-Instruct\nmodel_type: AutoModelForCausalLM\ntokenizer_type: AutoTokenizer\n\ndatasets:\n  - path: data/train.jsonl\n    type: alpaca\n\nsequence_len: 2048\nadapter: lora\nlora_r: 16\nlora_alpha: 32\nlora_dropout: 0.05\n\nlearning_rate: 0.0002\nnum_epochs: 1\nmicro_batch_size: 1\ngradient_accumulation_steps: 8\noutput_dir: outputs/soporte-qwen-lora"
+          "text": "base_model: Qwen/Qwen3-4B\nmodel_type: AutoModelForCausalLM\ntokenizer_type: AutoTokenizer\n\ndatasets:\n  - path: data/train.jsonl\n    type: alpaca\n\nsequence_len: 2048\nadapter: lora\nlora_r: 16\nlora_alpha: 32\nlora_dropout: 0.05\n\nlearning_rate: 0.0002\nnum_epochs: 1\nmicro_batch_size: 1\ngradient_accumulation_steps: 8\noutput_dir: outputs/soporte-qwen-lora"
         },
         {
           "type": "h2",
@@ -6163,7 +6163,7 @@
         },
         {
           "type": "code",
-          "text": "{\n  \"base_model\": \"Qwen/Qwen3-4B-Instruct\",\n  \"method\": \"LoRA\",\n  \"dataset\": \"soporte-pyme-v1\",\n  \"train_examples\": 1200,\n  \"test_examples\": 120,\n  \"privacy_review\": true,\n  \"eval_result\": {\n    \"format_ok\": 0.94,\n    \"privacy_refusal\": 0.96,\n    \"general_regression\": \"acceptable\"\n  },\n  \"export\": \"GGUF Q5_K_M\",\n  \"runtime\": \"Ollama\",\n  \"decision\": \"internal pilot\"\n}"
+          "text": "{\n  \"base_model\": \"Qwen/Qwen3-4B\",\n  \"method\": \"LoRA\",\n  \"dataset\": \"soporte-pyme-v1\",\n  \"train_examples\": 1200,\n  \"test_examples\": 120,\n  \"privacy_review\": true,\n  \"eval_result\": {\n    \"format_ok\": 0.94,\n    \"privacy_refusal\": 0.96,\n    \"general_regression\": \"acceptable\"\n  },\n  \"export\": \"GGUF Q5_K_M\",\n  \"runtime\": \"Ollama\",\n  \"decision\": \"internal pilot\"\n}"
         }
       ]
     },
@@ -6204,7 +6204,7 @@
         },
         {
           "type": "code",
-          "text": "from datasets import load_dataset\nfrom trl import SFTTrainer, SFTConfig\n\ndataset = load_dataset(\"json\", data_files={\n    \"train\": \"data/train.jsonl\",\n    \"validation\": \"data/validation.jsonl\",\n})\n\nconfig = SFTConfig(\n    output_dir=\"outputs/soporte-lora\",\n    max_length=2048,\n    learning_rate=2e-4,\n    num_train_epochs=1,\n    logging_steps=10,\n    eval_strategy=\"steps\",\n    eval_steps=50,\n)\n\ntrainer = SFTTrainer(\n    model=\"Qwen/Qwen3-4B-Instruct\",\n    args=config,\n    train_dataset=dataset[\"train\"],\n    eval_dataset=dataset[\"validation\"],\n)\n\ntrainer.train()\ntrainer.save_model(\"outputs/adapter\")"
+          "text": "from datasets import load_dataset\nfrom trl import SFTTrainer, SFTConfig\n\ndataset = load_dataset(\"json\", data_files={\n    \"train\": \"data/train.jsonl\",\n    \"validation\": \"data/validation.jsonl\",\n})\n\nconfig = SFTConfig(\n    output_dir=\"outputs/soporte-lora\",\n    max_length=2048,\n    learning_rate=2e-4,\n    num_train_epochs=1,\n    logging_steps=10,\n    eval_strategy=\"steps\",\n    eval_steps=50,\n)\n\ntrainer = SFTTrainer(\n    model=\"Qwen/Qwen3-4B\",\n    args=config,\n    train_dataset=dataset[\"train\"],\n    eval_dataset=dataset[\"validation\"],\n)\n\ntrainer.train()\ntrainer.save_model(\"outputs/adapter\")"
         }
       ]
     },
@@ -7832,7 +7832,7 @@
         },
         {
           "type": "code",
-          "text": "workflow:\n  planner:\n    provider: \"ollama\"\n    model: \"gemma-local-fast\"\n    max_steps: 4\n  verifier:\n    provider: \"local\"\n    model: \"qwen-coder\"\n    can_edit: false\n  escalation:\n    trigger:\n      - \"same_error_twice\"\n      - \"tests_fail_after_patch\"\n      - \"missing_context\""
+          "text": "workflow:\n  planner:\n    provider: \"ollama\"\n    model: \"local-fast\"\n    max_steps: 4\n  verifier:\n    provider: \"local\"\n    model: \"qwen-coder\"\n    can_edit: false\n  escalation:\n    trigger:\n      - \"same_error_twice\"\n      - \"tests_fail_after_patch\"\n      - \"missing_context\""
         },
         {
           "type": "h2",
@@ -8550,7 +8550,7 @@
         },
         {
           "type": "code",
-          "text": "Measure before you opine:\n\ncaso: \"chat_rag_pyme\"\nmodelo: \"qwen-coder/local\"\nhardware: \"Mac M4 24GB\"\nruntime: \"Ollama\"\nmetricas:\n  first_token_ms: 850\n  tokens_s: 28\n  ram_gb: 11\n  errores_20_preguntas: 2\ndecision: \"sufficient for prototype; don't migrate yet\""
+          "text": "Measure before you opine:\n\ncaso: \"chat_rag_pyme\"\nmodelo: \"local-coder\"\nhardware: \"Mac M4 24GB\"\nruntime: \"Ollama\"\nmetricas:\n  first_token_ms: 850\n  tokens_s: 28\n  ram_gb: 11\n  errores_20_preguntas: 2\ndecision: \"sufficient for prototype; don't migrate yet\""
         },
         {
           "type": "h2",

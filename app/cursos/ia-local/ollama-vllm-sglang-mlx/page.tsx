@@ -45,7 +45,7 @@ export default function Page() {
       <Terminal>{`Mide antes de opinar:
 
 caso: "chat_rag_pyme"
-modelo: "qwen-coder/local"
+modelo: "local-coder"
 hardware: "Mac M4 24GB"
 runtime: "Ollama"
 metricas:

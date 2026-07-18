@@ -56,10 +56,10 @@ export default function Page() {
               </tr>
             </thead>
             <tbody className="text-zinc-400">
-              <tr className="border-b border-zinc-800"><td className="py-2 pr-4">Portátil 8 GB RAM</td><td className="py-2">Qwen3.5 (2B–4B), Gemma 4 pequeño, Llama 3.2 (1B–3B), Phi-4-mini</td></tr>
-              <tr className="border-b border-zinc-800"><td className="py-2 pr-4">Portátil 16 GB RAM</td><td className="py-2">Qwen3.5 4B, Gemma 4 mediano, Ministral 3 (8B), Phi-4-mini</td></tr>
-              <tr className="border-b border-zinc-800"><td className="py-2 pr-4">GPU RTX 8–12 GB</td><td className="py-2">Qwen3.5 9B, Gemma 4 (Q4), Llama 3.1 8B, phi-4 (14B, Q4)</td></tr>
-              <tr><td className="py-2 pr-4">GPU RTX 16–24 GB</td><td className="py-2">Qwen3.6 (27B / 35B MoE), Phi-4-reasoning, Gemma 4 grande</td></tr>
+              <tr className="border-b border-zinc-800"><td className="py-2 pr-4">Portátil 8 GB RAM</td><td className="py-2">Un modelo de 2B–4B cuantizado; prioriza que responda con fluidez.</td></tr>
+              <tr className="border-b border-zinc-800"><td className="py-2 pr-4">Portátil 16 GB RAM</td><td className="py-2">Un modelo de 4B–8B y una pequeña rúbrica para compararlo.</td></tr>
+              <tr className="border-b border-zinc-800"><td className="py-2 pr-4">GPU RTX 8–12 GB</td><td className="py-2">Un modelo de 8B–14B cuantizado, solo si cabe con margen.</td></tr>
+              <tr><td className="py-2 pr-4">GPU RTX 16–24 GB</td><td className="py-2">Modelos mayores o MoE, después de medir memoria, contexto y latencia.</td></tr>
             </tbody>
           </table>
         </div>
