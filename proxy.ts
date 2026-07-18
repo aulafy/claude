@@ -1,7 +1,5 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
-import { isSocialEnabled } from "@/lib/social/config";
-import { refreshSupabaseSession } from "@/lib/supabase/proxy";
 
 const socialRoutePrefixes = [
   "/comunidad",
@@ -18,12 +16,13 @@ function isSocialRoute(pathname: string) {
   );
 }
 
-export async function proxy(request: NextRequest) {
-  if (!isSocialEnabled() && isSocialRoute(request.nextUrl.pathname)) {
+export function proxy(request: NextRequest) {
+  if (isSocialRoute(request.nextUrl.pathname)) {
     return NextResponse.redirect(new URL("/", request.url), 307);
   }
 
-  return refreshSupabaseSession(request);
+  // Etapa estática: no se crean ni renuevan sesiones y no se escriben cookies.
+  return NextResponse.next({ request });
 }
 
 export const config = {

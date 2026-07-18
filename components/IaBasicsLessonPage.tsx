@@ -5,11 +5,15 @@ import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import { Chapter, ChapterNav } from "@/components/Book";
 import Icon from "@/components/Icon";
+import SessionlessPractice from "@/components/SessionlessPractice";
+import LessonQualityCard from "@/components/LessonQualityCard";
 import {
   IA_BASICS_COURSE_SLUG,
   getIaBasicsLesson,
   iaBasicsLessons,
 } from "@/lib/ia-basics-course-content";
+import { getSessionlessPractice } from "@/lib/sessionless-practices";
+import { getIaBasicsQuality } from "@/lib/ia-basics-quality";
 
 const COURSE_HREF = `/cursos/${IA_BASICS_COURSE_SLUG}`;
 const COURSE_LABEL = "IA desde cero";
@@ -17,6 +21,7 @@ const COURSE_LABEL = "IA desde cero";
 export function iaBasicsLessonMetadata(slug: string): Metadata {
   const lesson = getIaBasicsLesson(slug);
   if (!lesson) return {};
+  const quality = getIaBasicsQuality(slug);
 
   return {
     title: `${lesson.title} — IA desde cero`,
@@ -33,6 +38,7 @@ export function iaBasicsLessonMetadata(slug: string): Metadata {
       description: lesson.lead,
       url: `${COURSE_HREF}/${slug}`,
       type: "article",
+      modifiedTime: quality?.reviewedAt,
       siteName: "Aulafy",
       locale: "es_ES",
       images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: `${lesson.title} en Aulafy` }],
@@ -60,6 +66,8 @@ export default function IaBasicsLessonPage({ slug }: { slug: string }) {
   const index = iaBasicsLessons.findIndex((item) => item.slug === slug);
   const prev = iaBasicsLessons[index - 1];
   const next = iaBasicsLessons[index + 1];
+  const practice = getSessionlessPractice(slug);
+  const quality = getIaBasicsQuality(slug);
 
   return (
     <Chapter
@@ -84,6 +92,12 @@ export default function IaBasicsLessonPage({ slug }: { slug: string }) {
           <Icon name="shield" /> Sin herramienta obligatoria
         </span>
       </div>
+
+      {practice ? <SessionlessPractice practice={practice} /> : null}
+
+      {quality ? <LessonQualityCard {...quality} /> : null}
+
+      <h2 className="mb-4 mt-10 font-display text-2xl font-bold text-white">Explicación, ejemplos y práctica completa</h2>
 
       <div className="prose codex-zero-prose">
         <ReactMarkdown

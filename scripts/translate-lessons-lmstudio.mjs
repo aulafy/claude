@@ -15,10 +15,16 @@ for (const arg of process.argv.slice(2)) {
 }
 
 const endpoint = args.get("endpoint") || "http://127.0.0.1:1234/v1/chat/completions";
-const model = args.get("model") || "translategemma-4b-it";
+// No inventamos un modelo por defecto: cada instalación de LM Studio expone
+// identificadores distintos. El nombre real debe venir de `--model`.
+const model = args.get("model");
 const onlyCourse = args.get("course");
 const lessonFilter = new Set((args.get("lessons") || "").split(",").map((item) => item.trim()).filter(Boolean));
 const timeoutMs = Number(args.get("timeout") || 180000);
+
+if (!model) {
+  throw new Error("Indica un modelo verificable de tu servidor local: --model=<id-que-muestra-lm-studio>");
+}
 
 function ensureEbook() {
   const result = spawnSync("node", ["scripts/collect-ebook-content.cjs"], { cwd: root, stdio: "inherit" });

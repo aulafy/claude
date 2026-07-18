@@ -89,7 +89,7 @@ export default async function EnglishCoursePage({ params }: { params: Promise<{ 
     isAccessibleForFree: true,
     educationalLevel: course.level,
     timeRequired: `PT${guidance.estimatedHours}H`,
-    dateModified: guidance.updated,
+    dateModified: course.updatedAt,
     audience: { "@type": "Audience", audienceType: guidance.audience },
     competencyRequired: guidance.prerequisites,
     learningResourceType: "Course",
@@ -202,7 +202,7 @@ export default async function EnglishCoursePage({ params }: { params: Promise<{ 
               <span className="aula-chip" data-tone="cyan"><Icon name="calendar" /> ≈ {guidance.estimatedHours} h</span>
               <span className="aula-chip" data-tone="green">{guidance.track}</span>
             </div>
-            <p className="mt-5 aula-meta text-zinc-600">Editorial review: {new Intl.DateTimeFormat("en", { dateStyle: "long" }).format(new Date(`${guidance.updated}T12:00:00Z`))}</p>
+            <p className="mt-5 aula-meta text-zinc-600">Updated: {new Intl.DateTimeFormat("en", { dateStyle: "long" }).format(new Date(`${course.updatedAt}T12:00:00Z`))}</p>
           </div>
         </div>
       </section>

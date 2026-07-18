@@ -3,7 +3,6 @@ import { cursos, lecciones } from "@/lib/cursos";
 import { getEnglishLessonDescription, getEnglishLessons, getEnglishLessonTitle } from "@/lib/english-lessons";
 import { getLocalizedCursos } from "@/lib/i18n";
 import { seoLandings } from "@/lib/seo-landings";
-import { getCourseGuidance } from "@/lib/course-guidance";
 import { isSocialEnabled } from "@/lib/social/config";
 
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
@@ -264,7 +263,7 @@ const courseEntries: SeoIndexEntry[] = cursos.flatMap((course) => [
     kind: "courses" as const,
     priority: 0.9,
     changeFrequency: "weekly" as const,
-    lastModified: getCourseGuidance(course.slug, "es")?.updated,
+    lastModified: course.updatedAt,
     alternateRoute: course.availableInEnglish === false ? undefined : `/en/courses/${course.slug}`,
   },
   ...lecciones(course).map((lesson) => ({
@@ -275,7 +274,7 @@ const courseEntries: SeoIndexEntry[] = cursos.flatMap((course) => [
     kind: "courses" as const,
     priority: 0.78,
     changeFrequency: "monthly" as const,
-    lastModified: getCourseGuidance(course.slug, "es")?.updated,
+    lastModified: course.updatedAt,
     alternateRoute: course.availableInEnglish === false
       ? undefined
       : `/en/courses/${course.slug}/${lesson.slug}`,
@@ -291,7 +290,7 @@ const englishCourseEntries: SeoIndexEntry[] = englishCourses.flatMap((course) =>
     kind: "english" as const,
     priority: 0.86,
     changeFrequency: "weekly" as const,
-    lastModified: getCourseGuidance(course.slug, "en")?.updated,
+    lastModified: course.updatedAt,
     alternateRoute: `/cursos/${course.slug}`,
   },
   ...lecciones(course).map((lesson) => {
@@ -308,7 +307,7 @@ const englishCourseEntries: SeoIndexEntry[] = englishCourses.flatMap((course) =>
       kind: "english" as const,
       priority: 0.72,
       changeFrequency: "monthly" as const,
-      lastModified: getCourseGuidance(course.slug, "en")?.updated,
+      lastModified: course.updatedAt,
       alternateRoute: `/cursos/${course.slug}/${lesson.slug}`,
     };
   }),

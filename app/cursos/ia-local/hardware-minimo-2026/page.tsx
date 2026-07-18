@@ -55,7 +55,7 @@ RAG privado con documentos:
 Coding local razonable:
   RAM: 32 GB
   VRAM: 12-16 GB
-  Modelos: Qwen/DeepSeek coder 7B-14B Q4-Q5
+  Modelos: un modelo de código de 7B-14B en Q4-Q5
 
 Agentes y tareas largas:
   RAM: 64 GB o más

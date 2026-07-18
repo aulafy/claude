@@ -22,11 +22,170 @@ export type BlogPost = {
     headers: string[];
     rows: string[][];
   };
+  sources?: Array<{ title: string; href: string; note?: string }>;
   faqs: Array<{ q: string; a: string }>;
   related: Array<{ title: string; href: string; desc: string }>;
 };
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "kimi-k3-moonshot-modelo-abierto-2026",
+    title: "Kimi K3 de Moonshot AI: qué cambia un modelo abierto de 2,8 billones de parámetros",
+    description:
+      "Análisis en español de Kimi K3: escala, contexto de un millón de tokens, arquitectura MoE, precios API, pesos anunciados y límites reales para desarrolladores y empresas.",
+    date: "2026-07-18",
+    updated: "2026-07-18",
+    category: "Modelos abiertos",
+    readingTime: "12 min",
+    icon: "brain",
+    image: "/blog/kimi-k3-moonshot-modelo-abierto-2026.png",
+    editorNote:
+      "Verificado el 18 de julio de 2026 con documentación oficial de Moonshot AI y Kimi. Las especificaciones, disponibilidad y precios pueden cambiar; los pesos completos están anunciados para el 27 de julio, por lo que este artículo no los trata como disponibles todavía.",
+    keywords: [
+      "Kimi K3 en español",
+      "Moonshot AI Kimi K3",
+      "Kimi K3 2.8T parámetros",
+      "Kimi K3 open weights",
+      "Kimi K3 API precio",
+      "modelo abierto MoE 2026",
+      "Kimi Code",
+    ],
+    intro:
+      "Kimi K3 es una noticia importante, pero no por una cifra espectacular aislada. Moonshot AI acaba de anunciar un modelo de 2,8 billones de parámetros, multimodal y con un millón de tokens de contexto; a la vez, sus límites de despliegue obligan a separar tres ideas que suelen confundirse: acceso por API, pesos abiertos y ejecución local. Esta guía explica qué está confirmado, qué sigue pendiente y cómo evaluarlo sin dejarse llevar por el hype.",
+    sections: [
+      {
+        title: "Qué ha anunciado Moonshot AI",
+        body:
+          "Moonshot AI presenta Kimi K3 como un modelo de 2,8 billones de parámetros con comprensión visual nativa y una ventana de contexto de hasta un millón de tokens. La compañía lo sitúa en tareas de código de larga duración, razonamiento profundo y trabajo sobre grandes cantidades de información. Puede probarse a través de Kimi, Kimi Code y la plataforma API, pero cada vía tiene implicaciones distintas de coste, privacidad y control.",
+        bullets: [
+          "Escala declarada: 2,8 billones de parámetros en total.",
+          "Capacidades declaradas: texto, comprensión visual y hasta un millón de tokens de contexto.",
+          "Acceso actual: producto Kimi, Kimi Code y API de Moonshot.",
+          "Pesos completos: anunciados por Moonshot para el 27 de julio de 2026.",
+        ],
+      },
+      {
+        title: "Abierto no significa descargable hoy ni ejecutable en tu portátil",
+        body:
+          "En IA se usa «abierto» para cosas diferentes. Puede querer decir que existe un cliente de código abierto, que se publicará un conjunto de pesos, que un modelo se puede consumir por API o que permite modificaciones bajo una licencia concreta. No son equivalentes. A la fecha de esta guía, Moonshot anuncia los pesos completos para el 27 de julio; hasta que se publiquen, no conviene dar por supuesta su licencia final, los formatos de cuantización disponibles ni el soporte de cada runtime.",
+        bullets: [
+          "Usar la API no te da control local sobre los pesos ni elimina costes variables.",
+          "Que los pesos se publiquen no convierte automáticamente el modelo en apto para una GPU doméstica.",
+          "La licencia real se comprueba en el repositorio y en los avisos de la versión concreta, no en un titular.",
+          "Una prueba útil empieza por la tarea, los datos permitidos y un presupuesto; no por descargar el modelo más grande.",
+        ],
+      },
+      {
+        title: "Por qué 2,8T no equivale a calcular 2,8T en cada token",
+        body:
+          "K3 usa una arquitectura Mixture of Experts o MoE. Moonshot explica que activa 16 de 896 expertos para cada token, en lugar de recorrer todos los parámetros del modelo en cada paso. También describe Kimi Delta Attention (KDA) y AttnRes como componentes pensados para mantener eficiencia y capacidad con contextos largos. Es una diferencia importante para el coste de cómputo, pero no una licencia para olvidar la memoria, la red, el almacenamiento ni la complejidad de servir un modelo de esta escala.",
+        bullets: [
+          "MoE reduce el cómputo activo por token, pero el conjunto completo de pesos sigue teniendo que almacenarse y gestionarse.",
+          "Moonshot indica entrenamiento y cuantización conscientes de MXFP4 para pesos y MXFP8 para activaciones; no equivale a que cualquier cuantización sea inocua.",
+          "El número de parámetros describe escala, no la calidad garantizada de tu caso de uso.",
+          "En una comparación real importan también el prompt, las herramientas, el contexto recuperado, la latencia y la tasa de errores.",
+        ],
+      },
+      {
+        title: "El límite práctico: infraestructura, memoria y operación",
+        body:
+          "Una cuenta sencilla ayuda a poner las cifras en perspectiva: 2,8 billones de parámetros a 4 bits por parámetro requieren aproximadamente 1,4 TB solo para representar los pesos, antes de memoria adicional, cachés de contexto, metadatos y operación distribuida. Es una estimación matemática, no una configuración de producción. Moonshot recomienda supernodos con 64 o más aceleradores para servir K3 eficientemente. Por eso, para una persona o una pyme, la pregunta sensata hoy suele ser cómo evaluar el modelo por API de forma segura, no cómo instalarlo en un portátil.",
+        bullets: [
+          "No confundas pesos abiertos con coste operativo cero.",
+          "Un contexto de un millón de tokens aumenta el potencial, pero puede aumentar también la latencia y la factura si se usa sin diseño.",
+          "RAG, resumen progresivo y caché pueden ser mejores que reenviar una biblioteca completa en cada petición.",
+          "El despliegue propio necesita además observabilidad, control de acceso, actualización, capacidad y respuesta a incidentes.",
+        ],
+      },
+      {
+        title: "Benchmarks: cómo leer las comparativas sin convertirlas en un ranking universal",
+        body:
+          "Moonshot publica resultados y notas metodológicas sobre sus evaluaciones. Son información útil para formular hipótesis, no una garantía de que K3 sea el mejor modelo para cualquier tarea. Un benchmark cambia si cambias el harness, el número de intentos, las herramientas, el presupuesto de tokens, la versión del modelo o la definición de éxito. La comparación que importa es la que puedes repetir con una muestra representativa de tu trabajo y una rúbrica escrita antes de mirar el resultado.",
+        bullets: [
+          "Lee qué se midió, con qué versión, en qué fecha y bajo qué configuración.",
+          "Separa calidad de respuesta, coste por tarea, latencia, tasa de reintentos y seguridad.",
+          "No adoptes un modelo por una única demo ni por un ranking de una tarea ajena.",
+          "Conserva entradas sintéticas o autorizadas, resultados y criterios para poder comparar actualizaciones.",
+        ],
+      },
+      {
+        title: "Precio y acceso: una prueba por API no es una decisión de arquitectura",
+        body:
+          "Al comprobar la plataforma API el 18 de julio, K3 mostraba 0,30 USD por millón de tokens de caché leídos, 3 USD por millón de tokens de entrada y 15 USD por millón de tokens de salida. Esas tarifas pueden cambiar y no sustituyen una estimación de uso. Antes de integrar una API, fija un límite de gasto, registra tokens de entrada y salida, evita incluir información sensible sin base legal y construye una salida de emergencia si el proveedor falla o cambia sus condiciones.",
+        bullets: [
+          "Mide coste por resultado aceptado, no solo coste por petición.",
+          "Usa presupuestos, límites por usuario y alertas antes de abrir una función a clientes.",
+          "Envía únicamente el contexto necesario y revisa qué datos se conservan en cada proveedor.",
+          "Para producción, define una degradación útil: respuesta diferida, modelo alternativo o revisión humana.",
+        ],
+      },
+      {
+        title: "Kimi Code y agentes: capacidad no es permiso para soltarlo",
+        body:
+          "Kimi Code combina el modelo con un agente de terminal capaz de leer y editar archivos, ejecutar comandos y usar herramientas. Eso lo hace interesante para prototipos y tareas de ingeniería, pero amplía la superficie de riesgo. Moonshot advierte que K3 puede ser sensible a la conservación del historial de razonamiento y que puede resultar demasiado proactivo si no recibe límites explícitos. En un repositorio real, comienza con permisos mínimos, datos ficticios, cambios revisables y comandos que no puedan destruir ni publicar nada.",
+        bullets: [
+          "Escribe qué puede leer, editar, ejecutar y enviar por red antes de iniciar una sesión de agente.",
+          "No le des secretos, acceso de producción ni capacidad de desplegar en la primera prueba.",
+          "Pide un plan y una lista de archivos antes de aceptar una modificación.",
+          "No cambies de modelo a mitad de una tarea larga sin volver a verificar el resultado y el contexto.",
+        ],
+      },
+      {
+        title: "Plan de evaluación de una hora para un equipo técnico",
+        body:
+          "No necesitas decidir hoy si K3 será parte de tu arquitectura. Sí puedes preparar una prueba pequeña y reproducible. Elige cinco tareas sin datos sensibles: extraer campos de facturas ficticias, explicar una función de un repositorio de ejemplo, transformar texto a JSON con esquema, buscar contradicciones en un documento sintético y proponer una corrección de test. Define la respuesta esperada antes de ejecutar; registra prompt, modelo, herramientas, tokens, tiempo, resultado y revisión humana. Repite la misma batería con una alternativa y decide con evidencia.",
+        bullets: [
+          "Criterio de salida: un resultado correcto, verificable y dentro de un coste y tiempo máximos definidos.",
+          "Incluye al menos un caso ambiguo y otro que deba rechazarse por falta de información.",
+          "No uses esa hora para conectar pagos, correo, CRM o una base de datos de clientes.",
+          "Si no puedes explicar por qué una salida es correcta, todavía no es una evaluación suficiente para producción.",
+        ],
+      },
+      {
+        title: "Qué significa para quien aprende y construye en Aulafy",
+        body:
+          "Kimi K3 es una buena ocasión para aprender el criterio que sobrevive a la herramienta de la semana: distinguir anuncio de disponibilidad, modelo de producto, pesos de infraestructura y demo de evaluación. La meta no es saber repetir 2,8T o un millón de tokens. La meta es poder formular una tarea, proteger los datos, medir calidad y coste, y decidir si una tecnología resuelve de verdad un problema de una persona o de un negocio.",
+        bullets: [
+          "Si estás empezando, prueba una tarea pequeña y aprende a revisar la salida.",
+          "Si programas, crea una batería de evals antes de conectar un agente a herramientas reales.",
+          "Si trabajas en una pyme, prioriza un flujo repetitivo, reversible y con una persona responsable de aprobarlo.",
+          "Si buscas IA local, empieza con modelos que correspondan a tu hardware y usa K3 como referencia de arquitectura, no como requisito inmediato.",
+        ],
+      },
+    ],
+    table: {
+      headers: ["Aspecto", "Estado confirmado el 18 de julio", "Qué no debes asumir"],
+      rows: [
+        ["Escala", "2,8T parámetros; MoE con 16 de 896 expertos activos, según Moonshot", "Que sus requisitos sean parecidos a un modelo local pequeño"],
+        ["Contexto y visión", "Hasta 1M de tokens y comprensión visual nativa", "Que todo el contexto deba enviarse o que sustituya RAG y verificación"],
+        ["Acceso", "Kimi, Kimi Code y API están disponibles", "Que los pesos completos estén disponibles hoy"],
+        ["Pesos", "Moonshot anuncia su publicación para el 27 de julio de 2026", "La licencia exacta o el soporte de cada runtime antes de la publicación"],
+        ["Despliegue", "Moonshot recomienda supernodos con 64 o más aceleradores para servirlo eficientemente", "Que sea práctico en un portátil o una sola GPU"],
+        ["Benchmarks", "El proveedor publica resultados detallados y notas metodológicas", "Un ganador universal independiente de harness, tarea y presupuesto"],
+      ],
+    },
+    faqs: [
+      { q: "¿Puedo usar Kimi K3 hoy?", a: "Sí, Moonshot lo ofrece en Kimi, Kimi Code y su API. La publicación de los pesos completos está anunciada para el 27 de julio de 2026; comprueba el estado y las condiciones el día de la descarga." },
+      { q: "¿Podré ejecutarlo en mi ordenador?", a: "No es una expectativa realista para un equipo personal. El modelo tiene 2,8T de parámetros y Moonshot recomienda configuraciones de 64 o más aceleradores para servirlo eficientemente. Los pesos abiertos no eliminan los requisitos de memoria y operación." },
+      { q: "¿Kimi K3 es realmente open source?", a: "Moonshot lo presenta como abierto y anuncia pesos completos, pero debes verificar el repositorio, la licencia y los avisos de terceros de la versión publicada antes de asumir permisos de uso, redistribución o ajuste." },
+      { q: "¿Supera a Claude, GPT o cualquier otro modelo?", a: "No existe esa respuesta sin definir tarea, harness, versión, coste, contexto y criterio de éxito. Los benchmarks del proveedor son una señal; tu evaluación reproducible y las mediciones independientes deben decidir una adopción." },
+      { q: "¿Qué debería probar primero?", a: "Una tarea no sensible, repetible y revisable: un repositorio de ejemplo, un documento sintético o una evaluación de formato. Define el resultado correcto antes de pedirle nada y conserva los logs." },
+    ],
+    sources: [
+      { title: "Moonshot AI · página de Kimi K3", href: "https://www.moonshot.ai/", note: "Anuncio, escala, contexto y modalidades." },
+      { title: "Kimi K3 Tech Blog: Open Frontier Intelligence", href: "https://www.kimi.com/blog/kimi-k3", note: "Arquitectura, disponibilidad, metodología, limitaciones e infraestructura recomendada." },
+      { title: "Kimi Code · novedades del 16 de julio de 2026", href: "https://www.kimi.com/code/docs/en/kimi-code/whats-new.html", note: "Disponibilidad de K3 en Kimi Code." },
+      { title: "Kimi API Platform · precios de K3", href: "https://platform.kimi.ai/", note: "Tarifas mostradas al verificar esta guía." },
+      { title: "MoonshotAI/kimi-code en GitHub", href: "https://github.com/MoonshotAI/kimi-code", note: "Código, instalación, permisos, hooks y capacidades del agente." },
+    ],
+    related: [
+      { title: "Modelos locales: Ollama, vLLM, SGLang y MLX", href: "/cursos/ia-local/ollama-vllm-sglang-mlx", desc: "Elige runtime según hardware, carga y objetivo." },
+      { title: "MLOps local y despliegue de modelos", href: "/cursos/mlops-local", desc: "Serving, gateways, costes y operación de modelos." },
+      { title: "Agentes en producción", href: "/cursos/agentes-produccion", desc: "Estado, permisos, evaluación y recuperación ante fallos." },
+      { title: "Codex para programadores", href: "/cursos/codex-programadores", desc: "Un flujo verificable para trabajar con agentes de código." },
+      { title: "Tendencias de IA en 2026", href: "/blog/tendencias-ia-2026-agentes-ia-local-rag", desc: "Qué merece aprender más allá del modelo de la semana." },
+    ],
+  },
   {
     slug: "como-empezar-usar-ia-2026",
     title: "Cómo empezar a usar IA en 2026: qué herramienta elegir y qué aprender primero",

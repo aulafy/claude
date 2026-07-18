@@ -127,7 +127,7 @@ Después, añade tu propia `GROQ_API_KEY` en `.env.local`. Nunca publiques ese a
 | `npm run verify-links` | Revisa los enlaces principales |
 | `npm run verify-i18n` | Comprueba la cobertura bilingüe |
 | `npm run verify-seo` | Valida metadatos, índices y rutas SEO |
-| `npm run verify-progress` | Comprueba el sistema de progreso local |
+| `npm run verify-progress` | Comprueba que las prácticas no guardan ni transmiten progreso |
 | `npm run audit-education` | Ejecuta la auditoría editorial y educativa |
 | `npm audit --audit-level=moderate` | Revisa vulnerabilidades conocidas de dependencias |
 

@@ -93,15 +93,15 @@ claude -p --output-format json \\
 
         <h2>Elegir modelo y esfuerzo</h2>
         <p>
-          En vez de memorizar IDs concretos, usa aliases de modelo. Claude Code
-          resuelve <code>sonnet</code>, <code>opus</code>, <code>haiku</code> o{" "}
-          <code>fable</code> según tu proveedor y permisos.
+          No copies un ID o alias de un tutorial sin comprobarlo. Abre el selector
+          <code>/model</code> o consulta la documentación de tu cuenta: los modelos
+          disponibles, sus nombres y sus permisos pueden cambiar según el proveedor.
         </p>
         <pre><code>{`# Modelo equilibrado para el día a día
-claude --model sonnet
+claude --model <alias-disponible-en-tu-cuenta>
 
-# Más razonamiento en la sesión actual
-claude --model opus --effort high
+# Para una tarea exigente, usa solo una opción que veas disponible
+claude --model <alias-disponible-en-tu-cuenta> --effort high
 
 # Dentro de la sesión puedes abrir el selector
 /model`}</code></pre>

@@ -9,23 +9,21 @@ import { getLocalizedCurso, type Locale } from "@/lib/i18n";
 import Icon from "@/components/Icon";
 import Search from "@/components/Search";
 import ThemeToggle from "@/components/ThemeToggle";
-import { readProgress, writeProgress } from "@/lib/progress";
 
 const copy = {
   es: {
-    allCourses: "Todos los cursos", course: "cápsula", progress: "Progreso", complete: "Marcar lección como completada",
-    incomplete: "Marcar lección como pendiente", download: "Descargar PDF", menu: "Menú del curso", lessons: "lecciones",
+    allCourses: "Todos los cursos", course: "cápsula", privacy: "Sin cuenta · sin seguimiento",
+    download: "Descargar PDF", menu: "Menú del curso", lessons: "lecciones",
   },
   en: {
-    allCourses: "All courses", course: "capsule", progress: "Progress", complete: "Mark lesson complete",
-    incomplete: "Mark lesson incomplete", download: "Download Spanish PDF", menu: "Course menu", lessons: "lessons",
+    allCourses: "All courses", course: "capsule", privacy: "No account · no tracking",
+    download: "Download Spanish PDF", menu: "Course menu", lessons: "lessons",
   },
 } satisfies Record<Locale, Record<string, string>>;
 
 export default function CourseSidebar({ locale = "es" }: { locale?: Locale }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [visited, setVisited] = useState<string[]>([]);
   const [isMobile, setIsMobile] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const sidebarRef = useRef<HTMLElement>(null);
@@ -34,7 +32,6 @@ export default function CourseSidebar({ locale = "es" }: { locale?: Locale }) {
   // /cursos/<curso>/<leccion>
   const parts = pathname.split("/");
   const cursoSlug = locale === "en" ? parts[3] : parts[2];
-  const leccionSlug = locale === "en" ? parts[4] : parts[3];
   const sourceCurso = getCurso(cursoSlug ?? "");
   const curso = getLocalizedCurso(cursoSlug ?? "", locale);
 
@@ -46,33 +43,11 @@ export default function CourseSidebar({ locale = "es" }: { locale?: Locale }) {
     return () => media.removeEventListener("change", update);
   }, []);
 
-  // Reads explicit completions saved in this browser.
-  useEffect(() => {
-    if (!sourceCurso || !leccionSlug) return;
-    const progress = readProgress();
-    const frame = window.requestAnimationFrame(() => setVisited(progress[sourceCurso.slug] ?? []));
-    return () => window.cancelAnimationFrame(frame);
-  }, [sourceCurso, leccionSlug]);
-
   const allLessons = sourceCurso ? lecciones(sourceCurso).map((lesson) => lesson.slug) : [];
   const total = allLessons.length;
-  const done = allLessons.filter((slug) => visited.includes(slug)).length;
-  const pct = total ? Math.round((done / total) * 100) : 0;
 
   function lessonHref(slug: string) {
     return locale === "en" ? `/en/courses/${cursoSlug}/${slug}` : `/cursos/${cursoSlug}/${slug}`;
-  }
-
-  function toggleCurrentLesson() {
-    if (!sourceCurso || !leccionSlug) return;
-    const progress = readProgress();
-    const done = new Set(progress[sourceCurso.slug] ?? []);
-    if (done.has(leccionSlug)) done.delete(leccionSlug);
-    else done.add(leccionSlug);
-    const next = [...done];
-    progress[sourceCurso.slug] = next;
-    try { writeProgress(progress); } catch { /* storage unavailable */ }
-    setVisited(next);
   }
 
   useEffect(() => {
@@ -123,24 +98,8 @@ export default function CourseSidebar({ locale = "es" }: { locale?: Locale }) {
             <div className="font-display text-sm font-semibold text-white leading-snug">{curso.title}</div>
             <div className="aula-meta mt-1 text-zinc-600">{text.course}/{curso.slug}</div>
           </Link>
-          {/* Progreso */}
-          <div className="mt-3" aria-label={`${text.progress}: ${done} / ${total} ${text.lessons}`}>
-            <div className="flex items-center justify-between aula-meta mb-1">
-              <span>{done}/{total} {text.lessons}</span>
-              <span>{pct}%</span>
-            </div>
-            <div className="aula-progress">
-              <span
-                className="transition-all duration-500"
-                style={{ width: `${pct}%` }}
-              />
-            </div>
-          </div>
-          {leccionSlug && (
-            <button onClick={toggleCurrentLesson} className="mt-3 aula-meta text-left text-fuchsia-300 hover:text-fuchsia-200 transition-colors">
-              <Icon name={visited.includes(leccionSlug) ? "check" : "listCheck"} /> {visited.includes(leccionSlug) ? text.incomplete : text.complete}
-            </button>
-          )}
+          <p className="mt-3 aula-meta text-emerald-300"><Icon name="shield" /> {text.privacy}</p>
+          <p className="mt-1 aula-meta text-zinc-600">{total} {text.lessons}</p>
         </div>
 
         <div className="px-3 pt-3">
@@ -163,7 +122,6 @@ export default function CourseSidebar({ locale = "es" }: { locale?: Locale }) {
                   const n = start + leccionIndex + 1;
                   const href = lessonHref(l.slug);
                   const active = pathname === href;
-                  const isDone = visited.includes(l.slug);
                   return (
                     <Link
                       key={href}
@@ -177,14 +135,10 @@ export default function CourseSidebar({ locale = "es" }: { locale?: Locale }) {
                       }`}
                     >
                       <span
-                        className={`flex-shrink-0 w-5 h-5 rounded-md border text-[10px] flex items-center justify-center font-[family-name:var(--font-code)] ${
-                          isDone
-                            ? "border-emerald-500/60 bg-emerald-500/15 text-emerald-400"
-                            : "border-zinc-700 text-zinc-500"
-                        }`}
+                        className="flex-shrink-0 w-5 h-5 rounded-md border border-zinc-700 text-zinc-500 text-[10px] flex items-center justify-center font-[family-name:var(--font-code)]"
                         aria-hidden="true"
                       >
-                        {isDone ? <Icon name="check" /> : n}
+                        {n}
                       </span>
                       <span className="leading-snug">{locale === "en" ? getEnglishLessonTitle(curso.slug, l.slug, l.title) : l.title}</span>
                     </Link>

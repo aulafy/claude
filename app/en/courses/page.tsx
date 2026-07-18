@@ -95,7 +95,7 @@ export default function CoursesPage() {
             </h1>
             <p className="lesson-lead max-w-3xl">
               Practical routes for learning Codex, local AI, agents, and real production workflows. No account required:
-              your progress stays in your browser.
+              Aulafy does not create an account, save progress, or use tracking cookies.
             </p>
             <div className="mt-5 flex flex-wrap gap-2">
               <span className="aula-chip" data-tone="green"><Icon name="check" /> Free</span>

@@ -16,6 +16,7 @@
     "verify-links": "node scripts/verify-main-links.mjs",
     "verify-progress": "node scripts/verify-progress.mjs",
     "verify-seo": "node --experimental-strip-types scripts/verify-seo.mjs",
+    "verify:model-references": "node scripts/verify-model-references.mjs",
     "verify-social": "node scripts/verify-social.mjs",
     "verify-web-ai": "node --experimental-strip-types scripts/verify-web-ai-course.mjs",
     "audit-education": "node --experimental-strip-types scripts/audit-education.mjs",

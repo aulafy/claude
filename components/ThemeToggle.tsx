@@ -14,9 +14,8 @@ export default function ThemeToggle({ compact = false }: { compact?: boolean }) 
   const [theme, setTheme] = useState<Theme>("dark");
 
   useEffect(() => {
-    const stored = window.localStorage.getItem("aulafy-theme") as Theme | null;
     const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
-    const next = stored ?? (prefersLight ? "light" : "dark");
+    const next = prefersLight ? "light" : "dark";
     applyTheme(next);
 
     const frame = window.requestAnimationFrame(() => setTheme(next));
@@ -26,7 +25,6 @@ export default function ThemeToggle({ compact = false }: { compact?: boolean }) 
   function toggleTheme() {
     const next = theme === "dark" ? "light" : "dark";
     setTheme(next);
-    window.localStorage.setItem("aulafy-theme", next);
     applyTheme(next);
   }
 

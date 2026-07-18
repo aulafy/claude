@@ -8,6 +8,12 @@ import { spanishSearchIntents } from "@/lib/seo-strategy";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 
+function formatCourseUpdatedAt(value: string) {
+  return new Intl.DateTimeFormat("es-ES", { month: "short", year: "numeric" })
+    .format(new Date(`${value}T12:00:00Z`))
+    .replace(".", "");
+}
+
 function CourseCard({ course }: { course: Curso }) {
   const index = cursos.findIndex((item) => item.slug === course.slug);
   const guidance = getCourseGuidance(course.slug, "es");
@@ -37,6 +43,7 @@ function CourseCard({ course }: { course: Curso }) {
           {course.pdf && <span className="aula-chip" data-tone="amber"><Icon name="pdf" /> PDF</span>}
           <span className="aula-chip" data-tone="green">open</span>
           {guidance && <span className="aula-chip"><Icon name="calendar" /> ≈ {guidance.estimatedHours} h</span>}
+          <span className="aula-chip" title={`Última actualización: ${course.updatedAt}`}><Icon name="calendar" /> Actualizado: {formatCourseUpdatedAt(course.updatedAt)}</span>
         </div>
       </div>
     </Link>

@@ -69,7 +69,8 @@ export default function Page() {
 
       <Terminal>{`model_registry:
   id: "support-router-v3"
-  base_model: "qwen3:8b-q5"
+  base_model: "qwen3:8b"
+  quantization: "Q5"
   runtime: "ollama"
   prompt_version: "support-es-v7"
   eval_dataset: "support-evals-2026-07"
