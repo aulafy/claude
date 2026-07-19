@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import BrandMark from "@/components/BrandMark";
 import LandingLearningGuide from "@/components/LandingLearningGuide";
 import styles from "@/components/AulafyNexusLanding.module.css";
 
@@ -82,7 +83,7 @@ export default function AulafyNexusLanding({ courseCount, lessonCount, locale = 
       <a className={styles.skip} href="#main-content">{text.skip}</a>
       <header className={styles.header}>
         <Link className={styles.brand} href={english ? "/en" : "/"} aria-label="Aulafy">
-          <span aria-hidden="true">A</span><strong>Aulafy</strong>
+          <BrandMark /><strong>Aulafy</strong>
         </Link>
         <nav aria-label={english ? "Main navigation" : "Navegación principal"}>
           <a href="#camino">{text.learn}</a>

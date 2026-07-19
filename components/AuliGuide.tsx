@@ -3,17 +3,9 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import BrandMark from "@/components/BrandMark";
 import type { Locale } from "@/lib/i18n";
 import styles from "@/components/AuliGuide.module.css";
-
-function AuliMark() {
-  return (
-    <svg viewBox="0 0 96 96" aria-hidden="true">
-      <rect x="8" y="8" width="80" height="80" rx="25" fill="currentColor" />
-      <path d="M28 71 43 26h11l15 45H58l-3-10H42l-3 10H28Zm17-20h8l-4-14-4 14Z" fill="#fff" />
-    </svg>
-  );
-}
 
 function guidance(pathname: string, locale: Locale) {
   const english = locale === "en";
@@ -76,7 +68,7 @@ export default function AuliGuide({ locale = "es" }: { locale?: Locale }) {
         </div>
       ) : null}
       <button type="button" className={styles.mascot} onClick={() => setOpen(true)} aria-label={locale === "en" ? "Open Auli learning guide" : "Abrir la guía de aprendizaje Auli"} aria-expanded={open}>
-        <AuliMark />
+        <BrandMark />
         <span>{locale === "en" ? "Need help?" : "¿Te ayudo?"}</span>
       </button>
     </aside>
