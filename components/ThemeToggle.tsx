@@ -3,19 +3,18 @@
 import { useEffect, useState } from "react";
 import Icon from "@/components/Icon";
 
-type Theme = "dark" | "light";
+type Theme = "light" | "dark";
 
 function applyTheme(theme: Theme) {
-  document.documentElement.classList.toggle("light", theme === "light");
+  document.documentElement.classList.toggle("dark", theme === "dark");
   document.documentElement.style.colorScheme = theme;
 }
 
 export default function ThemeToggle({ compact = false }: { compact?: boolean }) {
-  const [theme, setTheme] = useState<Theme>("dark");
+  const [theme, setTheme] = useState<Theme>("light");
 
   useEffect(() => {
-    const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
-    const next = prefersLight ? "light" : "dark";
+    const next = "light";
     applyTheme(next);
 
     const frame = window.requestAnimationFrame(() => setTheme(next));

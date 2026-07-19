@@ -155,19 +155,13 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
       </div>
 
       {/* Cabecera del curso */}
-      <div
-        className="aula-frame p-8 sm:p-10 mb-10"
-        style={{ background: `linear-gradient(120deg, ${curso.gradient[0]}22, ${curso.gradient[1]}22)` }}
-      >
+      <div className="aula-frame p-8 sm:p-10 mb-10">
         <div className="flex flex-col lg:flex-row lg:items-start gap-8">
           <div className="flex-1 min-w-0">
             <span className="aula-section-label">
               <Icon name="capsule" /> cápsula/{curso.slug}
             </span>
-            <div
-              className="aula-course-art mt-5 mb-6 w-16 h-16 rounded-lg flex items-center justify-center text-white text-2xl"
-              style={{ background: `linear-gradient(120deg, ${curso.gradient[0]}, ${curso.gradient[1]})` }}
-            >
+            <div className="aula-course-art mt-5 mb-6 w-16 h-16 rounded-lg flex items-center justify-center bg-[var(--accent)] text-white text-2xl">
               <Icon name={curso.icon as IconName} />
             </div>
             <h1 className="font-display font-extrabold text-3xl sm:text-5xl text-white">{curso.title}</h1>
