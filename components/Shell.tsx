@@ -11,6 +11,7 @@ import LessonStructuredData from "@/components/LessonStructuredData";
 import LessonFeedback from "@/components/LessonFeedback";
 import LessonCommunityCta from "@/components/social/LessonCommunityCta";
 import AuliGuide from "@/components/AuliGuide";
+import CourseCurriculumMap from "@/components/CourseCurriculumMap";
 
 export default function Shell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -42,6 +43,7 @@ export default function Shell({ children }: { children: React.ReactNode }) {
               lessonSlug={esLeccion ? parts[2] : parts[3]}
               locale={locale}
             />
+            <CourseCurriculumMap currentSlug={esLeccion ? parts[1] : parts[2]} locale={locale} />
           </main>
           <Footer locale={locale} />
         </div>
@@ -51,12 +53,17 @@ export default function Shell({ children }: { children: React.ReactNode }) {
   }
 
   // 3) Resto (catálogo, páginas de curso, legales…): cabecera + pie del sitio.
+  const esCurso = parts[0] === "cursos" && parts.length === 2 && getCurso(parts[1]);
+  const enCurso = parts[0] === "en" && parts[1] === "courses" && parts.length === 3 && getCurso(parts[2]);
   return (
     <>
       <DocumentLanguage locale={locale} />
       <a href="#main-content" className="aula-skip-link">{locale === "en" ? "Skip to content" : "Saltar al contenido"}</a>
       <SiteHeader locale={locale} />
-      <main id="main-content" className="min-h-screen">{children}</main>
+      <main id="main-content" className="min-h-screen">
+        {children}
+        {(esCurso || enCurso) && <CourseCurriculumMap currentSlug={esCurso ? parts[1] : parts[2]} locale={locale} />}
+      </main>
       <Footer locale={locale} />
       <AuliGuide locale={locale} />
     </>
