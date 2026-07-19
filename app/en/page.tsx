@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import AulafyNexusLanding from "@/components/AulafyNexusLanding";
 import { totalLecciones } from "@/lib/cursos";
 import { getLocalizedCursos } from "@/lib/i18n";
-import { getLearningPaths } from "@/lib/learning-paths";
-import "../laboratorio/landing/landing.css";
 
 export const metadata: Metadata = {
   title: "Aulafy — Free practical AI education in English",
@@ -31,13 +29,5 @@ export const metadata: Metadata = {
 export default function EnglishHome() {
   const courses = getLocalizedCursos("en");
   const lessons = courses.reduce((sum, course) => sum + totalLecciones(course), 0);
-  const featured = courses.slice(0, 6).map((course) => ({
-    slug: course.slug,
-    title: course.title,
-    short: course.short,
-    level: course.level,
-    lessons: totalLecciones(course),
-  }));
-
-  return <AulafyNexusLanding courseCount={courses.length} lessonCount={lessons} paths={getLearningPaths("en")} courses={featured} locale="en" />;
+  return <AulafyNexusLanding courseCount={courses.length} lessonCount={lessons} locale="en" />;
 }

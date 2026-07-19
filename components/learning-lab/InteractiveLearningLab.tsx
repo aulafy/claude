@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import {
   getLearningLabScenario,
   type LabStation,
@@ -33,6 +33,15 @@ export default function InteractiveLearningLab() {
   const [reviewAttempt, setReviewAttempt] = useState<number | null>(null);
   const [reviewComplete, setReviewComplete] = useState(false);
   const [copyStatus, setCopyStatus] = useState("");
+
+  useEffect(() => {
+    const compact = matchMedia("(max-width: 700px)").matches;
+    const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const frame = requestAnimationFrame(() => {
+      if (compact || reduceMotion) setEssentialView(true);
+    });
+    return () => cancelAnimationFrame(frame);
+  }, []);
 
   const scenario = getLearningLabScenario(scenarioId);
   const completedPromptParts = Object.values(promptComplete).filter(Boolean).length;
@@ -122,7 +131,7 @@ export default function InteractiveLearningLab() {
         </div>
       </section>
 
-      <section className="learning-lab__shell" aria-label={`Misión: ${scenario.title}`}>
+      <section className="learning-lab__shell" id="learning-lab-mission" aria-label={`Misión: ${scenario.title}`}>
         <div className="learning-room">
           <div className="learning-room__topbar">
             <div>

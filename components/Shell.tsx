@@ -10,6 +10,7 @@ import { isEnglishPath } from "@/lib/i18n";
 import LessonStructuredData from "@/components/LessonStructuredData";
 import LessonFeedback from "@/components/LessonFeedback";
 import LessonCommunityCta from "@/components/social/LessonCommunityCta";
+import AuliGuide from "@/components/AuliGuide";
 
 export default function Shell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -18,7 +19,7 @@ export default function Shell({ children }: { children: React.ReactNode }) {
 
   // 1) Landing: pantalla completa, con su propio header y footer.
   if (pathname === "/" || pathname === "/en" || pathname === "/laboratorio/landing" || pathname === "/laboratorio/portada-anterior") {
-    return <><DocumentLanguage locale={locale} />{children}</>;
+    return <><DocumentLanguage locale={locale} />{children}<AuliGuide locale={locale} /></>;
   }
 
   // 2) Lección de un curso: /cursos/<curso>/<leccion> → sidebar del curso.
@@ -31,7 +32,7 @@ export default function Shell({ children }: { children: React.ReactNode }) {
         <DocumentLanguage locale={locale} />
         {esLeccion && <LessonStructuredData courseSlug={parts[1]} lessonSlug={parts[2]} />}
         <CourseSidebar locale={locale} />
-        <div className="md:ml-[280px] min-h-screen flex flex-col">
+        <div className="md:ml-[252px] min-h-screen flex flex-col">
           <a href="#main-content" className="aula-skip-link">{locale === "en" ? "Skip to content" : "Saltar al contenido"}</a>
           <main id="main-content" className="flex-1">
             {children}
@@ -44,6 +45,7 @@ export default function Shell({ children }: { children: React.ReactNode }) {
           </main>
           <Footer locale={locale} />
         </div>
+        <AuliGuide locale={locale} />
       </>
     );
   }
@@ -56,6 +58,7 @@ export default function Shell({ children }: { children: React.ReactNode }) {
       <SiteHeader locale={locale} />
       <main id="main-content" className="min-h-screen">{children}</main>
       <Footer locale={locale} />
+      <AuliGuide locale={locale} />
     </>
   );
 }

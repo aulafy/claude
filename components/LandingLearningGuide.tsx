@@ -4,6 +4,7 @@ import { FormEvent, useState } from "react";
 import Link from "next/link";
 import { renderAssistantContent } from "@/components/ChatWidget";
 import type { Locale } from "@/lib/i18n";
+import styles from "@/components/LandingLearningGuide.module.css";
 
 type StartingPoint = {
   label: string;
@@ -145,21 +146,21 @@ export default function LandingLearningGuide({ locale = "es" }: { locale?: Local
   }
 
   return (
-    <section className="nx-guide" aria-labelledby="nx-guide-title">
-      <div className="nx-guide__head">
+    <section className={styles.guide} aria-labelledby="nx-guide-title">
+      <div className={styles.head}>
         <p>{copy.eyebrow}</p>
         <span><i /> {locale === "es" ? "LISTO PARA ORIENTAR" : "READY TO GUIDE"}</span>
       </div>
       <h2 id="nx-guide-title">{copy.title}</h2>
-      <p className="nx-guide__intro">{copy.intro}</p>
+      <p className={styles.intro}>{copy.intro}</p>
 
-      <div className="nx-guide__choices">
+      <div className={styles.choices}>
         {points.map((point, index) => (
           <button
             type="button"
             key={point.label}
             aria-pressed={selected === index}
-            className={selected === index ? "is-selected" : ""}
+            className={selected === index ? styles.selected : ""}
             onClick={() => {
               setSelected(index);
               setShowQuestion(false);
@@ -172,7 +173,7 @@ export default function LandingLearningGuide({ locale = "es" }: { locale?: Local
       </div>
 
       {selected !== null ? (
-        <div className="nx-guide__recommendation">
+        <div className={styles.recommendation}>
           <p>{points[selected].detail}</p>
           <Link href={points[selected].href}>{points[selected].action} <span aria-hidden="true">↗</span></Link>
         </div>
@@ -180,7 +181,7 @@ export default function LandingLearningGuide({ locale = "es" }: { locale?: Local
 
       <button
         type="button"
-        className="nx-guide__custom"
+        className={styles.custom}
         aria-expanded={showQuestion}
         onClick={() => {
           setSelected(null);
@@ -191,7 +192,7 @@ export default function LandingLearningGuide({ locale = "es" }: { locale?: Local
       </button>
 
       {showQuestion ? (
-        <div className="nx-guide__question">
+        <div className={styles.question}>
           <form onSubmit={askTutor}>
             <label htmlFor="aulafy-learning-goal">{copy.label}</label>
             <textarea
@@ -209,12 +210,12 @@ export default function LandingLearningGuide({ locale = "es" }: { locale?: Local
               </button>
             </div>
           </form>
-          <p className="nx-guide__privacy">{copy.privacy} <Link href={locale === "es" ? "/privacidad" : "/en"}>{copy.privacyLink}</Link>.</p>
+          <p className={styles.privacy}>{copy.privacy} <Link href={locale === "es" ? "/privacidad" : "/en"}>{copy.privacyLink}</Link>.</p>
         </div>
       ) : null}
 
       {answer || error ? (
-        <div className={`nx-guide__answer ${error ? "is-error" : ""}`} aria-live="polite">
+        <div className={`${styles.answer} ${error ? styles.error : ""}`} aria-live="polite">
           <strong>{copy.answer}</strong>
           <div>{error || renderAssistantContent(answer, locale)}</div>
         </div>
