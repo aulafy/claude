@@ -10,7 +10,6 @@ import { isEnglishPath } from "@/lib/i18n";
 import LessonStructuredData from "@/components/LessonStructuredData";
 import LessonFeedback from "@/components/LessonFeedback";
 import LessonCommunityCta from "@/components/social/LessonCommunityCta";
-import AuliGuide from "@/components/AuliGuide";
 import CourseCurriculumMap from "@/components/CourseCurriculumMap";
 import AmbientLearningScene from "@/components/AmbientLearningScene";
 
@@ -21,7 +20,7 @@ export default function Shell({ children }: { children: React.ReactNode }) {
 
   // 1) Landing: pantalla completa, con su propio header y footer.
   if (pathname === "/" || pathname === "/en" || pathname === "/laboratorio/landing" || pathname === "/laboratorio/portada-anterior") {
-    return <><DocumentLanguage locale={locale} />{children}<AuliGuide locale={locale} /></>;
+    return <><DocumentLanguage locale={locale} />{children}</>;
   }
 
   // 2) Lección de un curso: /cursos/<curso>/<leccion> → sidebar del curso.
@@ -49,7 +48,6 @@ export default function Shell({ children }: { children: React.ReactNode }) {
           </main>
           <Footer locale={locale} />
         </div>
-        <AuliGuide locale={locale} />
       </>
     );
   }
@@ -68,7 +66,6 @@ export default function Shell({ children }: { children: React.ReactNode }) {
         {(esCurso || enCurso) && <CourseCurriculumMap currentSlug={esCurso ? parts[1] : parts[2]} locale={locale} />}
       </main>
       <Footer locale={locale} />
-      <AuliGuide locale={locale} />
     </>
   );
 }
