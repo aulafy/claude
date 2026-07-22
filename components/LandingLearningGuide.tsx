@@ -1,8 +1,7 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
-import { renderAssistantContent } from "@/components/ChatWidget";
 import type { Locale } from "@/lib/i18n";
 import styles from "@/components/LandingLearningGuide.module.css";
 
@@ -16,7 +15,7 @@ type StartingPoint = {
 const STARTING_POINTS: Record<Locale, StartingPoint[]> = {
   es: [
     {
-      label: "Empiezo desde cero",
+    label: "Empiezo desde cero",
       detail: "Entiende qué puede hacer la IA y completa una primera tarea segura.",
       href: "/cursos/ia-desde-cero/que-puede-hacer-ia-generativa",
       action: "Abrir la primera lección",
@@ -76,12 +75,7 @@ const COPY = {
     custom: "No encajo en esas opciones",
     label: "Describe tu objetivo",
     placeholder: "Por ejemplo: trabajo en administración y quiero ahorrar tiempo con facturas…",
-    ask: "Preguntar al tutor",
-    asking: "Buscando la mejor ruta…",
     answer: "Orientación propuesta",
-    error: "El tutor no está disponible ahora. Puedes usar uno de los cuatro accesos anteriores.",
-    privacy: "Aulafy no guarda esta conversación ni usa cookies. Groq procesa el texto para responder. No incluyas datos personales o confidenciales.",
-    privacyLink: "Privacidad",
   },
   en: {
     eyebrow: "AULAFY GUIDE / NO SIGN-UP",
@@ -90,14 +84,33 @@ const COPY = {
     custom: "My goal is different",
     label: "Describe your goal",
     placeholder: "For example: I work in operations and want to save time reviewing invoices…",
-    ask: "Ask the tutor",
-    asking: "Finding the best path…",
     answer: "Suggested direction",
-    error: "The tutor is not available right now. You can still use one of the four direct routes above.",
-    privacy: "Aulafy does not save this conversation or use cookies. Groq processes the text to answer. Do not include personal or confidential data.",
-    privacyLink: "Privacy",
   },
 } satisfies Record<Locale, Record<string, string>>;
+
+function chooseStartingPoint(text: string, points: StartingPoint[], locale: Locale) {
+  const normalized = text
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+
+  const rules = locale === "es"
+    ? [
+        { index: 1, words: ["empresa", "pyme", "trabajo", "oficina", "factura", "cliente", "negocio", "autonomo", "administracion", "clinica", "abogado"] },
+        { index: 2, words: ["programar", "codigo", "codex", "repo", "github", "app", "automatizar", "developer"] },
+        { index: 3, words: ["web", "landing", "pagina", "saas", "vercel", "supabase", "tienda"] },
+        { index: 0, words: ["cero", "principiante", "empezar", "estudiante", "universidad", "prompt", "chatgpt", "claude"] },
+      ]
+    : [
+        { index: 1, words: ["business", "work", "office", "invoice", "customer", "company", "clinic", "legal"] },
+        { index: 2, words: ["code", "coding", "codex", "repo", "github", "developer", "automation"] },
+        { index: 3, words: ["web", "landing", "website", "saas", "vercel", "supabase"] },
+        { index: 0, words: ["zero", "beginner", "start", "student", "university", "prompt", "chatgpt", "claude"] },
+      ];
+
+  const match = rules.find((rule) => rule.words.some((word) => normalized.includes(word)));
+  return points[match?.index ?? 0];
+}
 
 export default function LandingLearningGuide({ locale = "es" }: { locale?: Locale }) {
   const copy = COPY[locale];
@@ -105,45 +118,7 @@ export default function LandingLearningGuide({ locale = "es" }: { locale?: Local
   const [selected, setSelected] = useState<number | null>(null);
   const [showQuestion, setShowQuestion] = useState(false);
   const [question, setQuestion] = useState("");
-  const [answer, setAnswer] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-
-  async function askTutor(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const content = question.trim();
-    if (!content || loading) return;
-
-    setLoading(true);
-    setAnswer("");
-    setError("");
-
-    try {
-      const response = await fetch("/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: [{ role: "user", content }], locale }),
-      });
-
-      if (!response.ok || !response.body) throw new Error("Tutor unavailable");
-      const reader = response.body.getReader();
-      const decoder = new TextDecoder();
-      let accumulated = "";
-
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-        accumulated += decoder.decode(value, { stream: true });
-        setAnswer(accumulated);
-      }
-
-      if (!accumulated.trim()) throw new Error("Empty tutor response");
-    } catch {
-      setError(copy.error);
-    } finally {
-      setLoading(false);
-    }
-  }
+  const typedRecommendation = question.trim() ? chooseStartingPoint(question, points, locale) : null;
 
   return (
     <section className={styles.guide} aria-labelledby="nx-guide-title">
@@ -193,7 +168,7 @@ export default function LandingLearningGuide({ locale = "es" }: { locale?: Local
 
       {showQuestion ? (
         <div className={styles.question}>
-          <form onSubmit={askTutor}>
+          <form>
             <label htmlFor="aulafy-learning-goal">{copy.label}</label>
             <textarea
               id="aulafy-learning-goal"
@@ -205,19 +180,22 @@ export default function LandingLearningGuide({ locale = "es" }: { locale?: Local
             />
             <div>
               <small>{question.length}/500</small>
-              <button type="submit" disabled={loading || !question.trim()}>
-                {loading ? copy.asking : copy.ask}
-              </button>
+              <span>{locale === "es" ? "Orientación local" : "Local guidance"}</span>
             </div>
           </form>
-          <p className={styles.privacy}>{copy.privacy} <Link href={locale === "es" ? "/privacidad" : "/en"}>{copy.privacyLink}</Link>.</p>
+          <p className={styles.privacy}>
+            {locale === "es"
+              ? "Esta caja no envía nada a una API: solo ayuda a elegir una puerta de entrada. No pegues datos personales."
+              : "This box does not send anything to an API: it only helps choose an entry point. Do not paste personal data."}
+          </p>
         </div>
       ) : null}
 
-      {answer || error ? (
-        <div className={`${styles.answer} ${error ? styles.error : ""}`} aria-live="polite">
+      {typedRecommendation ? (
+        <div className={styles.answer} aria-live="polite">
           <strong>{copy.answer}</strong>
-          <div>{error || renderAssistantContent(answer, locale)}</div>
+          <p>{typedRecommendation.detail}</p>
+          <Link href={typedRecommendation.href}>{typedRecommendation.action} <span aria-hidden="true">↗</span></Link>
         </div>
       ) : null}
     </section>

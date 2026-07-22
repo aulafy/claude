@@ -11,10 +11,10 @@ function guidance(pathname: string, locale: Locale) {
   const english = locale === "en";
   if (pathname === "/" || pathname === "/en") {
     return {
-      title: english ? "Start with one choice" : "Empieza con una decisión",
+      title: english ? "Choose one entry point" : "Elige una puerta de entrada",
       text: english ? "Choose the situation closest to you. You do not need to browse every course." : "Elige la situación que más se parece a la tuya. No necesitas recorrer todos los cursos.",
       href: "#nx-guide-title",
-      action: english ? "Show me" : "Ver orientador",
+      action: english ? "See options" : "Ver opciones",
     };
   }
   if (pathname === "/cursos" || pathname === "/en/courses") {
@@ -42,8 +42,8 @@ function guidance(pathname: string, locale: Locale) {
     };
   }
   return {
-    title: english ? "Need a clear next step?" : "¿Necesitas un siguiente paso?",
-    text: english ? "Tell Aulafy where you are starting and it will recommend one route." : "Indica desde dónde partes y Aulafy te recomendará una sola ruta.",
+    title: english ? "Lost? Start smaller." : "¿Te pierdes? Empieza más pequeño.",
+    text: english ? "Use the path finder. It does not ask for email or save history." : "Usa el orientador de rutas. No pide email ni guarda historial.",
     href: english ? "/en/paths" : "/que-aprender-ia",
     action: english ? "Find my route" : "Encontrar mi ruta",
   };
@@ -60,16 +60,16 @@ export default function AuliGuide({ locale = "es" }: { locale?: Locale }) {
       {open ? (
         <div className={styles.panel}>
           <button type="button" className={styles.close} onClick={() => setOpen(false)} aria-label={locale === "en" ? "Close Auli" : "Cerrar Auli"}>×</button>
-          <p className={styles.name}>AULI · {locale === "en" ? "GUIDE" : "GUÍA"}</p>
+          <p className={styles.name}>A · {locale === "en" ? "GUIDE" : "GUÍA"}</p>
           <strong>{tip.title}</strong>
           <p>{tip.text}</p>
           <Link href={tip.href} onClick={() => setOpen(false)}>{tip.action} <span aria-hidden="true">→</span></Link>
-          <small>{locale === "en" ? "No account. No saved history." : "Sin cuenta. No guarda historial."}</small>
+          <small>{locale === "en" ? "Static guidance. No tracking." : "Guía estática. Sin seguimiento."}</small>
         </div>
       ) : null}
       <button type="button" className={styles.mascot} onClick={() => setOpen(true)} aria-label={locale === "en" ? "Open Auli learning guide" : "Abrir la guía de aprendizaje Auli"} aria-expanded={open}>
         <BrandMark />
-        <span>{locale === "en" ? "Need help?" : "¿Te ayudo?"}</span>
+        <span>{locale === "en" ? "Guide" : "Guía"}</span>
       </button>
     </aside>
   );

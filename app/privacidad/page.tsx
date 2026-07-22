@@ -5,7 +5,7 @@ import Icon from "@/components/Icon";
 export const metadata: Metadata = {
   title: "Política de privacidad - Aulafy",
   description:
-    "Información sobre privacidad, chat opcional y datos técnicos en Aulafy.",
+    "Información sobre privacidad, orientación local y datos técnicos en Aulafy.",
   alternates: { canonical: "/privacidad" },
 };
 
@@ -38,13 +38,13 @@ export default function Privacidad() {
           únicamente en el navegador y no identifican a la persona en el servidor.
         </p>
 
-        <h2>Chat de ayuda</h2>
+        <h2>Orientación de aprendizaje</h2>
         <p>
-          Algunas páginas pueden incluir un asistente de IA opcional. Si lo usas,
-          tu pregunta y los últimos turnos de la conversación se envían al
-          proveedor de IA configurado en el servidor solo para generar la
-          respuesta. No introduzcas claves de API, contraseñas, datos personales
-          sensibles ni información confidencial.
+          Aulafy puede mostrar una guía visual o un orientador básico para elegir
+          por dónde empezar. Esta orientación funciona en la propia página y no
+          envía tus respuestas a un proveedor de IA. Aun así, no pegues claves de
+          API, contraseñas, datos personales sensibles ni información confidencial
+          en cuadros de texto educativos.
         </p>
 
         <h2>Datos técnicos y seguridad</h2>
@@ -52,9 +52,7 @@ export default function Privacidad() {
           Como cualquier web publicada en internet, el proveedor de alojamiento y
           las capas de seguridad pueden tratar datos técnicos mínimos de la
           petición, como dirección IP, fecha, hora, navegador o URL solicitada,
-          para entregar la página, prevenir abusos y mantener la seguridad. Si el
-          sistema antiabuso del chat está activo, puede usar un identificador
-          derivado de la IP durante ventanas cortas de limitación de uso.
+          para entregar la página, prevenir abusos y mantener la seguridad.
         </p>
 
         <h2>Cookies</h2>
@@ -70,8 +68,7 @@ export default function Privacidad() {
         <p>
           Aulafy no conserva una base de datos de usuarios. El proveedor de
           alojamiento puede mantener registros técnicos durante el tiempo necesario
-          para operar y proteger el servicio. El chat no conserva conversaciones
-          con finalidad comercial.
+          para operar y proteger el servicio.
         </p>
 
         <h2>Derechos</h2>

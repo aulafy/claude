@@ -197,9 +197,37 @@ export function MissionBrief({
   title: string;
   mission?: LessonMission;
 }) {
+  const [copiedEvidence, setCopiedEvidence] = useState(false);
   const steps = mission?.steps ?? ["Entiende el criterio", "Haz una práctica pequeña", "Guarda una evidencia"];
   const build = mission?.build ?? `Una decisión o prueba aplicada a «${title}».`;
   const evidence = mission?.evidence ?? "Una nota breve con qué hiciste, qué salió bien, qué falló y qué revisarías después.";
+  const evidenceTemplate = [
+    `# Evidencia de aprendizaje: ${title}`,
+    "",
+    "## Objetivo",
+    build,
+    "",
+    "## Pasos realizados",
+    ...steps.map((step, index) => `${index + 1}. ${step}`),
+    "",
+    "## Resultado",
+    evidence,
+    "",
+    "## Comprobación",
+    "- ¿Qué he verificado por mí mismo/a?",
+    "- ¿Qué fuente, prueba o dato confirma que no estoy copiando una alucinación?",
+    "- ¿Qué haría distinto en la siguiente iteración?",
+  ].join("\n");
+
+  const copyEvidence = async () => {
+    try {
+      await navigator.clipboard.writeText(evidenceTemplate);
+      setCopiedEvidence(true);
+      setTimeout(() => setCopiedEvidence(false), 1600);
+    } catch {
+      /* ignore */
+    }
+  };
 
   return (
     <section className="lesson-mission mb-10" aria-labelledby="lesson-mission-title">
@@ -220,6 +248,17 @@ export function MissionBrief({
         {mission?.minutes ? <span className="aula-chip" data-tone="cyan"><Icon name="calendar" /> ≈ {mission.minutes} min</span> : null}
         <span className="aula-chip" data-tone="green"><Icon name="save" /> Evidencia</span>
         <p>{evidence}</p>
+        <button type="button" className="lesson-mission-copy" onClick={copyEvidence}>
+          {copiedEvidence ? (
+            <>
+              <Icon name="check" /> Plantilla copiada
+            </>
+          ) : (
+            <>
+              <Icon name="copy" /> Copiar plantilla de evidencia
+            </>
+          )}
+        </button>
       </div>
     </section>
   );
