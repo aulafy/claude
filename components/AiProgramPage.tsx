@@ -35,6 +35,35 @@ export default function AiProgramPage({ locale }: { locale: Locale }) {
         <span className="aula-section-label"><Icon name="check" /> {program.evidenceTitle}</span>
         <h2 id="program-rule" className="font-display text-2xl font-bold text-white mt-3">{program.promiseTitle}</h2>
         <p className="mt-3 text-zinc-300 leading-relaxed max-w-4xl">{program.promise}</p>
+        <div className="mt-6 rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5">
+          <h3 className="font-display text-xl font-bold text-white">{program.methodTitle}</h3>
+          <ol className="mt-4 grid gap-3 sm:grid-cols-2">
+            {program.method.map((step, index) => (
+              <li key={step} className="flex gap-3 text-sm leading-relaxed text-zinc-300">
+                <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[var(--border)] bg-black/30 text-xs font-bold text-[var(--accent)]">
+                  {index + 1}
+                </span>
+                <span>{step}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] mb-10" aria-label={program.horizonTitle}>
+        <article className="aula-panel p-6 sm:p-8">
+          <span className="aula-section-label"><Icon name="star" /> {program.horizonTitle}</span>
+          <p className="mt-4 text-zinc-300 leading-relaxed">{program.horizon}</p>
+        </article>
+        <article className="aula-panel p-6 sm:p-8">
+          <span className="aula-section-label"><Icon name="search" /> {program.updateTitle}</span>
+          <p className="mt-4 text-zinc-300 leading-relaxed">{program.update}</p>
+          <ul className="mt-5 grid gap-2 text-sm text-zinc-400">
+            {program.updateSources.map((item) => (
+              <li key={item} className="flex gap-2"><Icon name="check" className="mt-1 text-[var(--accent)]" /> <span>{item}</span></li>
+            ))}
+          </ul>
+        </article>
       </section>
 
       <section id="fases" className="scroll-mt-24">
@@ -53,6 +82,10 @@ export default function AiProgramPage({ locale }: { locale: Locale }) {
                   <h3 className="font-display text-2xl font-bold text-white mt-2">{stage.title}</h3>
                   <p className="mt-2 aula-chip w-fit" data-tone="cyan">{stage.profile}</p>
                   <p className="mt-4 text-zinc-300 leading-relaxed">{stage.objective}</p>
+                  <div className="mt-5 rounded-lg border border-[var(--border)] bg-[var(--surface)] p-4">
+                    <div className="aula-meta text-zinc-500">Proyecto del módulo</div>
+                    <p className="mt-2 text-sm leading-relaxed text-zinc-300">{stage.project}</p>
+                  </div>
                   <div className="mt-6 callout callout-tip">
                     <strong>{program.gateLabel}.</strong> {stage.gate}
                   </div>

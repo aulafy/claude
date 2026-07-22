@@ -131,7 +131,8 @@ assert.match(pathsPage, /<LearningPathFinder/, "Spanish paths must include the s
 assert.equal((profileChoices.match(/id: "/g) ?? []).length, 3, "The finder must keep three clear entry profiles");
 assert.equal((goalChoices.match(/id: "/g) ?? []).length, 5, "The finder must recommend by learner goal");
 assert.match(pathFinder, /No es un examen ni pide datos personales/, "The finder must explain its privacy and assessment limits");
-assert.match(catalogPage, /open=\{group\.id === "empezar"\}/, "Only the beginner catalog group should start expanded");
+assert.match(catalogPage, /Todos los bloques empiezan cerrados/, "The course catalog must explain that blocks start collapsed to reduce overload");
+assert.ok(!/open=\{group\.id ===/.test(catalogPage), "Course catalog groups should start collapsed after adding the path finder");
 assert.match(coursePage, /curso\.slug === "codex-desde-cero" && <CodexStartingCheck/, "Codex from zero must include the starting check");
 assert.equal((startingCheck.match(/prompt: "/g) ?? []).length, 4, "The Codex starting check must cover four practical decisions");
 assert.equal((startingCheck.match(/explanation: "/g) ?? []).length, 4, "Every starting-check answer needs immediate explanatory feedback");

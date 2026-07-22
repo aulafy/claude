@@ -3,11 +3,13 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Icon, { type IconName } from "@/components/Icon";
 import CodexStartingCheck from "@/components/CodexStartingCheck";
+import CourseQualityCard from "@/components/CourseQualityCard";
 import IaBasicsStartingCheck from "@/components/IaBasicsStartingCheck";
 import ContinuarCurso from "@/components/ContinuarCurso";
 import PortableProgress from "@/components/PortableProgress";
 import { cursos, getCurso, totalLecciones } from "@/lib/cursos";
 import { getCourseGuidance } from "@/lib/course-guidance";
+import { getCourseQuality } from "@/lib/course-quality";
 import { isCourseAvailableInLocale } from "@/lib/i18n";
 import { pluralLabel } from "@/lib/plural";
 import { courseSeoOverrides } from "@/lib/seo-strategy";
@@ -84,6 +86,7 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
 
   const total = totalLecciones(curso);
   const guidance = getCourseGuidance(curso.slug, "es");
+  const quality = getCourseQuality(curso.slug);
   const leccionesCurso = curso.secciones.flatMap((seccion) => seccion.lecciones);
   const leccionTitles = leccionesCurso.map((leccion) => leccion.title);
   const itinerary = curso.itinerary;
@@ -229,6 +232,8 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
       </div>
 
       <PortableProgress course={curso} />
+
+      <CourseQualityCard quality={quality} />
 
       {guidance && (
         <section className="mb-12" aria-labelledby="course-outcomes">
