@@ -1,0 +1,173 @@
+.scene {
+  pointer-events: none;
+  position: fixed;
+  z-index: 0;
+  opacity: 0.72;
+  filter: saturate(0.95);
+}
+
+.lesson {
+  right: clamp(0.75rem, 3vw, 2.4rem);
+  top: clamp(5rem, 10vh, 8rem);
+  width: clamp(8rem, 16vw, 13rem);
+  height: clamp(8rem, 16vw, 13rem);
+}
+
+.site {
+  bottom: clamp(1rem, 5vh, 4rem);
+  right: clamp(0.75rem, 4vw, 4rem);
+  width: clamp(7rem, 13vw, 11rem);
+  height: clamp(7rem, 13vw, 11rem);
+}
+
+.screen {
+  position: absolute;
+  inset: 16% 8% 32% 16%;
+  border: 1px solid color-mix(in srgb, var(--signal-cyan) 34%, transparent);
+  border-radius: 16px;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--signal-cyan) 8%, transparent), transparent),
+    color-mix(in srgb, var(--panel) 72%, transparent);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 18px 60px rgba(0, 0, 0, 0.2);
+  transform: rotate(-5deg);
+  animation: screenWake 7s ease-in-out infinite;
+}
+
+.screen span {
+  position: absolute;
+  left: 16%;
+  height: 2px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--signal-cyan) 68%, var(--text));
+  opacity: 0.85;
+  animation: codePulse 4.8s ease-in-out infinite;
+}
+
+.screen span:nth-child(1) {
+  top: 30%;
+  width: 42%;
+}
+
+.screen span:nth-child(2) {
+  top: 48%;
+  width: 64%;
+  animation-delay: 0.35s;
+}
+
+.screen span:nth-child(3) {
+  top: 66%;
+  width: 34%;
+  animation-delay: 0.7s;
+}
+
+.disk {
+  position: absolute;
+  left: 5%;
+  bottom: 13%;
+  width: 40%;
+  aspect-ratio: 1.18;
+  border: 1px solid color-mix(in srgb, var(--signal-violet) 34%, transparent);
+  border-radius: 12px;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--signal-violet) 16%, transparent), transparent),
+    color-mix(in srgb, var(--panel) 82%, transparent);
+  transform: translateX(0) rotate(4deg);
+  animation: diskSlide 7s ease-in-out infinite;
+}
+
+.disk i {
+  position: absolute;
+  inset: 18% 18% auto;
+  height: 18%;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--signal-violet) 50%, var(--text));
+  opacity: 0.72;
+}
+
+.cursor {
+  position: absolute;
+  right: 22%;
+  bottom: 22%;
+  width: 0.46rem;
+  height: 1.2rem;
+  border-radius: 999px;
+  background: var(--signal-amber);
+  box-shadow: 0 0 24px color-mix(in srgb, var(--signal-amber) 66%, transparent);
+  animation: cursorBlink 1.3s steps(2, jump-none) infinite;
+}
+
+.orbit {
+  position: absolute;
+  inset: 0;
+  border: 1px solid color-mix(in srgb, var(--signal-violet) 14%, transparent);
+  border-radius: 999px;
+  animation: slowOrbit 18s linear infinite;
+}
+
+.orbit span {
+  position: absolute;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 999px;
+  background: var(--signal-cyan);
+  box-shadow: 0 0 18px color-mix(in srgb, var(--signal-cyan) 60%, transparent);
+}
+
+.orbit span:nth-child(1) {
+  left: 10%;
+  top: 20%;
+}
+
+.orbit span:nth-child(2) {
+  right: 6%;
+  top: 48%;
+  background: var(--signal-violet);
+}
+
+.orbit span:nth-child(3) {
+  bottom: 8%;
+  left: 44%;
+  background: var(--signal-green);
+}
+
+@keyframes screenWake {
+  0%, 100% { transform: rotate(-5deg) translateY(0); opacity: 0.72; }
+  45% { transform: rotate(-3deg) translateY(-5px); opacity: 0.96; }
+}
+
+@keyframes codePulse {
+  0%, 100% { transform: scaleX(0.68); transform-origin: left; opacity: 0.45; }
+  45% { transform: scaleX(1); opacity: 0.92; }
+}
+
+@keyframes diskSlide {
+  0%, 100% { transform: translateX(0) rotate(4deg); }
+  50% { transform: translateX(24%) rotate(1deg); }
+}
+
+@keyframes cursorBlink {
+  0%, 48% { opacity: 1; }
+  49%, 100% { opacity: 0.18; }
+}
+
+@keyframes slowOrbit {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 860px) {
+  .scene {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .screen,
+  .screen span,
+  .disk,
+  .cursor,
+  .orbit {
+    animation: none;
+  }
+}

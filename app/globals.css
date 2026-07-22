@@ -449,6 +449,7 @@ kbd {
 
 .aula-shell {
   position: relative;
+  z-index: 1;
   min-width: 0;
 }
 
@@ -498,6 +499,8 @@ kbd {
 }
 
 .aula-panel {
+  position: relative;
+  z-index: 1;
   min-width: 0;
   border: 1px solid var(--capsule-border);
   border-radius: 8px;
@@ -689,6 +692,78 @@ kbd {
   transform: translateY(-1px);
   border-color: color-mix(in srgb, var(--brand-cyan) 58%, var(--border));
   background: color-mix(in srgb, var(--brand-cyan) 16%, transparent);
+}
+
+.course-start-strip {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.85fr) auto;
+  align-items: center;
+  gap: 1rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 24%, var(--border));
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at 5% 0%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 34%),
+    color-mix(in srgb, var(--capsule-bg) 90%, transparent);
+  box-shadow: 0 18px 58px color-mix(in srgb, #000 16%, transparent);
+  padding: 1rem;
+}
+
+.course-start-strip h2 {
+  margin-top: 0.45rem;
+  font: 760 1.35rem/1.08 var(--font-sora);
+  color: var(--text);
+}
+
+.course-start-strip p {
+  margin-top: 0.5rem;
+  color: color-mix(in srgb, var(--muted) 78%, var(--text));
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.course-start-strip ol {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.course-start-strip li {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  border: 1px solid var(--capsule-border);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--surface) 74%, transparent);
+  color: color-mix(in srgb, var(--muted) 74%, var(--text));
+  padding: 0.55rem 0.7rem;
+  font-size: 0.85rem;
+  font-weight: 750;
+}
+
+.course-start-strip li span {
+  display: grid;
+  width: 1.55rem;
+  height: 1.55rem;
+  flex: none;
+  place-items: center;
+  border-radius: 9px;
+  background: var(--text);
+  color: var(--bg);
+  font: 850 0.7rem var(--font-code);
+}
+
+@media (max-width: 900px) {
+  .course-start-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .course-start-strip .aula-button {
+    width: fit-content;
+  }
 }
 
 @media (max-width: 720px) {
