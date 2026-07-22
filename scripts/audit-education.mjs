@@ -137,6 +137,7 @@ const pathsPage = fs.readFileSync("components/LearningPathsPage.tsx", "utf8");
 const catalogPage = fs.readFileSync("app/cursos/page.tsx", "utf8");
 const coursePage = fs.readFileSync("app/cursos/[slug]/page.tsx", "utf8");
 const aiProgramPage = fs.readFileSync("components/AiProgramPage.tsx", "utf8");
+const nexusLanding = fs.readFileSync("components/AulafyNexusLanding.tsx", "utf8");
 const startingCheck = fs.readFileSync("components/CodexStartingCheck.tsx", "utf8");
 const bookComponents = fs.readFileSync("components/Book.tsx", "utf8");
 const globalStyles = fs.readFileSync("app/globals.css", "utf8");
@@ -147,6 +148,10 @@ assert.match(pathsPage, /<LearningPathFinder/, "Spanish paths must include the s
 assert.match(aiProgramPage, /Temas del módulo/, "The program page must expose module topics visibly");
 assert.match(aiProgramPage, /topic\.practice/, "Program topics must show practice, not just syllabus titles");
 assert.match(aiProgramPage, /topic\.evidence/, "Program topics must show portable evidence for no-login learners");
+assert.match(nexusLanding, /Trabajo en oficina/, "The landing must keep a clear office-worker entry point");
+assert.match(nexusLanding, /Soy estudiante/, "The landing must keep a clear student entry point");
+assert.match(nexusLanding, /Empiezo desde cero/, "The landing must keep a clear beginner entry point");
+assert.match(nexusLanding, /MISIÓN 0/, "The landing must offer one immediate, low-friction first mission");
 assert.equal((profileChoices.match(/id: "/g) ?? []).length, 3, "The finder must keep three clear entry profiles");
 assert.equal((goalChoices.match(/id: "/g) ?? []).length, 5, "The finder must recommend by learner goal");
 assert.match(pathFinder, /No es un examen ni pide datos personales/, "The finder must explain its privacy and assessment limits");

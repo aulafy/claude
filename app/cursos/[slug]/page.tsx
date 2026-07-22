@@ -233,6 +233,24 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
 
       <PortableProgress course={curso} />
 
+      <section className="course-start-strip mb-10" aria-labelledby="course-start-strip-title">
+        <div>
+          <span className="aula-section-label"><Icon name="rocket" /> empieza aquí</span>
+          <h2 id="course-start-strip-title">Tu siguiente acción</h2>
+          <p>
+            Abre la primera misión, termina una práctica pequeña y guarda una evidencia. Si el curso te supera, vuelve a la ruta de inicio: no tienes que dominarlo todo hoy.
+          </p>
+        </div>
+        <ol aria-label="Tres pasos para empezar el curso">
+          <li><span>1</span> Abre una lección</li>
+          <li><span>2</span> Haz la misión</li>
+          <li><span>3</span> Guarda evidencia</li>
+        </ol>
+        <Link href={`/cursos/${curso.slug}/${leccionesCurso[0]?.slug}`} className="aula-button aula-button-primary">
+          <Icon name="rocket" /> Primera misión
+        </Link>
+      </section>
+
       <CourseQualityCard quality={quality} />
 
       {guidance && (

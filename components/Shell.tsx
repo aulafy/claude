@@ -12,6 +12,7 @@ import LessonFeedback from "@/components/LessonFeedback";
 import LessonCommunityCta from "@/components/social/LessonCommunityCta";
 import AuliGuide from "@/components/AuliGuide";
 import CourseCurriculumMap from "@/components/CourseCurriculumMap";
+import AmbientLearningScene from "@/components/AmbientLearningScene";
 
 export default function Shell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -35,6 +36,7 @@ export default function Shell({ children }: { children: React.ReactNode }) {
         <CourseSidebar locale={locale} />
         <div className="md:ml-[252px] min-h-screen flex flex-col">
           <a href="#main-content" className="aula-skip-link">{locale === "en" ? "Skip to content" : "Saltar al contenido"}</a>
+          <AmbientLearningScene variant="lesson" />
           <main id="main-content" className="flex-1">
             {children}
             {esLeccion && <LessonCommunityCta courseSlug={parts[1]} lessonSlug={parts[2]} />}
@@ -60,6 +62,7 @@ export default function Shell({ children }: { children: React.ReactNode }) {
       <DocumentLanguage locale={locale} />
       <a href="#main-content" className="aula-skip-link">{locale === "en" ? "Skip to content" : "Saltar al contenido"}</a>
       <SiteHeader locale={locale} />
+      <AmbientLearningScene variant="site" />
       <main id="main-content" className="min-h-screen">
         {children}
         {(esCurso || enCurso) && <CourseCurriculumMap currentSlug={esCurso ? parts[1] : parts[2]} locale={locale} />}

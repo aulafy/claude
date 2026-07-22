@@ -13,10 +13,46 @@ const copy = {
     learn: "Cómo aprender",
     courses: "Cursos",
     title: <>Tu primera misión con IA<br /><span>empieza ahora.</span></>,
-    lead: "En menos de 45 minutos puedes resolver una tarea real, guardar la evidencia y saber cuál es tu siguiente paso. Sin cuenta, sin cookies, sin tarjeta.",
-    primaryCta: "Haz la primera misión ahora",
-    secondaryCta: "Elegir mi ruta",
+    lead: "Una entrada simple para oficinistas, estudiantes y personas no técnicas: elige una situación, haz una misión corta y aprende IA sin perderte entre herramientas.",
+    primaryCta: "Empezar en 10 minutos",
+    secondaryCta: "Ver todos los caminos",
     assurances: ["Gratis", "Sin registro", "Proyectos verificables", "Fuentes visibles"],
+    choiceTitle: "Elige por qué has venido",
+    choiceLead: "No necesitas saber qué es RAG, agentes o modelos locales. Empieza por tu situación real.",
+    quickChoices: [
+      {
+        emoji: "💼",
+        title: "Trabajo en oficina",
+        text: "Emails, informes, facturas, clientes, reuniones o tareas repetitivas.",
+        href: "/cursos/ia-pymes/diagnostico-piloto",
+        action: "Ahorrar tiempo en el trabajo",
+      },
+      {
+        emoji: "🎓",
+        title: "Soy estudiante",
+        text: "Estudiar mejor, resumir, preparar exámenes y usar IA sin hacer trampas.",
+        href: "/blog/usar-ia-estudiar-sin-hacer-trampas-2026",
+        action: "Aprender a estudiar con IA",
+      },
+      {
+        emoji: "🌱",
+        title: "Empiezo desde cero",
+        text: "No sé qué herramienta usar ni qué puedo pedirle a una IA.",
+        href: "/cursos/ia-desde-cero/que-puede-hacer-ia-generativa",
+        action: "Hacer la primera misión",
+      },
+    ],
+    firstMission: {
+      eyebrow: "MISIÓN 0 · 10 MINUTOS",
+      title: "Consigue una victoria rápida antes de leer teoría",
+      steps: [
+        "Elige una tarea pequeña de hoy.",
+        "Pide a la IA un borrador, no una decisión final.",
+        "Revisa el resultado y guarda qué cambiaste.",
+      ],
+      href: "/cursos/ia-desde-cero/que-puede-hacer-ia-generativa",
+      action: "Abrir misión guiada",
+    },
     roadmapTitle: "Roadmap rápido",
     roadmap: [
       "Elige tu situación",
@@ -60,10 +96,46 @@ const copy = {
     learn: "How to learn",
     courses: "Courses",
     title: <>Your first AI mission<br /><span>starts now.</span></>,
-    lead: "In under 45 minutes you can solve one real task, save evidence, and know your next step. No account, no cookies, no card.",
-    primaryCta: "Start the first mission",
-    secondaryCta: "Choose my path",
+    lead: "A simple entry point for office workers, students and non-technical learners: choose one real situation, complete a short mission, and learn AI without getting lost in tools.",
+    primaryCta: "Start in 10 minutes",
+    secondaryCta: "See all paths",
     assurances: ["Free", "No sign-up", "Verifiable projects", "Visible sources"],
+    choiceTitle: "Choose why you came",
+    choiceLead: "You do not need to know what RAG, agents or local models are. Start from your real situation.",
+    quickChoices: [
+      {
+        emoji: "💼",
+        title: "I work in an office",
+        text: "Emails, reports, invoices, customers, meetings or repetitive tasks.",
+        href: "/en/courses/ia-pymes",
+        action: "Save time at work",
+      },
+      {
+        emoji: "🎓",
+        title: "I am a student",
+        text: "Study better, summarize, prepare exams and use AI without cheating.",
+        href: "/en/courses/ia-desde-cero",
+        action: "Study with AI",
+      },
+      {
+        emoji: "🌱",
+        title: "I start from zero",
+        text: "I do not know which tool to use or what I can ask an AI.",
+        href: "/en/courses/ia-desde-cero",
+        action: "Do the first mission",
+      },
+    ],
+    firstMission: {
+      eyebrow: "MISSION 0 · 10 MINUTES",
+      title: "Get a quick win before reading theory",
+      steps: [
+        "Choose one small task from today.",
+        "Ask AI for a draft, not a final decision.",
+        "Review the result and save what you changed.",
+      ],
+      href: "/en/courses/ia-desde-cero",
+      action: "Open guided mission",
+    },
     roadmapTitle: "Quick roadmap",
     roadmap: [
       "Choose your situation",
@@ -150,6 +222,35 @@ export default function AulafyNexusLanding({ courseCount, lessonCount, locale = 
             </div>
             <LandingLearningGuide locale={locale} />
           </div>
+        </section>
+
+        <section className={styles.quickStart} aria-labelledby="quick-start-title">
+          <div className={styles.sectionIntro}>
+            <p className={styles.eyebrow}>{english ? "START HERE" : "EMPIEZA AQUÍ"}</p>
+            <h2 id="quick-start-title">{text.choiceTitle}</h2>
+            <p>{text.choiceLead}</p>
+          </div>
+          <div className={styles.choiceGrid}>
+            {text.quickChoices.map((choice) => (
+              <Link key={choice.title} href={choice.href} className={styles.choiceCard}>
+                <span aria-hidden="true">{choice.emoji}</span>
+                <h3>{choice.title}</h3>
+                <p>{choice.text}</p>
+                <strong>{choice.action} →</strong>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <section className={styles.firstMission} aria-labelledby="first-mission-title">
+          <div>
+            <p className={styles.eyebrow}>{text.firstMission.eyebrow}</p>
+            <h2 id="first-mission-title">{text.firstMission.title}</h2>
+          </div>
+          <ol>
+            {text.firstMission.steps.map((step) => <li key={step}>{step}</li>)}
+          </ol>
+          <Link href={text.firstMission.href}>{text.firstMission.action} <span aria-hidden="true">→</span></Link>
         </section>
 
         <section className={styles.showcase} aria-labelledby="showcase-title">
