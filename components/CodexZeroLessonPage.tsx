@@ -58,6 +58,11 @@ export default function CodexZeroLessonPage({ slug }: { slug: string }) {
       lead={lesson.lead}
       courseHref={COURSE_HREF}
       courseLabel={COURSE_LABEL}
+      mission={{
+        build: `Una acción práctica con Codex aplicada a «${lesson.title}».`,
+        evidence: "Guarda el prompt usado, el resultado obtenido, la comprobación y cualquier riesgo pendiente antes de pasar a la siguiente lección.",
+        steps: ["Prepara el contexto", "Pide una acción limitada", "Verifica antes de avanzar"],
+      }}
     >
       <div className="mb-8 flex flex-wrap items-center gap-2">
         <span className="aula-chip" data-tone="cyan">

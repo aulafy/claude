@@ -78,6 +78,11 @@ export default function IaBasicsLessonPage({ slug }: { slug: string }) {
       lead={lesson.lead}
       courseHref={COURSE_HREF}
       courseLabel={COURSE_LABEL}
+      mission={{
+        minutes: lesson.minutes,
+        build: practice ? `${practice.mission} Resultado esperado: ${practice.result}` : `Una práctica guiada sobre «${lesson.title}».`,
+        evidence: practice?.evidence.split("\n").slice(0, 2).join(" · ") ?? "Una nota breve con la decisión tomada, el resultado y la comprobación humana.",
+      }}
     >
       <div className="mb-8 flex flex-wrap items-center gap-2">
         <span className="aula-chip" data-tone="cyan">

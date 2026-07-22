@@ -124,6 +124,7 @@ const pathsPage = fs.readFileSync("components/LearningPathsPage.tsx", "utf8");
 const catalogPage = fs.readFileSync("app/cursos/page.tsx", "utf8");
 const coursePage = fs.readFileSync("app/cursos/[slug]/page.tsx", "utf8");
 const startingCheck = fs.readFileSync("components/CodexStartingCheck.tsx", "utf8");
+const bookComponents = fs.readFileSync("components/Book.tsx", "utf8");
 const profileChoices = pathFinder.slice(pathFinder.indexOf("const profiles"), pathFinder.indexOf("const goals"));
 const goalChoices = pathFinder.slice(pathFinder.indexOf("const goals"), pathFinder.indexOf("const paces"));
 
@@ -137,5 +138,8 @@ assert.match(coursePage, /curso\.slug === "codex-desde-cero" && <CodexStartingCh
 assert.equal((startingCheck.match(/prompt: "/g) ?? []).length, 4, "The Codex starting check must cover four practical decisions");
 assert.equal((startingCheck.match(/explanation: "/g) ?? []).length, 4, "Every starting-check answer needs immediate explanatory feedback");
 assert.match(coursePage, /open=\{seccionIndex === 0\}/, "Only the first course module should start expanded");
+assert.match(bookComponents, /MissionBrief/, "Shared lesson pages must expose a mission brief");
+assert.match(bookComponents, /Qué vas a conseguir ahora/, "Every shared lesson must start with a concrete learner mission");
+assert.match(bookComponents, /Siguiente misión recomendada/, "Lesson navigation must recommend the next mission");
 
 console.log(`Educational audit passed: ${cursos.length} courses, ${lessonCount} lessons, ${spanishPaths.length} paths and no orphaned courses.`);

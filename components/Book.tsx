@@ -13,6 +13,13 @@ export function Lead({ children }: { children: React.ReactNode }) {
   return <p className="lesson-lead">{children}</p>;
 }
 
+export type LessonMission = {
+  minutes?: number;
+  build?: string;
+  evidence?: string;
+  steps?: [string, string, string];
+};
+
 export function Crumb({
   label,
   courseHref = "/cursos/ia-local",
@@ -158,7 +165,16 @@ export function ChapterNav({
   next?: { href: string; label: string };
 }) {
   return (
-    <div className="mt-12 pt-8 border-t border-zinc-800 flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-3">
+    <div className="mt-12 pt-8 border-t border-zinc-800">
+      {next ? (
+        <div className="aula-panel mb-5 p-5">
+          <span className="aula-section-label"><Icon name="rocket" /> Siguiente misión recomendada</span>
+          <p className="mt-2 text-sm leading-relaxed text-zinc-400">
+            Si has guardado la evidencia de esta lección, continúa con «{next.label}». Si no, repite la comprobación antes de avanzar.
+          </p>
+        </div>
+      ) : null}
+      <div className="flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-3">
       {prev ? (
         <Link href={prev.href} className="aula-button aula-button-secondary justify-start">
           <Icon name="chevronRight" className="rotate-180" /> {prev.label}
@@ -169,7 +185,43 @@ export function ChapterNav({
           {next.label} <Icon name="chevronRight" />
         </Link>
       ) : <span />}
+      </div>
     </div>
+  );
+}
+
+export function MissionBrief({
+  title,
+  mission,
+}: {
+  title: string;
+  mission?: LessonMission;
+}) {
+  const steps = mission?.steps ?? ["Entiende el criterio", "Haz una práctica pequeña", "Guarda una evidencia"];
+  const build = mission?.build ?? `Una decisión o prueba aplicada a «${title}».`;
+  const evidence = mission?.evidence ?? "Una nota breve con qué hiciste, qué salió bien, qué falló y qué revisarías después.";
+
+  return (
+    <section className="lesson-mission mb-10" aria-labelledby="lesson-mission-title">
+      <div className="lesson-mission-main">
+        <span className="aula-section-label"><Icon name="rocket" /> Misión de la lección</span>
+        <h2 id="lesson-mission-title">Qué vas a conseguir ahora</h2>
+        <p>{build}</p>
+      </div>
+      <ol className="lesson-mission-steps" aria-label="Método de la misión">
+        {steps.map((step, index) => (
+          <li key={step}>
+            <span>{index + 1}</span>
+            <strong>{step}</strong>
+          </li>
+        ))}
+      </ol>
+      <div className="lesson-mission-proof">
+        {mission?.minutes ? <span className="aula-chip" data-tone="cyan"><Icon name="calendar" /> ≈ {mission.minutes} min</span> : null}
+        <span className="aula-chip" data-tone="green"><Icon name="save" /> Evidencia</span>
+        <p>{evidence}</p>
+      </div>
+    </section>
   );
 }
 
@@ -182,6 +234,7 @@ export function Chapter({
   children,
   courseHref,
   courseLabel,
+  mission,
 }: {
   crumb: string;
   title: string;
@@ -190,6 +243,7 @@ export function Chapter({
   children: React.ReactNode;
   courseHref?: string;
   courseLabel?: string;
+  mission?: LessonMission;
 }) {
   return (
     <div className="aula-shell max-w-4xl mx-auto px-6 sm:px-8 py-12 sm:py-14">
@@ -206,6 +260,7 @@ export function Chapter({
         </h1>
         <Lead>{lead}</Lead>
       </header>
+      <MissionBrief title={title} mission={mission} />
       <article className="aula-reading mx-auto">
         {children}
       </article>
