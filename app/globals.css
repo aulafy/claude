@@ -219,20 +219,60 @@ code {
 .callout code { background: rgba(255,255,255,0.08); padding: 0.05rem 0.3rem; border-radius: 4px; font-size: 0.85em; }
 
 /* Tables */
-table { width: 100%; border-collapse: collapse; margin: 1.25rem 0; font-size: 0.9rem; }
-th { background: #18181b; color: #e4e4e7; font-weight: 600; text-align: left; padding: 0.6rem 1rem; border: 1px solid var(--border); }
-td { padding: 0.6rem 1rem; border: 1px solid var(--border); color: var(--muted); vertical-align: top; }
+table {
+  width: max-content;
+  min-width: 100%;
+  max-width: none;
+  border-collapse: collapse;
+  margin: 1.25rem 0;
+  font-size: 0.9rem;
+}
+th {
+  min-width: 8rem;
+  background: #18181b;
+  color: #e4e4e7;
+  font-weight: 600;
+  text-align: left;
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--border);
+  overflow-wrap: anywhere;
+}
+td {
+  min-width: 8rem;
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
 tr:nth-child(even) td { background: #0f0f11; }
+.prose > table {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-color: var(--accent) var(--panel);
+  scrollbar-width: thin;
+}
 .aula-table-scroll {
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
   overflow-x: auto;
   margin: 1.25rem 0;
   padding-bottom: 0.25rem;
+  overscroll-behavior-inline: contain;
+  -webkit-overflow-scrolling: touch;
   scrollbar-color: var(--accent) var(--panel);
   scrollbar-width: thin;
 }
 .aula-table-scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-.aula-table-scroll table { margin: 0; min-width: 36rem; }
+.aula-table-scroll table,
+.overflow-x-auto > table {
+  width: max-content;
+  min-width: 100%;
+  margin: 0;
+}
 
 .codex-zero-prose hr {
   margin: 2rem 0;
@@ -956,6 +996,16 @@ html.light .callout-orange {
 
   .aula-chip {
     white-space: normal;
+  }
+
+  table {
+    font-size: 0.82rem;
+  }
+
+  th,
+  td {
+    min-width: 9rem;
+    padding: 0.55rem 0.7rem;
   }
 
   .prose h2 {

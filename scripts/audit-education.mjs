@@ -125,6 +125,7 @@ const catalogPage = fs.readFileSync("app/cursos/page.tsx", "utf8");
 const coursePage = fs.readFileSync("app/cursos/[slug]/page.tsx", "utf8");
 const startingCheck = fs.readFileSync("components/CodexStartingCheck.tsx", "utf8");
 const bookComponents = fs.readFileSync("components/Book.tsx", "utf8");
+const globalStyles = fs.readFileSync("app/globals.css", "utf8");
 const profileChoices = pathFinder.slice(pathFinder.indexOf("const profiles"), pathFinder.indexOf("const goals"));
 const goalChoices = pathFinder.slice(pathFinder.indexOf("const goals"), pathFinder.indexOf("const paces"));
 
@@ -142,5 +143,8 @@ assert.match(bookComponents, /MissionBrief/, "Shared lesson pages must expose a 
 assert.match(bookComponents, /Qué vas a conseguir ahora/, "Every shared lesson must start with a concrete learner mission");
 assert.match(bookComponents, /Siguiente misión recomendada/, "Lesson navigation must recommend the next mission");
 assert.match(bookComponents, /Copiar plantilla de evidencia/, "Learners need a portable evidence template without accounts or cookies");
+assert.match(globalStyles, /\.prose > table[\s\S]*overflow-x: auto/, "Unwrapped Markdown tables must scroll inside the content column");
+assert.match(globalStyles, /\.aula-table-scroll[\s\S]*overscroll-behavior-inline: contain/, "Wrapped tables must not push the mobile viewport");
+assert.match(globalStyles, /\.overflow-x-auto > table[\s\S]*width: max-content/, "Legacy table wrappers must keep wide tables inside horizontal scroll");
 
 console.log(`Educational audit passed: ${cursos.length} courses, ${lessonCount} lessons, ${spanishPaths.length} paths and no orphaned courses.`);
