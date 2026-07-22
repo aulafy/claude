@@ -141,5 +141,6 @@ assert.match(coursePage, /open=\{seccionIndex === 0\}/, "Only the first course m
 assert.match(bookComponents, /MissionBrief/, "Shared lesson pages must expose a mission brief");
 assert.match(bookComponents, /Qué vas a conseguir ahora/, "Every shared lesson must start with a concrete learner mission");
 assert.match(bookComponents, /Siguiente misión recomendada/, "Lesson navigation must recommend the next mission");
+assert.match(bookComponents, /Copiar plantilla de evidencia/, "Learners need a portable evidence template without accounts or cookies");
 
 console.log(`Educational audit passed: ${cursos.length} courses, ${lessonCount} lessons, ${spanishPaths.length} paths and no orphaned courses.`);
