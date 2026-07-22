@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import AiProgramPage from "@/components/AiProgramPage";
 
 export const metadata: Metadata = {
-  title: "Programa completo para aprender IA | Aulafy",
+  title: "Programa modular de Inteligencia Artificial Aplicada | Aulafy",
   description:
-    "Hoja de ruta completa de Aulafy para aprender IA desde perfiles no técnicos hasta ingeniería de sistemas, agentes, RAG, MLOps, seguridad y proyectos evaluables.",
+    "Programa abierto de 7 módulos para aprender IA aplicada desde cero: orientación, pymes, programación, webs, RAG, agentes, modelos locales y proyectos verificables.",
   alternates: { canonical: "/programa", languages: { "es-ES": "/programa", "en-US": "/en/program" } },
 };
 

@@ -8,6 +8,7 @@ Esta carpeta explica el propósito, la arquitectura y la evolución del proyecto
 | --- | --- |
 | [Qué es Aulafy](QUE-ES-AULAFY.md) | Define el proyecto, su alcance, su público y sus límites |
 | [Arquitectura y contenido](ARQUITECTURA.md) | Describe la aplicación, las fuentes de verdad y el flujo editorial |
+| [Sistema de calidad](SISTEMA-DE-CALIDAD.md) | Define cómo contrastar, probar, fechar y revisar cursos vivos |
 | [Hoja de ruta](HOJA-DE-RUTA.md) | Ordena las prioridades actuales y futuras |
 | [SEO y Search Console](SEO-SEARCH-CONSOLE.md) | Define las intenciones de búsqueda en español, el rastreo y la medición |
 | [Cómo colaborar](../CONTRIBUTING.md) | Explica cómo proponer cambios y verificarlos |
@@ -16,7 +17,7 @@ Esta carpeta explica el propósito, la arquitectura y la evolución del proyecto
 ## Lectura recomendada
 
 - Si acabas de conocer el proyecto, empieza por [Qué es Aulafy](QUE-ES-AULAFY.md).
-- Si vas a modificar código o contenido, continúa con [Arquitectura y contenido](ARQUITECTURA.md).
+- Si vas a modificar código o contenido, continúa con [Arquitectura y contenido](ARQUITECTURA.md) y [Sistema de calidad](SISTEMA-DE-CALIDAD.md).
 - Si quieres proponer una mejora, consulta la [hoja de ruta](HOJA-DE-RUTA.md) y la [guía de colaboración](../CONTRIBUTING.md).
 
 ## Mantener esta documentación
