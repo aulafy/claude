@@ -11,10 +11,10 @@ function applyTheme(theme: Theme) {
 }
 
 export default function ThemeToggle({ compact = false }: { compact?: boolean }) {
-  const [theme, setTheme] = useState<Theme>("light");
+  const [theme, setTheme] = useState<Theme>("dark");
 
   useEffect(() => {
-    const next = "light";
+    const next = document.documentElement.classList.contains("dark") ? "dark" : "light";
     applyTheme(next);
 
     const frame = window.requestAnimationFrame(() => setTheme(next));

@@ -7,6 +7,7 @@ import { getLearningPaths } from "../lib/learning-paths.ts";
 import { iaBasicsLessons } from "../lib/ia-basics-course-content.ts";
 import { getSessionlessPractice } from "../lib/sessionless-practices.ts";
 import { getIaBasicsQuality } from "../lib/ia-basics-quality.ts";
+import { aiProgram } from "../lib/ai-program.ts";
 
 const courseSlugs = new Set();
 const lessonUrls = new Set();
@@ -119,10 +120,23 @@ assert.deepEqual(pathCourseSlugs, courseSlugs, "Every published course must belo
 assert.ok(spanishPaths.find((path) => path.slug === "desde-cero")?.courses.includes("codex-desde-cero"), "Missing zero-experience path");
 assert.ok(spanishPaths.find((path) => path.slug === "web-saas")?.courses.includes("crear-webs-con-ia"), "Missing web and SaaS path");
 
+assert.equal(aiProgram.es.stages.length, 7, "The Spanish applied AI program must keep seven clear modules");
+for (const stage of aiProgram.es.stages) {
+  assert.equal(stage.topics?.length, 5, `Program module needs five explicit topics: ${stage.id}`);
+  for (const topic of stage.topics ?? []) {
+    assert.match(topic.code, /^\d\.\d$/, `Program topic needs a scannable code: ${stage.id}/${topic.title}`);
+    assert.ok(topic.title.length >= 10, `Program topic title is too vague: ${stage.id}/${topic.code}`);
+    assert.ok(topic.outcome.length >= 40, `Program topic needs a concrete learner outcome: ${stage.id}/${topic.code}`);
+    assert.ok(topic.practice.length >= 50, `Program topic needs a practical task: ${stage.id}/${topic.code}`);
+    assert.ok(topic.evidence.length >= 35, `Program topic needs portable evidence: ${stage.id}/${topic.code}`);
+  }
+}
+
 const pathFinder = fs.readFileSync("components/LearningPathFinder.tsx", "utf8");
 const pathsPage = fs.readFileSync("components/LearningPathsPage.tsx", "utf8");
 const catalogPage = fs.readFileSync("app/cursos/page.tsx", "utf8");
 const coursePage = fs.readFileSync("app/cursos/[slug]/page.tsx", "utf8");
+const aiProgramPage = fs.readFileSync("components/AiProgramPage.tsx", "utf8");
 const startingCheck = fs.readFileSync("components/CodexStartingCheck.tsx", "utf8");
 const bookComponents = fs.readFileSync("components/Book.tsx", "utf8");
 const globalStyles = fs.readFileSync("app/globals.css", "utf8");
@@ -130,6 +144,9 @@ const profileChoices = pathFinder.slice(pathFinder.indexOf("const profiles"), pa
 const goalChoices = pathFinder.slice(pathFinder.indexOf("const goals"), pathFinder.indexOf("const paces"));
 
 assert.match(pathsPage, /<LearningPathFinder/, "Spanish paths must include the short learning-path finder");
+assert.match(aiProgramPage, /Temas del módulo/, "The program page must expose module topics visibly");
+assert.match(aiProgramPage, /topic\.practice/, "Program topics must show practice, not just syllabus titles");
+assert.match(aiProgramPage, /topic\.evidence/, "Program topics must show portable evidence for no-login learners");
 assert.equal((profileChoices.match(/id: "/g) ?? []).length, 3, "The finder must keep three clear entry profiles");
 assert.equal((goalChoices.match(/id: "/g) ?? []).length, 5, "The finder must recommend by learner goal");
 assert.match(pathFinder, /No es un examen ni pide datos personales/, "The finder must explain its privacy and assessment limits");

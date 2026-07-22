@@ -259,7 +259,7 @@ export default function RootLayout({
     <html
       lang="es"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable} ${sora.variable} antialiased`}
+      className={`dark ${geistSans.variable} ${geistMono.variable} ${sora.variable} antialiased`}
     >
       <body className="min-h-screen bg-zinc-950 text-zinc-200">
         <script

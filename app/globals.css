@@ -35,12 +35,18 @@
 }
 
 html.dark {
+  color-scheme: dark;
   --bg: #17151c;
   --bg-depth: #111015;
   --sidebar-bg: #17151c;
   --border: #38333f;
   --text: #f6f1e8;
   --muted: #b7ada0;
+  --signal-amber: #f0b35f;
+  --signal-cyan: #6fdad6;
+  --signal-green: #7bd7a7;
+  --signal-violet: #b7a8ff;
+  --signal-rose: #f0a2bf;
   --panel: #1d1a22;
   --panel-soft: rgba(29, 26, 34, 0.88);
   --capsule-bg: rgba(29, 26, 34, 0.84);
@@ -541,7 +547,7 @@ kbd {
   gap: 0.4rem;
   border: 1px solid var(--capsule-border);
   border-radius: 6px;
-  background: color-mix(in srgb, var(--capsule-bg-strong) 84%, transparent);
+  background: color-mix(in srgb, var(--capsule-bg-strong) 90%, transparent);
   padding: 0.35rem 0.58rem;
   font-family: var(--font-code);
   font-size: 0.75rem;
@@ -550,10 +556,10 @@ kbd {
   white-space: nowrap;
 }
 
-.aula-chip[data-tone="cyan"] { color: var(--signal-cyan); border-color: color-mix(in srgb, var(--signal-cyan) 34%, var(--capsule-border)); }
-.aula-chip[data-tone="green"] { color: var(--signal-green); border-color: color-mix(in srgb, var(--signal-green) 34%, var(--capsule-border)); }
-.aula-chip[data-tone="amber"] { color: var(--signal-amber); border-color: color-mix(in srgb, var(--signal-amber) 36%, var(--capsule-border)); }
-.aula-chip[data-tone="violet"] { color: var(--signal-violet); border-color: color-mix(in srgb, var(--signal-violet) 34%, var(--capsule-border)); }
+.aula-chip[data-tone="cyan"] { color: var(--signal-cyan); border-color: color-mix(in srgb, var(--signal-cyan) 42%, var(--capsule-border)); background: color-mix(in srgb, var(--signal-cyan) 8%, var(--capsule-bg-strong)); }
+.aula-chip[data-tone="green"] { color: var(--signal-green); border-color: color-mix(in srgb, var(--signal-green) 42%, var(--capsule-border)); background: color-mix(in srgb, var(--signal-green) 8%, var(--capsule-bg-strong)); }
+.aula-chip[data-tone="amber"] { color: var(--signal-amber); border-color: color-mix(in srgb, var(--signal-amber) 42%, var(--capsule-border)); background: color-mix(in srgb, var(--signal-amber) 8%, var(--capsule-bg-strong)); }
+.aula-chip[data-tone="violet"] { color: var(--signal-violet); border-color: color-mix(in srgb, var(--signal-violet) 42%, var(--capsule-border)); background: color-mix(in srgb, var(--signal-violet) 8%, var(--capsule-bg-strong)); }
 
 .aula-icon {
   display: inline-flex;
