@@ -10,6 +10,10 @@ export default function AiProgramPage({ locale }: { locale: Locale }) {
   const courseBySlug = new Map(courses.map((course) => [course.slug, course]));
   const home = locale === "en" ? "/en" : "/";
   const programUrl = locale === "en" ? "/en/program" : "/programa";
+  const topicTitle = locale === "en" ? "Module topics" : "Temas del módulo";
+  const outcomeLabel = locale === "en" ? "Outcome" : "Resultado";
+  const practiceLabel = locale === "en" ? "Practice" : "Práctica";
+  const evidenceLabel = locale === "en" ? "Evidence" : "Evidencia";
 
   return (
     <div className="aula-shell max-w-6xl mx-auto px-6 py-14" lang={locale}>
@@ -91,6 +95,34 @@ export default function AiProgramPage({ locale }: { locale: Locale }) {
                   </div>
                 </div>
                 <div className="grid gap-5">
+                  {stage.topics?.length ? (
+                    <div>
+                      <h4 className="font-semibold text-white">{topicTitle}</h4>
+                      <ol className="mt-3 grid gap-3">
+                        {stage.topics.map((topic) => (
+                          <li key={topic.code} className="rounded-xl border border-[var(--border)] bg-[var(--surface)] p-4">
+                            <div className="flex flex-wrap items-center gap-2">
+                              <span className="aula-chip" data-tone="cyan">{topic.code}</span>
+                              <strong className="text-zinc-100">{topic.title}</strong>
+                            </div>
+                            <p className="mt-2 text-sm leading-relaxed text-zinc-300">
+                              <span className="font-semibold text-zinc-100">{outcomeLabel}:</span> {topic.outcome}
+                            </p>
+                            <dl className="mt-3 grid gap-3 text-sm sm:grid-cols-2">
+                              <div className="rounded-lg border border-[var(--border)] bg-black/20 p-3">
+                                <dt className="aula-meta text-zinc-500">{practiceLabel}</dt>
+                                <dd className="mt-1 text-zinc-300 leading-relaxed">{topic.practice}</dd>
+                              </div>
+                              <div className="rounded-lg border border-[var(--border)] bg-black/20 p-3">
+                                <dt className="aula-meta text-zinc-500">{evidenceLabel}</dt>
+                                <dd className="mt-1 text-zinc-300 leading-relaxed">{topic.evidence}</dd>
+                              </div>
+                            </dl>
+                          </li>
+                        ))}
+                      </ol>
+                    </div>
+                  ) : null}
                   <div>
                     <h4 className="font-semibold text-white">{program.coursesLabel}</h4>
                     <div className="mt-3 grid gap-2">
