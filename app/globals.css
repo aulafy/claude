@@ -805,7 +805,7 @@ kbd {
 .aula-button-primary {
   border: 1px solid var(--accent);
   background: var(--text);
-  color: #fff;
+  color: var(--bg);
 }
 
 .aula-button-secondary {
