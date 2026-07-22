@@ -546,6 +546,90 @@ kbd {
   width: 100%;
 }
 
+.lesson-mission {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(220px, 0.75fr);
+  gap: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 1rem;
+  background:
+    radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 34%),
+    color-mix(in srgb, var(--panel) 92%, transparent);
+  box-shadow: 0 18px 60px color-mix(in srgb, #000 18%, transparent);
+}
+
+.lesson-mission-main,
+.lesson-mission-proof,
+.lesson-mission-steps {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--surface) 74%, transparent);
+  padding: 1rem;
+}
+
+.lesson-mission-main h2 {
+  margin-top: 0.7rem;
+  font: 750 1.35rem/1.1 var(--font-sora);
+  color: var(--text);
+}
+
+.lesson-mission-main p,
+.lesson-mission-proof p {
+  margin-top: 0.7rem;
+  color: color-mix(in srgb, var(--muted) 72%, var(--text));
+  line-height: 1.55;
+}
+
+.lesson-mission-steps {
+  list-style: none;
+  margin: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.lesson-mission-steps li {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.lesson-mission-steps span {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  flex: none;
+  place-items: center;
+  border-radius: 10px;
+  background: var(--text);
+  color: var(--bg);
+  font: 800 0.75rem var(--font-code);
+}
+
+.lesson-mission-steps strong {
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.lesson-mission-proof {
+  grid-column: 1 / -1;
+}
+
+.lesson-mission-proof .aula-chip + .aula-chip {
+  margin-left: 0.4rem;
+}
+
+@media (max-width: 720px) {
+  .lesson-mission {
+    grid-template-columns: 1fr;
+  }
+
+  .lesson-mission-proof .aula-chip + .aula-chip {
+    margin-left: 0;
+    margin-top: 0.4rem;
+  }
+}
+
 .lesson-lead {
   font-family: var(--font-reading);
   font-size: 1.1875rem;
@@ -827,6 +911,10 @@ html.light .callout-orange {
   .aula-panel,
   .callout {
     max-width: 100%;
+  }
+
+  .lesson-mission {
+    box-shadow: none;
   }
 
   .aula-frame h1,
