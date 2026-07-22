@@ -214,6 +214,7 @@ export const searchData: SearchItem[] = [
   { href: "/cursos/rag-seguro/obsidian-segundo-cerebro", title: "Segundo cerebro local con Obsidian y RAG", section: "RAG seguro", keywords: "obsidian segundo cerebro rag markdown qdrant notas locales" },
   { href: "/cursos/rag-seguro/evals-metricas", title: "Evals RAG con métricas", section: "RAG seguro", keywords: "evals rag metricas faithfulness recall abstencion permisos dataset auditing multimodal ocr" },
   { href: "/cursos/rag-seguro/evals-citaciones", title: "Evals, citaciones y trazabilidad", section: "RAG seguro", keywords: "evals citaciones trazabilidad fuentes grounding multimodal ocr tablas" },
+  { href: "/cursos/rag-seguro/prompt-injection", title: "Prompt injection en RAG y clasificadores locales", section: "RAG seguro", keywords: "prompt injection rag clasificador local detector multilingual onnx hikmaai wolf defender español" },
   { href: "/cursos/automatizacion-self-hosted", title: "Automatización IA self-hosted para pymes", section: "Automatización self-hosted", keywords: "n8n open webui ollama self hosted pymes vps docker automatizacion ia" },
   { href: "/cursos/automatizacion-self-hosted/mapa-stack", title: "Mapa del stack: n8n, Open WebUI y modelos", section: "Automatización self-hosted", keywords: "stack n8n open webui ollama vllm modelos locales pymes" },
   { href: "/cursos/automatizacion-self-hosted/docker-vps", title: "Docker y VPS barato sin liarla", section: "Automatización self-hosted", keywords: "docker vps barato self hosted ia n8n open webui backups" },

@@ -12,9 +12,26 @@ const copy = {
     skip: "Saltar al contenido",
     learn: "Cómo aprender",
     courses: "Cursos",
-    title: <>Aprende IA<br /><span>sin perderte.</span></>,
-    lead: "Aulafy convierte cientos de lecciones en un siguiente paso claro. Empieza desde cero, practica una tarea y avanza solo cuando lo necesites.",
-    assurances: ["Gratis", "Sin registro", "En español"],
+    title: <>Tu primera misión con IA<br /><span>empieza ahora.</span></>,
+    lead: "En menos de 45 minutos puedes resolver una tarea real, guardar la evidencia y saber cuál es tu siguiente paso. Sin cuenta, sin cookies, sin tarjeta.",
+    primaryCta: "Haz la primera misión ahora",
+    secondaryCta: "Elegir mi ruta",
+    assurances: ["Gratis", "Sin registro", "Proyectos verificables", "Fuentes visibles"],
+    roadmapTitle: "Roadmap rápido",
+    roadmap: [
+      "Elige tu situación",
+      "Haz una misión corta",
+      "Guarda evidencia",
+    ],
+    showcaseEyebrow: "RESULTADOS, NO CATÁLOGO",
+    showcaseTitle: "Qué puedes construir en Aulafy",
+    showcaseLead: "Cada ejemplo conecta con una ruta real. La idea es que el alumno vea un resultado antes de abrir veinte pestañas.",
+    projects: [
+      { title: "Asistente para documentos", tag: "RAG seguro", text: "Responde con fuentes, se abstiene si no sabe y protege lo que no debe ver.", href: "/cursos/rag-seguro" },
+      { title: "Web seria para un negocio", tag: "Web + Codex", text: "Landing publicada, CTA clara, revisión móvil, SEO básico y costes entendidos.", href: "/cursos/crear-webs-con-ia" },
+      { title: "Automatización para pyme", tag: "n8n + humano", text: "Clasifica emails, prepara respuestas y pide aprobación antes de actuar.", href: "/cursos/ia-pymes" },
+      { title: "Agente controlado", tag: "Trazas + permisos", text: "Usa herramientas, registra pasos, falla de forma controlada y sabe parar.", href: "/cursos/agentes-produccion" },
+    ],
     pathEyebrow: "UN CAMINO · TRES NIVELES",
     pathTitle: "No tienes que aprenderlo todo.",
     pathLead: "Sigue el nivel que te corresponde hoy. Los temas avanzados pueden esperar.",
@@ -42,9 +59,26 @@ const copy = {
     skip: "Skip to content",
     learn: "How to learn",
     courses: "Courses",
-    title: <>Learn AI<br /><span>without getting lost.</span></>,
-    lead: "Aulafy turns hundreds of lessons into one clear next step. Start from zero, practise one task, and go deeper only when you need to.",
-    assurances: ["Free", "No sign-up", "Open learning"],
+    title: <>Your first AI mission<br /><span>starts now.</span></>,
+    lead: "In under 45 minutes you can solve one real task, save evidence, and know your next step. No account, no cookies, no card.",
+    primaryCta: "Start the first mission",
+    secondaryCta: "Choose my path",
+    assurances: ["Free", "No sign-up", "Verifiable projects", "Visible sources"],
+    roadmapTitle: "Quick roadmap",
+    roadmap: [
+      "Choose your situation",
+      "Complete one short mission",
+      "Save evidence",
+    ],
+    showcaseEyebrow: "RESULTS, NOT A CATALOGUE",
+    showcaseTitle: "What you can build with Aulafy",
+    showcaseLead: "Each example connects to a real path. Learners should see an outcome before opening twenty tabs.",
+    projects: [
+      { title: "Document assistant", tag: "Safe RAG", text: "Answers with sources, abstains when evidence is missing, and protects what it should not see.", href: "/en/courses/rag-seguro" },
+      { title: "Serious business website", tag: "Web + Codex", text: "Published landing page, clear CTA, mobile review, basic SEO, and cost awareness.", href: "/en/courses/fundamentos-aulafy" },
+      { title: "Small business automation", tag: "n8n + human", text: "Classifies emails, drafts replies, and asks for approval before acting.", href: "/en/courses/ia-pymes" },
+      { title: "Controlled agent", tag: "Traces + permissions", text: "Uses tools, logs steps, fails safely, and knows when to stop.", href: "/en/courses/agentes-produccion" },
+    ],
     pathEyebrow: "ONE PATH · THREE LEVELS",
     pathTitle: "You do not need to learn everything.",
     pathLead: "Follow the level that fits you today. Advanced topics can wait.",
@@ -98,11 +132,42 @@ export default function AulafyNexusLanding({ courseCount, lessonCount, locale = 
             <p className={styles.eyebrow}>AULAFY · OPEN LEARNING</p>
             <h1>{text.title}</h1>
             <p className={styles.lead}>{text.lead}</p>
+            <div className={styles.heroActions}>
+              <Link className={styles.primaryAction} href={english ? "/en/courses/fundamentos-aulafy" : "/cursos/ia-desde-cero/que-puede-hacer-ia-generativa"}>{text.primaryCta}</Link>
+              <Link className={styles.secondaryAction} href={english ? "/en/paths" : "/que-aprender-ia"}>{text.secondaryCta}</Link>
+            </div>
             <ul className={styles.assurances} aria-label={english ? "Access conditions" : "Condiciones de acceso"}>
               {text.assurances.map((item) => <li key={item}>{item}</li>)}
             </ul>
           </div>
-          <LandingLearningGuide locale={locale} />
+          <div className={styles.heroProduct} aria-label={text.roadmapTitle}>
+            <div className={styles.missionCard}>
+              <span>{text.roadmapTitle}</span>
+              <ol>
+                {text.roadmap.map((item) => <li key={item}>{item}</li>)}
+              </ol>
+              <p>{english ? "Output: one useful task completed and reviewed." : "Resultado: una tarea útil terminada y revisada."}</p>
+            </div>
+            <LandingLearningGuide locale={locale} />
+          </div>
+        </section>
+
+        <section className={styles.showcase} aria-labelledby="showcase-title">
+          <div className={styles.sectionIntro}>
+            <p className={styles.eyebrow}>{text.showcaseEyebrow}</p>
+            <h2 id="showcase-title">{text.showcaseTitle}</h2>
+            <p>{text.showcaseLead}</p>
+          </div>
+          <div className={styles.projectGrid}>
+            {text.projects.map((project) => (
+              <Link key={project.title} href={project.href} className={styles.projectCard}>
+                <span>{project.tag}</span>
+                <h3>{project.title}</h3>
+                <p>{project.text}</p>
+                <strong>{english ? "Open path" : "Abrir ruta"} →</strong>
+              </Link>
+            ))}
+          </div>
         </section>
 
         <section className={styles.paths} id="camino" aria-labelledby="path-title">

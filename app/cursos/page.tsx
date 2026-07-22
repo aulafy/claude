@@ -2,21 +2,44 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Icon, { type IconName } from "@/components/Icon";
 import { cursos, proximamente, totalLecciones, type Curso } from "@/lib/cursos";
+import { getCourseGuidance } from "@/lib/course-guidance";
+import { getCourseQuality } from "@/lib/course-quality";
 import { courseGroups } from "@/lib/course-groups";
 import { spanishSearchIntents } from "@/lib/seo-strategy";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 
 function CourseCard({ course }: { course: Curso }) {
+  const guidance = getCourseGuidance(course.slug, "es");
+  const quality = getCourseQuality(course.slug);
+  const terminalNeeded = ["fundamentos-aulafy", "codex-programadores", "claude-code", "ia-local", "rag-seguro", "agentes-automatizacion", "agentes-produccion", "mlops-local", "fine-tuning-local", "ai-router", "automatizacion-self-hosted"].includes(course.slug);
+  const localFirst = ["ia-local", "rag-seguro", "automatizacion-self-hosted", "mlops-local", "fine-tuning-local"].includes(course.slug);
   return (
-    <Link href={`/cursos/${course.slug}`} className="group aula-panel p-5 flex items-start gap-4 hover:border-violet-500/40">
-      <span className="aula-icon flex-none text-violet-300"><Icon name={course.icon as IconName} /></span>
-      <span className="min-w-0 flex-1">
-        <strong className="font-display text-base text-zinc-100 group-hover:text-fuchsia-200">{course.title}</strong>
-        <span className="block mt-1 text-sm text-zinc-500 leading-relaxed">{course.short}</span>
-        <span className="block mt-3 aula-meta text-zinc-600">{course.level} · {totalLecciones(course)} lecciones</span>
+    <Link href={`/cursos/${course.slug}`} className="group aula-panel p-5 hover:border-violet-500/40">
+      <span className="flex items-start gap-4">
+        <span className="aula-icon flex-none text-violet-300"><Icon name={course.icon as IconName} /></span>
+        <span className="min-w-0 flex-1">
+          <span className="flex flex-wrap gap-2">
+            <span className="aula-chip" data-tone="cyan">{course.level}</span>
+            <span className="aula-chip">{totalLecciones(course)} lecciones</span>
+            {guidance ? <span className="aula-chip">≈ {guidance.estimatedHours} h</span> : null}
+          </span>
+          <strong className="mt-3 block font-display text-lg text-zinc-100 group-hover:text-fuchsia-200">{course.title}</strong>
+          <span className="mt-2 block text-sm text-zinc-500 leading-relaxed">{course.short}</span>
+        </span>
       </span>
-      <span aria-hidden="true" className="text-zinc-600 group-hover:text-violet-300">→</span>
+      {guidance ? (
+        <span className="mt-5 block rounded-xl border border-zinc-800/80 bg-zinc-950/25 p-3">
+          <span className="aula-meta text-zinc-600">Entregable</span>
+          <span className="mt-1 block text-sm leading-relaxed text-zinc-300">{guidance.deliverable}</span>
+        </span>
+      ) : null}
+      <span className="mt-4 flex flex-wrap items-center gap-2">
+        <span className="aula-chip" data-tone={quality.volatility === "volátil" ? "amber" : "green"}>{quality.status}</span>
+        {terminalNeeded ? <span className="aula-chip"><Icon name="terminal" /> Terminal</span> : <span className="aula-chip">Sin terminal al inicio</span>}
+        {localFirst ? <span className="aula-chip" data-tone="green">local-first</span> : null}
+        <span aria-hidden="true" className="ml-auto text-sm text-zinc-500 group-hover:text-violet-300">Abrir →</span>
+      </span>
     </Link>
   );
 }
@@ -138,9 +161,29 @@ export default function Cursos() {
               <span className="aula-chip" data-tone="green"><Icon name="check" /> Gratis</span>
               <span className="aula-chip" data-tone="cyan"><Icon name="globe" /> En español</span>
               <span className="aula-chip" data-tone="amber"><Icon name="check" /> Proyectos verificables</span>
+              <span className="aula-chip"><Icon name="shield" /> Fichas de confianza</span>
             </div>
           <p className="mt-5 aula-meta text-zinc-500">{cursos.length} cursos · {leccionesTotales} lecciones</p>
           </div>
+      </section>
+
+      <section className="grid gap-3 md:grid-cols-4 mb-8" aria-label="Filtros rápidos por intención">
+        <a href="#empezar" className="aula-capsule p-4 group">
+          <strong className="text-zinc-100 group-hover:text-cyan-200">Empiezo desde cero</strong>
+          <span className="mt-2 block text-sm text-zinc-500">IA desde cero, Codex inicial y primera web.</span>
+        </a>
+        <a href="#programacion" className="aula-capsule p-4 group">
+          <strong className="text-zinc-100 group-hover:text-cyan-200">Quiero programar</strong>
+          <span className="mt-2 block text-sm text-zinc-500">Terminal, agentes de código, Claude Code y local.</span>
+        </a>
+        <a href="#sistemas" className="aula-capsule p-4 group">
+          <strong className="text-zinc-100 group-hover:text-cyan-200">Quiero sistemas fiables</strong>
+          <span className="mt-2 block text-sm text-zinc-500">RAG, agentes, seguridad, evals y operación.</span>
+        </a>
+        <a href="#aplicaciones" className="aula-capsule p-4 group">
+          <strong className="text-zinc-100 group-hover:text-cyan-200">Quiero aplicarlo ya</strong>
+          <span className="mt-2 block text-sm text-zinc-500">Pymes, contenido, videojuegos y casos reales.</span>
+        </a>
       </section>
 
       <section className="aula-panel p-5 sm:p-6 mb-8" aria-labelledby="catalog-help-title">
@@ -180,13 +223,13 @@ export default function Cursos() {
       <div className="mb-6">
         <span className="aula-section-label"><Icon name="book" /> Biblioteca completa</span>
         <h2 className="mt-2 font-display text-2xl font-bold text-white">Abre solo el bloque que necesitas</h2>
-        <p className="mt-2 max-w-3xl text-zinc-400">Todos los bloques empiezan cerrados. Abre únicamente el que coincide con tu objetivo.</p>
+        <p className="mt-2 max-w-3xl text-zinc-400">Cada tarjeta muestra nivel, duración aproximada, entregable, si requiere terminal y estado editorial. Empieza por una intención, no por una lista infinita.</p>
       </div>
 
       {courseGroups.map((group) => {
         const groupCourses = group.slugs.map((slug) => cursos.find((course) => course.slug === slug)).filter((course): course is Curso => Boolean(course));
         return (
-          <details id={group.id} key={group.id} className="aula-disclosure aula-panel mb-5 scroll-mt-24">
+          <details id={group.id} key={group.id} open={group.id === "empezar"} className="aula-disclosure aula-panel mb-5 scroll-mt-24">
             <summary className="flex cursor-pointer list-none items-center justify-between gap-5 p-5 sm:p-6">
               <span>
                 <strong id={`${group.id}-title`} className="font-display text-xl sm:text-2xl font-bold text-white">{group.title}</strong>
