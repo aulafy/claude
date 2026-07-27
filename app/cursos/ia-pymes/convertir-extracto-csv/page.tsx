@@ -222,7 +222,7 @@ La salida es una propuesta. No afirmes que está lista para importar.`}</Termina
 
       <ChapterNav
         prev={{ href: "/cursos/ia-pymes/presupuestos-excel", label: "Excel con IA" }}
-        next={{ href: "/cursos/ia-pymes/whatsapp-atencion", label: "WhatsApp y Telegram" }}
+        next={{ href: "/cursos/ia-pymes/mcp-oficina-seguro", label: "Primer MCP seguro" }}
       />
     </Chapter>
   );
