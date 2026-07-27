@@ -6,6 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "build:chatbot": "node scripts/build-chatbot-content.cjs",
+    "factory:tutorial": "node scripts/aulafy-tutorial-factory.mjs",
+    "factory:tutorial:watch": "node scripts/aulafy-tutorial-factory.mjs --watch --interval-minutes=240",
+    "memory:sync": "node scripts/sync-aulafy-knowledge.mjs",
+    "test:memory": "node scripts/test-aulafy-memory.mjs",
+    "test:editorial-intake": "node --experimental-strip-types scripts/test-editorial-intake.mjs",
+    "radar:grok": "node scripts/aulafy-grok-radar.mjs",
+    "radar:grok:watch": "node scripts/aulafy-grok-radar.mjs --watch --interval-minutes=360",
     "start": "next start",
     "lint": "eslint",
     "verify-content": "node scripts/verify-content.mjs",
@@ -40,7 +47,7 @@
     "@supabase/supabase-js": "^2.110.5",
     "@upstash/ratelimit": "^2.0.8",
     "@upstash/redis": "^1.38.0",
-    "next": "16.2.9",
+    "next": "16.2.12",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "react-markdown": "^10.1.0",
@@ -56,11 +63,12 @@
     "@types/react-dom": "^19",
     "@types/three": "^0.185.1",
     "eslint": "^9",
-    "eslint-config-next": "16.2.9",
+    "eslint-config-next": "16.2.12",
     "tailwindcss": "^4",
     "typescript": "^5"
   },
   "overrides": {
-    "postcss": "8.5.15"
+    "postcss": "8.5.18",
+    "sharp": "0.35.3"
   }
 }

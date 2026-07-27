@@ -1,0 +1,90 @@
+name: Solicitar un tutorial
+description: Propón un tutorial nuevo o una actualización para Aulafy.
+title: "[Tutorial] "
+labels:
+  - enhancement
+  - documentation
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Gracias por ayudar a mejorar Aulafy. La solicitud será pública.
+        No incluyas datos personales, documentos privados, claves ni información confidencial.
+
+  - type: dropdown
+    id: action
+    attributes:
+      label: ¿Qué propones?
+      options:
+        - Crear un tutorial nuevo
+        - Actualizar un tutorial existente
+        - No estoy seguro
+    validations:
+      required: true
+
+  - type: dropdown
+    id: audience
+    attributes:
+      label: Público principal
+      options:
+        - Principiantes
+        - Estudiantes
+        - Pymes y oficinas
+        - Perfiles técnicos
+        - Nivel avanzado
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problema que debería resolver
+      description: Explica la necesidad con tus propias palabras.
+      placeholder: Muchas personas necesitan aprender a…
+    validations:
+      required: true
+
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Resultado que debería conseguir el alumno
+      description: Describe algo que pueda construir, decidir o comprobar.
+      placeholder: Al terminar podrá ejecutar… y demostrarlo mediante…
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Fuentes o señales
+      description: Añade documentación oficial, repositorios, papers o publicaciones que expliquen la demanda.
+      placeholder: |
+        - https://documentacion-oficial.example
+        - https://github.com/organizacion/proyecto
+    validations:
+      required: true
+
+  - type: input
+    id: existing
+    attributes:
+      label: Página de Aulafy relacionada
+      description: Déjalo vacío si propones contenido completamente nuevo.
+      placeholder: https://www.aulafy.net/cursos/…
+
+  - type: textarea
+    id: risks
+    attributes:
+      label: Costes, privacidad, seguridad o limitaciones
+      description: Indica cualquier riesgo que el tutorial debería explicar.
+
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmaciones
+      options:
+        - label: He comprobado que no existe ya una solicitud igual.
+          required: true
+        - label: Entiendo que la propuesta es pública y no incluyo datos personales ni secretos.
+          required: true
+        - label: Entiendo que una señal social no demuestra por sí sola que una afirmación técnica sea correcta.
+          required: true

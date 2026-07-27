@@ -5,7 +5,7 @@ import type { Locale } from "@/lib/i18n";
 const copy = {
   es: {
     tagline: "Aprende IA construyendo y comprobando.",
-    links: [["/que-aprender-ia", "Empezar"], ["/cursos", "Cursos"], ["/curso-codex-espanol", "Codex"], ["/proyectos", "Proyectos"], ["/fuentes", "Fuentes"], ["/acerca", "Acerca de Aulafy"]],
+    links: [["/que-aprender-ia", "Empezar"], ["/cursos", "Cursos"], ["/curso-codex-espanol", "Codex"], ["/proyectos", "Proyectos"], ["/solicitar-tutorial", "Pedir tutorial"], ["/fuentes", "Fuentes"], ["/acerca", "Acerca de Aulafy"]],
     note: "Educación abierta · contenido CC BY-SA 4.0 · código MIT",
     privacy: "Privacidad",
   },

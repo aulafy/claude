@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "https://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>net.aulafy.tutorial-factory</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/opt/homebrew/bin/node</string>
+    <string>/ABSOLUTE/PATH/TO/aulafy/scripts/aulafy-tutorial-factory.mjs</string>
+  </array>
+
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+    <key>AULAFY_FACTORY_MODEL</key>
+    <string>gemma3:4b</string>
+    <key>OLLAMA_HOST</key>
+    <string>http://127.0.0.1:11434</string>
+  </dict>
+
+  <key>StartInterval</key>
+  <integer>14400</integer>
+
+  <key>StandardOutPath</key>
+  <string>/tmp/aulafy-tutorial-factory.out.log</string>
+
+  <key>StandardErrorPath</key>
+  <string>/tmp/aulafy-tutorial-factory.err.log</string>
+</dict>
+</plist>
