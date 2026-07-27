@@ -81,6 +81,14 @@ export const iaBasicsLessons: IaBasicsLesson[] = [
   },
   {
     number: 9,
+    slug: "auditar-chats-compartidos",
+    title: "Chats compartidos: audita enlaces públicos antes de que expongan información",
+    lead: "Comprueba qué ve otra persona, revoca lo innecesario y recuerda que borrar el enlace no recupera las copias.",
+    minutes: 30,
+    kind: "practica",
+  },
+  {
+    number: 10,
     slug: "imagen-voz-video-responsable",
     title: "Imagen, voz y vídeo: creatividad, licencia y transparencia",
     lead: "Crea contenido multimodal sin ocultar su origen, suplantar personas ni olvidar accesibilidad.",
@@ -88,7 +96,7 @@ export const iaBasicsLessons: IaBasicsLesson[] = [
     kind: "criterio",
   },
   {
-    number: 10,
+    number: 11,
     slug: "estudiar-con-ia-sin-dejar-de-aprender",
     title: "Estudiar con IA sin dejar de aprender: método de tutor, práctica y examen cerrado",
     lead: "Usa la IA para recibir pistas, practicar y detectar lagunas; después demuestra lo aprendido sin ayuda.",
@@ -96,7 +104,7 @@ export const iaBasicsLessons: IaBasicsLesson[] = [
     kind: "practica",
   },
   {
-    number: 11,
+    number: 12,
     slug: "primer-proyecto-repetible",
     title: "Tu primer proyecto: una tarea pequeña, comprobada y repetible",
     lead: "Termina con un resultado propio y elige la siguiente ruta solo cuando tu proyecto la necesite.",

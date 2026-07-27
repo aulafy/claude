@@ -18,6 +18,9 @@ const HF_CARDS = { label: "Hugging Face · Model Cards", href: "https://huggingf
 const DETECTORS = { label: "Liang et al. · sesgo de detectores de texto", href: "https://arxiv.org/abs/2304.02819" };
 const CEPR_LEARNING = { label: "CEPR DP21577 · The Generative AI Learning Penalty", href: "https://cepr.org/publications/dp21577" };
 const EEF_METACOGNITION = { label: "EEF · Metacognition and Self-Regulated Learning", href: "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/metacognition" };
+const CLAUDE_SHARED = { label: "Claude · compartir y dejar de compartir chats", href: "https://support.claude.com/en/articles/10593882-share-and-unshare-chats" };
+const CHATGPT_SHARED = { label: "ChatGPT · preguntas frecuentes sobre enlaces compartidos", href: "https://help.openai.com/en/articles/7925741-chatgpt-shared-links-faq" };
+const GEMINI_SHARED = { label: "Gemini · compartir chats", href: "https://support.google.com/gemini/answer/13743730" };
 
 const initialReviewAt = "2026-07-18";
 const lessonReviewDates: Record<string, string> = {
@@ -25,6 +28,7 @@ const lessonReviewDates: Record<string, string> = {
   "elegir-modelo-herramienta": "2026-07-19",
   "imagen-voz-video-responsable": "2026-07-19",
   "estudiar-con-ia-sin-dejar-de-aprender": "2026-07-27",
+  "auditar-chats-compartidos": "2026-07-27",
 };
 
 const records: Record<string, Omit<QualityRecord, "reviewedAt" | "status">> = {
@@ -36,6 +40,7 @@ const records: Record<string, Omit<QualityRecord, "reviewedAt" | "status">> = {
   "alucinaciones-verificar": { volatility: "estable", reviewDays: 180, scope: "Protocolo de contraste con fuentes primarias y evidencia.", sources: [UNESCO, NIST] },
   "elegir-modelo-herramienta": { volatility: "volátil", reviewDays: 7, scope: "Método de comparación, model cards y distinción entre open weights y open source; no publica una clasificación ni precios.", sources: [NIST, OSI, HF_CARDS] },
   "privacidad-derechos-seguridad": { volatility: "volátil", reviewDays: 7, scope: "Minimización, permisos y señales generales; no constituye asesoramiento jurídico.", sources: [OWASP, EU_AI] },
+  "auditar-chats-compartidos": { volatility: "volátil", reviewDays: 7, scope: "Alcance y revocación de enlaces compartidos en interfaces de consumo; las funciones pueden cambiar.", sources: [CLAUDE_SHARED, CHATGPT_SHARED, GEMINI_SHARED] },
   "imagen-voz-video-responsable": { volatility: "revisable", reviewDays: 30, scope: "Consentimiento, transparencia, licencia, accesibilidad y límites de la detección automática.", sources: [UNESCO, EU_AI, DETECTORS] },
   "estudiar-con-ia-sin-dejar-de-aprender": { volatility: "revisable", reviewDays: 30, scope: "Método de estudio con recuperación activa, metacognición y uso transparente de IA; el estudio CEPR se presenta con población, diseño y límites explícitos.", sources: [UNESCO, EEF_METACOGNITION, CEPR_LEARNING] },
   "primer-proyecto-repetible": { volatility: "estable", reviewDays: 180, scope: "Rúbrica de proyecto repetible, revisable y de bajo riesgo.", sources: [UNESCO, NIST] },
