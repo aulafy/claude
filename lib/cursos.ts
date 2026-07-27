@@ -402,7 +402,7 @@ export const cursos: Curso[] = [
     short: "Programa, prueba y entrega cambios con OpenAI Codex",
     desc: "Aprende un flujo profesional con Codex: explorar repositorios, escribir encargos verificables, configurar AGENTS.md, implementar con tests, revisar Git, controlar permisos y automatizar tareas con codex exec.",
     level: "Principiante → avanzado",
-    updatedAt: courseCatalogUpdatedAt,
+    updatedAt: "2026-07-27",
     icon: "laptopCode",
     gradient: ["#10b981", "#0ea5e9"],
     secciones: [
@@ -420,6 +420,7 @@ export const cursos: Curso[] = [
           { slug: "agents-md", title: "Enseña el repositorio con AGENTS.md" },
           { slug: "implementar-verificar", title: "Implementa, prueba y revisa la interfaz" },
           { slug: "git-revision", title: "Trabaja con Git y revisa cambios" },
+          { slug: "higiene-repositorio-agentes", title: "Higiene de repositorios: elimina redundancia sin romper comportamiento" },
         ],
       },
       {
