@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
@@ -34,17 +35,18 @@ export default function Page() {
       </Objetivos>
 
       <Cristiano term="Ollama">
-        Es un programa que descarga y ejecuta modelos de lenguaje en tu ordenador. Tú le pides texto por terminal o por API local, y el modelo responde sin enviar tus documentos a una plataforma externa.
+        Es un programa que puede ejecutar modelos de lenguaje en tu ordenador. Si eliges un modelo instalado y llamas a la API local, el procesamiento ocurre localmente. Ollama también ofrece modelos cloud: comprueba siempre qué modelo y URL estás usando.
       </Cristiano>
 
       <div className="prose">
-        <h2>Requisitos mínimos realistas</h2>
+        <h2>No existe un mínimo universal</h2>
         <ul>
-          <li><strong>8 GB de RAM</strong>: modelos pequeños de 1B a 4B para pruebas, resúmenes y chat ligero.</li>
-          <li><strong>16 GB de RAM</strong>: modelos de 7B a 8B, mejor equilibrio para aprender.</li>
-          <li><strong>32 GB o más</strong>: modelos de 14B y flujos más cómodos con documentos largos.</li>
-          <li><strong>GPU</strong>: ayuda mucho, pero no es obligatoria para empezar.</li>
+          <li><strong>Modelo y cuantización:</strong> determina el tamaño que debe cargarse.</li>
+          <li><strong>Contexto:</strong> una ventana mayor también consume memoria.</li>
+          <li><strong>Equipo:</strong> CPU, GPU, VRAM o memoria unificada cambian la velocidad.</li>
+          <li><strong>Tarea:</strong> chat corto, documentos y concurrencia no exigen lo mismo.</li>
         </ul>
+        <p>Empieza con un modelo pequeño cuya ficha y licencia hayas leído. Mide en tu equipo antes de comprar hardware o prometer tiempos.</p>
       </div>
 
       <Cuidado>
@@ -66,32 +68,22 @@ export default function Page() {
 
       <div className="prose">
         <h2>Tu primer modelo</h2>
-        <p>Para empezar, usa un modelo pequeño y rápido. Si tu equipo va bien, luego subes tamaño.</p>
+        <p>Abre la biblioteca oficial, elige un modelo pequeño disponible hoy y copia su nombre y tag exactos. Los ejemplos siguientes usan un marcador para no convertir una versión concreta en recomendación permanente.</p>
       </div>
 
-      <Terminal>{`ollama run qwen3:4b`}</Terminal>
+      <Terminal>{`ollama run NOMBRE:TAG`}</Terminal>
 
       <Idea>
         Empieza con el modelo que responde, no con el modelo que queda bonito en una comparativa. Aprenderás más con un 4B rápido que con un 14B que tarda demasiado en cada prueba.
       </Idea>
 
       <div className="prose">
-        <h2>Modelos recomendados para aprender</h2>
-        <ul>
-          <li><strong>qwen3:4b</strong>: buena primera opción para equipos modestos.</li>
-          <li><strong>llama3.1:8b</strong>: equilibrio clásico si tienes 16 GB de RAM o más.</li>
-          <li><strong>mistral</strong>: rápido y práctico para pruebas generales.</li>
-          <li><strong>codellama</strong>: útil para ejemplos de código, aunque no sustituye a Claude Code.</li>
-        </ul>
-      </div>
-
-      <div className="prose">
         <h2>Comprueba la API local</h2>
-        <p>Ollama queda escuchando en <code>http://localhost:11434</code>. Tus aplicaciones hablarán con esa dirección.</p>
+        <p>Por defecto, Ollama escucha en <code>http://127.0.0.1:11434</code>. La API local no exige autenticación: no cambies la dirección de escucha para exponerla en red como parte de esta práctica.</p>
       </div>
 
-      <Terminal>{`curl http://localhost:11434/api/generate -d '{
-  "model": "qwen3:4b",
+      <Terminal>{`curl http://127.0.0.1:11434/api/generate -d '{
+  "model": "NOMBRE:TAG",
   "prompt": "Resume en una frase qué es la IA local.",
   "stream": false
 }'`}</Terminal>
@@ -105,13 +97,13 @@ export default function Page() {
       </div>
 
       <Terminal>{`ollama list
-ollama run qwen3:4b
-ollama pull llama3.1:8b
+ollama run NOMBRE:TAG
+ollama pull NOMBRE:TAG
 ollama rm modelo:tag
 ollama ps`}</Terminal>
 
       <Guardar>
-        Quédate con tres datos: modelo elegido, puerto local <code>11434</code> y comando de prueba con <code>curl</code>. Si esos tres funcionan, cualquier proyecto del curso puede conectarse a Ollama.
+        Quédate con versión, modelo y licencia, tamaño, dirección local y una métrica de prueba. Continúa con el <Link href="/cursos/ia-pymes/ollama-piloto-seguro">laboratorio seguro para pymes</Link> antes de conectar datos o aplicaciones.
       </Guardar>
 
       <ChapterNav

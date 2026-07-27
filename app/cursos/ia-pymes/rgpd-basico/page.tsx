@@ -67,7 +67,7 @@ export default function Page() {
       </Guardar>
 
       <ChapterNav
-        prev={{ href: "/cursos/ia-pymes/diagnostico-piloto", label: "Diagnóstico y piloto" }}
+        prev={{ href: "/cursos/ia-pymes/ollama-piloto-seguro", label: "Piloto local seguro con Ollama" }}
         next={{ href: "/cursos/ia-pymes/flujo-fiable", label: "De piloto a flujo fiable" }}
       />
     </Chapter>

@@ -140,7 +140,7 @@ acción_prohibida: "pago, asiento contable o envío automático"`}</Terminal>
 
       <ChapterNav
         prev={{ href: "/cursos/ia-pymes/mapa", label: "Mapa para pymes" }}
-        next={{ href: "/cursos/ia-pymes/rgpd-basico", label: "RGPD básico" }}
+        next={{ href: "/cursos/ia-pymes/ollama-piloto-seguro", label: "Piloto local seguro con Ollama" }}
       />
     </Chapter>
   );
