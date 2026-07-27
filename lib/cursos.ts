@@ -969,7 +969,7 @@ export const cursos: Curso[] = [
           { slug: "mapa", title: "Mapa de IA útil para una pyme" },
           { slug: "diagnostico-piloto", title: "Diagnóstico y primer piloto de IA para una pyme" },
           { slug: "ollama-piloto-seguro", title: "Ollama para una pyme: prueba local, segura y medible" },
-          { slug: "rgpd-basico", title: "RGPD básico para usar IA sin sustos" },
+          { slug: "rgpd-basico", title: "Proteger datos antes de usar IA: minimización práctica" },
         ],
       },
       {
