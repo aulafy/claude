@@ -23,3 +23,12 @@ tmp/
 *.tsbuildinfo
 next-env.d.ts
 .env*
+
+# Tutorial factory runtime (unverified and machine-local)
+drafts/tutorial-factory/
+data/tutorial-factory/signals/
+data/tutorial-factory/memory/
+data/tutorial-factory/factory-state.json
+data/tutorial-factory/radar-index.json
+data/tutorial-factory/inbox/*
+!data/tutorial-factory/inbox/README.md

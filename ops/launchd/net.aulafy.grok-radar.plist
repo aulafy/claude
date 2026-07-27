@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "https://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>net.aulafy.grok-radar</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/opt/homebrew/bin/node</string>
+    <string>/ABSOLUTE/PATH/TO/aulafy/scripts/aulafy-grok-radar.mjs</string>
+    <string>--mode=deep</string>
+    <string>--topic=IA para pymes, estudiantes, Codex, Claude Code, agentes, RAG, MCP, skills y modelos locales en español</string>
+    <string>--max-signals=8</string>
+    <string>--max-turns=12</string>
+  </array>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+      <key>AULAFY_GROK_BIN</key>
+      <string>/Users/YOUR_USER/.grok/bin/grok</string>
+      <key>PATH</key>
+      <string>/Users/YOUR_USER/.grok/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+    </dict>
+
+  <key>StartInterval</key>
+  <integer>21600</integer>
+
+  <key>StandardOutPath</key>
+  <string>/tmp/aulafy-grok-radar.out.log</string>
+
+  <key>StandardErrorPath</key>
+  <string>/tmp/aulafy-grok-radar.err.log</string>
+</dict>
+</plist>
