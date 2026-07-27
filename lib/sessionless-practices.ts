@@ -152,6 +152,22 @@ const practices: Record<string, SessionlessPractice> = {
     ],
     evidence: "Pieza: ____\nMateriales y permisos: ____\nModelo y licencia comprobados: ____\nAviso de contenido sintético: ____\nAlternativa accesible: ____",
   },
+  "estudiar-con-ia-sin-dejar-de-aprender": {
+    mission: "Aprende un concepto con pistas graduadas y comprueba después, sin IA, si puedes explicarlo y aplicarlo.",
+    result: "Una hoja de estudio que distingue ayuda recibida, comprensión propia, errores y siguiente repaso.",
+    steps: [
+      "Intenta resolver o explicar el concepto durante cinco minutos antes de abrir la IA.",
+      "Pide una pista cada vez y obliga al tutor a devolverte preguntas, no una solución para copiar.",
+      "Cierra la herramienta y completa una explicación y un problema nuevo sin consultar la conversación.",
+    ],
+    question: "¿Qué evidencia indica mejor que la IA te ayudó a aprender y no solo a terminar?",
+    options: [
+      { label: "Puedo explicar el concepto y resolver un caso nuevo sin abrir el chat", correct: true, explanation: "Correcto: transferir lo aprendido a una prueba cerrada revela mejor tu comprensión que conservar una respuesta brillante." },
+      { label: "La respuesta final del chat es larga, correcta y está bien presentada", correct: false, explanation: "No: eso mide la salida de la herramienta, no lo que tú puedes recuperar y aplicar." },
+      { label: "Entregué la tarea mucho más rápido aunque no sabría repetirla", correct: false, explanation: "No: reducir tiempo puede ser útil, pero no demuestra aprendizaje si externalizaste el razonamiento." },
+    ],
+    evidence: "Tema: ____\nIntento previo: ____\nPistas recibidas: ____\nExplicación sin IA: ____\nCaso nuevo resuelto: ____\nError descubierto: ____\nPróximo repaso: ____",
+  },
   "primer-proyecto-repetible": {
     mission: "Convierte lo aprendido en un flujo pequeño que otra persona pueda repetir y auditar.",
     result: "Un proyecto de bajo riesgo con entrada, salida, prueba, límites y procedimiento de repetición.",

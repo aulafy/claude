@@ -89,6 +89,14 @@ export const iaBasicsLessons: IaBasicsLesson[] = [
   },
   {
     number: 10,
+    slug: "estudiar-con-ia-sin-dejar-de-aprender",
+    title: "Estudiar con IA sin dejar de aprender: método de tutor, práctica y examen cerrado",
+    lead: "Usa la IA para recibir pistas, practicar y detectar lagunas; después demuestra lo aprendido sin ayuda.",
+    minutes: 35,
+    kind: "practica",
+  },
+  {
+    number: 11,
     slug: "primer-proyecto-repetible",
     title: "Tu primer proyecto: una tarea pequeña, comprobada y repetible",
     lead: "Termina con un resultado propio y elige la siguiente ruta solo cuando tu proyecto la necesite.",
