@@ -85,6 +85,7 @@ export const cursos: Curso[] = [
         lecciones: [
           { slug: "elegir-modelo-herramienta", title: "Elegir modelo o herramienta según la tarea, no por una clasificación viral" },
           { slug: "privacidad-derechos-seguridad", title: "Privacidad, derechos y seguridad antes de compartir datos" },
+          { slug: "auditar-chats-compartidos", title: "Chats compartidos: audita enlaces públicos antes de que expongan información" },
           { slug: "imagen-voz-video-responsable", title: "Imagen, voz y vídeo: creatividad, licencia y transparencia" },
         ],
       },

@@ -305,7 +305,73 @@ Reescribe tu tarea elegida usando datos ficticios o anonimizados. Añade una fra
 
 ---
 
-## Lección 9. Imagen, voz y vídeo: creatividad, licencia y transparencia
+## Lección 9. Chats compartidos: audita enlaces públicos antes de que expongan información
+
+Compartir una conversación puede parecerse a enviar una respuesta, pero no siempre comparte solo esa respuesta. Según el producto, el enlace puede mostrar una instantánea, el historial anterior, artefactos o imágenes. Además, quien recibe la URL puede reenviarla.
+
+Hay cuatro controles distintos:
+
+1. **Contenido del chat:** lo que escribiste, adjuntaste y recibió el modelo.
+2. **Enlace compartido:** qué parte ve cualquier persona que obtiene la URL.
+3. **Controles de datos:** si el proveedor puede usar conversaciones para mejorar modelos.
+4. **Copias externas:** capturas, importaciones o publicaciones que ya no controla el proveedor.
+
+Desactivar entrenamiento no revoca por sí solo un enlace compartido. Revocar el enlace tampoco recupera una captura que otra persona ya guardó.
+
+### Qué cambia entre proveedores
+
+Esta tabla resume la documentación oficial comprobada el 27 de julio de 2026. Las interfaces cambian: abre siempre la fuente enlazada antes de una auditoría real.
+
+| Servicio | Alcance documentado | Gestión del enlace | Límite importante |
+| --- | --- | --- | --- |
+| Claude | Crea una instantánea de mensajes y artefactos anteriores; el archivo adjunto no se incluye como archivo, pero la conversación y las respuestas sobre él sí pueden aparecer | `Settings → Privacy → Shared chats → Manage` en planes personales | Al volver a compartir se actualiza la instantánea |
+| ChatGPT | El enlace puede mostrar el historial compartido hasta ese punto | `Settings → Data Controls → Shared links` | No ofrece permisos granulares ni caducidad; una conversación importada por otra persona puede persistir |
+| Gemini | Comparte la conversación; una imagen subida puede quedar visible y descargable | `Settings & help → Your public links` | Borrar el enlace no elimina publicaciones externas ni la actividad de quien continuó el chat |
+
+### Regla de parada
+
+Si una conversación ha contenido una clave, datos personales, información sanitaria, financiera, jurídica o confidencial, **no intentes limpiarla solo editando el último mensaje**. Revoca el enlace si existe y crea una conversación nueva con el mínimo contexto permitido. La respuesta del modelo también puede repetir información sensible.
+
+### Microauditoría en 20 minutos
+
+No publiques ningún enlace para completar esta práctica. Usa el gestor del proveedor:
+
+1. Cuenta todos los enlaces compartidos.
+2. Para cada uno, comprueba alcance, audiencia y si sigue siendo necesario.
+3. Clasifícalo como público, interno, confidencial o secreto.
+4. Revoca todo enlace desconocido, innecesario, confidencial o secreto.
+5. Abre la URL revocada en una ventana privada y comprueba que ya no ofrece acceso.
+6. Registra solo conteos y decisiones; no copies conversaciones ni URL reales a una hoja pública.
+
+Tu criterio de salida es medible:
+
+```text
+Enlaces encontrados: __
+Enlaces revisados: __
+Enlaces revocados: __
+Sin verificar: 0
+Enlaces sensibles activos después: 0
+```
+
+Practica primero sin cuentas ni red con el [laboratorio MIT de auditoría de chats compartidos](https://github.com/aulafy/taller/tree/main/cursos/ia-desde-cero/laboratorios/auditoria-chats-compartidos). Incluye un inventario ficticio que debe fallar, una solución, cinco pruebas y bloqueo de URL reales.
+
+### Resumen
+
+- Un enlace compartido y los controles de entrenamiento son cosas distintas.
+- Antes de compartir, comprueba el alcance exacto y utiliza una conversación limpia con el mínimo contexto.
+- Revocar detiene el acceso por esa URL; no borra capturas, copias, importaciones o publicaciones externas.
+- Una auditoría termina con cero enlaces sensibles activos y cero enlaces sin verificar.
+
+### Fuentes oficiales
+
+- [Claude: compartir y dejar de compartir chats](https://support.claude.com/en/articles/10593882-share-and-unshare-chats)
+- [ChatGPT: preguntas frecuentes sobre enlaces compartidos](https://help.openai.com/en/articles/7925741-chatgpt-shared-links-faq)
+- [ChatGPT: controles de datos](https://help.openai.com/en/articles/7730893-data-controls-faq)
+- [Gemini: compartir chats](https://support.google.com/gemini/answer/13743730)
+
+---
+
+## Lección 10. Imagen, voz y vídeo: creatividad, licencia y transparencia
 
 La IA multimodal permite transformar una idea en imagen, voz, vídeo o presentación. Úsala para prototipar, explicar y crear variantes; no para fingir pruebas, autoridad o testimonios que no existen.
 
@@ -348,7 +414,7 @@ Diseña un encargo multimodal para tu proyecto final. Incluye audiencia, propós
 
 # Módulo 5. Aprender sin delegar el pensamiento
 
-## Lección 10. Estudiar con IA sin dejar de aprender: método de tutor, práctica y examen cerrado
+## Lección 11. Estudiar con IA sin dejar de aprender: método de tutor, práctica y examen cerrado
 
 Una IA puede explicar un concepto, proponer ejemplos y adaptar una pregunta. También puede completar una tarea sin que tú construyas el conocimiento necesario para repetirla. La diferencia no está en usar o no usar IA: está en **qué esfuerzo conservas**, **qué ayuda solicitas** y **cómo compruebas después tu aprendizaje**.
 
@@ -444,7 +510,7 @@ El producto evaluable no es la conversación. Es el dibujo corregido, la explica
 
 # Módulo 6. Convertir comprensión en un resultado propio
 
-## Lección 11. Tu primer proyecto: una tarea pequeña, comprobada y repetible
+## Lección 12. Tu primer proyecto: una tarea pequeña, comprobada y repetible
 
 El final del curso no es «haber probado muchas IAs». Es terminar una tarea propia que puedas explicar, repetir y mejorar.
 

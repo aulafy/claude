@@ -136,6 +136,22 @@ const practices: Record<string, SessionlessPractice> = {
     ],
     evidence: "Finalidad: ____\nDatos imprescindibles: ____\nDatos retirados: ____\nBase o autorización que debo comprobar: ____\nConservación: ____\nResponsable de revisión: ____",
   },
+  "auditar-chats-compartidos": {
+    mission: "Revisa el inventario de enlaces compartidos y deja a cero los enlaces sensibles o desconocidos.",
+    result: "Una auditoría con alcance, decisión, comprobación externa y límites de la revocación.",
+    steps: [
+      "Abre el gestor de enlaces compartidos del proveedor y cuenta los enlaces existentes.",
+      "Comprueba cada alcance sin copiar contenido real: qué mensajes, archivos, imágenes o artefactos puede ver otra persona.",
+      "Revoca lo sensible o innecesario y prueba la URL en una ventana privada; registra solo conteos y decisiones.",
+    ],
+    question: "Has revocado un enlace público a un chat. ¿Qué puedes afirmar con seguridad?",
+    options: [
+      { label: "El enlace deja de ofrecer acceso futuro, pero no recupera capturas o copias ya realizadas", correct: true, explanation: "Correcto: revocar limita el acceso por esa URL; no permite borrar material que ya salió del servicio." },
+      { label: "Todo el contenido desaparece automáticamente de cualquier dispositivo y publicación", correct: false, explanation: "No: otras personas pudieron copiar, capturar, importar o volver a publicar el contenido." },
+      { label: "Cambiar los controles de entrenamiento elimina todos los enlaces compartidos", correct: false, explanation: "No: los controles de uso de datos y la gestión de enlaces son controles distintos." },
+    ],
+    evidence: "Proveedor: ____\nEnlaces encontrados: ____\nRevisados: ____\nRevocados: ____\nSin verificar: ____\nEnlaces sensibles activos después: ____\nFecha: ____",
+  },
   "imagen-voz-video-responsable": {
     mission: "Diseña una pieza generativa que pueda publicarse sin engañar, suplantar ni excluir.",
     result: "Una ficha de publicación con procedencia, permisos, licencia y alternativa accesible.",
