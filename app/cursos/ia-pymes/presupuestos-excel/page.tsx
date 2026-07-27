@@ -206,7 +206,7 @@ No cambies fórmulas, nombres de hojas ni datos sin mi aprobación.`}</Terminal>
 
       <ChapterNav
         prev={{ href: "/cursos/ia-pymes/facturas-verifactu-ocr", label: "Facturas, OCR y Verifactu" }}
-        next={{ href: "/cursos/ia-pymes/whatsapp-atencion", label: "WhatsApp y Telegram" }}
+        next={{ href: "/cursos/ia-pymes/convertir-extracto-csv", label: "Convertir extracto a CSV" }}
       />
     </Chapter>
   );

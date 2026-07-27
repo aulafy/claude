@@ -988,6 +988,7 @@ export const cursos: Curso[] = [
           { slug: "facturas", title: "Facturas: extraer datos y revisar" },
           { slug: "facturas-verifactu-ocr", title: "Facturas, OCR y Verifactu con revisión humana" },
           { slug: "presupuestos-excel", title: "Excel con IA: verificar fórmulas y evitar errores silenciosos" },
+          { slug: "convertir-extracto-csv", title: "Convertir un extracto a CSV sin inventar movimientos" },
           { slug: "whatsapp-atencion", title: "WhatsApp y Telegram con aprobación humana" },
           { slug: "aeo-pymes", title: "AEO para pymes: aparecer en respuestas de IA" },
         ],
