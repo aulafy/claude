@@ -57,7 +57,7 @@ export default function Page() {
         </p>
 
         <h2>Cuatro operaciones que no son sinónimas</h2>
-        <div className="table-wrap">
+        <div className="table-wrap" role="region" aria-label="Diferencias entre minimización, seudonimización y anonimización" tabIndex={0}>
           <table>
             <thead>
               <tr>
@@ -179,7 +179,7 @@ SALIDA EXIGIDA
 
       <div className="prose">
         <h2>La matriz de decisión que debe completar una pyme</h2>
-        <div className="table-wrap">
+        <div className="table-wrap" role="region" aria-label="Controles de protección de datos" tabIndex={0}>
           <table>
             <thead>
               <tr>

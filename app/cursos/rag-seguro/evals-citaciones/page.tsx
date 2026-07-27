@@ -53,7 +53,7 @@ export default function Page() {
           cliente o acertar nueve preguntas y filtrar información en la décima. Por eso «parece correcto»
           no es una métrica.
         </p>
-        <div className="table-wrap">
+        <div className="table-wrap" role="region" aria-label="Capas y evidencias de evaluación RAG" tabIndex={0}>
           <table>
             <thead><tr><th>Capa</th><th>Pregunta de evaluación</th><th>Evidencia</th></tr></thead>
             <tbody>

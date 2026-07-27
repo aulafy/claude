@@ -260,7 +260,8 @@ tr:nth-child(even) td { background: #0f0f11; }
   scrollbar-color: var(--accent) var(--panel);
   scrollbar-width: thin;
 }
-.aula-table-scroll {
+.aula-table-scroll,
+.table-wrap {
   width: 100%;
   max-width: 100%;
   min-width: 0;
@@ -272,8 +273,10 @@ tr:nth-child(even) td { background: #0f0f11; }
   scrollbar-color: var(--accent) var(--panel);
   scrollbar-width: thin;
 }
-.aula-table-scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.aula-table-scroll:focus-visible,
+.table-wrap:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .aula-table-scroll table,
+.table-wrap table,
 .overflow-x-auto > table {
   width: max-content;
   min-width: 100%;

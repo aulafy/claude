@@ -59,7 +59,7 @@ export default function Page() {
 
       <div className="prose">
         <h2>El contrato de aceptación</h2>
-        <div className="table-wrap">
+        <div className="table-wrap" role="region" aria-label="Contrato de aceptación para convertir un extracto a CSV" tabIndex={0}>
           <table>
             <thead>
               <tr>

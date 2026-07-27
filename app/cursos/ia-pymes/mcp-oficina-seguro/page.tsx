@@ -46,7 +46,7 @@ export default function Page() {
           recursos y prompts ofrecidos por un servidor. El modelo puede decidir pedir una tool; el cliente
           transporta la llamada; el servidor valida los argumentos y ejecuta código convencional.
         </p>
-        <div className="table-wrap">
+        <div className="table-wrap" role="region" aria-label="Responsabilidades de las piezas MCP" tabIndex={0}>
           <table>
             <thead>
               <tr><th>Pieza</th><th>Responsabilidad</th><th>No garantiza</th></tr>
@@ -141,7 +141,7 @@ codex mcp remove aulafy-oficina`}</Terminal>
         </p>
 
         <h2>Siete barreras antes de conectar un ERP</h2>
-        <div className="table-wrap">
+        <div className="table-wrap" role="region" aria-label="Barreras antes de conectar un ERP" tabIndex={0}>
           <table>
             <thead><tr><th>Barrera</th><th>Ejemplo verificable</th><th>Qué evita</th></tr></thead>
             <tbody>
