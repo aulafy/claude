@@ -70,7 +70,7 @@ Si no ves problemas, dilo claramente.`}</Terminal>
       </Guardar>
 
       <ChapterNav
-        prev={{ href: "/cursos/agentes-automatizacion/mapa", label: "Mapa de agentes" }}
+        prev={{ href: "/cursos/agentes-automatizacion/de-chat-a-agente", label: "De chat a agente" }}
         next={{ href: "/cursos/agentes-automatizacion/crear-cli-tipo-r", label: "CLI tipo R" }}
       />
     </Chapter>
