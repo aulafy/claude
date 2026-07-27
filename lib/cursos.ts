@@ -788,6 +788,7 @@ export const cursos: Curso[] = [
         title: "Fundamentos",
         lecciones: [
           { slug: "mapa", title: "Mapa real de agentes en 2026" },
+          { slug: "de-chat-a-agente", title: "De chat a agente: llamada, tool, MCP, RAG y loop" },
           { slug: "subagentes", title: "Subagentes con roles y límites" },
           { slug: "crear-cli-tipo-r", title: "Crear una CLI de agentes tipo R" },
         ],

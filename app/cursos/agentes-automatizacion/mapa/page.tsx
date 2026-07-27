@@ -91,7 +91,7 @@ limites:
         Primero diseña el circuito de control. Después eliges framework, modelo y automatización.
       </Guardar>
 
-      <ChapterNav next={{ href: "/cursos/agentes-automatizacion/subagentes", label: "Subagentes con roles" }} />
+      <ChapterNav next={{ href: "/cursos/agentes-automatizacion/de-chat-a-agente", label: "De chat a agente paso a paso" }} />
     </Chapter>
   );
 }
