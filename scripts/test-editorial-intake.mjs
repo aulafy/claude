@@ -67,4 +67,40 @@ const socialOnly = evaluateEditorialIntake({
 assert.notEqual(socialOnly.verdict, "suficiente");
 assert.equal(socialOnly.primaryLinks.length, 0);
 
+const hostileLinks = Array.from(
+  { length: 30 },
+  (_, index) =>
+    `https://github.com/aulafy/prueba-${index}?dato=${"x".repeat(1_500)}`,
+);
+const hostile = evaluateEditorialIntake({
+  title: "Petición con entrada hostil\u0000 <!-- oculta --> @equipo",
+  content:
+    `${"# Encabezado inyectado\n@equipo\n<!-- comentario -->\u0007"}`.repeat(300),
+  links: hostileLinks,
+  audience: "tecnico",
+  intent: "crear",
+  desiredOutcome:
+    "El alumno podrá comprobar que una entrada pública no ejecuta código ni genera menciones involuntarias.",
+});
+const hostileIssueUrl = buildGitHubTutorialIssueUrl(
+  {
+    title: "Petición con entrada hostil\u0000 <!-- oculta --> @equipo",
+    content:
+      `${"# Encabezado inyectado\n@equipo\n<!-- comentario -->\u0007"}`.repeat(300),
+    links: hostileLinks,
+    audience: "tecnico",
+    intent: "crear",
+    desiredOutcome:
+      "El alumno podrá comprobar que una entrada pública no ejecuta código ni genera menciones involuntarias.",
+  },
+  hostile,
+);
+const hostileParsed = new URL(hostileIssueUrl);
+const hostileTitle = hostileParsed.searchParams.get("title");
+const hostileBody = hostileParsed.searchParams.get("body");
+assert.doesNotMatch(hostileTitle, /[\u0000\u0007]/);
+assert.doesNotMatch(hostileBody, /<!--|@equipo|[\u0000\u0007]/);
+assert.match(hostileBody, /20 enlace\(s\) adicional\(es\) omitido\(s\)/);
+assert.ok(hostileIssueUrl.length < 30_000);
+
 console.log("✓ Evaluador editorial: casos suficiente, débil y solo social validados.");

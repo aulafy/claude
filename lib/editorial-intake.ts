@@ -85,6 +85,9 @@ const RISK_TERMS = [
   "datos",
 ];
 
+const MAX_PUBLIC_LINKS = 10;
+const MAX_PUBLIC_LINK_LENGTH = 1_000;
+
 function validUrl(value: string) {
   try {
     const url = new URL(value);
@@ -274,6 +277,7 @@ export function evaluateEditorialIntake(
 
 function publicIssueText(value: string, maximum = 4_000) {
   return value
+    .replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/g, "")
     .replaceAll("<!--", "&lt;!--")
     .replaceAll("-->", "--&gt;")
     .replaceAll("@", "@\u200b")
@@ -291,28 +295,36 @@ export function buildGitHubTutorialIssueUrl(
       : intake.intent === "crear"
         ? "Crear un tutorial"
         : "Decidir entre crear o actualizar";
+  const publicLinks = evaluation.validLinks
+    .slice(0, MAX_PUBLIC_LINKS)
+    .map((link) => publicIssueText(link, MAX_PUBLIC_LINK_LENGTH));
+  const omittedLinks = Math.max(
+    0,
+    evaluation.validLinks.length - publicLinks.length,
+  );
   const body = `## Propuesta
 
 **Acción:** ${action}
 **Público:** ${intake.audience}
-**Página relacionada:** ${publicIssueText(intake.existingPath || "") || "No indicada"}
+**Página relacionada:** ${publicIssueText(intake.existingPath || "", 500) || "No indicada"}
 **Evaluación previa:** ${evaluation.score}/${evaluation.maximum} — ${evaluation.verdict}
 
 ## Problema
 
-${publicIssueText(intake.content)}
+${publicIssueText(intake.content, 2_500)}
 
 ## Resultado para el alumno
 
-${publicIssueText(intake.desiredOutcome)}
+${publicIssueText(intake.desiredOutcome, 800)}
 
 ## Fuentes y señales aportadas
 
-${evaluation.validLinks.map((link) => `- ${link}`).join("\n") || "- No se aportaron enlaces válidos."}
+${publicLinks.map((link) => `- ${link}`).join("\n") || "- No se aportaron enlaces válidos."}
+${omittedLinks > 0 ? `\n- ${omittedLinks} enlace(s) adicional(es) omitido(s) para mantener una petición manejable.` : ""}
 
 ## Comprobaciones pendientes
 
-${evaluation.missing.map((item) => `- ${publicIssueText(item)}`).join("\n") || "- Revisión técnica y editorial."}
+${evaluation.missing.map((item) => `- ${publicIssueText(item, 500)}`).join("\n") || "- Revisión técnica y editorial."}
 
 ---
 
