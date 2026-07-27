@@ -47,7 +47,7 @@ export const cursos: Curso[] = [
     short: "Entiende, usa y verifica la IA generativa antes de elegir una herramienta",
     desc: "Curso breve para cualquier persona que quiere aprender inteligencia artificial con criterio: modelos, chat, RAG, agentes, contexto, verificación, privacidad, herramientas y un primer proyecto propio.",
     level: "Cero absoluto",
-    updatedAt: "2026-07-19",
+    updatedAt: "2026-07-27",
     icon: "sparkle",
     gradient: ["#f59e0b", "#ec4899"],
     availableInEnglish: false,
@@ -86,6 +86,12 @@ export const cursos: Curso[] = [
           { slug: "elegir-modelo-herramienta", title: "Elegir modelo o herramienta según la tarea, no por una clasificación viral" },
           { slug: "privacidad-derechos-seguridad", title: "Privacidad, derechos y seguridad antes de compartir datos" },
           { slug: "imagen-voz-video-responsable", title: "Imagen, voz y vídeo: creatividad, licencia y transparencia" },
+        ],
+      },
+      {
+        title: "Aprender sin delegar el pensamiento",
+        lecciones: [
+          { slug: "estudiar-con-ia-sin-dejar-de-aprender", title: "Estudiar con IA sin dejar de aprender: método de tutor, práctica y examen cerrado" },
         ],
       },
       {

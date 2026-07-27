@@ -16,12 +16,15 @@ const EU_AI = { label: "Comisión Europea · marco regulador de IA", href: "http
 const OSI = { label: "OSI · Open Source AI Definition 1.0", href: "https://opensource.org/ai/open-source-ai-definition" };
 const HF_CARDS = { label: "Hugging Face · Model Cards", href: "https://huggingface.co/docs/hub/en/model-cards" };
 const DETECTORS = { label: "Liang et al. · sesgo de detectores de texto", href: "https://arxiv.org/abs/2304.02819" };
+const CEPR_LEARNING = { label: "CEPR DP21577 · The Generative AI Learning Penalty", href: "https://cepr.org/publications/dp21577" };
+const EEF_METACOGNITION = { label: "EEF · Metacognition and Self-Regulated Learning", href: "https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/metacognition" };
 
 const initialReviewAt = "2026-07-18";
 const lessonReviewDates: Record<string, string> = {
   "alucinaciones-verificar": "2026-07-19",
   "elegir-modelo-herramienta": "2026-07-19",
   "imagen-voz-video-responsable": "2026-07-19",
+  "estudiar-con-ia-sin-dejar-de-aprender": "2026-07-27",
 };
 
 const records: Record<string, Omit<QualityRecord, "reviewedAt" | "status">> = {
@@ -34,6 +37,7 @@ const records: Record<string, Omit<QualityRecord, "reviewedAt" | "status">> = {
   "elegir-modelo-herramienta": { volatility: "volátil", reviewDays: 7, scope: "Método de comparación, model cards y distinción entre open weights y open source; no publica una clasificación ni precios.", sources: [NIST, OSI, HF_CARDS] },
   "privacidad-derechos-seguridad": { volatility: "volátil", reviewDays: 7, scope: "Minimización, permisos y señales generales; no constituye asesoramiento jurídico.", sources: [OWASP, EU_AI] },
   "imagen-voz-video-responsable": { volatility: "revisable", reviewDays: 30, scope: "Consentimiento, transparencia, licencia, accesibilidad y límites de la detección automática.", sources: [UNESCO, EU_AI, DETECTORS] },
+  "estudiar-con-ia-sin-dejar-de-aprender": { volatility: "revisable", reviewDays: 30, scope: "Método de estudio con recuperación activa, metacognición y uso transparente de IA; el estudio CEPR se presenta con población, diseño y límites explícitos.", sources: [UNESCO, EEF_METACOGNITION, CEPR_LEARNING] },
   "primer-proyecto-repetible": { volatility: "estable", reviewDays: 180, scope: "Rúbrica de proyecto repetible, revisable y de bajo riesgo.", sources: [UNESCO, NIST] },
 };
 

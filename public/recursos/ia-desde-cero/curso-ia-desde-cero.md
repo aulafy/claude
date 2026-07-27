@@ -346,9 +346,105 @@ Diseña un encargo multimodal para tu proyecto final. Incluye audiencia, propós
 
 ---
 
-# Módulo 5. Convertir comprensión en un resultado propio
+# Módulo 5. Aprender sin delegar el pensamiento
 
-## Lección 10. Tu primer proyecto: una tarea pequeña, comprobada y repetible
+## Lección 10. Estudiar con IA sin dejar de aprender: método de tutor, práctica y examen cerrado
+
+Una IA puede explicar un concepto, proponer ejemplos y adaptar una pregunta. También puede completar una tarea sin que tú construyas el conocimiento necesario para repetirla. La diferencia no está en usar o no usar IA: está en **qué esfuerzo conservas**, **qué ayuda solicitas** y **cómo compruebas después tu aprendizaje**.
+
+### Productividad no es lo mismo que aprendizaje
+
+Terminar antes, obtener una nota mejor en una tarea o producir un texto más pulido son resultados visibles. Ninguno demuestra por sí solo que puedas recordar, explicar o aplicar lo estudiado sin la herramienta.
+
+Un estudio publicado como documento de discusión de CEPR en junio de 2026 analizó 30 meses de datos de 26.811 estudiantes chinos de secundaria. Sus autores observaron mejores resultados y menor tiempo en deberes después de adoptar IA, junto con peores resultados posteriores en exámenes cerrados, especialmente entre patrones compatibles con externalizar los deberes. Es una señal relevante, pero no una ley universal: estudia una población y un contexto concretos, emplea un diseño cuasiexperimental y no demuestra que toda forma de usar IA cause el mismo efecto.
+
+La orientación de UNESCO propone usos educativos centrados en la persona y diseñados para activar pensamiento de orden superior. La guía de metacognición de EEF refuerza un principio compatible: planificar, supervisar y evaluar el propio aprendizaje debe enseñarse de forma explícita.
+
+> **Regla de esta lección:** la IA puede acompañar el entrenamiento; la comprobación final debe mostrar qué puedes hacer tú sin ella.
+
+### El método PISTA
+
+Usa esta secuencia para una sesión de 25 minutos:
+
+| Paso | Tiempo | Qué haces | Qué no haces |
+| --- | ---: | --- | --- |
+| **P**rueba primero | 5 min | Recupera lo que sabes y escribe un intento | Abrir el chat ante la primera duda |
+| **I**nterroga | 5 min | Pide una pista pequeña o una pregunta socrática | Pedir la solución completa |
+| **S**oluciona | 7 min | Continúa tú y explica cada decisión | Copiar una respuesta que no puedes defender |
+| **T**ransfiere | 5 min | Resuelve un caso diferente sin IA | Repetir el mismo ejemplo de memoria |
+| **A**nota | 3 min | Registra error, corrección y próximo repaso | Guardar únicamente la respuesta final |
+
+### Prompt de tutor que reduce el atajo
+
+```text
+Actúa como tutor de [asignatura y nivel].
+
+Objetivo: ayudarme a comprender [concepto], no completar mi tarea.
+Primero pídeme mi intento y pregúntame qué parte no entiendo.
+Después ofrece una sola pista cada vez.
+No muestres la solución completa salvo que yo haya explicado dos intentos.
+Cuando llegue a una respuesta, pídeme justificarla y plantea un caso nuevo.
+Separa los hechos que proceden de mis materiales de tus explicaciones generales.
+Si no puedes verificar un dato, indícalo.
+```
+
+Esta plantilla no garantiza que la herramienta sea correcta ni pedagógicamente adecuada. Debes contrastar datos importantes con el libro, los apuntes, el docente o una fuente primaria.
+
+### Ejemplo: una estudiante de biología
+
+**Tarea:** explicar por qué una célula pierde agua en una disolución hipertónica.
+
+1. La estudiante dibuja su explicación inicial durante cinco minutos.
+2. Entrega al tutor solo ese intento y pide que señale la primera confusión.
+3. La IA pregunta por la concentración de solutos dentro y fuera de la membrana.
+4. La estudiante corrige el dibujo y explica el movimiento del agua con sus palabras.
+5. Cierra el chat y resuelve un caso nuevo con concentraciones diferentes.
+6. Comprueba términos y mecanismo en su manual de biología.
+
+El producto evaluable no es la conversación. Es el dibujo corregido, la explicación propia, el caso nuevo y el registro del error.
+
+### Semáforo de ayuda
+
+| Verde: favorece práctica | Ámbar: exige cautela | Rojo: sustituye el aprendizaje |
+| --- | --- | --- |
+| Crear preguntas de recuperación | Resumir un capítulo antes de leerlo | Entregar un ensayo que no puedes explicar |
+| Pedir una pista graduada | Corregir todo el texto automáticamente | Resolver el examen o prueba por ti |
+| Comparar tu solución con una rúbrica | Generar tarjetas sin comprobarlas | Inventar fuentes o datos |
+| Simular una entrevista oral | Reescribir tu voz por completo | Ocultar un uso prohibido por el centro |
+
+### Práctica reproducible
+
+1. Elige un concepto que tengas que aprender esta semana.
+2. Prepara una pregunta de explicación y un problema o ejemplo nuevo.
+3. Haz el intento previo sin IA y conserva una foto o versión fechada.
+4. Usa el prompt de tutor durante un máximo de diez minutos.
+5. Cierra el chat. Explica el concepto en 120 palabras y resuelve el caso nuevo.
+6. Compara con una fuente autorizada y marca los errores.
+7. Repite la prueba cerrada 24 o 48 horas después.
+
+**Criterio de éxito:** puedes explicar la idea central y aplicar el concepto a un caso diferente sin consultar el chat. Si no puedes, no has fracasado: has localizado exactamente qué debes volver a practicar.
+
+### Privacidad, integridad y edad
+
+- No pegues trabajos de compañeros, datos personales, historiales académicos ni materiales restringidos.
+- Comprueba las reglas de tu centro y declara la ayuda recibida cuando corresponda.
+- No uses detectores automáticos como prueba de autoría; conserva borradores, fuentes y decisiones.
+- Si eres menor, utiliza únicamente herramientas y condiciones autorizadas por tu familia y centro educativo.
+- Una IA no sustituye al docente, a las adaptaciones educativas ni al apoyo profesional.
+
+### Resumen
+
+- Acabar una tarea y aprender no son el mismo resultado.
+- Intenta antes de preguntar; pide pistas antes que soluciones.
+- Cierra la IA y transfiere lo aprendido a un caso nuevo.
+- Conserva evidencia del proceso y respeta las normas de tu centro.
+- Un estudio concreto informa el diseño, pero no justifica afirmaciones universales.
+
+---
+
+# Módulo 6. Convertir comprensión en un resultado propio
+
+## Lección 11. Tu primer proyecto: una tarea pequeña, comprobada y repetible
 
 El final del curso no es «haber probado muchas IAs». Es terminar una tarea propia que puedas explicar, repetir y mejorar.
 
@@ -398,5 +494,7 @@ Tu proyecto está listo cuando puedes responder «sí» a todo:
 - [Open Source AI Definition 1.0 de OSI](https://opensource.org/ai/open-source-ai-definition) — libertades y elementos necesarios para hablar de IA open source.
 - [Hugging Face: Model Cards](https://huggingface.co/docs/hub/en/model-cards) — campos que deben documentar uso, licencia, limitaciones, datos y evaluación de un modelo.
 - [Liang et al.: sesgo de detectores contra autores no nativos en inglés](https://arxiv.org/abs/2304.02819) — evidencia primaria sobre falsos positivos y límites de estos detectores.
+- [CEPR DP21577: The Generative AI Learning Penalty](https://cepr.org/publications/dp21577) — estudio de 2026 sobre uso de IA, deberes y resultados en exámenes; debe interpretarse dentro de su población y diseño.
+- [EEF: Metacognition and Self-Regulated Learning](https://educationendowmentfoundation.org.uk/education-evidence/guidance-reports/metacognition) — revisión y recomendaciones sobre planificación, supervisión y evaluación del aprendizaje.
 
 Las políticas, precios, capacidades y condiciones de las herramientas cambian. Verifica siempre la documentación oficial y las obligaciones aplicables a tu contexto antes de usar IA con datos reales o acciones externas.

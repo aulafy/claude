@@ -10,6 +10,7 @@ const sourceFiles = publicRuntimeFiles.flatMap((entry) => {
 });
 const publicRuntime = sourceFiles.map((file) => fs.readFileSync(file, "utf8")).join("\n");
 const practiceData = fs.readFileSync("lib/sessionless-practices.ts", "utf8");
+const courseData = fs.readFileSync("lib/ia-basics-course-content.ts", "utf8");
 const practiceUi = fs.readFileSync("components/SessionlessPractice.tsx", "utf8");
 const proxy = fs.readFileSync("proxy.ts", "utf8");
 
@@ -18,7 +19,13 @@ assert.doesNotMatch(proxy, /refreshSupabaseSession|response\.cookies|request\.co
 assert.match(proxy, /if \(isSocialRoute\(request\.nextUrl\.pathname\)\)/, "Account and community routes must stay disabled in the static stage");
 assert.match(practiceUi, /useState/, "Practices may keep answers only in temporary component memory");
 assert.doesNotMatch(practiceUi, /fetch\(|\/api\//, "Practices must not send learner answers to a server");
-assert.equal((practiceData.match(/^  "[a-z0-9-]+": \{$/gm) ?? []).length, 10, "IA desde cero needs ten sessionless practices");
+const lessonSlugs = Array.from(courseData.matchAll(/^\s+slug: "([a-z0-9-]+)",$/gm), (match) => match[1]);
+const practiceSlugs = Array.from(practiceData.matchAll(/^  "([a-z0-9-]+)": \{$/gm), (match) => match[1]);
+assert.deepEqual(
+  practiceSlugs.sort(),
+  lessonSlugs.sort(),
+  "Every IA desde cero lesson must have exactly one sessionless practice",
+);
 assert.match(practiceUi, /Al recargar, olvida las respuestas/, "Practice UI must state its reset behavior");
 
 console.log("Verified sessionless learning: no browser persistence, tracking cookies, account routes, or answer transmission.");
