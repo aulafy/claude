@@ -62,7 +62,7 @@ export default function Page() {
 
       <div className="prose">
         <h2>Qué delegar y qué conservar</h2>
-        <div className="table-wrap">
+        <div className="table-wrap" role="region" aria-label="Controles para revisar cálculos de Excel" tabIndex={0}>
           <table>
             <thead>
               <tr>
