@@ -75,7 +75,7 @@ Responde con:
         Proyecto final recomendado: un panel de “borradores pendientes” antes de enviar. Esa pantalla vale más que un bot que responde solo.
       </Guardar>
 
-      <ChapterNav prev={{ href: "/cursos/ia-pymes/convertir-extracto-csv", label: "Convertir extracto a CSV" }} />
+      <ChapterNav prev={{ href: "/cursos/ia-pymes/mcp-oficina-seguro", label: "Primer MCP seguro" }} />
     </Chapter>
   );
 }
