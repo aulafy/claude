@@ -1,0 +1,18 @@
+import type { Metadata } from "next";
+import { Chapter, Objetivos, Idea, Cuidado, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
+
+export const metadata: Metadata = { title: "RAG local mínimo con SQLite y Ollama | Aulafy", description: "Construye un RAG local pequeño con SQLite y Ollama: fuentes, citas, abstención y evaluación sin enviar documentos a una API.", keywords: ["RAG local", "SQLite Ollama", "RAG para pymes", "IA privada", "base de conocimiento local"], alternates: { canonical: "/cursos/ia-pymes/rag-local-sqlite-ollama" } };
+
+export default function Page() { return <Chapter crumb="IA para pymes y autónomos" title="RAG local mínimo con SQLite y Ollama" icon="database" lead={<>Una primera base de conocimiento no necesita una plataforma enorme: necesita documentos pequeños, fuentes trazables y una respuesta que se abstenga cuando no encuentra evidencia.</>} courseHref="/cursos/ia-pymes" courseLabel="IA para pymes y autónomos">
+  <Objetivos><ul><li>Separar documentos, índice, recuperación y generación.</li><li>Montar un experimento local con SQLite y Ollama.</li><li>Evaluar citas, respuestas fuera de alcance y coste de hardware.</li></ul></Objetivos>
+  <div className="prose"><h2>Arquitectura mínima</h2><p>Guarda documentos ficticios o anonimizados en una carpeta, conserva su nombre, versión y fecha, y crea una tabla SQLite con texto y metadatos. Para una primera prueba puedes recuperar por palabras o FTS5; añade embeddings solo cuando una evaluación demuestre que la búsqueda literal no basta. Ollama ejecuta el modelo localmente, pero el resultado sigue necesitando citas y revisión.</p><h2>Flujo de una pregunta</h2><ol><li>Normaliza la pregunta y aplica el permiso del usuario.</li><li>Recupera pocos fragmentos relevantes.</li><li>Incluye `source`, título, versión y fecha en el contexto.</li><li>Pide una respuesta breve o «no encontrado» si falta evidencia.</li><li>Devuelve citas y registra consulta, modelo y latencia.</li></ol><h2>Ejemplo de contrato</h2><p>El modelo no puede inventar políticas. Si los fragmentos no contienen la respuesta, debe decirlo y proponer qué documento falta. La aplicación nunca debe convertir el texto recuperado en instrucciones con permisos.</p><h2>Fuentes técnicas</h2><ul><li><a href="https://docs.ollama.com/api/introduction" rel="noreferrer">API oficial de Ollama</a>.</li><li><a href="https://www.sqlite.org/fts5.html" rel="noreferrer">SQLite FTS5</a>.</li><li><a href="https://www.sqlite.org/security.html" rel="noreferrer">Seguridad de SQLite</a>.</li></ul></div>
+  <Terminal>{`documentos/ -> SQLite (texto + fuente + versión)
+pregunta -> recuperación limitada -> contexto con citas
+                         -> Ollama (localhost)
+                         -> respuesta / abstención / log`}</Terminal>
+  <Idea><strong>Acción de la misión:</strong> indexa dos documentos ficticios, responde cinco preguntas y exige una cita `source` en cada respuesta.</Idea>
+  <Cuidado>Local no significa infalible: protege la carpeta, el historial, los logs y el endpoint local. Revisa también la licencia del modelo descargado y la memoria disponible.</Cuidado>
+  <Comprueba>Incluye una pregunta cuya respuesta no esté en los documentos. El sistema debe abstenerse; si inventa, corrige el prompt o la recuperación antes de añadir más documentos.</Comprueba>
+  <Guardar>Entrega `README.md`, esquema SQLite, documentos de prueba, cinco preguntas evaluadas, modelo usado, hardware, latencia y limitaciones conocidas.</Guardar>
+  <ChapterNav next={{ href: "/cursos/ia-pymes/mcp-oficina-seguro", label: "Primer MCP seguro para oficina" }} />
+ </Chapter>; }
