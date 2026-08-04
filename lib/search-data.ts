@@ -116,6 +116,7 @@ export const searchData: SearchItem[] = [
   { href: "/blog/tendencias-ia-2026-agentes-ia-local-rag", title: "Tendencias de IA en 2026", section: "Blog", keywords: "tendencias ia 2026 agentes ia local rag automatizacion" },
   { href: "/blog/qwen3-8-max-agentes-ia-2026", title: "Qwen3.8-Max: evaluación práctica", section: "Blog", keywords: "qwen3.8 max qwen api alibaba modelo moe agentes contexto largo evaluación" },
   { href: "/blog/openworker-agente-ia-local-open-source", title: "OpenWorker: agente local con Ollama", section: "Blog", keywords: "openworker agente local ollama open source mcp permisos automatización escritorio" },
+  { href: "/blog/deepseek-v4-flash-api-agentes-opencode-codex", title: "DeepSeek V4 Flash: API para agentes", section: "Blog", keywords: "deepseek v4 flash api agentes opencode codex thinking tool calling contexto 1m precios" },
   { href: "/cursos/claude-code/instalacion", title: "Instalación", section: "Empezar", keywords: "instalar npm node api key macos windows wsl linux setup actualizar" },
   { href: "/cursos/claude-code/primeros-pasos", title: "Primeros pasos", section: "Empezar", keywords: "iniciar sesión modo auto plan primera vez interfaz prompt print headless" },
   { href: "/cursos/claude-code/donde-usar", title: "CLI, app y móvil", section: "Empezar", keywords: "cli terminal app escritorio desktop web navegador vs code jetbrains ide móvil movil ios remote control dispatch teleport channels slack superficies diferencias" },

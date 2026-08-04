@@ -58,6 +58,7 @@ function seoTitleFor(slug: string, fallback: string) {
     "tendencias-ia-2026-agentes-ia-local-rag": "Tendencias IA 2026: agentes, local y RAG",
     "qwen3-8-max-agentes-ia-2026": "Qwen3.8-Max: evaluación práctica del modelo",
     "openworker-agente-ia-local-open-source": "OpenWorker: agente local con Ollama",
+    "deepseek-v4-flash-api-agentes-opencode-codex": "DeepSeek V4 Flash: API económica para agentes",
   };
   return titles[slug] ?? fallback;
 }
