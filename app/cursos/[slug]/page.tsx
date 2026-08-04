@@ -251,7 +251,7 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
         </Link>
       </section>
 
-      <CourseQualityCard quality={quality} />
+      <CourseQualityCard quality={quality} updatedAt={curso.updatedAt} />
 
       {guidance && (
         <section className="mb-12" aria-labelledby="course-outcomes">

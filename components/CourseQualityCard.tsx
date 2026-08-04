@@ -7,20 +7,24 @@ const volatilityLabel: Record<CourseQualityRecord["volatility"], string> = {
   volátil: "Seguimiento frecuente",
 };
 
-export default function CourseQualityCard({ quality }: { quality: CourseQualityRecord }) {
+export default function CourseQualityCard({ quality, updatedAt }: { quality: CourseQualityRecord; updatedAt: string }) {
+  const formatDate = (date: string) => new Intl.DateTimeFormat("es-ES", { dateStyle: "long" }).format(new Date(`${date}T12:00:00Z`));
+
   return (
-    <details className="aula-disclosure aula-panel mb-10">
+    <details id="calidad-y-fuentes" className="course-quality-card aula-disclosure aula-panel mb-10 scroll-mt-24">
       <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5">
         <span>
           <span className="aula-section-label"><Icon name="shield" /> confianza del curso</span>
           <strong className="mt-2 block font-display text-base text-white">
-            {quality.status} · <time dateTime={quality.reviewedAt}>{quality.reviewedAt}</time>
+            Actualizado el <time dateTime={updatedAt}>{formatDate(updatedAt)}</time>
           </strong>
+          <span className="mt-1 block text-sm text-zinc-400">{quality.status} · {quality.sources.length} fuentes primarias · ver detalles</span>
         </span>
         <Icon name="chevronRight" className="aula-disclosure-icon text-zinc-500" />
       </summary>
       <div className="border-t border-zinc-800 px-5 pb-5 pt-4">
         <div className="flex flex-wrap gap-2">
+          <span className="aula-chip" data-tone="green"><Icon name="check" /> Revisión editorial · {formatDate(quality.reviewedAt)}</span>
           <span className="aula-chip" data-tone={quality.volatility === "volátil" ? "amber" : "green"}>
             {volatilityLabel[quality.volatility]}
           </span>
