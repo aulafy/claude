@@ -230,7 +230,7 @@ export function MissionBrief({
   };
 
   return (
-    <section className="lesson-mission mb-10" aria-labelledby="lesson-mission-title">
+    <section id="mision" className="lesson-mission mb-10 scroll-mt-24" aria-labelledby="lesson-mission-title">
       <div className="lesson-mission-main">
         <span className="aula-section-label"><Icon name="rocket" /> Misión de la lección</span>
         <h2 id="lesson-mission-title">Qué vas a conseguir ahora</h2>
@@ -284,6 +284,8 @@ export function Chapter({
   courseLabel?: string;
   mission?: LessonMission;
 }) {
+  const courseUrl = courseHref ?? "/cursos/ia-local";
+
   return (
     <div className="aula-shell max-w-4xl mx-auto px-6 sm:px-8 py-12 sm:py-14">
       <Crumb label={crumb} courseHref={courseHref} courseLabel={courseLabel} />
@@ -298,11 +300,37 @@ export function Chapter({
           {title}
         </h1>
         <Lead>{lead}</Lead>
+        <nav className="lesson-reading-map" aria-label="Cómo recorrer esta lección">
+          <a href="#mision"><span>1</span><strong>Objetivo</strong><small>Qué conseguirás</small></a>
+          <a href="#contenido"><span>2</span><strong>Aprende</strong><small>Conceptos y ejemplos</small></a>
+          <a href="#mision"><span>3</span><strong>Practica</strong><small>Acción y evidencia</small></a>
+          <a href="#fuentes-leccion"><span>4</span><strong>Verifica</strong><small>Fuentes y vigencia</small></a>
+        </nav>
       </header>
       <MissionBrief title={title} mission={mission} />
-      <article className="aula-reading mx-auto">
+      <article id="contenido" className="aula-reading mx-auto scroll-mt-24">
+        <div className="lesson-content-heading" aria-hidden="true">
+          <span>Contenido de la lección</span>
+        </div>
         {children}
       </article>
+      <aside id="fuentes-leccion" className="lesson-editorial-note scroll-mt-24" aria-labelledby="lesson-editorial-title">
+        <div>
+          <span className="aula-section-label"><Icon name="shield" /> Fuentes y actualización</span>
+          <h2 id="lesson-editorial-title">Aprende con una referencia verificable</h2>
+          <p>
+            Aulafy distingue los conceptos estables de los datos que cambian —versiones, precios, modelos y comandos—. Consulta la ficha del curso para ver la fecha de revisión, el alcance comprobado y las fuentes primarias.
+          </p>
+        </div>
+        <div className="lesson-editorial-actions">
+          <Link href={`${courseUrl}#calidad-y-fuentes`} className="aula-button aula-button-primary">
+            <Icon name="check" /> Ver vigencia y fuentes
+          </Link>
+          <Link href="/fuentes" className="aula-button aula-button-secondary">
+            <Icon name="external" /> Método de fuentes
+          </Link>
+        </div>
+      </aside>
     </div>
   );
 }

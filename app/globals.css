@@ -597,10 +597,66 @@ kbd {
 }
 
 .aula-reading {
-  max-width: 74ch;
+  max-width: 70ch;
   min-width: 0;
   width: 100%;
 }
+
+.lesson-reading-map {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.55rem;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.lesson-reading-map a {
+  display: grid;
+  grid-template-columns: 1.7rem minmax(0, 1fr);
+  gap: 0.05rem 0.55rem;
+  align-items: center;
+  border-radius: 10px;
+  padding: 0.55rem;
+  color: var(--text);
+}
+
+.lesson-reading-map a:hover { background: color-mix(in srgb, var(--accent) 8%, transparent); }
+.lesson-reading-map span { grid-row: 1 / 3; display: grid; width: 1.7rem; height: 1.7rem; place-items: center; border-radius: 8px; background: var(--text); color: var(--bg); font: 800 0.7rem var(--font-code); }
+.lesson-reading-map strong { font-size: 0.78rem; line-height: 1.1; }
+.lesson-reading-map small { color: var(--muted); font-size: 0.68rem; line-height: 1.2; }
+
+.lesson-content-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 1.75rem;
+  color: var(--muted);
+  font: 750 0.7rem/1 var(--font-code);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.lesson-content-heading::after { content: ""; height: 1px; flex: 1; background: var(--border); }
+
+.lesson-editorial-note {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1.5rem;
+  align-items: center;
+  max-width: 70ch;
+  margin: 3.5rem auto 0;
+  padding: 1.25rem;
+  border: 1px solid color-mix(in srgb, var(--brand-cyan) 28%, var(--border));
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--brand-cyan) 5%, var(--panel));
+}
+
+.lesson-editorial-note h2 { margin-top: 0.55rem; color: var(--text); font: 750 1.15rem/1.25 var(--font-sora); }
+.lesson-editorial-note p { margin-top: 0.55rem; color: var(--muted); font: 1rem/1.65 var(--font-reading); }
+.lesson-editorial-actions { display: grid; gap: 0.55rem; min-width: 12.5rem; }
+
+.course-quality-card > summary { min-height: 6rem; }
 
 .lesson-mission {
   display: grid;
@@ -778,6 +834,10 @@ kbd {
     margin-left: 0;
     margin-top: 0.4rem;
   }
+
+  .lesson-reading-map { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .lesson-editorial-note { grid-template-columns: 1fr; }
+  .lesson-editorial-actions { grid-template-columns: 1fr; min-width: 0; }
 }
 
 .lesson-lead {
