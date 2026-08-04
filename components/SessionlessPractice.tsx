@@ -11,7 +11,7 @@ export default function SessionlessPractice({ practice }: { practice: Practice }
   const done = checked.filter(Boolean).length;
 
   return (
-    <section className="sessionless-practice" aria-labelledby="practice-title">
+    <section id="practica" className="sessionless-practice scroll-mt-24" aria-labelledby="practice-title">
       <div className="sessionless-practice__header">
         <div>
           <span className="aula-section-label"><Icon name="lab" /> misión práctica</span>

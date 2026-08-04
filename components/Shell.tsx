@@ -44,7 +44,7 @@ export default function Shell({ children }: { children: React.ReactNode }) {
               lessonSlug={esLeccion ? parts[2] : parts[3]}
               locale={locale}
             />
-            <CourseCurriculumMap currentSlug={esLeccion ? parts[1] : parts[2]} locale={locale} />
+            <CourseCurriculumMap currentSlug={esLeccion ? parts[1] : parts[2]} locale={locale} compact />
           </main>
           <Footer locale={locale} />
         </div>

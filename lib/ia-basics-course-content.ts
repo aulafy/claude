@@ -167,6 +167,7 @@ function parseLessons(): ParsedIaBasicsLesson[] {
     const markdown = source
       .slice(start, end)
       .replace(/\n---\s*\n# Módulo \d+\.[\s\S]*$/, "")
+      .replace(/\n### (?:Práctica[^\n]*|Mini experimento|Prueba justa en una hora|Microauditoría en 20 minutos)\n[\s\S]*?(?=\n### )/g, "")
       .replace(/\n---\s*$/, "")
       .trim();
 

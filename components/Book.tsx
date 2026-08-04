@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Icon, { type IconName } from "@/components/Icon";
+import { getCourseQuality } from "@/lib/course-quality";
 
 /* ============================================================
    Componentes compartidos del Volumen II (Claude Code + IA Local)
@@ -274,6 +275,7 @@ export function Chapter({
   courseHref,
   courseLabel,
   mission,
+  showMission = true,
 }: {
   crumb: string;
   title: string;
@@ -283,8 +285,12 @@ export function Chapter({
   courseHref?: string;
   courseLabel?: string;
   mission?: LessonMission;
+  showMission?: boolean;
 }) {
   const courseUrl = courseHref ?? "/cursos/ia-local";
+  const courseSlug = courseUrl.split("/").filter(Boolean).at(-1) ?? "ia-local";
+  const quality = getCourseQuality(courseSlug);
+  const reviewDate = new Intl.DateTimeFormat("es-ES", { dateStyle: "medium" }).format(new Date(`${quality.reviewedAt}T12:00:00Z`));
 
   return (
     <div className="aula-shell max-w-4xl mx-auto px-6 sm:px-8 py-12 sm:py-14">
@@ -296,18 +302,22 @@ export function Chapter({
         <span className="aula-section-label">
           <Icon name="book" /> Lección
         </span>
+        <div className="mt-3 flex flex-wrap gap-2">
+          <span className="aula-chip" data-tone="green"><Icon name="shield" /> Revisión editorial · {reviewDate}</span>
+          <span className="aula-chip">{quality.sources.length} fuentes primarias</span>
+        </div>
         <h1 className="font-display text-3xl sm:text-5xl font-extrabold text-white mt-3 mb-4 leading-tight">
           {title}
         </h1>
         <Lead>{lead}</Lead>
         <nav className="lesson-reading-map" aria-label="Cómo recorrer esta lección">
-          <a href="#mision"><span>1</span><strong>Objetivo</strong><small>Qué conseguirás</small></a>
+          <a href={showMission ? "#mision" : "#contenido"}><span>1</span><strong>Objetivo</strong><small>Qué conseguirás</small></a>
           <a href="#contenido"><span>2</span><strong>Aprende</strong><small>Conceptos y ejemplos</small></a>
-          <a href="#mision"><span>3</span><strong>Practica</strong><small>Acción y evidencia</small></a>
+          <a href={showMission ? "#mision" : "#practica"}><span>3</span><strong>Practica</strong><small>Acción y evidencia</small></a>
           <a href="#fuentes-leccion"><span>4</span><strong>Verifica</strong><small>Fuentes y vigencia</small></a>
         </nav>
       </header>
-      <MissionBrief title={title} mission={mission} />
+      {showMission ? <MissionBrief title={title} mission={mission} /> : null}
       <article id="contenido" className="aula-reading mx-auto scroll-mt-24">
         <div className="lesson-content-heading" aria-hidden="true">
           <span>Contenido de la lección</span>
@@ -321,6 +331,7 @@ export function Chapter({
           <p>
             Aulafy distingue los conceptos estables de los datos que cambian —versiones, precios, modelos y comandos—. Consulta la ficha del curso para ver la fecha de revisión, el alcance comprobado y las fuentes primarias.
           </p>
+          <p className="lesson-editorial-caveat">«Revisión editorial» significa que se han revisado estructura, afirmaciones y fuentes. No significa que todos los comandos hayan sido ejecutados: cuando exista una prueba técnica, se indicará como tal.</p>
         </div>
         <div className="lesson-editorial-actions">
           <Link href={`${courseUrl}#calidad-y-fuentes`} className="aula-button aula-button-primary">
