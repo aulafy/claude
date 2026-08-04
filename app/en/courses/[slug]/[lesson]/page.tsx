@@ -40,6 +40,7 @@ export async function generateMetadata({
       languages: {
         "es-ES": `/cursos/${slug}/${lessonSlug}`,
         "en-US": `/en/courses/${slug}/${lessonSlug}`,
+        "x-default": `/cursos/${slug}/${lessonSlug}`,
       },
     },
     openGraph: {

@@ -38,6 +38,17 @@ export default function UnifiedCourse({ locale = "es" }: { locale?: CourseLocale
     description: text.lead, url: `${siteUrl}${locale === "es" ? "/" : "/en"}`, inLanguage: locale,
     isAccessibleForFree: true,
     provider: { "@type": "EducationalOrganization", name: "Aulafy", url: siteUrl },
+    author: { "@type": "Person", name: "Ramón Guillamón", url: `${siteUrl}/sobre-ramon-guillamon` },
+    license: "https://creativecommons.org/licenses/by/4.0/",
+    educationalLevel: locale === "es" ? "De principiante a avanzado" : "Beginner to advanced",
+    teaches: unifiedModules.map((module) => localized(module.title, locale)),
+    hasPart: unifiedModules.map((module) => ({
+      "@type": "LearningResource",
+      name: localized(module.title, locale),
+      url: `${siteUrl}${locale === "es" ? "/" : "/en"}#${module.id}`,
+      inLanguage: locale,
+      learningResourceType: locale === "es" ? "Módulo" : "Module",
+    })),
     hasCourseInstance: { "@type": "CourseInstance", courseMode: "online", courseWorkload: "PT12H" },
   };
 
@@ -88,7 +99,7 @@ export default function UnifiedCourse({ locale = "es" }: { locale?: CourseLocale
           ))}
         </main>
       </div>
-      <footer className={styles.footer}><strong>Aulafy</strong><p>{text.footer}</p><nav aria-label={locale === "es" ? "Información editorial" : "Editorial information"}><Link href="/fuentes">{locale === "es" ? "Fuentes" : "Sources"}</Link><Link href="/sobre-ramon-guillamon">{locale === "es" ? "Autoría" : "Author"}</Link><Link href="/privacidad">{locale === "es" ? "Privacidad" : "Privacy"}</Link><Link href={languageHref}>{text.language}</Link></nav></footer>
+      <footer className={styles.footer}><strong>Aulafy</strong><p>{text.footer}</p><nav aria-label={locale === "es" ? "Información editorial" : "Editorial information"}><Link href={locale === "es" ? "/cursos" : "/en/courses"}>{locale === "es" ? "Biblioteca ampliada" : "Extended library"}</Link><Link href="/fuentes">{locale === "es" ? "Fuentes" : "Sources"}</Link><Link href="/sobre-ramon-guillamon">{locale === "es" ? "Autoría" : "Author"}</Link><Link href="/privacidad">{locale === "es" ? "Privacidad" : "Privacy"}</Link><Link href={languageHref}>{text.language}</Link></nav></footer>
     </div>
   );
 }

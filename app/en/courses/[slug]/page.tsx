@@ -9,6 +9,7 @@ import ContinuarCurso from "@/components/ContinuarCurso";
 import PortableProgress from "@/components/PortableProgress";
 import { getCourseGuidance } from "@/lib/course-guidance";
 import { pluralLabel } from "@/lib/plural";
+import { getCourseQuality } from "@/lib/course-quality";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 
@@ -39,7 +40,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     ],
     alternates: {
       canonical: `/en/courses/${course.slug}`,
-      languages: { "es-ES": `/cursos/${course.slug}`, "en-US": `/en/courses/${course.slug}` },
+      languages: { "es-ES": `/cursos/${course.slug}`, "en-US": `/en/courses/${course.slug}`, "x-default": `/cursos/${course.slug}` },
     },
     openGraph: {
       title: course.title,
@@ -78,9 +79,10 @@ export default async function EnglishCoursePage({ params }: { params: Promise<{ 
   const guidance = getCourseGuidance(course.slug, "en");
   const lessons = course.secciones.flatMap((section) => section.lecciones);
   const firstLesson = lessons[0];
+  const quality = getCourseQuality(course.slug);
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "LearningResource",
+    "@type": ["Course", "LearningResource"],
     "@id": `${SITE_URL}/en/courses/${course.slug}#learning-resource`,
     name: course.title,
     description: course.desc,
@@ -89,12 +91,13 @@ export default async function EnglishCoursePage({ params }: { params: Promise<{ 
     isAccessibleForFree: true,
     educationalLevel: course.level,
     timeRequired: `PT${guidance.estimatedHours}H`,
-    dateModified: course.updatedAt,
+    dateModified: quality.reviewedAt,
     audience: { "@type": "Audience", audienceType: guidance.audience },
     competencyRequired: guidance.prerequisites,
     learningResourceType: "Course",
     provider: { "@id": `${SITE_URL}/#organization` },
     author: { "@id": `${SITE_URL}/#author` },
+    license: "https://creativecommons.org/licenses/by/4.0/",
     teaches: guidance.outcomes,
     hasPart: lessons.map((lesson) => ({
       "@type": "LearningResource",

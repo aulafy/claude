@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     "curso IA para pymes",
     "automatización IA self-hosted",
   ],
-  alternates: { canonical: "/cursos", languages: { "es-ES": "/cursos", "en-US": "/en/courses" } },
+  alternates: { canonical: "/cursos", languages: { "es-ES": "/cursos", "en-US": "/en/courses", "x-default": "/cursos" } },
   openGraph: {
     title: "Cursos de IA gratis en español: de cero a avanzado",
     description:
@@ -122,14 +122,14 @@ export default function Cursos() {
           position: index + 1,
           url: `${SITE_URL}/cursos/${curso.slug}`,
           item: {
-            "@type": "LearningResource",
+            "@type": "Course",
             "@id": `${SITE_URL}/cursos/${curso.slug}#learning-resource`,
             name: curso.title,
             description: curso.desc,
             url: `${SITE_URL}/cursos/${curso.slug}`,
             inLanguage: "es",
             isAccessibleForFree: true,
-            learningResourceType: "Course",
+            provider: { "@id": `${SITE_URL}/#organization` },
           },
         })),
       },
