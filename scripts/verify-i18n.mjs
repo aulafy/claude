@@ -16,6 +16,7 @@ const authoredEnglish = new Map(
   ],
 );
 const i18nSource = fs.readFileSync("lib/i18n.ts", "utf8");
+const missingEnglishLessons = [];
 
 assert.equal(pluralLabel(1, "lesson"), "1 lección");
 assert.equal(pluralLabel(2, "lesson"), "2 lecciones");
@@ -39,13 +40,22 @@ for (const course of cursos) {
     const generatedLesson = generatedByKey.get(key);
     const authoredTitle = authoredEnglish.get(key);
     const translatedTitle = authoredTitle ?? generatedLesson?.title;
-    assert.ok(translatedTitle, `Missing English lesson: ${key}`);
+    if (!translatedTitle) {
+      missingEnglishLessons.push(key);
+      continue;
+    }
     if (translatedTitle === lesson.title) {
       assert.doesNotMatch(translatedTitle, /[áéíóúñ¿¡]|\b(el|la|los|las|para|con|sin|desde|cómo|qué)\b/i, `Untranslated Spanish lesson title: ${key}`);
     }
     assert.doesNotMatch(translatedTitle, /[¿¡]/, `Spanish punctuation in English title: ${key}`);
   }
 }
+
+assert.deepEqual(
+  missingEnglishLessons,
+  [],
+  `Missing English lessons (${missingEnglishLessons.length}):\n${missingEnglishLessons.join("\n")}`,
+);
 
 assert.match(i18nSource, /availableInEnglish !== false/, "English catalog must filter Spanish-only courses");
 
