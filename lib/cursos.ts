@@ -51,6 +51,12 @@ export const cursos: Curso[] = [
     icon: "book",
     gradient: ["#7c3aed", "#db2777"],
     availableInEnglish: false,
+    resources: [
+      { href: "https://intef.es/Noticias/guia-sobre-el-uso-de-la-inteligencia-artificial-en-el-ambito-educativo/", label: "Guía INTEF sobre IA en educación", format: "WEB" },
+      { href: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj?locale=es", label: "Reglamento europeo de IA (texto oficial)", format: "WEB" },
+      { href: "https://descargas.intef.es/cedec/proyectoedia/guias/contenidos/inteligencia_artificial/html/", label: "Guía práctica INTEF/CEDEC", format: "WEB" },
+      { href: "https://www.aepd.es/areas-de-actuacion/educacion-y-menores", label: "AEPD: educación y menores", format: "WEB" },
+    ],
     secciones: [
       { title: "Criterio antes que automatización", lecciones: [
         { slug: "mapa-uso-responsable", title: "Mapa de usos responsables de IA en educación" },
