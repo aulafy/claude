@@ -4,21 +4,21 @@ import UnifiedCourse from "@/components/UnifiedCourse";
 export const metadata: Metadata = {
   title: "Complete artificial intelligence course in English — Aulafy",
   description:
-    "Free practical AI courses in English: OpenAI Codex, Claude Code, local AI, RAG, agents, security, MLOps and automation.",
+    "One continuous open AI course in English: 21 lessons and 7 projects covering foundations, RAG, software, local models, agents, safety, and production.",
   alternates: { canonical: "/en", languages: { "es-ES": "/", "en-US": "/en", "x-default": "/" } },
   robots: { index: true, follow: true },
   openGraph: {
-    title: "Aulafy — Learn AI by building real systems",
-    description: "Free and open practical AI education: Codex, Claude Code, local AI, RAG, agents, security, and automation.",
-    type: "website",
+    title: "Complete artificial intelligence course in English — Aulafy",
+    description: "21 lessons and 7 integrated projects, free, open, and available without sign-up.",
+    type: "article",
     locale: "en_US",
     url: "/en",
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Aulafy, free and open practical AI education" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aulafy — Learn AI by building real systems",
-    description: "Free practical AI courses, learning paths and verifiable projects in English.",
+    title: "Complete artificial intelligence course in English — Aulafy",
+    description: "21 lessons and 7 integrated projects, free, open, and available without sign-up.",
     creator: "@learntouseai",
     images: ["/opengraph-image"],
   },

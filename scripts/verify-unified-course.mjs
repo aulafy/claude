@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import fs from "node:fs";
 import { unifiedModuleProjects, unifiedModules, unifiedSources } from "../lib/unified-course.ts";
 
 assert.equal(unifiedModules.length, 7, "The unified course must keep seven modules");
@@ -48,6 +49,15 @@ for (const module of unifiedModules) {
 for (const [key, source] of Object.entries(unifiedSources)) {
   assert.ok(source.href.startsWith("https://"), `Source must use HTTPS: ${key}`);
   assert.ok(source.label.length >= 8, `Source needs a useful label: ${key}`);
+}
+
+const courseComponent = fs.readFileSync(new URL("../components/UnifiedCourse.tsx", import.meta.url), "utf8");
+assert.match(courseComponent, /id={`project-\${moduleId}`}/, "Module projects need stable anchors");
+assert.match(courseComponent, /href={`#project-\${module\.id}`}/, "Lesson navigation must lead to module projects");
+assert.match(courseComponent, /<FirstWorkedExample/, "The course needs at least one worked example");
+assert.match(courseComponent, /"@type": "Course"/, "The canonical page needs Course structured data");
+for (const trustPage of ["/fuentes", "/sobre-ramon-guillamon", "/privacidad"]) {
+  assert.ok(courseComponent.includes(`href="${trustPage}"`), `Missing trust link: ${trustPage}`);
 }
 
 console.log(`Unified course verified: ${unifiedModules.length} modules, ${ids.size - unifiedModules.length} lessons, two languages.`);
