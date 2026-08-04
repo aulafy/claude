@@ -1031,6 +1031,21 @@ export const cursos: Curso[] = [
         label: "Kit: del piloto al flujo fiable",
         format: "MD",
       },
+      {
+        href: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj?locale=es",
+        label: "Reglamento europeo de IA (texto oficial)",
+        format: "WEB",
+      },
+      {
+        href: "https://www.aepd.es/guias-y-herramientas/guias",
+        label: "AEPD: guías de IA y protección de datos",
+        format: "WEB",
+      },
+      {
+        href: "https://www.incibe.es/empresas",
+        label: "INCIBE: recursos de ciberseguridad para empresas",
+        format: "WEB",
+      },
     ],
     secciones: [
       {
