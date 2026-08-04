@@ -1052,6 +1052,7 @@ export const cursos: Curso[] = [
         title: "Antes de automatizar",
         lecciones: [
           { slug: "mapa", title: "Mapa de IA útil para una pyme" },
+          { slug: "alfabetizacion-ia-articulo-4", title: "Alfabetización en IA para pymes: inventario y política interna" },
           { slug: "diagnostico-piloto", title: "Diagnóstico y primer piloto de IA para una pyme" },
           { slug: "ollama-piloto-seguro", title: "Ollama para una pyme: prueba local, segura y medible" },
           { slug: "rgpd-basico", title: "Proteger datos antes de usar IA: minimización práctica" },
