@@ -113,6 +113,16 @@ const coreEntries: SeoIndexEntry[] = [
     changeFrequency: "monthly",
   },
   {
+    route: "/web",
+    title: "Curso completo de IA desde cero en una página",
+    description: "Edición web íntegra y descargable del curso fundamental de inteligencia artificial de Aulafy, con 12 lecciones, prácticas y fuentes.",
+    language: "es",
+    kind: "documents",
+    priority: 0.9,
+    changeFrequency: "weekly",
+    lastModified: "2026-08-04",
+  },
+  {
     route: "/proyectos",
     title: "Proyectos de IA guiados: aprende construyendo",
     description: "Elige un proyecto práctico de IA: primer resultado, web, automatización, RAG, agentes, SaaS geoespacial o plataforma privada.",

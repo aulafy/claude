@@ -185,6 +185,11 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
 
             <div className="mt-7 flex flex-wrap gap-3">
               <ContinuarCurso cursoSlug={curso.slug} />
+              {curso.slug === "ia-desde-cero" ? (
+                <Link href="/web" className="aula-button aula-button-secondary">
+                  <Icon name="book" /> Curso completo en una página
+                </Link>
+              ) : null}
               {curso.pdf && (
                 <a
                   href={curso.pdf}
