@@ -43,8 +43,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     alternates: {
       canonical: `/cursos/${curso.slug}`,
       languages: hasEnglishVersion
-        ? { "es-ES": `/cursos/${curso.slug}`, "en-US": `/en/courses/${curso.slug}` }
-        : { "es-ES": `/cursos/${curso.slug}` },
+        ? { "es-ES": `/cursos/${curso.slug}`, "en-US": `/en/courses/${curso.slug}`, "x-default": `/cursos/${curso.slug}` }
+        : { "es-ES": `/cursos/${curso.slug}`, "x-default": `/cursos/${curso.slug}` },
     },
     openGraph: {
       title,
@@ -96,7 +96,7 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "LearningResource",
+        "@type": ["Course", "LearningResource"],
         "@id": `${SITE_URL}/cursos/${curso.slug}#learning-resource`,
         name: curso.title,
         description: curso.desc,
@@ -105,7 +105,7 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
         isAccessibleForFree: true,
         educationalLevel: curso.level,
         timeRequired: guidance ? `PT${guidance.estimatedHours}H` : undefined,
-        dateModified: curso.updatedAt,
+        dateModified: quality.reviewedAt,
         audience: guidance ? { "@type": "Audience", audienceType: guidance.audience } : undefined,
         competencyRequired: guidance?.prerequisites,
         learningResourceType: "Course",
@@ -119,6 +119,7 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
         teaches: guidance?.outcomes ?? leccionTitles,
         provider: { "@id": `${SITE_URL}/#organization` },
         author: { "@id": `${SITE_URL}/#author` },
+        license: "https://creativecommons.org/licenses/by/4.0/",
         hasPart: leccionesCurso.map((leccion) => ({
           "@type": "LearningResource",
           name: leccion.title,

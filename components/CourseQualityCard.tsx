@@ -17,9 +17,9 @@ export default function CourseQualityCard({ quality, updatedAt }: { quality: Cou
         <span>
           <span className="aula-section-label"><Icon name="shield" /> confianza del curso</span>
           <strong className="mt-2 block font-display text-base text-white">
-            Actualizado el <time dateTime={updatedAt}>{formatDate(updatedAt)}</time>
+            Revisión editorial del <time dateTime={quality.reviewedAt}>{formatDate(quality.reviewedAt)}</time>
           </strong>
-          <span className="mt-1 block text-sm text-zinc-400">{freshness.label} · {quality.sources.length} fuentes primarias · ver detalles</span>
+          <span className="mt-1 block text-sm text-zinc-400">{freshness.label} · {quality.sources.length} fuentes primarias · catálogo editado el <time dateTime={updatedAt}>{formatDate(updatedAt)}</time></span>
         </span>
         <Icon name="chevronRight" className="aula-disclosure-icon text-zinc-500" />
       </summary>

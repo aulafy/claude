@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: "Free practical AI courses",
   description:
     "Free practical AI courses in English and Spanish: OpenAI Codex, Claude Code, local AI, RAG, agents, MLOps, security and automation.",
-  alternates: { canonical: "/en/courses", languages: { "es-ES": "/cursos", "en-US": "/en/courses" } },
+  alternates: { canonical: "/en/courses", languages: { "es-ES": "/cursos", "en-US": "/en/courses", "x-default": "/cursos" } },
   openGraph: {
     title: "Free practical AI courses",
     description:
@@ -61,14 +61,14 @@ export default function CoursesPage() {
           position: index + 1,
           url: `${SITE_URL}/en/courses/${course.slug}`,
           item: {
-            "@type": "LearningResource",
+            "@type": "Course",
             "@id": `${SITE_URL}/en/courses/${course.slug}#learning-resource`,
             name: course.title,
             description: course.desc,
             url: `${SITE_URL}/en/courses/${course.slug}`,
             inLanguage: "en",
             isAccessibleForFree: true,
-            learningResourceType: "Course",
+            provider: { "@id": `${SITE_URL}/#organization` },
           },
         })),
       },
