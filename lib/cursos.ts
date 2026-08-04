@@ -42,6 +42,39 @@ const courseCatalogUpdatedAt = "2026-07-18";
 
 export const cursos: Curso[] = [
   {
+    slug: "ia-datos-analitica",
+    title: "Asistentes analíticos locales con datos reales",
+    short: "Convierte CSV, Excel y bases ligeras en respuestas, consultas y dashboards verificables",
+    desc: "Curso práctico para construir un asistente de analítica local con Python, DuckDB, pandas, Polars, Ollama y Streamlit. Cada misión termina con un artefacto comprobable y el proyecto final documenta fuentes, fallos, costes y modo degradado.",
+    level: "Principiante → intermedio",
+    updatedAt: "2026-08-04",
+    icon: "spreadsheet",
+    gradient: ["#0f766e", "#2563eb"],
+    availableInEnglish: false,
+    secciones: [
+      { title: "Entender y preparar", lecciones: [
+        { slug: "que-puede-hacer-llm-datos", title: "Qué puede y qué no puede hacer un LLM con datos tabulares" },
+        { slug: "entorno-reproducible", title: "Crea un entorno reproducible con Python y uv" },
+        { slug: "cargar-datos-seguro", title: "Carga CSV y Excel sin perder tipos ni privacidad" },
+        { slug: "perfilado-datos", title: "Perfila un dataset antes de pedirle nada a la IA" },
+      ] },
+      { title: "Limpiar, consultar y justificar", lecciones: [
+        { slug: "limpieza-verificada", title: "Limpieza asistida por IA con verificación humana" },
+        { slug: "lenguaje-natural-sql", title: "De lenguaje natural a SQL visible y verificable" },
+        { slug: "pandas-polars-duckdb", title: "Elige entre pandas, Polars y DuckDB" },
+        { slug: "rag-tablas-local", title: "RAG sobre tablas y bases de datos locales" },
+        { slug: "informes-con-evidencia", title: "Genera informes con citas y evidencia" },
+      ] },
+      { title: "Convertirlo en herramienta", lecciones: [
+        { slug: "dashboard-streamlit", title: "Publica un dashboard local con Streamlit" },
+        { slug: "evaluar-respuestas", title: "Evalúa exactitud, consulta y evidencia" },
+        { slug: "privacidad-costes-modelos", title: "Privacidad, costes y límites de modelos locales" },
+        { slug: "reportes-programados", title: "Automatiza un informe periódico con revisión" },
+        { slug: "entrega-auditoria", title: "Entrega el asistente con checklist y modo degradado" },
+      ] },
+    ],
+  },
+  {
     slug: "ia-desde-cero",
     title: "IA desde cero",
     short: "Entiende, usa y verifica la IA generativa antes de elegir una herramienta",
