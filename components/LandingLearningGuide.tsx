@@ -69,18 +69,18 @@ const STARTING_POINTS: Record<Locale, StartingPoint[]> = {
 
 const COPY = {
   es: {
-    eyebrow: "ORIENTADOR AULAFY / SIN REGISTRO",
+    eyebrow: "SELECTOR DE RUTA / SIN IA / SIN REGISTRO",
     title: "¿Qué necesitas conseguir?",
-    intro: "Elige una situación o cuéntasela al tutor. Llegarás a una lección concreta, no a otro catálogo.",
+    intro: "Elige una situación o describe tu objetivo. Unas reglas transparentes te llevarán a una lección concreta, sin chatbot ni decisiones ocultas.",
     custom: "No encajo en esas opciones",
     label: "Describe tu objetivo",
     placeholder: "Por ejemplo: trabajo en administración y quiero ahorrar tiempo con facturas…",
     answer: "Orientación propuesta",
   },
   en: {
-    eyebrow: "AULAFY GUIDE / NO SIGN-UP",
+    eyebrow: "RULE-BASED PATH FINDER / NO AI / NO SIGN-UP",
     title: "What do you need to achieve?",
-    intro: "Choose a situation or tell the tutor. You will reach a specific lesson, not another catalogue.",
+    intro: "Choose a situation or describe your goal. Transparent rules will take you to one lesson, without a chatbot or hidden decisions.",
     custom: "My goal is different",
     label: "Describe your goal",
     placeholder: "For example: I work in operations and want to save time reviewing invoices…",
@@ -124,7 +124,7 @@ export default function LandingLearningGuide({ locale = "es" }: { locale?: Local
     <section className={styles.guide} aria-labelledby="nx-guide-title">
       <div className={styles.head}>
         <p>{copy.eyebrow}</p>
-        <span><i /> {locale === "es" ? "LISTO PARA ORIENTAR" : "READY TO GUIDE"}</span>
+        <span><i /> {locale === "es" ? "REGLAS LOCALES" : "LOCAL RULES"}</span>
       </div>
       <h2 id="nx-guide-title">{copy.title}</h2>
       <p className={styles.intro}>{copy.intro}</p>

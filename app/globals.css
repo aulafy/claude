@@ -677,6 +677,7 @@ kbd {
 
 .lesson-editorial-note h2 { margin-top: 0.55rem; color: var(--text); font: 750 1.15rem/1.25 var(--font-sora); }
 .lesson-editorial-note p { margin-top: 0.55rem; color: var(--muted); font: 1rem/1.65 var(--font-reading); }
+.lesson-editorial-note .lesson-editorial-caveat { font-size: .78rem; line-height: 1.55; }
 .lesson-editorial-actions { display: grid; gap: 0.55rem; min-width: 12.5rem; }
 
 .course-quality-card > summary { min-height: 6rem; }

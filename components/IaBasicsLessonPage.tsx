@@ -86,6 +86,7 @@ export default function IaBasicsLessonPage({ slug }: { slug: string }) {
         build: practice ? `${practice.mission} Resultado esperado: ${practice.result}` : `Una práctica guiada sobre «${lesson.title}».`,
         evidence: practice?.evidence.split("\n").slice(0, 2).join(" · ") ?? "Una nota breve con la decisión tomada, el resultado y la comprobación humana.",
       }}
+      showMission={false}
     >
       <div className="mb-8 flex flex-wrap items-center gap-2">
         <span className="aula-chip" data-tone="cyan">
@@ -102,7 +103,7 @@ export default function IaBasicsLessonPage({ slug }: { slug: string }) {
         </span>
       </div>
 
-      <section className="lesson-study-contract" aria-labelledby="lesson-study-contract-title">
+      <section id="objetivos" className="lesson-study-contract scroll-mt-24" aria-labelledby="lesson-study-contract-title">
         <div className="lesson-study-contract__intro">
           <span className="aula-section-label"><Icon name="route" /> Guía de estudio</span>
           <h2 id="lesson-study-contract-title">Qué debes dominar antes de avanzar</h2>
@@ -136,7 +137,7 @@ export default function IaBasicsLessonPage({ slug }: { slug: string }) {
 
       {quality ? <LessonQualityCard {...quality} /> : null}
 
-      <h2 className="mb-4 mt-10 font-display text-2xl font-bold text-white">Explicación, ejemplos y práctica completa</h2>
+      <h2 className="mb-4 mt-10 font-display text-2xl font-bold text-white">Explicación y ejemplos</h2>
 
       <div className="prose codex-zero-prose">
         <ReactMarkdown

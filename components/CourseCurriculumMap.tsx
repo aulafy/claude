@@ -85,7 +85,7 @@ const copy = {
   },
 } as const;
 
-export default function CourseCurriculumMap({ currentSlug, locale = "es" }: { currentSlug: string; locale?: Locale }) {
+export default function CourseCurriculumMap({ currentSlug, locale = "es", compact = false }: { currentSlug: string; locale?: Locale; compact?: boolean }) {
   const text = copy[locale];
   const courses = getLocalizedCursos(locale);
   const bySlug = new Map(courses.map((course) => [course.slug, course]));
@@ -99,7 +99,7 @@ export default function CourseCurriculumMap({ currentSlug, locale = "es" }: { cu
     }))
     .filter((section) => section.courses.length > 0);
 
-  return (
+  const map = (
     <section className={styles.map} aria-labelledby="course-map-title">
       <div className={styles.intro}>
         <div>
@@ -148,5 +148,17 @@ export default function CourseCurriculumMap({ currentSlug, locale = "es" }: { cu
 
       <Link className={styles.catalogue} href={base}>{text.all} <span aria-hidden="true">→</span></Link>
     </section>
+  );
+
+  if (!compact) return map;
+
+  return (
+    <details className={styles.compact}>
+      <summary>
+        <span><strong>{text.eyebrow}</strong>{locale === "es" ? "Consulta cómo encaja esta lección sin salir de tu ruta." : "See how this lesson fits without leaving your path."}</span>
+        <span aria-hidden="true">+</span>
+      </summary>
+      {map}
+    </details>
   );
 }
