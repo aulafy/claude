@@ -1077,6 +1077,7 @@ export const cursos: Curso[] = [
           { slug: "presupuestos-excel", title: "Excel con IA: verificar fórmulas y evitar errores silenciosos" },
           { slug: "convertir-extracto-csv", title: "Convertir un extracto a CSV sin inventar movimientos" },
           { slug: "mcp-oficina-seguro", title: "Primer MCP seguro para oficina: local y de solo lectura" },
+          { slug: "mcp-2026-07-28-migracion", title: "MCP 2026-07-28: migración segura y servidor de solo lectura" },
           { slug: "whatsapp-atencion", title: "WhatsApp y Telegram con aprobación humana" },
           { slug: "aeo-pymes", title: "AEO para pymes: aparecer en respuestas de IA" },
         ],
