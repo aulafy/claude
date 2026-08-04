@@ -42,6 +42,43 @@ const courseCatalogUpdatedAt = "2026-07-18";
 
 export const cursos: Curso[] = [
   {
+    slug: "ia-docentes-educacion",
+    title: "IA para docentes y educación",
+    short: "Planifica, adapta y evalúa con IA sin delegar el criterio docente",
+    desc: "Curso práctico para crear materiales, ejercicios, rúbricas y feedback con IA de forma responsable. Incluye privacidad de menores, accesibilidad, revisión humana y un asistente local para planificación.",
+    level: "Principiante → intermedio",
+    updatedAt: "2026-08-04",
+    icon: "book",
+    gradient: ["#7c3aed", "#db2777"],
+    availableInEnglish: false,
+    secciones: [
+      { title: "Criterio antes que automatización", lecciones: [
+        { slug: "mapa-uso-responsable", title: "Mapa de usos responsables de IA en educación" },
+        { slug: "privacidad-menores", title: "Privacidad, menores y datos del centro" },
+        { slug: "objetivo-aprendizaje", title: "Define el objetivo antes de pedir materiales" },
+        { slug: "fuentes-y-sesgos", title: "Fuentes, sesgos y errores plausibles" },
+      ] },
+      { title: "Crear y adaptar materiales", lecciones: [
+        { slug: "guias-ejercicios", title: "Genera una guía y ejercicios revisables" },
+        { slug: "niveles-diversidad", title: "Adapta una actividad a varios niveles" },
+        { slug: "accesibilidad", title: "Mejora accesibilidad sin inventar necesidades" },
+        { slug: "rubricas-auditables", title: "Construye rúbricas claras y auditables" },
+      ] },
+      { title: "Feedback y evaluación", lecciones: [
+        { slug: "feedback-formativo", title: "Feedback formativo: orientar sin calificar a ciegas" },
+        { slug: "evaluacion-cerrada", title: "Diseña una evaluación que compruebe aprendizaje" },
+        { slug: "uso-indebido", title: "Uso indebido: prevención pedagógica, no vigilancia" },
+        { slug: "citas-y-verificacion", title: "Verifica respuestas y exige fuentes" },
+      ] },
+      { title: "Proyecto de aula", lecciones: [
+        { slug: "asistente-planificacion-local", title: "Crea un asistente local para planificar clases" },
+        { slug: "rag-temario-centro", title: "RAG sobre temarios y documentación propia" },
+        { slug: "piloto-con-equipo", title: "Ejecuta un piloto con revisión del equipo" },
+        { slug: "entrega-politica-aula", title: "Entrega una política de uso y evidencias" },
+      ] },
+    ],
+  },
+  {
     slug: "ia-datos-analitica",
     title: "Asistentes analíticos locales con datos reales",
     short: "Convierte CSV, Excel y bases ligeras en respuestas, consultas y dashboards verificables",
