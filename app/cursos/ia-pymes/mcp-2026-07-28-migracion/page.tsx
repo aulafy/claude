@@ -1,0 +1,19 @@
+import type { Metadata } from "next";
+import { Chapter, Objetivos, Idea, Cuidado, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
+
+export const metadata: Metadata = { title: "MCP 2026-07-28: migración segura y servidor de solo lectura | Aulafy", description: "Entiende la especificación MCP 2026-07-28 y prueba un servidor de solo lectura con permisos mínimos.", keywords: ["MCP 2026-07-28", "Model Context Protocol", "servidor MCP", "MCP seguridad", "agentes IA"], alternates: { canonical: "/cursos/ia-pymes/mcp-2026-07-28-migracion" } };
+
+export default function Page() { return <Chapter crumb="IA para pymes y autónomos" title="MCP 2026-07-28: migración segura y servidor de solo lectura" icon="plug" lead={<>MCP conecta clientes de IA con datos y herramientas. La nueva especificación mejora el transporte HTTP, las extensiones y el ciclo de vida, pero no convierte un servidor en confiable por defecto.</>} courseHref="/cursos/ia-pymes" courseLabel="IA para pymes y autónomos">
+  <Objetivos><ul><li>Entender qué cambia y qué no garantiza MCP 2026-07-28.</li><li>Probar un servidor local de solo lectura con una carpeta sandbox.</li><li>Preparar una migración con versiones fijadas y permisos mínimos.</li></ul></Objetivos>
+  <div className="prose"><h2>Qué cambia en la revisión</h2><p>El anuncio oficial de la especificación 2026-07-28 describe un núcleo que puede ejecutarse de forma stateless sobre infraestructura HTTP común, un marco de extensiones y una política de ciclo de vida para que futuras revisiones no obliguen a reescribir el transporte. No significa que todos los SDK, clientes o servidores se actualicen a la vez.</p><h2>Ruta de laboratorio</h2><ol><li>Fija la versión del SDK y lee el changelog de tu cliente.</li><li>Crea <code>sandbox-mcp/</code> con dos documentos ficticios.</li><li>Expón solo una herramienta <code>list_documents</code> y una lectura por identificador.</li><li>Deniega rutas absolutas, escrituras, comandos y secretos.</li><li>Prueba una entrada maliciosa en un documento y verifica que se trata como contenido, no como instrucción.</li></ol><h2>Migración sin sustos</h2><p>Haz una copia del servidor actual, ejecuta pruebas de contrato y registra cambios de transporte, autenticación, lifecycle y schemas. Mantén un cliente compatible durante la transición y define rollback. La especificación no sustituye a una revisión de seguridad.</p><h2>Fuentes oficiales</h2><ul><li><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/" rel="noreferrer">Anuncio de la revisión MCP 2026-07-28</a>.</li><li><a href="https://modelcontextprotocol.io/specification/2025-11-25" rel="noreferrer">Especificación MCP y versiones publicadas</a>.</li><li><a href="https://modelcontextprotocol.io/specification/draft/basic/security_best_practices" rel="noreferrer">Buenas prácticas de seguridad MCP</a>.</li></ul></div>
+  <Terminal>{`cliente IA
+  -> MCP server (solo lectura)
+      -> sandbox-mcp/entrada
+      -> sin shell, sin escritura, sin secretos
+  -> respuesta con source + id + fecha`}</Terminal>
+  <Idea><strong>Acción de la misión:</strong> crea un servidor de solo lectura, consulta dos documentos y guarda la respuesta con su identificador de fuente.</Idea>
+  <Cuidado>Un servidor MCP es código con acceso potencial a datos y herramientas. Revisa dependencias, fija versiones, limita rutas y no instales servidores de terceros en un entorno con secretos.</Cuidado>
+  <Comprueba>Ejecuta una prueba de lectura permitida, una ruta fuera de sandbox y una instrucción maliciosa dentro de un documento. Las dos últimas deben bloquearse o tratarse como datos.</Comprueba>
+  <Guardar>Entrega el repositorio, <code>README.md</code>, versión del SDK, matriz de permisos, tres resultados de prueba y procedimiento de rollback.</Guardar>
+  <ChapterNav next={{ href: "/cursos/ia-pymes/whatsapp-atencion", label: "WhatsApp y Telegram con aprobación humana" }} />
+ </Chapter>; }
