@@ -1,6 +1,8 @@
 # IA desde cero: aprende a usarla con criterio
 
-Este curso es una entrada corta y práctica a la inteligencia artificial generativa. No pretende convertirte en especialista ni pedirte que elijas una herramienta hoy. Su objetivo es más útil: que sepas plantear una tarea, proteger tus datos, comprobar una respuesta y decidir cuál es tu siguiente paso.
+Este es el curso fundamental de Aulafy para aprender inteligencia artificial generativa desde cero. Forma la primera etapa de un itinerario mucho más amplio: uso cotidiano, creación, programación, datos, modelos locales, RAG, agentes, seguridad y operación. Aquí construirás el criterio común que necesitarás en todas esas áreas: plantear una tarea, proteger los datos, comprobar una respuesta y decidir cuál es el siguiente paso útil.
+
+No es una formación oficial ni promete convertirte en especialista al terminar estas primeras lecciones. Sí te exige algo más valioso que memorizar nombres de herramientas: completar prácticas, explicar decisiones y conservar evidencias que otra persona pueda revisar.
 
 > **Antes de empezar:** una IA puede proponer, resumir, transformar y ayudar a explorar. No sustituye tu responsabilidad, una fuente primaria, un profesional habilitado ni la revisión de una persona que conoce el contexto.
 

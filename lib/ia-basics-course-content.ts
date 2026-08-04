@@ -12,6 +12,8 @@ export type IaBasicsLesson = {
   lead: string;
   minutes: number;
   kind: "base" | "criterio" | "practica";
+  outcomes: [string, string, string];
+  keyTerms: string[];
 };
 
 export const iaBasicsLessons: IaBasicsLesson[] = [
@@ -22,6 +24,8 @@ export const iaBasicsLessons: IaBasicsLesson[] = [
     lead: "Empieza por una tarea pequeña, define el riesgo y conserva la última decisión en manos de una persona.",
     minutes: 25,
     kind: "base",
+    outcomes: ["Separar preparación, comprobación y decisión", "Estimar el daño posible de un error", "Elegir una primera tarea reversible"],
+    keyTerms: ["IA generativa", "delegación", "revisión humana"],
   },
   {
     number: 2,
@@ -30,6 +34,8 @@ export const iaBasicsLessons: IaBasicsLesson[] = [
     lead: "Distingue modelo, interfaz, contexto y flujo de trabajo sin perderte en jerga técnica.",
     minutes: 20,
     kind: "base",
+    outcomes: ["Distinguir modelo e interfaz", "Reconocer qué forma parte del contexto", "Detectar cuándo una respuesta necesita búsqueda externa"],
+    keyTerms: ["modelo", "LLM", "interfaz", "contexto"],
   },
   {
     number: 3,
@@ -38,6 +44,8 @@ export const iaBasicsLessons: IaBasicsLesson[] = [
     lead: "Elige la forma de ayuda más simple que resuelva tu problema y mantenga el control.",
     minutes: 25,
     kind: "base",
+    outcomes: ["Distinguir cuatro arquitecturas habituales", "Elegir la opción con menor complejidad suficiente", "Justificar un límite de autonomía"],
+    keyTerms: ["chat", "automatización", "RAG", "agente"],
   },
   {
     number: 4,
@@ -46,6 +54,8 @@ export const iaBasicsLessons: IaBasicsLesson[] = [
     lead: "Da al modelo la información relevante, pero no más datos ni permisos de los necesarios.",
     minutes: 25,
     kind: "base",
+    outcomes: ["Preparar contexto relevante", "Entender para qué sirven los tokens", "Tratar la memoria como una decisión sobre datos"],
+    keyTerms: ["contexto", "tokens", "memoria"],
   },
   {
     number: 5,
@@ -54,6 +64,8 @@ export const iaBasicsLessons: IaBasicsLesson[] = [
     lead: "Convierte una petición ambigua en un encargo con objetivo, límites, formato y comprobación.",
     minutes: 25,
     kind: "practica",
+    outcomes: ["Convertir una petición vaga en un encargo", "Definir límites y formato de salida", "Escribir criterios de aceptación comprobables"],
+    keyTerms: ["briefing", "restricciones", "criterio de aceptación"],
   },
   {
     number: 6,
@@ -62,6 +74,8 @@ export const iaBasicsLessons: IaBasicsLesson[] = [
     lead: "Aprende a contrastar afirmaciones críticas y a conservar evidencia de lo que aceptas.",
     minutes: 30,
     kind: "criterio",
+    outcomes: ["Reconocer afirmaciones críticas", "Contrastar una respuesta con fuentes primarias", "Clasificar el grado de evidencia"],
+    keyTerms: ["alucinación", "fuente primaria", "evidencia"],
   },
   {
     number: 7,
@@ -70,6 +84,8 @@ export const iaBasicsLessons: IaBasicsLesson[] = [
     lead: "Compara calidad, coste, privacidad, velocidad e integración con una prueba justa.",
     minutes: 25,
     kind: "criterio",
+    outcomes: ["Comparar herramientas con la misma prueba", "Distinguir open weights de open source", "Documentar una elección revisable"],
+    keyTerms: ["evaluación", "model card", "open weights", "open source"],
   },
   {
     number: 8,
@@ -78,6 +94,8 @@ export const iaBasicsLessons: IaBasicsLesson[] = [
     lead: "Reduce datos, separa información sensible y trata las instrucciones externas como contenido no confiable.",
     minutes: 30,
     kind: "criterio",
+    outcomes: ["Minimizar los datos compartidos", "Reconocer información que no debe enviarse", "Definir permisos y revisión proporcionales al riesgo"],
+    keyTerms: ["minimización", "datos personales", "prompt injection"],
   },
   {
     number: 9,
@@ -86,6 +104,8 @@ export const iaBasicsLessons: IaBasicsLesson[] = [
     lead: "Comprueba qué ve otra persona, revoca lo innecesario y recuerda que borrar el enlace no recupera las copias.",
     minutes: 30,
     kind: "practica",
+    outcomes: ["Localizar enlaces compartidos", "Comprobar su alcance desde fuera", "Revocar accesos y registrar los límites de esa revocación"],
+    keyTerms: ["enlace público", "alcance", "revocación"],
   },
   {
     number: 10,
@@ -94,6 +114,8 @@ export const iaBasicsLessons: IaBasicsLesson[] = [
     lead: "Crea contenido multimodal sin ocultar su origen, suplantar personas ni olvidar accesibilidad.",
     minutes: 25,
     kind: "criterio",
+    outcomes: ["Revisar permisos y licencias", "Evitar suplantaciones y engaños", "Preparar una alternativa accesible"],
+    keyTerms: ["contenido sintético", "consentimiento", "procedencia", "accesibilidad"],
   },
   {
     number: 11,
@@ -102,6 +124,8 @@ export const iaBasicsLessons: IaBasicsLesson[] = [
     lead: "Usa la IA para recibir pistas, practicar y detectar lagunas; después demuestra lo aprendido sin ayuda.",
     minutes: 35,
     kind: "practica",
+    outcomes: ["Pedir pistas sin externalizar la solución", "Comprobar el aprendizaje sin IA", "Planificar un repaso a partir del error"],
+    keyTerms: ["recuperación activa", "metacognición", "transferencia"],
   },
   {
     number: 12,
@@ -110,6 +134,8 @@ export const iaBasicsLessons: IaBasicsLesson[] = [
     lead: "Termina con un resultado propio y elige la siguiente ruta solo cuando tu proyecto la necesite.",
     minutes: 35,
     kind: "practica",
+    outcomes: ["Diseñar un flujo pequeño de principio a fin", "Probar casos normales y problemáticos", "Documentar cómo repetir, detener y mejorar el proyecto"],
+    keyTerms: ["reproducibilidad", "caso de prueba", "parada segura"],
   },
 ];
 
