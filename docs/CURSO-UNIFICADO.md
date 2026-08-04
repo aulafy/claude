@@ -12,6 +12,7 @@ Cada lección declara:
 - título, resumen y explicación en español e inglés;
 - resultados observables;
 - una práctica y una evidencia;
+- un proyecto integrador por módulo con entregables y autoevaluación;
 - fuentes primarias por clave, sin repetir URLs;
 - volatilidad editorial.
 
@@ -34,4 +35,3 @@ Un concepto se explica en una sola lección canónica. Otras lecciones pueden ap
 6. Comprueba `/` y `/en` en móvil y escritorio.
 
 Los contenidos antiguos continúan en Git, pero no son la fuente editorial del nuevo curso. El respaldo completo está identificado en `backup/README.md`.
-

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styles from "./UnifiedCourse.module.css";
-import { localized, unifiedLessonCount, unifiedModules, unifiedSources, type CourseLocale } from "@/lib/unified-course";
+import { localized, unifiedLessonCount, unifiedModuleProjects, unifiedModules, unifiedSources, type CourseLocale } from "@/lib/unified-course";
 
 const copy = {
   es: {
@@ -10,6 +10,7 @@ const copy = {
     method: "Cada lección responde cuatro cosas: qué aprenderás, qué debes entender, qué harás y qué evidencia conservarás.",
     learn: "Al terminar podrás", practice: "Práctica", evidence: "Evidencia", sources: "Fuentes primarias", status: "Estado editorial",
     stable: "Concepto estable", reviewable: "Revisión periódica", volatile: "Revisión frecuente", next: "Siguiente lección", top: "Volver al índice",
+    project: "Proyecto del módulo", deliverables: "Entregables", checks: "Autoevaluación antes de avanzar", continue: "Continuar al módulo siguiente",
     footer: "Contenido CC BY-SA 4.0 · código MIT. Formación educativa no oficial.", language: "English",
   },
   en: {
@@ -19,6 +20,7 @@ const copy = {
     method: "Every lesson answers four questions: what you will learn, what you need to understand, what you will do, and what evidence you will keep.",
     learn: "By the end you can", practice: "Practice", evidence: "Evidence", sources: "Primary sources", status: "Editorial status",
     stable: "Stable concept", reviewable: "Periodic review", volatile: "Frequent review", next: "Next lesson", top: "Back to contents",
+    project: "Module project", deliverables: "Deliverables", checks: "Self-check before moving on", continue: "Continue to the next module",
     footer: "Content CC BY-SA 4.0 · code MIT. Unofficial educational material.", language: "Español",
   },
 } as const;
@@ -67,6 +69,7 @@ export default function UnifiedCourse({ locale = "es" }: { locale?: CourseLocale
                   <footer>{next ? <a href={`#${next.id}`}>{text.next} ↓</a> : <a href="#arriba">{text.top} ↑</a>}<a href="#indice">{text.contents}</a></footer>
                 </article>;
               })}
+              <ModuleProject moduleId={module.id} locale={locale} text={text} />
             </section>
           ))}
         </main>
@@ -76,3 +79,17 @@ export default function UnifiedCourse({ locale = "es" }: { locale?: CourseLocale
   );
 }
 
+function ModuleProject({ moduleId, locale, text }: { moduleId: string; locale: CourseLocale; text: typeof copy[CourseLocale] }) {
+  const project = unifiedModuleProjects[moduleId];
+  const moduleIndex = unifiedModules.findIndex((module) => module.id === moduleId);
+  const nextModule = unifiedModules[moduleIndex + 1];
+  return <aside className={styles.moduleProject} aria-labelledby={`${moduleId}-project-title`}>
+    <p>{text.project}</p><h3 id={`${moduleId}-project-title`}>{localized(project.title, locale)}</h3>
+    <p className={styles.projectScenario}>{localized(project.scenario, locale)}</p>
+    <div className={styles.projectGrid}>
+      <div><strong>{text.deliverables}</strong><ol>{project.deliverables.map((item) => <li key={localized(item, locale)}>{localized(item, locale)}</li>)}</ol></div>
+      <div><strong>{text.checks}</strong><ul>{project.checks.map((item) => <li key={localized(item, locale)}>{localized(item, locale)}</li>)}</ul></div>
+    </div>
+    <a href={nextModule ? `#${nextModule.id}` : "#arriba"}>{nextModule ? `${text.continue} ↓` : `${text.top} ↑`}</a>
+  </aside>;
+}
