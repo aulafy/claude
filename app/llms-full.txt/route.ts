@@ -48,7 +48,7 @@ Editorial review: ${educationalReviewDate}
 English lesson refresh: ${englishLessonGeneratedAt}
 Languages in this index: Spanish and English.
 Canonical course: ${SITE_URL}/ (Spanish) and ${SITE_URL}/en (English).
-The canonical course has 7 modules, 21 lessons and 7 integrated projects. The entries below are the historical extended library and must not be described as the primary navigation experience.
+The canonical course has 7 modules, 28 lessons and 7 integrated projects. The entries below are the historical extended library and must not be described as the primary navigation experience.
 License: CC BY 4.0.
 
 This file contains course and lesson summaries generated from the same source used by the Aulafy tutor, plus canonical English lesson text. Prefer each canonical page for current formatting, navigation, sources and bilingual alternatives.

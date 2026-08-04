@@ -12,6 +12,7 @@ const copy = {
     stable: "Concepto estable", reviewable: "Revisión periódica", volatile: "Revisión frecuente", next: "Siguiente lección", top: "Volver al índice",
     project: "Proyecto del módulo", deliverables: "Entregables", checks: "Autoevaluación antes de avanzar", continue: "Continuar al módulo siguiente",
     worked: "Ejemplo resuelto", template: "Plantilla reutilizable", projectNav: "Proyecto integrador",
+    recovered: "Adaptada del backup de Aulafy",
     footer: "Contenido CC BY 4.0 · código MIT. Formación educativa no oficial.", language: "English",
   },
   en: {
@@ -23,6 +24,7 @@ const copy = {
     stable: "Stable concept", reviewable: "Periodic review", volatile: "Frequent review", next: "Next lesson", top: "Back to contents",
     project: "Module project", deliverables: "Deliverables", checks: "Self-check before moving on", continue: "Continue to the next module",
     worked: "Worked example", template: "Reusable template", projectNav: "Integrated project",
+    recovered: "Adapted from the Aulafy backup",
     footer: "Content CC BY 4.0 · code MIT. Unofficial educational material.", language: "Español",
   },
 } as const;
@@ -49,7 +51,7 @@ export default function UnifiedCourse({ locale = "es" }: { locale?: CourseLocale
       inLanguage: locale,
       learningResourceType: locale === "es" ? "Módulo" : "Module",
     })),
-    hasCourseInstance: { "@type": "CourseInstance", courseMode: "online", courseWorkload: "PT12H" },
+    hasCourseInstance: { "@type": "CourseInstance", courseMode: "online", courseWorkload: "PT16H" },
   };
 
   return (
@@ -88,6 +90,7 @@ export default function UnifiedCourse({ locale = "es" }: { locale?: CourseLocale
                   <h3>{localized(item.title, locale)}</h3><p className={styles.summary}>{localized(item.summary, locale)}</p>
                   <div className={styles.outcomes}><strong>{text.learn}</strong><ul>{item.outcomes.map((outcome) => <li key={localized(outcome, locale)}>{localized(outcome, locale)}</li>)}</ul></div>
                   <div className={styles.explanation}>{item.explanation.map((paragraph) => <p key={localized(paragraph, locale)}>{localized(paragraph, locale)}</p>)}</div>
+                  {item.importedFrom ? <p className={styles.recovered}>{text.recovered}: <a href={item.importedFrom.href}>{localized(item.importedFrom.title, locale)}</a>.</p> : null}
                   <div className={styles.exercise}><div><span>{text.practice}</span><p>{localized(item.practice, locale)}</p></div><div><span>{text.evidence}</span><p>{localized(item.evidence, locale)}</p></div></div>
                   {item.id === "que-es-ia-generativa" ? <FirstWorkedExample locale={locale} text={text} /> : null}
                   <details className={styles.sources}><summary>{text.sources} · {item.sources.length}</summary><ul>{item.sources.map((key) => <li key={key}><a href={unifiedSources[key].href} target="_blank" rel="noopener noreferrer">{unifiedSources[key].label} ↗</a></li>)}</ul></details>

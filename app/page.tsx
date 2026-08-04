@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Curso completo de inteligencia artificial en español — Aulafy",
     description:
-      "21 lecciones y 7 proyectos para aprender IA desde los fundamentos hasta RAG, software, modelos locales, agentes, seguridad y producción.",
+      "28 lecciones y 7 proyectos para aprender IA desde los fundamentos hasta RAG, software, modelos locales, agentes, seguridad y producción.",
     type: "article",
     locale: "es_ES",
     url: "/",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Curso completo de inteligencia artificial en español — Aulafy",
-    description: "21 lecciones y 7 proyectos integradores, gratis, abiertos y sin registro.",
+    description: "28 lecciones y 7 proyectos integradores, gratis, abiertos y sin registro.",
     creator: "@learntouseai",
     images: ["/opengraph-image"],
   },

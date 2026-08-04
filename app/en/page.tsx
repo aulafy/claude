@@ -4,12 +4,12 @@ import UnifiedCourse from "@/components/UnifiedCourse";
 export const metadata: Metadata = {
   title: "Complete artificial intelligence course in English — Aulafy",
   description:
-    "One continuous open AI course in English: 21 lessons and 7 projects covering foundations, RAG, software, local models, agents, safety, and production.",
+    "One continuous open AI course in English: 28 lessons and 7 projects covering foundations, RAG, software, local models, agents, safety, and production.",
   alternates: { canonical: "/en", languages: { "es-ES": "/", "en-US": "/en", "x-default": "/" } },
   robots: { index: true, follow: true },
   openGraph: {
     title: "Complete artificial intelligence course in English — Aulafy",
-    description: "21 lessons and 7 integrated projects, free, open, and available without sign-up.",
+    description: "28 lessons and 7 integrated projects, free, open, and available without sign-up.",
     type: "article",
     locale: "en_US",
     url: "/en",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Complete artificial intelligence course in English — Aulafy",
-    description: "21 lessons and 7 integrated projects, free, open, and available without sign-up.",
+    description: "28 lessons and 7 integrated projects, free, open, and available without sign-up.",
     creator: "@learntouseai",
     images: ["/opengraph-image"],
   },
