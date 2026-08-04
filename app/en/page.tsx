@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import AulafyNexusLanding from "@/components/AulafyNexusLanding";
-import { totalLecciones } from "@/lib/cursos";
-import { getLocalizedCursos } from "@/lib/i18n";
+import UnifiedCourse from "@/components/UnifiedCourse";
 
 export const metadata: Metadata = {
-  title: "Aulafy — Free practical AI education in English",
+  title: "Complete artificial intelligence course in English — Aulafy",
   description:
     "Free practical AI courses in English: OpenAI Codex, Claude Code, local AI, RAG, agents, security, MLOps and automation.",
   alternates: { canonical: "/en", languages: { "es-ES": "/", "en-US": "/en", "x-default": "/" } },
@@ -27,7 +25,5 @@ export const metadata: Metadata = {
 };
 
 export default function EnglishHome() {
-  const courses = getLocalizedCursos("en");
-  const lessons = courses.reduce((sum, course) => sum + totalLecciones(course), 0);
-  return <AulafyNexusLanding courseCount={courses.length} lessonCount={lessons} locale="en" />;
+  return <UnifiedCourse locale="en" />;
 }
