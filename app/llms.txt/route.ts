@@ -1,46 +1,42 @@
 import { NextResponse } from "next/server";
-import { cursos, totalLecciones } from "@/lib/cursos";
-import { getCourseGuidance, educationalReviewDate } from "@/lib/course-guidance";
+import { localized, unifiedLessonCount, unifiedModules, unifiedSources } from "@/lib/unified-course";
 import { SITE_URL } from "@/lib/seo-index";
 
 export function GET() {
-  const lessonCount = cursos.reduce((sum, course) => sum + totalLecciones(course), 0);
-  const catalog = cursos.map((course) => {
-    const guidance = getCourseGuidance(course.slug, "es");
-    return `- [${course.title}](${SITE_URL}/cursos/${course.slug}): ${course.desc}${guidance ? ` Resultado: ${guidance.deliverable}` : ""}`;
+  const modules = unifiedModules.map((module) => {
+    const lessons = module.lessons.map((lesson) => `  - ${localized(lesson.title, "es")} (#${lesson.id})`).join("\n");
+    return `- ${localized(module.title, "es")}: ${localized(module.purpose, "es")}\n${lessons}\n  - Proyecto integrador (#project-${module.id})`;
   }).join("\n");
+  const sources = Object.values(unifiedSources).map((source) => `- ${source.label}: ${source.href}`).join("\n");
 
   const text = `# Aulafy
 
-> Proyecto educativo abierto, gratuito e independiente para aprender inteligencia artificial mediante cursos, rutas y proyectos verificables.
+> Curso abierto, continuo y bilingüe para aprender inteligencia artificial desde los fundamentos hasta producción.
 
-Aulafy publica ${cursos.length} cursos y ${lessonCount} lecciones en español, con versiones en inglés, sin registro. El contenido combina herramientas abiertas, modelos locales y servicios comerciales cuando son útiles; se organiza por resultados educativos, incluye fuentes oficiales y prioriza verificación, privacidad, seguridad y revisión humana.
+URL canónica ES: ${SITE_URL}/
+Canonical EN URL: ${SITE_URL}/en
+Revisión estructural: 2026-08-04
+Acceso: gratuito, sin registro y sin seguimiento del progreso
+Contenido: CC BY 4.0
+Código: MIT — https://github.com/aulafy/claude
 
-## Rutas recomendadas
+La experiencia principal de Aulafy contiene ${unifiedModules.length} módulos, ${unifiedLessonCount} lecciones y ${unifiedModules.length} proyectos integradores. Cada lección declara resultados, explicación, práctica, evidencia, fuentes y volatilidad editorial. El material histórico más extenso continúa disponible en el repositorio, pero no es la fuente canónica del curso unificado.
 
-- [Rutas de aprendizaje](${SITE_URL}/rutas): itinerarios por objetivo profesional.
-- [English learning paths](${SITE_URL}/en/paths): English curriculum routes.
-- [Catálogo en español](${SITE_URL}/cursos)
-- [English catalog](${SITE_URL}/en/courses)
+## Temario canónico
 
-## Cursos
+${modules}
 
-${catalog}
+## Fuentes primarias del curso
 
-## Autoridad y uso
+${sources}
+
+## Autoridad y transparencia
 
 - Autor y editor: Ramón Guillamón — ${SITE_URL}/sobre-ramon-guillamon
-- Contacto principal: learntouseai@gmail.com
-- Fuentes oficiales: ${SITE_URL}/fuentes
-- Licencia de contenido: CC BY 4.0
-- Código: MIT — https://github.com/aulafy/claude
-- Última revisión editorial global: ${educationalReviewDate}
-
-## Índices
-
-- Sitemap: ${SITE_URL}/sitemap-index.xml
-- Índice JSON: ${SITE_URL}/search-index.json
-- Contenido ampliado para asistentes: ${SITE_URL}/llms-full.txt
+- Método de fuentes: ${SITE_URL}/fuentes
+- Privacidad: ${SITE_URL}/privacidad
+- Repositorio y cambios: https://github.com/aulafy/claude
+- Índice ampliado para asistentes: ${SITE_URL}/llms-full.txt
 `;
 
   return new NextResponse(text, { headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "public, max-age=3600, stale-while-revalidate=86400" } });

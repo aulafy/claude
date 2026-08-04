@@ -6,13 +6,13 @@ const copy = {
   es: {
     tagline: "Aprende IA construyendo y comprobando.",
     links: [["/que-aprender-ia", "Empezar"], ["/cursos", "Cursos"], ["/curso-codex-espanol", "Codex"], ["/proyectos", "Proyectos"], ["/solicitar-tutorial", "Pedir tutorial"], ["/fuentes", "Fuentes"], ["/acerca", "Acerca de Aulafy"]],
-    note: "Educación abierta · contenido CC BY-SA 4.0 · código MIT",
+    note: "Educación abierta · contenido CC BY 4.0 · código MIT",
     privacy: "Privacidad",
   },
   en: {
     tagline: "Learn AI by building and verifying.",
     links: [["/en/paths", "Start"], ["/en/courses", "Courses"], ["/proyectos", "Projects"], ["/fuentes", "Sources"], ["/acerca", "About Aulafy"]],
-    note: "Open education · content CC BY-SA 4.0 · code MIT",
+    note: "Open education · content CC BY 4.0 · code MIT",
     privacy: "Privacy",
   },
 } satisfies Record<Locale, { tagline: string; links: string[][]; note: string; privacy: string }>;

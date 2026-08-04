@@ -11,7 +11,8 @@ const copy = {
     learn: "Al terminar podrás", practice: "Práctica", evidence: "Evidencia", sources: "Fuentes primarias", status: "Estado editorial",
     stable: "Concepto estable", reviewable: "Revisión periódica", volatile: "Revisión frecuente", next: "Siguiente lección", top: "Volver al índice",
     project: "Proyecto del módulo", deliverables: "Entregables", checks: "Autoevaluación antes de avanzar", continue: "Continuar al módulo siguiente",
-    footer: "Contenido CC BY-SA 4.0 · código MIT. Formación educativa no oficial.", language: "English",
+    worked: "Ejemplo resuelto", template: "Plantilla reutilizable", projectNav: "Proyecto integrador",
+    footer: "Contenido CC BY 4.0 · código MIT. Formación educativa no oficial.", language: "English",
   },
   en: {
     skip: "Skip to course", course: "Open artificial intelligence course", title: "Learn AI, from zero to production.",
@@ -21,7 +22,8 @@ const copy = {
     learn: "By the end you can", practice: "Practice", evidence: "Evidence", sources: "Primary sources", status: "Editorial status",
     stable: "Stable concept", reviewable: "Periodic review", volatile: "Frequent review", next: "Next lesson", top: "Back to contents",
     project: "Module project", deliverables: "Deliverables", checks: "Self-check before moving on", continue: "Continue to the next module",
-    footer: "Content CC BY-SA 4.0 · code MIT. Unofficial educational material.", language: "Español",
+    worked: "Worked example", template: "Reusable template", projectNav: "Integrated project",
+    footer: "Content CC BY 4.0 · code MIT. Unofficial educational material.", language: "Español",
   },
 } as const;
 
@@ -29,9 +31,19 @@ export default function UnifiedCourse({ locale = "es" }: { locale?: CourseLocale
   const text = copy[locale];
   const lessons = unifiedModules.flatMap((module) => module.lessons);
   const languageHref = locale === "es" ? "/en" : "/";
+  const siteUrl = "https://www.aulafy.net";
+  const courseSchema = {
+    "@context": "https://schema.org", "@type": "Course",
+    name: locale === "es" ? "Curso completo de inteligencia artificial" : "Complete artificial intelligence course",
+    description: text.lead, url: `${siteUrl}${locale === "es" ? "/" : "/en"}`, inLanguage: locale,
+    isAccessibleForFree: true,
+    provider: { "@type": "EducationalOrganization", name: "Aulafy", url: siteUrl },
+    hasCourseInstance: { "@type": "CourseInstance", courseMode: "online", courseWorkload: "PT12H" },
+  };
 
   return (
     <div className={styles.page}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }} />
       <a href="#curso" className={styles.skip}>{text.skip}</a>
       <header className={styles.header} id="arriba">
         <Link href={locale === "es" ? "/" : "/en"} className={styles.brand}><span>A</span><strong>Aulafy</strong></Link>
@@ -48,7 +60,7 @@ export default function UnifiedCourse({ locale = "es" }: { locale?: CourseLocale
         <aside className={styles.sidebar} id="indice">
           <div className={styles.sidebarIntro}><strong>{text.contents}</strong><p>{text.method}</p></div>
           <nav aria-label={text.contents}>
-            {unifiedModules.map((module) => <div key={module.id}><a className={styles.moduleLink} href={`#${module.id}`}>{localized(module.title, locale)}</a><ol>{module.lessons.map((item) => <li key={item.id}><a href={`#${item.id}`}>{localized(item.title, locale)}</a></li>)}</ol></div>)}
+            {unifiedModules.map((module) => <div key={module.id}><a className={styles.moduleLink} href={`#${module.id}`}>{localized(module.title, locale)}</a><ol>{module.lessons.map((item) => <li key={item.id}><a href={`#${item.id}`}>{localized(item.title, locale)}</a></li>)}<li className={styles.projectNav}><a href={`#project-${module.id}`}>{text.projectNav}</a></li></ol></div>)}
           </nav>
         </aside>
 
@@ -59,14 +71,16 @@ export default function UnifiedCourse({ locale = "es" }: { locale?: CourseLocale
               {module.lessons.map((item) => {
                 const index = lessons.findIndex((lesson) => lesson.id === item.id);
                 const next = lessons[index + 1];
+                const isLastInModule = item.id === module.lessons.at(-1)?.id;
                 return <article className={styles.lesson} id={item.id} key={item.id}>
                   <div className={styles.lessonMeta}><span>{String(index + 1).padStart(2, "0")} / {unifiedLessonCount}</span><span>{text.status}: {text[item.volatility]}</span></div>
                   <h3>{localized(item.title, locale)}</h3><p className={styles.summary}>{localized(item.summary, locale)}</p>
                   <div className={styles.outcomes}><strong>{text.learn}</strong><ul>{item.outcomes.map((outcome) => <li key={localized(outcome, locale)}>{localized(outcome, locale)}</li>)}</ul></div>
                   <div className={styles.explanation}>{item.explanation.map((paragraph) => <p key={localized(paragraph, locale)}>{localized(paragraph, locale)}</p>)}</div>
                   <div className={styles.exercise}><div><span>{text.practice}</span><p>{localized(item.practice, locale)}</p></div><div><span>{text.evidence}</span><p>{localized(item.evidence, locale)}</p></div></div>
+                  {item.id === "que-es-ia-generativa" ? <FirstWorkedExample locale={locale} text={text} /> : null}
                   <details className={styles.sources}><summary>{text.sources} · {item.sources.length}</summary><ul>{item.sources.map((key) => <li key={key}><a href={unifiedSources[key].href} target="_blank" rel="noopener noreferrer">{unifiedSources[key].label} ↗</a></li>)}</ul></details>
-                  <footer>{next ? <a href={`#${next.id}`}>{text.next} ↓</a> : <a href="#arriba">{text.top} ↑</a>}<a href="#indice">{text.contents}</a></footer>
+                  <footer>{isLastInModule ? <a href={`#project-${module.id}`}>{text.projectNav} ↓</a> : next ? <a href={`#${next.id}`}>{text.next} ↓</a> : <a href="#arriba">{text.top} ↑</a>}<a href="#indice">{text.contents}</a></footer>
                 </article>;
               })}
               <ModuleProject moduleId={module.id} locale={locale} text={text} />
@@ -74,7 +88,7 @@ export default function UnifiedCourse({ locale = "es" }: { locale?: CourseLocale
           ))}
         </main>
       </div>
-      <footer className={styles.footer}><strong>Aulafy</strong><p>{text.footer}</p><Link href={languageHref}>{text.language}</Link></footer>
+      <footer className={styles.footer}><strong>Aulafy</strong><p>{text.footer}</p><nav aria-label={locale === "es" ? "Información editorial" : "Editorial information"}><Link href="/fuentes">{locale === "es" ? "Fuentes" : "Sources"}</Link><Link href="/sobre-ramon-guillamon">{locale === "es" ? "Autoría" : "Author"}</Link><Link href="/privacidad">{locale === "es" ? "Privacidad" : "Privacy"}</Link><Link href={languageHref}>{text.language}</Link></nav></footer>
     </div>
   );
 }
@@ -83,7 +97,7 @@ function ModuleProject({ moduleId, locale, text }: { moduleId: string; locale: C
   const project = unifiedModuleProjects[moduleId];
   const moduleIndex = unifiedModules.findIndex((module) => module.id === moduleId);
   const nextModule = unifiedModules[moduleIndex + 1];
-  return <aside className={styles.moduleProject} aria-labelledby={`${moduleId}-project-title`}>
+  return <aside id={`project-${moduleId}`} className={styles.moduleProject} aria-labelledby={`${moduleId}-project-title`}>
     <p>{text.project}</p><h3 id={`${moduleId}-project-title`}>{localized(project.title, locale)}</h3>
     <p className={styles.projectScenario}>{localized(project.scenario, locale)}</p>
     <div className={styles.projectGrid}>
@@ -91,5 +105,18 @@ function ModuleProject({ moduleId, locale, text }: { moduleId: string; locale: C
       <div><strong>{text.checks}</strong><ul>{project.checks.map((item) => <li key={localized(item, locale)}>{localized(item, locale)}</li>)}</ul></div>
     </div>
     <a href={nextModule ? `#${nextModule.id}` : "#arriba"}>{nextModule ? `${text.continue} ↓` : `${text.top} ↑`}</a>
+  </aside>;
+}
+
+function FirstWorkedExample({ locale, text }: { locale: CourseLocale; text: typeof copy[CourseLocale] }) {
+  const es = locale === "es";
+  return <aside className={styles.workedExample} aria-labelledby="worked-example-title">
+    <p>{text.worked}</p><h4 id="worked-example-title">{es ? "Preparar un correo sobre una reunión" : "Prepare an email about a meeting"}</h4>
+    <div className={styles.exampleTable} role="group" aria-label={es ? "Separación de responsabilidades" : "Responsibility split"}>
+      <div><strong>{es ? "La IA propone" : "AI proposes"}</strong><p>{es ? "Asunto, estructura y primer borrador a partir de notas ficticias." : "Subject, structure, and first draft from fictional notes."}</p></div>
+      <div><strong>{es ? "La persona comprueba" : "The person checks"}</strong><p>{es ? "Fecha, asistentes, acuerdos, tono y ausencia de datos inventados." : "Date, attendees, decisions, tone, and absence of invented facts."}</p></div>
+      <div><strong>{es ? "La persona decide" : "The person decides"}</strong><p>{es ? "Si el mensaje es correcto, quién debe recibirlo y cuándo enviarlo." : "Whether the message is correct, who should receive it, and when to send it."}</p></div>
+    </div>
+    <details><summary>{text.template}</summary><pre>{es ? `Tarea: prepara un borrador de correo.\nContexto permitido: [notas ficticias].\nNo inventes: nombres, fechas ni acuerdos.\nDevuelve: asunto + cuerpo de menos de 150 palabras.\nYo comprobaré: hechos, destinatarios y tono antes de enviar.` : `Task: prepare an email draft.\nAllowed context: [fictional notes].\nDo not invent: names, dates, or decisions.\nReturn: subject + body under 150 words.\nI will check: facts, recipients, and tone before sending.`}</pre></details>
   </aside>;
 }

@@ -68,7 +68,7 @@ export default function SessionlessPractice({ practice }: { practice: Practice }
         <pre>{practice.evidence}</pre>
       </details>
 
-      <p className="sessionless-practice__footnote">Esta actividad solo usa memoria temporal de la página. Al recargar, olvida las respuestas. Contenido CC BY-SA 4.0 · código MIT.</p>
+      <p className="sessionless-practice__footnote">Esta actividad solo usa memoria temporal de la página. Al recargar, olvida las respuestas. Contenido CC BY 4.0 · código MIT.</p>
     </section>
   );
 }

@@ -7,13 +7,13 @@ const copy = {
     title: "Aprendizaje sin cuenta ni seguimiento",
     body: "Aulafy no guarda tu progreso, no pide correo y no usa cookies para seguirte. Las actividades interactivas solo recuerdan tus respuestas mientras mantienes abierta la página.",
     hint: "Al recargar, la actividad vuelve a empezar. Si quieres conservar una evidencia, cópiala en tus propios apuntes.",
-    license: "Contenido abierto: CC BY-SA 4.0. Código: MIT.",
+    license: "Contenido abierto: CC BY 4.0. Código: MIT.",
   },
   en: {
     title: "Learning without accounts or tracking",
     body: "Aulafy does not save your progress, request an email address, or use cookies to track you. Interactive activities only remember answers while the page remains open.",
     hint: "Reloading restarts the activity. Copy any evidence you want to keep into your own notes.",
-    license: "Open content: CC BY-SA 4.0. Code: MIT.",
+    license: "Open content: CC BY 4.0. Code: MIT.",
   },
 } satisfies Record<Locale, Record<string, string>>;
 
