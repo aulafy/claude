@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import AulafyNexusLanding from "@/components/AulafyNexusLanding";
-import { cursos, totalLecciones } from "@/lib/cursos";
+import UnifiedCourse from "@/components/UnifiedCourse";
 
 export const metadata: Metadata = {
-  title: "Aulafy — Aprende IA desde cero o avanza como profesional",
+  title: "Curso completo de inteligencia artificial en español — Aulafy",
   description:
-    "Elige un itinerario gratuito según tu nivel: empieza sin programar, crea una web o avanza en Codex, RAG, agentes, seguridad y MLOps.",
+    "Curso abierto y continuo de inteligencia artificial en español: fundamentos, trabajo, datos, RAG, software, IA local, agentes, seguridad y producción.",
   alternates: { canonical: "/", languages: { "es-ES": "/", "en-US": "/en", "x-default": "/" } },
   robots: { index: true, follow: true },
   openGraph: {
@@ -27,11 +26,5 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  const lessons = cursos.reduce((sum, course) => sum + totalLecciones(course), 0);
-  return (
-    <AulafyNexusLanding
-      courseCount={cursos.length}
-      lessonCount={lessons}
-    />
-  );
+  return <UnifiedCourse locale="es" />;
 }

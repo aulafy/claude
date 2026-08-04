@@ -23,6 +23,7 @@
     "verify-links": "node scripts/verify-main-links.mjs",
     "verify-progress": "node scripts/verify-progress.mjs",
     "verify-quality": "node --experimental-strip-types scripts/verify-quality-system.mjs",
+    "verify-unified-course": "node --experimental-strip-types scripts/verify-unified-course.mjs",
     "verify-seo": "node --experimental-strip-types scripts/verify-seo.mjs",
     "verify:model-references": "node scripts/verify-model-references.mjs",
     "verify-social": "node scripts/verify-social.mjs",
