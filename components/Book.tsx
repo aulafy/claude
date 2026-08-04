@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Icon, { type IconName } from "@/components/Icon";
-import { getCourseQuality } from "@/lib/course-quality";
+import { getCourseFreshness, getCourseQuality } from "@/lib/course-quality";
 
 /* ============================================================
    Componentes compartidos del Volumen II (Claude Code + IA Local)
@@ -290,7 +290,9 @@ export function Chapter({
   const courseUrl = courseHref ?? "/cursos/ia-local";
   const courseSlug = courseUrl.split("/").filter(Boolean).at(-1) ?? "ia-local";
   const quality = getCourseQuality(courseSlug);
+  const freshness = getCourseFreshness(quality);
   const reviewDate = new Intl.DateTimeFormat("es-ES", { dateStyle: "medium" }).format(new Date(`${quality.reviewedAt}T12:00:00Z`));
+  const nextReviewDate = new Intl.DateTimeFormat("es-ES", { dateStyle: "medium" }).format(new Date(`${quality.nextReview}T12:00:00Z`));
 
   return (
     <div className="aula-shell max-w-4xl mx-auto px-6 sm:px-8 py-12 sm:py-14">
@@ -303,7 +305,10 @@ export function Chapter({
           <Icon name="book" /> Lección
         </span>
         <div className="mt-3 flex flex-wrap gap-2">
-          <span className="aula-chip" data-tone="green"><Icon name="shield" /> Revisión editorial · {reviewDate}</span>
+          <span className="aula-chip" data-tone={freshness.overdue ? "amber" : "green"}>
+            <Icon name={freshness.overdue ? "warning" : "shield"} />
+            {freshness.overdue ? `Revisión pendiente desde ${nextReviewDate}` : `Revisión editorial · ${reviewDate}`}
+          </span>
           <span className="aula-chip">{quality.sources.length} fuentes primarias</span>
         </div>
         <h1 className="font-display text-3xl sm:text-5xl font-extrabold text-white mt-3 mb-4 leading-tight">
@@ -311,7 +316,7 @@ export function Chapter({
         </h1>
         <Lead>{lead}</Lead>
         <nav className="lesson-reading-map" aria-label="Cómo recorrer esta lección">
-          <a href={showMission ? "#mision" : "#contenido"}><span>1</span><strong>Objetivo</strong><small>Qué conseguirás</small></a>
+          <a href={showMission ? "#mision" : "#objetivos"}><span>1</span><strong>Objetivo</strong><small>Qué conseguirás</small></a>
           <a href="#contenido"><span>2</span><strong>Aprende</strong><small>Conceptos y ejemplos</small></a>
           <a href={showMission ? "#mision" : "#practica"}><span>3</span><strong>Practica</strong><small>Acción y evidencia</small></a>
           <a href="#fuentes-leccion"><span>4</span><strong>Verifica</strong><small>Fuentes y vigencia</small></a>

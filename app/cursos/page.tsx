@@ -3,7 +3,7 @@ import Link from "next/link";
 import Icon, { type IconName } from "@/components/Icon";
 import { cursos, proximamente, totalLecciones, type Curso } from "@/lib/cursos";
 import { getCourseGuidance } from "@/lib/course-guidance";
-import { getCourseQuality } from "@/lib/course-quality";
+import { getCourseFreshness, getCourseQuality } from "@/lib/course-quality";
 import { courseGroups } from "@/lib/course-groups";
 import { spanishSearchIntents } from "@/lib/seo-strategy";
 
@@ -12,6 +12,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 function CourseCard({ course }: { course: Curso }) {
   const guidance = getCourseGuidance(course.slug, "es");
   const quality = getCourseQuality(course.slug);
+  const freshness = getCourseFreshness(quality);
   const terminalNeeded = ["fundamentos-aulafy", "codex-programadores", "claude-code", "ia-local", "rag-seguro", "agentes-automatizacion", "agentes-produccion", "mlops-local", "fine-tuning-local", "ai-router", "automatizacion-self-hosted"].includes(course.slug);
   const localFirst = ["ia-local", "rag-seguro", "automatizacion-self-hosted", "mlops-local", "fine-tuning-local"].includes(course.slug);
   return (
@@ -35,7 +36,7 @@ function CourseCard({ course }: { course: Curso }) {
         </span>
       ) : null}
       <span className="mt-4 flex flex-wrap items-center gap-2">
-        <span className="aula-chip" data-tone={quality.volatility === "volátil" ? "amber" : "green"}>{quality.status}</span>
+        <span className="aula-chip" data-tone={freshness.overdue ? "amber" : "green"}>{freshness.label}</span>
         {terminalNeeded ? <span className="aula-chip"><Icon name="terminal" /> Terminal</span> : <span className="aula-chip">Sin terminal al inicio</span>}
         {localFirst ? <span className="aula-chip" data-tone="green">local-first</span> : null}
         <span aria-hidden="true" className="ml-auto text-sm text-zinc-500 group-hover:text-violet-300">Abrir →</span>
@@ -160,7 +161,7 @@ export default function Cursos() {
             <div className="mt-5 flex flex-wrap gap-2">
               <span className="aula-chip" data-tone="green"><Icon name="check" /> Gratis</span>
               <span className="aula-chip" data-tone="cyan"><Icon name="globe" /> En español</span>
-              <span className="aula-chip" data-tone="amber"><Icon name="check" /> Proyectos verificables</span>
+              <span className="aula-chip" data-tone="amber"><Icon name="check" /> Prácticas con evidencia</span>
               <span className="aula-chip"><Icon name="shield" /> Fichas de confianza</span>
             </div>
           <p className="mt-5 aula-meta text-zinc-500">{cursos.length} cursos · {leccionesTotales} lecciones</p>

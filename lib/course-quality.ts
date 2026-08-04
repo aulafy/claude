@@ -15,6 +15,12 @@ export type CourseQualityRecord = {
   nextReview: string;
 };
 
+export type CourseFreshness = {
+  overdue: boolean;
+  label: CourseQualityStatus;
+  daysOverdue: number;
+};
+
 const NIST = {
   label: "NIST · AI Risk Management Framework",
   href: "https://www.nist.gov/itl/ai-risk-management-framework",
@@ -227,4 +233,18 @@ const records: Record<string, CourseQualityRecord> = {
 
 export function getCourseQuality(slug: string): CourseQualityRecord {
   return records[slug] ?? fallback;
+}
+
+export function getCourseFreshness(quality: CourseQualityRecord, asOf = new Date()): CourseFreshness {
+  const nextReview = new Date(`${quality.nextReview}T23:59:59Z`);
+  const overdue = asOf.getTime() > nextReview.getTime();
+  const daysOverdue = overdue
+    ? Math.max(1, Math.floor((asOf.getTime() - nextReview.getTime()) / (24 * 60 * 60 * 1000)))
+    : 0;
+
+  return {
+    overdue,
+    daysOverdue,
+    label: overdue ? "Necesita revisión" : quality.status,
+  };
 }

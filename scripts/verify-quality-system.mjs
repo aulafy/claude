@@ -1,12 +1,12 @@
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import { cursos } from "../lib/cursos.ts";
-import { getCourseQuality } from "../lib/course-quality.ts";
+import { getCourseFreshness, getCourseQuality } from "../lib/course-quality.ts";
 
 const allowedStatuses = new Set(["Revisión editorial", "Probado parcialmente", "Necesita revisión"]);
 const allowedVolatility = new Set(["estable", "revisable", "volátil"]);
 const allowedReviewDays = new Set([7, 30, 180]);
-const today = "2026-07-22";
+const today = new Date();
 
 function parseIsoDate(value, label) {
   assert.match(value, /^\d{4}-\d{2}-\d{2}$/, `${label} must be ISO yyyy-mm-dd`);
@@ -48,13 +48,16 @@ for (const course of cursos) {
       `Partially tested courses must name the executed evidence: ${course.slug}`,
     );
   }
+
+  const freshness = getCourseFreshness(quality, today);
+  if (today > nextReview) {
+    assert.equal(freshness.overdue, true, `Expired review must be detected: ${course.slug}`);
+    assert.equal(freshness.label, "Necesita revisión", `Expired review must not retain a trusted label: ${course.slug}`);
+  }
 }
 
 const editorial = fs.readFileSync("docs/ESTANDAR-EDITORIAL.md", "utf8");
 assert.match(editorial, /Jerarquía de fuentes/, "Editorial standard must keep source hierarchy");
 assert.match(editorial, /No se usa «verificado»/, "Editorial standard must prevent vague verification claims");
-
-const todayDate = parseIsoDate(today, "today");
-void todayDate;
 
 console.log(`Quality system verified for ${cursos.length} courses.`);
