@@ -56,6 +56,8 @@ function seoTitleFor(slug: string, fallback: string) {
     "mejores-prompts-chatgpt-claude-blogs": "Prompts para ChatGPT y Claude en blogs",
     "ia-para-pymes-autonomos-casos-uso-2026": "IA para pymes: 25 casos de uso",
     "tendencias-ia-2026-agentes-ia-local-rag": "Tendencias IA 2026: agentes, local y RAG",
+    "qwen3-8-max-agentes-ia-2026": "Qwen3.8-Max: evaluación práctica del modelo",
+    "openworker-agente-ia-local-open-source": "OpenWorker: agente local con Ollama",
   };
   return titles[slug] ?? fallback;
 }

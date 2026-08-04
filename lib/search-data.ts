@@ -114,6 +114,8 @@ export const searchData: SearchItem[] = [
   { href: "/blog/mejores-prompts-chatgpt-claude-blogs", title: "Mejores prompts para ChatGPT y Claude si escribes blogs", section: "Blog", keywords: "prompts chatgpt blogs prompts claude español artículos seo" },
   { href: "/blog/ia-para-pymes-autonomos-casos-uso-2026", title: "IA para pymes y autónomos: 25 casos de uso", section: "Blog", keywords: "ia para pymes autonomos casos uso automatizacion empresa" },
   { href: "/blog/tendencias-ia-2026-agentes-ia-local-rag", title: "Tendencias de IA en 2026", section: "Blog", keywords: "tendencias ia 2026 agentes ia local rag automatizacion" },
+  { href: "/blog/qwen3-8-max-agentes-ia-2026", title: "Qwen3.8-Max: evaluación práctica", section: "Blog", keywords: "qwen3.8 max qwen api alibaba modelo moe agentes contexto largo evaluación" },
+  { href: "/blog/openworker-agente-ia-local-open-source", title: "OpenWorker: agente local con Ollama", section: "Blog", keywords: "openworker agente local ollama open source mcp permisos automatización escritorio" },
   { href: "/cursos/claude-code/instalacion", title: "Instalación", section: "Empezar", keywords: "instalar npm node api key macos windows wsl linux setup actualizar" },
   { href: "/cursos/claude-code/primeros-pasos", title: "Primeros pasos", section: "Empezar", keywords: "iniciar sesión modo auto plan primera vez interfaz prompt print headless" },
   { href: "/cursos/claude-code/donde-usar", title: "CLI, app y móvil", section: "Empezar", keywords: "cli terminal app escritorio desktop web navegador vs code jetbrains ide móvil movil ios remote control dispatch teleport channels slack superficies diferencias" },
