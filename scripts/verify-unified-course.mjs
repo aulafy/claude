@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { unifiedModules, unifiedSources } from "../lib/unified-course.ts";
+import { unifiedModuleProjects, unifiedModules, unifiedSources } from "../lib/unified-course.ts";
 
 assert.equal(unifiedModules.length, 7, "The unified course must keep seven modules");
 
@@ -7,6 +7,10 @@ const ids = new Set();
 const titles = { es: new Set(), en: new Set() };
 
 for (const module of unifiedModules) {
+  const project = unifiedModuleProjects[module.id];
+  assert.ok(project, `Missing module project: ${module.id}`);
+  assert.equal(project.deliverables.length, 3, `Module project needs three deliverables: ${module.id}`);
+  assert.equal(project.checks.length, 3, `Module project needs three checks: ${module.id}`);
   assert.ok(module.id && !ids.has(module.id), `Duplicate or empty module id: ${module.id}`);
   ids.add(module.id);
   assert.ok(module.lessons.length >= 3, `Module needs at least three lessons: ${module.id}`);
@@ -14,6 +18,10 @@ for (const module of unifiedModules) {
   for (const locale of ["es", "en"]) {
     assert.ok(module.title[locale].length >= 5, `Missing ${locale} module title: ${module.id}`);
     assert.ok(module.purpose[locale].length >= 25, `Weak ${locale} module purpose: ${module.id}`);
+    assert.ok(project.title[locale].length >= 12, `Weak ${locale} project title: ${module.id}`);
+    assert.ok(project.scenario[locale].length >= 45, `Weak ${locale} project scenario: ${module.id}`);
+    assert.ok(project.deliverables.every((item) => item[locale].length >= 25), `Weak ${locale} deliverable: ${module.id}`);
+    assert.ok(project.checks.every((item) => item[locale].length >= 25), `Weak ${locale} project check: ${module.id}`);
   }
 
   for (const lesson of module.lessons) {
@@ -43,4 +51,3 @@ for (const [key, source] of Object.entries(unifiedSources)) {
 }
 
 console.log(`Unified course verified: ${unifiedModules.length} modules, ${ids.size - unifiedModules.length} lessons, two languages.`);
-

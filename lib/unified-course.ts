@@ -22,6 +22,13 @@ export type UnifiedModule = {
   lessons: UnifiedLesson[];
 };
 
+export type ModuleProject = {
+  title: Bilingual;
+  scenario: Bilingual;
+  deliverables: Bilingual[];
+  checks: Bilingual[];
+};
+
 export const unifiedSources: Record<SourceKey, { label: string; href: string }> = {
   openai: { label: "OpenAI · Documentation", href: "https://platform.openai.com/docs" },
   anthropic: { label: "Anthropic · Documentation", href: "https://docs.anthropic.com/" },
@@ -116,3 +123,47 @@ export const unifiedModules: UnifiedModule[] = [
 export const localized = (value: Bilingual, locale: CourseLocale) => value[locale];
 export const unifiedLessonCount = unifiedModules.reduce((total, module) => total + module.lessons.length, 0);
 
+export const unifiedModuleProjects: Record<string, ModuleProject> = {
+  fundamentos: {
+    title: b("Mapa de una decisión asistida por IA", "Map an AI-assisted decision"),
+    scenario: b("Una asociación quiere responder consultas frecuentes con IA, pero no sabe qué automatizar ni cómo comprobar las respuestas.", "A nonprofit wants to answer frequent questions with AI, but does not know what to automate or how to check answers."),
+    deliverables: [b("Mapa de cinco tareas clasificadas por mecanismo.", "Map of five tasks classified by mechanism."), b("Protocolo de verificación para tres afirmaciones.", "Verification protocol for three claims."), b("Lista de acciones que la IA nunca realizará sola.", "List of actions the AI will never perform alone.")],
+    checks: [b("Cada elección descarta una opción más simple con un motivo.", "Every choice rejects a simpler option with a reason."), b("Las fuentes permiten repetir la comprobación.", "Sources make the check reproducible."), b("Los límites describen comportamientos observables.", "Limits describe observable behavior.")],
+  },
+  trabajo: {
+    title: b("Asistente de trabajo sin datos sensibles", "Work assistant without sensitive data"),
+    scenario: b("Una persona administrativa quiere preparar borradores y resúmenes sin compartir nombres, contratos ni datos de clientes.", "An administrative worker wants to draft and summarize without sharing names, contracts, or customer data."),
+    deliverables: [b("Plantilla con objetivo, contexto y aceptación.", "Template with goal, context, and acceptance."), b("Documento ficticio correctamente anonimizado.", "Properly anonymized fictional document."), b("Rutina humana antes de enviar o guardar.", "Human routine before sending or saving.")],
+    checks: [b("El resultado puede revisarse con criterios visibles.", "The result can be reviewed with visible criteria."), b("No queda ningún identificador o secreto.", "No identifier or secret remains."), b("La decisión de enviar continúa siendo humana.", "The decision to send remains human.")],
+  },
+  "datos-rag": {
+    title: b("Preguntas y respuestas sobre un manual", "Question answering over a handbook"),
+    scenario: b("Un equipo necesita consultar un manual interno y saber exactamente de dónde procede cada respuesta.", "A team needs to query an internal handbook and know exactly where every answer comes from."),
+    deliverables: [b("Corpus limpio con procedencia y fecha.", "Clean corpus with provenance and date."), b("Veinte preguntas, cuatro fuera de alcance.", "Twenty questions, four out of scope."), b("Informe separado de búsqueda, respuesta y citas.", "Separate retrieval, answer, and citation report.")],
+    checks: [b("No se responde si falta el pasaje de apoyo.", "No answer is produced without a supporting passage."), b("Cada cita lleva al fragmento correcto.", "Every citation leads to the correct passage."), b("Los fallos están agrupados por causa.", "Failures are grouped by cause.")],
+  },
+  construir: {
+    title: b("Web útil de principio a fin", "Useful website from start to finish"),
+    scenario: b("Un profesional necesita explicar un servicio y recibir solicitudes sin exponer secretos ni publicar una interfaz rota.", "A professional needs to explain a service and receive requests without exposing secrets or shipping a broken interface."),
+    deliverables: [b("Especificación y recorrido principal de una página.", "One-page specification and main journey."), b("Repositorio con diff y pruebas revisadas.", "Repository with reviewed diff and tests."), b("Preview, checklist móvil y rollback.", "Preview, mobile checklist, and rollback.")],
+    checks: [b("Carga, vacío, error y éxito están diseñados.", "Loading, empty, error, and success are designed."), b("Teclado y móvil completan la tarea.", "Keyboard and mobile users complete the task."), b("No hay credenciales en cliente o repositorio.", "No credentials exist in client or repository.")],
+  },
+  local: {
+    title: b("Informe de viabilidad para IA local", "Local AI feasibility report"),
+    scenario: b("Una organización quiere saber si su equipo puede ejecutar un modelo local y qué tareas deben permanecer en una API.", "An organization wants to know whether its hardware can run a local model and which tasks should remain on an API."),
+    deliverables: [b("Inventario de hardware y límites medidos.", "Hardware inventory and measured limits."), b("Comparación de dos modelos con la misma rúbrica.", "Two-model comparison with the same rubric."), b("Política local, API e híbrida por tarea.", "Local, API, and hybrid policy by task.")],
+    checks: [b("Se registran versión, cuantización y memoria.", "Version, quantization, and memory are recorded."), b("La licencia se comprueba en la fuente original.", "The license is checked at the original source."), b("La decisión incluye mantenimiento y privacidad.", "The decision includes maintenance and privacy.")],
+  },
+  agentes: {
+    title: b("Bandeja de entrada con aprobación", "Approval-based inbox workflow"),
+    scenario: b("Una pyme quiere clasificar mensajes y preparar respuestas, pero ningún correo debe enviarse sin revisión.", "A small business wants to classify messages and draft replies, but no email may be sent without review."),
+    deliverables: [b("Diagrama con estados, permisos y responsables.", "Diagram with states, permissions, and owners."), b("Contrato de herramientas de lectura y propuesta.", "Contract for read and proposal tools."), b("Prueba de reintento sin acciones duplicadas.", "Retry test without duplicated actions.")],
+    checks: [b("Enviar es imposible antes de aprobar.", "Sending is impossible before approval."), b("Cada transición conserva una traza mínima.", "Every transition retains a minimum trace."), b("Existe un procedimiento manual alternativo.", "A manual fallback procedure exists.")],
+  },
+  produccion: {
+    title: b("Defensa del proyecto final", "Capstone defense"),
+    scenario: b("Debes demostrar que tu sistema resuelve un problema estrecho, falla de forma segura y puede mantenerlo otra persona.", "You must prove that your system solves a narrow problem, fails safely, and can be maintained by someone else."),
+    deliverables: [b("Demo reproducible y repositorio documentado.", "Reproducible demo and documented repository."), b("Evals, modelo de amenazas, costes y límites.", "Evals, threat model, costs, and limits."), b("Runbook, restauración y retrospectiva.", "Runbook, restoration, and retrospective.")],
+    checks: [b("Otra persona puede ejecutar y evaluar el sistema.", "Another person can run and evaluate the system."), b("Los casos peligrosos se bloquean o escalan.", "Dangerous cases are blocked or escalated."), b("La presentación incluye fallos reales.", "The presentation includes real failures.")],
+  },
+};
