@@ -22,13 +22,13 @@ const CLAUDE_SHARED = { label: "Claude · compartir y dejar de compartir chats",
 const CHATGPT_SHARED = { label: "ChatGPT · preguntas frecuentes sobre enlaces compartidos", href: "https://help.openai.com/en/articles/7925741-chatgpt-shared-links-faq" };
 const GEMINI_SHARED = { label: "Gemini · compartir chats", href: "https://support.google.com/gemini/answer/13743730" };
 
-const initialReviewAt = "2026-07-18";
+const initialReviewAt = "2026-08-04";
 const lessonReviewDates: Record<string, string> = {
-  "alucinaciones-verificar": "2026-07-19",
-  "elegir-modelo-herramienta": "2026-07-19",
-  "imagen-voz-video-responsable": "2026-07-19",
-  "estudiar-con-ia-sin-dejar-de-aprender": "2026-07-27",
-  "auditar-chats-compartidos": "2026-07-27",
+  "alucinaciones-verificar": "2026-08-04",
+  "elegir-modelo-herramienta": "2026-08-04",
+  "imagen-voz-video-responsable": "2026-08-04",
+  "estudiar-con-ia-sin-dejar-de-aprender": "2026-08-04",
+  "auditar-chats-compartidos": "2026-08-04",
 };
 
 const records: Record<string, Omit<QualityRecord, "reviewedAt" | "status">> = {

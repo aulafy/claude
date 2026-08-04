@@ -23,8 +23,8 @@ const guidanceEs: Record<string, CourseGuidance> = {
       "Elegir una herramienta y un siguiente curso según privacidad, coste, evidencia y objetivo",
     ],
     deliverable: "Un proyecto breve, propio y repetible, con datos permitidos, una rúbrica de revisión y una decisión razonada sobre la siguiente ruta de aprendizaje.",
-    estimatedHours: 4,
-    updated: "2026-07-18",
+    estimatedHours: 5,
+    updated: "2026-08-04",
   },
   "fundamentos-aulafy": {
     track: "Fundamentos",

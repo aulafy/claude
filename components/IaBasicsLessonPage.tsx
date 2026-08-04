@@ -69,6 +69,9 @@ export default function IaBasicsLessonPage({ slug }: { slug: string }) {
   const next = iaBasicsLessons[index + 1];
   const practice = getSessionlessPractice(slug);
   const quality = getIaBasicsQuality(slug);
+  const prerequisite = prev
+    ? `Haber completado «${prev.title}» o poder explicar su idea principal con tus propias palabras.`
+    : "Ninguno. Solo necesitas una tarea pequeña, ficticia o de bajo riesgo para practicar.";
 
   return (
     <Chapter
@@ -98,6 +101,25 @@ export default function IaBasicsLessonPage({ slug }: { slug: string }) {
           <Icon name="shield" /> Sin herramienta obligatoria
         </span>
       </div>
+
+      <section className="lesson-study-contract" aria-labelledby="lesson-study-contract-title">
+        <div className="lesson-study-contract__intro">
+          <span className="aula-section-label"><Icon name="route" /> Guía de estudio</span>
+          <h2 id="lesson-study-contract-title">Qué debes dominar antes de avanzar</h2>
+          <p><strong>Antes de empezar:</strong> {prerequisite}</p>
+        </div>
+        <div className="lesson-study-contract__outcomes">
+          <h3>Al terminar podrás</h3>
+          <ul>
+            {lesson.outcomes.map((outcome) => <li key={outcome}><Icon name="check" /><span>{outcome}</span></li>)}
+          </ul>
+        </div>
+        <div className="lesson-study-contract__terms">
+          <h3>Vocabulario esencial</h3>
+          <div>{lesson.keyTerms.map((term) => <span key={term}>{term}</span>)}</div>
+          <p><strong>Lección superada:</strong> cuando puedes completar la misión, explicar tu decisión y conservar la evidencia sin copiar la respuesta del ejemplo.</p>
+        </div>
+      </section>
 
       {slug === "pedir-resultados-utiles" ? (
         <aside className="ia-lab-entry" aria-labelledby="ia-lab-entry-title">
