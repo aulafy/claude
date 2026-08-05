@@ -14,9 +14,17 @@ const copy = {
     courses: "Cursos",
     title: <>Tu primera misión con IA<br /><span>empieza ahora.</span></>,
     lead: "Una entrada simple para oficinistas, estudiantes y personas no técnicas: elige una situación, haz una misión corta y aprende IA sin perderte entre herramientas.",
-    primaryCta: "Empezar en 10 minutos",
-    secondaryCta: "Ver todos los caminos",
+    primaryCta: "Abrir el curso completo",
+    secondaryCta: "Elegir mi camino",
     assurances: ["Gratis", "Sin registro", "Proyectos verificables", "Fuentes visibles"],
+    coreCourse: {
+      eyebrow: "CURSO PRINCIPAL · EN ORDEN",
+      title: "Una ruta continua de 28 lecciones",
+      text: "Siete módulos enlazados, desde el primer uso de una IA hasta RAG, programación, modelos locales, agentes, seguridad y producción. Cada lección termina con una práctica y una evidencia concreta.",
+      facts: ["7 módulos", "28 lecciones", "7 proyectos", "Español e inglés"],
+      action: "Ver el programa completo",
+      href: "/curso-ia",
+    },
     choiceTitle: "Elige por qué has venido",
     choiceLead: "No necesitas saber qué es RAG, agentes o modelos locales. Empieza por tu situación real.",
     quickChoices: [
@@ -97,9 +105,17 @@ const copy = {
     courses: "Courses",
     title: <>Your first AI mission<br /><span>starts now.</span></>,
     lead: "A simple entry point for office workers, students and non-technical learners: choose one real situation, complete a short mission, and learn AI without getting lost in tools.",
-    primaryCta: "Start in 10 minutes",
-    secondaryCta: "See all paths",
+    primaryCta: "Open the complete course",
+    secondaryCta: "Choose my path",
     assurances: ["Free", "No sign-up", "Verifiable projects", "Visible sources"],
+    coreCourse: {
+      eyebrow: "CORE COURSE · IN ORDER",
+      title: "One continuous path of 28 lessons",
+      text: "Seven connected modules, from your first useful AI task to RAG, software, local models, agents, safety, and production. Every lesson ends with practice and concrete evidence.",
+      facts: ["7 modules", "28 lessons", "7 projects", "English and Spanish"],
+      action: "See the complete syllabus",
+      href: "/en/ai-course",
+    },
     choiceTitle: "Choose why you came",
     choiceLead: "You do not need to know what RAG, agents or local models are. Start from your real situation.",
     quickChoices: [
@@ -205,7 +221,7 @@ export default function AulafyNexusLanding({ courseCount, lessonCount, locale = 
             <h1>{text.title}</h1>
             <p className={styles.lead}>{text.lead}</p>
             <div className={styles.heroActions}>
-              <Link className={styles.primaryAction} href={english ? "/en/courses/fundamentos-aulafy" : "/cursos/ia-desde-cero/que-puede-hacer-ia-generativa"}>{text.primaryCta}</Link>
+              <Link className={styles.primaryAction} href={text.coreCourse.href}>{text.primaryCta}</Link>
               <Link className={styles.secondaryAction} href={english ? "/en/paths" : "/que-aprender-ia"}>{text.secondaryCta}</Link>
             </div>
             <ul className={styles.assurances} aria-label={english ? "Access conditions" : "Condiciones de acceso"}>
@@ -222,6 +238,16 @@ export default function AulafyNexusLanding({ courseCount, lessonCount, locale = 
             </div>
             <LandingLearningGuide locale={locale} />
           </div>
+        </section>
+
+        <section className={styles.coreCourse} aria-labelledby="core-course-title">
+          <div>
+            <p className={styles.eyebrow}>{text.coreCourse.eyebrow}</p>
+            <h2 id="core-course-title">{text.coreCourse.title}</h2>
+            <p>{text.coreCourse.text}</p>
+          </div>
+          <ul>{text.coreCourse.facts.map((fact) => <li key={fact}>{fact}</li>)}</ul>
+          <Link href={text.coreCourse.href}>{text.coreCourse.action} <span aria-hidden="true">→</span></Link>
         </section>
 
         <section className={styles.quickStart} aria-labelledby="quick-start-title">

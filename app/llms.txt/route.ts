@@ -13,14 +13,16 @@ export function GET() {
 
 > Curso abierto, continuo y bilingüe para aprender inteligencia artificial desde los fundamentos hasta producción.
 
-URL canónica ES: ${SITE_URL}/
-Canonical EN URL: ${SITE_URL}/en
+Portada y rutas ES: ${SITE_URL}/
+English homepage and paths: ${SITE_URL}/en
+Curso continuo ES: ${SITE_URL}/curso-ia
+Continuous course EN: ${SITE_URL}/en/ai-course
 Revisión estructural: 2026-08-04
 Acceso: gratuito, sin registro y sin seguimiento del progreso
 Contenido: CC BY 4.0
 Código: MIT — https://github.com/aulafy/claude
 
-La experiencia principal de Aulafy contiene ${unifiedModules.length} módulos, ${unifiedLessonCount} lecciones y ${unifiedModules.length} proyectos integradores. Cada lección declara resultados, explicación, práctica, evidencia, fuentes y volatilidad editorial. El material histórico más extenso continúa disponible en el repositorio, pero no es la fuente canónica del curso unificado.
+El curso continuo de Aulafy contiene ${unifiedModules.length} módulos, ${unifiedLessonCount} lecciones y ${unifiedModules.length} proyectos integradores. Cada lección declara resultados, explicación, práctica, evidencia, fuentes y volatilidad editorial. La portada también ofrece una biblioteca ampliada de cursos especializados y rutas por objetivo: no deben confundirse con el temario del curso continuo.
 
 ## Temario canónico
 

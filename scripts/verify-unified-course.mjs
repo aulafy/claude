@@ -6,6 +6,7 @@ assert.equal(unifiedModules.length, 7, "The unified course must keep seven modul
 
 const ids = new Set();
 const titles = { es: new Set(), en: new Set() };
+const recoveredLessons = [];
 
 for (const module of unifiedModules) {
   const project = unifiedModuleProjects[module.id];
@@ -32,6 +33,10 @@ for (const module of unifiedModules) {
     assert.ok(lesson.explanation.length >= 2, `Lesson needs a compact explanation: ${lesson.id}`);
     assert.ok(lesson.sources.length >= 1, `Lesson needs a primary source: ${lesson.id}`);
     assert.ok(lesson.sources.every((key) => unifiedSources[key]), `Unknown source in lesson: ${lesson.id}`);
+    if (lesson.importedFrom) {
+      recoveredLessons.push({ moduleId: module.id, lesson });
+      assert.match(lesson.importedFrom.href, /backup\/aulafy-pre-documentacion-2026-08-04/, `Recovered lesson must link to the immutable backup: ${lesson.id}`);
+    }
 
     for (const locale of ["es", "en"]) {
       const title = lesson.title[locale].trim().toLocaleLowerCase(locale);
@@ -46,6 +51,14 @@ for (const module of unifiedModules) {
   }
 }
 
+assert.equal(ids.size - unifiedModules.length, 28, "The canonical course must contain 28 lessons");
+assert.equal(recoveredLessons.length, 7, "The backup import must recover exactly seven lessons");
+assert.deepEqual(
+  [...new Set(recoveredLessons.map(({ moduleId }) => moduleId))],
+  unifiedModules.map(({ id }) => id),
+  "Every module must receive one recovered lesson",
+);
+
 for (const [key, source] of Object.entries(unifiedSources)) {
   assert.ok(source.href.startsWith("https://"), `Source must use HTTPS: ${key}`);
   assert.ok(source.label.length >= 8, `Source needs a useful label: ${key}`);
@@ -56,6 +69,7 @@ assert.match(courseComponent, /id={`project-\${moduleId}`}/, "Module projects ne
 assert.match(courseComponent, /href={`#project-\${module\.id}`}/, "Lesson navigation must lead to module projects");
 assert.match(courseComponent, /<FirstWorkedExample/, "The course needs at least one worked example");
 assert.match(courseComponent, /"@type": "Course"/, "The canonical page needs Course structured data");
+assert.match(courseComponent, /item\.importedFrom/, "Recovered lessons need visible attribution");
 for (const trustPage of ["/fuentes", "/sobre-ramon-guillamon", "/privacidad"]) {
   assert.ok(courseComponent.includes(`href="${trustPage}"`), `Missing trust link: ${trustPage}`);
 }

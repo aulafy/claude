@@ -13,6 +13,8 @@ const coursesPage = fs.readFileSync("app/cursos/page.tsx", "utf8");
 const pathsPage = fs.readFileSync("components/LearningPathsPage.tsx", "utf8");
 const footer = fs.readFileSync("components/Footer.tsx", "utf8");
 const unifiedCourse = fs.readFileSync("components/UnifiedCourse.tsx", "utf8");
+const unifiedSpanishPage = fs.readFileSync("app/curso-ia/page.tsx", "utf8");
+const unifiedEnglishPage = fs.readFileSync("app/en/ai-course/page.tsx", "utf8");
 const spanishCourseCatalog = fs.readFileSync("app/cursos/page.tsx", "utf8");
 const englishCourseCatalog = fs.readFileSync("app/en/courses/page.tsx", "utf8");
 const spanishCoursePage = fs.readFileSync("app/cursos/[slug]/page.tsx", "utf8");
@@ -53,6 +55,10 @@ for (const coursePageSource of [spanishCoursePage, englishCoursePage]) {
 assert.match(unifiedCourse, /Biblioteca ampliada/, "The canonical course must link to its extended Spanish library");
 assert.match(unifiedCourse, /Extended library/, "The canonical English course must link to its extended library");
 assert.match(unifiedCourse, /hasPart:\s*unifiedModules\.map/, "The canonical Course schema must expose its modules");
+assert.match(home, /\/curso-ia/, "The restored homepage must expose the continuous course");
+assert.match(unifiedSpanishPage, /canonical:\s*"\/curso-ia"/, "The Spanish continuous course needs its own canonical");
+assert.match(unifiedEnglishPage, /canonical:\s*"\/en\/ai-course"/, "The English continuous course needs its own canonical");
+assert.match(seoIndex, /route:\s*"\/curso-ia"/, "The continuous course must be included in the SEO index");
 
 assert.match(sitemap, /getSeoIndexEntries\(\)/, "Sitemap must be generated from the SEO index");
 assert.match(sitemap, /alternates:\s*{\s*languages\s*}/, "Sitemap entries must include hreflang alternates");
