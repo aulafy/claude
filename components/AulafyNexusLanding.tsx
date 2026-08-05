@@ -130,14 +130,14 @@ const copy = {
         emoji: "🎓",
         title: "I am a student",
         text: "Study better, summarize, prepare exams and use AI without cheating.",
-        href: "/en/courses/ia-desde-cero",
+        href: "/en/ai-course#que-es-ia-generativa",
         action: "Study with AI",
       },
       {
         emoji: "🌱",
         title: "I start from zero",
         text: "I do not know which tool to use or what I can ask an AI.",
-        href: "/en/courses/ia-desde-cero",
+        href: "/en/ai-course#que-es-ia-generativa",
         action: "Do the first mission",
       },
     ],
@@ -149,7 +149,7 @@ const copy = {
         "Ask AI for a draft, not a final decision.",
         "Review the result and save what you changed.",
       ],
-      href: "/en/courses/ia-desde-cero",
+      href: "/en/ai-course#que-es-ia-generativa",
       action: "Open guided mission",
     },
     roadmapTitle: "Quick roadmap",
@@ -171,7 +171,7 @@ const copy = {
     pathTitle: "You do not need to learn everything.",
     pathLead: "Follow the level that fits you today. Advanced topics can wait.",
     levels: [
-      { number: "1", label: "Start", title: "Understand and use AI", text: "For anyone new to assistants or unsure what should be delegated.", result: "A useful, verified first task", href: "/en/courses/ia-desde-cero", action: "Start from zero" },
+      { number: "1", label: "Start", title: "Understand and use AI", text: "For anyone new to assistants or unsure what should be delegated.", result: "A useful, verified first task", href: "/en/ai-course#que-es-ia-generativa", action: "Start from zero" },
       { number: "2", label: "Build", title: "Solve a real problem", text: "Choose work, study, web creation or coding and build a small project.", result: "A project you can show", href: "/en/paths", action: "Choose an outcome" },
       { number: "3", label: "Deepen", title: "Design reliable systems", text: "RAG, agents, local models, security and operations for technical learners.", result: "A tested, maintainable system", href: "/en/paths", action: "View advanced paths" },
     ],
@@ -339,7 +339,7 @@ export default function AulafyNexusLanding({ courseCount, lessonCount, locale = 
       <footer className={styles.footer}>
         <p>{text.footer}</p>
         <nav aria-label={english ? "Project information" : "Información del proyecto"}>
-          <Link href={english ? "/en/courses/codex-from-zero" : "/curso-codex-espanol"}>Codex</Link>
+          <Link href={english ? "/en/courses/codex-programadores" : "/curso-codex-espanol"}>Codex</Link>
           <Link href="/fuentes">{text.sources}</Link>
           <Link href="/acerca">{text.about}</Link>
           <a href="https://github.com/aulafy/claude" target="_blank" rel="noreferrer">GitHub</a>
