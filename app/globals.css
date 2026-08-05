@@ -18,7 +18,7 @@
   --brand-fuchsia: #6754d9;
   --brand-cyan: #0f8f8a;
   --font-ui: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-reading: Georgia, "Times New Roman", serif;
+  --font-reading: var(--font-source-serif), Georgia, "Times New Roman", serif;
   --font-code: var(--font-geist-mono), "JetBrains Mono", "Fira Code", Consolas, monospace;
   --signal-amber: #a76714;
   --signal-cyan: #0f8f8a;

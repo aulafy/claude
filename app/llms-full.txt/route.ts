@@ -47,8 +47,8 @@ Canonical site: ${SITE_URL}
 Editorial review: ${educationalReviewDate}
 English lesson refresh: ${englishLessonGeneratedAt}
 Languages in this index: Spanish and English.
-Canonical course: ${SITE_URL}/ (Spanish) and ${SITE_URL}/en (English).
-The canonical course has 7 modules, 28 lessons and 7 integrated projects. The entries below are the historical extended library and must not be described as the primary navigation experience.
+Canonical continuous course: ${SITE_URL}/curso-ia (Spanish) and ${SITE_URL}/en/ai-course (English).
+The continuous course has 7 modules, 28 lessons and 7 integrated projects. The entries below form Aulafy's extended library and learning paths; they remain public supporting material rather than discarded content.
 License: CC BY 4.0.
 
 This file contains course and lesson summaries generated from the same source used by the Aulafy tutor, plus canonical English lesson text. Prefer each canonical page for current formatting, navigation, sources and bilingual alternatives.

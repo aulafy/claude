@@ -32,12 +32,12 @@ const copy = {
 export default function UnifiedCourse({ locale = "es" }: { locale?: CourseLocale }) {
   const text = copy[locale];
   const lessons = unifiedModules.flatMap((module) => module.lessons);
-  const languageHref = locale === "es" ? "/en" : "/";
+  const languageHref = locale === "es" ? "/en/ai-course" : "/curso-ia";
   const siteUrl = "https://www.aulafy.net";
   const courseSchema = {
     "@context": "https://schema.org", "@type": "Course",
     name: locale === "es" ? "Curso completo de inteligencia artificial" : "Complete artificial intelligence course",
-    description: text.lead, url: `${siteUrl}${locale === "es" ? "/" : "/en"}`, inLanguage: locale,
+    description: text.lead, url: `${siteUrl}${locale === "es" ? "/curso-ia" : "/en/ai-course"}`, inLanguage: locale,
     isAccessibleForFree: true,
     provider: { "@type": "EducationalOrganization", name: "Aulafy", url: siteUrl },
     author: { "@type": "Person", name: "Ramón Guillamón", url: `${siteUrl}/sobre-ramon-guillamon` },
@@ -47,7 +47,7 @@ export default function UnifiedCourse({ locale = "es" }: { locale?: CourseLocale
     hasPart: unifiedModules.map((module) => ({
       "@type": "LearningResource",
       name: localized(module.title, locale),
-      url: `${siteUrl}${locale === "es" ? "/" : "/en"}#${module.id}`,
+      url: `${siteUrl}${locale === "es" ? "/curso-ia" : "/en/ai-course"}#${module.id}`,
       inLanguage: locale,
       learningResourceType: locale === "es" ? "Módulo" : "Module",
     })),

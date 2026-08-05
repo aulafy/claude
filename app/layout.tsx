@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Sora } from "next/font/google";
+import { Geist_Mono, Manrope, Source_Serif_4 } from "next/font/google";
 import Shell from "@/components/Shell";
 import "./globals.css";
 import "./fontawesome.css";
 
-const geistSans = Geist({
+const manrope = Manrope({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
@@ -14,10 +14,14 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const sora = Sora({
+const display = Manrope({
   variable: "--font-sora",
   subsets: ["latin"],
-  weight: ["400", "600", "700", "800"],
+});
+
+const sourceSerif = Source_Serif_4({
+  variable: "--font-source-serif",
+  subsets: ["latin"],
 });
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
@@ -259,7 +263,7 @@ export default function RootLayout({
     <html
       lang="es"
       suppressHydrationWarning
-      className={`dark ${geistSans.variable} ${geistMono.variable} ${sora.variable} antialiased`}
+      className={`dark ${manrope.variable} ${geistMono.variable} ${display.variable} ${sourceSerif.variable} antialiased`}
     >
       <body className="min-h-screen bg-zinc-950 text-zinc-200">
         <script
