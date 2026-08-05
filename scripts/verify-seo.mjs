@@ -75,6 +75,8 @@ for (const blockedPath of ["/api/", "/auth/", "/course/"]) {
 for (const kind of ["core", "courses", "english", "blog", "landings", "documents"]) {
   assert.ok(sitemapIndex.includes(`/sitemaps/${kind}.xml`), `Sitemap index must list ${kind}.xml`);
 }
+assert.match(sitemapIndex, /<lastmod>/, "Sitemap index entries must expose truthful modification dates when available");
+assert.match(sitemapIndex, /getSeoEntriesByKind/, "Sitemap index dates must derive from indexed content");
 
 const canonicalMatches = [...seoStrategy.matchAll(/canonical:\s*"([^"]+)"/g)].map((match) => match[1]);
 assert.equal(new Set(canonicalMatches).size, canonicalMatches.length, "Every Spanish search intent must own a unique canonical URL");

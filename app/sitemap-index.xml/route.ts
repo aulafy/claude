@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { SITE_URL, type SeoIndexKind } from "@/lib/seo-index";
+import { getSeoEntriesByKind, SITE_URL, type SeoIndexKind } from "@/lib/seo-index";
 
 const SITEMAPS: Array<{ kind: SeoIndexKind; route: string }> = [
   { kind: "core", route: "/sitemaps/core.xml" },
@@ -15,10 +15,20 @@ function escapeXml(value: string) {
 }
 
 export function GET() {
-  const body = SITEMAPS.map(
-    (item) =>
-      `<sitemap><loc>${escapeXml(`${SITE_URL}${item.route}`)}</loc></sitemap>`,
-  ).join("");
+  const body = SITEMAPS.map((item) => {
+    const dates = getSeoEntriesByKind(item.kind)
+      .map((entry) => entry.lastModified)
+      .filter((date): date is string => Boolean(date))
+      .sort();
+    const latest = dates.at(-1);
+
+    return [
+      "<sitemap>",
+      `<loc>${escapeXml(`${SITE_URL}${item.route}`)}</loc>`,
+      latest ? `<lastmod>${escapeXml(new Date(latest).toISOString())}</lastmod>` : "",
+      "</sitemap>",
+    ].join("");
+  }).join("");
 
   return new NextResponse(
     `<?xml version="1.0" encoding="UTF-8"?><sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${body}</sitemapindex>`,

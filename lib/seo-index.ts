@@ -42,6 +42,7 @@ const coreEntries: SeoIndexEntry[] = [
     kind: "core",
     priority: 1,
     changeFrequency: "weekly",
+    lastModified: "2026-08-05",
     alternateRoute: "/en",
   },
   {
@@ -52,6 +53,7 @@ const coreEntries: SeoIndexEntry[] = [
     kind: "english",
     priority: 0.98,
     changeFrequency: "weekly",
+    lastModified: "2026-08-05",
     alternateRoute: "",
   },
   {
@@ -62,6 +64,7 @@ const coreEntries: SeoIndexEntry[] = [
     kind: "core",
     priority: 0.98,
     changeFrequency: "weekly",
+    lastModified: "2026-08-05",
     alternateRoute: "/en/ai-course",
   },
   {
@@ -72,6 +75,7 @@ const coreEntries: SeoIndexEntry[] = [
     kind: "english",
     priority: 0.97,
     changeFrequency: "weekly",
+    lastModified: "2026-08-05",
     alternateRoute: "/curso-ia",
   },
   {
@@ -82,6 +86,7 @@ const coreEntries: SeoIndexEntry[] = [
     kind: "courses",
     priority: 0.95,
     changeFrequency: "weekly",
+    lastModified: "2026-08-05",
     alternateRoute: "/en/courses",
   },
   {
@@ -112,6 +117,7 @@ const coreEntries: SeoIndexEntry[] = [
     kind: "english",
     priority: 0.93,
     changeFrequency: "weekly",
+    lastModified: "2026-08-05",
     alternateRoute: "/cursos",
   },
   {
@@ -141,7 +147,7 @@ const coreEntries: SeoIndexEntry[] = [
     kind: "documents",
     priority: 0.9,
     changeFrequency: "weekly",
-    lastModified: "2026-08-04",
+    lastModified: "2026-08-05",
   },
   {
     route: "/proyectos",
