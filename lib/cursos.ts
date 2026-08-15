@@ -47,8 +47,10 @@ export const cursos: Curso[] = [
     short: "Agentes open source con plugins, sesiones y modelos locales",
     desc: "Entiende el harness de agentes de DeepSeek, instala DSH con seguridad, conecta modelos cloud o locales y aprende a diseñar flujos auditables con plugins, workspaces y subagentes.",
     level: "Principiante → avanzado",
+    updatedAt: "2026-08-15",
     icon: "terminal",
     gradient: ["#0f766e", "#2563eb"],
+    availableInEnglish: true,
     secciones: [
       {
         title: "Las diez fases",
