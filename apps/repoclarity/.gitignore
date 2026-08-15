@@ -1,0 +1,12 @@
+node_modules/
+.DS_Store
+.env
+.env.*
+cache/
+mirrors/
+github-repos/
+reports/
+inventory/
+bin/
+npm-debug.log*
+

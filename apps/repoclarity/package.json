@@ -1,0 +1,13 @@
+{
+  "name": "repoclarity",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "sanitize": "node scripts/sanitize-public-data.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "three": "^0.165.0"
+  }
+}

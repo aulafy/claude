@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RepoClarity</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">RC</div>
+        <div>
+          <p>Anti-graveyard</p>
+          <h1>RepoClarity</h1>
+        </div>
+      </div>
+      <label class="search">
+        <span>Buscar</span>
+        <input id="filterInput" type="search" placeholder="rag, aula, agent..." />
+      </label>
+      <nav id="projectNav" class="project-nav"></nav>
+    </aside>
+
+    <main class="workspace">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">RepoClarity</p>
+          <h2 id="pageTitle">Limpia tu cementerio de prototipos IA</h2>
+        </div>
+        <div class="top-actions">
+          <button id="refreshBtn" type="button" title="Recargar datos">Recargar</button>
+          <a class="button-link" href="/landing.html" title="Abrir landing">Landing</a>
+          <a class="button-link" href="#pymeRadar" title="Ir al radar PYME">PYME Radar</a>
+        </div>
+      </header>
+
+      <section class="metrics-grid" id="metricsGrid"></section>
+
+      <section class="beta-panel" id="betaFlow">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Beta privada</p>
+            <h3>Flujo de 5 minutos</h3>
+          </div>
+          <span id="betaModeTag" class="tag">demo local</span>
+        </div>
+        <div class="beta-grid">
+          <article class="beta-step">
+            <span>1</span>
+            <strong>Demo dataset</strong>
+            <p>156 proyectos, 43 Decision Cards y benchmarks OSS ya cargados.</p>
+            <button id="demoModeBtn" class="primary-button" type="button">Cargar demo</button>
+          </article>
+          <article class="beta-step">
+            <span>2</span>
+            <strong>Focus Brief</strong>
+            <p>Top acciones para decidir que construir, fusionar o archivar.</p>
+            <button id="exportFocusBtn" type="button">Exportar TXT</button>
+          </article>
+          <article class="beta-step">
+            <span>3</span>
+            <strong>Decision Cards</strong>
+            <p>Recomendaciones con confianza, evidencia y benchmarks externos.</p>
+            <button id="exportDecisionsBtn" type="button">Exportar Markdown</button>
+          </article>
+          <article class="beta-step">
+            <span>4</span>
+            <strong>Feedback beta</strong>
+            <p>Senal rapida: utilidad, accion tomada y friccion principal.</p>
+            <button id="openFeedbackBtn" type="button">Dar feedback</button>
+          </article>
+        </div>
+        <div id="betaStatus" class="beta-status">Listo para demo privada con datos reales de raym33.</div>
+      </section>
+
+      <section class="focus-panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Focus brief</p>
+            <h3>Top acciones para convertir esto en producto</h3>
+          </div>
+          <span class="tag">primer aha</span>
+        </div>
+        <div id="focusBrief" class="focus-list"></div>
+      </section>
+
+      <section class="pyme-panel" id="pymeRadar">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">AI Transition Radar</p>
+            <h3>Evaluacion segura para PYMEs con legacy</h3>
+          </div>
+          <button id="exportPymeBtn" type="button">Exportar informe PYME</button>
+        </div>
+        <div class="pyme-hero">
+          <div class="readiness-score">
+            <span id="pymeScore">--</span>
+            <small id="pymePosture">calculando</small>
+          </div>
+          <div>
+            <p id="pymeSummary" class="summary"></p>
+            <strong id="pymePrinciple" class="pyme-principle"></strong>
+          </div>
+        </div>
+        <div id="pymeDimensions" class="pyme-dimensions"></div>
+        <div class="panel-head compact">
+          <div>
+            <p class="eyebrow">Playbooks</p>
+            <h3>Que software construir primero</h3>
+          </div>
+        </div>
+        <div id="pymePlaybooks" class="pyme-playbooks"></div>
+        <div class="panel-head compact">
+          <div>
+            <p class="eyebrow">Workshop inicial</p>
+            <h3>Checklist antes de tocar produccion</h3>
+          </div>
+        </div>
+        <ol id="pymeWorkshop" class="pyme-workshop"></ol>
+      </section>
+
+      <section id="feedbackPanel" class="feedback-panel is-hidden">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Feedback beta</p>
+            <h3>Despues del primer Focus Brief</h3>
+          </div>
+          <span class="tag">v0.1</span>
+        </div>
+        <form id="feedbackForm" class="feedback-form">
+          <label>
+            <span>Utilidad Decision Cards</span>
+            <select id="feedbackScore">
+              <option value="5">5 - muy util</option>
+              <option value="4">4 - util</option>
+              <option value="3">3 - interesante</option>
+              <option value="2">2 - poco claro</option>
+              <option value="1">1 - no sirve</option>
+            </select>
+          </label>
+          <label>
+            <span>Accion probable</span>
+            <select id="feedbackAction">
+              <option value="build">Build</option>
+              <option value="merge">Merge</option>
+              <option value="archive">Archive</option>
+              <option value="audit">Audit</option>
+              <option value="none">Ninguna</option>
+            </select>
+          </label>
+          <label>
+            <span>Repos conectados</span>
+            <input id="feedbackRepos" type="number" min="0" value="156" />
+          </label>
+          <label class="feedback-wide">
+            <span>Friccion principal</span>
+            <input id="feedbackFriction" type="text" placeholder="Que te impediria usarlo cada semana..." />
+          </label>
+          <label class="feedback-wide">
+            <span>Comentario</span>
+            <textarea id="feedbackComment" rows="4" placeholder="Que Decision Card te hizo cambiar de opinion y por que..."></textarea>
+          </label>
+          <div class="feedback-actions">
+            <button class="primary-button" type="submit">Guardar feedback TXT</button>
+            <button id="closeFeedbackBtn" type="button">Cerrar</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="decision-panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Decision engine</p>
+            <h3>Build / merge / differentiate / archive</h3>
+          </div>
+          <span id="decisionSummary" class="tag"></span>
+        </div>
+        <div class="decision-tabs">
+          <button class="decision-tab is-active" type="button" data-action="all">Todo</button>
+          <button class="decision-tab" type="button" data-action="build">Build</button>
+          <button class="decision-tab" type="button" data-action="merge/reuse">Merge</button>
+          <button class="decision-tab" type="button" data-action="archive">Archive</button>
+          <button class="decision-tab" type="button" data-action="audit">Audit</button>
+        </div>
+        <div id="decisionList" class="decision-list"></div>
+      </section>
+
+      <section class="graph-panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Grafo 3D</p>
+            <h3>Esfera de sinergias</h3>
+          </div>
+          <div class="graph-controls">
+            <button id="graphRotateBtn" type="button">Rotar</button>
+            <button id="graphResetBtn" type="button">Centrar</button>
+          </div>
+        </div>
+        <div class="graph-layout">
+          <div id="graph3d" class="graph-canvas"></div>
+          <aside class="graph-info">
+            <span id="graphTopic" class="tag">clusters</span>
+            <h4 id="graphNodeName">Selecciona un nodo</h4>
+            <p id="graphNodeDescription">Los enlaces indican similitud por nombre, tema, descripción o dependencias. Los nodos grandes suelen tener más código o más peso.</p>
+            <div id="graphLegend" class="graph-legend"></div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="layout">
+        <article class="project-panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Proyecto seleccionado</p>
+              <h3 id="projectName">Cargando...</h3>
+            </div>
+            <span id="projectTag" class="tag"></span>
+          </div>
+          <p id="projectSummary" class="summary"></p>
+          <div class="detail-grid">
+            <div>
+              <span>Alias</span>
+              <strong id="projectAlias"></strong>
+            </div>
+            <div>
+              <span>Archivos indexados</span>
+              <strong id="projectFiles"></strong>
+            </div>
+            <div>
+              <span>Nodos</span>
+              <strong id="projectNodes"></strong>
+            </div>
+            <div>
+              <span>Aristas</span>
+              <strong id="projectEdges"></strong>
+            </div>
+          </div>
+          <div class="paths">
+            <code id="originalPath"></code>
+            <code id="mirrorPath"></code>
+          </div>
+        </article>
+
+        <article class="chart-panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Estructura</p>
+              <h3>Tipos de nodos</h3>
+            </div>
+          </div>
+          <div id="labelChart" class="bar-list"></div>
+        </article>
+      </section>
+
+      <section class="layout lower">
+        <article class="chart-panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Relaciones</p>
+              <h3>Tipos de aristas</h3>
+            </div>
+          </div>
+          <div id="edgeChart" class="bar-list"></div>
+        </article>
+
+        <article class="table-panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Hotspots</p>
+              <h3>Archivos con más nodos</h3>
+            </div>
+          </div>
+          <div id="topFiles" class="file-list"></div>
+        </article>
+      </section>
+
+      <section class="search-panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Consulta MCP</p>
+            <h3>Búsqueda en código del proyecto seleccionado</h3>
+          </div>
+        </div>
+        <form id="codeSearchForm" class="code-search">
+          <input id="codeSearchInput" type="search" placeholder="BioBook, FastAPI, embedding, lesson..." />
+          <button type="submit">Buscar</button>
+        </form>
+        <div id="searchResults" class="results"></div>
+      </section>
+
+      <section class="fusion-panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Partes comunes</p>
+            <h3>Candidatos de fusión o reutilización</h3>
+          </div>
+          <span id="fusionSummary" class="tag"></span>
+        </div>
+        <div id="fusionList" class="fusion-list"></div>
+      </section>
+
+      <section class="market-panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Radar mercado</p>
+            <h3>Apps posibles combinando repos + benchmarks externos</h3>
+          </div>
+          <span id="marketSummary" class="tag"></span>
+        </div>
+        <div id="opportunityList" class="opportunity-list"></div>
+      </section>
+
+      <section class="github-panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">GitHub raym33</p>
+            <h3>Repos abiertos y privados</h3>
+          </div>
+          <span id="githubSummary" class="tag"></span>
+        </div>
+        <div class="github-tools">
+          <input id="githubFilter" type="search" placeholder="Filtrar repos GitHub..." />
+          <select id="githubStatus">
+            <option value="all">Todos</option>
+            <option value="cloned">Clonados</option>
+            <option value="heavy">Pesados</option>
+            <option value="empty">Vacíos</option>
+            <option value="PRIVATE">Privados</option>
+            <option value="PUBLIC">Públicos</option>
+          </select>
+        </div>
+        <div id="githubRepos" class="repo-table"></div>
+      </section>
+    </main>
+
+    <div id="drawerBackdrop" class="drawer-backdrop is-hidden"></div>
+    <aside id="decisionDrawer" class="decision-drawer is-hidden" aria-label="Detalle Decision Card">
+      <div class="drawer-head">
+        <div>
+          <p class="eyebrow">Decision Card</p>
+          <h3 id="drawerTitle">Selecciona una decision</h3>
+        </div>
+        <button id="closeDrawerBtn" type="button">Cerrar</button>
+      </div>
+      <div class="drawer-meta">
+        <span id="drawerAction" class="decision-action">action</span>
+        <span id="drawerConfidence" class="tag">confianza</span>
+      </div>
+      <p id="drawerRationale" class="drawer-rationale"></p>
+
+      <div class="drawer-section">
+        <h4>Evidencia</h4>
+        <div id="drawerEvidence" class="decision-evidence"></div>
+      </div>
+
+      <div class="drawer-section">
+        <h4>Contexto relacionado</h4>
+        <div id="drawerContext" class="drawer-context"></div>
+      </div>
+
+      <div class="drawer-section">
+        <h4>Proximos pasos</h4>
+        <ol id="drawerNextSteps" class="next-steps"></ol>
+      </div>
+
+      <div class="drawer-actions">
+        <button id="exportSingleDecisionBtn" class="primary-button" type="button">Exportar card</button>
+        <button id="copyDecisionBtn" type="button">Copiar resumen</button>
+      </div>
+    </aside>
+
+    <script type="module" src="./graph.js"></script>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

@@ -42,6 +42,32 @@ const courseCatalogUpdatedAt = "2026-07-18";
 
 export const cursos: Curso[] = [
   {
+    slug: "deepseek-harness",
+    title: "DeepSeek Harness (DSH), de cero a experto",
+    short: "Agentes open source con plugins, sesiones y modelos locales",
+    desc: "Entiende el harness de agentes de DeepSeek, instala DSH con seguridad, conecta modelos cloud o locales y aprende a diseñar flujos auditables con plugins, workspaces y subagentes.",
+    level: "Principiante → avanzado",
+    icon: "terminal",
+    gradient: ["#0f766e", "#2563eb"],
+    secciones: [
+      {
+        title: "Las diez fases",
+        lecciones: [
+          { slug: "introduccion", title: "1. Qué es DSH y por qué importa" },
+          { slug: "instalacion", title: "2. Instalación y primera sesión segura" },
+          { slug: "modelos", title: "3. Modelos cloud, Ollama y hardware" },
+          { slug: "modos", title: "4. Modos de ejecución" },
+          { slug: "workspaces", title: "5. Workspaces y permisos" },
+          { slug: "plugins", title: "6. Plugins y perfiles" },
+          { slug: "subagentes", title: "7. Subagentes y skills" },
+          { slug: "modelos-locales", title: "8. Modelos locales y cuantización" },
+          { slug: "casos-de-uso", title: "9. Casos de uso y benchmarks" },
+          { slug: "produccion", title: "10. Troubleshooting y producción" },
+        ],
+      },
+    ],
+  },
+  {
     slug: "ia-docentes-educacion",
     title: "IA para docentes y educación",
     short: "Planifica, adapta y evalúa con IA sin delegar el criterio docente",
