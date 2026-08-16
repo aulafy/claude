@@ -25,7 +25,7 @@ export default function Page() {
         <ul>
           <li>Understand the difference between a model and the harness around it.</li>
           <li>Understand plugins, profiles, sessions, workspaces and subagents.</li>
-          <li>Choose API or local models based on privacy, cost and hardware.</li>
+          <li>Understand why Cordis, modes and the Trajectory are the differentiating layer.</li>
         </ul>
       </Objetivos>
 
@@ -56,21 +56,9 @@ Harness: tools, permissions, sessions and traceability`}</Terminal>
       </Idea>
 
       <div className="prose">
-        <h2>Cloud and local</h2>
-        <p>You can start with a cloud provider for speed, then connect an OpenAI-compatible endpoint such as Ollama to test local models. On a 24 GB GPU, smaller or distilled models are usually the realistic choice; very large models may run with SSD offloading, but often too slowly for fluid conversation.</p>
-        <p>The right choice depends on the task: privacy and cost favour local models, while speed, context and peak capability may favour an API. Measure the complete result, not tokens per second alone.</p>
-      </div>
-
-      <div className="prose">
-        <h2>Prior routes worth reading first</h2>
-        <ul>
-          <li><a href="/cursos/ia-local/ollama-desde-cero">Ollama from zero</a>.</li>
-          <li><a href="/cursos/ia-local/conectar-ollama">Connect Claude Code with your local AI</a>.</li>
-          <li><a href="/cursos/ia-local/troubleshooting-ollama">Fix Ollama errors</a>.</li>
-          <li><a href="/cursos/ia-local/ollama-gpu-windows">Ollama not using the GPU on Windows</a>.</li>
-          <li><a href="/cursos/ia-pymes/ollama-piloto-seguro">Ollama for SMEs: safe local pilot</a>.</li>
-        </ul>
-        <p>Those pages cover the operating basics; this DSH series starts after that and turns the knowledge into a controllable, auditable agent harness.</p>
+        <h2>Why it matters</h2>
+        <p>DSH is not a local-model tutorial. It is a way to turn a DeepSeek model into an observable agent: execution modes, permissions, plugins, profiles, skills, subagents and a Trajectory that lets you review what happened.</p>
+        <p>This series focuses on the harness. When local models appear, they appear only from the DSH perspective: which provider to select, how to measure and when the official API is still the better choice.</p>
       </div>
 
       <div className="prose">
@@ -78,12 +66,12 @@ Harness: tools, permissions, sessions and traceability`}</Terminal>
         <ol>
           <li>Introduction and architecture.</li>
           <li>Installation and a read-only first session.</li>
-          <li>Official models, providers and Ollama.</li>
+          <li>DeepSeek models, providers and cost.</li>
           <li>Standard, Code/PTC, Minimal and Creator modes.</li>
           <li>Workspaces, permissions and security.</li>
           <li>Plugins and custom profiles.</li>
           <li>Subagents, skills and orchestration.</li>
-          <li>Quantization and local models.</li>
+          <li>Local DeepSeek models and quantization.</li>
           <li>Use cases, metrics and benchmarks.</li>
           <li>Troubleshooting and production.</li>
         </ol>

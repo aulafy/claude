@@ -26,7 +26,7 @@ export default function Page() {
         <ul>
           <li>Distinguir entre el modelo y el harness que lo convierte en agente.</li>
           <li>Entender plugins, perfiles, sesiones, workspaces y subagentes.</li>
-          <li>Elegir entre API y modelos locales según privacidad, coste y hardware.</li>
+          <li>Entender por qué Cordis, los modos y el Trajectory son la parte diferencial.</li>
         </ul>
       </Objetivos>
 
@@ -57,21 +57,9 @@ Harness: herramientas, permisos, sesiones y trazabilidad`}</Terminal>
       </Idea>
 
       <div className="prose">
-        <h2>Cloud y local</h2>
-        <p>Puedes empezar con un proveedor cloud para obtener mejor velocidad y después conectar un endpoint compatible con OpenAI, como Ollama, para probar modelos locales. En una GPU de 24 GB suelen ser más realistas los modelos pequeños o destilados; los modelos muy grandes con offload a SSD pueden funcionar, pero con una latencia demasiado alta para una conversación fluida.</p>
-        <p>La decisión correcta depende de la tarea: privacidad y coste favorecen lo local; velocidad, contexto y capacidad máxima pueden favorecer una API. Mide el resultado completo, no solo los tokens por segundo.</p>
-      </div>
-
-      <div className="prose">
-        <h2>Rutas previas que conviene leer antes</h2>
-        <ul>
-          <li><a href="/cursos/ia-local/ollama-desde-cero">Ollama desde cero</a>.</li>
-          <li><a href="/cursos/ia-local/conectar-ollama">Conecta Claude Code con tu IA local</a>.</li>
-          <li><a href="/cursos/ia-local/troubleshooting-ollama">Soluciona errores de Ollama</a>.</li>
-          <li><a href="/cursos/ia-local/ollama-gpu-windows">Ollama no usa la GPU en Windows</a>.</li>
-          <li><a href="/cursos/ia-pymes/ollama-piloto-seguro">Ollama para pymes: prueba local, segura y medible</a>.</li>
-        </ul>
-        <p>Esas páginas ya cubren la base operativa; esta serie de DSH entra después para convertir ese conocimiento en un harness de agentes controlable y auditable.</p>
+        <h2>Por qué importa</h2>
+        <p>DSH no es un tutorial de modelos locales. Es una forma de convertir un modelo DeepSeek en un agente observable: con modos de ejecución, permisos, plugins, perfiles, skills, subagentes y un Trajectory que permite revisar qué ocurrió.</p>
+        <p>La serie se centra en el harness. Cuando hablemos de modelos locales, será solo desde la perspectiva de DSH: qué proveedor seleccionar, cómo medir y cuándo no compensa frente a la API oficial.</p>
       </div>
 
       <div className="prose">
@@ -79,12 +67,12 @@ Harness: herramientas, permisos, sesiones y trazabilidad`}</Terminal>
         <ol>
           <li>Introducción y arquitectura.</li>
           <li>Instalación y primera sesión de solo lectura.</li>
-          <li>Modelos oficiales, proveedores y Ollama.</li>
+          <li>Modelos DeepSeek, proveedores y coste.</li>
           <li>Standard, Code/PTC, Minimal y Creator.</li>
           <li>Workspaces, permisos y seguridad.</li>
           <li>Plugins y perfiles personalizados.</li>
           <li>Subagentes, skills y orquestación.</li>
-          <li>Cuantización y modelos locales.</li>
+          <li>Modelos DeepSeek locales y cuantización.</li>
           <li>Casos de uso, métricas y benchmarks.</li>
           <li>Problemas frecuentes y producción.</li>
         </ol>
