@@ -13,6 +13,33 @@ export type CourseGuidance = {
 const updated = "2026-07-10";
 
 const guidanceEs: Record<string, CourseGuidance> = {
+  "deepseek-harness": {
+    track: "Programación con agentes",
+    audience: "Personas técnicas que quieren aprender DeepSeek Harness desde la primera sesión hasta flujos con plugins, subagentes y operación controlada.",
+    prerequisites: ["Manejo básico de terminal", "Un proyecto pequeño o carpeta de prueba sin datos sensibles"],
+    outcomes: ["Instalar y configurar DSH con permisos acotados", "Elegir modelos, modos y workspaces según coste y riesgo", "Extender el harness con plugins y subagentes verificables"],
+    deliverable: "Un workspace de DeepSeek Harness documentado, con modelo elegido, permisos explícitos, una tarea reproducible y comprobaciones de producción.",
+    estimatedHours: 8,
+    updated: "2026-08-15",
+  },
+  "ia-docentes-educacion": {
+    track: "Aplicaciones prácticas",
+    audience: "Docentes, equipos de orientación y responsables de centro que quieren usar IA sin delegar objetivos pedagógicos, evaluación ni protección de menores.",
+    prerequisites: ["Una actividad o unidad didáctica para revisar", "Acceso a materiales ficticios o autorizados para practicar"],
+    outcomes: ["Diseñar materiales y adaptaciones con un objetivo observable", "Proteger datos y exigir fuentes antes de usar resultados", "Preparar evaluación, feedback y una política de aula revisables"],
+    deliverable: "Un proyecto de aula con materiales, rúbrica, reglas de privacidad, evidencias de revisión y un piloto acordado por el equipo.",
+    estimatedHours: 12,
+    updated: "2026-08-04",
+  },
+  "ia-datos-analitica": {
+    track: "Aplicaciones prácticas",
+    audience: "Analistas, profesionales de operaciones y personas con hojas de cálculo que quieren construir asistentes locales sin ocultar consultas ni decisiones sobre los datos.",
+    prerequisites: ["Un CSV o Excel de prueba sin información sensible", "Python básico o disposición para seguir comandos guiados"],
+    outcomes: ["Cargar y perfilar datos sin perder tipos ni trazabilidad", "Crear consultas SQL y transformaciones visibles y verificables", "Entregar un dashboard local con pruebas, fuentes y modo degradado"],
+    deliverable: "Un asistente analítico local con dataset documentado, consultas auditables, evaluación de respuestas, dashboard y checklist de entrega.",
+    estimatedHours: 14,
+    updated: "2026-08-04",
+  },
   "ia-desde-cero": {
     track: "Alfabetización práctica en IA",
     audience: "Cualquier persona que quiere entender y usar IA generativa con criterio antes de elegir una herramienta, una automatización o una ruta técnica.",

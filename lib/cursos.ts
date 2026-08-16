@@ -53,13 +53,18 @@ export const cursos: Curso[] = [
     availableInEnglish: true,
     secciones: [
       {
-        title: "Las diez fases",
+        title: "Fundamentos y control del entorno",
         lecciones: [
           { slug: "introduccion", title: "1. Qué es DSH y por qué importa" },
           { slug: "instalacion", title: "2. Instalación y primera sesión segura" },
           { slug: "modelos", title: "3. Modelos DeepSeek, proveedores y coste" },
           { slug: "modos", title: "4. Modos de ejecución" },
           { slug: "workspaces", title: "5. Workspaces y permisos" },
+        ],
+      },
+      {
+        title: "Extensión, colaboración y producción",
+        lecciones: [
           { slug: "plugins", title: "6. Plugins y perfiles" },
           { slug: "subagentes", title: "7. Subagentes y skills" },
           { slug: "modelos-locales", title: "8. Modelos DeepSeek locales y cuantización" },
@@ -571,7 +576,7 @@ export const cursos: Curso[] = [
     short: "Domina la CLI de IA de Anthropic",
     desc: "Aprende a construir software y aplicaciones hablando con la IA en tu terminal: instalación, recetas, proyectos guiados, skills, subagentes, MCP y flujos profesionales.",
     level: "Principiante → avanzado",
-    updatedAt: courseCatalogUpdatedAt,
+    updatedAt: "2026-08-16",
     icon: "terminal",
     gradient: ["#e879f9", "#8b5cf6"],
     pdf: "/guia-claude-code.pdf",

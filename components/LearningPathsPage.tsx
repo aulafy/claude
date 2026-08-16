@@ -118,7 +118,7 @@ export default function LearningPathsPage({ locale, initialProfile, initialPath 
         )}
       </header>
 
-      {locale === "es" && <LearningPathFinder initialProfile={initialProfile} />}
+      <LearningPathFinder initialProfile={initialProfile} locale={locale} />
 
       <section aria-labelledby="starting-paths-title">
         <span className="aula-section-label"><Icon name="rocket" /> Recomendadas</span>

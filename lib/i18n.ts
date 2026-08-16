@@ -9,6 +9,11 @@ export function isCourseAvailableInLocale(course: Curso, locale: Locale) {
 type CourseCopy = Pick<Curso, "title" | "short" | "desc">;
 
 const englishCourseCopy: Record<string, CourseCopy> = {
+  "deepseek-harness": {
+    title: "DeepSeek Harness (DSH), from zero to expert",
+    short: "Open-source agents with Cordis, plugins, sessions, and profiles.",
+    desc: "Understand DeepSeek's agent harness, install DSH safely, configure DeepSeek models, and design auditable workflows with modes, plugins, workspaces, subagents, metrics, and profiles.",
+  },
   "fundamentos-aulafy": {
     title: "Aulafy foundations",
     short: "Python, Git, terminal, and Docker for learning AI smoothly.",

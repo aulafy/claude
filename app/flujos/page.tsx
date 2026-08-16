@@ -26,6 +26,7 @@ export default function Flujos() {
           cuando de quien lo exprime de verdad: planificar antes de actuar, deshacer
           sin miedo y trabajar en paralelo.
         </p>
+        <p className="mt-3 text-sm text-zinc-500">Revisado el 16 de agosto de 2026 · Claude Code v2.1.233</p>
       </div>
 
       <div className="prose">
@@ -81,6 +82,7 @@ export default function Flujos() {
         <p>
           Controla cómo responde Claude Code, útil sobre todo para scripts y automatizaciones:
         </p>
+
         <pre><code>{`# Salida en texto normal (por defecto)
 claude -p "resume los cambios" --output-format text
 
@@ -92,6 +94,24 @@ claude -p "analiza el repo" --output-format stream-json`}</code></pre>
         <p>
           También puedes definir estilos personalizados (p. ej. un modo "explicativo"
           que enseñe más, ideal para aprender) mediante la configuración o el system prompt.
+        </p>
+
+        <SectionHeading icon="chat">Mensajes entre sesiones</SectionHeading>
+        <p>
+          Claude Code v2.1.232 permite escribir <code>@</code> en el prompt y mencionar
+          otra sesión activa por su nombre. Claude utiliza <code>SendMessage</code> para
+          entregarle el hallazgo sin que tengas que copiar toda la conversación.
+        </p>
+        <pre><code>{`@revision-api Comprueba si el contrato cambió y devuélveme archivos y líneas.
+
+# Consulta las sesiones disponibles y sus nombres
+claude agents`}</code></pre>
+        <p>
+          Úsalo para pasar una conclusión breve, no para compartir secretos ni para
+          ocultar decisiones. En <code>/config</code> puedes controlar si los mensajes
+          entrantes se aceptan, se retienen para aprobarlos o se rechazan. Los mensajes
+          entre máquinas requieren las superficies y sistemas compatibles indicados por
+          Anthropic.
         </p>
 
         <SectionHeading icon="star">Los flujos que más se recomiendan</SectionHeading>
@@ -145,7 +165,14 @@ claude -p "analiza el repo" --output-format stream-json`}</code></pre>
           aquí no te aparece, actualiza:
         </p>
         <pre><code>{`claude --version
-npm update -g @anthropic-ai/claude-code`}</code></pre>
+claude update`}</code></pre>
+
+        <h2>Fuentes oficiales</h2>
+        <ul>
+          <li><a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.232" target="_blank" rel="noreferrer">Claude Code v2.1.232 · sesiones, SendMessage y subagentes</a></li>
+          <li><a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.224" target="_blank" rel="noreferrer">Claude Code v2.1.224 · mensajería entre sesiones</a></li>
+          <li><a href="https://docs.anthropic.com/en/docs/claude-code/cli-reference" target="_blank" rel="noreferrer">Anthropic · CLI reference</a></li>
+        </ul>
       </div>
 
       <div className="mt-12 pt-8 border-t border-zinc-800 flex justify-between items-center">

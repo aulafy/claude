@@ -103,10 +103,23 @@ export default function IaBasicsLessonPage({ slug }: { slug: string }) {
         </span>
       </div>
 
-      <section id="objetivos" className="lesson-study-contract scroll-mt-24" aria-labelledby="lesson-study-contract-title">
+      {slug === "pedir-resultados-utiles" ? (
+        <aside className="ia-lab-entry" aria-labelledby="ia-lab-entry-title">
+          <div>
+            <span>PRÁCTICA INMERSIVA · 10–15 MIN</span>
+            <h2 id="ia-lab-entry-title">Lleva esta lección a una oficina o a un campus virtual</h2>
+            <p>Construye una instrucción, prueba una respuesta simulada y detecta el dato inventado. Funciona sin cuenta, cookies ni API.</p>
+          </div>
+          <Link href="/laboratorio/ia-en-accion">Entrar al laboratorio 3D <span aria-hidden="true">→</span></Link>
+        </aside>
+      ) : null}
+
+      {practice ? <SessionlessPractice practice={practice} href={`${COURSE_HREF}/${slug}`} title={lesson.title} next={next ? { href: `${COURSE_HREF}/${next.slug}`, title: next.title } : { href: "/mi-ruta", title: "revisar Mi ruta" }} /> : null}
+
+      <section id="objetivos" className="lesson-study-contract mt-8 scroll-mt-24" aria-labelledby="lesson-study-contract-title">
         <div className="lesson-study-contract__intro">
-          <span className="aula-section-label"><Icon name="route" /> Guía de estudio</span>
-          <h2 id="lesson-study-contract-title">Qué debes dominar antes de avanzar</h2>
+          <span className="aula-section-label"><Icon name="route" /> Lo que acabas de practicar</span>
+          <h2 id="lesson-study-contract-title">Pon nombre al criterio antes de avanzar</h2>
           <p><strong>Antes de empezar:</strong> {prerequisite}</p>
         </div>
         <div className="lesson-study-contract__outcomes">
@@ -121,21 +134,6 @@ export default function IaBasicsLessonPage({ slug }: { slug: string }) {
           <p><strong>Lección superada:</strong> cuando puedes completar la misión, explicar tu decisión y conservar la evidencia sin copiar la respuesta del ejemplo.</p>
         </div>
       </section>
-
-      {slug === "pedir-resultados-utiles" ? (
-        <aside className="ia-lab-entry" aria-labelledby="ia-lab-entry-title">
-          <div>
-            <span>PRÁCTICA INMERSIVA · 10–15 MIN</span>
-            <h2 id="ia-lab-entry-title">Lleva esta lección a una oficina o a un campus virtual</h2>
-            <p>Construye una instrucción, prueba una respuesta simulada y detecta el dato inventado. Funciona sin cuenta, cookies ni API.</p>
-          </div>
-          <Link href="/laboratorio/ia-en-accion">Entrar al laboratorio 3D <span aria-hidden="true">→</span></Link>
-        </aside>
-      ) : null}
-
-      {practice ? <SessionlessPractice practice={practice} /> : null}
-
-      {quality ? <LessonQualityCard {...quality} /> : null}
 
       <h2 className="mb-4 mt-10 font-display text-2xl font-bold text-white">Explicación y ejemplos</h2>
 
@@ -159,6 +157,8 @@ export default function IaBasicsLessonPage({ slug }: { slug: string }) {
           {lesson.markdown}
         </ReactMarkdown>
       </div>
+
+      {quality ? <LessonQualityCard {...quality} /> : null}
 
       <ChapterNav
         prev={prev ? { href: `${COURSE_HREF}/${prev.slug}`, label: prev.title } : undefined}

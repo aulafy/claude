@@ -78,8 +78,9 @@ export default function AvisoLegal() {
 
         <h2>Privacidad y cookies</h2>
         <p>
-          Aulafy no usa cookies de analítica o publicidad, no recoge emails mediante
-          formularios y no crea cuentas de usuario. Puedes ampliar información
+          Aulafy no usa cookies de analítica o publicidad ni seguimiento personal.
+          Puede sumar métricas educativas diarias sin identificadores, no recoge emails
+          mediante formularios y no crea cuentas obligatorias para leer. Puedes ampliar información
           en la <Link href="/privacidad">Política de privacidad</Link> y en la{" "}
           <Link href="/cookies">Política de cookies</Link>.
         </p>

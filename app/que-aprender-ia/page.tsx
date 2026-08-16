@@ -129,7 +129,7 @@ export default function QueAprenderIaPage() {
   };
 
   return (
-    <main className="aula-shell max-w-6xl mx-auto px-6 py-14">
+    <div className="aula-shell max-w-6xl mx-auto px-6 py-14">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
 
@@ -145,7 +145,7 @@ export default function QueAprenderIaPage() {
         <p className="lesson-lead mt-5 max-w-3xl">No necesitas entender todas las herramientas ni elegir una profesión hoy. Elige una situación que se parezca a la tuya, consigue un primer resultado y abre la siguiente parte de la ruta solo cuando la necesites.</p>
         <div className="mt-7 flex flex-wrap gap-3">
           <a href="#elige-objetivo" className="aula-button aula-button-primary"><Icon name="rocket" /> Elegir mi punto de partida</a>
-          <Link href="/rutas#orientador" className="aula-button aula-button-secondary"><Icon name="route" /> Prefiero responder tres preguntas</Link>
+          <Link href="/rutas#orientador" className="aula-button aula-button-secondary"><Icon name="route" /> Prefiero responder cuatro preguntas</Link>
         </div>
       </header>
 
@@ -227,6 +227,6 @@ export default function QueAprenderIaPage() {
           ))}
         </div>
       </section>
-    </main>
+    </div>
   );
 }

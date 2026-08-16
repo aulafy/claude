@@ -4,6 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 import Icon, { type IconName } from "@/components/Icon";
 import { getCourseFreshness, getCourseQuality } from "@/lib/course-quality";
+import { completeLearningStep } from "@/lib/learning-progress";
+import { trackLearningEvent } from "@/lib/learning-events";
 
 /* ============================================================
    Componentes compartidos del Volumen II (Claude Code + IA Local)
@@ -182,7 +184,11 @@ export function ChapterNav({
         </Link>
       ) : <span />}
       {next ? (
-        <Link href={next.href} className="aula-button aula-button-primary justify-start sm:justify-center">
+        <Link
+          href={next.href}
+          onClick={() => { trackLearningEvent("next_lesson_click"); completeLearningStep(window.location.pathname); }}
+          className="aula-button aula-button-primary justify-start sm:justify-center"
+        >
           {next.label} <Icon name="chevronRight" />
         </Link>
       ) : <span />}

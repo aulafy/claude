@@ -9,10 +9,12 @@ import { getLocalizedCurso, type Locale } from "@/lib/i18n";
 import Icon from "@/components/Icon";
 import ThemeToggle from "@/components/ThemeToggle";
 import BrandMark from "@/components/BrandMark";
+import { getEnglishLessonSlug, getEnglishLessonTitleOverride, getSourceLessonSlug } from "@/lib/course-lesson-routing";
+import SaveLearningItemButton from "@/components/SaveLearningItemButton";
 
 const copy = {
-  es: { allCourses: "Cursos", privacy: "Sin cuenta ni seguimiento", download: "PDF", menu: "Abrir curso", lessons: "lecciones", current: "Estás aquí", index: "Ver índice completo", previous: "Anterior", next: "Siguiente" },
-  en: { allCourses: "Courses", privacy: "No account or tracking", download: "PDF", menu: "Open course", lessons: "lessons", current: "You are here", index: "View full index", previous: "Previous", next: "Next" },
+  es: { allCourses: "Cursos", privacy: "Sin cuenta ni seguimiento personal", download: "PDF", menu: "Abrir curso", lessons: "lecciones", current: "Estás aquí", index: "Ver índice completo", previous: "Anterior", next: "Siguiente" },
+  en: { allCourses: "Courses", privacy: "No account or personal tracking", download: "PDF", menu: "Open course", lessons: "lessons", current: "You are here", index: "View full index", previous: "Previous", next: "Next" },
 } satisfies Record<Locale, Record<string, string>>;
 
 export default function CourseSidebar({ locale = "es" }: { locale?: Locale }) {
@@ -45,12 +47,15 @@ export default function CourseSidebar({ locale = "es" }: { locale?: Locale }) {
 
   const flatLessons = lecciones(sourceCurso);
   const total = flatLessons.length;
-  const currentIndex = Math.max(0, flatLessons.findIndex((lesson) => lesson.slug === lessonSlug));
+  const sourceLessonSlug = locale === "en" ? getSourceLessonSlug(cursoSlug, lessonSlug) : lessonSlug;
+  const currentIndex = Math.max(0, flatLessons.findIndex((lesson) => lesson.slug === sourceLessonSlug));
   const current = flatLessons[currentIndex];
   const previous = currentIndex > 0 ? flatLessons[currentIndex - 1] : null;
   const next = currentIndex < total - 1 ? flatLessons[currentIndex + 1] : null;
-  const localizedTitle = (slug: string, fallback: string) => locale === "en" ? getEnglishLessonTitle(curso.slug, slug, fallback) : fallback;
-  const lessonHref = (slug: string) => locale === "en" ? `/en/courses/${cursoSlug}/${slug}` : `/cursos/${cursoSlug}/${slug}`;
+  const localizedTitle = (slug: string, fallback: string) => locale === "en"
+    ? getEnglishLessonTitleOverride(curso.slug, slug) ?? getEnglishLessonTitle(curso.slug, slug, fallback)
+    : fallback;
+  const lessonHref = (slug: string) => locale === "en" ? `/en/courses/${cursoSlug}/${getEnglishLessonSlug(cursoSlug, slug)}` : `/cursos/${cursoSlug}/${slug}`;
   const closeMenu = () => { setOpen(false); menuButtonRef.current?.focus(); };
 
   return (
@@ -90,6 +95,7 @@ export default function CourseSidebar({ locale = "es" }: { locale?: Locale }) {
             <span className="block h-full bg-[var(--accent)]" style={{ width: `${((currentIndex + 1) / total) * 100}%` }} />
           </div>
           <strong className="block text-sm text-[var(--text)] leading-snug">{current ? localizedTitle(current.slug, current.title) : curso.title}</strong>
+          {current && <SaveLearningItemButton href={lessonHref(current.slug)} title={localizedTitle(current.slug, current.title)} courseTitle={curso.title} locale={locale} />}
           <div className="grid grid-cols-2 gap-2 mt-4">
             {previous ? <Link href={lessonHref(previous.slug)} onClick={() => setOpen(false)} className="rounded-md border border-[var(--border)] px-2 py-2 text-xs text-[var(--muted)] hover:text-[var(--accent)]">← {text.previous}</Link> : <span />}
             {next ? <Link href={lessonHref(next.slug)} onClick={() => setOpen(false)} className="rounded-md border border-[var(--border)] px-2 py-2 text-xs text-[var(--text)] hover:text-[var(--accent)] text-right">{text.next} →</Link> : null}

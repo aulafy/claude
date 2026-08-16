@@ -10,6 +10,7 @@ import PortableProgress from "@/components/PortableProgress";
 import { getCourseGuidance } from "@/lib/course-guidance";
 import { pluralLabel } from "@/lib/plural";
 import { getCourseQuality } from "@/lib/course-quality";
+import { getEnglishLessonSlug, getEnglishLessonTitleOverride } from "@/lib/course-lesson-routing";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 
@@ -101,8 +102,8 @@ export default async function EnglishCoursePage({ params }: { params: Promise<{ 
     teaches: guidance.outcomes,
     hasPart: lessons.map((lesson) => ({
       "@type": "LearningResource",
-      name: getEnglishLessonTitle(course.slug, lesson.slug, lesson.title),
-      url: `${SITE_URL}/en/courses/${course.slug}/${lesson.slug}`,
+      name: getEnglishLessonTitleOverride(course.slug, lesson.slug) ?? getEnglishLessonTitle(course.slug, lesson.slug, lesson.title),
+      url: `${SITE_URL}/en/courses/${course.slug}/${getEnglishLessonSlug(course.slug, lesson.slug)}`,
       inLanguage: "en",
       isAccessibleForFree: true,
       learningResourceType: "Lesson",
@@ -239,7 +240,7 @@ export default async function EnglishCoursePage({ params }: { params: Promise<{ 
                 return (
                   <li key={lesson.slug}>
                     <Link
-                      href={`/en/courses/${course.slug}/${lesson.slug}`}
+                      href={`/en/courses/${course.slug}/${getEnglishLessonSlug(course.slug, lesson.slug)}`}
                       className="aula-capsule flex items-center gap-4 px-4 py-3.5 group"
                     >
                       <span className="flex-shrink-0 w-9 h-9 rounded-md bg-violet-500/10 border border-violet-500/25 text-violet-400 flex items-center justify-center text-xs font-semibold font-[family-name:var(--font-code)]">
@@ -247,9 +248,9 @@ export default async function EnglishCoursePage({ params }: { params: Promise<{ 
                       </span>
                       <span className="min-w-0">
                         <span className="block text-sm text-zinc-300 group-hover:text-white transition-colors">
-                          {getEnglishLessonTitle(course.slug, lesson.slug, lesson.title)}
+                          {getEnglishLessonTitleOverride(course.slug, lesson.slug) ?? getEnglishLessonTitle(course.slug, lesson.slug, lesson.title)}
                         </span>
-                        <span className="aula-meta mt-0.5 block text-zinc-600">/{course.slug}/{lesson.slug}</span>
+                        <span className="aula-meta mt-0.5 block text-zinc-600">/{course.slug}/{getEnglishLessonSlug(course.slug, lesson.slug)}</span>
                       </span>
                       <span className="ml-auto text-zinc-600 group-hover:text-fuchsia-300 transition-colors">
                         <Icon name="chevronRight" />

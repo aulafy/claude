@@ -23,6 +23,43 @@ const content = englishLessonContent as {
   lessons: EnglishLesson[];
 };
 
+const titleOverrides: Record<string, string> = {
+  "claude-code/prompts": "Writing good prompts for Claude Code",
+  "ia-local/prompts": "Writing good prompts for local AI",
+};
+
+const claudeCodeAugustUpdates: Record<string, EnglishLessonBlock[]> = {
+  permisos: [
+    { type: "h2", text: "August 2026 update: Auto mode is not bypass" },
+    { type: "p", text: "Auto mode uses a classifier to decide whether an action can run or must stop. Availability and activation may depend on your account and managed policy. Do not assume every session starts in Auto mode: check /permissions or /config for the effective mode." },
+    { type: "p", text: "Auto mode is a decision layer, not a safety guarantee. Keep secrets out of context, inspect git diff before publishing, and use an isolated environment for tasks that can delete data or modify production." },
+    { type: "h3", text: "Verified sources" },
+    { type: "p", text: "Review the current Anthropic IAM and CLI reference together with the Claude Code v2.1.233 release notes. This lesson was reviewed on August 16, 2026." },
+  ],
+  subagentes: [
+    { type: "h2", text: "What changed in v2.1.232" },
+    { type: "p", text: "A subagent with subagent_type: \"fork\" can inherit the full conversation and prompt cache. Non-teammate agent spawns from interactive sessions now run in the background by default." },
+    { type: "p", text: "Do not treat every subagent as a fork. Use isolated subagents for bounded research or review, use a fork when the full history is necessary, and use /fork when you want a separate visible background session. More agents add cost and coordination; start with one." },
+    { type: "h3", text: "Verified source" },
+    { type: "p", text: "Claude Code v2.1.232 release notes, reviewed August 16, 2026." },
+  ],
+  flujos: [
+    { type: "h2", text: "Cross-session messages" },
+    { type: "p", text: "Since Claude Code v2.1.232, type @ in the prompt to mention another live session by name. Claude uses SendMessage to pass the finding directly. Use claude agents to inspect available sessions." },
+    { type: "p", text: "Use /config to accept, hold, or refuse incoming messages. Send a concise finding rather than secrets or hidden decisions, and verify the receiving session's result before integration." },
+    { type: "h3", text: "Verified source" },
+    { type: "p", text: "Claude Code v2.1.232 and v2.1.224 release notes, reviewed August 16, 2026." },
+  ],
+};
+
+const translatedLessons = content.lessons.map((lesson) => ({
+  ...lesson,
+  title: titleOverrides[`${lesson.courseSlug}/${lesson.slug}`] ?? lesson.title,
+  blocks: lesson.courseSlug === "claude-code" && claudeCodeAugustUpdates[lesson.slug]
+    ? [...lesson.blocks, ...claudeCodeAugustUpdates[lesson.slug]]
+    : lesson.blocks,
+}));
+
 const codexEnglishLessons: EnglishLesson[] = codexLessons.map((lesson) => ({
   courseSlug: "codex-programadores",
   courseTitle: "Codex for programmers",
@@ -50,7 +87,7 @@ const aiRouterEnglishLessons: EnglishLesson[] = aiRouterLessons.map((lesson) => 
   blocks: [{ type: "p", text: lesson.lead.en }, ...lesson.blocks.en],
 }));
 
-const allLessons = [...content.lessons, ...codexEnglishLessons, ...foundationEnglishLessons, ...aiRouterEnglishLessons];
+const allLessons = [...translatedLessons, ...codexEnglishLessons, ...foundationEnglishLessons, ...aiRouterEnglishLessons];
 const lessonsByKey = new Map(allLessons.map((lesson) => [`${lesson.courseSlug}/${lesson.slug}`, lesson]));
 
 export function getEnglishLesson(courseSlug: string, lessonSlug: string) {

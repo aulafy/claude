@@ -48,7 +48,7 @@ const paths: Record<Locale, LearningPath[]> = {
       firstStep: "Fundamentos para Aulafy",
       duration: "4–6 semanas",
       outcome: "Entregar cambios de software con pruebas, revisión y un flujo de agente controlado.",
-      courses: ["fundamentos-aulafy", "codex-programadores", "claude-code", "ia-local"],
+      courses: ["fundamentos-aulafy", "codex-programadores", "claude-code", "deepseek-harness", "ia-local"],
       featured: true,
     },
     {
@@ -60,7 +60,7 @@ const paths: Record<Locale, LearningPath[]> = {
       firstStep: "IA práctica para pymes",
       duration: "3–6 semanas",
       outcome: "Construir un flujo útil para tu actividad con evidencia, permisos, costes y revisión humana.",
-      courses: ["ia-pymes", "automatizacion-self-hosted", "ia-generativa", "videojuegos-3d-ia"],
+      courses: ["ia-pymes", "ia-docentes-educacion", "ia-datos-analitica", "automatizacion-self-hosted", "ia-generativa", "videojuegos-3d-ia"],
       featured: true,
     },
     {

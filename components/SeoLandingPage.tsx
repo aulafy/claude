@@ -20,7 +20,7 @@ export default function SeoLandingPage({ landing }: Props) {
       <section className="aula-frame p-8 sm:p-10">
         <div className="aula-chip">
           <Icon name="calendar" />
-          Actualizado: julio de 2026
+          Actualizado: agosto de 2026
         </div>
         <div className="aula-icon mt-5 text-fuchsia-300 text-xl">
           <Icon name={landing.icon} />
@@ -40,11 +40,11 @@ export default function SeoLandingPage({ landing }: Props) {
             {landing.primaryLabel}
           </Link>
           <Link
-            href="/cursos"
+            href="/mi-ruta"
             className="aula-button aula-button-secondary text-sm"
           >
-            <Icon name="grid" />
-            Ver todos los cursos
+            <Icon name="route" />
+            Seguir la ruta de 7 días
           </Link>
         </div>
       </section>

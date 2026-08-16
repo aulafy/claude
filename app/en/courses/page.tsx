@@ -4,6 +4,7 @@ import Icon, { type IconName } from "@/components/Icon";
 import { totalLecciones } from "@/lib/cursos";
 import { getLocalizedCursos, getLocalizedProximamente } from "@/lib/i18n";
 import { getCourseGuidance } from "@/lib/course-guidance";
+import TaskExplorer from "@/components/TaskExplorer";
 
 const courses = getLocalizedCursos("en");
 const upcoming = getLocalizedProximamente("en");
@@ -95,7 +96,7 @@ export default function CoursesPage() {
             </h1>
             <p className="lesson-lead max-w-3xl">
               Practical routes for learning Codex, local AI, agents, and real production workflows. No account required:
-              Aulafy does not create an account, save progress, or use tracking cookies.
+              Aulafy does not create an account or use personal tracking cookies. Learning progress stays in this browser.
             </p>
             <div className="mt-5 flex flex-wrap gap-2">
               <span className="aula-chip" data-tone="green"><Icon name="check" /> Free</span>
@@ -120,6 +121,8 @@ export default function CoursesPage() {
           </div>
         </div>
       </section>
+
+      <TaskExplorer locale="en" />
 
       <a
         href="/aulafy-guia-completa.pdf"

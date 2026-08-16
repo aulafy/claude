@@ -6,6 +6,7 @@ import { getCourseGuidance } from "@/lib/course-guidance";
 import { getCourseFreshness, getCourseQuality } from "@/lib/course-quality";
 import { courseGroups } from "@/lib/course-groups";
 import { spanishSearchIntents } from "@/lib/seo-strategy";
+import TaskExplorer from "@/components/TaskExplorer";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 
@@ -167,6 +168,8 @@ export default function Cursos() {
           <p className="mt-5 aula-meta text-zinc-500">{cursos.length} cursos · {leccionesTotales} lecciones</p>
           </div>
       </section>
+
+      <TaskExplorer />
 
       <section className="grid gap-3 md:grid-cols-4 mb-8" aria-label="Filtros rápidos por intención">
         <a href="#empezar" className="aula-capsule p-4 group">

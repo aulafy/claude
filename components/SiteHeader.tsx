@@ -2,6 +2,8 @@ import Link from "next/link";
 import LanguageSwitch from "@/components/LanguageSwitch";
 import ThemeToggle from "@/components/ThemeToggle";
 import BrandMark from "@/components/BrandMark";
+import ContinueLearning from "@/components/ContinueLearning";
+import Icon from "@/components/Icon";
 import type { Locale } from "@/lib/i18n";
 
 export default function SiteHeader({ locale = "es" }: { locale?: Locale }) {
@@ -18,17 +20,26 @@ export default function SiteHeader({ locale = "es" }: { locale?: Locale }) {
           </span>
         </Link>
         <nav className="flex items-center gap-2" aria-label={isEnglish ? "Main navigation" : "Navegación principal"}>
+          <ContinueLearning locale={locale} compact />
           <Link
-            href={isEnglish ? "/en/paths" : "/que-aprender-ia"}
+            href={isEnglish ? "/en/my-path" : "/mi-ruta"}
             className="hidden! sm:inline-flex! min-h-9 items-center px-3 py-2 text-sm text-[var(--text)] hover:text-[var(--accent)]"
           >
-            {isEnglish ? "Start" : "Empezar"}
+            {isEnglish ? "My path" : "Mi ruta"}
           </Link>
           <Link
             href={isEnglish ? "/en/courses" : "/cursos"}
             className="hidden! md:inline-flex! min-h-9 items-center px-3 py-2 text-sm text-[var(--muted)] hover:text-[var(--accent)]"
           >
             {isEnglish ? "Courses" : "Cursos"}
+          </Link>
+          <Link
+            href={isEnglish ? "/en/search" : "/buscar"}
+            className="inline-flex min-h-9 min-w-9 items-center justify-center rounded-md text-[var(--muted)] hover:bg-[var(--panel)] hover:text-[var(--accent)]"
+            aria-label={isEnglish ? "Search Aulafy" : "Buscar en Aulafy"}
+            title={isEnglish ? "Search" : "Buscar"}
+          >
+            <Icon name="search" />
           </Link>
           <LanguageSwitch />
           <ThemeToggle compact />

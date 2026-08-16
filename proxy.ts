@@ -6,7 +6,7 @@ const socialRoutePrefixes = [
   "/acceso",
   "/cuenta",
   "/perfil",
-  "/admin/moderacion",
+  "/admin",
   "/auth/callback",
 ];
 
@@ -17,7 +17,8 @@ function isSocialRoute(pathname: string) {
 }
 
 export function proxy(request: NextRequest) {
-  if (isSocialRoute(request.nextUrl.pathname)) {
+  const socialEnabled = process.env.NEXT_PUBLIC_AULAFY_SOCIAL_ENABLED === "true";
+  if (isSocialRoute(request.nextUrl.pathname) && !socialEnabled) {
     return NextResponse.redirect(new URL("/", request.url), 307);
   }
 

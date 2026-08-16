@@ -1,9 +1,12 @@
 "use client";
 
+import { useEffect } from "react";
 import Link from "next/link";
 import BrandMark from "@/components/BrandMark";
 import LandingLearningGuide from "@/components/LandingLearningGuide";
+import ContinueLearning from "@/components/ContinueLearning";
 import styles from "@/components/AulafyNexusLanding.module.css";
+import { trackLearningEvent } from "@/lib/learning-events";
 
 type LandingLocale = "es" | "en";
 
@@ -12,14 +15,14 @@ const copy = {
     skip: "Saltar al contenido",
     learn: "Cómo aprender",
     courses: "Cursos",
-    title: <>Tu primera misión con IA<br /><span>empieza ahora.</span></>,
-    lead: "Una entrada simple para oficinistas, estudiantes y personas no técnicas: elige una situación, haz una misión corta y aprende IA sin perderte entre herramientas.",
-    primaryCta: "Abrir el curso completo",
-    secondaryCta: "Elegir mi camino",
+    title: <>Aprende IA haciendo<br /><span>algo útil hoy.</span></>,
+    lead: "En 15 minutos harás una primera tarea, comprobarás el resultado y sabrás cuál es tu siguiente paso. No necesitas programar ni elegir una herramienta antes de empezar.",
+    primaryCta: "Empezar una misión de 15 minutos",
+    secondaryCta: "Ya sé lo que busco",
     assurances: ["Gratis", "Sin registro", "Proyectos verificables", "Fuentes visibles"],
     coreCourse: {
-      eyebrow: "CURSO PRINCIPAL · EN ORDEN",
-      title: "Una ruta continua de 28 lecciones",
+      eyebrow: "PARA PROFUNDIZAR · CUANDO ESTÉS LISTO",
+      title: "Programa completo de 28 lecciones",
       text: "Siete módulos enlazados, desde el primer uso de una IA hasta RAG, programación, modelos locales, agentes, seguridad y producción. Cada lección termina con una práctica y una evidencia concreta.",
       facts: ["7 módulos", "28 lecciones", "7 proyectos", "Español e inglés"],
       action: "Ver el programa completo",
@@ -46,7 +49,7 @@ const copy = {
         emoji: "🌱",
         title: "Empiezo desde cero",
         text: "No sé qué herramienta usar ni qué puedo pedirle a una IA.",
-        href: "/cursos/ia-desde-cero/que-puede-hacer-ia-generativa",
+        href: "/empezar",
         action: "Hacer la primera misión",
       },
     ],
@@ -58,7 +61,7 @@ const copy = {
         "Pide a la IA un borrador, no una decisión final.",
         "Revisa el resultado y guarda qué cambiaste.",
       ],
-      href: "/cursos/ia-desde-cero/que-puede-hacer-ia-generativa",
+      href: "/empezar",
       action: "Abrir misión guiada",
     },
     roadmapTitle: "Roadmap rápido",
@@ -80,7 +83,7 @@ const copy = {
     pathTitle: "No tienes que aprenderlo todo.",
     pathLead: "Sigue el nivel que te corresponde hoy. Los temas avanzados pueden esperar.",
     levels: [
-      { number: "1", label: "Empezar", title: "Entiende y usa la IA", text: "Para quien nunca ha usado un asistente o no sabe qué puede delegar.", result: "Primera tarea útil y verificada", href: "/cursos/ia-desde-cero", action: "Empezar desde cero" },
+      { number: "1", label: "Empezar", title: "Entiende y usa la IA", text: "Para quien nunca ha usado un asistente o no sabe qué puede delegar.", result: "Primera tarea útil y verificada", href: "/mi-ruta", action: "Abrir mi ruta de 7 días" },
       { number: "2", label: "Construir", title: "Resuelve un problema real", text: "Elige trabajo, estudios, una web o programación y construye un proyecto pequeño.", result: "Proyecto que puedes enseñar", href: "/que-aprender-ia", action: "Elegir un objetivo" },
       { number: "3", label: "Profundizar", title: "Diseña sistemas fiables", text: "RAG, agentes, modelos locales, seguridad y operación para perfiles técnicos.", result: "Sistema probado y mantenible", href: "/rutas", action: "Ver nivel avanzado" },
     ],
@@ -103,14 +106,14 @@ const copy = {
     skip: "Skip to content",
     learn: "How to learn",
     courses: "Courses",
-    title: <>Your first AI mission<br /><span>starts now.</span></>,
-    lead: "A simple entry point for office workers, students and non-technical learners: choose one real situation, complete a short mission, and learn AI without getting lost in tools.",
-    primaryCta: "Open the complete course",
-    secondaryCta: "Choose my path",
+    title: <>Learn AI by doing<br /><span>something useful today.</span></>,
+    lead: "In 15 minutes you will complete a first task, verify the result, and know your next step. You do not need to code or choose a tool before starting.",
+    primaryCta: "Start a 15-minute mission",
+    secondaryCta: "I know what I need",
     assurances: ["Free", "No sign-up", "Verifiable projects", "Visible sources"],
     coreCourse: {
-      eyebrow: "CORE COURSE · IN ORDER",
-      title: "One continuous path of 28 lessons",
+      eyebrow: "GO DEEPER · WHEN YOU ARE READY",
+      title: "Complete 28-lesson programme",
       text: "Seven connected modules, from your first useful AI task to RAG, software, local models, agents, safety, and production. Every lesson ends with practice and concrete evidence.",
       facts: ["7 modules", "28 lessons", "7 projects", "English and Spanish"],
       action: "See the complete syllabus",
@@ -130,7 +133,7 @@ const copy = {
         emoji: "🎓",
         title: "I am a student",
         text: "Study better, summarize, prepare exams and use AI without cheating.",
-        href: "/en/ai-course#que-es-ia-generativa",
+        href: "/en/start",
         action: "Study with AI",
       },
       {
@@ -149,7 +152,7 @@ const copy = {
         "Ask AI for a draft, not a final decision.",
         "Review the result and save what you changed.",
       ],
-      href: "/en/ai-course#que-es-ia-generativa",
+      href: "/en/start",
       action: "Open guided mission",
     },
     roadmapTitle: "Quick roadmap",
@@ -171,7 +174,7 @@ const copy = {
     pathTitle: "You do not need to learn everything.",
     pathLead: "Follow the level that fits you today. Advanced topics can wait.",
     levels: [
-      { number: "1", label: "Start", title: "Understand and use AI", text: "For anyone new to assistants or unsure what should be delegated.", result: "A useful, verified first task", href: "/en/ai-course#que-es-ia-generativa", action: "Start from zero" },
+      { number: "1", label: "Start", title: "Understand and use AI", text: "For anyone new to assistants or unsure what should be delegated.", result: "A useful, verified first task", href: "/en/my-path", action: "Open my 7-day path" },
       { number: "2", label: "Build", title: "Solve a real problem", text: "Choose work, study, web creation or coding and build a small project.", result: "A project you can show", href: "/en/paths", action: "Choose an outcome" },
       { number: "3", label: "Deepen", title: "Design reliable systems", text: "RAG, agents, local models, security and operations for technical learners.", result: "A tested, maintainable system", href: "/en/paths", action: "View advanced paths" },
     ],
@@ -200,6 +203,10 @@ export default function AulafyNexusLanding({ courseCount, lessonCount, locale = 
   const text = copy[locale];
   const english = locale === "en";
 
+  useEffect(() => {
+    trackLearningEvent("landing_view");
+  }, []);
+
   return (
     <div className={styles.page} lang={locale}>
       <a className={styles.skip} href="#main-content">{text.skip}</a>
@@ -210,6 +217,7 @@ export default function AulafyNexusLanding({ courseCount, lessonCount, locale = 
         <nav aria-label={english ? "Main navigation" : "Navegación principal"}>
           <a href="#camino">{text.learn}</a>
           <Link href={english ? "/en/courses" : "/cursos"}>{text.courses}</Link>
+          <Link href={english ? "/en/search" : "/buscar"}>{english ? "Search" : "Buscar"}</Link>
           <Link href={english ? "/" : "/en"}>{english ? "ES" : "EN"}</Link>
         </nav>
       </header>
@@ -221,8 +229,8 @@ export default function AulafyNexusLanding({ courseCount, lessonCount, locale = 
             <h1>{text.title}</h1>
             <p className={styles.lead}>{text.lead}</p>
             <div className={styles.heroActions}>
-              <Link className={styles.primaryAction} href={text.coreCourse.href}>{text.primaryCta}</Link>
-              <Link className={styles.secondaryAction} href={english ? "/en/paths" : "/que-aprender-ia"}>{text.secondaryCta}</Link>
+              <Link className={styles.primaryAction} href={text.firstMission.href}>{text.primaryCta}</Link>
+              <Link className={styles.secondaryAction} href={english ? "/en/search" : "/buscar"}>{text.secondaryCta}</Link>
             </div>
             <ul className={styles.assurances} aria-label={english ? "Access conditions" : "Condiciones de acceso"}>
               {text.assurances.map((item) => <li key={item}>{item}</li>)}
@@ -230,24 +238,26 @@ export default function AulafyNexusLanding({ courseCount, lessonCount, locale = 
           </div>
           <div className={styles.heroProduct} aria-label={text.roadmapTitle}>
             <div className={styles.missionCard}>
-              <span>{text.roadmapTitle}</span>
+              <span>{english ? "YOUR FIRST RESULT" : "TU PRIMER RESULTADO"}</span>
               <ol>
                 {text.roadmap.map((item) => <li key={item}>{item}</li>)}
               </ol>
               <p>{english ? "Output: one useful task completed and reviewed." : "Resultado: una tarea útil terminada y revisada."}</p>
             </div>
-            <LandingLearningGuide locale={locale} />
           </div>
         </section>
 
-        <section className={styles.coreCourse} aria-labelledby="core-course-title">
+        <div className={styles.continueWrap}><ContinueLearning locale={locale} /></div>
+
+        <section className={styles.firstMission} aria-labelledby="first-mission-title">
           <div>
-            <p className={styles.eyebrow}>{text.coreCourse.eyebrow}</p>
-            <h2 id="core-course-title">{text.coreCourse.title}</h2>
-            <p>{text.coreCourse.text}</p>
+            <p className={styles.eyebrow}>{text.firstMission.eyebrow}</p>
+            <h2 id="first-mission-title">{text.firstMission.title}</h2>
           </div>
-          <ul>{text.coreCourse.facts.map((fact) => <li key={fact}>{fact}</li>)}</ul>
-          <Link href={text.coreCourse.href}>{text.coreCourse.action} <span aria-hidden="true">→</span></Link>
+          <ol>
+            {text.firstMission.steps.map((step) => <li key={step}>{step}</li>)}
+          </ol>
+          <Link href={text.firstMission.href}>{text.firstMission.action} <span aria-hidden="true">→</span></Link>
         </section>
 
         <section className={styles.quickStart} aria-labelledby="quick-start-title">
@@ -266,17 +276,19 @@ export default function AulafyNexusLanding({ courseCount, lessonCount, locale = 
               </Link>
             ))}
           </div>
+          <div className={styles.guideWrap}>
+            <LandingLearningGuide locale={locale} />
+          </div>
         </section>
 
-        <section className={styles.firstMission} aria-labelledby="first-mission-title">
+        <section className={styles.coreCourse} aria-labelledby="core-course-title">
           <div>
-            <p className={styles.eyebrow}>{text.firstMission.eyebrow}</p>
-            <h2 id="first-mission-title">{text.firstMission.title}</h2>
+            <p className={styles.eyebrow}>{text.coreCourse.eyebrow}</p>
+            <h2 id="core-course-title">{text.coreCourse.title}</h2>
+            <p>{text.coreCourse.text}</p>
           </div>
-          <ol>
-            {text.firstMission.steps.map((step) => <li key={step}>{step}</li>)}
-          </ol>
-          <Link href={text.firstMission.href}>{text.firstMission.action} <span aria-hidden="true">→</span></Link>
+          <ul>{text.coreCourse.facts.map((fact) => <li key={fact}>{fact}</li>)}</ul>
+          <Link href={text.coreCourse.href}>{text.coreCourse.action} <span aria-hidden="true">→</span></Link>
         </section>
 
         <section className={styles.showcase} aria-labelledby="showcase-title">
