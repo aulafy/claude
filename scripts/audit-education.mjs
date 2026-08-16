@@ -198,9 +198,12 @@ assert.match(claudeSubagents, /Más agentes no implican un resultado mejor/, "Th
 assert.match(claudeFlows, /Mensajes entre sesiones/, "Claude Code workflows must cover verified cross-session messaging");
 assert.match(claudeFlows, /claude update/, "Claude Code update guidance must use the provider CLI command");
 assert.match(englishLessons, /Cross-session messages/, "The August Claude Code review must also reach English lessons");
+assert.match(englishLessons, /Ollama Not Using GPU on Windows\? NVIDIA, AMD & WSL2 Fixes/, "The high-impression Ollama lesson must target its exact search intent");
+assert.match(englishLessons, /Diagnose and fix Ollama running on CPU in Windows/, "The Ollama lesson must have a specific search description");
 assert.match(interactiveLab, /readLearningLabProgress/, "The interactive lab must restore local progress after reload");
 assert.match(interactiveLab, /Solo se guardan en este dispositivo las estaciones completadas, nunca tus respuestas/, "The lab must explain its narrow local persistence boundary");
 assert.match(interactiveLab, /completeLearningStep\(LAB_HREF\)/, "Completing the lab must update the shared local learning journey");
+assert.match(interactiveLab, /setLearningStepCompleted\(LAB_HREF, false\)/, "Resetting the lab must also clear shared completion state");
 assert.match(labProgress, /MAX_PROMPT_DECISIONS = 12/, "Lab persistence must have a defensive decision limit");
 assert.match(coursePage, /curso\.slug === "codex-desde-cero" && <CodexStartingCheck/, "Codex from zero must include the starting check");
 assert.equal((startingCheck.match(/prompt: "/g) ?? []).length, 4, "The Codex starting check must cover four practical decisions");

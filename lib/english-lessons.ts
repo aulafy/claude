@@ -25,7 +25,12 @@ const content = englishLessonContent as {
 
 const titleOverrides: Record<string, string> = {
   "claude-code/prompts": "Writing good prompts for Claude Code",
+  "ia-local/ollama-gpu-windows": "Ollama Not Using GPU on Windows? NVIDIA, AMD & WSL2 Fixes",
   "ia-local/prompts": "Writing good prompts for local AI",
+};
+
+const descriptionOverrides: Record<string, string> = {
+  "ia-local/ollama-gpu-windows": "Diagnose and fix Ollama running on CPU in Windows. Check NVIDIA or AMD drivers, VRAM, WSL2, Docker and logs step by step.",
 };
 
 const claudeCodeAugustUpdates: Record<string, EnglishLessonBlock[]> = {
@@ -107,6 +112,8 @@ export function getEnglishLessonTitle(courseSlug: string, lessonSlug: string, fa
 }
 
 export function getEnglishLessonDescription(lesson: EnglishLesson) {
+  const override = descriptionOverrides[`${lesson.courseSlug}/${lesson.slug}`];
+  if (override) return override;
   const firstParagraph = lesson.blocks.find((block) => block.type === "p")?.text ?? lesson.title;
   if (firstParagraph.length <= 155) return firstParagraph;
   const trimmed = firstParagraph.slice(0, 152);
