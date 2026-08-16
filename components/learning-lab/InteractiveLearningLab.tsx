@@ -2,12 +2,19 @@
 
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   getLearningLabScenario,
   type LabStation,
   type LearningLabScenario,
 } from "@/lib/learning-lab-scenarios";
+import {
+  clearLearningLabScenarioProgress,
+  readLearningLabProgress,
+  saveLearningLabScenarioProgress,
+} from "@/lib/learning-lab-progress";
+import { completeLearningStep, saveLearningProgress, startLearningStep } from "@/lib/learning-progress";
+import { trackLearningEvent } from "@/lib/learning-events";
 
 const ThreeLearningRoom = dynamic(() => import("./ThreeLearningRoom"), {
   ssr: false,
@@ -19,6 +26,9 @@ const stations: Array<{ id: LabStation; number: string; label: string; help: str
   { id: "prompt", number: "02", label: "Pantalla", help: "Construye la instrucción" },
   { id: "review", number: "03", label: "Revisión", help: "Detecta el riesgo" },
 ];
+
+const LAB_HREF = "/laboratorio/ia-en-accion";
+const LAB_TITLE = "Laboratorio 3D: IA en acción";
 
 export default function InteractiveLearningLab() {
   const [scenarioId, setScenarioId] = useState<LearningLabScenario["id"]>("pyme");
@@ -33,6 +43,9 @@ export default function InteractiveLearningLab() {
   const [reviewAttempt, setReviewAttempt] = useState<number | null>(null);
   const [reviewComplete, setReviewComplete] = useState(false);
   const [copyStatus, setCopyStatus] = useState("");
+  const [restoreStatus, setRestoreStatus] = useState("");
+  const [restoredScenario, setRestoredScenario] = useState<LearningLabScenario["id"] | null>(null);
+  const startedRef = useRef(false);
 
   useEffect(() => {
     const compact = matchMedia("(max-width: 700px)").matches;
@@ -43,6 +56,25 @@ export default function InteractiveLearningLab() {
     return () => cancelAnimationFrame(frame);
   }, []);
 
+  const restoreMission = useCallback((id: LearningLabScenario["id"]) => {
+    const saved = readLearningLabProgress().scenarios[id];
+    setScenarioId(id);
+    setActiveStation(saved?.activeStation ?? "brief");
+    setObjectiveAttempt(null);
+    setObjectiveComplete(saved?.objectiveComplete ?? false);
+    setPromptAttempts({});
+    setPromptComplete(saved?.promptComplete ?? {});
+    setReviewAttempt(null);
+    setReviewComplete(saved?.reviewComplete ?? false);
+    setCopyStatus("");
+    setRestoreStatus(saved ? "Progreso recuperado de este dispositivo." : "");
+    setRestoredScenario(id);
+  }, []);
+
+  useEffect(() => {
+    restoreMission("pyme");
+  }, [restoreMission]);
+
   const scenario = getLearningLabScenario(scenarioId);
   const completedPromptParts = Object.values(promptComplete).filter(Boolean).length;
   const completedSteps = Number(objectiveComplete) + completedPromptParts + Number(reviewComplete);
@@ -51,6 +83,7 @@ export default function InteractiveLearningLab() {
   const promptReady = completedPromptParts === scenario.promptDecisions.length;
 
   const resetMission = useCallback((nextScenario: LearningLabScenario["id"] = scenarioId) => {
+    clearLearningLabScenarioProgress(nextScenario);
     setScenarioId(nextScenario);
     setActiveStation("brief");
     setObjectiveAttempt(null);
@@ -60,7 +93,39 @@ export default function InteractiveLearningLab() {
     setReviewAttempt(null);
     setReviewComplete(false);
     setCopyStatus("");
+    setRestoreStatus("");
+    setRestoredScenario(nextScenario);
   }, [scenarioId]);
+
+  useEffect(() => {
+    if (restoredScenario !== scenarioId) return;
+    saveLearningLabScenarioProgress(scenarioId, {
+      activeStation,
+      objectiveComplete,
+      promptComplete: Object.fromEntries(Object.entries(promptComplete).filter(([, complete]) => complete)),
+      reviewComplete,
+    });
+  }, [activeStation, objectiveComplete, promptComplete, restoredScenario, reviewComplete, scenarioId]);
+
+  const markMissionStarted = useCallback(() => {
+    saveLearningProgress({
+      href: LAB_HREF,
+      title: LAB_TITLE,
+      courseTitle: "Laboratorio de Aulafy",
+      locale: "es",
+      visitedAt: new Date().toISOString(),
+    });
+    if (startLearningStep(LAB_HREF) && !startedRef.current) {
+      startedRef.current = true;
+      trackLearningEvent("mission_start");
+    }
+  }, []);
+
+  const markMissionComplete = useCallback(() => {
+    markMissionStarted();
+    completeLearningStep(LAB_HREF);
+    trackLearningEvent("mission_complete");
+  }, [markMissionStarted]);
 
   const handleSceneAvailability = useCallback((available: boolean) => {
     setWebglAvailable(available);
@@ -103,7 +168,7 @@ export default function InteractiveLearningLab() {
         <div className="learning-lab__privacy" aria-label="Privacidad del laboratorio">
           <span aria-hidden="true">◉</span>
           <strong>Sin cookies ni datos enviados</strong>
-          <small>Las respuestas de este laboratorio desaparecen al cerrar o recargar.</small>
+          <small>Solo se guardan en este dispositivo las estaciones completadas, nunca tus respuestas.</small>
         </div>
       </header>
 
@@ -121,7 +186,7 @@ export default function InteractiveLearningLab() {
                 type="button"
                 className={scenarioId === id ? "is-active" : ""}
                 aria-pressed={scenarioId === id}
-                onClick={() => resetMission(id)}
+                onClick={() => restoreMission(id)}
               >
                 <span>{item.shortLabel}</span>
                 <small>{item.place}</small>
@@ -194,13 +259,14 @@ export default function InteractiveLearningLab() {
         <aside className="learning-mission">
           <div className="learning-mission__progress">
             <div>
-              <span>Progreso de esta visita</span>
+              <span>Progreso guardado en este dispositivo</span>
               <strong>{completedSteps} de {totalSteps} decisiones</strong>
             </div>
             <div className="learning-mission__progress-track" role="progressbar" aria-valuenow={progress} aria-valuemin={0} aria-valuemax={100} aria-label={`${progress}% completado`}>
               <span style={{ width: `${progress}%` }} />
             </div>
           </div>
+          {restoreStatus ? <p className="learning-mission__copy-status" role="status">{restoreStatus}</p> : null}
 
           {activeStation === "brief" ? (
             <div className="learning-mission__panel">
@@ -225,7 +291,10 @@ export default function InteractiveLearningLab() {
                         disabled={objectiveComplete && !choice.correct}
                         onClick={() => {
                           setObjectiveAttempt(index);
-                          if (choice.correct) setObjectiveComplete(true);
+                          if (choice.correct) {
+                            markMissionStarted();
+                            setObjectiveComplete(true);
+                          }
                         }}
                       >
                         <span aria-hidden="true">{String.fromCharCode(65 + index)}</span>{choice.text}
@@ -276,6 +345,7 @@ export default function InteractiveLearningLab() {
                                   className={attempted ? (choice.correct ? "is-correct" : "is-wrong") : ""}
                                   disabled={complete && !choice.correct}
                                   onClick={() => {
+                                    markMissionStarted();
                                     setPromptAttempts((current) => ({ ...current, [decision.id]: choiceIndex }));
                                     if (choice.correct) setPromptComplete((current) => ({ ...current, [decision.id]: true }));
                                   }}
@@ -330,8 +400,12 @@ export default function InteractiveLearningLab() {
                           className={attempted ? (line.unsupported ? "is-correct" : "is-wrong") : ""}
                           disabled={reviewComplete && !line.unsupported}
                           onClick={() => {
+                            markMissionStarted();
                             setReviewAttempt(index);
-                            if (line.unsupported) setReviewComplete(true);
+                            if (line.unsupported && !reviewComplete) {
+                              setReviewComplete(true);
+                              markMissionComplete();
+                            }
                           }}
                         >
                           <span>{index + 1}</span>{line.text}
@@ -355,7 +429,7 @@ export default function InteractiveLearningLab() {
                       </details>
                       <div>
                         <button type="button" onClick={copyEvidence}>Copiar evidencia</button>
-                        <button type="button" onClick={() => resetMission()}>Repetir misión</button>
+                        <button type="button" onClick={() => resetMission()}>Borrar avance y repetir</button>
                       </div>
                       {copyStatus ? <p className="learning-mission__copy-status" role="status">{copyStatus}</p> : null}
                     </div>
