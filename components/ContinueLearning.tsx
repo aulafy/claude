@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Icon from "@/components/Icon";
 import { trackLearningEvent } from "@/lib/learning-events";
+import { getLearningContinuation } from "@/lib/learning-continuation";
 import {
   LEARNING_PROGRESS_EVENT,
   clearLearningProgress,
@@ -31,16 +32,17 @@ export default function ContinueLearning({
     };
   }, []);
 
-  if (!progress || progress.locale !== locale) return null;
+  const continuation = getLearningContinuation(progress, locale);
+  if (!continuation) return null;
 
   if (compact) {
     return (
       <Link
-        href={progress.href}
+        href={continuation.href}
         onClick={() => trackLearningEvent("continue_return")}
         className="hidden min-h-9 min-w-9 items-center justify-center gap-2 rounded-md border border-[var(--border)] px-2 py-2 text-sm font-semibold text-[var(--text)] hover:border-[var(--accent)] hover:text-[var(--accent)] sm:inline-flex lg:px-3"
-        title={`${locale === "en" ? "Continue" : "Continuar"}: ${progress.title}`}
-        aria-label={`${locale === "en" ? "Continue" : "Continuar"}: ${progress.title}`}
+        title={`${locale === "en" ? "Continue" : "Continuar"}: ${continuation.title}`}
+        aria-label={`${locale === "en" ? "Continue" : "Continuar"}: ${continuation.title}`}
       >
         <Icon name="rocket" /> <span className="hidden lg:inline">{locale === "en" ? "Continue" : "Continuar"}</span>
       </Link>
@@ -51,10 +53,10 @@ export default function ContinueLearning({
     <aside className="continue-learning" aria-label={locale === "en" ? "Your local learning progress" : "Tu progreso local de aprendizaje"}>
       <div>
         <span><Icon name="save" /> {locale === "en" ? "SAVED ON THIS DEVICE" : "GUARDADO EN ESTE DISPOSITIVO"}</span>
-        <h2>{locale === "en" ? "Continue where you left off" : "Continúa donde lo dejaste"}</h2>
-        <p><strong>{progress.courseTitle}</strong> · {progress.title}</p>
+        <h2>{continuation.inProgress ? (locale === "en" ? "Continue your unfinished mission" : "Continúa tu misión pendiente") : (locale === "en" ? "Continue where you left off" : "Continúa donde lo dejaste")}</h2>
+        <p><strong>{continuation.courseTitle}</strong> · {continuation.title}</p>
       </div>
-      <Link href={progress.href} onClick={() => trackLearningEvent("continue_return")}>{locale === "en" ? "Continue learning" : "Continuar aprendiendo"} <Icon name="chevronRight" /></Link>
+      <Link href={continuation.href} onClick={() => trackLearningEvent("continue_return")}>{continuation.inProgress ? (locale === "en" ? "Resume mission" : "Retomar misión") : (locale === "en" ? "Continue learning" : "Continuar aprendiendo")} <Icon name="chevronRight" /></Link>
       <button type="button" onClick={() => clearLearningProgress()}>{locale === "en" ? "Clear local progress" : "Borrar progreso local"}</button>
     </aside>
   );

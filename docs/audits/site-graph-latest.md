@@ -1,6 +1,6 @@
 # Auditoría del grafo interno de Aulafy
 
-Generada: 2026-08-16T18:44:32.971Z
+Generada: 2026-08-16T18:48:54.918Z
 
 ## Resumen
 

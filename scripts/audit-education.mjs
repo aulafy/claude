@@ -12,6 +12,7 @@ import { sevenDayPath } from "../lib/seven-day-path.ts";
 import { getMobileLearningNavItems } from "../lib/mobile-learning-nav.ts";
 import { getLearningReturnEvent } from "../lib/learning-return.ts";
 import { canCompleteMission } from "../lib/mission-completion.ts";
+import { getLearningContinuation } from "../lib/learning-continuation.ts";
 
 const courseSlugs = new Set();
 const lessonUrls = new Set();
@@ -238,6 +239,7 @@ assert.match(pathCompletion, /isSevenDayPathComplete\(progress, locale\)/, "The 
 assert.match(pathCompletion, /not an academic credential/, "The English completion summary must avoid credential claims");
 assert.match(pathCompletion, /no una acreditación académica/, "The Spanish completion summary must avoid credential claims");
 assert.match(pathCompletion, /createPathCompletionMarkdown\(progress, locale\)/, "A completed path must provide a portable local summary");
+assert.equal(getLearningContinuation({ href: "/ultima-visita", title: "Última", courseTitle: "Curso", locale: "es", visitedAt: "2026-08-16T00:00:00.000Z", startedLessons: ["/empezar"], completedLessons: [], activityDays: [], evidenceItems: [], savedItems: [] }, "es")?.href, "/empezar", "Continue must prefer an unfinished mission over a merely visited page");
 assert.equal(getLearningReturnEvent("2026-08-01T00:00:00.000Z", "2026-08-08T00:00:00.000Z"), "return_7d", "A full week away must produce a real return signal");
 assert.equal(getLearningReturnEvent("2026-07-01T00:00:00.000Z", "2026-08-01T00:00:00.000Z"), "return_30d", "A monthly return must be exclusive");
 

@@ -24,12 +24,11 @@ export default function MobileLearningNav({ locale = "es" }: { locale?: "es" | "
     };
   }, []);
 
-  const localProgress = progress?.locale === locale ? progress : null;
   const items = getMobileLearningNavItems(locale, pathname, progress);
 
   return <nav className="mobile-learning-nav" aria-label={english ? "Quick learning navigation" : "Navegación rápida de aprendizaje"}>
     {items.map((item) => {
-      return <Link key={`${item.label}-${item.href}`} href={item.href} aria-current={item.active ? "page" : undefined} title={item.continue && localProgress ? `${item.label}: ${localProgress.title}` : item.label} onClick={item.continue ? () => trackLearningEvent("continue_return") : undefined}><Icon name={item.icon} /><span>{item.label}</span></Link>;
+      return <Link key={`${item.label}-${item.href}`} href={item.href} aria-current={item.active ? "page" : undefined} title={item.continue && item.title ? `${item.label}: ${item.title}` : item.label} onClick={item.continue ? () => trackLearningEvent("continue_return") : undefined}><Icon name={item.icon} /><span>{item.label}</span></Link>;
     })}
   </nav>;
 }
