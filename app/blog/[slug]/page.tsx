@@ -35,9 +35,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description,
       url: `/blog/${post.slug}`,
       type: "article",
+      locale: post.locale === "en" ? "en_US" : "es_ES",
+      alternateLocale: post.locale === "en" ? ["es_ES"] : ["en_US"],
       publishedTime: post.date,
       modifiedTime: post.updated,
       authors: ["Ramón Guillamón"],
+      section: post.category,
+      tags: post.keywords,
       images: [{ url: post.image, width: 1672, height: 941, alt: post.title }],
     },
     twitter: {
@@ -104,6 +108,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     },
     mainEntityOfPage: { "@id": `${SITE_URL}/blog/${post.slug}#webpage` },
     isPartOf: { "@id": `${SITE_URL}/#website` },
+    isAccessibleForFree: true,
+    about: post.keywords.slice(0, 10).map((name) => ({ "@type": "Thing", name })),
+    wordCount: [post.intro, ...post.sections.flatMap((section) => [section.title, section.body, ...(section.bullets ?? [])])]
+      .join(" ")
+      .split(/\s+/)
+      .length,
     keywords: post.keywords.join(", "),
     ...(post.sources ? { citation: post.sources.map((source) => source.href) } : {}),
   };

@@ -227,6 +227,7 @@ export const blogPosts: BlogPost[] = [
       { title: "MoonshotAI/kimi-code en GitHub", href: "https://github.com/MoonshotAI/kimi-code", note: "Código, instalación, permisos, hooks y capacidades del agente." },
     ],
     related: [
+      { title: "Últimos modelos locales de 2026", href: "/blog/ultimos-modelos-ia-local-agosto-2026", desc: "Compara Kimi K3 con Inkling, Laguna, DeepSeek, Qwen, Muse y Nemotron." },
       { title: "Modelos locales: Ollama, vLLM, SGLang y MLX", href: "/cursos/ia-local/ollama-vllm-sglang-mlx", desc: "Elige runtime según hardware, carga y objetivo." },
       { title: "MLOps local y despliegue de modelos", href: "/cursos/mlops-local", desc: "Serving, gateways, costes y operación de modelos." },
       { title: "Agentes en producción", href: "/cursos/agentes-produccion", desc: "Estado, permisos, evaluación y recuperación ante fallos." },
@@ -1174,7 +1175,7 @@ export const blogPosts: BlogPost[] = [
       { title: "Precios de Model Studio", href: "https://www.alibabacloud.com/help/en/model-studio/model-pricing", note: "Comprueba precios y regiones antes de usar la API." },
       { title: "Qwen Code", href: "https://github.com/QwenLM/qwen-code", note: "Herramientas de código del ecosistema Qwen." },
     ],
-    related: [{ title: "Agentes con permisos", href: "/cursos/agentes-automatizacion", desc: "Diseña automatizaciones acotadas y auditables." }, { title: "Costes y evaluación", href: "/cursos/agentes-automatizacion/loops-costes", desc: "Mide tokens, latencia y fallos antes de escalar." }, { title: "Hardware para IA local", href: "/cursos/ia-local/hardware-minimo-2026", desc: "Aprende a no confundir una API con un modelo local." }],
+    related: [{ title: "Comparativa de los últimos modelos locales", href: "/blog/ultimos-modelos-ia-local-agosto-2026", desc: "Sitúa Qwen3.8-Max frente a Kimi, Inkling, Laguna, DeepSeek, Muse y Nemotron." }, { title: "Agentes con permisos", href: "/cursos/agentes-automatizacion", desc: "Diseña automatizaciones acotadas y auditables." }, { title: "Costes y evaluación", href: "/cursos/agentes-automatizacion/loops-costes", desc: "Mide tokens, latencia y fallos antes de escalar." }, { title: "Hardware para IA local", href: "/cursos/ia-local/hardware-minimo-2026", desc: "Aprende a no confundir una API con un modelo local." }],
   },
   {
     slug: "openworker-agente-ia-local-open-source",
@@ -1249,7 +1250,7 @@ export const blogPosts: BlogPost[] = [
       { title: "Integración con agentes de código", href: "https://api-docs.deepseek.com/guides/coding_agents", note: "Variables y adaptadores documentados." },
       { title: "Tool calling y función estructurada", href: "https://api-docs.deepseek.com/guides/function_calling", note: "Patrones para llamadas a herramientas." },
     ],
-    related: [{ title: "Costes y evaluación de agentes", href: "/cursos/agentes-automatizacion/loops-costes", desc: "Mide tokens, latencia y fallos." }, { title: "Agentes con permisos", href: "/cursos/agentes-automatizacion", desc: "Limita herramientas y efectos." }, { title: "IA local e híbrida", href: "/cursos/ia-local/hardware-minimo-2026", desc: "Decide cuándo usar API o hardware local." }],
+    related: [{ title: "Comparativa de los últimos modelos locales", href: "/blog/ultimos-modelos-ia-local-agosto-2026", desc: "Compara DeepSeek V4 Flash con los nuevos modelos open-weight y hardware real." }, { title: "Costes y evaluación de agentes", href: "/cursos/agentes-automatizacion/loops-costes", desc: "Mide tokens, latencia y fallos." }, { title: "Agentes con permisos", href: "/cursos/agentes-automatizacion", desc: "Limita herramientas y efectos." }, { title: "IA local e híbrida", href: "/cursos/ia-local/hardware-minimo-2026", desc: "Decide cuándo usar API o hardware local." }],
   },
 ];
 

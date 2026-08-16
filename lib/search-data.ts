@@ -104,6 +104,8 @@ export const searchData: SearchItem[] = [
   { href: "/cursos/claude-code", title: "Inicio de la guía", section: "Empezar", keywords: "home portada qué es claude code introducción" },
   { href: "/", title: "Aulafy", section: "Cursos", keywords: "aulafy portada cursos ia inteligencia artificial open source" },
   { href: "/blog", title: "Blog de IA en español", section: "Blog", keywords: "blog ia español grok modelos mcp agentes herramientas comparativas seo aeo prompts tendencias" },
+  { href: "/blog/ultimos-modelos-ia-local-agosto-2026", title: "Últimos modelos de IA local de 2026", section: "Blog", keywords: "modelos ia local open weight 2026 kimi k3 inkling laguna deepseek v4 qwen3.8 muse glimmer nemotron benchmarks local.ai hardware mac rtx dgx" },
+  { href: "/blog/latest-local-ai-models-august-2026", title: "Latest local AI models released in 2026", section: "Blog", keywords: "latest local ai models open weights kimi k3 inkling laguna deepseek qwen muse nemotron benchmark hardware" },
   { href: "/blog/kimi-k3-moonshot-modelo-abierto-2026", title: "Kimi K3 de Moonshot AI: modelo abierto de 2,8T", section: "Blog", keywords: "kimi k3 moonshot ai 2.8t 2,8 billones parámetros modelo abierto open weights moe contexto 1 millón tokens kimi code api precio" },
   { href: "/blog/grok-45-guia-evaluacion-2026", title: "Grok 4.5: guía de evaluación sin hype", section: "Blog", keywords: "grok 4.5 xai benchmarks modelos frontier evaluar modelos ia comparativa claude chatgpt gemini" },
   { href: "/blog/crear-tutoriales-ia-x-aulafy", title: "Cómo crear tutoriales de IA para X sin humo", section: "Blog", keywords: "tutoriales ia x hilos twitter prompts contenido ia aulafy sin humo" },
