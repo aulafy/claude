@@ -22,7 +22,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title,
     description,
     keywords: post.keywords,
-    alternates: { canonical: `/blog/${post.slug}` },
+    alternates: {
+      canonical: `/blog/${post.slug}`,
+      languages: post.locale === "en"
+        ? { "es-ES": "/blog/ultimos-modelos-ia-local-agosto-2026", "en-US": `/blog/${post.slug}` }
+        : post.slug === "ultimos-modelos-ia-local-agosto-2026"
+          ? { "es-ES": `/blog/${post.slug}`, "en-US": "/blog/latest-local-ai-models-august-2026" }
+          : undefined,
+    },
     openGraph: {
       title,
       description,
@@ -44,6 +51,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 function seoTitleFor(slug: string, fallback: string) {
   const titles: Record<string, string> = {
+    "ultimos-modelos-ia-local-agosto-2026": "Últimos modelos de IA local de 2026",
+    "latest-local-ai-models-august-2026": "Latest Local AI Models Released in 2026",
     "como-empezar-usar-ia-2026": "Cómo empezar a usar IA en 2026",
     "usar-ia-estudiar-sin-hacer-trampas-2026": "Cómo usar IA para estudiar sin hacer trampas",
     "grok-45-guia-evaluacion-2026": "Grok 4.5: evaluación sin hype",
@@ -84,7 +93,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     description: post.description,
     datePublished: post.date,
     dateModified: post.updated,
-    inLanguage: "es",
+    inLanguage: post.locale ?? "es",
     author: { "@id": `${SITE_URL}/#author`, name: "Ramón Guillamón", url: `${SITE_URL}/sobre-ramon-guillamon` },
     publisher: { "@id": `${SITE_URL}/#organization` },
     image: {
@@ -113,7 +122,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Inicio", item: SITE_URL },
+      { "@type": "ListItem", position: 1, name: post.locale === "en" ? "Home" : "Inicio", item: SITE_URL },
       { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog` },
       { "@type": "ListItem", position: 3, name: post.title, item: `${SITE_URL}/blog/${post.slug}` },
     ],
@@ -126,7 +135,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
 
       <div className="mb-4 aula-meta">
-        <Link href="/" className="hover:text-zinc-400">Inicio</Link>
+        <Link href="/" className="hover:text-zinc-400">{post.locale === "en" ? "Home" : "Inicio"}</Link>
         <span className="mx-2">/</span>
         <Link href="/blog" className="hover:text-zinc-400">Blog</Link>
         <span className="mx-2">/</span>
@@ -137,7 +146,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         <header className="aula-frame p-6 sm:p-8 mb-10">
           <div className="aula-chip mb-5" data-tone="cyan">
             <Icon name={post.icon} />
-            {post.category} · Actualizado {new Intl.DateTimeFormat("es-ES", { dateStyle: "long" }).format(new Date(post.updated))} · {post.readingTime}
+            {post.category} · {post.locale === "en" ? "Updated" : "Actualizado"} {new Intl.DateTimeFormat(post.locale === "en" ? "en-US" : "es-ES", { dateStyle: "long" }).format(new Date(post.updated))} · {post.readingTime}
           </div>
           <h1 className="font-display font-extrabold text-4xl sm:text-5xl text-white leading-tight">{post.title}</h1>
           <p className="mt-5 lesson-lead">{post.intro}</p>
@@ -166,7 +175,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
           {post.table && (
             <section>
-              <h2>Comparativa rápida</h2>
+              <h2>{post.locale === "en" ? "Quick comparison" : "Comparativa rápida"}</h2>
               <div className="overflow-x-auto">
                 <table>
                   <thead>
@@ -187,7 +196,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           )}
 
           <section>
-            <h2>Preguntas frecuentes</h2>
+            <h2>{post.locale === "en" ? "Frequently asked questions" : "Preguntas frecuentes"}</h2>
             {post.faqs.map((faq) => (
               <div key={faq.q}>
                 <h3>{faq.q}</h3>
@@ -198,7 +207,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
           {post.sources?.length ? (
             <section>
-              <h2>Fuentes consultadas</h2>
+              <h2>{post.locale === "en" ? "Sources" : "Fuentes consultadas"}</h2>
               <ul>
                 {post.sources.map((source) => (
                   <li key={source.href}>
@@ -212,7 +221,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </div>
 
         <section className="mt-12 border-t border-zinc-800 pt-8">
-          <h2 className="font-display font-bold text-2xl text-white mb-5">Sigue aprendiendo</h2>
+          <h2 className="font-display font-bold text-2xl text-white mb-5">{post.locale === "en" ? "Keep learning" : "Sigue aprendiendo"}</h2>
           <div className="grid gap-4">
             {post.related.map((item) => (
               <Link key={item.href} href={item.href} className="aula-capsule block p-4">

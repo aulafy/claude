@@ -358,11 +358,16 @@ const blogEntries: SeoIndexEntry[] = blogPosts.map((post) => ({
   route: `/blog/${post.slug}`,
   title: post.title,
   description: post.description,
-  language: "es",
+  language: post.locale ?? "es",
   kind: "blog",
   priority: 0.86,
   changeFrequency: "weekly",
   lastModified: post.updated,
+  alternateRoute: post.slug === "ultimos-modelos-ia-local-agosto-2026"
+    ? "/blog/latest-local-ai-models-august-2026"
+    : post.slug === "latest-local-ai-models-august-2026"
+      ? "/blog/ultimos-modelos-ia-local-agosto-2026"
+      : undefined,
 }));
 
 const englishCourses = getLocalizedCursos("en");
