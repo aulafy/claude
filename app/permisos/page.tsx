@@ -20,19 +20,33 @@ export default function Permisos() {
       <div className="mb-10">
         <PageTitle icon="lock">Permisos</PageTitle>
         <p className="text-lg text-zinc-400 leading-relaxed">
-          El sistema de permisos de Claude Code garantiza que nada ocurra sin
-          tu conocimiento. Aprende a configurar qué puede y qué no puede hacer Claude.
+          Decide qué puede hacer Claude Code, qué debe pedirte y qué queda bloqueado.
+          Los permisos reducen riesgo, pero no sustituyen revisar comandos, diffs y resultados.
         </p>
+        <p className="mt-3 text-sm text-zinc-500">Revisado el 16 de agosto de 2026 · Claude Code v2.1.233</p>
       </div>
 
       <div className="prose">
         <h2>Filosofía de permisos</h2>
         <p>
-          Claude Code sigue el principio de <strong>mínimo privilegio</strong>: por
-          defecto pide confirmación para cualquier acción potencialmente irreversible
-          o que afecte a recursos fuera de tu proyecto. Tú decides cuándo darle más
-          autonomía.
+          Empieza con <strong>mínimo privilegio</strong>: conserva pocos permisos, usa
+          reglas estrechas y amplía el acceso solo cuando entiendas la acción. El modo
+          efectivo depende de tu plan, la política de la organización, tu configuración
+          y la superficie desde la que abras la sesión.
         </p>
+
+        <h2>Auto mode no significa bypass</h2>
+        <p>
+          Auto mode utiliza un clasificador para decidir si una acción puede ejecutarse
+          o debe detenerse. Su disponibilidad y activación pueden depender de la cuenta y
+          de políticas administradas. No asumas que todas las sesiones empiezan en Auto:
+          abre <code>/permissions</code> o <code>/config</code> y comprueba el modo real.
+        </p>
+        <div className="callout callout-warning">
+          <strong>Límite importante.</strong> Auto mode es una capa de decisión, no una
+          garantía de seguridad. Mantén secretos fuera del contexto, usa git y trabaja en
+          un entorno aislado cuando una tarea pueda borrar, publicar o modificar producción.
+        </div>
 
         <h2>Herramientas y sus permisos</h2>
         <p>
@@ -57,8 +71,7 @@ export default function Permisos() {
               ["Write", "Crear nuevos archivos", "Sí"],
               ["Bash", "Ejecutar comandos de terminal", "Sí"],
               ["WebFetch", "Hacer peticiones HTTP", "Sí"],
-              ["WebSearch", "Buscar en internet", "No"],
-              ["TodoRead/Write", "Gestionar lista de tareas interna", "No"],
+              ["WebSearch", "Buscar en internet cuando la herramienta está disponible", "Según política"],
             ].map(([tool, desc, confirm]) => (
               <tr key={tool as string}>
                 <td><code>{tool as string}</code></td>
@@ -118,6 +131,12 @@ export default function Permisos() {
           Esto abre un panel interactivo donde puedes ver, añadir o revocar
           permisos de la sesión actual.
         </p>
+        <p>
+          Los modos documentados incluyen <code>default</code>, <code>acceptEdits</code>,
+          <code>plan</code> y <code>bypassPermissions</code>. Algunas cuentas también
+          pueden disponer de Auto mode. Puedes iniciar una sesión en un modo documentado
+          con <code>claude --permission-mode plan</code>, por ejemplo.
+        </p>
 
         <h2>Permisos durante una sesión</h2>
         <p>
@@ -157,8 +176,8 @@ export default function Permisos() {
             no le des permisos de escritura a Claude.
           </li>
           <li>
-            <strong>Revisa los diffs:</strong> Claude siempre muestra un diff antes de
-            editar. Léelo antes de aceptar.
+            <strong>Revisa los diffs:</strong> inspecciona <code>git diff</code> antes de
+            aceptar o publicar; no dependas de que cada superficie muestre el mismo diálogo.
           </li>
           <li>
             <strong>Permisos por dominio:</strong> si usas WebFetch, especifica los
@@ -184,6 +203,18 @@ export default function Permisos() {
           personales que no deben compartirse (como tu API key o rutas locales).
           Claude Code lo lee y tiene prioridad sobre <code>settings.json</code>.
         </div>
+
+        <h2>Fuentes y alcance</h2>
+        <ul>
+          <li><a href="https://docs.anthropic.com/en/docs/claude-code/iam" target="_blank" rel="noreferrer">Anthropic · Identity and access management</a></li>
+          <li><a href="https://docs.anthropic.com/en/docs/claude-code/cli-reference" target="_blank" rel="noreferrer">Anthropic · CLI reference</a></li>
+          <li><a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.233" target="_blank" rel="noreferrer">Claude Code v2.1.233 · release notes</a></li>
+        </ul>
+        <p>
+          Claude Code cambia con frecuencia. Comprueba <code>claude --version</code> y
+          la documentación de tu cuenta antes de convertir una regla de este tutorial en
+          política de equipo.
+        </p>
       </div>
 
       <div className="mt-12 pt-8 border-t border-zinc-800 flex justify-between items-center">

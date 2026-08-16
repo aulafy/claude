@@ -576,7 +576,7 @@ export const cursos: Curso[] = [
     short: "Domina la CLI de IA de Anthropic",
     desc: "Aprende a construir software y aplicaciones hablando con la IA en tu terminal: instalación, recetas, proyectos guiados, skills, subagentes, MCP y flujos profesionales.",
     level: "Principiante → avanzado",
-    updatedAt: courseCatalogUpdatedAt,
+    updatedAt: "2026-08-16",
     icon: "terminal",
     gradient: ["#e879f9", "#8b5cf6"],
     pdf: "/guia-claude-code.pdf",

@@ -26,6 +26,7 @@ export default function Subagentes() {
           para trabajar en paralelo: uno revisa código, otro investiga, otro escribe
           tests... mientras el agente principal coordina y tú solo revisas resultados.
         </p>
+        <p className="mt-3 text-sm text-zinc-500">Revisado el 16 de agosto de 2026 · Claude Code v2.1.233</p>
       </div>
 
       <div className="prose">
@@ -43,11 +44,24 @@ export default function Subagentes() {
         </ul>
 
         <div className="callout callout-orange">
-          Un patrón muy comentado en 2026: lanzar <strong>7 o más subagentes en
-          paralelo</strong> (imágenes, auditoría de seguridad, importación de datos,
-          tests...) mientras tú solo asignas tareas y revisas los <em>diffs</em>. El rol
-          del programador cambia: de escribir código a <strong>asignar y revisar</strong>.
+          Más agentes no implican un resultado mejor. Cada agente añade contexto, coste,
+          coordinación y posibles conflictos. Empieza con uno para investigar o revisar;
+          paraleliza solo tareas independientes y define quién integra el resultado.
         </div>
+
+        <h2>Qué cambió en v2.1.232</h2>
+        <p>
+          Desde esa versión, un subagente con <code>subagent_type: "fork"</code> puede
+          heredar la conversación completa y reutilizar el prompt cache. Además, los
+          agentes que no son <em>teammates</em> y se lanzan desde una sesión interactiva
+          pasan a segundo plano por defecto.
+        </p>
+        <p>
+          Esto no convierte todos los subagentes en copias del principal. Un subagente
+          normal sigue siendo útil para aislar contexto; usa un fork solo cuando necesite
+          el historial completo. Revisa también archivos, permisos, modelo y directorio
+          de trabajo efectivos antes de confiar en su resultado.
+        </p>
 
         <h2>Crear un subagente</h2>
         <p>
@@ -133,6 +147,18 @@ claude --agent revisor
 # Ver, monitorizar y gestionar subagentes en paralelo
 claude agents`}</code></pre>
 
+        <h2>No confundas tres mecanismos</h2>
+        <div className="overflow-x-auto">
+          <table>
+            <thead><tr><th>Mecanismo</th><th>Úsalo cuando</th><th>Contexto</th></tr></thead>
+            <tbody>
+              <tr><td>Subagente aislado</td><td>Investigar o revisar sin llenar el hilo principal</td><td>Propio y acotado</td></tr>
+              <tr><td><code>subagent_type: "fork"</code></td><td>Necesita el historial completo para continuar una rama</td><td>Hereda conversación y prompt cache</td></tr>
+              <tr><td><code>/fork</code></td><td>Quieres otra sesión visible que continúe en paralelo</td><td>Copia la conversación a una sesión de background</td></tr>
+            </tbody>
+          </table>
+        </div>
+
         <h2>Crear uno sin saber YAML</h2>
         <Prompt>{`Quiero crear un subagente para mi proyecto que se dedique solo a escribir tests. Debe poder leer y editar archivos, usar el modelo sonnet, y centrarse en cubrir casos límite. Créalo en .claude/agents/ y explícame cómo lanzarlo.`}</Prompt>
 
@@ -144,6 +170,13 @@ claude agents`}</code></pre>
           cada subagente a lo mínimo. Un revisor solo necesita leer (<code>Read, Grep</code>);
           no le des permiso para editar o ejecutar comandos si no hace falta.
         </div>
+
+        <h2>Fuentes oficiales</h2>
+        <ul>
+          <li><a href="https://docs.anthropic.com/en/docs/claude-code/sub-agents" target="_blank" rel="noreferrer">Anthropic · Subagents</a></li>
+          <li><a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.232" target="_blank" rel="noreferrer">Claude Code v2.1.232 · forking y background</a></li>
+          <li><a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.212" target="_blank" rel="noreferrer">Claude Code v2.1.212 · cambio de /fork</a></li>
+        </ul>
       </div>
 
       <div className="mt-12 pt-8 border-t border-zinc-800 flex justify-between items-center">

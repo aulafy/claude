@@ -1,13 +1,13 @@
 # Auditoría del grafo interno de Aulafy
 
-Generada: 2026-08-16T18:48:54.918Z
+Generada: 2026-08-16T18:56:36.213Z
 
 ## Resumen
 
 | Comprobación | Resultado |
 |---|---:|
 | HTML estáticos auditados | 683 |
-| Enlaces internos únicos | 705 |
+| Enlaces internos únicos | 709 |
 | Enlaces rotos | 0 |
 | Sin title | 0 |
 | Sin H1 | 0 |
