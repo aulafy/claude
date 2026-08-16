@@ -62,6 +62,18 @@ Harness: tools, permissions, sessions and traceability`}</Terminal>
       </div>
 
       <div className="prose">
+        <h2>Prior routes worth reading first</h2>
+        <ul>
+          <li><a href="/cursos/ia-local/ollama-desde-cero">Ollama from zero</a>.</li>
+          <li><a href="/cursos/ia-local/conectar-ollama">Connect Claude Code with your local AI</a>.</li>
+          <li><a href="/cursos/ia-local/troubleshooting-ollama">Fix Ollama errors</a>.</li>
+          <li><a href="/cursos/ia-local/ollama-gpu-windows">Ollama not using the GPU on Windows</a>.</li>
+          <li><a href="/cursos/ia-pymes/ollama-piloto-seguro">Ollama for SMEs: safe local pilot</a>.</li>
+        </ul>
+        <p>Those pages cover the operating basics; this DSH series starts after that and turns the knowledge into a controllable, auditable agent harness.</p>
+      </div>
+
+      <div className="prose">
         <h2>The ten-phase roadmap</h2>
         <ol>
           <li>Introduction and architecture.</li>
