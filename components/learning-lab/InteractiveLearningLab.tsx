@@ -13,7 +13,7 @@ import {
   readLearningLabProgress,
   saveLearningLabScenarioProgress,
 } from "@/lib/learning-lab-progress";
-import { completeLearningStep, saveLearningProgress, startLearningStep } from "@/lib/learning-progress";
+import { completeLearningStep, saveLearningProgress, setLearningStepCompleted, startLearningStep } from "@/lib/learning-progress";
 import { trackLearningEvent } from "@/lib/learning-events";
 
 const ThreeLearningRoom = dynamic(() => import("./ThreeLearningRoom"), {
@@ -84,6 +84,7 @@ export default function InteractiveLearningLab() {
 
   const resetMission = useCallback((nextScenario: LearningLabScenario["id"] = scenarioId) => {
     clearLearningLabScenarioProgress(nextScenario);
+    setLearningStepCompleted(LAB_HREF, false);
     setScenarioId(nextScenario);
     setActiveStation("brief");
     setObjectiveAttempt(null);
