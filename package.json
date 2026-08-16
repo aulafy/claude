@@ -45,6 +45,7 @@
     "test:mission-completion": "node --experimental-strip-types scripts/test-mission-completion.mjs",
     "test:path-completion": "node --experimental-strip-types scripts/test-path-completion.mjs",
     "test:learning-continuation": "node --experimental-strip-types scripts/test-learning-continuation.mjs",
+    "test:learning-lab-progress": "node --experimental-strip-types scripts/test-learning-lab-progress.mjs",
     "audit:ai-discovery": "node scripts/audit-ai-discovery.mjs",
     "test:content": "node scripts/verify-content.mjs",
     "test:codex": "node --experimental-strip-types scripts/verify-codex-course.mjs",
