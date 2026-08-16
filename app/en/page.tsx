@@ -5,8 +5,8 @@ import { getLocalizedCursos } from "@/lib/i18n";
 
 export const metadata: Metadata = {
   title: "Aulafy — Learn artificial intelligence from zero",
-  description: "Free practical AI courses in English. Choose a path by outcome or follow one continuous 28-lesson course without signing up.",
-  alternates: { canonical: "/en", languages: { "es-ES": "/", "en-US": "/en", "x-default": "/" } },
+  description: "Learn artificial intelligence from zero with a useful 15-minute first mission, free paths, and private progress in your browser.",
+  alternates: { canonical: "/en", languages: { "es-ES": "/", "en-US": "/en", "x-default": "/" }, types: { "application/rss+xml": "/en/feed.xml" } },
   robots: { index: true, follow: true },
   openGraph: {
     title: "Aulafy — Learn AI through a clear path",

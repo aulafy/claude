@@ -23,6 +23,16 @@ const content = englishLessonContent as {
   lessons: EnglishLesson[];
 };
 
+const titleOverrides: Record<string, string> = {
+  "claude-code/prompts": "Writing good prompts for Claude Code",
+  "ia-local/prompts": "Writing good prompts for local AI",
+};
+
+const translatedLessons = content.lessons.map((lesson) => ({
+  ...lesson,
+  title: titleOverrides[`${lesson.courseSlug}/${lesson.slug}`] ?? lesson.title,
+}));
+
 const codexEnglishLessons: EnglishLesson[] = codexLessons.map((lesson) => ({
   courseSlug: "codex-programadores",
   courseTitle: "Codex for programmers",
@@ -50,7 +60,7 @@ const aiRouterEnglishLessons: EnglishLesson[] = aiRouterLessons.map((lesson) => 
   blocks: [{ type: "p", text: lesson.lead.en }, ...lesson.blocks.en],
 }));
 
-const allLessons = [...content.lessons, ...codexEnglishLessons, ...foundationEnglishLessons, ...aiRouterEnglishLessons];
+const allLessons = [...translatedLessons, ...codexEnglishLessons, ...foundationEnglishLessons, ...aiRouterEnglishLessons];
 const lessonsByKey = new Map(allLessons.map((lesson) => [`${lesson.courseSlug}/${lesson.slug}`, lesson]));
 
 export function getEnglishLesson(courseSlug: string, lessonSlug: string) {

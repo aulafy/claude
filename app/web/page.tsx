@@ -42,7 +42,7 @@ export default function CompleteWebCoursePage() {
       <header className="web-course-cover">
         <Link href="/" className="web-course-brand"><span>A</span> Aulafy</Link>
         <p className="web-course-kicker">Edición web completa · lectura continua</p>
-        <h1>IA desde cero</h1>
+        <h1>Curso completo de IA desde cero</h1>
         <p className="web-course-subtitle">Aprende a usar inteligencia artificial con criterio, práctica y evidencias. Todo el curso en una sola página, preparado para leer, imprimir o conservar sin conexión.</p>
         <div className="web-course-metadata">
           <span><Icon name="book" /> 12 lecciones</span>

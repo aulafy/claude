@@ -133,6 +133,7 @@ export const metadata: Metadata = {
   category: "Education",
   alternates: {
     canonical: "/",
+    types: { "application/rss+xml": `${SITE_URL}/feed.xml` },
     languages: {
       "es-ES": "/",
       "en-US": "/en",
@@ -193,6 +194,7 @@ export const metadata: Metadata = {
     "ai.txt": `${SITE_URL}/ai.txt`,
     "search-index": `${SITE_URL}/search-index.json`,
     "sitemap-index": `${SITE_URL}/sitemap-index.xml`,
+    "rss-feed": `${SITE_URL}/feed.xml`,
     "content-language": "es, en",
     "educational-use": "Cursos gratuitos, rutas y proyectos reproducibles de inteligencia artificial práctica",
   },

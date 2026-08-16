@@ -72,6 +72,7 @@ export const iconMap = {
   robot: "fa-robot",
   rocket: "fa-rocket",
   route: "fa-route",
+  rss: "fa-rss",
   save: "fa-floppy-disk",
   search: "fa-magnifying-glass",
   seed: "fa-seedling",

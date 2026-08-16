@@ -4,12 +4,12 @@ import { cursos, totalLecciones } from "@/lib/cursos";
 
 export const metadata: Metadata = {
   title: "Aulafy — Aprende inteligencia artificial desde cero",
-  description: "Cursos gratuitos de inteligencia artificial en español. Elige una ruta por objetivo o sigue un curso continuo de 28 lecciones, sin registro.",
-  alternates: { canonical: "/", languages: { "es-ES": "/", "en-US": "/en", "x-default": "/" } },
+  description: "Aprende inteligencia artificial desde cero con una primera misión útil de 15 minutos, rutas gratuitas y progreso privado en tu navegador.",
+  alternates: { canonical: "/", languages: { "es-ES": "/", "en-US": "/en", "x-default": "/" }, types: { "application/rss+xml": "/feed.xml" } },
   robots: { index: true, follow: true },
   openGraph: {
     title: "Aulafy — Aprende IA con una ruta clara",
-    description: "Empieza sin programar, construye un proyecto o avanza hacia RAG, agentes, seguridad y modelos locales.",
+    description: "Haz una primera tarea útil en 15 minutos y continúa con una ruta clara, gratuita y sin registro.",
     type: "website", locale: "es_ES", url: "/",
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Aulafy, educación abierta para aprender inteligencia artificial" }],
   },

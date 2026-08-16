@@ -11,6 +11,10 @@ const seoStrategy = fs.readFileSync("lib/seo-strategy.ts", "utf8");
 const home = fs.readFileSync("components/AulafyNexusLanding.tsx", "utf8");
 const coursesPage = fs.readFileSync("app/cursos/page.tsx", "utf8");
 const pathsPage = fs.readFileSync("components/LearningPathsPage.tsx", "utf8");
+const spanishHome = fs.readFileSync("app/page.tsx", "utf8");
+const englishHome = fs.readFileSync("app/en/page.tsx", "utf8");
+const spanishFeed = fs.readFileSync("app/feed.xml/route.ts", "utf8");
+const englishFeed = fs.readFileSync("app/en/feed.xml/route.ts", "utf8");
 const footer = fs.readFileSync("components/Footer.tsx", "utf8");
 const unifiedCourse = fs.readFileSync("components/UnifiedCourse.tsx", "utf8");
 const unifiedSpanishPage = fs.readFileSync("app/curso-ia/page.tsx", "utf8");
@@ -29,6 +33,11 @@ assert.match(layout, /openGraph:\s*{[\s\S]*url:\s*"\/"/, "Homepage Open Graph UR
 assert.match(layout, /twitter:\s*{[\s\S]*summary_large_image/, "Twitter card metadata is missing");
 assert.match(layout, /"@type":\s*"WebSite"/, "WebSite JSON-LD is missing");
 assert.match(layout, /"@type":\s*"EducationalOrganization"/, "EducationalOrganization JSON-LD is missing");
+assert.match(spanishHome, /"application\/rss\+xml":\s*"\/feed\.xml"/, "The Spanish homepage must advertise its RSS feed");
+assert.match(englishHome, /"application\/rss\+xml":\s*"\/en\/feed\.xml"/, "The English homepage must advertise its RSS feed");
+assert.match(spanishFeed, /Content-Type.*application\/rss\+xml/, "The Spanish feed must use the RSS media type");
+assert.match(englishFeed, /Content-Type.*application\/rss\+xml/, "The English feed must use the RSS media type");
+assert.match(footer, /\/feed\.xml/, "The footer must expose RSS as a privacy-friendly return channel");
 
 assert.match(seoIndex, /export const SITE_URL = .*https:\/\/www\.aulafy\.net/, "SEO index must default to canonical www host");
 assert.match(seoIndex, /route:\s*""[\s\S]*alternateRoute:\s*"\/en"/, "Root SEO entry must alternate to /en");

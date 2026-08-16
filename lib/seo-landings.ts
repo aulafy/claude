@@ -862,7 +862,7 @@ export const seoLandings: SeoLanding[] = [
   },
   {
     slug: "open-webui-troubleshooting-produccion",
-    title: "Open WebUI troubleshooting y producción ligera",
+    title: "Cómo diagnosticar Open WebUI con Ollama y Docker",
     h1: "Open WebUI troubleshooting: updates, tools, Ollama y producción ligera",
     description:
       "Checklist para mantener Open WebUI estable con Ollama, Docker, volúmenes, backups, tool calling, Qdrant y actualizaciones.",
@@ -982,7 +982,7 @@ export const seoLandings: SeoLanding[] = [
   },
   {
     slug: "rag-privado-n8n-qdrant-ollama",
-    title: "RAG privado con n8n, Qdrant y Ollama",
+    title: "Cómo montar RAG privado con n8n, Qdrant y Ollama",
     h1: "RAG privado con n8n, Qdrant y Ollama para pymes y equipos",
     description:
       "Monta un agente RAG privado con n8n, Qdrant, Ollama y Open WebUI: documentos, permisos, Telegram/chat, citas y troubleshooting.",
@@ -1063,7 +1063,7 @@ export const seoLandings: SeoLanding[] = [
   {
     slug: "docker-compose-ia-local-ollama-n8n-qdrant",
     title: "Docker Compose para IA local con Ollama, n8n y Qdrant",
-    h1: "Docker Compose para stack completo de IA local",
+    h1: "Cómo desplegar un stack de IA local con Docker Compose",
     description:
       "Monta un stack reproducible con Ollama, Open WebUI, Qdrant y n8n usando Docker Compose, volúmenes, perfiles y backups.",
     keywords: ["docker compose ia local ollama n8n qdrant", "stack local ai production n8n ollama qdrant", "Open WebUI Qdrant Docker"],
@@ -1147,7 +1147,7 @@ export const seoLandings: SeoLanding[] = [
   {
     slug: "routing-hibrido-litellm-ollama-cloud",
     title: "Routing híbrido con LiteLLM, Ollama y cloud",
-    h1: "Routing híbrido local/cloud con LiteLLM",
+    h1: "Cómo enrutar entre Ollama y la nube con LiteLLM",
     description:
       "Usa LiteLLM para enrutar tareas entre Ollama, vLLM y modelos cloud con fallbacks, presupuestos, privacidad y trazas.",
     keywords: ["routing híbrido LiteLLM Ollama", "LiteLLM local cloud fallback", "gateway modelos locales frontier"],
@@ -1437,7 +1437,7 @@ export const seoLandings: SeoLanding[] = [
   {
     slug: "memoria-persistente-agentes-qdrant-obsidian",
     title: "Memoria persistente para agentes con Qdrant y Obsidian",
-    h1: "Memoria persistente compartida para agentes locales",
+    h1: "Cómo crear memoria persistente con Qdrant y Obsidian",
     description:
       "Diseña memoria multi-agente con capas hot/warm/cold, Qdrant, Obsidian, task board, decay, permisos y detección de conflictos.",
     keywords: ["persistent memory multi agent ollama qdrant obsidian", "memoria persistente agentes locales", "shared memory agents"],
@@ -1464,7 +1464,7 @@ export const seoLandings: SeoLanding[] = [
   },
   {
     slug: "chunking-avanzado-rag-privado",
-    title: "Chunking avanzado para RAG privado",
+    title: "Cómo elegir chunking, overlap y metadatos para RAG privado",
     h1: "Chunking avanzado para RAG privado: semántico, overlap y metadata",
     description:
       "Aprende a diseñar chunks con sentido, headings, metadatos, overlap y evaluación de recuperación para RAG privado con Qdrant.",
@@ -1711,6 +1711,224 @@ export const seoLandings: SeoLanding[] = [
       { q: "¿Puedo usar IA para planos reales?", a: "Como apoyo, no como autoridad final. Debe revisar una persona competente y la herramienta CAD/BIM correspondiente." },
       { q: "¿Sirve para AutoLISP?", a: "Sí, puede ayudar a redactar y explicar rutinas, siempre con pruebas en copias y permisos controlados." },
       { q: "¿Blender sustituye CAD?", a: "No. Blender es excelente para visualización y assets, pero CAD/BIM es el entorno adecuado para precisión técnica." },
+    ],
+  },
+  {
+    slug: "que-puedo-hacer-con-ia-sin-programar",
+    title: "Qué puedo hacer con IA sin saber programar",
+    h1: "Qué puedes hacer con IA sin programar: 7 tareas útiles para empezar",
+    description:
+      "Descubre tareas sencillas que puedes hacer con IA sin programar: escribir, resumir, estudiar, comparar opciones y ordenar ideas con revisión humana.",
+    keywords: ["qué puedo hacer con IA", "usar IA sin programar", "IA para principiantes", "ejemplos de inteligencia artificial"],
+    icon: "idea",
+    primaryHref: "/empezar",
+    primaryLabel: "Hacer mi primera tarea en 15 minutos",
+    audience:
+      "Para quien oye hablar de inteligencia artificial pero todavía no sabe qué herramienta abrir, qué pedir ni cómo distinguir un resultado útil de uno que solo suena bien.",
+    promise:
+      "Empezarás con una tarea pequeña y reversible. Aprenderás a dar contexto, pedir un formato concreto y revisar el resultado antes de utilizarlo.",
+    sections: [
+      {
+        title: "Empieza por una tarea, no por una herramienta",
+        body:
+          "No necesitas aprender vocabulario técnico ni elegir el modelo perfecto. Elige algo que ya haces, prepara información que puedas compartir y define cómo reconocerás una respuesta útil.",
+        bullets: [
+          "Mejorar un correo sin cambiar su intención.",
+          "Resumir un texto que ya has leído y contrastar los puntos clave.",
+          "Ordenar ideas en una tabla o lista de próximos pasos.",
+          "Crear preguntas para estudiar un tema y comprobar después las respuestas.",
+        ],
+      },
+      {
+        title: "La IA propone; tú decides",
+        body:
+          "Una respuesta fluida puede contener errores. Antes de enviarla, publicarla o tomar una decisión, revisa nombres, cifras, fechas y afirmaciones importantes contra el material original.",
+        bullets: [
+          "No compartas datos personales, contraseñas ni documentos confidenciales.",
+          "Pide que la respuesta separe hechos, dudas y sugerencias.",
+          "Mantén siempre una copia del texto o archivo original.",
+        ],
+      },
+    ],
+    examples: [
+      "Reescribir un correo para que sea más claro y amable.",
+      "Convertir notas desordenadas en una lista de tareas.",
+      "Comparar tres opciones usando criterios que tú eliges.",
+      "Preparar preguntas de repaso a partir de tus apuntes.",
+    ],
+    related: [
+      { title: "Primera misión guiada", href: "/empezar", desc: "Haz una tarea útil sin registro ni configuración." },
+      { title: "Cómo pedir resultados útiles", href: "/cursos/ia-desde-cero/pedir-resultados-utiles", desc: "Da contexto, formato y criterios claros." },
+      { title: "Mi ruta de 7 días", href: "/mi-ruta", desc: "Convierte la primera prueba en un hábito seguro." },
+    ],
+    faqs: [
+      { q: "¿Necesito instalar algo?", a: "No para empezar. Puedes practicar con una herramienta de IA que ya tengas disponible y con información no sensible." },
+      { q: "¿Tengo que aprender prompts?", a: "No necesitas fórmulas mágicas. Explica el objetivo, aporta contexto suficiente, pide un formato y di cómo comprobarás el resultado." },
+      { q: "¿Puedo confiar en la respuesta?", a: "Úsala como borrador o propuesta. Comprueba siempre los datos importantes y conserva la decisión final." },
+    ],
+  },
+  {
+    slug: "como-saber-si-una-respuesta-de-ia-es-correcta",
+    title: "Cómo saber si una respuesta de IA es correcta",
+    h1: "Cómo comprobar si una respuesta de IA es correcta",
+    description:
+      "Método sencillo para detectar errores y alucinaciones de la IA: separar afirmaciones, pedir fuentes, contrastar datos y decidir con evidencia.",
+    keywords: ["cómo saber si la IA dice la verdad", "comprobar respuesta IA", "alucinaciones IA", "verificar ChatGPT"],
+    icon: "check",
+    primaryHref: "/cursos/ia-desde-cero/alucinaciones-verificar",
+    primaryLabel: "Practicar una verificación guiada",
+    audience:
+      "Para estudiantes y profesionales que reciben respuestas convincentes de una IA y necesitan saber qué partes pueden usar, cuáles deben comprobar y cuándo conviene detenerse.",
+    promise:
+      "Aplicarás una comprobación breve que funciona con cualquier asistente: identificar afirmaciones verificables, buscar evidencia independiente y registrar lo que sigue siendo incierto.",
+    sections: [
+      {
+        title: "La seguridad del tono no es una prueba",
+        body:
+          "Los modelos generan texto probable y pueden inventar datos, referencias o detalles. Cuanto más importante sea una afirmación, menos debes depender de cómo está redactada.",
+        bullets: [
+          "Marca nombres, cifras, fechas, citas y requisitos legales o técnicos.",
+          "Pide que distinga hechos comprobables de recomendaciones.",
+          "Desconfía de enlaces, estudios o autores que no puedas localizar.",
+        ],
+      },
+      {
+        title: "Una verificación en cuatro pasos",
+        body:
+          "Divide la respuesta en afirmaciones pequeñas, prioriza las que cambiarían tu decisión, contrástalas con fuentes primarias y anota qué has confirmado.",
+        bullets: [
+          "Comprueba primero la afirmación de mayor impacto.",
+          "Abre la fuente original, no te quedes con el resumen de la IA.",
+          "Busca una segunda fuente independiente cuando el riesgo sea alto.",
+          "Si no hay evidencia suficiente, presenta el dato como incierto o elimínalo.",
+        ],
+      },
+    ],
+    examples: [
+      "Confirmar una fecha en la web oficial que la publicó.",
+      "Recalcular una cifra a partir de los datos originales.",
+      "Comprobar que una cita aparece realmente en el documento enlazado.",
+      "Separar una recomendación razonable de un hecho demostrado.",
+    ],
+    related: [
+      { title: "Alucinaciones y verificación", href: "/cursos/ia-desde-cero/alucinaciones-verificar", desc: "Práctica paso a paso con evidencia." },
+      { title: "Fuentes de Aulafy", href: "/fuentes", desc: "Consulta referencias primarias y criterios editoriales." },
+      { title: "Primera misión guiada", href: "/empezar", desc: "Practica con una tarea de bajo riesgo." },
+    ],
+    faqs: [
+      { q: "¿Si la IA incluye fuentes ya es fiable?", a: "No. Comprueba que las fuentes existen, dicen lo afirmado y son adecuadas para la fecha y el contexto de tu pregunta." },
+      { q: "¿Puedo pedir a la misma IA que se revise?", a: "Puede ayudar a encontrar puntos débiles, pero no es una verificación independiente. Contrasta fuera del modelo." },
+      { q: "¿Qué hago si no puedo verificarlo?", a: "No lo presentes como un hecho. Indica la incertidumbre, busca ayuda experta o evita usarlo en una decisión importante." },
+    ],
+  },
+  {
+    slug: "que-datos-no-debo-compartir-con-una-ia",
+    title: "Qué datos no debes compartir con una IA",
+    h1: "Qué datos no debes compartir con una IA y cómo trabajar con seguridad",
+    description:
+      "Guía clara para proteger datos personales y confidenciales al usar IA: qué evitar, cómo anonimizar y cuándo usar un entorno autorizado.",
+    keywords: ["qué datos no compartir con IA", "privacidad inteligencia artificial", "datos personales ChatGPT", "usar IA de forma segura"],
+    icon: "userShield",
+    primaryHref: "/cursos/ia-desde-cero/privacidad-derechos-seguridad",
+    primaryLabel: "Aprender el filtro de privacidad",
+    audience:
+      "Para cualquier persona que use asistentes de IA con correos, apuntes o documentos de trabajo y quiera evitar compartir información personal, empresarial o protegida por error.",
+    promise:
+      "Aprenderás un filtro previo de un minuto: clasificar la información, reducirla, sustituir datos identificativos y decidir si la herramienta está autorizada para ese uso.",
+    sections: [
+      {
+        title: "Información que debes frenar antes de pegar",
+        body:
+          "No introduzcas un documento completo solo porque necesitas ayuda con una parte. Primero elimina todo dato que no sea imprescindible para resolver la tarea.",
+        bullets: [
+          "Contraseñas, claves API, códigos de acceso y secretos.",
+          "DNI, direcciones, teléfonos, historiales médicos y datos bancarios.",
+          "Contratos, nóminas, expedientes o código privado sin autorización.",
+          "Información de clientes, alumnos o compañeros que puedan ser identificados.",
+        ],
+      },
+      {
+        title: "Reduce y anonimiza",
+        body:
+          "Trabaja con el fragmento mínimo. Sustituye nombres y cifras reales por marcadores, describe la estructura del problema o crea un ejemplo ficticio con el mismo formato.",
+        bullets: [
+          "Cambia nombres por PERSONA_A o CLIENTE_1.",
+          "Usa importes y fechas ficticios si el valor exacto no es necesario.",
+          "Comprueba la política y configuración de la herramienta aprobada por tu organización.",
+          "Para datos sensibles, usa únicamente un entorno autorizado y con controles adecuados.",
+        ],
+      },
+    ],
+    examples: [
+      "Pedir ayuda con la estructura de un contrato usando cláusulas ficticias.",
+      "Revisar el tono de un correo después de eliminar nombres y referencias internas.",
+      "Depurar código sustituyendo credenciales y datos de producción.",
+      "Crear una tabla de ejemplo con clientes inventados.",
+    ],
+    related: [
+      { title: "Privacidad, derechos y seguridad", href: "/cursos/ia-desde-cero/privacidad-derechos-seguridad", desc: "Aplica el filtro antes de compartir." },
+      { title: "IA local", href: "/cursos/ia-local", desc: "Conoce alternativas locales y sus límites." },
+      { title: "Política de privacidad", href: "/privacidad", desc: "Cómo trata Aulafy los datos y el progreso local." },
+    ],
+    faqs: [
+      { q: "¿Anonimizar un nombre es suficiente?", a: "No siempre. Fechas, cargos, ubicaciones o combinaciones de detalles también pueden identificar a una persona." },
+      { q: "¿Una suscripción de pago hace segura cualquier información?", a: "No. Revisa contrato, configuración, retención, permisos y normas de tu organización antes de usar datos reales." },
+      { q: "¿La IA local elimina todo el riesgo?", a: "No. Reduce algunos envíos externos, pero siguen importando accesos, registros, copias, actualizaciones, permisos y seguridad del equipo." },
+    ],
+  },
+  {
+    slug: "ia-para-oficina-primeros-pasos",
+    title: "IA para oficina: primeros pasos seguros",
+    h1: "IA para oficina: empieza con un flujo pequeño, útil y seguro",
+    description:
+      "Primeros pasos para usar IA en tareas de oficina sin perder control: elegir un proceso, proteger datos, probar con copias y medir el resultado.",
+    keywords: ["IA para oficina", "inteligencia artificial trabajo administrativo", "usar IA en el trabajo", "IA para pymes primeros pasos"],
+    icon: "briefcase",
+    primaryHref: "/cursos/ia-desde-cero/primer-proyecto-repetible",
+    primaryLabel: "Crear mi primer flujo repetible",
+    audience:
+      "Para profesionales, equipos administrativos y pequeñas empresas que quieren ahorrar tiempo con IA sin poner en riesgo documentos, bases de datos ni procesos que ya funcionan.",
+    promise:
+      "Elegirás un proceso frecuente y de bajo riesgo, prepararás datos de prueba, definirás una revisión humana y medirás si el cambio ahorra tiempo de verdad.",
+    sections: [
+      {
+        title: "Elige un primer caso que pueda fallar sin daño",
+        body:
+          "Empieza con borradores y clasificación, no con decisiones automáticas ni escritura directa en sistemas críticos. El proceso debe ser frecuente, acotado y fácil de comparar con el trabajo actual.",
+        bullets: [
+          "Resumir reuniones o documentos no sensibles.",
+          "Preparar borradores de correo que una persona revisará.",
+          "Clasificar solicitudes en una copia de datos de prueba.",
+          "Crear listas de comprobación a partir de procedimientos aprobados.",
+        ],
+      },
+      {
+        title: "Prueba con control y mide el resultado",
+        body:
+          "Conserva los originales, limita quién puede ejecutar el flujo y registra errores. Compara tiempo, calidad y correcciones durante varias repeticiones antes de integrarlo en el trabajo diario.",
+        bullets: [
+          "Define qué nunca debe hacer la automatización.",
+          "Usa copias y entornos de prueba; evita acceso de escritura al principio.",
+          "Asigna a una persona responsable de revisar y detener el flujo.",
+          "Decide continuar, corregir o abandonar según evidencia observada.",
+        ],
+      },
+    ],
+    examples: [
+      "Borrador de respuesta a consultas frecuentes con aprobación humana.",
+      "Resumen semanal de documentos no confidenciales.",
+      "Clasificación de incidencias en una hoja de cálculo duplicada.",
+      "Extracción de campos de facturas ficticias antes de probar datos reales.",
+    ],
+    related: [
+      { title: "Primer proyecto repetible", href: "/cursos/ia-desde-cero/primer-proyecto-repetible", desc: "Diseña, prueba y mide un flujo pequeño." },
+      { title: "IA para pymes", href: "/pymes", desc: "Evalúa procesos, riesgos e implantación." },
+      { title: "Mi ruta de 7 días", href: "/mi-ruta", desc: "Aprende primero las bases de uso y verificación." },
+    ],
+    faqs: [
+      { q: "¿Por qué no empezar conectando la IA a la base de datos?", a: "Porque aumenta el impacto de un error. Empieza con datos de prueba, permisos de lectura y revisión humana antes de ampliar acceso." },
+      { q: "¿Cómo sé si el piloto funciona?", a: "Compara tiempo ahorrado, errores, correcciones y facilidad de uso con el proceso anterior durante varias repeticiones." },
+      { q: "¿Qué proceso no debería automatizar primero?", a: "Evita decisiones laborales, legales, médicas o financieras y cualquier flujo irreversible o sin una persona responsable." },
     ],
   },
 ];

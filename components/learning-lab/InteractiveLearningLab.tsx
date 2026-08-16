@@ -103,7 +103,7 @@ export default function InteractiveLearningLab() {
         <div className="learning-lab__privacy" aria-label="Privacidad del laboratorio">
           <span aria-hidden="true">◉</span>
           <strong>Sin cookies ni datos enviados</strong>
-          <small>El progreso desaparece al cerrar o recargar.</small>
+          <small>Las respuestas de este laboratorio desaparecen al cerrar o recargar.</small>
         </div>
       </header>
 

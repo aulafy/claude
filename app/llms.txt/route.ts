@@ -18,7 +18,7 @@ English homepage and paths: ${SITE_URL}/en
 Curso continuo ES: ${SITE_URL}/curso-ia
 Continuous course EN: ${SITE_URL}/en/ai-course
 Revisión estructural: 2026-08-04
-Acceso: gratuito, sin registro y sin seguimiento del progreso
+Acceso: gratuito, sin registro y sin seguimiento personal del progreso
 Contenido: CC BY 4.0
 Código: MIT — https://github.com/aulafy/claude
 

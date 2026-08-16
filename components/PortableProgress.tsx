@@ -4,15 +4,15 @@ import type { Locale } from "@/lib/i18n";
 
 const copy = {
   es: {
-    title: "Aprendizaje sin cuenta ni seguimiento",
-    body: "Aulafy no guarda tu progreso, no pide correo y no usa cookies para seguirte. Las actividades interactivas solo recuerdan tus respuestas mientras mantienes abierta la página.",
-    hint: "Al recargar, la actividad vuelve a empezar. Si quieres conservar una evidencia, cópiala en tus propios apuntes.",
+    title: "Progreso local, sin cuenta ni seguimiento personal",
+    body: "Aulafy guarda en este navegador la última lección visitada, las completadas y tu lista para después. No pide correo, no crea un perfil y no envía este progreso al servidor.",
+    hint: "Las respuestas temporales no se guardan. Puedes conservar una evidencia si pulsas explícitamente «Guardar en este dispositivo»; luego puedes exportarla o borrarla desde «Mi ruta».",
     license: "Contenido abierto: CC BY 4.0. Código: MIT.",
   },
   en: {
-    title: "Learning without accounts or tracking",
-    body: "Aulafy does not save your progress, request an email address, or use cookies to track you. Interactive activities only remember answers while the page remains open.",
-    hint: "Reloading restarts the activity. Copy any evidence you want to keep into your own notes.",
+    title: "Local progress without accounts or personal tracking",
+    body: "Aulafy saves your last visited lesson, completed lessons, and saved-for-later list in this browser. It does not request an email, create a profile, or send this progress to the server.",
+    hint: "Temporary activity answers are not saved. Evidence is kept only when you explicitly choose “Save on this device”; export or delete it from “My path”.",
     license: "Open content: CC BY 4.0. Code: MIT.",
   },
 } satisfies Record<Locale, Record<string, string>>;

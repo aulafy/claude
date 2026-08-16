@@ -55,6 +55,7 @@ export default function Acerca() {
           <span className="aula-chip" data-tone="green">Revisión: {educationalReviewDate}</span>
           <Link href="/rutas" className="aula-chip" data-tone="cyan">Rutas de aprendizaje</Link>
           <Link href="/fuentes" className="aula-chip" data-tone="amber">Fuentes oficiales</Link>
+          <Link href="/que-es-aulafy" className="aula-chip">Qué es Aulafy</Link>
         </div>
       </div>
 
@@ -69,7 +70,7 @@ export default function Acerca() {
         <ul>
           <li><strong>Práctico primero</strong>: comandos, pasos, comprobaciones y errores comunes.</li>
           <li><strong>Local-first cuando tenga sentido</strong>: Ollama, LM Studio, RAG privado y modelos abiertos.</li>
-          <li><strong>Sin registro</strong>: no hay formularios de email, analítica ni cookies publicitarias.</li>
+          <li><strong>Sin seguimiento personal</strong>: no hay formularios de email ni cookies publicitarias; las métricas opcionales son conteos diarios sin identificadores.</li>
           <li><strong>Fuentes trazables</strong>: se prioriza documentación oficial y repositorios públicos.</li>
           <li><strong>Actualización visible</strong>: las fichas muestran fecha de revisión y las fuentes permiten contrastar funciones que cambian.</li>
           <li><strong>Transparencia</strong>: se separan hechos comprobados, recomendaciones y límites; no se prometen resultados automáticos.</li>

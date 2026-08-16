@@ -18,7 +18,7 @@ export const courseGroups: CourseGroup[] = [
     id: "programacion",
     title: "Programación con IA",
     description: "Programa con agentes, domina la terminal y construye herramientas que puedes mantener.",
-    slugs: ["codex-programadores", "claude-code", "ia-local"],
+    slugs: ["codex-programadores", "claude-code", "deepseek-harness", "ia-local"],
   },
   {
     id: "sistemas",
@@ -30,6 +30,6 @@ export const courseGroups: CourseGroup[] = [
     id: "aplicaciones",
     title: "Aplicaciones prácticas",
     description: "Lleva la IA a contenidos, negocios, videojuegos y flujos de trabajo reales.",
-    slugs: ["ia-generativa", "videojuegos-3d-ia", "ia-pymes"],
+    slugs: ["ia-generativa", "videojuegos-3d-ia", "ia-pymes", "ia-docentes-educacion", "ia-datos-analitica"],
   },
 ];

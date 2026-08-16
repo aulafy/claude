@@ -14,7 +14,7 @@ export default function Page() {
       title="What is DeepSeek Harness and why does it matter?"
       icon="terminal"
       lead={<>DeepSeek Harness (DSH) is an execution layer that turns a language model into an agent able to read and edit files, use tools, keep sessions and request approvals. This ten-phase series goes from the first safe run to local, auditable workflows.</>}
-      courseHref="/cursos/deepseek-harness"
+      courseHref="/en/courses/deepseek-harness"
       courseLabel="DeepSeek Harness (DSH)"
     >
       <Cuidado>
