@@ -7,3 +7,4 @@
 @media(max-width:580px){.header nav a:first-child{display:none}.hero{padding-top:4rem}.hero h1{font-size:3.35rem}.hero dl{grid-template-columns:1fr}.layout{padding-inline:1rem}.sidebar nav{columns:1}.lessonMeta{align-items:flex-start;flex-direction:column}.exercise,.projectGrid,.exampleTable{grid-template-columns:1fr}.footer{grid-template-columns:1fr;gap:.7rem}.footer p{text-align:left}.footer nav{justify-content:flex-start}}
 @media(prefers-reduced-motion:reduce){.page *{scroll-behavior:auto!important}}
 @media print{.header,.sidebar,.actions,.lesson footer{display:none}.hero{padding:2rem 0}.layout{display:block;border:0;padding:0}.module+.module{break-before:page}.lesson{break-inside:avoid}.page{background:#fff}}
+.brand img{display:block;width:28px;height:28px;object-fit:contain}

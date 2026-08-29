@@ -40,7 +40,7 @@ export default function CompleteWebCoursePage() {
   return (
     <main className={`${styles.page} web-course-page`} id="curso-completo">
       <header className="web-course-cover">
-        <Link href="/" className="web-course-brand"><span>A</span> Aulafy</Link>
+        <Link href="/" className="web-course-brand"><img src="/aulafy-logo.png" alt="" /> Aulafy</Link>
         <p className="web-course-kicker">Edición web completa · lectura continua</p>
         <h1>Curso completo de IA desde cero</h1>
         <p className="web-course-subtitle">Aprende a usar inteligencia artificial con criterio, práctica y evidencias. Todo el curso en una sola página, preparado para leer, imprimir o conservar sin conexión.</p>

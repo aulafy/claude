@@ -37,23 +37,9 @@ export const metadata: Metadata = {
 };
 
 function BrandIcon({ id, className }: { id: string; className?: string }) {
+  void id;
   return (
-    <svg viewBox="0 0 512 512" className={className} xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <defs>
-        <linearGradient id={id} x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stopColor="#8b5cf6" />
-          <stop offset="0.52" stopColor="#e879f9" />
-          <stop offset="1" stopColor="#22d3ee" />
-        </linearGradient>
-      </defs>
-      <rect width="512" height="512" rx="116" fill={`url(#${id})`} />
-      <g fill="none" stroke="#fff" strokeWidth="48" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M256 132 L150 380" />
-        <path d="M256 132 L362 380" />
-        <path d="M198 300 L314 300" />
-      </g>
-      <circle cx="256" cy="120" r="15" fill="#fff" />
-    </svg>
+    <img src="/aulafy-logo.png" className={className} alt="" aria-hidden="true" />
   );
 }
 
