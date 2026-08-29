@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BrandMark from "@/components/BrandMark";
 import styles from "./UnifiedCourse.module.css";
 import { localized, unifiedLessonCount, unifiedModuleProjects, unifiedModules, unifiedSources, type CourseLocale } from "@/lib/unified-course";
 
@@ -59,7 +60,7 @@ export default function UnifiedCourse({ locale = "es" }: { locale?: CourseLocale
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }} />
       <a href="#curso" className={styles.skip}>{text.skip}</a>
       <header className={styles.header} id="arriba">
-        <Link href={locale === "es" ? "/" : "/en"} className={styles.brand}><span>A</span><strong>Aulafy</strong></Link>
+        <Link href={locale === "es" ? "/" : "/en"} className={styles.brand}><BrandMark /><strong>Aulafy</strong></Link>
         <nav aria-label="Utilidades"><a href="#indice">{text.contents}</a><Link href={languageHref} hrefLang={locale === "es" ? "en" : "es"}>{text.language}</Link><a href="https://github.com/aulafy/claude" target="_blank" rel="noopener noreferrer">GitHub</a></nav>
       </header>
 

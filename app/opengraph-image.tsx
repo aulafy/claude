@@ -1,10 +1,14 @@
 import { ImageResponse } from "next/og";
+import { readFile } from "node:fs/promises";
+import path from "node:path";
 
 export const alt = "Aulafy, educación abierta para aprender inteligencia artificial";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+const logoData = readFile(path.join(process.cwd(), "public", "aulafy-logo.png"));
 
-export default function OpenGraphImage() {
+export default async function OpenGraphImage() {
+  const logo = await logoData;
   return new ImageResponse(
     (
       <div
@@ -61,17 +65,13 @@ export default function OpenGraphImage() {
             <div
               style={{
                 alignItems: "center",
-                background: "linear-gradient(135deg, #8b5cf6, #e879f9 55%, #22d3ee)",
-                borderRadius: "24px",
                 display: "flex",
-                fontSize: "58px",
-                fontWeight: 800,
                 height: "92px",
                 justifyContent: "center",
                 width: "92px",
               }}
             >
-              A
+              <img src={`data:image/png;base64,${logo.toString("base64")}`} alt="" style={{ width: 92, height: 92 }} />
             </div>
             <div style={{ fontSize: "42px", fontWeight: 700, letterSpacing: "1px" }}>AULAFY</div>
           </div>

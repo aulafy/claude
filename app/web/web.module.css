@@ -1,7 +1,7 @@
 .page { min-height: 100vh; background: var(--bg); color: var(--text); }
 .page :global(.web-course-cover) { max-width: 78rem; margin: 0 auto; padding: clamp(3rem, 8vw, 7rem) 1.5rem 3.5rem; border-bottom: 1px solid var(--border); }
 .page :global(.web-course-brand) { display: inline-flex; align-items: center; gap: .65rem; color: var(--text); font-weight: 800; }
-.page :global(.web-course-brand span) { display: grid; width: 2rem; height: 2rem; place-items: center; border-radius: 8px; background: var(--text); color: var(--bg); }
+.page :global(.web-course-brand img) { width: 2rem; height: 2rem; object-fit: contain; }
 .page :global(.web-course-kicker) { color: var(--accent); font: 800 .72rem/1.2 var(--font-code); letter-spacing: .1em; text-transform: uppercase; }
 .page :global(.web-course-cover > .web-course-kicker) { margin-top: 3rem; }
 .page :global(.web-course-cover h1) { max-width: 10ch; margin-top: .8rem; font: 850 clamp(3.8rem, 10vw, 8.5rem)/.88 var(--font-sora); letter-spacing: -.065em; }
