@@ -120,7 +120,7 @@ export function Nota({ title, children }: { title: string; children: React.React
 }
 
 /* --- Bloque de terminal (comandos), con copiar --- */
-export function Terminal({ children }: { children: string }) {
+export function Terminal({ children, locale = "es" }: { children: string; locale?: "es" | "en" }) {
   const [copied, setCopied] = useState(false);
   const copy = async () => {
     try {
@@ -143,11 +143,11 @@ export function Terminal({ children }: { children: string }) {
         >
           {copied ? (
             <>
-              <Icon name="check" className="text-emerald-400" /> Copiado
+              <Icon name="check" className="text-emerald-400" /> {locale === "en" ? "Copied" : "Copiado"}
             </>
           ) : (
             <>
-              <Icon name="copy" /> Copiar
+              <Icon name="copy" /> {locale === "en" ? "Copy" : "Copiar"}
             </>
           )}
         </button>

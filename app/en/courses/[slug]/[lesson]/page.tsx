@@ -2,11 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Icon, { type IconName } from "@/components/Icon";
-import { cursos, lecciones } from "@/lib/cursos";
+import { Terminal } from "@/components/Book";
+import { cursos } from "@/lib/cursos";
 import { getLocalizedCurso } from "@/lib/i18n";
 import {
   getEnglishLesson,
+  getEnglishCourseSections,
   getEnglishLessonDescription,
+  getEnglishLessonHeading,
   getEnglishLessons,
   getEnglishLessonTitle,
   type EnglishLessonBlock,
@@ -31,17 +34,21 @@ export async function generateMetadata({
 
   const description = getEnglishLessonDescription(lesson);
 
+  const alternateRoute = lesson.alternateRoute === undefined
+    ? `/cursos/${slug}/${lessonSlug}`
+    : lesson.alternateRoute;
+
   return {
     title: lesson.title,
     description,
     keywords: [lesson.title, course.title, "free AI course", "open-source AI lesson", "Aulafy"],
     alternates: {
       canonical: `/en/courses/${slug}/${lessonSlug}`,
-      languages: {
-        "es-ES": `/cursos/${slug}/${lessonSlug}`,
+      languages: alternateRoute ? {
+        "es-ES": alternateRoute,
         "en-US": `/en/courses/${slug}/${lessonSlug}`,
-        "x-default": `/cursos/${slug}/${lessonSlug}`,
-      },
+        "x-default": alternateRoute,
+      } : { "en-US": `/en/courses/${slug}/${lessonSlug}` },
     },
     openGraph: {
       title: lesson.title,
@@ -95,20 +102,14 @@ function renderBlocks(blocks: EnglishLessonBlock[]) {
     if (block.type === "h2") return <h2 key={index}>{block.text}</h2>;
     if (block.type === "h3") return <h3 key={index}>{block.text}</h3>;
     if (block.type === "p") return <p key={index}>{block.text}</p>;
+    if (block.type === "link" && block.href) {
+      if (block.external) {
+        return <p key={index}><a href={block.href} target="_blank" rel="noreferrer">{block.text}</a></p>;
+      }
+      return <p key={index}><Link href={block.href}>{block.text}</Link></p>;
+    }
 
-    return (
-      <div key={index} className="aula-terminal my-5">
-        <div className="aula-terminal-bar">
-          <span className="flex items-center gap-1.5">
-            <Icon name="terminal" /> Terminal
-          </span>
-          <span className="aula-chip">Code</span>
-        </div>
-        <pre className="px-4 py-3 text-sm text-zinc-200 leading-relaxed whitespace-pre-wrap overflow-x-auto font-[family-name:var(--font-code)]">
-          {block.text}
-        </pre>
-      </div>
-    );
+    return <Terminal key={index} locale="en">{block.text}</Terminal>;
   });
 }
 
@@ -170,7 +171,7 @@ function EnglishPracticeCard({ practice }: { practice: CodexLessonPractice }) {
 function lessonNavigation(courseSlug: string, lessonSlug: string) {
   const course = cursos.find((item) => item.slug === courseSlug);
   if (!course) return {};
-  const courseLessons = lecciones(course);
+  const courseLessons = getEnglishCourseSections(course).flatMap((section) => section.lecciones);
   const index = courseLessons.findIndex((lesson) => lesson.slug === lessonSlug);
   if (index < 0) return {};
 
@@ -207,30 +208,35 @@ export default async function EnglishLessonPage({
   const nav = lessonNavigation(slug, lessonSlug);
   const codexLesson = slug === "codex-programadores" ? getCodexLesson(lessonSlug) : undefined;
   const codexPractice = codexLesson ? getCodexLessonPractice(codexLesson) : undefined;
+  const heading = getEnglishLessonHeading(slug, lessonSlug, lesson.title);
+  const alternateRoute = lesson.alternateRoute === undefined
+    ? `/cursos/${slug}/${lessonSlug}`
+    : lesson.alternateRoute;
+  const learningResource = {
+    "@type": "LearningResource",
+    "@id": `${SITE_URL}/en/courses/${slug}/${lessonSlug}#learning-resource`,
+    name: heading,
+    description: getEnglishLessonDescription(lesson),
+    url: `${SITE_URL}/en/courses/${slug}/${lessonSlug}`,
+    inLanguage: "en",
+    isAccessibleForFree: true,
+    learningResourceType: "Lesson",
+    isPartOf: { "@id": `${SITE_URL}/en/courses/${slug}#learning-resource`, name: course.title },
+    provider: { "@id": `${SITE_URL}/#organization` },
+    author: { "@id": `${SITE_URL}/#author` },
+    ...(alternateRoute ? { isBasedOn: { "@id": `${SITE_URL}${alternateRoute}#learning-resource` } } : {}),
+  };
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": "LearningResource",
-        "@id": `${SITE_URL}/en/courses/${slug}/${lessonSlug}#learning-resource`,
-        name: lesson.title,
-        description: getEnglishLessonDescription(lesson),
-        url: `${SITE_URL}/en/courses/${slug}/${lessonSlug}`,
-        inLanguage: "en",
-        isAccessibleForFree: true,
-        learningResourceType: "Lesson",
-        isPartOf: { "@id": `${SITE_URL}/en/courses/${slug}#learning-resource`, name: course.title },
-        provider: { "@id": `${SITE_URL}/#organization` },
-        author: { "@id": `${SITE_URL}/#author` },
-        isBasedOn: { "@id": `${SITE_URL}/cursos/${slug}/${lessonSlug}#learning-resource` },
-      },
+      learningResource,
       {
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/en` },
           { "@type": "ListItem", position: 2, name: "Courses", item: `${SITE_URL}/en/courses` },
           { "@type": "ListItem", position: 3, name: course.title, item: `${SITE_URL}/en/courses/${slug}` },
-          { "@type": "ListItem", position: 4, name: lesson.title, item: `${SITE_URL}/en/courses/${slug}/${lessonSlug}` },
+          { "@type": "ListItem", position: 4, name: heading, item: `${SITE_URL}/en/courses/${slug}/${lessonSlug}` },
         ],
       },
     ],
@@ -259,7 +265,7 @@ export default async function EnglishLessonPage({
           <Icon name="book" /> Lesson
         </span>
         <h1 className="font-display text-3xl sm:text-5xl font-extrabold text-white mt-3 mb-4 leading-tight">
-          {lesson.title}
+          {heading}
         </h1>
         {lead?.type === "p" ? <p className="lesson-lead">{lead.text}</p> : null}
       </header>

@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Icon, { type IconName } from "@/components/Icon";
-import { totalLecciones } from "@/lib/cursos";
 import { getLocalizedCurso, getLocalizedCursos } from "@/lib/i18n";
-import { getEnglishLessonTitle } from "@/lib/english-lessons";
+import { getEnglishCourseSections, getEnglishLessonTitle } from "@/lib/english-lessons";
 import ContinuarCurso from "@/components/ContinuarCurso";
 import PortableProgress from "@/components/PortableProgress";
 import { getCourseGuidance } from "@/lib/course-guidance";
@@ -22,9 +21,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const course = getLocalizedCurso(slug, "en");
   if (!course) return {};
+  const lessonCount = getEnglishCourseSections(course).reduce((sum, section) => sum + section.lecciones.length, 0);
 
   const description = compactDescription(
-    `${course.desc} Free practical course with ${totalLecciones(course)} English lessons and matching Spanish originals.`,
+    `${course.desc} Free practical course with ${lessonCount} English lessons.`,
   );
 
   return {
@@ -76,9 +76,10 @@ export default async function EnglishCoursePage({ params }: { params: Promise<{ 
   const course = getLocalizedCurso(slug, "en");
   if (!course) notFound();
 
-  const total = totalLecciones(course);
+  const sections = getEnglishCourseSections(course);
+  const total = sections.reduce((sum, section) => sum + section.lecciones.length, 0);
   const guidance = getCourseGuidance(course.slug, "en");
-  const lessons = course.secciones.flatMap((section) => section.lecciones);
+  const lessons = sections.flatMap((section) => section.lecciones);
   const firstLesson = lessons[0];
   const quality = getCourseQuality(course.slug);
   const jsonLd = {
@@ -163,8 +164,8 @@ export default async function EnglishCoursePage({ params }: { params: Promise<{ 
 
           <div className="grid grid-cols-2 gap-3 lg:w-64">
             <div className="aula-panel p-4">
-              <div className="aula-meta text-zinc-500">{pluralLabel(course.secciones.length, "module", "en").replace(/^\d+ /, "")}</div>
-              <div className="font-display text-3xl font-bold text-white mt-1">{course.secciones.length}</div>
+              <div className="aula-meta text-zinc-500">{pluralLabel(sections.length, "module", "en").replace(/^\d+ /, "")}</div>
+              <div className="font-display text-3xl font-bold text-white mt-1">{sections.length}</div>
             </div>
             <div className="aula-panel p-4">
               <div className="aula-meta text-zinc-500">{pluralLabel(total, "lesson", "en").replace(/^\d+ /, "")}</div>
@@ -221,8 +222,8 @@ export default async function EnglishCoursePage({ params }: { params: Promise<{ 
         <span className="aula-chip" data-tone="cyan">{pluralLabel(total, "step", "en")}</span>
       </div>
 
-      {course.secciones.map((section, sectionIndex) => {
-        const start = course.secciones
+      {sections.map((section, sectionIndex) => {
+        const start = sections
           .slice(0, sectionIndex)
           .reduce((sum, item) => sum + item.lecciones.length, 0);
 
