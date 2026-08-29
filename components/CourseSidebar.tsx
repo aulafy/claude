@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { getCurso, lecciones } from "@/lib/cursos";
-import { getEnglishLessonTitle } from "@/lib/english-lessons";
+import { getCurso } from "@/lib/cursos";
+import { getEnglishCourseSections, getEnglishLessonTitle } from "@/lib/english-lessons";
 import { getLocalizedCurso, type Locale } from "@/lib/i18n";
 import Icon from "@/components/Icon";
 import ThemeToggle from "@/components/ThemeToggle";
@@ -45,7 +45,8 @@ export default function CourseSidebar({ locale = "es" }: { locale?: Locale }) {
 
   if (!curso || !sourceCurso) return null;
 
-  const flatLessons = lecciones(sourceCurso);
+  const navigationSections = locale === "en" ? getEnglishCourseSections(sourceCurso) : curso.secciones;
+  const flatLessons = navigationSections.flatMap((section) => section.lecciones);
   const total = flatLessons.length;
   const sourceLessonSlug = locale === "en" ? getSourceLessonSlug(cursoSlug, lessonSlug) : lessonSlug;
   const currentIndex = Math.max(0, flatLessons.findIndex((lesson) => lesson.slug === sourceLessonSlug));
@@ -107,8 +108,8 @@ export default function CourseSidebar({ locale = "es" }: { locale?: Locale }) {
             <span>{text.index}</span><span className="group-open:rotate-45 transition-transform" aria-hidden="true">+</span>
           </summary>
           <nav className="py-4 px-3" aria-label={text.index}>
-            {curso.secciones.map((section, sectionIndex) => {
-              const start = curso.secciones.slice(0, sectionIndex).reduce((sum, item) => sum + item.lecciones.length, 0);
+            {navigationSections.map((section, sectionIndex) => {
+              const start = navigationSections.slice(0, sectionIndex).reduce((sum, item) => sum + item.lecciones.length, 0);
               return (
                 <div key={section.title} className="mb-5">
                   <p className="px-3 mb-2 aula-section-label">{section.title}</p>

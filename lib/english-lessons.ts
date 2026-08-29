@@ -2,10 +2,14 @@ import englishLessonContent from "@/lib/english-lesson-content.json";
 import { aiRouterLessons } from "@/lib/ai-router-course-content";
 import { codexLessons } from "@/lib/codex-course-content";
 import { foundationLessons } from "@/lib/foundation-course-content";
+import { ollamaContextWindowLesson } from "@/lib/ollama-context-window-lesson";
+import type { Curso, Seccion } from "@/lib/cursos";
 
 export type EnglishLessonBlock = {
-  type: "h2" | "h3" | "p" | "bullet" | "code";
+  type: "h2" | "h3" | "p" | "bullet" | "code" | "link";
   text: string;
+  href?: string;
+  external?: boolean;
 };
 
 export type EnglishLesson = {
@@ -13,7 +17,10 @@ export type EnglishLesson = {
   courseTitle: string;
   slug: string;
   title: string;
+  heading?: string;
+  description?: string;
   href: string;
+  alternateRoute?: string | null;
   blocks: EnglishLessonBlock[];
 };
 
@@ -92,7 +99,25 @@ const aiRouterEnglishLessons: EnglishLesson[] = aiRouterLessons.map((lesson) => 
   blocks: [{ type: "p", text: lesson.lead.en }, ...lesson.blocks.en],
 }));
 
-const allLessons = [...translatedLessons, ...codexEnglishLessons, ...foundationEnglishLessons, ...aiRouterEnglishLessons];
+const troubleshootingBacklink: EnglishLessonBlock = {
+  type: "link",
+  text: "Model works but forgets earlier files or instructions? Check the context window Ollama actually loaded.",
+  href: "/en/courses/ia-local/ollama-context-window-32k",
+};
+
+const lessonsWithContextBacklink = translatedLessons.map((lesson) =>
+  lesson.courseSlug === "ia-local" && lesson.slug === "troubleshooting-ollama"
+    ? { ...lesson, blocks: [...lesson.blocks, troubleshootingBacklink] }
+    : lesson,
+);
+
+const allLessons = [
+  ...lessonsWithContextBacklink,
+  ollamaContextWindowLesson,
+  ...codexEnglishLessons,
+  ...foundationEnglishLessons,
+  ...aiRouterEnglishLessons,
+];
 const lessonsByKey = new Map(allLessons.map((lesson) => [`${lesson.courseSlug}/${lesson.slug}`, lesson]));
 
 export function getEnglishLesson(courseSlug: string, lessonSlug: string) {
@@ -111,7 +136,30 @@ export function getEnglishLessonTitle(courseSlug: string, lessonSlug: string, fa
   return getEnglishLesson(courseSlug, lessonSlug)?.title ?? fallback;
 }
 
+export function getEnglishLessonHeading(courseSlug: string, lessonSlug: string, fallback: string) {
+  const lesson = getEnglishLesson(courseSlug, lessonSlug);
+  return lesson?.heading ?? lesson?.title ?? fallback;
+}
+
+export function getEnglishCourseSections(course: Curso): Seccion[] {
+  if (course.slug !== "ia-local") return course.secciones;
+
+  return course.secciones.map((section) => {
+    const insertionIndex = section.lecciones.findIndex((lesson) => lesson.slug === "troubleshooting-ollama");
+    if (insertionIndex < 0) return section;
+    return {
+      ...section,
+      lecciones: [
+        ...section.lecciones.slice(0, insertionIndex + 1),
+        { slug: ollamaContextWindowLesson.slug, title: ollamaContextWindowLesson.heading ?? ollamaContextWindowLesson.title },
+        ...section.lecciones.slice(insertionIndex + 1),
+      ],
+    };
+  });
+}
+
 export function getEnglishLessonDescription(lesson: EnglishLesson) {
+  if (lesson.description) return lesson.description;
   const override = descriptionOverrides[`${lesson.courseSlug}/${lesson.slug}`];
   if (override) return override;
   const firstParagraph = lesson.blocks.find((block) => block.type === "p")?.text ?? lesson.title;

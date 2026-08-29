@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import DocumentLanguage from "@/components/DocumentLanguage";
 import { getCurso, lecciones } from "@/lib/cursos";
 import { getLocalizedCurso, isEnglishPath } from "@/lib/i18n";
-import { getEnglishLessonTitle } from "@/lib/english-lessons";
+import { getEnglishLessonHeading, getEnglishLessonTitle } from "@/lib/english-lessons";
 import LessonStructuredData from "@/components/LessonStructuredData";
 import LessonFeedback from "@/components/LessonFeedback";
 import LessonCommunityCta from "@/components/social/LessonCommunityCta";
@@ -41,7 +41,7 @@ export default function Shell({ children }: { children: React.ReactNode }) {
     const sourceLesson = sourceCourse ? lecciones(sourceCourse).find((item) => item.slug === sourceLessonSlug) : undefined;
     const lessonTitle = sourceLesson
       ? (locale === "en" ? getEnglishLessonTitleOverride(courseSlug, sourceLessonSlug) ?? getEnglishLessonTitle(courseSlug, sourceLessonSlug, sourceLesson.title) : sourceLesson.title)
-      : lessonSlug;
+      : locale === "en" ? getEnglishLessonHeading(courseSlug, lessonSlug, lessonSlug) : lessonSlug;
     const lessonHref = locale === "en" ? `/en/courses/${courseSlug}/${lessonSlug}` : `/cursos/${courseSlug}/${lessonSlug}`;
     return (
       <>

@@ -1,6 +1,6 @@
 import { blogPosts } from "@/lib/blog";
 import { cursos, lecciones } from "@/lib/cursos";
-import { getEnglishLessonDescription, getEnglishLessons, getEnglishLessonTitle } from "@/lib/english-lessons";
+import { getEnglishCourseSections, getEnglishLessonDescription, getEnglishLessons, getEnglishLessonTitle } from "@/lib/english-lessons";
 import { getLocalizedCursos } from "@/lib/i18n";
 import { seoLandings } from "@/lib/seo-landings";
 import { isSocialEnabled } from "@/lib/social/config";
@@ -411,7 +411,7 @@ const englishCourseEntries: SeoIndexEntry[] = englishCourses.flatMap((course) =>
     lastModified: getCourseQuality(course.slug).reviewedAt,
     alternateRoute: `/cursos/${course.slug}`,
   },
-  ...lecciones(course).map((lesson) => {
+  ...getEnglishCourseSections(course).flatMap((section) => section.lecciones).map((lesson) => {
     const translatedLesson = getEnglishLessons().find(
       (item) => item.courseSlug === course.slug && item.slug === lesson.slug,
     );
@@ -426,7 +426,9 @@ const englishCourseEntries: SeoIndexEntry[] = englishCourses.flatMap((course) =>
       priority: 0.72,
       changeFrequency: "monthly" as const,
       lastModified: getCourseQuality(course.slug).reviewedAt,
-      alternateRoute: `/cursos/${course.slug}/${lesson.slug}`,
+      alternateRoute: translatedLesson?.alternateRoute === null
+        ? undefined
+        : translatedLesson?.alternateRoute ?? `/cursos/${course.slug}/${lesson.slug}`,
     };
   }),
 ]);
