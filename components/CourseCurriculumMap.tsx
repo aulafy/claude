@@ -155,7 +155,7 @@ export default function CourseCurriculumMap({ currentSlug, locale = "es", compac
   return (
     <details className={styles.compact}>
       <summary>
-        <span><strong>{text.eyebrow}</strong>{locale === "es" ? "Consulta cómo encaja esta lección sin salir de tu ruta." : "See how this lesson fits without leaving your path."}</span>
+        <span><strong>{locale === "es" ? "Ver cómo encaja este curso" : "How this course fits"}</strong>{locale === "es" ? "Consulta el mapa solo cuando lo necesites." : "Open the map only when you need it."}</span>
         <span aria-hidden="true">+</span>
       </summary>
       {map}

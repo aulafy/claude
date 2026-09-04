@@ -65,7 +65,7 @@ assert.match(unifiedCourse, /Biblioteca ampliada/, "The canonical course must li
 assert.match(unifiedCourse, /Extended library/, "The canonical English course must link to its extended library");
 assert.match(unifiedCourse, /hasPart:\s*unifiedModules\.map/, "The canonical Course schema must expose its modules");
 assert.match(home, /\/curso-ia/, "The restored homepage must expose the continuous course");
-assert.match(home, /\/en\/ai-course#que-es-ia-generativa/, "The English homepage must send beginners to an existing lesson");
+assert.match(home, /\/en\/start/, "The English homepage must send beginners to the guided start page");
 assert.match(home, /\/en\/courses\/codex-programadores/, "The English footer must link to the existing Codex course");
 assert.doesNotMatch(home, /\/en\/courses\/(ia-desde-cero|codex-from-zero)/, "The English homepage must not link to unavailable course slugs");
 assert.match(unifiedSpanishPage, /canonical:\s*"\/curso-ia"/, "The Spanish continuous course needs its own canonical");
