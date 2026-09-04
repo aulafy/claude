@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Icon from "@/components/Icon";
 import AiCostCalculator from "@/components/AiCostCalculator";
+import PrivateModelSelector from "@/components/PrivateModelSelector";
 import { blogPosts, getBlogPost } from "@/lib/blog";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
@@ -61,6 +62,7 @@ function seoTitleFor(slug: string, fallback: string) {
     "gpt-6-astra-what-can-it-do": "GPT-6 Astra: What Can It Actually Do? Real Use Cases & Benchmarks",
     "ia-local-modelos-apps-memoria-os-2026": "IA local en 2026: modelo y app según tu memoria",
     "ai-cost-per-task-vs-token-price": "AI Cost per Task vs Token Price: What Actually Matters",
+    "qwen3-8-flash-vs-deepseek-v4-flash": "Qwen3.8 Flash vs DeepSeek V4 Flash: IA privada",
     "como-empezar-usar-ia-2026": "Cómo empezar a usar IA en 2026",
     "usar-ia-estudiar-sin-hacer-trampas-2026": "Cómo usar IA para estudiar sin hacer trampas",
     "grok-45-guia-evaluacion-2026": "Grok 4.5: evaluación sin hype",
@@ -210,6 +212,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           )}
 
           {post.interactive === "ai-cost-calculator" ? <AiCostCalculator /> : null}
+          {post.interactive === "private-model-selector" ? <PrivateModelSelector /> : null}
 
           <section>
             <h2>{post.locale === "en" ? "Frequently asked questions" : "Preguntas frecuentes"}</h2>
