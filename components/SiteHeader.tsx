@@ -5,39 +5,41 @@ import BrandMark from "@/components/BrandMark";
 import ContinueLearning from "@/components/ContinueLearning";
 import Icon from "@/components/Icon";
 import type { Locale } from "@/lib/i18n";
+import { siteNav } from "@/lib/site-nav";
 
 export default function SiteHeader({ locale = "es" }: { locale?: Locale }) {
   const isEnglish = locale === "en";
+  const nav = siteNav(locale);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-[var(--panel-soft)] backdrop-blur-xl">
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link href={isEnglish ? "/en" : "/"} className="flex items-center gap-2.5" aria-label={isEnglish ? "Aulafy home" : "Aulafy — inicio"}>
+    <header className="editorial-site-header">
+      <div className="editorial-site-header__inner">
+        <Link href={nav.home.href} className="editorial-site-header__brand" aria-label={isEnglish ? "Aulafy home" : "Aulafy — inicio"}>
           <BrandMark className="w-8 h-8 text-[var(--accent)]" />
-          <span className="flex flex-col leading-none">
-            <span className="font-display font-bold text-[var(--text)] text-lg">Aulafy</span>
-            <span className="hidden sm:block aula-meta text-[10px]">{isEnglish ? "open learning" : "educación abierta"}</span>
+          <span className="editorial-site-header__wordmark">
+            <strong>Aulafy</strong>
+            <small>{isEnglish ? "Open AI education" : "Educación abierta en IA"}</small>
           </span>
         </Link>
-        <nav className="flex items-center gap-2" aria-label={isEnglish ? "Main navigation" : "Navegación principal"}>
+        <nav className="editorial-site-header__nav" aria-label={isEnglish ? "Main navigation" : "Navegación principal"}>
           <ContinueLearning locale={locale} compact />
           <Link
-            href={isEnglish ? "/en/my-path" : "/mi-ruta"}
-            className="hidden! sm:inline-flex! min-h-9 items-center px-3 py-2 text-sm text-[var(--text)] hover:text-[var(--accent)]"
+            href={nav.start.href}
+            className="editorial-site-header__link editorial-site-header__start"
           >
-            {isEnglish ? "My path" : "Mi ruta"}
+            {nav.start.label}
           </Link>
           <Link
-            href={isEnglish ? "/en/courses" : "/cursos"}
-            className="hidden! md:inline-flex! min-h-9 items-center px-3 py-2 text-sm text-[var(--muted)] hover:text-[var(--accent)]"
+            href={nav.courses.href}
+            className="editorial-site-header__link"
           >
-            {isEnglish ? "Courses" : "Cursos"}
+            {nav.courses.label}
           </Link>
           <Link
-            href={isEnglish ? "/en/search" : "/buscar"}
-            className="inline-flex min-h-9 min-w-9 items-center justify-center rounded-md text-[var(--muted)] hover:bg-[var(--panel)] hover:text-[var(--accent)]"
+            href={nav.search.href}
+            className="editorial-site-header__icon"
             aria-label={isEnglish ? "Search Aulafy" : "Buscar en Aulafy"}
-            title={isEnglish ? "Search" : "Buscar"}
+            title={nav.search.label}
           >
             <Icon name="search" />
           </Link>

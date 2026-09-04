@@ -13,8 +13,8 @@ import { getEnglishLessonSlug, getEnglishLessonTitleOverride, getSourceLessonSlu
 import SaveLearningItemButton from "@/components/SaveLearningItemButton";
 
 const copy = {
-  es: { allCourses: "Cursos", privacy: "Sin cuenta ni seguimiento personal", download: "PDF", menu: "Abrir curso", lessons: "lecciones", current: "Estás aquí", index: "Ver índice completo", previous: "Anterior", next: "Siguiente" },
-  en: { allCourses: "Courses", privacy: "No account or personal tracking", download: "PDF", menu: "Open course", lessons: "lessons", current: "You are here", index: "View full index", previous: "Previous", next: "Next" },
+  es: { allCourses: "Cursos", privacy: "El avance se guarda en este navegador.", download: "PDF", menu: "Abrir curso", lessons: "lecciones", current: "Estás aquí", index: "Ver índice completo", previous: "Anterior", next: "Siguiente" },
+  en: { allCourses: "Courses", privacy: "Progress stays in this browser.", download: "PDF", menu: "Open course", lessons: "lessons", current: "You are here", index: "View full index", previous: "Previous", next: "Next" },
 } satisfies Record<Locale, Record<string, string>>;
 
 export default function CourseSidebar({ locale = "es" }: { locale?: Locale }) {
@@ -87,7 +87,6 @@ export default function CourseSidebar({ locale = "es" }: { locale?: Locale }) {
             <BrandMark className="mt-0.5 h-7 w-7 flex-none text-[var(--accent)]" />
             <Link href={locale === "en" ? `/en/courses/${curso.slug}` : `/cursos/${curso.slug}`} onClick={() => setOpen(false)} className="block font-display text-sm font-semibold text-[var(--text)] leading-snug">{curso.title}</Link>
           </div>
-          <p className="mt-2 aula-meta text-[var(--signal-green)]"><Icon name="shield" /> {text.privacy}</p>
         </div>
 
         <div className="px-5 py-5 border-b border-[var(--border)]">
@@ -130,9 +129,12 @@ export default function CourseSidebar({ locale = "es" }: { locale?: Locale }) {
           </nav>
         </details>
 
-        <div className="px-5 py-3 border-t border-[var(--border)] flex items-center justify-between">
-          {curso.pdf ? <a href={curso.pdf} className="aula-meta hover:text-[var(--accent)]"><Icon name="pdf" /> {text.download}</a> : <span />}
-          <ThemeToggle compact />
+        <div className="px-5 py-3 border-t border-[var(--border)]">
+          <p className="mb-3 aula-meta text-[var(--muted)]">{text.privacy}</p>
+          <div className="flex items-center justify-between">
+            {curso.pdf ? <a href={curso.pdf} className="aula-meta hover:text-[var(--accent)]"><Icon name="pdf" /> {text.download}</a> : <span />}
+            <ThemeToggle compact />
+          </div>
         </div>
       </aside>
     </>

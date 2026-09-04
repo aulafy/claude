@@ -113,6 +113,85 @@ body {
 
 .aula-skip-link:focus { transform: translateY(0); }
 
+/* Shared editorial navigation */
+.editorial-site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-top: 3px double var(--text);
+  border-bottom: 1px solid var(--text);
+  background: color-mix(in srgb, var(--panel) 94%, transparent);
+  backdrop-filter: blur(14px);
+}
+
+.editorial-site-header__inner {
+  width: min(100% - 2rem, 72rem);
+  min-height: 4.25rem;
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.editorial-site-header__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: .65rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.editorial-site-header__wordmark {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.editorial-site-header__wordmark strong {
+  font-family: var(--font-reading);
+  font-size: 1.65rem;
+}
+
+.editorial-site-header__wordmark small {
+  margin-top: .18rem;
+  color: var(--muted);
+  font: 650 .58rem/1.2 var(--font-code);
+  text-transform: uppercase;
+}
+
+.editorial-site-header__nav {
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+}
+
+.editorial-site-header__link,
+.editorial-site-header__icon {
+  min-height: 2.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  text-decoration: none;
+  font-size: .72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.editorial-site-header__link { padding: .5rem .7rem; }
+.editorial-site-header__icon { min-width: 2.25rem; }
+.editorial-site-header__link:hover,
+.editorial-site-header__icon:hover { color: var(--accent); }
+.editorial-site-header__start { border-left: 1px solid var(--border); }
+
+@media (max-width: 700px) {
+  .editorial-site-header__inner { min-height: 3.75rem; }
+  .editorial-site-header__wordmark small,
+  .editorial-site-header__link { display: none; }
+  .editorial-site-header__wordmark strong { font-size: 1.45rem; }
+}
+
 /* Prose content */
 .prose {
   color: var(--muted);
