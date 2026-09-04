@@ -56,19 +56,17 @@ export default function Problemas() {
 
         <h3>"Node.js version too old" / versión incompatible</h3>
         <p>
-          Claude Code necesita <strong>Node.js 20 o superior</strong>. Comprueba tu
-          versión con <code>node --version</code>. Si es menor, actualiza Node.js
-          (con nvm: <code>nvm install 20 &amp;&amp; nvm use 20</code>).
+          Este error solo afecta a la instalación por npm. Recomendamos <strong>Node.js 22 LTS o superior</strong>. Compruébala con <code>node --version</code> (con nvm: <code>nvm install 22 &amp;&amp; nvm use 22</code>). El instalador nativo no necesita Node.js.
         </p>
 
         <h2>Al iniciar sesión / autenticación</h2>
 
-        <h3>"Invalid API key" o errores de autenticación</h3>
+        <h3>Errores de inicio de sesión o "Invalid API key"</h3>
         <ul>
-          <li>Comprueba que copiaste la clave entera, sin espacios al principio o final.</li>
-          <li>Verifica que la variable está bien puesta: <code>echo $ANTHROPIC_API_KEY</code> debe mostrarla.</li>
-          <li>Si la pusiste en <code>~/.zshrc</code>, recarga con <code>source ~/.zshrc</code> o abre una terminal nueva.</li>
-          <li>La clave puede estar revocada o agotada. Genera una nueva en <code>console.anthropic.com</code>.</li>
+          <li>Ejecuta <code>claude</code> y completa el inicio de sesión en el navegador; dentro de una sesión puedes usar <code>/login</code>.</li>
+          <li>Si querías usar tu suscripción pero Claude pide aprobar una clave, comprueba sin mostrar su valor si existe: <code>test -n "$ANTHROPIC_API_KEY" &amp;&amp; echo "API key configurada"</code>.</li>
+          <li>Si usas API, revisa en Console que la clave siga activa y que la cuenta tenga saldo.</li>
+          <li>No pegues ni muestres una API key en capturas, chats o tickets de soporte.</li>
         </ul>
 
         <h3>"Rate limit exceeded" / "Too many requests"</h3>
@@ -120,7 +118,7 @@ export default function Problemas() {
           Probablemente tienes una versión antigua. Claude Code se actualiza muy a menudo:
         </p>
         <pre><code>{`claude --version
-npm update -g @anthropic-ai/claude-code`}</code></pre>
+npm install -g @anthropic-ai/claude-code@latest`}</code></pre>
 
         <h3>Un servidor MCP no conecta</h3>
         <ul>

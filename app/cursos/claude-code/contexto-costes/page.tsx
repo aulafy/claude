@@ -22,7 +22,7 @@ export default function Page() {
         <ul>
           <li>Entender qué es la ventana de contexto y qué la llena (y te cuesta dinero).</li>
           <li>Hacer que Claude Code “recuerde” tu proyecto entre sesiones con <code>CLAUDE.md</code>.</li>
-          <li>Usar <code>/clear</code>, <code>/compact</code> y subagentes para estirar tus límites.</li>
+          <li>Usar <code>/clear</code>, <code>/compact</code>, <code>/usage</code> y subagentes para estirar tus límites.</li>
           <li>Decidir qué tareas mandar a un modelo barato o a tu IA local.</li>
         </ul>
       </Objetivos>
@@ -48,7 +48,8 @@ export default function Page() {
 
       <Terminal>{`/clear    # borra la conversación y empieza limpio (fin de tarea)
 /compact  # resume la conversación y libera espacio (mitad de tarea)
-/cost     # consulta cuánto llevas consumido en la sesión`}</Terminal>
+/usage    # consulta los límites de uso de tu suscripción
+/cost     # muestra la estimación de coste y tokens de esta sesión`}</Terminal>
 
       <div className="prose">
         <p><code>/compact</code> es el término medio: comprime lo hablado en un resumen y sigue donde estabas. Úsalo cuando la tarea es larga pero no quieres perder el hilo. Y no temas a <code>/clear</code>: no borra tu código ni tus archivos, solo la charla.</p>
@@ -56,6 +57,30 @@ export default function Page() {
         <h2>La cura del “empieza de cero”: CLAUDE.md</h2>
         <p>La frustración de re-explicar tu proyecto en cada sesión tiene solución oficial: un archivo <code>CLAUDE.md</code> en la raíz del proyecto. Claude Code lo lee <strong>automáticamente al arrancar</strong>. Pídeselo así:</p>
       </div>
+
+      <div className="prose">
+        <h2>No mezcles límites del plan con precio de API</h2>
+        <p>Con una suscripción Claude, <code>/usage</code> te ayuda a entender cuánto margen queda dentro del plan. Con Claude Console o una API key, el consumo se factura por tokens. <code>/cost</code> describe la sesión, pero no sustituye la factura ni convierte el uso de una suscripción en un cargo adicional.</p>
+        <p>El coste real depende del modelo, los tokens de entrada y salida, las lecturas y escrituras de caché, las herramientas, los servidores MCP y el trabajo delegado a subagentes.</p>
+        <h2>Precios de API de referencia</h2>
+        <p>Tarifas oficiales por un millón de tokens, consultadas el 4 de septiembre de 2026. Son precios de API, no cuotas mensuales de los planes Claude.</p>
+        <div className="overflow-x-auto">
+          <table>
+            <thead><tr><th>Modelo</th><th>Entrada</th><th>Salida</th><th>Lectura de caché</th></tr></thead>
+            <tbody>
+              <tr><td>Claude Sonnet 5</td><td>$2</td><td>$10</td><td>$0.20</td></tr>
+              <tr><td>Claude Opus 5</td><td>$5</td><td>$25</td><td>$0.50</td></tr>
+              <tr><td>Claude Opus 5, modo fast</td><td>$10</td><td>$50</td><td>Aplica multiplicador de caché</td></tr>
+              <tr><td>Claude Fable 5.1</td><td>$10</td><td>$50</td><td>$0.25</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Las escrituras de caché tienen otra tarifa y el modo fast solo está disponible donde Anthropic lo indique. Comprueba siempre la tabla oficial antes de presupuestar.</p>
+      </div>
+
+      <Cuidado>
+        Si <code>/cost</code> muestra una subida inesperada por un <em>cache miss</em>, revisa qué cambió en el prefijo de la conversación: modelo, herramientas, instrucciones, MCP o autenticación. Desde Claude Code 2.1.260, el desglose ayuda a señalar la causa del fallo de caché. No publiques el informe si contiene rutas, nombres de proyectos o datos sensibles.
+      </Cuidado>
 
       <Terminal>{`Crea un CLAUDE.md para este proyecto: qué es, cómo se arranca,
 qué estructura tiene, mis convenciones y qué NO debes tocar.
@@ -104,6 +129,14 @@ en este proyecto, y tráeme solo el resumen con los archivos clave.`}</Terminal>
       <div className="prose">
         <h2>Reto para practicar</h2>
         <p>Coge tu proyecto más activo y escríbele hoy su <code>CLAUDE.md</code> (con ayuda de Claude Code). Mañana, cronometra cuánto tardas en retomar el trabajo. Ese minuto que antes eran diez es la mejor métrica de esta lección.</p>
+      </div>
+
+      <div className="prose">
+        <h2>Fuentes oficiales</h2>
+        <ul>
+          <li><a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noreferrer">Anthropic · Precios de Claude Platform</a></li>
+          <li><a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noreferrer">Anthropic · Changelog de Claude Code</a></li>
+        </ul>
       </div>
 
       <ChapterNav

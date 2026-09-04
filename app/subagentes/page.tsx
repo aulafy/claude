@@ -135,10 +135,11 @@ Sé directo pero constructivo.`}</code></pre>
         <Prompt>{`Usa el subagente "revisor" para revisar los cambios que acabas de hacer y dime qué encuentra.`}</Prompt>
         <h3>Mención directa</h3>
         <pre><code>{`@"revisor (agent)" revisa src/pagos.ts`}</code></pre>
-        <h3>Asistente interactivo</h3>
+        <h3>Crear y gestionar sin el antiguo asistente</h3>
         <p>
-          Usa el comando <code>/agents</code> para abrir un asistente que te guía en la
-          creación y gestión de subagentes sin escribir el YAML a mano.
+          El antiguo asistente <code>/agents</code> fue retirado. Pide a Claude que cree
+          o edite los archivos de <code>.claude/agents/</code>, o hazlo directamente.
+          Para gestionar agentes en segundo plano, usa <code>claude agents</code> desde la terminal.
         </p>
         <h3>Desde la terminal</h3>
         <pre><code>{`# Lanzar con un subagente concreto

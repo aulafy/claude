@@ -175,7 +175,7 @@ export default function FaqPage() {
         <p>
           Claude Code se actualiza con frecuencia y conviene estar al día para tener las
           últimas funciones. Comprueba tu versión con <code>claude --version</code> y
-          actualiza con <code>npm update -g @anthropic-ai/claude-code</code>.
+          si usaste npm, actualiza con <code>npm install -g @anthropic-ai/claude-code@latest</code>.
         </p>
       </Faq>
 
