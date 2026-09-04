@@ -2,6 +2,7 @@ import type { IconName } from "@/components/Icon";
 
 export type BlogPost = {
   locale?: "es" | "en";
+  alternateSlug?: string;
   slug: string;
   title: string;
   description: string;
@@ -30,7 +31,138 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    locale: "en",
+    slug: "gpt-6-astra-what-can-it-do",
+    title: "GPT-6 Astra: What Can It Actually Do? Real Use Cases, Benchmarks and How to Use It",
+    description: "What can GPT-6 Astra actually do? Real computer-use, coding, research and business examples, benchmarks, prompting tips and current availability.",
+    date: "2026-09-04",
+    updated: "2026-09-04",
+    category: "AI agents",
+    readingTime: "16 min",
+    icon: "magic",
+    image: "/blog/gpt-6-astra-what-can-it-do.png",
+    editorNote: "Last verified September 4, 2026. Benchmark figures are OpenAI-published results, while the Playco and Legora figures are customer case studies. Neither replaces testing on your own tasks, permissions and risk controls.",
+    keywords: ["GPT-6 Astra what can it do", "GPT-6 Astra use cases", "GPT-6 Astra benchmarks", "GPT-6 Astra computer use", "GPT-6 Astra coding", "GPT-6 Astra prompts", "how to use GPT-6 Astra"],
+    intro: "GPT-6 Astra is designed to complete work, not merely answer questions. It can reason across long contexts, use tools and software, write and test code, inspect visual results and keep iterating. This guide separates verified capabilities from launch hype and shows how to evaluate Astra on real work.",
+    sections: [
+      {
+        title: "The short answer",
+        body: "GPT-6 Astra is OpenAI's frontier model for difficult end-to-end work. Its practical advantage is the loop it can execute: understand a goal, plan, operate tools, inspect the result, correct mistakes and deliver an artifact. The strongest early applications are computer use, software engineering, research, document-heavy professional work and visual development.",
+        bullets: ["Best fit: complex, multi-step work with clear success criteria.", "Biggest change: the model can act through software instead of stopping at advice.", "Main caution: more autonomy also increases the cost of a wrong click, incorrect assumption or excessive permission."]
+      },
+      {
+        title: "What is GPT-6 Astra?",
+        body: "OpenAI released GPT-6 Astra on September 3, 2026 and describes it as its most capable model for the hardest end-to-end work. The API model has a 1,050,000-token context window, supports up to 128,000 output tokens and offers low, medium, high, xhigh and max reasoning effort. It is aimed at complex reasoning, coding, computer use, research and document creation."
+      },
+      {
+        title: "Computer use is the central capability",
+        body: "Astra can work through graphical interfaces to fill forms, update business systems, research across websites, install and test software, create sites and run frontend quality checks. This matters most where a workflow crosses email, a legacy CRM, a browser and a spreadsheet. APIs remain faster and more deterministic when they exist, but computer use can bridge software that has no practical integration.",
+        bullets: ["Give the agent the minimum permissions required for the task.", "Require confirmation before destructive, financial or externally visible actions.", "Keep an action log and verify the final state in the source system."]
+      },
+      {
+        title: "The computer-use benchmarks show a material jump",
+        body: "OpenAI reports 72.6% on OSWorld 2.0 for Astra, versus 65.7% for GPT-5.6 Sol, while simulated task time fell by about 47%. On ScreenSpot-Pro, which tests visual grounding in interfaces, Astra scores 92.7% versus 76.9%. These gains matter because an agent operating software can cause real changes when it misunderstands the screen."
+      },
+      {
+        title: "Coding agents can own a larger unit of work",
+        body: "The useful shift is from asking for a function to assigning a verifiable outcome: fix a feature, run tests, open the application, inspect the interface and continue until the acceptance criteria pass. OpenAI reports 57.9% on Terminal-Bench 4.0 for Astra, compared with 37.3% for GPT-5.6 Sol. The benchmark covers difficult terminal work across engineering, system configuration and data analysis.",
+        bullets: ["State the outcome and constraints before implementation details.", "Provide the repository's test, lint and build commands.", "Define what evidence proves completion: test output, screenshots, diffs or generated files."]
+      },
+      {
+        title: "Long-running work still needs explicit memory",
+        body: "A million-token context does not remove the need for project discipline. Long tasks accumulate failed experiments, requirements and decisions. Keep a small plan, a decision log and a list of verified facts in repository files so both humans and agents can recover state. In Codex, Astra can keep notes across context windows and search earlier context, making multi-session engineering more practical."
+      },
+      {
+        title: "Multi-agent workflows are useful when work is separable",
+        body: "A manager agent can preserve the objective while specialist agents inspect separate modules, research options or implement independent tasks. Parallelism helps only when responsibilities and outputs are clear; otherwise it multiplies duplicated work and contradictory changes.",
+        bullets: ["Delegate independent tasks with explicit file or domain ownership.", "Ask every worker for evidence and unresolved risks, not just a success claim.", "Keep integration, final testing and release decisions with one accountable agent or person."]
+      },
+      {
+        title: "Visual inspection closes the frontend loop",
+        body: "Astra can combine source code, screenshots and interaction. That enables a practical loop for websites, games and tools: implement, run, inspect, identify a visual defect, modify and retest. It is especially useful for responsive layouts, canvas applications and interfaces that can be technically valid while visibly broken. Visual checks should complement automated accessibility and regression tests, not replace them."
+      },
+      {
+        title: "Games and 3D reveal more than flashy demos",
+        body: "3D work combines code, geometry, interaction, visual judgment and continuous testing. In an OpenAI customer case study, Playco built three themed prototypes from one grey-box foundation and reported 50% fewer manual fixes than with the previous model. Playco's workflow let the model edit scenes, run games, find bugs and validate its own changes inside development tools."
+      },
+      {
+        title: "CAD and engineering are promising, but verification is non-negotiable",
+        body: "OpenAI reports a 95.9% BenchCAD score for Astra, compared with 83.3% for GPT-5.6 Sol and 84.3% for Claude Fable 5.1 in its published setup. This suggests useful assistance with CAD and physical-design software, but a plausible rendering is not an engineering sign-off. Tolerances, materials, safety, manufacturability and domain review remain external checks."
+      },
+      {
+        title: "Professional document workflows may be the larger market",
+        body: "Astra is trained for work involving documents, spreadsheets, presentations, research and multi-step office processes. OpenAI reports 41.4% on AutomationBench, versus 18.1% for GPT-5.6 Sol and 31.4% for Claude Fable 5.1 in the published comparison. The hard part is usually gathering the right evidence, applying policy and producing the required artifact rather than writing a paragraph."
+      },
+      {
+        title: "The Legora case shows the value of traceable first passes",
+        body: "Legora reports that one Astra agent reviewed 41 financial documents in minutes, found all four planted errors and improved nearly 40% over the previous model on that financial-statement workflow. The important design principle is not removing the professional: the agent performs exhaustive comparison and records checks, while a legal expert retains final judgment."
+      },
+      {
+        title: "How to prompt GPT-6 Astra for real work",
+        body: "Treat the prompt as a compact operating brief. Give Astra an outcome, context, constraints, allowed tools, stop conditions and required evidence. For high-impact work, tell it exactly which actions require approval and which systems are read-only.",
+        bullets: ["Goal: describe the finished state in one sentence.", "Context: link the relevant files, systems and authoritative sources.", "Constraints: define scope, permissions, budget, privacy and forbidden actions.", "Verification: name the tests, comparisons or visual checks it must perform.", "Delivery: specify the artifact and include remaining uncertainty."]
+      },
+      {
+        title: "A reusable Astra task brief",
+        body: "Use this structure: 'Outcome: [finished result]. Work only in [scope]. You may use [tools], but ask before [sensitive actions]. Preserve [data and compatibility constraints]. Verify with [tests or evidence]. Continue until the criteria pass or report the exact blocker. Deliver [artifact], a concise change log and unresolved risks.' This format is more reliable than asking the model to be smart or autonomous."
+      },
+      {
+        title: "Do not judge Astra from one impressive demo",
+        body: "Build an evaluation set of 20 to 50 representative tasks. Include ordinary work, ambiguous inputs, permission boundaries and known failure cases. Measure task success, human correction time, latency, cost, retries and harmful side effects. Compare Astra with your current model and with a human baseline using the same instructions."
+      },
+      {
+        title: "Run a deliberate failure test",
+        body: "Before granting autonomy, test what happens when a page changes, a file is missing, credentials fail, sources disagree or an instruction requests deletion. A trustworthy workflow should stop, preserve existing data, explain the uncertainty and request approval. Success on the happy path is only half of an agent evaluation."
+      },
+      {
+        title: "Limits and safety",
+        body: "Astra can still hallucinate, misread state, over-edit a codebase or choose an unsafe action. OpenAI classifies the model at the Critical capability level for cybersecurity and applies additional safeguards. For organizations, the practical response is least-privilege access, isolated environments, audit logs, human approval gates, backups and task-specific evaluations before production use."
+      },
+      {
+        title: "Is GPT-6 Astra AGI?",
+        body: "AGI has no agreed operational definition, so the label is less useful than capability boundaries. Astra is meaningfully more agentic and can finish broader workflows, but it remains fallible and dependent on tools, permissions, context and verification. Judge it by the percentage of your real tasks completed correctly and safely, not by a launch label."
+      },
+      {
+        title: "The practical conclusion",
+        body: "Astra's real change is the move from generated answers toward delegated, verifiable workflows. Start with a reversible task that currently requires several tools, define evidence of success and keep the first runs supervised. The organizations that benefit most will not be those with the longest prompts, but those with clean permissions, reliable data, explicit checks and well-designed human handoffs."
+      }
+    ],
+    table: {
+      headers: ["Evaluation", "GPT-6 Astra", "GPT-5.6 Sol", "What it tests"],
+      rows: [
+        ["OSWorld 2.0", "72.6%", "65.7%", "Operating desktop software"],
+        ["ScreenSpot-Pro", "92.7%", "76.9%", "Locating interface targets"],
+        ["Terminal-Bench 4.0", "57.9%", "37.3%", "Complex terminal work"],
+        ["BenchCAD", "95.9%", "83.3%", "Computer-aided design"],
+        ["AutomationBench", "41.4%", "18.1%", "Professional multi-step workflows"]
+      ]
+    },
+    sources: [
+      { title: "OpenAI · Introducing GPT-6 Astra", href: "https://openai.com/index/gpt-6-astra/", note: "Launch details, capabilities and published benchmarks." },
+      { title: "OpenAI Developers · GPT-6 Astra model", href: "https://developers.openai.com/api/docs/models/gpt-6-astra", note: "Context, output, reasoning levels, tools and current availability." },
+      { title: "OpenAI Developers · Using GPT-6 Astra", href: "https://developers.openai.com/api/docs/guides/latest-model", note: "Official implementation and prompting guidance." },
+      { title: "OpenAI · Playco game prototyping with Astra", href: "https://openai.com/index/playco-game-prototyping-with-astra/", note: "Customer-reported game prototyping results." },
+      { title: "OpenAI · Legora financial-statement review with Astra", href: "https://openai.com/index/legora-financial-statement-review-with-astra/", note: "Customer-reported document workflow results." },
+      { title: "OpenAI · GPT-6 Astra safety overview", href: "https://openai.com/index/safety-overview-gpt-6-astra/", note: "Published safety evaluation and deployment safeguards." }
+    ],
+    faqs: [
+      { q: "What can GPT-6 Astra actually do?", a: "It can reason across complex tasks, operate software, browse, write and test code, create documents, inspect visual results and iterate toward a defined outcome using tools." },
+      { q: "Is GPT-6 Astra available now?", a: "OpenAI began a limited enterprise rollout on September 3, 2026 and says API plus ChatGPT Plus, Pro, Business and Enterprise access will follow in the coming days. Availability can vary by account and region." },
+      { q: "What is GPT-6 Astra's context window?", a: "The API model page lists a 1,050,000-token context window and a maximum output of 128,000 tokens." },
+      { q: "Is GPT-6 Astra better for coding?", a: "OpenAI reports a large Terminal-Bench 4.0 improvement and positions Astra for end-to-end software work. Your result still depends on repository context, tools, tests and clear completion criteria." },
+      { q: "Can GPT-6 Astra replace APIs with computer use?", a: "It can bridge interfaces without dedicated integrations, but an API is usually faster and more deterministic when available. Use computer interaction for gaps and retain verification." },
+      { q: "How should a company test GPT-6 Astra?", a: "Run 20 to 50 representative tasks in an isolated environment. Measure success, correction time, cost, latency and side effects, including deliberate failure and permission-boundary tests." },
+      { q: "Is GPT-6 Astra safe to run autonomously?", a: "No frontier model should receive broad unsupervised access by default. Use least privilege, backups, logs, approval gates and task-specific evaluations before production deployment." }
+    ],
+    related: [
+      { title: "AI safety and evaluations", href: "/en/courses/seguridad-evals", desc: "Build practical checks before an agent reaches production." },
+      { title: "Coding with AI agents", href: "/en/courses/codex-programadores", desc: "Learn a repository workflow with tests and human review." },
+      { title: "Local coding agents", href: "/en/courses/ia-local/agentes-codigo-locales", desc: "Compare cloud agents with private local workflows." }
+    ]
+  },
+  {
     slug: "ultimos-modelos-ia-local-agosto-2026",
+    alternateSlug: "latest-local-ai-models-august-2026",
     title: "Los últimos modelos de IA local de 2026: Kimi K3, Inkling, Laguna, DeepSeek, Qwen, Muse y Nemotron",
     description: "Comparativa actualizada de los nuevos modelos open-weight de julio y agosto de 2026: capacidad, benchmarks, hardware y utilidad local real.",
     date: "2026-08-16", updated: "2026-08-16", category: "IA local", readingTime: "14 min", icon: "brain",
@@ -54,7 +186,7 @@ export const blogPosts: BlogPost[] = [
     related: [{ title: "Read this article in English", href: "/blog/latest-local-ai-models-august-2026", desc: "English edition with the same verified comparison." }, { title: "Curso de IA local", href: "/cursos/ia-local", desc: "Instala runtimes y elige modelos según tu hardware." }, { title: "Ollama, vLLM, SGLang y MLX", href: "/cursos/ia-local/ollama-vllm-sglang-mlx", desc: "Compara runtimes antes de descargar pesos." }],
   },
   {
-    locale: "en", slug: "latest-local-ai-models-august-2026",
+    locale: "en", alternateSlug: "ultimos-modelos-ia-local-agosto-2026", slug: "latest-local-ai-models-august-2026",
     title: "The latest local AI models in 2026: Kimi K3, Inkling, Laguna, DeepSeek, Qwen, Muse and Nemotron",
     description: "An updated comparison of the newest open-weight models released in July and August 2026, including hardware, benchmarks and realistic local use.",
     date: "2026-08-16", updated: "2026-08-16", category: "Local AI", readingTime: "14 min", icon: "brain", image: "/blog/tendencias-ia-2026-agentes-ia-local-rag.png",
