@@ -13,6 +13,7 @@ export type BlogPost = {
   icon: IconName;
   image: string;
   editorNote?: string;
+  interactive?: "ai-cost-calculator";
   keywords: string[];
   intro: string;
   sections: Array<{
@@ -30,6 +31,123 @@ export type BlogPost = {
 };
 
 export const blogPosts: BlogPost[] = [
+  {
+    locale: "en",
+    slug: "ai-cost-per-task-vs-token-price",
+    title: "Stop Comparing AI Models by Token Price: Why Cost per Task Matters More",
+    description: "Token prices can mislead when comparing AI agents. Learn to calculate model cost, retries, human review and cost per accepted task.",
+    date: "2026-09-04",
+    updated: "2026-09-04",
+    category: "AI economics",
+    readingTime: "14 min",
+    icon: "chart",
+    image: "/blog/ai-cost-per-task-vs-token-price.png",
+    editorNote: "Last verified September 4, 2026. Prices can change. Benchmark comparisons refer to a complete configuration: model, agent harness, reasoning effort, tools and test set. They are evidence about those systems, not universal model rankings.",
+    interactive: "ai-cost-calculator",
+    keywords: ["AI cost per task", "cost per task vs token price", "LLM API pricing comparison", "AI agent cost", "cost per accepted task", "LLM token efficiency", "AI API cost optimization", "GPT-6 Astra cost"],
+    intro: "Price per million tokens is useful, but it does not tell you what a completed AI workflow costs. Agents can consume different amounts of context, reasoning, tool calls and retries, then require very different levels of human correction. The metric that matters to a product team is the cost of an accepted result at the required quality.",
+    sections: [
+      {
+        title: "The short answer",
+        body: "Do not select an AI agent from the smallest number on a pricing page. Measure total model and tool spend, divide it by successful tasks, then add human review and divide by outputs the business actually accepts. A model with expensive tokens can be cheaper overall if it finishes more tasks with fewer retries; a cheap model remains the right choice when quality and token consumption are genuinely comparable.",
+        bullets: ["Price per token measures an input to the system.", "Cost per successful task measures technical completion.", "Cost per accepted task measures usable business output.", "Quality, latency, reliability and human intervention must be reported beside cost."]
+      },
+      {
+        title: "Why token price can mislead",
+        body: "Imagine one coding agent that inspects a repository, makes a valid change, runs tests and stops. Another repeatedly resends context, searches the same files, attempts several fixes and needs a second run. Even if the second model's tokens cost one tenth as much, its completed task may not. Autonomous workflows amplify differences in reasoning length, stopping behavior, cache use and failure recovery."
+      },
+      {
+        title: "Use three cost metrics, not one",
+        body: "Raw cost per run is total API and tool spend divided by runs. Cost per successful task divides model and tool spend by tasks that meet the technical success condition. Cost per accepted task adds human review, infrastructure, retries and other operating costs, then divides by outputs accepted for real use. Define success and acceptance before testing so a team cannot improve the number by quietly lowering the quality bar.",
+        bullets: ["Model cost per run = uncached input + cached input + output + tool charges.", "Cost per success = model and tool spend / successful runs.", "Operational cost per accepted result = model, tools, review and infrastructure / accepted outputs."]
+      },
+      {
+        title: "GPT-6 Astra shows why workload efficiency matters",
+        body: "Artificial Analysis reports that GPT-6 Astra at max effort used roughly one third of the tokens of GPT-5.6 Sol max inside the Codex harness on its Coding Agent Index. Astra scored 67, two points above Sol in the cited comparison, while costing about the same per benchmark task despite a 2.5-times higher input and output list price. This is a result for that coding-agent configuration, not proof that Astra is always cheaper."
+      },
+      {
+        title: "The same model can still be expensive on another workload",
+        body: "On the broader Artificial Analysis Intelligence Index, Astra and GPT-5.6 Sol both scored 61. Astra produced about 10% fewer output tokens at max effort, but Artificial Analysis estimates it cost about 75% more per task because the token-efficiency gain did not offset the higher unit price. Both findings can be true: efficiency depends on the task, and efficiency does not automatically mean lower cost."
+      },
+      {
+        title: "Astra versus Gemini 3.8 Flash is not a model-only comparison",
+        body: "OpenAI lists GPT-6 Astra at $10 per million input tokens, $1 for cached input and $50 per million output tokens. Google lists introductory Gemini 3.8 Flash pricing through December 31, 2026 at $0.75 input and $3.75 output, rising to $1.50 and $7.50 on January 1, 2027. Gemini has a major list-price advantage. Whether that becomes the same advantage per accepted agent task depends on consumption, success and the harness around each model.",
+        bullets: ["Use Gemini pricing from Google and Astra pricing from OpenAI, not a third-party table.", "Compare equivalent tasks, quality thresholds and reasoning settings.", "Label Codex, OpenCode, Antigravity or another harness as part of the tested system.", "Do not describe results from different harnesses as an apples-to-apples model benchmark."]
+      },
+      {
+        title: "Reasoning effort is an economic control",
+        body: "Astra supports low, medium, high, xhigh and max reasoning effort; Gemini 3.8 Flash supports low, medium and high. Maximum reasoning on every request wastes money and latency when the task is simple. A practical router starts routine extraction and classification at low effort, sends ordinary coding or analysis to medium, and escalates unresolved or high-value work only when evidence justifies it."
+      },
+      {
+        title: "Caching and long context can reverse the estimate",
+        body: "Agents repeatedly reuse system prompts, tool schemas, repository instructions and prior context. Cache-read pricing can therefore matter more than normal input pricing. Context size also changes cost: OpenAI states that Astra prompts above 272,000 input tokens are charged at twice the input and cache rates and 1.5 times the output rate for the whole request. A one-million-token window is a capability, not a reason to send everything every time.",
+        bullets: ["Record cached and uncached tokens separately.", "Prefer retrieval and stable reusable prefixes over repeated context dumps.", "Test whether larger context improves acceptance enough to justify its memory, latency and price."]
+      },
+      {
+        title: "Agent turns and tool calls are hidden multipliers",
+        body: "A task can include dozens of inspect, search, edit, test and retry cycles. The harness decides when context is resent, how errors are recovered and when the agent stops. Tool APIs may add search, browser, database or sandbox charges. Track turns and tool calls even when they are not billed directly: they affect latency, token use and the probability of side effects."
+      },
+      {
+        title: "Human review often costs more than inference",
+        body: "If an agent run costs $0.30 but requires five minutes from an employee whose loaded cost is $40 per hour, review adds about $3.33. A second model costing $1.20 with only 30 seconds of review adds roughly $0.33, for about $1.53 total. The nominally expensive model is less than half the operational cost in this example. Measure review time rather than assuming it is free."
+      },
+      {
+        title: "Latency and failure severity belong beside cost",
+        body: "A cheap ten-minute result may be acceptable for an overnight batch and unusable in customer support, incident response or interactive coding. Average success rate also hides risk: one incorrect classification is not equivalent to an agent deleting data or sending the wrong invoice. Report p50 and p95 latency, failure categories and the cost of recovery beside dollars per accepted task."
+      },
+      {
+        title: "Benchmark the complete AI system",
+        body: "The reproducible unit is model plus harness plus reasoning setting plus tools plus prompt plus task. Changing any one can alter token reuse, retries and stopping behavior. Public benchmarks help choose candidates, but a product decision needs a small private evaluation drawn from the workflow where the system will run."
+      },
+      {
+        title: "Build a useful evaluation set",
+        body: "Start with 30 to 100 representative tasks and preserve the same inputs and acceptance rubric for every configuration. Include easy work, typical work, ambiguous cases and failures such as unavailable tools or conflicting sources. Run enough repetitions to expose variance and review a sample blindly when model identity could bias the evaluator.",
+        bullets: ["Record model, version, harness, prompt and reasoning level.", "Capture uncached input, cached input, output, tool calls and turns.", "Record wall-clock time, retries, technical success and final acceptance.", "Measure human review and correction minutes.", "Keep the raw evidence so pricing or policies can be recalculated later."]
+      },
+      {
+        title: "When price per token is still enough",
+        body: "Token price remains a strong first filter for short classification, extraction, rewriting and summarization when candidate models use similar token counts and reach the same quality. The mistake is extending that shortcut to long autonomous workflows, where reasoning, tools, retries and acceptance rates can diverge sharply."
+      },
+      {
+        title: "A better purchasing rule for AI in 2026",
+        body: "Begin with one business outcome: a resolved ticket, reconciled invoice, approved report, merged pull request or completed research task. Test several configurations, including reasoning levels, and choose the least expensive system that meets the required quality, latency and risk threshold. Recalculate when prices, prompts, tools or models change."
+      },
+      {
+        title: "The metric that matters",
+        body: "Tokens are a billing unit, not a universal unit of useful work. As AI moves from generating text to completing workflows, teams should optimize for accepted outcomes. The cheapest token does not necessarily produce the cheapest work, and the most expensive model does not necessarily produce the most expensive automation. Measure the system you actually deploy."
+      }
+    ],
+    table: {
+      headers: ["Metric", "Calculation", "What it reveals"],
+      rows: [
+        ["Cost per run", "Model + cache + tools", "Invoice cost of one attempt"],
+        ["Cost per success", "AI spend / successful tasks", "Cost after technical failures"],
+        ["Cost per accepted result", "Total operating cost / accepted outputs", "Business-usable economics"],
+        ["Human minutes per accepted result", "Review + correction / accepted outputs", "Hidden labor burden"],
+        ["Time per accepted result", "Elapsed time / accepted outputs", "Interactive or batch viability"]
+      ]
+    },
+    sources: [
+      { title: "OpenAI Developers · GPT-6 Astra model and pricing", href: "https://developers.openai.com/api/docs/models/gpt-6-astra", note: "Prices, cache rates, long-context multiplier and reasoning settings checked September 4, 2026." },
+      { title: "Google AI for Developers · Gemini 3.8 Flash", href: "https://ai.google.dev/gemini-api/docs/latest-model?hl=en", note: "Introductory and standard pricing, context and reasoning levels." },
+      { title: "Artificial Analysis · Benchmarking GPT-6 Astra", href: "https://artificialanalysis.ai/articles/benchmarking-gpt-6-astra", note: "Independent Coding Agent and Intelligence Index analysis; results are configuration-specific." },
+      { title: "Artificial Analysis · Methodology", href: "https://artificialanalysis.ai/methodology", note: "Evaluation definitions and comparison context." }
+    ],
+    faqs: [
+      { q: "What is AI cost per task?", a: "It is the total model and tool spend required to run one task. For production decisions, cost per successful or accepted task is more useful because it accounts for failures and unusable output." },
+      { q: "Is GPT-6 Astra cheaper than Gemini 3.8 Flash?", a: "Not generally. Gemini 3.8 Flash has much lower list prices. Astra can narrow a price disadvantage on workloads where it uses fewer tokens or succeeds more often, but only a matched workflow evaluation can answer the question." },
+      { q: "How much does GPT-6 Astra cost?", a: "OpenAI lists $10 per million input tokens, $1 per million cached input tokens, $12.50 per million cache-write tokens and $50 per million output tokens as of September 4, 2026." },
+      { q: "How much does Gemini 3.8 Flash cost?", a: "Google lists introductory pricing of $0.75 per million input tokens and $3.75 per million output tokens through December 31, 2026, with standard pricing of $1.50 and $7.50 from January 1, 2027." },
+      { q: "Why can an expensive LLM cost less overall?", a: "It may consume fewer tokens, need fewer retries, finish more tasks successfully or require less human correction. Those savings can outweigh a higher token price." },
+      { q: "What should I record in an AI cost benchmark?", a: "Record model and harness versions, reasoning level, uncached and cached tokens, output tokens, tools, turns, retries, latency, success, acceptance and human review time." },
+      { q: "What is the best metric for comparing AI agents?", a: "Cost per accepted result at a defined quality and risk level is usually the strongest business metric. Report latency, reliability and failure severity alongside it." }
+    ],
+    related: [
+      { title: "GPT-6 Astra: real capabilities and benchmarks", href: "/blog/gpt-6-astra-what-can-it-do", desc: "See what the model can do before evaluating its economics." },
+      { title: "AI safety and evaluations", href: "/en/courses/seguridad-evals", desc: "Build acceptance rubrics, failure tests and production controls." },
+      { title: "Coding with AI agents", href: "/en/courses/codex-programadores", desc: "Practice verifiable repository work with tests and review." }
+    ]
+  },
   {
     slug: "ia-local-modelos-apps-memoria-os-2026",
     title: "IA local en 2026: qué modelo y qué app usar según tu memoria, SO y dispositivo",
@@ -268,6 +386,7 @@ export const blogPosts: BlogPost[] = [
       { q: "Is GPT-6 Astra safe to run autonomously?", a: "No frontier model should receive broad unsupervised access by default. Use least privilege, backups, logs, approval gates and task-specific evaluations before production deployment." }
     ],
     related: [
+      { title: "AI cost per task vs token price", href: "/blog/ai-cost-per-task-vs-token-price", desc: "Calculate the real cost of agentic workflows, including review and failures." },
       { title: "AI safety and evaluations", href: "/en/courses/seguridad-evals", desc: "Build practical checks before an agent reaches production." },
       { title: "Coding with AI agents", href: "/en/courses/codex-programadores", desc: "Learn a repository workflow with tests and human review." },
       { title: "Local coding agents", href: "/en/courses/ia-local/agentes-codigo-locales", desc: "Compare cloud agents with private local workflows." }
