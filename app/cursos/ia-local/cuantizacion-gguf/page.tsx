@@ -119,7 +119,7 @@ ollama run mi-modelo-q5`}</Terminal>
       </Guardar>
 
       <ChapterNav
-        prev={{ href: "/cursos/ia-local/ollama-desde-cero", label: "Ollama desde cero" }}
+        prev={{ href: "/cursos/ia-local/lm-studio-desde-cero", label: "LM Studio desde cero" }}
         next={{ href: "/cursos/ia-local/conectar-ollama", label: "Conecta Claude Code con tu IA local" }}
       />
     </Chapter>
