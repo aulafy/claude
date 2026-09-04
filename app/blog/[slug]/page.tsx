@@ -24,11 +24,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     keywords: post.keywords,
     alternates: {
       canonical: `/blog/${post.slug}`,
-      languages: post.locale === "en"
-        ? { "es-ES": "/blog/ultimos-modelos-ia-local-agosto-2026", "en-US": `/blog/${post.slug}` }
-        : post.slug === "ultimos-modelos-ia-local-agosto-2026"
-          ? { "es-ES": `/blog/${post.slug}`, "en-US": "/blog/latest-local-ai-models-august-2026" }
-          : undefined,
+      languages: post.alternateSlug
+        ? post.locale === "en"
+          ? { "en-US": `/blog/${post.slug}`, "es-ES": `/blog/${post.alternateSlug}` }
+          : { "es-ES": `/blog/${post.slug}`, "en-US": `/blog/${post.alternateSlug}` }
+        : { [post.locale === "en" ? "en-US" : "es-ES"]: `/blog/${post.slug}` },
     },
     openGraph: {
       title,
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       url: `/blog/${post.slug}`,
       type: "article",
       locale: post.locale === "en" ? "en_US" : "es_ES",
-      alternateLocale: post.locale === "en" ? ["es_ES"] : ["en_US"],
+      alternateLocale: post.alternateSlug ? [post.locale === "en" ? "es_ES" : "en_US"] : undefined,
       publishedTime: post.date,
       modifiedTime: post.updated,
       authors: ["Ramón Guillamón"],
@@ -57,6 +57,7 @@ function seoTitleFor(slug: string, fallback: string) {
   const titles: Record<string, string> = {
     "ultimos-modelos-ia-local-agosto-2026": "Últimos modelos de IA local de 2026",
     "latest-local-ai-models-august-2026": "Latest Local AI Models Released in 2026",
+    "gpt-6-astra-what-can-it-do": "GPT-6 Astra: What Can It Actually Do? Real Use Cases & Benchmarks",
     "como-empezar-usar-ia-2026": "Cómo empezar a usar IA en 2026",
     "usar-ia-estudiar-sin-hacer-trampas-2026": "Cómo usar IA para estudiar sin hacer trampas",
     "grok-45-guia-evaluacion-2026": "Grok 4.5: evaluación sin hype",
@@ -132,20 +133,20 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: post.locale === "en" ? "Home" : "Inicio", item: SITE_URL },
+      { "@type": "ListItem", position: 1, name: post.locale === "en" ? "Home" : "Inicio", item: `${SITE_URL}${post.locale === "en" ? "/en" : ""}` },
       { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog` },
       { "@type": "ListItem", position: 3, name: post.title, item: `${SITE_URL}/blog/${post.slug}` },
     ],
   };
 
   return (
-    <main className="aula-shell max-w-4xl mx-auto px-6 py-14">
+    <main lang={post.locale ?? "es"} className="aula-shell max-w-4xl mx-auto px-6 py-14">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
 
       <div className="mb-4 aula-meta">
-        <Link href="/" className="hover:text-zinc-400">{post.locale === "en" ? "Home" : "Inicio"}</Link>
+        <Link href={post.locale === "en" ? "/en" : "/"} className="hover:text-zinc-400">{post.locale === "en" ? "Home" : "Inicio"}</Link>
         <span className="mx-2">/</span>
         <Link href="/blog" className="hover:text-zinc-400">Blog</Link>
         <span className="mx-2">/</span>
