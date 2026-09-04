@@ -13,7 +13,7 @@ export type BlogPost = {
   icon: IconName;
   image: string;
   editorNote?: string;
-  interactive?: "ai-cost-calculator";
+  interactive?: "ai-cost-calculator" | "private-model-selector";
   keywords: string[];
   intro: string;
   sections: Array<{
@@ -31,6 +31,123 @@ export type BlogPost = {
 };
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "qwen3-8-flash-vs-deepseek-v4-flash",
+    title: "Qwen3.8 Flash-Next vs DeepSeek V4 Flash: cuál desplegar en infraestructura privada",
+    description: "Comparamos Qwen3.8-Flash-Next y DeepSeek V4 Flash para visión, código, contexto largo, coste, privacidad y despliegue propio.",
+    date: "2026-09-04",
+    updated: "2026-09-04",
+    category: "IA privada",
+    readingTime: "13 min",
+    icon: "server",
+    image: "/blog/qwen3-8-flash-vs-deepseek-v4-flash.png",
+    editorNote: "Verificado el 4 de septiembre de 2026. Las velocidades y precios combinados proceden de proveedores medidos por Artificial Analysis, no de una instalación local. Los benchmarks de las fichas de modelo son resultados publicados por sus fabricantes. Repite siempre las pruebas en tu hardware y con tu runtime.",
+    interactive: "private-model-selector",
+    keywords: ["Qwen3.8 Flash vs DeepSeek V4 Flash", "Qwen3.8 Flash local", "DeepSeek V4 Flash local", "IA privada", "self hosted AI", "modelos open weight", "router de modelos IA", "DeepSeek V4 coding", "Qwen3.8 Flash-Next"],
+    intro: "Qwen3.8-Flash-Next y DeepSeek V4 Flash 0731 acercan capacidades avanzadas a infraestructura controlada por una organización, pero no son modelos corrientes de portátil. Qwen destaca por multimodalidad y eficiencia; DeepSeek, por código, herramientas y contexto muy largo. Esta guía ayuda a decidir qué probar, cuándo usar ambos y cuándo elegir un modelo menor.",
+    sections: [
+      {
+        title: "Respuesta rápida",
+        body: "Elige Qwen3.8-Flash-Next cuando necesites imágenes, vídeo, documentos visuales o un generalista eficiente. Prueba DeepSeek V4 Flash 0731 para agentes de código, terminal y contextos superiores a 256K. Si solo tienes un portátil o una GPU de consumo, ninguno de los checkpoints completos es una primera opción sensata: usa un modelo de 7B-30B o una API con controles de datos.",
+        bullets: ["Qwen: multimodal, 262K nativos y 6B activos.", "DeepSeek: texto, contexto de hasta 1M y fuerte orientación a agentes de código.", "Tareas simples: un modelo menor suele ganar en coste y operación.", "Carga mixta: evalúa ambos detrás de un router con reglas y fallback."]
+      },
+      {
+        title: "Qué estamos comparando realmente",
+        body: "Qwen3.8-Flash-Next es el checkpoint open-weight experimental que anticipa la arquitectura de Qwen4. Qwen3.8-Flash es un producto de servicio basado en esa arquitectura, con contexto de 1M y herramientas gestionadas. DeepSeek V4 Flash 0731 es el checkpoint oficial que sustituyó a la preview. Para self-hosting, compara los pesos y el runtime; para API, compara además proveedor, región, caché y política de datos."
+      },
+      {
+        title: "La fotografía independiente del 4 de septiembre",
+        body: "Artificial Analysis sitúa Qwen3.8-Flash-Next en 56 puntos y DeepSeek V4 Flash 0731 en 52 en su Intelligence Index v4.1.1. En los proveedores medidos, Qwen alcanza aproximadamente 69,5 tokens por segundo y DeepSeek 140. El precio combinado publicado es $0,09 frente a $0,23 por millón de tokens usando una proporción 7:2:1 de caché, entrada y salida. Son referencias de API, no costes ni velocidades de self-hosting.",
+        bullets: ["La velocidad depende del proveedor y no predice tu servidor.", "El precio combinado no es una tarifa universal ni incluye tu hardware.", "Cuatro puntos de índice no sustituyen una evaluación por tarea."]
+      },
+      {
+        title: "Qwen suma 180B, pero el desglose importa",
+        body: "La ficha oficial describe 125B parámetros del modelo lingüístico, 51B de embeddings n-gram y 4B del módulo MTP; la suma habitual es 180B. Aproximadamente 6B están activos por token. Presentarlo como un modelo convencional de 180B oculta parte de su diseño: los embeddings n-gram están pensados para escalar capacidad con menor cómputo y mayor facilidad de offload."
+      },
+      {
+        title: "Qwen gana cuando la tarea necesita visión",
+        body: "Qwen3.8-Flash-Next acepta texto, imágenes y vídeo. Eso lo convierte en mejor candidato para documentos escaneados, capturas de aplicaciones, gráficos, automatización visual y asistentes que combinan código con una interfaz. La entrada multimodal no garantiza buen OCR ni precisión empresarial: crea un conjunto con tus facturas, planos o pantallas y mide extracción, citas y errores."
+      },
+      {
+        title: "DeepSeek está optimizado para agentes de código",
+        body: "DeepSeek publica 82,7 en Terminal-Bench 2.1, 54,4 en DeepSWE y 70,3 en Toolathlon-Verified para V4 Flash 0731. La evaluación de tareas de agente de código usa DeepSeek Harness en modo minimal, razonamiento max y una configuración declarada por el fabricante. El checkpoint soporta niveles de razonamiento low, high y max y añade un módulo de decodificación especulativa DSpark.",
+        bullets: ["Úsalo como candidato, no como garantía de resolver tu repositorio.", "Conserva tests, permisos mínimos y revisión de diffs.", "Mide bucles fallidos, tiempo completo y coste por cambio aceptado."]
+      },
+      {
+        title: "Un millón de tokens es capacidad, no estrategia",
+        body: "DeepSeek está diseñado para contexto de hasta un millón de tokens, mientras Qwen ofrece 262.144 tokens nativos y extensión hasta 1M. Pegar todo un repositorio o archivo histórico puede aumentar memoria, latencia y ruido. Incluso con ventanas enormes, la búsqueda, el RAG, los resúmenes jerárquicos y una memoria explícita siguen siendo mejores que enviar información irrelevante en cada turno."
+      },
+      {
+        title: "El error clave: parámetros activos no equivalen a memoria",
+        body: "Un MoE ejecuta solo parte de sus expertos para cada token, pero necesita almacenar y acceder al resto de los pesos. Por eso 6B activos no convierten Qwen en un modelo de 6B, ni 13B activos convierten DeepSeek en un modelo doméstico de 13B. Cuantización, expert parallelism, offload y memory mapping reducen requisitos o reparten trabajo, pero no eliminan el tamaño físico del checkpoint."
+      },
+      {
+        title: "Qué hardware exige un despliegue serio",
+        body: "La ficha de DeepSeek muestra como ejemplo de producción un nodo con cuatro GPU GB300 y recomienda vLLM o SGLang con paralelismo de expertos. Qwen también recomienda motores de serving como SGLang, KTransformers o vLLM para alto throughput. Existen cuantizaciones y experimentos comunitarios en estaciones compactas, pero no deberían convertirse en una promesa sin publicar formato, memoria, contexto, velocidad y calidad.",
+        bullets: ["Calcula pesos, KV cache, runtime y concurrencia, no solo parámetros activos.", "Prueba primero una cuantización con 20-50 tareas representativas.", "Documenta energía, tokens/s, latencia, errores y recuperación."]
+      },
+      {
+        title: "Pesos abiertos no garantizan privacidad",
+        body: "La privacidad depende de todo el flujo. Si el modelo está en tu servidor pero OCR, embeddings, telemetría, búsqueda o logs salen a terceros, parte de los datos también sale. Un sistema privado debe controlar inferencia, almacenamiento, cifrado, copias, observabilidad, permisos, retención y conexiones de herramientas."
+      },
+      {
+        title: "Las licencias también forman parte de la arquitectura",
+        body: "Qwen3.8-Flash-Next usa Qwen Community License 1.0; DeepSeek V4 Flash 0731 publica repositorio y pesos bajo MIT. Open-weight no implica necesariamente datasets, proceso de entrenamiento y componentes completamente abiertos. Antes de un uso comercial, conserva una copia de la licencia de la revisión exacta y revisa obligaciones, dependencias y modelos derivados."
+      },
+      {
+        title: "Cuándo tiene sentido un router",
+        body: "Un router evita usar el modelo más pesado para cada petición. Puede enviar visión y documentos complejos a Qwen, agentes de código o contexto extremo a DeepSeek y clasificación o extracción a un modelo menor. Empieza con reglas deterministas y observables antes de pedir a otro LLM que elija: modalidad, sensibilidad, tamaño de contexto, coste máximo y disponibilidad son señales fáciles de auditar.",
+        bullets: ["Ruta 1: tarea simple → modelo pequeño local.", "Ruta 2: imagen o vídeo → Qwen.", "Ruta 3: código o contexto superior a 256K → DeepSeek.", "Fallback: error, saturación o baja confianza → revisión o modelo alternativo.", "Registra decisión, modelo, coste, latencia y resultado aceptado."]
+      },
+      {
+        title: "IA soberana significa control operativo",
+        body: "La soberanía no se obtiene solo descargando pesos. Significa decidir jurisdicción, ubicación de datos, acceso, continuidad, auditoría y capacidad de sustituir un proveedor. Una organización puede operar pesos propios en sus servidores, un centro regional o infraestructura alquilada; lo importante es que la gobernanza y la salida estén diseñadas antes de depender del sistema."
+      },
+      {
+        title: "Cómo compararlos en una semana",
+        body: "Crea 30 tareas de tu operación: diez simples, diez representativas y diez difíciles o propensas a fallo. Ejecuta la misma entrada y rúbrica con Qwen, DeepSeek y un modelo menor. Registra calidad, citas, tokens, velocidad, memoria máxima, energía, reintentos, revisión humana y coste por resultado aceptado. Repite los casos variables y conserva las salidas para poder auditar la decisión.",
+        bullets: ["No mezcles versiones, prompts o contextos sin registrarlo.", "Incluye una prueba sin red para comprobar dependencias externas.", "Simula una herramienta caída y una instrucción destructiva.", "Elige el sistema más pequeño que cumpla el umbral, no el benchmark más alto."]
+      },
+      {
+        title: "Conclusión",
+        body: "Qwen3.8-Flash-Next es la opción más clara para multimodalidad y generalismo eficiente; DeepSeek V4 Flash 0731 merece la primera prueba en agentes de código y contextos extremos. Para la mayoría de equipos de consumo, la recomendación responsable es ninguno de los dos checkpoints completos. El producto valioso no es poseer el modelo mayor, sino construir una ruta privada, verificable y económicamente sostenible para cada tarea."
+      }
+    ],
+    table: {
+      headers: ["Criterio", "Qwen3.8-Flash-Next", "DeepSeek V4 Flash 0731"],
+      rows: [
+        ["Mejor encaje", "Visión, documentos y generalista", "Código, terminal y agentes"],
+        ["Índice AA", "56", "52, max reasoning"],
+        ["Velocidad AA", "69,5 tok/s", "140 tok/s"],
+        ["Precio combinado AA", "$0,09/M", "$0,23/M"],
+        ["Contexto", "262K nativo; extensible a 1M", "Hasta 1M"],
+        ["Parámetros", "125B + 51B n-gram + 4B MTP; 6B activos", "284B base; 13B activos"],
+        ["Entrada visual", "Texto, imagen y vídeo", "Texto en el checkpoint estándar"],
+        ["Licencia", "Qwen Community License 1.0", "MIT"]
+      ]
+    },
+    sources: [
+      { title: "Qwen · Qwen3.8-Flash-Next model card", href: "https://huggingface.co/Qwen/Qwen3.8-Flash-Next", note: "Arquitectura, parámetros, contexto, multimodalidad, serving y licencia." },
+      { title: "DeepSeek · DeepSeek V4 Flash 0731 model card", href: "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731", note: "Benchmarks publicados, serving, razonamiento, despliegue y licencia." },
+      { title: "Artificial Analysis · Qwen vs DeepSeek", href: "https://artificialanalysis.ai/models/comparisons/qwen3-8-flash-next-vs-deepseek-v4-flash", note: "Índice, precio combinado, velocidad, contexto y metodología consultados el 4 de septiembre de 2026." },
+      { title: "vLLM · receta para DeepSeek V4 Flash", href: "https://github.com/vllm-project/recipes/blob/main/models/deepseek-ai/DeepSeek-V4-Flash.yaml", note: "Configuración reproducible de serving." },
+      { title: "SGLang · receta para Qwen3.8-Flash-Next", href: "https://docs.sglang.io/cookbook/autoregressive/Qwen/Qwen3.8-Flash-Next", note: "Requisitos y configuración del runtime." }
+    ],
+    faqs: [
+      { q: "¿Cuál es mejor, Qwen3.8-Flash-Next o DeepSeek V4 Flash?", a: "Qwen encaja mejor con imágenes, vídeo y trabajo generalista. DeepSeek destaca en agentes de código, terminal y contexto muy largo. La elección final depende de tus tareas, hardware y tasa de resultados aceptados." },
+      { q: "¿Puedo ejecutar estos modelos en un portátil?", a: "No los checkpoints completos de forma práctica. Sus pocos parámetros activos reducen cómputo, pero los pesos totales siguen siendo enormes. Para portátil, elige modelos de 7B-30B cuantizados." },
+      { q: "¿Qwen3.8-Flash y Flash-Next son el mismo modelo?", a: "No exactamente. Flash-Next es el checkpoint open-weight experimental; Qwen3.8-Flash es el servicio oficial de producción basado en esa arquitectura, con funciones gestionadas adicionales." },
+      { q: "¿DeepSeek V4 Flash admite imágenes?", a: "El checkpoint estándar comparado aquí es de entrada textual. Qwen3.8-Flash-Next sí admite texto, imágenes y vídeo." },
+      { q: "¿Cuál tiene más contexto?", a: "DeepSeek ofrece hasta un millón de tokens. Qwen tiene 262.144 tokens nativos y declara extensión hasta un millón, mientras el servicio Qwen3.8-Flash ofrece 1M por defecto." },
+      { q: "¿Pesos abiertos significa IA privada?", a: "No. La privacidad exige controlar también OCR, embeddings, herramientas, almacenamiento, logs, copias, permisos y conexiones de red." },
+      { q: "¿Tiene sentido usar los dos?", a: "Sí, si el volumen compensa la complejidad. Un router puede enviar visión a Qwen, código y contexto largo a DeepSeek, y tareas simples a un modelo menor." }
+    ],
+    related: [
+      { title: "IA local según memoria y sistema", href: "/blog/ia-local-modelos-apps-memoria-os-2026", desc: "Elige primero qué modelos caben realmente en tu equipo." },
+      { title: "DeepSeek V4 Flash para agentes", href: "/blog/deepseek-v4-flash-api-agentes-opencode-codex", desc: "Configura API y herramientas para trabajo de código." },
+      { title: "Coste por tarea vs precio por token", href: "/blog/ai-cost-per-task-vs-token-price", desc: "Mide el coste económico de un router y sus resultados aceptados." }
+    ]
+  },
   {
     locale: "en",
     slug: "ai-cost-per-task-vs-token-price",
@@ -256,6 +373,7 @@ export const blogPosts: BlogPost[] = [
       { q: "¿Puedo sustituir un modelo frontier cloud por uno local?", a: "A menudo sí para correo, extracción, RAG y código cotidiano. Para razonamiento máximo o agentes largos puede convenir un enfoque híbrido: local por defecto y nube solo con datos y permisos controlados." }
     ],
     related: [
+      { title: "Qwen vs DeepSeek en infraestructura privada", href: "/blog/qwen3-8-flash-vs-deepseek-v4-flash", desc: "Compara modelos grandes, routing y requisitos de privacidad." },
       { title: "Curso de IA local", href: "/cursos/ia-local", desc: "Instala Ollama, Open WebUI y flujos privados paso a paso." },
       { title: "Ollama no usa la GPU en Windows", href: "/cursos/ia-local/ollama-gpu-windows", desc: "Diagnostica drivers, GPU híbrida, VRAM y procesos." },
       { title: "Últimos modelos locales de 2026", href: "/blog/ultimos-modelos-ia-local-agosto-2026", desc: "Compara capacidad, hardware y licencias de los lanzamientos recientes." }
