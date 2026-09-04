@@ -13,6 +13,7 @@ const generatedByKey = new Map(generatedEnglish.map((lesson) => [`${lesson.cours
 const authoredEnglish = new Map(
   [
     ["deepseek-harness/introduccion", "What is DSH and why does it matter?"],
+    ["ia-local/lm-studio-desde-cero", "LM Studio from Scratch: Install and Run Local AI"],
     ...codexLessons.map((lesson) => [`codex-programadores/${lesson.slug}`, lesson.title.en]),
     ...foundationLessons.map((lesson) => [`fundamentos-aulafy/${lesson.slug}`, lesson.title.en]),
     ...aiRouterLessons.map((lesson) => [`ai-router/${lesson.slug}`, lesson.title.en]),

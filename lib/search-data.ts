@@ -147,6 +147,7 @@ export const searchData: SearchItem[] = [
   { href: "/cursos/ia-local/proyectos", title: "Cómo trabajar con tus proyectos", section: "Volumen II", keywords: "carpetas proyectos npm install dev guardar reabrir" },
   { href: "/cursos/ia-local/prompts", title: "Escribir buenos encargos", section: "Volumen II", keywords: "prompts encargos requisitos pedir aplicaciones" },
   { href: "/cursos/ia-local/ia-local", title: "IA local", section: "Volumen II", keywords: "ollama lm studio qwen gemma phi modelos locales privado evaluar comparar modelos rag json coding" },
+  { href: "/cursos/ia-local/lm-studio-desde-cero", title: "LM Studio desde cero", section: "Volumen II", keywords: "instalar lm studio windows mac linux lms api local localhost 1234 modelos gguf mlx cuantizacion" },
   { href: "/cursos/ia-local/depurar", title: "Depurar y proteger", section: "Volumen II", keywords: "errores git claves seguridad backups" },
   { href: "/cursos/ia-local/chatbot-legal", title: "Chatbot legal RAG", section: "Volumen II", keywords: "rag documentos legales citar ley privacidad rgpd" },
   { href: "/cursos/ia-local/pdf", title: "Pregunta a tus PDF", section: "Volumen II", keywords: "pdf rag documentos paginas citas ocr" },
