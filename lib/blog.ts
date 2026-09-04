@@ -32,6 +32,112 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "futuro-universidad-inteligencia-artificial",
+    title: "¿Tiene futuro la universidad con IA? Aprender ya no basta: hay que demostrar criterio",
+    description: "La IA no elimina la universidad, pero obliga a replantear qué se aprende, cómo se evalúa y qué valor ofrece una credencial.",
+    date: "2026-09-04",
+    updated: "2026-09-04",
+    category: "Educación e IA",
+    readingTime: "14 min",
+    icon: "userGraduate",
+    image: "/blog/futuro-universidad-inteligencia-artificial.png",
+    editorNote: "Verificado el 4 de septiembre de 2026. Este artículo separa datos observables, propuestas de investigación y escenarios condicionales. Una predicción sobre AGI o la desaparición de empleos no es un hecho ni una fecha anunciada.",
+    keywords: ["futuro de la universidad con inteligencia artificial", "IA en la universidad", "evaluación universitaria con IA", "credenciales IA", "cómo estudiar con ChatGPT", "educación superior inteligencia artificial", "IA para estudiantes y profesores"],
+    intro: "La inteligencia artificial no vuelve inútil la educación superior. Lo que pone bajo presión es el antiguo paquete de universidad, examen, título y empleo. Cuando una herramienta puede explicar, resumir, redactar o programar en segundos, el reto deja de ser transmitir información y pasa a ser demostrar comprensión, juicio y responsabilidad.",
+    sections: [
+      {
+        title: "La universidad no vende solo clases",
+        body: "Durante décadas, la universidad reunió cuatro funciones: enseñar, evaluar, acreditar y abrir una puerta profesional. La IA puede separar esas funciones. Una persona puede aprender fuera del aula con ayuda de un tutor digital; una empresa puede pedir una prueba práctica; una institución puede certificar una capacidad concreta. Eso no hace irrelevante a la universidad, pero sí le exige explicar qué valor aporta además de distribuir contenido.",
+        bullets: ["Educación: adquirir conocimientos y práctica.", "Evaluación: comprobar qué puede hacer una persona.", "Credencial: hacer esa comprobación legible para terceros.", "Empleo: convertir capacidades y señales en oportunidades reales."]
+      },
+      {
+        title: "El problema inmediato es la prueba, no el detector",
+        body: "Si una entrega puede estar escrita, programada o resumida por una IA, el producto final ya no basta como evidencia de aprendizaje. Ewan Simpson y Andrew Wachtel describen este choque como un problema de prueba y confianza: la pregunta no es solo si hubo IA, sino si el trabajo entregado demuestra de forma defendible la capacidad que afirma acreditar. Perseguir detectores perfectos es una mala estrategia: pueden equivocarse y no responden a esa pregunta más profunda."
+      },
+      {
+        title: "Evaluar capacidades en vez de documentos",
+        body: "La respuesta no es expulsar la IA de cada aula. Es diseñar evaluaciones donde usarla, justificarla y comprobarla forme parte del aprendizaje. Defensas orales, proyectos iterativos, laboratorios, entrevistas técnicas, portfolios con historial y resolución de problemas en directo dejan más rastro de cómo piensa una persona que un ensayo aislado enviado desde casa.",
+        bullets: ["Pide al estudiante que explique decisiones y alternativas descartadas.", "Conserva versiones, fuentes, prompts y verificaciones relevantes.", "Evalúa con y sin IA según la competencia que se quiera comprobar.", "Usa rúbricas que distingan investigación, criterio, ejecución y comunicación."]
+      },
+      {
+        title: "La IA puede acelerar el resultado y debilitar el aprendizaje",
+        body: "Una respuesta impecable no prueba que quien la entrega entienda el problema. La dificultad productiva de buscar fuentes, cometer un error, defender una hipótesis y revisarla construye criterio. Usar IA para recibir pistas, feedback o contraejemplos puede enriquecer ese proceso; delegar la tarea antes de comprenderla lo vacía. La frontera útil no es humano contra máquina, sino qué parte del esfuerzo conviene conservar para que haya aprendizaje real."
+      },
+      {
+        title: "Qué debería aprender alguien que usa IA cada día",
+        body: "Alfabetización en IA no significa memorizar prompts. Significa saber formular una tarea, detectar límites, verificar afirmaciones, proteger datos, revisar fuentes, decidir cuándo no automatizar y asumir la responsabilidad final. Ithaka S+R sostiene que, a medida que se automatiza trabajo cognitivo rutinario, ganan valor el juicio, la confianza, la interpretación, las relaciones y el propósito humano.",
+        bullets: ["Contrastar una respuesta con fuentes y evidencia primaria.", "Distinguir una explicación convincente de una conclusión fiable.", "Elegir herramientas y datos de forma segura y proporcionada.", "Defender una decisión ante otra persona y corregirla ante nueva evidencia."]
+      },
+      {
+        title: "El profesor deja de competir con una caja de chat",
+        body: "Una IA puede repetir una explicación, adaptarla y estar disponible a cualquier hora. Un docente no debería competir en ese terreno como mero transmisor de información. Su valor puede desplazarse hacia diseñar experiencias, dar feedback exigente, hacer visibles los estándares de una disciplina, crear comunidad y acompañar a estudiantes cuando el problema todavía no tiene una respuesta clara. Es una función más difícil, no una versión menor del trabajo docente."
+      },
+      {
+        title: "La evidencia dice que el cambio ya está dentro del aula",
+        body: "El AI Index 2026 de Stanford indica que cuatro de cada cinco estudiantes universitarios ya utilizan IA generativa y que la educación formal todavía va por detrás de esa realidad. La primera tarea de un centro no es elegir una herramienta de moda: es aclarar qué usos están permitidos, cómo se declaran, qué datos no pueden salir del entorno y qué forma de evaluación sigue siendo válida."
+      },
+      {
+        title: "La investigación de frontera se concentra fuera de la academia",
+        body: "Stanford también informa de que la industria produjo más del 90% de los modelos de frontera notables en 2025. Entrenar esos sistemas exige compute, capital, datos y talento que pocas universidades pueden igualar. Esto no elimina el papel académico: lo vuelve más importante como lugar de investigación independiente, auditoría, preservación de conocimiento abierto y preguntas que no se justifican por una cuenta de resultados inmediata."
+      },
+      {
+        title: "La universidad puede fragmentarse, no desaparecer",
+        body: "Es razonable esperar trayectorias distintas. Algunas instituciones competirán por investigación, comunidad, laboratorios y redes profesionales; otras ofrecerán formación modular más barata y personalizada; y muchas tendrán que justificar mejor el precio de programas basados en clases estandarizadas y evaluación remota. No es un pronóstico de que todas las universidades sigan el mismo camino: es una llamada a hacer explícita su propuesta de valor."
+      },
+      {
+        title: "El título seguirá siendo útil donde el riesgo importa",
+        body: "La sociedad necesita señales de confianza, especialmente en profesiones con consecuencias materiales: medicina, ingeniería, arquitectura o derecho. La IA no tiene por qué acabar con las credenciales. Puede impulsar credenciales más rigurosas, basadas en demostraciones verificadas de capacidad y actualización continua, en lugar de depender solo de haber cursado un número fijo de asignaturas."
+      },
+      {
+        title: "AGI y empleo: una hipótesis que hay que nombrar bien",
+        body: "El economista Pascual Restrepo estudia un escenario condicionado a una AGI capaz de realizar cualquier trabajo económicamente valioso con recursos computacionales. En esa hipótesis extrema, la relación entre formación, salarios y crecimiento cambiaría de forma radical. Es una herramienta para pensar riesgos de largo plazo, no evidencia de que ese escenario vaya a llegar en una fecha concreta ni una razón para dejar de estudiar hoy."
+      },
+      {
+        title: "Qué puede hacer una universidad responsable ahora",
+        body: "No hace falta resolver el futuro completo para actuar. Un centro puede revisar sus evaluaciones, formar a docentes y estudiantes, proteger datos, crear prácticas de IA verificables y reservar más espacio para proyectos, debate, mentoría y colaboración. La inversión útil no es solo en licencias: también es en diseño educativo, políticas claras y capacidad de revisar qué está funcionando.",
+        bullets: ["Define una política de IA por tipo de actividad, no una prohibición genérica.", "Rediseña una asignatura piloto y mide comprensión, no solo satisfacción.", "Crea una declaración de uso de IA breve y no punitiva.", "Separa herramientas de bajo riesgo de datos académicos, clínicos o personales.", "Incluye estudiantes y docentes en la evaluación de los cambios."]
+      },
+      {
+        title: "La pregunta útil para estudiantes",
+        body: "No estudies para vencer a una IA en velocidad. Estudia para poder usarla sin delegarle tu criterio. Antes de entregar un trabajo, pregúntate: ¿podría explicar y defender esto sin abrir el chat? ¿sé qué fuente sostiene cada afirmación importante? ¿podría detectar un error costoso? Si la respuesta es no, la herramienta quizá produjo texto, pero no produjo todavía aprendizaje."
+      },
+      {
+        title: "La universidad después de la abundancia",
+        body: "Cuando la información y los borradores se abaratan, gana valor lo que sigue siendo difícil de automatizar: confiar, discutir con rigor, investigar, construir con otros, decidir bajo incertidumbre y responsabilizarse de las consecuencias. La universidad tiene futuro si no se limita a entregar contenido y títulos, sino que ayuda a hacer esas capacidades visibles, practicables y verificables."
+      }
+    ],
+    table: {
+      headers: ["Función", "Antes de la IA generativa", "Diseño más sólido con IA"],
+      rows: [
+        ["Aprendizaje", "Contenido, clase y tarea como centro", "Práctica guiada, feedback y uso deliberado de IA"],
+        ["Evaluación", "Entrega final como prueba principal", "Proceso, defensa, evidencia y desempeño observado"],
+        ["Credencial", "Horas y asignaturas completadas", "Capacidades demostradas y actualización continua"],
+        ["Profesorado", "Transmisión y corrección de productos", "Diseño de experiencias, mentoría y evaluación de juicio"],
+        ["Institución", "Paquete único de servicios", "Propuesta de valor explícita: comunidad, investigación, red y confianza"]
+      ]
+    },
+    sources: [
+      { title: "Stanford HAI · AI Index Report 2026", href: "https://hai.stanford.edu/ai-index/2026-ai-index-report", note: "Uso estudiantil de IA, concentración de modelos de frontera e indicadores de educación." },
+      { title: "Ithaka S+R · Postsecondary Value in the Age of AI", href: "https://sr.ithaka.org/publications/postsecondary-value-in-the-age-of-ai/", note: "Valor de la educación superior, evaluación, aprendizaje, instituciones e investigación." },
+      { title: "Ewan Simpson y Andrew Wachtel · The Proof and Trust Shock", href: "https://ewansimpson.org/research.html", note: "Escenarios para educación superior masiva y marco de prueba, empleo, coste y legitimidad." },
+      { title: "Pascual Restrepo · We Won't Be Missed", href: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5697172", note: "Modelo económico condicional a una AGI; no es una previsión de fecha." },
+      { title: "Martin Kurzweil · Postsecondary Value in the Age of AI", href: "https://doi.org/10.18665/sr.326033", note: "Versión DOI del informe de Ithaka S+R." }
+    ],
+    faqs: [
+      { q: "¿La IA va a acabar con la universidad?", a: "No hay evidencia de que vaya a desaparecer como institución. La IA presiona sus modelos de enseñanza, evaluación, credencial y costes, por lo que cada centro tendrá que explicar mejor qué valor ofrece." },
+      { q: "¿Se puede evaluar de forma justa si los estudiantes usan IA?", a: "Sí, si la evaluación recoge más que una entrega final: proceso, decisiones, fuentes, defensa oral, pruebas prácticas y revisión del uso de IA. Un detector por sí solo no demuestra aprendizaje ni fraude." },
+      { q: "¿Deberían prohibirse ChatGPT y otras IA en clase?", a: "Una prohibición total suele ser difícil de aplicar y deja al alumnado sin alfabetización práctica. Es más útil definir qué usos están permitidos, cuáles requieren declaración y qué capacidades se comprueban sin ayuda." },
+      { q: "¿Qué debería aprender un estudiante si la IA ya responde?", a: "A formular problemas, verificar respuestas, usar fuentes, proteger datos, comunicar decisiones, detectar errores y asumir responsabilidad. La rapidez de una respuesta no reemplaza el criterio para usarla." },
+      { q: "¿Seguirá valiendo la pena un título universitario?", a: "Depende del programa, el coste, la profesión y la experiencia que ofrezca. En campos regulados o de alto riesgo las credenciales seguirán siendo importantes; en otros crecerán las pruebas prácticas y los portfolios verificables." },
+      { q: "¿Qué puede hacer un centro educativo este curso?", a: "Empezar con una asignatura piloto: política de uso clara, una evaluación rediseñada, formación básica de profesorado, protección de datos y una revisión con evidencia de resultados." }
+    ],
+    related: [
+      { title: "IA para estudiantes: usarla sin hacer trampas", href: "/blog/usar-ia-estudiar-sin-hacer-trampas-2026", desc: "Una guía práctica para aprender, citar y verificar con IA." },
+      { title: "IA para docentes y educación", href: "/cursos/ia-docentes-educacion", desc: "Curso para diseñar actividades, evaluación y políticas responsables." },
+      { title: "Cómo empezar a usar IA en 2026", href: "/blog/como-empezar-usar-ia-2026", desc: "Fundamentos de uso responsable para quien parte de cero." }
+    ]
+  },
+  {
     slug: "qwen3-8-flash-vs-deepseek-v4-flash",
     title: "Qwen3.8 Flash-Next vs DeepSeek V4 Flash: cuál desplegar en infraestructura privada",
     description: "Comparamos Qwen3.8-Flash-Next y DeepSeek V4 Flash para visión, código, contexto largo, coste, privacidad y despliegue propio.",

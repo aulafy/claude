@@ -63,6 +63,7 @@ function seoTitleFor(slug: string, fallback: string) {
     "ia-local-modelos-apps-memoria-os-2026": "IA local en 2026: modelo y app según tu memoria",
     "ai-cost-per-task-vs-token-price": "AI Cost per Task vs Token Price: What Actually Matters",
     "qwen3-8-flash-vs-deepseek-v4-flash": "Qwen3.8 Flash vs DeepSeek V4 Flash: IA privada",
+    "futuro-universidad-inteligencia-artificial": "¿Tiene futuro la universidad con IA? Lo que cambia",
     "como-empezar-usar-ia-2026": "Cómo empezar a usar IA en 2026",
     "usar-ia-estudiar-sin-hacer-trampas-2026": "Cómo usar IA para estudiar sin hacer trampas",
     "grok-45-guia-evaluacion-2026": "Grok 4.5: evaluación sin hype",
