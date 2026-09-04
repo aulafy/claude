@@ -3,8 +3,8 @@ import Link from "next/link";
 import PageTitle from "@/components/PageTitle";
 
 export const metadata: Metadata = {
-  title: "Instalación",
-  description: "Cómo instalar Claude Code paso a paso en macOS, Linux y Windows (WSL).",
+  title: "Instalar Claude Code en 2026",
+  description: "Instala Claude Code en macOS, Linux, WSL y Windows, inicia sesión y comprueba que funciona.",
   alternates: { canonical: "/cursos/claude-code/instalacion" },
 };
 
@@ -12,143 +12,83 @@ export default function Instalacion() {
   return (
     <div className="max-w-3xl mx-auto px-8 py-14">
       <div className="mb-2 text-xs text-zinc-600">
-        <Link href="/" className="hover:text-zinc-400">Inicio</Link>
-        <span className="mx-2">/</span>
-        <span className="text-zinc-400">Instalación</span>
+        <Link href="/" className="hover:text-zinc-400">Inicio</Link><span className="mx-2">/</span><span className="text-zinc-400">Instalación</span>
       </div>
-
       <div className="mb-10">
-        <PageTitle icon="install">Instalación</PageTitle>
-        <p className="text-lg text-zinc-400 leading-relaxed">
-          Instala Claude Code en tu sistema en un par de minutos. Solo necesitas
-          una cuenta de Anthropic (suscripción de Claude o cuenta de la consola).
-        </p>
+        <PageTitle icon="install">Instalar Claude Code en 2026</PageTitle>
+        <p className="text-lg text-zinc-400 leading-relaxed">Instálalo, inicia sesión en el navegador y deja una prueba de que todo funciona. No necesitas crear una API key para el uso normal.</p>
       </div>
-
       <div className="prose">
-        <h2>Requisitos previos</h2>
+        <div className="callout callout-info"><strong>Revisado el 4 de septiembre de 2026.</strong> El instalador nativo es el método recomendado por Anthropic y se actualiza automáticamente.</div>
+        <h2>Antes de empezar</h2>
         <ul>
-          <li><strong>Sistema operativo:</strong> macOS, Linux, o Windows (con WSL o nativo).</li>
-          <li><strong>Cuenta de Anthropic</strong> — una suscripción de Claude o una cuenta de la consola (<code>console.anthropic.com</code>).</li>
-          <li><strong>Node.js 20+</strong> — <em>solo</em> si instalas por npm. Con el instalador nativo (recomendado) no hace falta.</li>
+          <li>Una terminal o símbolo del sistema.</li>
+          <li>Una carpeta de proyecto en la que puedas practicar.</li>
+          <li>Una suscripción Claude Pro, Max, Team o Enterprise, una cuenta de Claude Console con saldo, o acceso mediante un proveedor cloud compatible.</li>
         </ul>
+        <p>El plan gratuito de Claude no incluye Claude Code. Console funciona con consumo de API y saldo prepago; una suscripción funciona con los límites de su plan. Son dos formas de acceso diferentes.</p>
 
-        <div className="callout callout-info">
-          El método recomendado por Anthropic es el <strong>instalador nativo</strong>,
-          que no depende de Node.js y se actualiza solo. Si prefieres npm, necesitarás
-          Node.js 20+ (descárgalo desde <strong>nodejs.org</strong>, versión LTS).
-        </div>
+        <h2>1. Instala Claude Code</h2>
+        <h3>macOS, Linux o WSL: instalador nativo recomendado</h3>
+        <pre><code>{`curl -fsSL https://claude.ai/install.sh | bash`}</code></pre>
+        <h3>Windows PowerShell: instalador nativo recomendado</h3>
+        <pre><code>{`irm https://claude.ai/install.ps1 | iex`}</code></pre>
+        <p>Si usas el Símbolo del sistema (CMD), no PowerShell:</p>
+        <pre><code>{`curl -fsSL https://claude.ai/install.cmd -o install.cmd && install.cmd && del install.cmd`}</code></pre>
+        <h3>Gestores de paquetes</h3>
+        <pre><code>{`# macOS con Homebrew (canal estable)
+brew install --cask claude-code
 
-        <h2>Paso 1: Instalar Claude Code</h2>
-        <p>
-          Abre tu terminal y usa el <strong>instalador nativo</strong> (recomendado;
-          no necesita Node.js y se actualiza solo):
-        </p>
-        <pre><code>{`# macOS, Linux o WSL
-curl -fsSL https://claude.ai/install.sh | bash
-
-# Windows (PowerShell)
-irm https://claude.ai/install.ps1 | iex`}</code></pre>
-        <p>En Mac también puedes usar Homebrew:</p>
-        <pre><code>{`brew install --cask claude-code`}</code></pre>
-
-        <h3>Alternativa: con npm</h3>
-        <p>Si prefieres npm (requiere Node.js 20+):</p>
+# Windows con WinGet
+winget install Anthropic.ClaudeCode`}</code></pre>
+        <h3>Alternativa: npm</h3>
+        <p>npm sigue siendo una vía válida. Úsala si ya trabajas con Node.js y prefieres gestionar Claude Code con su ecosistema. Para este curso recomendamos <strong>Node.js 22 LTS o superior</strong>.</p>
         <pre><code>{`npm install -g @anthropic-ai/claude-code`}</code></pre>
+        <div className="callout callout-warning">No uses <code>sudo npm install -g</code>. Si aparece un error de permisos, usa el instalador nativo o instala Node.js con un gestor como nvm.</div>
 
-        <p>
-          Cualquiera de los métodos instala el comando <code>claude</code>.
-          Verifica que se instaló correctamente:
-        </p>
-        <pre><code>{`claude --version`}</code></pre>
+        <h2>2. Comprueba la instalación</h2>
+        <pre><code>{`claude --version
+claude doctor`}</code></pre>
+        <p>El primer comando debe mostrar una versión. <code>claude doctor</code> revisa la instalación y ayuda a detectar problemas del entorno.</p>
 
-        <h2>Paso 2: Obtener tu API key</h2>
-        <ol>
-          <li>Entra a <strong>console.anthropic.com</strong> y crea una cuenta si no tienes.</li>
-          <li>Ve a <strong>API Keys</strong> en el panel lateral.</li>
-          <li>Haz clic en <strong>Create Key</strong> y copia la clave generada.</li>
-          <li>Guárdala en un lugar seguro — solo se muestra una vez.</li>
-        </ol>
-
-        <div className="callout callout-warning">
-          <strong>Atención:</strong> Las API keys tienen costos por uso. Anthropic ofrece
-          créditos gratuitos al registrarse. Revisa los precios en{" "}
-          <strong>anthropic.com/pricing</strong>.
-        </div>
-
-        <h2>Paso 3: Configurar la API key</h2>
-        <p>Tienes dos opciones para configurar tu clave:</p>
-
-        <h3>Opción A: Variable de entorno (recomendado)</h3>
-        <p>Añade esto a tu <code>~/.zshrc</code>, <code>~/.bashrc</code> o equivalente:</p>
-        <pre><code>{`export ANTHROPIC_API_KEY="sk-ant-xxxxxxxxxxxxxxxxxxxxxxxx"`}</code></pre>
-        <p>Luego recarga tu shell:</p>
-        <pre><code>{`source ~/.zshrc   # o ~/.bashrc`}</code></pre>
-
-        <h3>Opción B: Al iniciar Claude Code</h3>
-        <p>
-          Si no configuraste la variable, Claude Code te pedirá la clave la
-          primera vez que lo ejecutes y la guardará automáticamente.
-        </p>
-
-        <h2>Paso 4: Primera ejecución</h2>
-        <p>Navega a un directorio de trabajo y ejecuta:</p>
-        <pre><code>{`cd mi-proyecto
+        <h2>3. Inicia sesión</h2>
+        <p>Entra en una carpeta de proyecto y abre Claude Code:</p>
+        <pre><code>{`cd ruta/a/tu-proyecto
 claude`}</code></pre>
-        <p>
-          La primera vez te puede pedir autorizaciones o confirmar la clave. Después
-          verás el prompt interactivo de Claude Code listo para usar.
-        </p>
+        <p>En el primer uso, Claude Code abre el navegador para autenticarte. Elige tu suscripción de Claude o tu cuenta de Console y sigue los pasos. Para cambiar de cuenta más adelante, escribe <code>/login</code> dentro de Claude Code.</p>
+        <div className="callout callout-info">Una <code>ANTHROPIC_API_KEY</code> es opcional y está pensada para quien quiere facturación por API o una integración automatizada. Si ya tienes una definida, Claude Code te pedirá aprobarla en lugar de abrir el inicio de sesión normal.</div>
 
-        <h2>Instalación en Windows</h2>
-        <p>
-          En Windows tienes dos caminos:
-        </p>
-        <ol>
-          <li>
-            <strong>Nativo (más sencillo):</strong> abre PowerShell y ejecuta{" "}
-            <code>irm https://claude.ai/install.ps1 | iex</code>. Se recomienda tener{" "}
-            <strong>Git para Windows</strong> instalado para que Claude pueda usar Bash.
-          </li>
-          <li>
-            <strong>Con WSL2:</strong> instala WSL con <code>wsl --install</code> y luego
-            instala Claude Code dentro de WSL igual que en Linux.
-          </li>
-        </ol>
-        <div className="callout callout-info">
-          Claude Code también tiene extensión para <strong>VS Code</strong> y{" "}
-          <strong>JetBrains</strong> IDE — las instalas desde el marketplace de tu
-          editor. Ver sección de configuración para más detalles.
-        </div>
+        <h2>Windows: Git para Windows o WSL</h2>
+        <p>En Windows nativo, Git para Windows está <strong>recomendado</strong> para que Claude Code pueda usar Bash, pero no es obligatorio: sin él puede utilizar PowerShell. Otra opción es trabajar dentro de WSL; en ese caso no necesitas Git para Windows.</p>
+
+        <h2>4. Haz una prueba segura</h2>
+        <pre><code>{`¿Qué contiene esta carpeta? No modifiques nada.
+Después dime qué archivo parece ser el punto de entrada.`}</code></pre>
+        <p>Revisa que la respuesta describa tu carpeta y que no haya cambiado archivos. Ya tienes una primera sesión funcional.</p>
 
         <h2>Actualizar Claude Code</h2>
-        <p>
-          Con el <strong>instalador nativo</strong> se actualiza solo en segundo plano:
-          no tienes que hacer nada. Comprueba tu versión con:
-        </p>
-        <pre><code>{`claude --version`}</code></pre>
-        <p>
-          Con Homebrew: <code>brew upgrade claude-code</code>. Si instalaste por npm:
-        </p>
-        <pre><code>{`npm update -g @anthropic-ai/claude-code`}</code></pre>
-
-        <h2>Desinstalar</h2>
-        <p>Según cómo lo instalaste:</p>
-        <pre><code>{`# Homebrew
-brew uninstall --cask claude-code
-
-# npm
-npm uninstall -g @anthropic-ai/claude-code`}</code></pre>
+        <ul>
+          <li><strong>Instalador nativo:</strong> se actualiza automáticamente en segundo plano.</li>
+          <li><strong>Homebrew:</strong> <code>brew upgrade claude-code</code>.</li>
+          <li><strong>WinGet:</strong> <code>winget upgrade Anthropic.ClaudeCode</code>.</li>
+          <li><strong>npm:</strong> <code>npm install -g @anthropic-ai/claude-code@latest</code>.</li>
+        </ul>
+        <h2>Guarda la evidencia</h2>
+        <pre><code>{`Sistema operativo: ____________________
+Método de instalación: ________________
+Versión de Claude Code: _______________
+Inicio de sesión completado: sí / no
+claude doctor sin errores: sí / no
+Fecha de comprobación: ________________`}</code></pre>
+        <h2>Fuentes oficiales</h2>
+        <ul>
+          <li><a href="https://code.claude.com/docs/en/quickstart" target="_blank" rel="noreferrer">Anthropic · Quickstart de Claude Code</a></li>
+          <li><a href="https://code.claude.com/docs/en/setup" target="_blank" rel="noreferrer">Anthropic · Instalación y configuración</a></li>
+        </ul>
       </div>
-
-      {/* Navigation */}
       <div className="mt-12 pt-8 border-t border-zinc-800 flex justify-between items-center">
-        <Link href="/" className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
-          ← Inicio
-        </Link>
-        <Link href="/cursos/claude-code/primeros-pasos" className="text-sm text-violet-400 hover:text-fuchsia-300 transition-colors">
-          Primeros pasos →
-        </Link>
+        <Link href="/cursos/claude-code" className="text-sm text-zinc-500 hover:text-zinc-300">← Curso</Link>
+        <Link href="/cursos/claude-code/primeros-pasos" className="text-sm text-violet-400 hover:text-fuchsia-300">Primeros pasos →</Link>
       </div>
     </div>
   );

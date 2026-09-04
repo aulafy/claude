@@ -156,6 +156,7 @@ Despliega la aplicación al entorno $ARGUMENTS siguiendo estos pasos:
           los cambios tienen efecto <strong>inmediato</strong>, sin reiniciar. Ideal
           para ir afinando una skill mientras la pruebas.
         </p>
+        <p>Si un cambio no aparece, ejecuta <code>/reload-skills</code> para forzar un nuevo escaneo. Es una comprobación manual; la recarga normal es automática.</p>
 
         <div className="callout callout-info">
           <strong>Buena práctica 2026:</strong> mantén un <code>CLAUDE.md</code> ligero

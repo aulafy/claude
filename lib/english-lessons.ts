@@ -211,14 +211,78 @@ const claudeCodeAugustUpdates: Record<string, EnglishLessonBlock[]> = {
   ],
 };
 
+const claudeCodeSeptemberOverrides: Record<string, EnglishLessonBlock[]> = {
+  instalacion: [
+    { type: "p", text: "Install Claude Code, sign in through your browser, and save evidence that the setup works. You do not need an API key for normal use. Reviewed September 4, 2026." },
+    { type: "h2", text: "Before you begin" },
+    { type: "bullet", text: "Use a terminal and a project folder where you can practise." },
+    { type: "bullet", text: "You need Claude Pro, Max, Team, or Enterprise; a Claude Console account with prepaid credit; or a supported cloud provider." },
+    { type: "p", text: "The free Claude plan does not include Claude Code. A subscription uses plan limits; Console usage is billed through the API." },
+    { type: "h2", text: "1. Install Claude Code" },
+    { type: "h3", text: "macOS, Linux, or WSL: recommended native installer" },
+    { type: "code", text: "curl -fsSL https://claude.ai/install.sh | bash" },
+    { type: "h3", text: "Windows PowerShell: recommended native installer" },
+    { type: "code", text: "irm https://claude.ai/install.ps1 | iex" },
+    { type: "p", text: "For Command Prompt (CMD), not PowerShell:" },
+    { type: "code", text: "curl -fsSL https://claude.ai/install.cmd -o install.cmd && install.cmd && del install.cmd" },
+    { type: "h3", text: "Package managers" },
+    { type: "code", text: "# macOS stable channel\nbrew install --cask claude-code\n\n# Windows\nwinget install Anthropic.ClaudeCode" },
+    { type: "h3", text: "npm remains a supported alternative" },
+    { type: "p", text: "This course recommends Node.js 22 LTS or later for npm. Do not run the global install with sudo." },
+    { type: "code", text: "npm install -g @anthropic-ai/claude-code" },
+    { type: "h2", text: "2. Verify the installation" },
+    { type: "code", text: "claude --version\nclaude doctor" },
+    { type: "h2", text: "3. Sign in" },
+    { type: "code", text: "cd path/to/your-project\nclaude" },
+    { type: "p", text: "On first use, sign in in your browser with an eligible subscription or Console account. Use /login inside Claude Code to switch accounts later." },
+    { type: "p", text: "ANTHROPIC_API_KEY is optional and is intended for API billing or automation. If it is already set, Claude Code asks you to approve it instead of starting the normal browser flow." },
+    { type: "h2", text: "Windows: Git for Windows or WSL" },
+    { type: "p", text: "Git for Windows is recommended for Bash, but not mandatory: Claude Code can fall back to PowerShell. WSL does not require Git for Windows." },
+    { type: "h2", text: "4. Run a safe check" },
+    { type: "code", text: "What does this folder contain? Do not modify anything.\nThen tell me which file appears to be the entry point." },
+    { type: "h2", text: "Update commands" },
+    { type: "code", text: "# Homebrew\nbrew upgrade claude-code\n\n# WinGet\nwinget upgrade Anthropic.ClaudeCode\n\n# npm\nnpm install -g @anthropic-ai/claude-code@latest" },
+    { type: "h2", text: "Save your evidence" },
+    { type: "code", text: "Operating system:\nInstallation method:\nClaude Code version:\nSign-in complete: yes / no\nclaude doctor clean: yes / no\nVerification date:" },
+    { type: "h2", text: "Official sources" },
+    { type: "link", text: "Anthropic Claude Code quickstart", href: "https://code.claude.com/docs/en/quickstart", external: true },
+    { type: "link", text: "Anthropic setup documentation", href: "https://code.claude.com/docs/en/setup", external: true },
+  ],
+  "contexto-costes": [
+    { type: "h2", text: "September 2026: usage limits and API prices are different" },
+    { type: "p", text: "Use /usage to inspect subscription usage and /cost to inspect session tokens and estimated API cost. A session estimate is not an invoice, and subscription activity is not automatically a separate API charge." },
+    { type: "code", text: "/usage\n/cost\n/compact\n/clear" },
+    { type: "p", text: "API reference prices per million tokens on September 4, 2026: Sonnet 5 $2 input / $10 output; Opus 5 $5 / $25; Opus 5 fast mode $10 / $50; Fable 5.1 $10 / $50 with $0.25 cache reads. Cache writes use separate rates." },
+    { type: "p", text: "Tools, MCP servers, subagents, and prompt-cache misses affect usage. Since Claude Code 2.1.260, /cost can help identify the cause of a cache miss." },
+    { type: "link", text: "Official Claude Platform pricing", href: "https://platform.claude.com/docs/en/about-claude/pricing", external: true },
+    { type: "link", text: "Claude Code changelog", href: "https://code.claude.com/docs/en/changelog", external: true },
+  ],
+};
+
+function correctClaudeCodeBlocks(lesson: EnglishLesson): EnglishLessonBlock[] {
+  if (lesson.slug === "instalacion") return claudeCodeSeptemberOverrides.instalacion;
+  const blocks = lesson.blocks.map((block) => {
+    if (lesson.slug === "subagentes" && block.text.includes("Use the /agents command")) {
+      return { ...block, text: "The /agents wizard was removed. Ask Claude to edit .claude/agents/ files, or use claude agents in your terminal to manage background agents." };
+    }
+    if (lesson.slug === "skills" && block.text.includes("immediate effect")) {
+      return { ...block, text: `${block.text} If needed, run /reload-skills to force a rescan; normal hot reload is automatic.` };
+    }
+    return block;
+  });
+  return claudeCodeSeptemberOverrides[lesson.slug]
+    ? [...blocks, ...claudeCodeSeptemberOverrides[lesson.slug]]
+    : blocks;
+}
+
 const translatedLessons = content.lessons.map((lesson) => ({
   ...(lesson.courseSlug === "ia-local" && lesson.slug === "ollama-desde-cero" ? ollamaFromScratchLesson : lesson),
   title: titleOverrides[`${lesson.courseSlug}/${lesson.slug}`] ?? (lesson.courseSlug === "ia-local" && lesson.slug === "ollama-desde-cero" ? ollamaFromScratchLesson.title : lesson.title),
   blocks: lesson.courseSlug === "ia-local" && lesson.slug === "ollama-desde-cero"
     ? ollamaFromScratchLesson.blocks
     : lesson.courseSlug === "claude-code" && claudeCodeAugustUpdates[lesson.slug]
-      ? [...lesson.blocks, ...claudeCodeAugustUpdates[lesson.slug]]
-      : lesson.blocks,
+      ? [...correctClaudeCodeBlocks(lesson), ...claudeCodeAugustUpdates[lesson.slug]]
+      : lesson.courseSlug === "claude-code" ? correctClaudeCodeBlocks(lesson) : lesson.blocks,
 }));
 
 const codexEnglishLessons: EnglishLesson[] = codexLessons.map((lesson) => ({

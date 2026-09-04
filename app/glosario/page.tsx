@@ -63,7 +63,7 @@ const terms: { term: string; def: string; analogy?: string }[] = [
   },
   {
     term: "API key",
-    def: "Una contraseña secreta que identifica quién usa un servicio. Claude Code necesita tu API key de Anthropic para funcionar.",
+    def: "Una contraseña secreta que identifica quién usa un servicio. En Claude Code es opcional: sirve para acceder y pagar por API; el uso normal también permite iniciar sesión con una suscripción compatible.",
     analogy: "Como tu carné personal para entrar a un servicio.",
   },
   {

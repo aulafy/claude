@@ -3522,7 +3522,7 @@
         },
         {
           "type": "code",
-          "text": "claude --version\nnpm update -g @anthropic-ai/claude-code"
+          "text": "claude --version\nnpm install -g @anthropic-ai/claude-code@latest"
         }
       ]
     },
@@ -3655,7 +3655,7 @@
         },
         {
           "type": "p",
-          "text": "A secret password that identifies who is using a service. Claude Code needs your Anthropic API key to work."
+          "text": "A secret password that identifies who is using a service. In Claude Code it is optional for API billing; normal use can sign in with an eligible subscription."
         },
         {
           "type": "p",
@@ -4029,7 +4029,7 @@
         },
         {
           "type": "bullet",
-          "text": "Node.js 20+ — only if you install via npm. Not required with the native installer (recommended)."
+          "text": "Node.js 22 LTS or later — only if you install via npm. Not required with the native installer (recommended)."
         },
         {
           "type": "h2",
@@ -4057,7 +4057,7 @@
         },
         {
           "type": "p",
-          "text": "If you prefer npm (requires Node.js 20+):"
+          "text": "If you prefer npm, this course recommends Node.js 22 LTS or later:"
         },
         {
           "type": "code",
@@ -4177,7 +4177,7 @@
         },
         {
           "type": "code",
-          "text": "npm update -g @anthropic-ai/claude-code"
+          "text": "npm install -g @anthropic-ai/claude-code@latest"
         },
         {
           "type": "h2",
@@ -4850,7 +4850,7 @@
         },
         {
           "type": "p",
-          "text": "Claude Code requires Node.js 20 or later. Check your version with node --version. If it's older, update Node.js (with nvm: nvm install 20 && nvm use 20)."
+          "text": "This only affects npm installations. This course recommends Node.js 22 LTS or later. Check with node --version, or use the native installer without Node.js."
         },
         {
           "type": "h2",
@@ -4946,7 +4946,7 @@
         },
         {
           "type": "code",
-          "text": "claude --version\nnpm update -g @anthropic-ai/claude-code"
+          "text": "claude --version\nnpm install -g @anthropic-ai/claude-code@latest"
         },
         {
           "type": "h3",
@@ -5921,7 +5921,7 @@
         },
         {
           "type": "p",
-          "text": "Use the /agents command to open an assistant that guides you through creating and managing subagents without writing YAML by hand."
+          "text": "The /agents wizard was removed. Ask Claude to edit .claude/agents/ files, or use claude agents in your terminal to manage background agents."
         },
         {
           "type": "h3",
