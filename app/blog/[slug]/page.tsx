@@ -58,6 +58,7 @@ function seoTitleFor(slug: string, fallback: string) {
     "ultimos-modelos-ia-local-agosto-2026": "Últimos modelos de IA local de 2026",
     "latest-local-ai-models-august-2026": "Latest Local AI Models Released in 2026",
     "gpt-6-astra-what-can-it-do": "GPT-6 Astra: What Can It Actually Do? Real Use Cases & Benchmarks",
+    "ia-local-modelos-apps-memoria-os-2026": "IA local en 2026: modelo y app según tu memoria",
     "como-empezar-usar-ia-2026": "Cómo empezar a usar IA en 2026",
     "usar-ia-estudiar-sin-hacer-trampas-2026": "Cómo usar IA para estudiar sin hacer trampas",
     "grok-45-guia-evaluacion-2026": "Grok 4.5: evaluación sin hype",
