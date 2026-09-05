@@ -51,7 +51,7 @@ The UI calls domain services. AI provider details do not belong in React compone
 ## Milestones
 
 1. **M0 Foundation:** architecture, strict types, checks, content contract and provider boundaries.
-2. **M0.1 Domain model:** courses, lessons, concepts, skills, projects, evidence and ingestion/evaluation runs with constraints and tests.
+2. **M0.1 Domain model:** implemented in `supabase/migrations/20260905120000_aulafy_m01_domain_foundation.sql`; courses, lessons, concepts, skills, projects, evidence and ingestion/evaluation runs with constraints and RLS.
 3. **M0.2 Content engine:** frontmatter schema, parsing, hashes, validation and change detection.
 4. **M0.3 Curriculum graph:** prerequisite validation and lesson/concept/skill relations.
 5. **M0.4 Brain ingestion:** canonical documents, chunks, provenance and idempotent indexing.

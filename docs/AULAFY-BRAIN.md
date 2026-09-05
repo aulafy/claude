@@ -80,6 +80,10 @@ Progress is evidence, not decoration. Reading may be weak evidence; a passed exe
 
 Questions, corrections, exercises, rubrics and tutoring examples are candidates first. They require provenance, quality score, review status and editorial approval before they can enter a training set. No automatic model training is allowed.
 
+## M0.1 implementation
+
+The first domain foundation migration is `supabase/migrations/20260905120000_aulafy_m01_domain_foundation.sql`. It uses `aulafy_`-prefixed tables to coexist with the earlier social-learning tables, references `auth.users` for private state, and defines RLS policies for public catalog reads and owner-only progress, mastery and evidence. `scripts/verify-domain-migration.mjs` provides static coverage of tables and invariants.
+
 ## Next implementation boundary
 
 The next safe coding milestone is M0.1: introduce domain types and a migration design behind tests, while keeping current typed content as the source of truth. Do not build the full tutor until curriculum validation and retrieval have a measurable contract.
