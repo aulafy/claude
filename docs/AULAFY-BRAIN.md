@@ -90,4 +90,4 @@ M0.4 now provides `lib/brain/ingestion.ts`. It transforms validated canonical do
 
 M0.5 provides structured retrieval over the snapshot. M0.6 now adds `ModelProvider`, grounded message construction and `answerWithAulafyTutor`. The tutor returns citations and lesson IDs, abstains when retrieval has no hits, and reports `not_configured` instead of fabricating an answer when no provider is supplied. Provider implementations remain outside the domain layer.
 
-The next safe coding milestone is M0.7: one complete learning loop with a real exercise, evidence and progress, still without automatic mastery.
+M0.7 now provides `lib/brain/learning-loop.ts` for the Local AI vertical slice. It derives an ordered lesson path from stable content IDs and prerequisites, requires completion before project evidence, distinguishes submitted from verified evidence, and calculates progress from events rather than fake percentages. The current state is an in-memory domain service; persistence and user authentication belong to the next milestone.
