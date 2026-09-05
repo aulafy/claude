@@ -9,12 +9,16 @@ type Evidence = { id: string; status: string; created_at: string };
 export default function BrainProgressPanel({ lessons, authenticated, evidence: submittedEvidence }: { lessons: Lesson[]; authenticated: boolean; evidence: Evidence[] }) {
   const [isPending, startTransition] = useTransition();
   const [message, setMessage] = useState("");
+  const [lessonItems, setLessonItems] = useState(lessons);
   const [formEvidence, setFormEvidence] = useState({ model: "", task: "", result: "" });
   const [evidenceItems, setEvidenceItems] = useState(submittedEvidence);
-  const completed = lessons.filter((lesson) => lesson.status === "completed").length;
+  const completed = lessonItems.filter((lesson) => lesson.status === "completed").length;
   const updateLesson = (id: string, status: "in_progress" | "completed") => startTransition(async () => {
     const result = await recordLessonProgress(id, status);
-    setMessage(result.ok ? "Progreso guardado." : result.message ?? "No se pudo guardar el progreso.");
+    if (result.ok) {
+      setLessonItems((current) => current.map((lesson) => lesson.id === id ? { ...lesson, status } : lesson));
+      setMessage("Progreso guardado.");
+    } else setMessage(result.message ?? "No se pudo guardar el progreso.");
   });
   const submitEvidence = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -32,7 +36,7 @@ export default function BrainProgressPanel({ lessons, authenticated, evidence: s
     <section className="aula-panel p-5">
       <div className="flex items-baseline justify-between gap-4"><h2 className="font-display text-2xl font-bold text-white">Learn</h2><span className="text-sm text-zinc-400">{completed}/{lessons.length} completadas</span></div>
       <div className="mt-4 h-2 overflow-hidden rounded-full bg-zinc-800"><div className="h-full bg-emerald-400 transition-all" style={{ width: `${lessons.length ? Math.round(completed / lessons.length * 100) : 0}%` }} /></div>
-      <ol className="mt-5 grid gap-3">{lessons.map((lesson, index) => <li key={lesson.id} className="flex items-center justify-between gap-3 rounded-lg border border-zinc-800 p-3"><span><span className="mr-2 text-xs text-zinc-500">{index + 1}</span>{lesson.title}</span><button type="button" disabled={isPending || lesson.status === "completed"} onClick={() => updateLesson(lesson.id, lesson.status === "not_started" ? "in_progress" : "completed")} className="aula-button aula-button-secondary text-xs">{lesson.status === "completed" ? "Completada" : lesson.status === "in_progress" ? "Completar" : "Empezar"}</button></li>)}</ol>
+      <ol className="mt-5 grid gap-3">{lessonItems.map((lesson, index) => <li key={lesson.id} className="flex items-center justify-between gap-3 rounded-lg border border-zinc-800 p-3"><span><span className="mr-2 text-xs text-zinc-500">{index + 1}</span>{lesson.title}</span><button type="button" disabled={isPending || lesson.status === "completed"} onClick={() => updateLesson(lesson.id, lesson.status === "not_started" ? "in_progress" : "completed")} className="aula-button aula-button-secondary text-xs">{lesson.status === "completed" ? "Completada" : lesson.status === "in_progress" ? "Completar" : "Empezar"}</button></li>)}</ol>
     </section>
     <section className="aula-panel p-5"><h2 className="font-display text-2xl font-bold text-white">Build · Verify</h2><p className="mt-2 text-sm text-zinc-400">Run a local model for one useful task, then submit only what you actually checked.</p><form onSubmit={submitEvidence} className="mt-5 grid gap-3">{(["model", "task", "result"] as const).map((field) => <label key={field} className="grid gap-1 text-sm text-zinc-300"><span>{field === "model" ? "Model" : field === "task" ? "Task" : "Checked result"}</span><input required value={formEvidence[field]} onChange={(event) => setFormEvidence({ ...formEvidence, [field]: event.target.value })} className="rounded border border-zinc-700 bg-zinc-950 px-3 py-2 text-white" /></label>)}<button disabled={isPending || completed < lessons.length} className="aula-button aula-button-primary mt-2" type="submit">{isPending ? "Guardando…" : "Enviar evidencia"}</button></form>{evidenceItems.length > 0 && <div className="mt-6 border-t border-zinc-800 pt-4"><p className="aula-meta">MIS EVIDENCIAS</p><ul className="mt-3 grid gap-2">{evidenceItems.map((item) => <li key={item.id} className="flex items-center justify-between gap-3 text-sm"><span className="font-mono text-xs text-zinc-500">{item.id.slice(0, 8)}</span><span className={item.status === "verified" ? "text-emerald-300" : "text-amber-300"}>{item.status === "verified" ? "Verificada" : "Pendiente de revisión"}</span></li>)}</ul></div>}{message && <p role="status" className="mt-4 text-sm text-zinc-300">{message}</p>}</section>
   </div>;
