@@ -33,3 +33,5 @@ The command intentionally reports `Writes: 0`. M0.4 does not write `aulafy_knowl
 ## Retrieval boundary
 
 M0.5 adds `lib/brain/retrieval.ts`, a deterministic lexical retriever over this snapshot. It returns ranked chunks plus lesson IDs, concepts and provenance. It is intentionally not semantic retrieval: no embeddings, vector database, model provider or tutor is involved yet. Unsupported and empty queries return no hits rather than invented answers.
+
+M0.6 adds the provider boundary in `lib/brain/provider.ts` and the grounded tutor boundary in `lib/brain/tutor.ts`. A provider receives canonical context and the tutor returns citations. Without a provider it returns `not_configured`; with no retrieval hits it returns `abstained`. There is no hardcoded educational answer and no provider call in the tests.

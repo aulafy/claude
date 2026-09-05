@@ -88,4 +88,6 @@ The first domain foundation migration is `supabase/migrations/20260905120000_aul
 
 M0.4 now provides `lib/brain/ingestion.ts`. It transforms validated canonical documents into provenance-preserving knowledge documents and heading-aware chunks, with SHA-256 hashes and deterministic change detection. `npm run brain:ingest` is currently a read-only plan: it performs no database, vector-store or model write.
 
-The next safe coding milestone is M0.5: measure structured retrieval over this snapshot before introducing any tutor or provider call.
+M0.5 provides structured retrieval over the snapshot. M0.6 now adds `ModelProvider`, grounded message construction and `answerWithAulafyTutor`. The tutor returns citations and lesson IDs, abstains when retrieval has no hits, and reports `not_configured` instead of fabricating an answer when no provider is supplied. Provider implementations remain outside the domain layer.
+
+The next safe coding milestone is M0.7: one complete learning loop with a real exercise, evidence and progress, still without automatic mastery.
