@@ -11,6 +11,8 @@
     "test:curriculum-graph": "node --experimental-strip-types scripts/test-curriculum-graph.mjs",
     "brain:ingest": "node --experimental-strip-types scripts/brain-ingest.mjs",
     "test:brain-ingestion": "node --experimental-strip-types scripts/test-brain-ingestion.mjs",
+    "brain:retrieve": "node --experimental-strip-types scripts/brain-retrieve.mjs",
+    "test:brain-retrieval": "node --experimental-strip-types scripts/test-brain-retrieval.mjs",
     "dev": "next dev",
     "build": "next build",
     "build:chatbot": "node scripts/build-chatbot-content.cjs",

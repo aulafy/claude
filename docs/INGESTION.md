@@ -29,3 +29,7 @@ npm run test:brain-ingestion
 ```
 
 The command intentionally reports `Writes: 0`. M0.4 does not write `aulafy_knowledge_documents` or `aulafy_knowledge_chunks`, does not activate pgvector and does not call an AI provider. A later persistence adapter must be idempotent and retain the same provenance fields.
+
+## Retrieval boundary
+
+M0.5 adds `lib/brain/retrieval.ts`, a deterministic lexical retriever over this snapshot. It returns ranked chunks plus lesson IDs, concepts and provenance. It is intentionally not semantic retrieval: no embeddings, vector database, model provider or tutor is involved yet. Unsupported and empty queries return no hits rather than invented answers.
