@@ -18,6 +18,6 @@ export default function Maintenance({ english = false }: { english?: boolean }) 
         <div className={styles.promise}>{english ? "Free education" : "Enseñanza libre"}<span aria-hidden="true">/</span>{english ? "No registration" : "Sin registro"}<span aria-hidden="true">/</span>{english ? "No cookies" : "Sin cookies"}</div>
       </section>
     </main>
-    <footer className={styles.footer}><span>{english ? "Open knowledge. Human curiosity." : "Conocimiento abierto. Curiosidad humana."}</span><a href="https://github.com/aulafy/claude">{english ? "Open source on GitHub · MIT" : "Código abierto en GitHub · MIT"}</a></footer>
+    <footer className={styles.footer}><span>{english ? "Open knowledge. Human curiosity." : "Conocimiento abierto. Curiosidad humana."} · <a href="https://github.com/aulafy/claude">GitHub · MIT</a></span><Link href={english ? "/en/wiki" : "/wiki"} prefetch={false} className={styles.archiveLink}>{english ? "Previous content · Wiki" : "Contenido anterior · Wiki"} →</Link></footer>
   </div>;
 }

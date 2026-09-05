@@ -35,6 +35,8 @@ export function absoluteUrl(route: string) {
 }
 
 const coreEntries: SeoIndexEntry[] = [
+  { route: "/wiki", title: "Wiki de Aulafy", description: "Biblioteca de cursos, lecciones y artículos anteriores organizada por competencias.", language: "es", kind: "core", priority: 0.8, changeFrequency: "weekly", alternateRoute: "/en/wiki" },
+  { route: "/en/wiki", title: "Aulafy Wiki", description: "Previous courses, lessons and articles organized by practical skills.", language: "en", kind: "english", priority: 0.8, changeFrequency: "weekly", alternateRoute: "/wiki" },
   {
     route: "",
     title: "Aulafy",

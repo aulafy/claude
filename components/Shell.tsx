@@ -23,7 +23,7 @@ export default function Shell({ children }: { children: React.ReactNode }) {
   const english = isEnglishPath(pathname);
   const locale = english ? "en" : "es";
 
-  if (pathname === "/" || pathname === "/en" || pathname === "/maintenance") return <>{children}</>;
+  if (pathname === "/" || pathname === "/en" || pathname === "/maintenance" || pathname === "/wiki" || pathname === "/en/wiki") return <>{children}</>;
   if (pathname.startsWith("/en/learn/") || pathname === "/en/privacy") {
     return <><DocumentLanguage locale={locale} />{children}</>;
   }
