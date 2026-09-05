@@ -58,6 +58,7 @@ The UI calls domain services. AI provider details do not belong in React compone
 6. **M0.5 Retrieval:** structured results with chunks, lessons, concepts, scores and provenance.
 7. **M0.6 Tutor:** retrieval-first answers with citations and abstention.
 8. **M0.7 Learning loop:** one complete Local AI vertical slice with evidence and progress.
+9. **M0.8 Evidence review:** role-gated moderation queue, private learner status and an RLS policy for the `submitted` to `verified` transition.
 
 ## Non-goals for M0
 
