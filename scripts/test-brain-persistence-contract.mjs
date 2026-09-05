@@ -5,7 +5,7 @@ const action = fs.readFileSync("app/brain/actions.ts", "utf8");
 const persistence = fs.readFileSync("lib/brain/persistence.ts", "utf8");
 assert.match(action, /"use server"/);
 assert.match(action, /auth\.getClaims/);
-assert.match(action, /z\.string\(\)\.uuid/);
+assert.match(action, /contentIdSchema/);
 assert.match(action, /evidenceSchema/);
 assert.match(persistence, /aulafy_user_lesson_progress/);
 assert.match(persistence, /aulafy_evidence/);
