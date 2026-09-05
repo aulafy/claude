@@ -17,7 +17,13 @@ function isSocialRoute(pathname: string) {
   );
 }
 
-export function proxy(request: NextRequest) {
+export async function proxy(request: NextRequest) {
+  if (["/", "/en"].includes(request.nextUrl.pathname)) {
+    const destination = new URL("/maintenance", request.url);
+    destination.searchParams.set("lang", request.nextUrl.pathname === "/en" || request.nextUrl.searchParams.get("lang") === "en" ? "en" : "es");
+    const page = await fetch(destination, { cache: "no-store", headers: { accept: "text/html" } });
+    return new NextResponse(page.body, { status: 503, headers: { "Content-Type": "text/html; charset=utf-8", "Retry-After": "3600", "Cache-Control": "no-store" } });
+  }
   if (request.nextUrl.pathname === "/api/editorial-intake") {
     return new NextResponse(null, { status: 410 });
   }
