@@ -43,3 +43,8 @@ export async function verifyEvidence(db: BrainDb, reviewerId: string, evidenceId
   const { data, error } = await db.from("aulafy_evidence").update({ status: "verified", verified_at: new Date().toISOString() }).eq("id", evidenceId).eq("status", "submitted").select("id,status,verified_at").single();
   return { data, error, reviewerId };
 }
+
+export async function rejectEvidence(db: BrainDb, reviewerId: string, evidenceId: string) {
+  const { data, error } = await db.from("aulafy_evidence").update({ status: "rejected" }).eq("id", evidenceId).eq("status", "submitted").select("id,status").single();
+  return { data, error, reviewerId };
+}

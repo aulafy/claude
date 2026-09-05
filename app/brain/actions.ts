@@ -3,7 +3,7 @@
 import { z } from "zod";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { isSupabaseConfigured } from "@/lib/social/config";
-import { saveLessonProgress, submitProjectEvidence, verifyEvidence as verifyEvidenceRecord } from "@/lib/brain/persistence";
+import { rejectEvidence as rejectEvidenceRecord, saveLessonProgress, submitProjectEvidence, verifyEvidence as verifyEvidenceRecord } from "@/lib/brain/persistence";
 import { loadContentRegistry } from "@/lib/content/registry";
 import { createLearningLoop } from "@/lib/brain/learning-loop";
 
@@ -68,4 +68,15 @@ export async function verifyEvidence(evidenceId: string) {
   if (role?.role !== "moderator" && role?.role !== "admin") return { ok: false, message: "You are not allowed to verify evidence." };
   const result = await verifyEvidenceRecord(session.db, session.userId, parsedId.data);
   return result.error ? { ok: false, message: "Could not verify evidence." } : { ok: true };
+}
+
+export async function rejectEvidence(evidenceId: string) {
+  const parsedId = evidenceIdSchema.safeParse(evidenceId);
+  if (!parsedId.success) return { ok: false, message: "Invalid evidence." };
+  const session = await currentUserId();
+  if (!session) return { ok: false, message: "Sign in to review evidence." };
+  const { data: role } = await session.db.from("user_roles").select("role").eq("user_id", session.userId).maybeSingle();
+  if (role?.role !== "moderator" && role?.role !== "admin") return { ok: false, message: "You are not allowed to reject evidence." };
+  const result = await rejectEvidenceRecord(session.db, session.userId, parsedId.data);
+  return result.error ? { ok: false, message: "Could not reject evidence." } : { ok: true };
 }
