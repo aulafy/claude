@@ -1,6 +1,7 @@
 "use server";
 
 import { z } from "zod";
+import { revalidatePath } from "next/cache";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { isSupabaseConfigured } from "@/lib/social/config";
 import { rejectEvidence as rejectEvidenceRecord, saveLessonProgress, submitProjectEvidence, verifyEvidence as verifyEvidenceRecord } from "@/lib/brain/persistence";
@@ -36,6 +37,7 @@ export async function recordLessonProgress(lessonId: string, status: "in_progres
   const { data: indexedLesson, error: lookupError } = await session.db.from("aulafy_lessons").select("id").eq("content_id", parsedId.data).maybeSingle();
   if (lookupError || !indexedLesson) return { ok: false, message: "Lesson is not indexed yet." };
   const result = await saveLessonProgress(session.db, session.userId, indexedLesson.id, status);
+  if (!result.error) revalidatePath("/brain");
   return result.error ? { ok: false, message: "Could not save progress." } : { ok: true };
 }
 
@@ -56,6 +58,7 @@ export async function recordProjectEvidence(projectId: string, payload: Record<s
   const { data: project, error: lookupError } = await session.db.from("aulafy_projects").select("id").eq("slug", parsedId.data).maybeSingle();
   if (lookupError || !project) return { ok: false, message: "Project is not indexed yet." };
   const result = await submitProjectEvidence(session.db, session.userId, project.id, parsedPayload.data);
+  if (!result.error) revalidatePath("/brain");
   return result.error ? { ok: false, message: "Could not save evidence." } : { ok: true, evidenceId: result.data.id };
 }
 
@@ -67,6 +70,7 @@ export async function verifyEvidence(evidenceId: string) {
   const { data: role } = await session.db.from("user_roles").select("role").eq("user_id", session.userId).maybeSingle();
   if (role?.role !== "moderator" && role?.role !== "admin") return { ok: false, message: "You are not allowed to verify evidence." };
   const result = await verifyEvidenceRecord(session.db, session.userId, parsedId.data);
+  if (!result.error) revalidatePath("/brain");
   return result.error ? { ok: false, message: "Could not verify evidence." } : { ok: true };
 }
 
@@ -78,5 +82,6 @@ export async function rejectEvidence(evidenceId: string) {
   const { data: role } = await session.db.from("user_roles").select("role").eq("user_id", session.userId).maybeSingle();
   if (role?.role !== "moderator" && role?.role !== "admin") return { ok: false, message: "You are not allowed to reject evidence." };
   const result = await rejectEvidenceRecord(session.db, session.userId, parsedId.data);
+  if (!result.error) revalidatePath("/brain");
   return result.error ? { ok: false, message: "Could not reject evidence." } : { ok: true };
 }
