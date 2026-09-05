@@ -20,6 +20,7 @@
     "test:brain-evals": "node --experimental-strip-types scripts/test-brain-evals.mjs",
     "test:evidence-review": "node --experimental-strip-types scripts/test-evidence-review-contract.mjs",
     "test:brain-action-guards": "node --experimental-strip-types scripts/test-brain-action-guards.mjs",
+    "test:brain-navigation": "node --experimental-strip-types scripts/test-brain-navigation.mjs",
     "dev": "next dev",
     "build": "next build",
     "build:chatbot": "node scripts/build-chatbot-content.cjs",
