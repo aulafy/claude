@@ -20,7 +20,9 @@ PROGRESS
 
 `lib/brain/learning-loop.ts` derives the lesson order from the course's explicit lesson list and recursively includes prerequisites. A lesson cannot be completed until its prerequisites are complete. The project cannot receive evidence until every path lesson is complete. Submitted evidence is not verified evidence, and only verified project evidence completes the final step.
 
-The service is intentionally in-memory in M0.7. It does not pretend to be user persistence and does not calculate mastery. The next persistence adapter must map these events to `aulafy_user_lesson_progress` and `aulafy_evidence` with server-side authorization and RLS.
+The loop service remains a deterministic in-memory domain service and does not calculate mastery. M0.7 also adds the server-side persistence boundary in `lib/brain/persistence.ts` and `app/brain/actions.ts`: authenticated users can save their own lesson progress and submit project evidence. The actions validate inputs, scope every query to the authenticated user and leave evidence as `submitted`; RLS remains the database boundary.
+
+The current actions are intentionally not wired into the public maintenance page or a new UI. The legacy site remains unchanged while the vertical slice is audited.
 
 ```bash
 npm run test:learning-loop

@@ -15,6 +15,7 @@
     "test:brain-retrieval": "node --experimental-strip-types scripts/test-brain-retrieval.mjs",
     "test:brain-tutor": "node --experimental-strip-types scripts/test-brain-tutor.mjs",
     "test:learning-loop": "node --experimental-strip-types scripts/test-learning-loop.mjs",
+    "test:brain-persistence": "node --experimental-strip-types scripts/test-brain-persistence-contract.mjs",
     "dev": "next dev",
     "build": "next build",
     "build:chatbot": "node scripts/build-chatbot-content.cjs",
