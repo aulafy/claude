@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "test:legacy-wiki": "node --experimental-strip-types scripts/verify-legacy-wiki.mjs",
     "dev": "next dev",
     "build": "next build",
     "build:chatbot": "node scripts/build-chatbot-content.cjs",
