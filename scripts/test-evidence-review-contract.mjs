@@ -18,4 +18,7 @@ assert.match(migration, /moderator/);
 assert.match(migration, /admin/);
 assert.match(migration, /for update/);
 assert.match(migration, /to authenticated/);
+assert.match(migration, /reviewed_at/);
+assert.match(migration, /reviewed_by/);
+assert.match(persistence, /reviewed_by: reviewerId/);
 console.log("Evidence review contract passed: UUID validation, role gate and RLS update policy.");
