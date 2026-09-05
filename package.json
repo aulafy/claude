@@ -5,6 +5,8 @@
   "scripts": {
     "test:legacy-wiki": "node --experimental-strip-types scripts/verify-legacy-wiki.mjs",
     "test:domain-migration": "node --experimental-strip-types scripts/verify-domain-migration.mjs",
+    "content:validate": "node --experimental-strip-types scripts/validate-content.mjs",
+    "test:content-engine": "node --experimental-strip-types scripts/test-content-engine.mjs",
     "dev": "next dev",
     "build": "next build",
     "build:chatbot": "node scripts/build-chatbot-content.cjs",

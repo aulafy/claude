@@ -1,0 +1,24 @@
+import assert from "node:assert/strict";
+import fs from "node:fs";
+import os from "node:os";
+import path from "node:path";
+import { createContentRegistry, loadContentRegistry } from "../lib/content/registry.ts";
+import { hashCanonicalContent, parseFrontmatter } from "../lib/content/parser.ts";
+import { validateContent } from "../lib/content/validation.ts";
+
+const docs = loadContentRegistry();
+assert.equal(docs.length, 6);
+assert.equal(new Set(docs.map((doc) => doc.id)).size, docs.length);
+assert.equal(validateContent(docs).filter((issue) => issue.severity === "error").length, 0);
+assert.equal(createContentRegistry(docs).getLessonById("ollama-context-window")?.slug, "context-window-in-ollama");
+assert.equal(hashCanonicalContent(docs[0], docs[0].body), hashCanonicalContent(docs[0], docs[0].body));
+assert.notEqual(hashCanonicalContent(docs[0], docs[0].body), hashCanonicalContent(docs[0], `${docs[0].body}\nchanged`));
+assert.throws(() => parseFrontmatter("---\nid: broken\ntype: lesson\n---\n", "broken.mdx"));
+const temp = fs.mkdtempSync(path.join(os.tmpdir(), "aulafy-content-"));
+fs.mkdirSync(path.join(temp, "content"));
+const invalid = `---\nid: broken\ntype: lesson\nslug: broken\ntitle: Broken\ndescription: Broken\nstatus: published\nconcepts: [not-a-concept]\nskills: []\nprerequisites: [missing-id]\nupdated: 2026-09-05\n---\nbody`;
+fs.writeFileSync(path.join(temp, "content", "broken.mdx"), invalid);
+const invalidDocuments = loadContentRegistry(temp);
+assert.ok(validateContent(invalidDocuments).some((issue) => issue.message.includes("unknown concept")));
+assert.ok(validateContent(invalidDocuments).some((issue) => issue.message.includes("unknown prerequisite")));
+console.log("Content engine tests passed: parser, identity, references, hash, registry and determinism.");
