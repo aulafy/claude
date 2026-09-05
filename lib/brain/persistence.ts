@@ -38,3 +38,8 @@ export async function getOwnLearningState(db: BrainDb, userId: string) {
   ]);
   return { progress: progress.data ?? [], evidence: evidence.data ?? [], error: progress.error ?? evidence.error };
 }
+
+export async function verifyEvidence(db: BrainDb, reviewerId: string, evidenceId: string) {
+  const { data, error } = await db.from("aulafy_evidence").update({ status: "verified", verified_at: new Date().toISOString() }).eq("id", evidenceId).eq("status", "submitted").select("id,status,verified_at").single();
+  return { data, error, reviewerId };
+}

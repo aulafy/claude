@@ -3,10 +3,11 @@
 import { z } from "zod";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { isSupabaseConfigured } from "@/lib/social/config";
-import { saveLessonProgress, submitProjectEvidence } from "@/lib/brain/persistence";
+import { saveLessonProgress, submitProjectEvidence, verifyEvidence as verifyEvidenceRecord } from "@/lib/brain/persistence";
 
 const contentIdSchema = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
 const evidenceSchema = z.record(z.string().min(1).max(2000), z.string().trim().min(1).max(4000)).refine((payload) => Object.keys(payload).length <= 12, "Too many evidence fields");
+const evidenceIdSchema = z.string().uuid();
 
 async function currentUserId() {
   if (!isSupabaseConfigured()) return null;
@@ -36,4 +37,15 @@ export async function recordProjectEvidence(projectId: string, payload: Record<s
   if (lookupError || !project) return { ok: false, message: "Project is not indexed yet." };
   const result = await submitProjectEvidence(session.db, session.userId, project.id, parsedPayload.data);
   return result.error ? { ok: false, message: "Could not save evidence." } : { ok: true, evidenceId: result.data.id };
+}
+
+export async function verifyEvidence(evidenceId: string) {
+  const parsedId = evidenceIdSchema.safeParse(evidenceId);
+  if (!parsedId.success) return { ok: false, message: "Invalid evidence." };
+  const session = await currentUserId();
+  if (!session) return { ok: false, message: "Sign in to review evidence." };
+  const { data: role } = await session.db.from("user_roles").select("role").eq("user_id", session.userId).maybeSingle();
+  if (role?.role !== "moderator" && role?.role !== "admin") return { ok: false, message: "You are not allowed to verify evidence." };
+  const result = await verifyEvidenceRecord(session.db, session.userId, parsedId.data);
+  return result.error ? { ok: false, message: "Could not verify evidence." } : { ok: true };
 }

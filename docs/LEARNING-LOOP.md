@@ -24,6 +24,8 @@ The loop service remains a deterministic in-memory domain service and does not c
 
 The current actions are intentionally not wired into the public maintenance page or a new UI. The legacy site remains unchanged while the vertical slice is audited.
 
+Evidence review is a separate server action. It validates a UUID, requires the signed-in user to have the existing `moderator` or `admin` role, and is enforced again by the `aulafy_evidence_reviewer_update` RLS policy. Only evidence currently in `submitted` state can transition to `verified`.
+
 ```bash
 npm run test:learning-loop
 ```

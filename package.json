@@ -18,6 +18,7 @@
     "test:brain-persistence": "node --experimental-strip-types scripts/test-brain-persistence-contract.mjs",
     "brain:eval": "node --experimental-strip-types scripts/brain-eval.mjs",
     "test:brain-evals": "node --experimental-strip-types scripts/test-brain-evals.mjs",
+    "test:evidence-review": "node --experimental-strip-types scripts/test-evidence-review-contract.mjs",
     "dev": "next dev",
     "build": "next build",
     "build:chatbot": "node scripts/build-chatbot-content.cjs",
