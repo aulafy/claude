@@ -86,4 +86,6 @@ The first domain foundation migration is `supabase/migrations/20260905120000_aul
 
 ## Next implementation boundary
 
-The next safe coding milestone is M0.1: introduce domain types and a migration design behind tests, while keeping current typed content as the source of truth. Do not build the full tutor until curriculum validation and retrieval have a measurable contract.
+M0.4 now provides `lib/brain/ingestion.ts`. It transforms validated canonical documents into provenance-preserving knowledge documents and heading-aware chunks, with SHA-256 hashes and deterministic change detection. `npm run brain:ingest` is currently a read-only plan: it performs no database, vector-store or model write.
+
+The next safe coding milestone is M0.5: measure structured retrieval over this snapshot before introducing any tutor or provider call.
