@@ -73,7 +73,7 @@ const nextConfig: NextConfig = {
       "style-src 'self' 'unsafe-inline'",
       "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
       "connect-src 'self'",
-      "upgrade-insecure-requests",
+      ...(process.env.VERCEL === "1" ? ["upgrade-insecure-requests"] : []),
     ].join("; ");
 
     return [
