@@ -14,6 +14,7 @@ export default function EnglishMyPathPage() {
     <span className="aula-section-label mt-8"><span aria-hidden="true">7</span> Beginner path</span>
     <h1 className="mt-4 max-w-4xl font-display text-4xl font-bold text-white sm:text-6xl">Seven days to use AI with judgment</h1>
     <p className="lesson-lead mt-5 max-w-3xl">One 15-to-35-minute mission per day. Start by doing something useful and finish with a workflow you can explain, verify, and repeat.</p>
+    <Link href="/en/brain" className="aula-button aula-button-secondary mt-6 inline-flex">Continue in Aulafy Brain</Link>
     <SevenDayPath locale="en" />
   </div>;
 }

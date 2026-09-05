@@ -14,6 +14,7 @@ export default function MyPathPage() {
     <span className="aula-section-label mt-8"><span aria-hidden="true">7</span> Ruta básica</span>
     <h1 className="mt-4 max-w-4xl font-display text-4xl font-bold text-white sm:text-6xl">Siete días para usar IA con criterio</h1>
     <p className="lesson-lead mt-5 max-w-3xl">Una misión por día, de 15 a 35 minutos. Empiezas haciendo algo útil y terminas con un flujo que puedes explicar, comprobar y repetir.</p>
+    <Link href="/brain" className="aula-button aula-button-secondary mt-6 inline-flex">Continuar en Aulafy Brain</Link>
     <SevenDayPath />
   </div>;
 }

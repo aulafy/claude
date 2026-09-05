@@ -1,0 +1,20 @@
+import assert from "node:assert/strict";
+import { loadContentRegistry } from "../lib/content/registry.ts";
+import { ingestCanonicalContent } from "../lib/brain/ingestion.ts";
+import { createRetriever } from "../lib/brain/retrieval.ts";
+import { answerWithAulafyTutor } from "../lib/brain/tutor.ts";
+
+const documents = loadContentRegistry();
+const retriever = createRetriever(ingestCanonicalContent(documents), documents);
+const grounded = await answerWithAulafyTutor("What is a context window in Ollama?", retriever.retrieve("Ollama context window"));
+assert.equal(grounded.status, "not_configured");
+assert.ok(grounded.citations.length > 0);
+assert.ok(grounded.lessons.includes("ollama-context-window"));
+const abstained = await answerWithAulafyTutor("What is a moon base?", retriever.retrieve("moon base"));
+assert.equal(abstained.status, "abstained");
+const provider = { name: "test-provider", generate: async (messages) => ({ text: `Supported answer for ${messages[1].content.split("\n")[0]}`, provider: "test-provider", model: "fixture" }) };
+const answered = await answerWithAulafyTutor("What is Ollama?", retriever.retrieve("Ollama"), provider);
+assert.equal(answered.status, "answered");
+assert.equal(answered.provider, "test-provider");
+assert.ok(answered.answer.includes("Question: What is Ollama?"));
+console.log("Brain tutor tests passed: abstention, provider boundary, grounded citations and no-config safety.");

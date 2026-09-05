@@ -1,0 +1,23 @@
+import assert from "node:assert/strict";
+import { loadContentRegistry } from "../lib/content/registry.ts";
+import { createLearningLoop } from "../lib/brain/learning-loop.ts";
+
+const loop = createLearningLoop(loadContentRegistry());
+assert.deepEqual(loop.path.map((lesson) => lesson.id), ["llm-basics", "ollama-first-model", "ollama-context-window"]);
+assert.equal(loop.progress().percent, 0);
+assert.throws(() => loop.completeLesson("ollama-first-model"), /prerequisites/);
+loop.startLesson("llm-basics");
+loop.completeLesson("llm-basics");
+assert.equal(loop.next()?.id, "ollama-first-model");
+loop.completeLesson("ollama-first-model");
+loop.completeLesson("ollama-context-window");
+assert.throws(() => loop.submitEvidence({}), /payload/);
+loop.submitEvidence({ model: "gemma3:4b", task: "summarize a local note", result: "checked against the source" });
+assert.equal(loop.progress().evidenceSubmitted, true);
+assert.equal(loop.progress().evidenceVerified, false);
+loop.verifyEvidence();
+const progress = loop.progress();
+assert.equal(progress.evidenceVerified, true);
+assert.equal(progress.percent, 100);
+assert.throws(() => createLearningLoop(loadContentRegistry(), "missing"), /unknown course/);
+console.log("Learning loop tests passed: prerequisites, Learn, Build, Verify and evidence-based progress.");
