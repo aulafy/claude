@@ -18,13 +18,13 @@ export default async function BrainPage() {
     userId = typeof data?.claims?.sub === "string" ? data.claims.sub : null;
   }
   const statuses = new Map<string, "not_started" | "in_progress" | "completed">();
-  let evidence: Array<{ id: string; status: string; created_at: string }> = [];
+  let evidence: Array<{ id: string; status: string; created_at: string; reviewed_at: string | null }> = [];
   if (userId && isSupabaseConfigured()) {
     const db = await createSupabaseServerClient();
     const { data } = await db.from("aulafy_user_lesson_progress").select("status,aulafy_lessons(content_id)").eq("user_id", userId);
     for (const row of (data ?? []) as Array<{ status?: string; aulafy_lessons?: { content_id?: string } | Array<{ content_id?: string }> }>) { const contentId = Array.isArray(row.aulafy_lessons) ? row.aulafy_lessons[0]?.content_id : row.aulafy_lessons?.content_id; if (contentId && (row.status === "in_progress" || row.status === "completed")) statuses.set(contentId, row.status); }
     const ownState = await getOwnLearningState(db, userId);
-    evidence = ownState.evidence.map((item) => ({ id: item.id, status: item.status, created_at: item.created_at }));
+    evidence = ownState.evidence.map((item) => ({ id: item.id, status: item.status, created_at: item.created_at, reviewed_at: item.reviewed_at ?? null }));
   }
   return <div className="mx-auto max-w-6xl px-6 py-14"><p className="aula-section-label">AULAFY BRAIN · LOCAL AI</p><h1 className="mt-4 font-display text-4xl font-extrabold text-white">Aprende construyendo un sistema local</h1><p className="mt-4 max-w-2xl text-lg text-zinc-300">Una ruta corta con lecciones, un proyecto y evidencia. El progreso se basa en acciones guardadas, no en una barra decorativa.</p><div className="mt-8"><BrainProgressPanel authenticated={Boolean(userId)} lessons={loop.path.map((lesson) => ({ id: lesson.id, title: lesson.title, status: statuses.get(lesson.id) ?? "not_started" }))} evidence={evidence} /></div></div>;
 }

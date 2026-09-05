@@ -34,7 +34,7 @@ export async function submitProjectEvidence(db: BrainDb, userId: string, project
 export async function getOwnLearningState(db: BrainDb, userId: string) {
   const [progress, evidence] = await Promise.all([
     db.from("aulafy_user_lesson_progress").select("lesson_id,status,started_at,completed_at,last_activity_at").eq("user_id", userId).order("last_activity_at", { ascending: false }),
-    db.from("aulafy_evidence").select("id,evidence_type,status,payload,created_at,verified_at,aulafy_evidence_targets(project_id,lesson_id,exercise_id,evaluation_id)").eq("user_id", userId).order("created_at", { ascending: false }),
+    db.from("aulafy_evidence").select("id,evidence_type,status,payload,created_at,verified_at,reviewed_at,reviewed_by,aulafy_evidence_targets(project_id,lesson_id,exercise_id,evaluation_id)").eq("user_id", userId).order("created_at", { ascending: false }),
   ]);
   return { progress: progress.data ?? [], evidence: evidence.data ?? [], error: progress.error ?? evidence.error };
 }

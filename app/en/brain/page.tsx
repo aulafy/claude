@@ -11,7 +11,7 @@ export const metadata: Metadata = { title: "Your learning path | Aulafy", descri
 export default async function EnglishBrainPage() {
   const loop = createLearningLoop(loadContentRegistry());
   let userId: string | null = null;
-  let evidence: Array<{ id: string; status: string; created_at: string }> = [];
+  let evidence: Array<{ id: string; status: string; created_at: string; reviewed_at: string | null }> = [];
   const statuses = new Map<string, "not_started" | "in_progress" | "completed">();
   if (isSupabaseConfigured()) {
     const db = await createSupabaseServerClient();
@@ -26,7 +26,7 @@ export default async function EnglishBrainPage() {
         const linked = Array.isArray(row.aulafy_lessons) ? row.aulafy_lessons[0]?.content_id : row.aulafy_lessons?.content_id;
         if (linked && (row.status === "in_progress" || row.status === "completed")) statuses.set(linked, row.status);
       }
-      evidence = ownState.evidence.map((item) => ({ id: item.id, status: item.status, created_at: item.created_at }));
+      evidence = ownState.evidence.map((item) => ({ id: item.id, status: item.status, created_at: item.created_at, reviewed_at: item.reviewed_at ?? null }));
     }
   }
   return <div className="mx-auto max-w-6xl px-6 py-14"><p className="aula-section-label">AULAFY BRAIN · LOCAL AI</p><h1 className="mt-4 font-display text-4xl font-extrabold text-white">Learn by building a local system</h1><p className="mt-4 max-w-2xl text-lg text-zinc-300">A short path with lessons, one project, and evidence. Progress comes from saved actions, not a decorative progress bar.</p><div className="mt-8"><BrainProgressPanel authenticated={Boolean(userId)} lessons={loop.path.map((lesson) => ({ id: lesson.id, title: lesson.title, status: statuses.get(lesson.id) ?? "not_started" }))} evidence={evidence} english /></div></div>;
