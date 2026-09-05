@@ -26,6 +26,9 @@ assert.deepEqual(
   lessonSlugs.sort(),
   "Every IA desde cero lesson must have exactly one sessionless practice",
 );
-assert.match(practiceUi, /Al recargar, olvida las respuestas/, "Practice UI must state its reset behavior");
+assert.match(practiceUi, /Los pasos y respuestas usan memoria temporal/, "Legacy practice UI must distinguish temporary answers from optional saved evidence");
+const beginnerPractice = fs.readFileSync("components/beginner/Practice.tsx", "utf8");
+assert.doesNotMatch(beginnerPractice, /localStorage|sessionStorage|document\.cookie|fetch\(|sendBeacon/, "Beginner exercises must not persist or transmit answers");
+assert.match(beginnerPractice, /not saved automatically/, "Beginner practice must explain that work is not automatically saved");
 
-console.log("Verified sessionless learning: no browser persistence, tracking cookies, account routes, or answer transmission.");
+console.log("Verified temporary beginner practice, legacy local-evidence disclosure, disabled account routes, and no answer transmission.");

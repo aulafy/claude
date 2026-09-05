@@ -86,6 +86,7 @@ export default function CoursesPage() {
       </div>
 
       <section className="aula-frame p-6 sm:p-8 mb-8">
+        <p className="mb-6"><Link href="/en">New to AI? Start the eight-lesson beginner course with worked examples, practice and feedback →</Link></p>
         <div className="grid lg:grid-cols-[1fr_280px] gap-8 items-end">
           <div>
             <span className="aula-section-label">

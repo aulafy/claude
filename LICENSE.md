@@ -2,6 +2,13 @@
 
 Este repositorio usa una licencia dual:
 
+## Curso nuevo de iniciacion en ingles
+
+El contenido original de `lib/beginner-course.ts`, las paginas de `/en/learn/`
+y su interfaz se publican bajo MIT, junto con el codigo de la web. El texto
+completo esta en `LICENSE`. Los materiales anteriores conservan su licencia
+CC BY 4.0. Las fuentes y los recursos de terceros conservan sus propios derechos.
+
 ## Contenido educativo
 
 Los textos, guias, ejemplos didacticos, PDFs y materiales del curso se publican bajo Creative Commons Attribution 4.0 International (CC BY 4.0).

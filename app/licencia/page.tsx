@@ -23,6 +23,7 @@ export default function Licencia() {
         </p>
 
         <h2>Contenido educativo</h2>
+        <p>El nuevo curso de iniciación en inglés de ocho lecciones y su interfaz se publican bajo MIT. Los materiales anteriores conservan CC BY 4.0.</p>
         <p>
           Los textos, guías, ejemplos didácticos, PDFs y materiales del curso se
           publican bajo Creative Commons Attribution 4.0 International (CC BY

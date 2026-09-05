@@ -5,6 +5,7 @@ import { getLocalizedCursos } from "@/lib/i18n";
 import { seoLandings } from "@/lib/seo-landings";
 import { isSocialEnabled } from "@/lib/social/config";
 import { getCourseQuality } from "@/lib/course-quality";
+import { beginnerLessons, beginnerReviewDate } from "@/lib/beginner-course";
 
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 
@@ -443,6 +444,11 @@ export function getSeoIndexEntries() {
     ...blogEntries,
     ...courseEntries,
     ...englishCourseEntries,
+    ...beginnerLessons.map((lesson): SeoIndexEntry => ({
+      route: `/en/learn/${lesson.slug}`, title: lesson.title, description: lesson.outcome,
+      language: "en", kind: "english", priority: 0.85, changeFrequency: "monthly", lastModified: beginnerReviewDate,
+    })),
+    { route: "/en/privacy", title: "Privacy and open licensing", description: "No accounts, cookies or learner tracking. MIT code and beginner course.", language: "en", kind: "english", priority: 0.3, changeFrequency: "yearly", lastModified: beginnerReviewDate } satisfies SeoIndexEntry,
   ];
   return Array.from(new Map(entries.map((entry) => [entry.route, entry])).values());
 }
