@@ -1,19 +1,18 @@
 import type { CanonicalContentDocument } from "./types.ts";
 import { createContentRegistry } from "./registry.ts";
+import { conceptRegistry, skillRegistry } from "../curriculum/graph.ts";
 
 export type ContentIssue = { severity: "error" | "warning"; sourcePath: string; message: string };
 
 export function validateContent(documents: CanonicalContentDocument[]) {
   const issues: ContentIssue[] = [];
   const ids = new Map<string, CanonicalContentDocument>();
-  const concepts = new Set(["llm", "token", "context-window", "ollama", "local-inference", "quantization"]);
-  const skills = new Set(["run-local-model", "inspect-model", "configure-context-window"]);
   for (const document of documents) {
     const previous = ids.get(document.id);
     if (previous) issues.push({ severity: "error", sourcePath: document.sourcePath, message: `duplicate content ID ${document.id}; already used by ${previous.sourcePath}` });
     ids.set(document.id, document);
-    for (const concept of document.concepts) if (!concepts.has(concept)) issues.push({ severity: "error", sourcePath: document.sourcePath, message: `unknown concept: ${concept}` });
-    for (const skill of document.skills) if (!skills.has(skill)) issues.push({ severity: "error", sourcePath: document.sourcePath, message: `unknown skill: ${skill}` });
+    for (const concept of document.concepts) if (!conceptRegistry.has(concept)) issues.push({ severity: "error", sourcePath: document.sourcePath, message: `unknown concept: ${concept}` });
+    for (const skill of document.skills) if (!skillRegistry.has(skill)) issues.push({ severity: "error", sourcePath: document.sourcePath, message: `unknown skill: ${skill}` });
     for (const prerequisite of document.prerequisites) {
       if (prerequisite === document.id) issues.push({ severity: "error", sourcePath: document.sourcePath, message: `self prerequisite: ${prerequisite}` });
       else if (!documents.some((candidate) => candidate.id === prerequisite)) issues.push({ severity: "error", sourcePath: document.sourcePath, message: `unknown prerequisite: ${prerequisite}` });

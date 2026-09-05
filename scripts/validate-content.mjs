@@ -1,4 +1,3 @@
-import fs from "node:fs";
 import { createContentRegistry, loadContentRegistry } from "../lib/content/registry.ts";
 import { validateContent } from "../lib/content/validation.ts";
 

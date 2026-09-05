@@ -34,7 +34,7 @@ Every document has validated frontmatter containing `id`, `type`, `slug`, `title
 
 `id` is stable editorial identity. `slug` is a URL/display identifier and may change. They are intentionally separate. Status is one of `draft`, `published` or `archived`; only the registry's published query is suitable for public delivery.
 
-Concept and skill references are checked against the initial versioned registry in `lib/content/validation.ts`. M0.2 keeps this registry deliberately small: `llm`, `token`, `context-window`, `ollama`, `local-inference`, `quantization`, plus the initial local-AI skills.
+Concept and skill references are checked against the initial versioned registry in `lib/curriculum/graph.ts`. M0.2/M0.3 keeps this registry deliberately small: `llm`, `token`, `context-window`, `ollama`, `local-inference`, `quantization`, plus the initial local-AI skills.
 
 ## Canonical document and hashing
 

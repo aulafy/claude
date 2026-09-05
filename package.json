@@ -7,6 +7,8 @@
     "test:domain-migration": "node --experimental-strip-types scripts/verify-domain-migration.mjs",
     "content:validate": "node --experimental-strip-types scripts/validate-content.mjs",
     "test:content-engine": "node --experimental-strip-types scripts/test-content-engine.mjs",
+    "curriculum:validate": "node --experimental-strip-types scripts/validate-curriculum.mjs",
+    "test:curriculum-graph": "node --experimental-strip-types scripts/test-curriculum-graph.mjs",
     "dev": "next dev",
     "build": "next build",
     "build:chatbot": "node scripts/build-chatbot-content.cjs",
