@@ -8,6 +8,7 @@ const socialRoutePrefixes = [
   "/perfil",
   "/admin",
   "/auth/callback",
+  "/laboratorio/radar-editorial",
 ];
 
 function isSocialRoute(pathname: string) {
@@ -17,8 +18,10 @@ function isSocialRoute(pathname: string) {
 }
 
 export function proxy(request: NextRequest) {
-  const socialEnabled = process.env.NEXT_PUBLIC_AULAFY_SOCIAL_ENABLED === "true";
-  if (isSocialRoute(request.nextUrl.pathname) && !socialEnabled) {
+  if (request.nextUrl.pathname === "/api/editorial-intake") {
+    return new NextResponse(null, { status: 410 });
+  }
+  if (isSocialRoute(request.nextUrl.pathname)) {
     return NextResponse.redirect(new URL("/", request.url), 307);
   }
 

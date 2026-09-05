@@ -1,5 +1,19 @@
 # Aulafy
 
+## Beginner classroom / English
+
+[Start the free beginner course](https://www.aulafy.net/en): eight guided lessons,
+worked examples, exercises with self-review, knowledge checks and a final project.
+No registration, cookies, AI account or paid tools required. Exercise text stays
+in page memory; learners can download their work as Markdown before leaving.
+Learning analytics and public server-side content intake are disabled, regardless
+of legacy environment flags. Hosting still requires ordinary technical requests.
+
+The source code and the original beginner course are MIT licensed (`LICENSE`).
+Older educational materials retain CC BY 4.0; see `LICENSE.md` for scope.
+Course sources and the actual review date are shown in each lesson. Update
+`lib/beginner-course.ts` after reviewing sources; do not imply automated freshness.
+
 > Educación abierta y gratuita para aprender inteligencia artificial construyendo sistemas reales.
 
 [Abrir Aulafy](https://www.aulafy.net) · [Explorar los cursos](https://www.aulafy.net/cursos) · [Elegir una ruta](https://www.aulafy.net/rutas) · [Ver el programa completo](https://www.aulafy.net/programa)
@@ -33,7 +47,7 @@ En la revisión del 15 de julio de 2026, el repositorio contiene:
 - un programa abierto de 28 semanas, desde fundamentos hasta un proyecto final;
 - guías PDF y un índice preparado para buscadores y asistentes de IA;
 - progreso local y exportable, sin necesidad de crear una cuenta;
-- un asistente opcional basado en Groq, con limitación de uso opcional mediante Upstash Redis.
+- el curso de iniciación funciona sin asistente remoto ni envío de respuestas a APIs.
 
 Las cifras del catálogo se calculan desde `lib/cursos.ts` y seguirán creciendo. Consulta la [hoja de ruta](docs/HOJA-DE-RUTA.md) para conocer las prioridades del proyecto.
 
