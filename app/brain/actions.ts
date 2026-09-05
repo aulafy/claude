@@ -70,7 +70,10 @@ export async function verifyEvidence(evidenceId: string) {
   const { data: role } = await session.db.from("user_roles").select("role").eq("user_id", session.userId).maybeSingle();
   if (role?.role !== "moderator" && role?.role !== "admin") return { ok: false, message: "You are not allowed to verify evidence." };
   const result = await verifyEvidenceRecord(session.db, session.userId, parsedId.data);
-  if (!result.error) revalidatePath("/brain");
+  if (!result.error) {
+    revalidatePath("/brain");
+    revalidatePath("/admin/moderacion");
+  }
   return result.error ? { ok: false, message: "Could not verify evidence." } : { ok: true };
 }
 
@@ -82,6 +85,9 @@ export async function rejectEvidence(evidenceId: string) {
   const { data: role } = await session.db.from("user_roles").select("role").eq("user_id", session.userId).maybeSingle();
   if (role?.role !== "moderator" && role?.role !== "admin") return { ok: false, message: "You are not allowed to reject evidence." };
   const result = await rejectEvidenceRecord(session.db, session.userId, parsedId.data);
-  if (!result.error) revalidatePath("/brain");
+  if (!result.error) {
+    revalidatePath("/brain");
+    revalidatePath("/admin/moderacion");
+  }
   return result.error ? { ok: false, message: "Could not reject evidence." } : { ok: true };
 }
