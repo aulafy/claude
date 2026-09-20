@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "retrieval",
+  "sourceLocale": "es",
+  "level": "advanced",
+  "minutes": 35,
+  "risk": "technical",
+  "prerequisites": ["api-contracts"],
+  "claimIds": [],
+  "legacyPaths": ["public/recursos/ia-desde-cero/curso-ia-desde-cero.md"],
+  "localized": {
+    "es": {
+      "title": "Buscar antes de responder: RAG",
+      "summary": "Aprende a recuperar fragmentos relevantes y a mostrar su procedencia antes de generar una respuesta.",
+      "outcomes": ["Separar recuperación, generación y comprobación.", "Detectar cuándo el contexto recuperado no responde a la pregunta."],
+      "exercise": {
+        "question": "La búsqueda devuelve un fragmento parecido, pero no responde a la pregunta. ¿Qué debe hacer el sistema?",
+        "options": ["Generar una respuesta como si fuera suficiente.", "Marcar que falta evidencia y pedir otra fuente o revisión.", "Ocultar la cita para que la respuesta sea más clara."],
+        "correct": 1,
+        "explanation": "Un fragmento parecido no prueba la respuesta. El sistema debe hacer visible la falta de evidencia y detener la generación confiada."
+      }
+    },
+    "en": {
+      "title": "Retrieve before answering: RAG",
+      "summary": "Learn to retrieve relevant passages and show their provenance before generating an answer.",
+      "outcomes": ["Separate retrieval, generation and checking.", "Detect when retrieved context does not answer the question."],
+      "exercise": {
+        "question": "Search returns a similar passage, but it does not answer the question. What should the system do?",
+        "options": ["Generate an answer as if it were enough.", "Flag missing evidence and request another source or review.", "Hide the citation to make the answer clearer."],
+        "correct": 1,
+        "explanation": "A similar passage does not prove the answer. The system should show missing evidence and stop confident generation."
+      }
+    }
+  },
+  "translationFrom": { "es": null, "en": "82da5951bb3dcc91af62f9fce2e197edff18c9b1f83c725c311b6839f014e806" },
+  "approvals": { "es": [], "en": [] }
+}

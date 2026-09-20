@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "final-project",
+  "sourceLocale": "es",
+  "level": "advanced",
+  "minutes": 60,
+  "risk": "high",
+  "prerequisites": ["legacy-data", "observability", "agents"],
+  "claimIds": [],
+  "legacyPaths": ["public/recursos/ia-pymes/kit-flujo-fiable-pyme.md"],
+  "localized": {
+    "es": {
+      "title": "Proyecto final: un flujo que puedas explicar",
+      "summary": "Integra una tarea de IA, sus límites, pruebas, costes, observabilidad y recuperación en un proyecto pequeño y revisable.",
+      "outcomes": ["Presentar un flujo reproducible con datos ficticios.", "Defender qué hace el sistema, qué no hace y cómo se detiene."],
+      "exercise": {
+        "question": "¿Qué entrega demuestra mejor que un proyecto de IA está listo para una revisión técnica?",
+        "options": ["Una demo que funciona una vez y una captura de pantalla.", "Un flujo reproducible con conjunto de pruebas, límites, registros mínimos, revisión humana y procedimiento de recuperación.", "Una lista de modelos posibles sin criterios ni resultados."],
+        "correct": 1,
+        "explanation": "La revisión necesita evidencia y límites operativos. Una demo aislada puede impresionar, pero no permite medir, repetir, corregir ni recuperar el sistema."
+      }
+    },
+    "en": {
+      "title": "Final project: a workflow you can explain",
+      "summary": "Combine an AI task, its boundaries, tests, costs, observability and recovery in a small, reviewable project.",
+      "outcomes": ["Present a reproducible workflow with fictional data.", "Explain what the system does, does not do and how it stops."],
+      "exercise": {
+        "question": "Which deliverable best shows that an AI project is ready for technical review?",
+        "options": ["A demo that works once and a screenshot.", "A reproducible workflow with a test set, boundaries, minimal records, human review and a recovery procedure.", "A list of possible models without criteria or results."],
+        "correct": 1,
+        "explanation": "Review needs evidence and operational boundaries. A one-off demo may impress, but it cannot be measured, repeated, corrected or recovered."
+      }
+    }
+  },
+  "translationFrom": { "es": null, "en": "3161bac1d140b83991025b7702e0319db7334f398ad6163411c3dcd2360d3660" },
+  "approvals": { "es": [], "en": [] }
+}

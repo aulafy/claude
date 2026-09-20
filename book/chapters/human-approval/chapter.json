@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "human-approval",
+  "sourceLocale": "es",
+  "level": "intermediate",
+  "minutes": 30,
+  "risk": "high",
+  "prerequisites": ["connectors"],
+  "claimIds": [],
+  "legacyPaths": ["public/recursos/ia-desde-cero/curso-ia-desde-cero.md"],
+  "localized": {
+    "es": {
+      "title": "Permisos, aprobación y parada",
+      "summary": "Diseña una revisión humana que pueda aprobar, rechazar o detener una acción de IA con un registro claro.",
+      "outcomes": ["Definir qué revisa una persona antes de aprobar.", "Conservar un registro y una salida segura cuando se rechaza."],
+      "exercise": {
+        "question": "El borrador contiene un dato que no aparece en la fuente. ¿Qué debe hacer la persona revisora?",
+        "options": ["Aprobarlo si el texto es convincente.", "Rechazarlo o devolverlo para corregirlo y conservar el motivo.", "Borrar la fuente para que no haya contradicción."],
+        "correct": 1,
+        "explanation": "La revisión debe comprobar la evidencia, conservar el motivo de la decisión y evitar que un dato no respaldado llegue a una acción externa."
+      }
+    },
+    "en": {
+      "title": "Permissions, approval and stopping",
+      "summary": "Design a human review that can approve, reject or stop an AI action with a clear record.",
+      "outcomes": ["Define what a person checks before approval.", "Keep a record and a safe outcome when a request is rejected."],
+      "exercise": {
+        "question": "A draft contains a detail that is not in the source. What should the reviewer do?",
+        "options": ["Approve it if the writing is convincing.", "Reject it or send it back for correction and keep the reason.", "Delete the source so there is no contradiction."],
+        "correct": 1,
+        "explanation": "Review must check evidence, keep the reason for the decision and stop an unsupported detail from reaching an external action."
+      }
+    }
+  },
+  "translationFrom": { "es": null, "en": "0ee13c9cfea70d300b8c30267442240c9bb5fb68019a9fa298a8b241f334be26" },
+  "approvals": { "es": [], "en": [] }
+}

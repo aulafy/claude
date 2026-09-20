@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "workflow",
+  "sourceLocale": "es",
+  "level": "intermediate",
+  "minutes": 30,
+  "risk": "technical",
+  "prerequisites": ["compare-tools"],
+  "claimIds": [],
+  "legacyPaths": ["public/recursos/ia-desde-cero/curso-ia-desde-cero.md"],
+  "localized": {
+    "es": {
+      "title": "De tarea a flujo de trabajo",
+      "summary": "Convierte una tarea repetida en pasos controlables sin entregar a una IA el poder de actuar sin revisión.",
+      "outcomes": ["Dibujar entradas, transformaciones y salidas.", "Añadir una parada antes de cualquier acción irreversible."],
+      "exercise": {
+        "question": "Un flujo redacta una respuesta y propone enviarla automáticamente. ¿Cuál es el diseño correcto?",
+        "options": ["Enviar siempre para ahorrar tiempo.", "Guardar el borrador y pedir aprobación antes del envío.", "Dejar que la IA decida cuándo enviarlo."],
+        "correct": 1,
+        "explanation": "La redacción puede automatizarse, pero el envío es una acción externa. La aprobación debe ocurrir antes de ejecutarla."
+      }
+    },
+    "en": {
+      "title": "From task to workflow",
+      "summary": "Turn a repeated task into controlled steps without giving an AI power to act without review.",
+      "outcomes": ["Map inputs, transformations and outputs.", "Add a stop before any irreversible action."],
+      "exercise": {
+        "question": "A workflow drafts a reply and proposes sending it automatically. What is the right design?",
+        "options": ["Always send it to save time.", "Save the draft and require approval before sending.", "Let the AI decide when to send it."],
+        "correct": 1,
+        "explanation": "Drafting can be automated, but sending is an external action. Approval must happen before it runs."
+      }
+    }
+  },
+  "translationFrom": { "es": null, "en": "2e23ccea0ce6a9a33d572328d2ca93d9a66e736bdb64259eb399002071a57de1" },
+  "approvals": { "es": [], "en": [] }
+}

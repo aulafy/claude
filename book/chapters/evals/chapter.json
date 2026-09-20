@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "evals",
+  "sourceLocale": "es",
+  "level": "advanced",
+  "minutes": 40,
+  "risk": "high",
+  "prerequisites": ["agents"],
+  "claimIds": [],
+  "legacyPaths": ["public/recursos/ia-desde-cero/curso-ia-desde-cero.md"],
+  "localized": {
+    "es": {
+      "title": "Conjuntos de pruebas y evaluaciones",
+      "summary": "Aprende a evaluar una aplicación de IA con casos repetibles, criterios explícitos y fallos conocidos.",
+      "outcomes": ["Crear un conjunto pequeño de pruebas representativas.", "Separar calidad, seguridad y coste al interpretar resultados."],
+      "exercise": {
+        "question": "Una versión nueva mejora la media, pero falla todos los casos de datos sensibles. ¿Qué decisión es responsable?",
+        "options": ["Publicarla porque la media subió.", "Bloquearla y revisar el fallo de alto riesgo antes de cambiar la versión.", "Eliminar esos casos del conjunto de pruebas."],
+        "correct": 1,
+        "explanation": "Una media no compensa un fallo crítico. Los casos de alto riesgo deben tener un criterio de bloqueo propio."
+      }
+    },
+    "en": {
+      "title": "Test sets and evaluations",
+      "summary": "Learn to evaluate an AI application with repeatable cases, explicit criteria and known failures.",
+      "outcomes": ["Create a small set of representative tests.", "Separate quality, safety and cost when interpreting results."],
+      "exercise": {
+        "question": "A new version improves the average but fails every sensitive-data case. What is responsible?",
+        "options": ["Release it because the average improved.", "Block it and review the high-risk failure before changing versions.", "Remove those cases from the test set."],
+        "correct": 1,
+        "explanation": "An average does not compensate for a critical failure. High-risk cases need their own blocking criterion."
+      }
+    }
+  },
+  "translationFrom": { "es": null, "en": "037c10c00671c7ed4ef1e534c29866f0c933d3b5232ae82b5f343c864bb64638" },
+  "approvals": { "es": [], "en": [] }
+}

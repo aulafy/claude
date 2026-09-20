@@ -265,9 +265,9 @@ export default function RootLayout({
     <html
       lang="es"
       suppressHydrationWarning
-      className={`dark ${manrope.variable} ${geistMono.variable} ${display.variable} ${sourceSerif.variable} antialiased`}
+      className={`${manrope.variable} ${geistMono.variable} ${display.variable} ${sourceSerif.variable} antialiased`}
     >
-      <body className="min-h-screen bg-zinc-950 text-zinc-200">
+      <body className="min-h-screen">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "legacy-data",
+  "sourceLocale": "es",
+  "level": "advanced",
+  "minutes": 40,
+  "risk": "high",
+  "prerequisites": ["observability", "data-boundaries"],
+  "claimIds": [],
+  "legacyPaths": ["public/recursos/ia-pymes/kit-flujo-fiable-pyme.md"],
+  "localized": {
+    "es": {
+      "title": "Datos legacy y migración reversible",
+      "summary": "Diseña una primera integración de IA que lea sistemas antiguos sin convertir una prueba en una escritura irreversible.",
+      "outcomes": ["Separar lectura, transformación y escritura.", "Definir copias, permisos y criterios de parada antes de migrar."],
+      "exercise": {
+        "question": "Una IA propone corregir 200 registros de clientes en una base legacy. ¿Qué debe ocurrir antes de escribir?",
+        "options": ["Aplicar todos los cambios porque la propuesta parece razonable.", "Crear una copia verificable, probar en una muestra, registrar diferencias y exigir aprobación antes de escribir.", "Borrar los registros antiguos para evitar duplicados."],
+        "correct": 1,
+        "explanation": "Una propuesta de IA no es una autorización. La prueba reversible y la aprobación protegen los datos y permiten comparar antes de modificar el sistema original."
+      }
+    },
+    "en": {
+      "title": "Legacy data and reversible migration",
+      "summary": "Design a first AI integration that reads legacy systems without turning a test into an irreversible write.",
+      "outcomes": ["Separate reading, transformation and writing.", "Define backups, permissions and stop criteria before migrating."],
+      "exercise": {
+        "question": "An AI proposes correcting 200 customer records in a legacy database. What should happen before writing?",
+        "options": ["Apply every change because the proposal looks reasonable.", "Create a verified copy, test a sample, record differences and require approval before writing.", "Delete old records to prevent duplicates."],
+        "correct": 1,
+        "explanation": "An AI proposal is not authorization. Reversible testing and approval protect data and allow comparison before changing the original system."
+      }
+    }
+  },
+  "translationFrom": { "es": null, "en": "fa80a5e8d668867d558055e7f01e6f0369f2edb24cbc30df8cb5649b28e072ce" },
+  "approvals": { "es": [], "en": [] }
+}

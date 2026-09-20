@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "local-hardware",
+  "sourceLocale": "es",
+  "level": "intermediate",
+  "minutes": 30,
+  "risk": "technical",
+  "prerequisites": ["human-approval"],
+  "claimIds": [],
+  "legacyPaths": ["public/recursos/ia-desde-cero/curso-ia-desde-cero.md"],
+  "localized": {
+    "es": {
+      "title": "Elegir según tu equipo",
+      "summary": "Aprende a medir memoria, espacio y velocidad antes de elegir una IA local.",
+      "outcomes": ["Describir las limitaciones reales de tu equipo.", "Elegir una prueba pequeña antes de descargar un modelo grande."],
+      "exercise": {
+        "question": "Un modelo cabe en el disco, pero la memoria disponible es insuficiente. ¿Qué conclusión es correcta?",
+        "options": ["Funcionará igual porque el archivo cabe.", "El almacenamiento no garantiza que pueda ejecutarse; mide la memoria disponible.", "Borra archivos personales hasta que arranque."],
+        "correct": 1,
+        "explanation": "El archivo y la memoria de ejecución son recursos distintos. No debes borrar datos personales para forzar una prueba."
+      }
+    },
+    "en": {
+      "title": "Choose for your hardware",
+      "summary": "Learn to measure memory, storage and speed before choosing local AI.",
+      "outcomes": ["Describe your computer's real limits.", "Choose a small test before downloading a large model."],
+      "exercise": {
+        "question": "A model fits on disk, but available memory is insufficient. Which conclusion is correct?",
+        "options": ["It will work because the file fits.", "Storage does not guarantee it can run; measure available memory.", "Delete personal files until it starts."],
+        "correct": 1,
+        "explanation": "The file and execution memory are different resources. Do not delete personal data to force a test."
+      }
+    }
+  },
+  "translationFrom": { "es": null, "en": "78be18d182f2f7e9e325e4db1f6ac92395f5ef88d61e6e085edb316fb41a5f91" },
+  "approvals": { "es": [], "en": [] }
+}

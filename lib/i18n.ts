@@ -89,6 +89,11 @@ const englishCourseCopy: Record<string, CourseCopy> = {
     short: "Use AI where it improves real work.",
     desc: "Identify valuable use cases, automate office flows, build useful assistants and decide what should stay human.",
   },
+  "ai-consultant": {
+    title: "AI Consultant: From Assessment to Production",
+    short: "Find business opportunities, validate ROI, and deploy AI responsibly.",
+    desc: "A professional course for technical people who want to assess AI opportunities in small businesses, design measurable pilots, deploy safely, and build an ongoing improvement practice.",
+  },
 };
 
 const englishUpcomingCopy: Record<string, { title: string; desc: string }> = {

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "ollama-context",
+    "label": "Ollama / Context length",
+    "kind": "documentation",
+    "url": "https://docs.ollama.com/context-length",
+    "intervalHours": 24,
+    "owner": "Editor técnico pendiente"
+  },
+  {
+    "id": "hf-introduction",
+    "label": "Hugging Face / LLM Course",
+    "kind": "documentation",
+    "url": "https://huggingface.co/learn/llm-course/chapter1/1",
+    "intervalHours": 168,
+    "owner": "Editor pendiente"
+  },
+  {
+    "id": "ollama-releases",
+    "label": "Ollama / GitHub Releases",
+    "kind": "release",
+    "url": "https://github.com/ollama/ollama/releases",
+    "intervalHours": 24,
+    "owner": "Editor técnico pendiente"
+  }
+]

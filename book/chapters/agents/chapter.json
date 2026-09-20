@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "agents",
+  "sourceLocale": "es",
+  "level": "advanced",
+  "minutes": 40,
+  "risk": "high",
+  "prerequisites": ["retrieval"],
+  "claimIds": [],
+  "legacyPaths": ["public/recursos/ia-desde-cero/curso-ia-desde-cero.md"],
+  "localized": {
+    "es": {
+      "title": "Agentes y límites de autonomía",
+      "summary": "Aprende a separar una recomendación de una acción y a limitar un agente con permisos, presupuesto y paradas.",
+      "outcomes": ["Definir qué puede proponer un agente.", "Diseñar límites y una aprobación antes de cambiar datos externos."],
+      "exercise": {
+        "question": "Un agente propone borrar registros duplicados. ¿Qué diseño es seguro?",
+        "options": ["Permitir el borrado porque la propuesta parece correcta.", "Generar un informe para revisión y no conceder borrado automático.", "Dejar que el agente borre y recuperar después si hace falta."],
+        "correct": 1,
+        "explanation": "Borrar es una acción con consecuencias. El agente puede identificar candidatos, pero una persona debe revisar antes de cambiar datos."
+      }
+    },
+    "en": {
+      "title": "Agents and autonomy boundaries",
+      "summary": "Learn to separate a recommendation from an action and limit an agent with permissions, budget and stops.",
+      "outcomes": ["Define what an agent may propose.", "Design limits and approval before changing external data."],
+      "exercise": {
+        "question": "An agent proposes deleting duplicate records. What is a safe design?",
+        "options": ["Allow deletion because the proposal seems correct.", "Create a report for review and grant no automatic deletion.", "Let the agent delete and recover later if needed."],
+        "correct": 1,
+        "explanation": "Deletion has consequences. The agent may identify candidates, but a person should review before data changes."
+      }
+    }
+  },
+  "translationFrom": { "es": null, "en": "13352537f33061ca5e2d54f101a929d4ed8a8a9be22a4aa77bf43207ff82b6ff" },
+  "approvals": { "es": [], "en": [] }
+}

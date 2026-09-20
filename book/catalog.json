@@ -1,0 +1,290 @@
+{
+  "schemaVersion": 1,
+  "title": {
+    "es": "El libro abierto de IA",
+    "en": "The open book of AI"
+  },
+  "sourceLocale": "es",
+  "parts": [
+    {
+      "id": "start",
+      "title": {
+        "es": "Empezar con criterio",
+        "en": "Start with good judgment"
+      },
+      "level": "beginner",
+      "outcome": {
+        "es": "Completar una tarea pequeña y verificarla.",
+        "en": "Complete and verify a small task."
+      },
+      "chapters": [
+        {
+          "id": "first-task",
+          "title": {
+            "es": "Tu primer encargo a una IA",
+            "en": "Your first task for AI"
+          }
+        },
+        {
+          "id": "verify-output",
+          "title": {
+            "es": "No confundir una respuesta con una prueba",
+            "en": "An answer is not evidence"
+          }
+        },
+        {
+          "id": "data-boundaries",
+          "title": {
+            "es": "Elegir qué datos compartir",
+            "en": "Choose what data to share"
+          }
+        }
+      ]
+    },
+    {
+      "id": "information",
+      "title": {
+        "es": "Trabajar con información",
+        "en": "Work with information"
+      },
+      "level": "beginner",
+      "outcome": {
+        "es": "Convertir documentos en respuestas contrastables.",
+        "en": "Turn documents into checkable answers."
+      },
+      "chapters": [
+        {
+          "id": "read-documents",
+          "title": {
+            "es": "Leer y resumir documentos",
+            "en": "Read and summarize documents"
+          }
+        },
+        {
+          "id": "research-sources",
+          "title": {
+            "es": "Investigar con fuentes",
+            "en": "Research with sources"
+          }
+        },
+        {
+          "id": "compare-tools",
+          "title": {
+            "es": "Comparar herramientas con una prueba",
+            "en": "Compare tools with a test"
+          }
+        }
+      ]
+    },
+    {
+      "id": "create",
+      "title": {
+        "es": "Crear y comunicar",
+        "en": "Create and communicate"
+      },
+      "level": "intermediate",
+      "outcome": {
+        "es": "Producir una pieza original y revisar sus límites.",
+        "en": "Create an original piece and review its limits."
+      },
+      "chapters": [
+        {
+          "id": "write-edit",
+          "title": {
+            "es": "Escribir, editar y revisar",
+            "en": "Write, edit and review"
+          }
+        },
+        {
+          "id": "images-audio",
+          "title": {
+            "es": "Imagen, audio y derechos",
+            "en": "Images, audio and rights"
+          }
+        },
+        {
+          "id": "learning-project",
+          "title": {
+            "es": "Estudiar sin delegar el aprendizaje",
+            "en": "Learn without outsourcing learning"
+          }
+        }
+      ]
+    },
+    {
+      "id": "automate",
+      "title": {
+        "es": "Automatizar con control",
+        "en": "Automate with control"
+      },
+      "level": "intermediate",
+      "outcome": {
+        "es": "Automatizar una tarea reversible con aprobación.",
+        "en": "Automate a reversible task with approval."
+      },
+      "chapters": [
+        {
+          "id": "workflow",
+          "title": {
+            "es": "De tarea a flujo de trabajo",
+            "en": "From task to workflow"
+          }
+        },
+        {
+          "id": "connectors",
+          "title": {
+            "es": "Conectar herramientas y datos",
+            "en": "Connect tools and data"
+          }
+        },
+        {
+          "id": "human-approval",
+          "title": {
+            "es": "Permisos, aprobación y parada",
+            "en": "Permissions, approval and stopping"
+          }
+        }
+      ]
+    },
+    {
+      "id": "local",
+      "title": {
+        "es": "Usar IA en tu equipo",
+        "en": "Run AI on your computer"
+      },
+      "level": "intermediate",
+      "outcome": {
+        "es": "Probar un modelo local y medir sus límites.",
+        "en": "Test a local model and measure its limits."
+      },
+      "chapters": [
+        {
+          "id": "local-hardware",
+          "title": {
+            "es": "Elegir según tu equipo",
+            "en": "Choose for your hardware"
+          }
+        },
+        {
+          "id": "local-first-run",
+          "title": {
+            "es": "Instalar y ejecutar un modelo",
+            "en": "Install and run a model"
+          }
+        },
+        {
+          "id": "local-context",
+          "title": {
+            "es": "Contexto, memoria y velocidad",
+            "en": "Context, memory and speed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "build",
+      "title": {
+        "es": "Construir aplicaciones",
+        "en": "Build applications"
+      },
+      "level": "advanced",
+      "outcome": {
+        "es": "Construir una aplicación pequeña con pruebas.",
+        "en": "Build a small application with tests."
+      },
+      "chapters": [
+        {
+          "id": "api-contracts",
+          "title": {
+            "es": "APIs y contratos de datos",
+            "en": "APIs and data contracts"
+          }
+        },
+        {
+          "id": "retrieval",
+          "title": {
+            "es": "Buscar antes de responder: RAG",
+            "en": "Retrieve before answering: RAG"
+          }
+        },
+        {
+          "id": "agents",
+          "title": {
+            "es": "Agentes y límites de autonomía",
+            "en": "Agents and autonomy boundaries"
+          }
+        }
+      ]
+    },
+    {
+      "id": "evaluate",
+      "title": {
+        "es": "Evaluar y proteger",
+        "en": "Evaluate and protect"
+      },
+      "level": "advanced",
+      "outcome": {
+        "es": "Detectar fallos antes de entregar un sistema.",
+        "en": "Find failures before shipping a system."
+      },
+      "chapters": [
+        {
+          "id": "evals",
+          "title": {
+            "es": "Conjuntos de pruebas y evaluaciones",
+            "en": "Test sets and evaluations"
+          }
+        },
+        {
+          "id": "injection",
+          "title": {
+            "es": "Instrucciones no confiables",
+            "en": "Untrusted instructions"
+          }
+        },
+        {
+          "id": "costs",
+          "title": {
+            "es": "Calidad, coste y latencia",
+            "en": "Quality, cost and latency"
+          }
+        }
+      ]
+    },
+    {
+      "id": "operate",
+      "title": {
+        "es": "Operar y mantener",
+        "en": "Operate and maintain"
+      },
+      "level": "advanced",
+      "outcome": {
+        "es": "Entregar un proyecto que se pueda mantener y recuperar.",
+        "en": "Deliver a maintainable, recoverable project."
+      },
+      "chapters": [
+        {
+          "id": "observability",
+          "title": {
+            "es": "Observabilidad y cambios de modelo",
+            "en": "Observability and model changes"
+          }
+        },
+        {
+          "id": "legacy-data",
+          "title": {
+            "es": "Integrar sistemas y proteger datos",
+            "en": "Integrate systems and protect data"
+          }
+        },
+        {
+          "id": "final-project",
+          "title": {
+            "es": "Proyecto final: construir, medir, recuperar",
+            "en": "Final project: build, measure, recover"
+          }
+        }
+      ]
+    }
+  ]
+}

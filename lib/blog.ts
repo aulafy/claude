@@ -32,6 +32,96 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "radar-ia-pymes-septiembre-2026",
+    title: "Radar de IA para pymes: Claude SMB, Codex, Muse y Jev en septiembre de 2026",
+    description: "Qué novedades de Claude, Codex, Meta Muse y Jev puede probar una pyme, qué sigue limitado y cómo evaluarlas sin entregar datos ni automatizar a ciegas.",
+    date: "2026-09-20",
+    updated: "2026-09-20",
+    category: "IA para pymes",
+    readingTime: "12 min",
+    icon: "briefcase",
+    image: "/blog/ia-para-pymes-autonomos-casos-uso-2026.png",
+    editorNote: "Verificado el 20 de septiembre de 2026 con fuentes oficiales de Anthropic, OpenAI, Meta y TypeSafe. Las cifras de rendimiento de Jev son resultados publicados por su fabricante y todavía no sustituyen una evaluación independiente. Se han excluido rumores de X y nombres, precios o benchmarks sin fuente primaria comprobable.",
+    keywords: ["Claude for Small Business", "Codex para pymes", "ChatGPT Work pymes", "Meta Muse", "Jev TypeSafe", "IA para pequeñas empresas", "automatización pyme aprobación humana", "radar IA septiembre 2026"],
+    intro: "La novedad importante no es que haya otro chatbot. Claude, Codex, Muse y modelos de decisión como Jev representan cuatro formas distintas de aplicar IA: flujos preparados, un agente general que construye herramientas, un asistente personal que opera el navegador y un clasificador especializado. Para una pyme, elegir bien empieza por el proceso, los datos y el nivel de control, no por el nombre del modelo.",
+    sections: [
+      {
+        title: "Qué cambió de verdad este mes",
+        body: "Anthropic amplió Claude for Small Business a 43 flujos y 27 integraciones nuevas y afirma que el paquete supera las 900.000 instalaciones. OpenAI está extendiendo Codex a ventas, analítica, producción creativa y diseño mediante plugins, Sites y anotaciones. Meta lanzó Muse como agente personal en Estados Unidos. TypeSafe presentó Jev en acceso temprano para decisiones estructuradas. Son productos diferentes y no deben compararse como si fueran cuatro chatbots equivalentes."
+      },
+      {
+        title: "Claude for Small Business: el paquete más preparado",
+        body: "Claude for Small Business se instala como plugin en Claude Cowork. Incluye flujos como el informe semanal, seguimiento de leads, propuestas, campañas y cierre mensual. Las nuevas integraciones incluyen Shopify, Salesforce, Stripe, Square, Xero, Gusto, Zapier, TikTok, Zoom y Atlassian, además de las iniciales. Cada flujo empieza en modo de aprobación: Claude prepara el trabajo y espera antes de enviar, publicar o pagar.",
+        bullets: ["Ventaja: permite empezar desde una receta concreta.", "Riesgo: una integración no garantiza que los datos, impuestos o controles encajen con tu país.", "Prueba responsable: usa una empresa ficticia o datos anonimizados antes de conectar producción."]
+      },
+      {
+        title: "España y Latinoamérica: hay que adaptar el último kilómetro",
+        body: "La oferta de Anthropic está muy orientada al ecosistema estadounidense. La lista oficial revisada no incluye conectores nativos para Holded, Sage, a3ERP, Quipu o VeriFactu. Eso no impide usar Google Workspace, Microsoft 365, HubSpot, Shopify, Stripe o Zapier, pero obliga a documentar la adaptación local. Un cierre de mes preparado por IA nunca sustituye la revisión de la asesoría ni el cumplimiento fiscal aplicable."
+      },
+      {
+        title: "Codex: construir el flujo propio",
+        body: "OpenAI no presenta un producto llamado Codex para pymes. Codex se ha ampliado más allá del desarrollo: los plugins por rol reúnen 62 apps y 110 skills, y Sites permite crear herramientas y paneles compartibles. OpenAI indica que aproximadamente el 20% de sus usuarios de Codex no son desarrolladores. Para una pyme, el valor está en convertir un proceso propio en una herramienta revisable, no en asumir que Codex trae la contabilidad configurada.",
+        bullets: ["Buen encaje: comparar presupuestos, preparar informes, limpiar datos y construir una miniapp interna.", "Empieza en una carpeta o copia de datos, con permisos mínimos.", "Conserva la revisión humana antes de escribir en CRM, enviar mensajes o modificar registros."]
+      },
+      {
+        title: "Coste y privacidad de ChatGPT Business",
+        body: "La tarifa oficial consultada ofrece asientos Standard por 20 dólares al mes con facturación anual o 25 mensual, y Premium por 100 o 125 dólares. Se pueden mezclar en un espacio de al menos dos asientos. Ambos incluyen ChatGPT, Work y Codex; Premium ofrece cinco veces más uso y elimina el límite de cinco horas. OpenAI declara que no entrena sus modelos con los datos del espacio Business por defecto. Precios, disponibilidad y límites pueden variar, por lo que deben comprobarse antes de presupuestar."
+      },
+      {
+        title: "Meta Muse: relevante, pero todavía no es un sistema de gestión",
+        body: "Muse puede usar un navegador, rellenar formularios, enviar correo, reservar y comprar después de solicitar aprobación para acciones sensibles. Funciona en una máquina virtual dedicada y Meta publica un registro de actividad y controles de acceso. El lanzamiento oficial está limitado a adultos en Estados Unidos, en iOS, Android, muse.ai y WhatsApp. Para una pyme española o latinoamericana es hoy una señal de hacia dónde va la atención al cliente y el comercio agéntico, no una herramienta que deba incluirse todavía en un proceso crítico."
+      },
+      {
+        title: "Jev: decidir no es redactar",
+        body: "Jev, de TypeSafe, no está diseñado para escribir informes. Recibe estado no estructurado y preguntas con respuestas definidas y devuelve decisiones tipadas con probabilidades. Puede encajar en clasificación de tickets, leads o documentos, pero está en acceso temprano. Las afirmaciones de velocidad y coste proceden del fabricante; Aulafy no las presenta como benchmark independiente. Tampoco significa que no pueda equivocarse: restringir el formato evita una etiqueta inventada, no una clasificación incorrecta."
+      },
+      {
+        title: "El patrón de arquitectura que sí permanece",
+        body: "Usa SQL y reglas para datos ya estructurados; un clasificador especializado o modelo pequeño para tareas repetitivas; un modelo general para excepciones, redacción y análisis abierto; y aprobación humana antes de acciones externas. Registra la entrada, la versión, la decisión, la confianza, la corrección y el coste por resultado aceptado. Este diseño permite cambiar de proveedor sin rehacer todo el proceso."
+      },
+      {
+        title: "Cómo probar una novedad en veinte casos",
+        body: "Escoge una tarea, prepara veinte ejemplos autorizados que incluyan casos normales, ambiguos y adversos, y define la respuesta correcta antes de probar herramientas. Mide calidad, abstención, tiempo total con revisión, coste, exposición de datos y facilidad para volver al proceso anterior. Solo conecta sistemas reales cuando el piloto cumpla el umbral y tenga responsable, logs, límites y procedimiento de parada.",
+        bullets: ["No uses capturas de X como documentación de producto.", "Guarda la fuente oficial y la fecha de cada precio o función.", "Separa demostraciones del fabricante de mediciones propias.", "Descarta el piloto si revisar cuesta más que el proceso original."]
+      },
+      {
+        title: "Qué no hemos incorporado todavía",
+        body: "Las listas de modelos locales de esta semana, las comparaciones de velocidad publicadas en X y los rumores sobre próximos lanzamientos quedan fuera de esta actualización hasta comprobar fichas oficiales, licencias, pesos y disponibilidad. Un radar útil también debe saber decir todavía no verificado."
+      }
+    ],
+    table: {
+      headers: ["Opción", "Mejor encaje", "Estado y límite principal"],
+      rows: [
+        ["Claude for Small Business", "Flujos empresariales preparados y conectores", "Disponible; exige adaptación al stack y normativa local"],
+        ["Codex + ChatGPT Work", "Construir herramientas y automatizaciones propias", "Flexible; requiere definir el proceso y los permisos"],
+        ["Meta Muse", "Asistente personal que actúa en web y WhatsApp", "Lanzamiento limitado a Estados Unidos"],
+        ["Jev", "Clasificación y decisiones tipadas a gran escala", "Acceso temprano; benchmarks principalmente del fabricante"],
+        ["Modelo local", "Privacidad, volumen y continuidad controlada", "Requiere hardware, operación y evaluación propia"]
+      ]
+    },
+    sources: [
+      { title: "Anthropic · Claude for Small Business: September update", href: "https://claude.com/blog/claude-for-small-business-launches-new-workflows-integrations-and-training-programs", note: "43 flujos, 27 integraciones, instalaciones, modo aprobación y ejemplos." },
+      { title: "Anthropic · Introducing Claude for Small Business", href: "https://www.anthropic.com/news/claude-for-small-business", note: "Lanzamiento, conectores iniciales, planes de confianza y datos." },
+      { title: "OpenAI · Codex for every role, tool, and workflow", href: "https://openai.com/index/codex-for-every-role-tool-workflow/", note: "Plugins por rol, 62 apps, 110 skills, Sites, anotaciones y adopción no técnica." },
+      { title: "OpenAI · Business pricing", href: "https://openai.com/business/pricing/", note: "Precios y condiciones de asientos Standard y Premium consultados el 20 de septiembre de 2026." },
+      { title: "OpenAI · ChatGPT for small business program", href: "https://openai.com/index/introducing-chatgpt-small-business-program/", note: "Programa, formación y socios para pequeñas empresas." },
+      { title: "Meta · Introducing Muse", href: "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/", note: "Capacidades, controles, disponibilidad y Muse Secure VM." },
+      { title: "TypeSafe · Introducing System One Models and Jev", href: "https://typesafe.ai/blog/introducing-system-one-models-and-jev", note: "Diseño, salida tipada, acceso temprano y resultados publicados por el fabricante." }
+    ],
+    faqs: [
+      { q: "¿Cuál debería probar primero una pyme?", a: "El que encaje con un proceso concreto. Claude SMB ofrece más recetas listas; Codex permite construir una solución a medida. Empieza con datos ficticios y una tarea reversible." },
+      { q: "¿Puede la IA enviar emails o hacer pagos sola?", a: "Técnicamente algunas herramientas pueden, pero el primer piloto debe mantener aprobación humana. Amplía autonomía solo después de medir fallos y definir límites, logs y recuperación." },
+      { q: "¿Claude for Small Business sirve en España?", a: "Puede servir con herramientas globales, pero no incluye en la lista oficial revisada conectores para varios sistemas contables españoles ni resuelve por sí solo VeriFactu o la fiscalidad local." },
+      { q: "¿Jev sustituye a un LLM?", a: "No. Está orientado a decisiones estructuradas. Un LLM general sigue siendo más adecuado para redactar, explicar o resolver casos abiertos." },
+      { q: "¿Conviene comprar hardware para IA local?", a: "No antes de medir el caso. Empieza con veinte ejemplos, estima volumen y sensibilidad, y compara API, local e híbrido por coste total y resultados aceptados." }
+    ],
+    related: [
+      { title: "Diagnóstico y primer piloto", href: "/cursos/ia-pymes/diagnostico-piloto", desc: "Convierte una necesidad de negocio en una prueba reversible." },
+      { title: "Permisos y agentes", href: "/cursos/ia-pymes/permisos-agentes", desc: "Diseña aprobaciones y accesos mínimos antes de automatizar." },
+      { title: "IA local según memoria y sistema", href: "/blog/ia-local-modelos-apps-memoria-os-2026", desc: "Comprueba qué modelos caben realmente en tu equipo." }
+    ]
+  },
+  {
     slug: "futuro-universidad-inteligencia-artificial",
     title: "¿Tiene futuro la universidad con IA? Aprender ya no basta: hay que demostrar criterio",
     description: "La IA no elimina la universidad, pero obliga a replantear qué se aprende, cómo se evalúa y qué valor ofrece una credencial.",

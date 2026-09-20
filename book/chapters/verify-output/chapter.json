@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "id": "verify-output",
+  "sourceLocale": "es",
+  "level": "beginner",
+  "minutes": 12,
+  "risk": "low",
+  "prerequisites": [
+    "first-task"
+  ],
+  "claimIds": [],
+  "legacyPaths": [
+    "public/recursos/ia-desde-cero/curso-ia-desde-cero.md"
+  ],
+  "localized": {
+    "es": {
+      "title": "No confundir una respuesta con una prueba",
+      "summary": "Aprende a separar los datos proporcionados, las propuestas y las invenciones con un ejemplo que puedes resolver sin IA.",
+      "outcomes": [
+        "Relacionar cada afirmación con su fuente.",
+        "Corregir un resultado sin introducir otros datos."
+      ],
+      "exercise": {
+        "question": "Dos asistentes repiten el mismo horario. ¿Está verificado?",
+        "options": [
+          "Sí, porque coinciden.",
+          "No: todavía tengo que contrastarlo con la fuente.",
+          "Solo si el segundo asistente es más reciente."
+        ],
+        "correct": 1,
+        "explanation": "La coincidencia entre asistentes no añade una fuente independiente. Comprueba el aviso original."
+      }
+    },
+    "en": {
+      "title": "An answer is not evidence",
+      "summary": "Separate supplied facts, suggestions and invented details in an exercise you can solve without AI.",
+      "outcomes": [
+        "Connect each claim to its source.",
+        "Correct an answer without adding new facts."
+      ],
+      "exercise": {
+        "question": "Two assistants repeat the same opening time. Is it verified?",
+        "options": [
+          "Yes, because they agree.",
+          "No: I still need to check the source.",
+          "Only if the second assistant is newer."
+        ],
+        "correct": 1,
+        "explanation": "Agreement between assistants does not supply an independent source. Check the original notice."
+      }
+    }
+  },
+  "translationFrom": {
+    "es": null,
+    "en": "25b27bf026e14121e10d32ce678f360e8e21673e78a5b86fbe5e3f0e35103a0a"
+  },
+  "approvals": {
+    "es": [],
+    "en": []
+  }
+}

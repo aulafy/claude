@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Chapter, Objetivos, Idea, Cuidado, Cristiano, Comprueba, Guardar, ChapterNav, Terminal } from "@/components/Book";
 
 export const metadata: Metadata = {
@@ -75,6 +76,12 @@ No sumes puntos de forma ciega: un riesgo alto descarta el piloto aunque el ahor
           <li><strong>Híbrida:</strong> separa datos o tareas: por ejemplo, anonimizar y clasificar localmente, y usar un servicio externo solo para un texto no sensible.</li>
         </ul>
         <p>Local no equivale a cumplimiento automático, coste cero ni seguridad total. Cloud tampoco es siempre inaceptable. Documenta finalidad, datos, proveedor, accesos, retención, coste y responsable antes de decidir.</p>
+      </div>
+
+      <div className="prose">
+        <h2>Radar verificado de herramientas · septiembre de 2026</h2>
+        <p>Claude for Small Business ofrece flujos preparados y conectores; Codex y ChatGPT Work permiten construir herramientas adaptadas al proceso; Meta Muse apunta al trabajo agéntico desde WhatsApp y navegador, aunque su lanzamiento sigue limitado a Estados Unidos; Jev se especializa en decisiones tipadas y está en acceso temprano.</p>
+        <p>No elijas por una demo. Compara cada opción con los mismos veinte casos, registra errores y mantén la aprobación humana antes de enviar, publicar, pagar o modificar sistemas. Consulta el <Link href="/blog/radar-ia-pymes-septiembre-2026">radar de IA para pymes con fuentes oficiales y límites locales</Link>.</p>
       </div>
 
       <Cuidado>

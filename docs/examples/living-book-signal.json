@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "channel": "manual",
+  "title": "Ejemplo local: revisar el ejercicio inicial",
+  "summary": "Señal de demostración, no novedad externa: comprobar si el ejercicio explica que un dato añadido necesita confirmación.",
+  "sourceIds": [],
+  "targetIds": [
+    "first-task"
+  ],
+  "observedAt": "2026-09-12T00:00:00Z"
+}

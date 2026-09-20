@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "id": "data-boundaries",
+  "sourceLocale": "es",
+  "level": "beginner",
+  "minutes": 12,
+  "risk": "low",
+  "prerequisites": [
+    "verify-output"
+  ],
+  "claimIds": [],
+  "legacyPaths": [
+    "public/recursos/ia-desde-cero/curso-ia-desde-cero.md"
+  ],
+  "localized": {
+    "es": {
+      "title": "Elegir qué datos compartir",
+      "summary": "Prepara una tarea útil sin copiar una conversación privada ni compartir información que no hace falta.",
+      "outcomes": [
+        "Crear una versión ficticia de una tarea.",
+        "Separar preparar un borrador de autorizar su envío."
+      ],
+      "exercise": {
+        "question": "Solo necesitas un tono más claro para un aviso. ¿Qué información entregas?",
+        "options": [
+          "La conversación completa con nombres y teléfonos.",
+          "Un ejemplo ficticio con los hechos necesarios y el tono deseado.",
+          "La contraseña del correo para que la IA encuentre el contexto."
+        ],
+        "correct": 1,
+        "explanation": "El ejemplo permite practicar la redacción sin compartir datos o permisos ajenos a la tarea."
+      }
+    },
+    "en": {
+      "title": "Choose what data to share",
+      "summary": "Prepare a useful task without copying private conversations or sharing unnecessary information.",
+      "outcomes": [
+        "Create a fictional version of a task.",
+        "Separate drafting from permission to send."
+      ],
+      "exercise": {
+        "question": "You only need clearer wording for a notice. What do you provide?",
+        "options": [
+          "The full conversation with names and phone numbers.",
+          "A fictional example with the necessary facts and desired tone.",
+          "Your email password so the AI can find context."
+        ],
+        "correct": 1,
+        "explanation": "The example supports the writing task without sharing unrelated information or permissions."
+      }
+    }
+  },
+  "translationFrom": {
+    "es": null,
+    "en": "76d012a9e4d9a3de5bd671afc751a4dbc25edfc30ba56c2e3ad8c49a3f14c292"
+  },
+  "approvals": {
+    "es": [],
+    "en": []
+  }
+}

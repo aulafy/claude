@@ -3,6 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "book:validate": "node --experimental-strip-types scripts/living-book.mjs validate",
+    "book:report": "node --experimental-strip-types scripts/living-book.mjs report",
+    "book:intake": "node --experimental-strip-types scripts/living-book.mjs intake",
+    "test:living-book": "node --experimental-strip-types --test scripts/test-living-book.mjs",
+    "dev:book": "AULAFY_BOOK_PREVIEW=1 next dev --webpack --hostname 127.0.0.1 --port 4193",
+    "preview:book": "AULAFY_BOOK_PREVIEW=1 next start --hostname 127.0.0.1 --port 4193",
     "test:legacy-wiki": "node --experimental-strip-types scripts/verify-legacy-wiki.mjs",
     "test:domain-migration": "node --experimental-strip-types scripts/verify-domain-migration.mjs",
     "content:validate": "node --experimental-strip-types scripts/validate-content.mjs",

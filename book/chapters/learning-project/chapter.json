@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "learning-project",
+  "sourceLocale": "es",
+  "level": "intermediate",
+  "minutes": 30,
+  "risk": "low",
+  "prerequisites": ["write-edit"],
+  "claimIds": [],
+  "legacyPaths": ["public/recursos/ia-desde-cero/curso-ia-desde-cero.md"],
+  "localized": {
+    "es": {
+      "title": "Estudiar sin delegar el aprendizaje",
+      "summary": "Usa una IA como tutora de práctica sin convertir sus respuestas en sustituto de tu propio razonamiento.",
+      "outcomes": ["Pedir pistas graduadas en lugar de una solución inmediata.", "Comprobar si realmente puedes explicar lo aprendido."],
+      "exercise": {
+        "question": "Si quieres aprender una idea nueva, ¿qué petición conserva mejor tu trabajo mental?",
+        "options": ["Resuelve todo y dame solo la respuesta final.", "Hazme una pregunta, espera mi intento y dame una pista si me bloqueo.", "Escribe un texto que pueda entregar como mío."],
+        "correct": 1,
+        "explanation": "Una tutora útil ajusta la ayuda al intento del estudiante. La explicación final puede servir para revisar, pero no sustituye la práctica ni la demostración propia."
+      }
+    },
+    "en": {
+      "title": "Learn without outsourcing learning",
+      "summary": "Use AI as a practice tutor without turning its answers into a substitute for your own reasoning.",
+      "outcomes": ["Request graduated hints instead of an immediate solution.", "Check whether you can actually explain what you learned."],
+      "exercise": {
+        "question": "When learning a new idea, which request best preserves your own thinking?",
+        "options": ["Solve everything and give me only the final answer.", "Ask me a question, wait for my attempt and give me a hint if I get stuck.", "Write something I can submit as my own work."],
+        "correct": 1,
+        "explanation": "A useful tutor adjusts help to the learner's attempt. A final explanation can help with review, but it does not replace practice or your own demonstration."
+      }
+    }
+  },
+  "translationFrom": { "es": null, "en": "d79018dfb8f01a4aa9a2d3b6696f7409a290537c335a8ceaec2ab3c2a0d14592" },
+  "approvals": { "es": [], "en": [] }
+}

@@ -1051,7 +1051,7 @@ export const cursos: Curso[] = [
     short: "Automatiza oficina sin perder control",
     desc: "Aprende a aplicar IA en tareas reales de negocio: diagnostica un piloto, conviértelo en un flujo fiable, prueba sus fallos y opera con control antes de automatizar emails, facturas, presupuestos o atención.",
     level: "Principiante → intermedio",
-    updatedAt: courseCatalogUpdatedAt,
+    updatedAt: "2026-09-20",
     icon: "briefcase",
     gradient: ["#22d3ee", "#8b5cf6"],
     resources: [
@@ -1115,6 +1115,37 @@ export const cursos: Curso[] = [
           { slug: "mcp-2026-07-28-migracion", title: "MCP 2026-07-28: migración segura y servidor de solo lectura" },
           { slug: "whatsapp-atencion", title: "WhatsApp y Telegram con aprobación humana" },
           { slug: "aeo-pymes", title: "AEO para pymes: aparecer en respuestas de IA" },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "ai-consultant",
+    title: "AI Consultant: de diagnóstico a producción",
+    short: "Aprende a detectar oportunidades, validar ROI y desplegar IA de forma responsable.",
+    desc: "Curso profesional para perfiles técnicos que quieren realizar evaluaciones de IA en pymes, diseñar pilotos medibles, desplegarlos con seguridad y convertir el trabajo en una relación de mejora continua.",
+    level: "Técnico curioso → consultor",
+    updatedAt: "2026-09-12",
+    icon: "briefcase",
+    gradient: ["#14532d", "#1d4ed8"],
+    availableInEnglish: true,
+    secciones: [
+      {
+        title: "The AI Consultant",
+        lecciones: [
+          { slug: "what-an-ai-consultant-does", title: "1. What an AI consultant actually does" },
+          { slug: "consultant-developer-or-agency", title: "2. Consultant, developer, or automation agency?" },
+          { slug: "consulting-lifecycle", title: "3. The AI consulting lifecycle" },
+          { slug: "ai-consultant-operating-model", title: "4. Build your AI Consultant Operating Model" },
+        ],
+      },
+      {
+        title: "Understanding the Business",
+        lecciones: [
+          { slug: "read-a-business-before-ai", title: "5. Read a business before proposing AI" },
+          { slug: "revenue-customers-and-constraints", title: "6. Revenue, customers, and operating constraints" },
+          { slug: "knowledge-flows-and-handoffs", title: "7. Knowledge flows, handoffs, and information loss" },
+          { slug: "sipoc-and-value-stream-mapping", title: "8. SIPOC and value-stream mapping" },
         ],
       },
     ],

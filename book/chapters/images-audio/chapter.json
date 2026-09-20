@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "images-audio",
+  "sourceLocale": "es",
+  "level": "intermediate",
+  "minutes": 35,
+  "risk": "technical",
+  "prerequisites": ["verify-output"],
+  "claimIds": [],
+  "legacyPaths": ["public/recursos/ia-desde-cero/curso-ia-desde-cero.md"],
+  "localized": {
+    "es": {
+      "title": "Imagen, audio y derechos",
+      "summary": "Planifica una pieza multimedia con IA sin perder el contexto, el consentimiento ni la licencia de los materiales.",
+      "outcomes": ["Distinguir encargo, material de referencia y resultado generado.", "Preparar una ficha de uso antes de publicar una pieza."],
+      "exercise": {
+        "question": "Quieres generar una imagen para un cartel de una biblioteca. ¿Qué revisión es imprescindible antes de publicarla?",
+        "options": ["Comprobar solo que la imagen sea atractiva.", "Comprobar el encargo, los derechos y permisos de las referencias, y si el resultado muestra datos o personas identificables.", "Publicarla primero y preguntar después si alguien reclama."],
+        "correct": 1,
+        "explanation": "La calidad visual no resuelve por sí sola los derechos, el consentimiento ni la privacidad. La ficha de uso deja esas decisiones visibles antes de distribuir el resultado."
+      }
+    },
+    "en": {
+      "title": "Images, audio and rights",
+      "summary": "Plan an AI-assisted media piece without losing context, consent or the licensing status of its materials.",
+      "outcomes": ["Distinguish the brief, reference material and generated result.", "Prepare a usage record before publishing a piece."],
+      "exercise": {
+        "question": "You want to generate an image for a library poster. Which review is essential before publishing it?",
+        "options": ["Check only whether the image looks attractive.", "Check the brief, rights and permissions for references, and whether the result shows identifiable people or data.", "Publish first and ask questions if someone complains."],
+        "correct": 1,
+        "explanation": "Visual quality alone does not resolve rights, consent or privacy. A usage record makes those decisions visible before distribution."
+      }
+    }
+  },
+  "translationFrom": { "es": null, "en": "30fc60c9d17a61791cc1d5e83d22bfd4420ec3f39dcc4f7421f5b609729df47f" },
+  "approvals": { "es": [], "en": [] }
+}

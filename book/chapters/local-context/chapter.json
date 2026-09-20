@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "local-context",
+  "sourceLocale": "es",
+  "level": "intermediate",
+  "minutes": 35,
+  "risk": "technical",
+  "prerequisites": ["local-first-run"],
+  "claimIds": ["allocated-context"],
+  "legacyPaths": ["public/recursos/ia-desde-cero/curso-ia-desde-cero.md"],
+  "localized": {
+    "es": {
+      "title": "Contexto, memoria y velocidad",
+      "summary": "Aprende a medir cuánto texto puede usar una IA local y qué ocurre cuando la tarea supera sus límites.",
+      "outcomes": ["Distinguir contexto, memoria y almacenamiento.", "Diseñar una prueba para detectar pérdida de información."],
+      "exercise": {
+        "question": "La respuesta omite el final de un documento largo. ¿Qué debes comprobar primero?",
+        "options": ["Que el modelo tenga un nombre más grande.", "El tamaño de contexto efectivo y cómo se dividió la entrada.", "Borrar el documento original."],
+        "correct": 1,
+        "explanation": "La pérdida puede deberse al contexto efectivo o a la forma de dividir el texto. El nombre del modelo no es una medición."
+      }
+    },
+    "en": {
+      "title": "Context, memory and speed",
+      "summary": "Learn to measure how much text a local AI can use and what happens when a task exceeds its limits.",
+      "outcomes": ["Distinguish context, memory and storage.", "Design a test that detects lost information."],
+      "exercise": {
+        "question": "The answer omits the end of a long document. What should you check first?",
+        "options": ["Whether the model has a bigger name.", "The effective context size and how the input was split.", "Delete the original document."],
+        "correct": 1,
+        "explanation": "The loss may come from effective context or how the text was split. A model name is not a measurement."
+      }
+    }
+  },
+  "translationFrom": { "es": null, "en": "ec5d914036639e69c3cb744a6dbdc1dba133bdc073a8d2d89b27b124736c72f4" },
+  "approvals": { "es": [], "en": [] }
+}

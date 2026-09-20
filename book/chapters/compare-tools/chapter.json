@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "compare-tools",
+  "sourceLocale": "es",
+  "level": "beginner",
+  "minutes": 25,
+  "risk": "low",
+  "prerequisites": ["research-sources"],
+  "claimIds": [],
+  "legacyPaths": ["public/recursos/ia-desde-cero/curso-ia-desde-cero.md"],
+  "localized": {
+    "es": {
+      "title": "Comparar herramientas con una prueba",
+      "summary": "Aprende a elegir una herramienta de IA comparando resultados observables, no listas de funciones.",
+      "outcomes": ["Diseñar una prueba igual para varias herramientas.", "Separar calidad, coste, privacidad y facilidad de uso."],
+      "exercise": {
+        "question": "Una herramienta escribe mejor, pero necesita enviar datos reales a un servicio externo. ¿Qué conclusión es correcta?",
+        "options": ["Es automáticamente la mejor.", "Tiene mejor resultado en un criterio, pero hay que valorar el riesgo de datos.", "Debe usarse siempre que sea más rápida."],
+        "correct": 1,
+        "explanation": "Una decisión depende de varios criterios. La calidad no elimina las obligaciones de privacidad o seguridad."
+      }
+    },
+    "en": {
+      "title": "Compare tools with a test",
+      "summary": "Learn to choose an AI tool by comparing observable results, not feature lists.",
+      "outcomes": ["Design the same test for several tools.", "Separate quality, cost, privacy and ease of use."],
+      "exercise": {
+        "question": "One tool writes better, but it requires sending real data to an external service. Which conclusion is correct?",
+        "options": ["It is automatically the best.", "It performs better on one criterion, but the data risk still matters.", "Always use it when it is faster."],
+        "correct": 1,
+        "explanation": "A decision uses several criteria. Quality does not remove privacy or security obligations."
+      }
+    }
+  },
+  "translationFrom": { "es": null, "en": "014d845a4d86228f180bdf08f77e9a6c6f3eaf412efd6804c62812d81c349037" },
+  "approvals": { "es": [], "en": [] }
+}
