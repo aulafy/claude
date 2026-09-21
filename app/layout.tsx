@@ -82,7 +82,7 @@ export const metadata: Metadata = {
     template: "%s",
   },
   description:
-    "Cursos gratuitos de inteligencia artificial en español e inglés, con objetivos, proyectos y fuentes: OpenAI Codex, Claude Code, IA local, RAG, agentes, seguridad, MLOps y automatización.",
+    "Aprende inteligencia artificial desde cero con cursos gratuitos, rutas por objetivo, proyectos verificables y fuentes visibles en español e inglés.",
   keywords: [
     "cursos de IA gratis",
     "cursos de inteligencia artificial en español",
@@ -162,9 +162,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Aulafy — Educación abierta para aprender IA construyendo",
+    title: "Aulafy — Aprende IA paso a paso",
     description:
-      "Cursos, rutas y proyectos gratuitos para aprender IA local, Codex, Claude Code, RAG, agentes, MLOps, seguridad y automatización.",
+      "Cursos, rutas y proyectos gratuitos para entender la IA, aplicarla en el trabajo y construir sistemas fiables.",
     type: "website",
     locale: "es_ES",
     siteName: "Aulafy",
@@ -210,7 +210,7 @@ const jsonLd = {
       url: SITE_URL,
       logo: {
         "@type": "ImageObject",
-        url: `${SITE_URL}/icon-512.png`,
+        url: `${SITE_URL}/aulafy-logo-512.png`,
         width: 512,
         height: 512,
       },

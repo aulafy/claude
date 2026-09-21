@@ -53,10 +53,11 @@ const copy = {
     skip: "Saltar al contenido",
     edition: "Educación abierta e independiente",
     topic: "Inteligencia artificial · Guías prácticas · Español e inglés",
-    title: "Aprende inteligencia artificial haciendo algo útil hoy.",
-    lead: "En 15 minutos completarás una primera tarea, revisarás el resultado y sabrás cuál es tu siguiente paso. Sin registro y sin necesidad de programar.",
-    primaryCta: "Empezar ahora",
-    secondaryCta: "Explorar los cursos",
+    heroLabel: "Aprendizaje práctico, abierto y sin registro",
+    title: "Aprende IA paso a paso, desde cero hasta aplicarla de verdad.",
+    lead: "Elige lo que quieres conseguir y sigue una ruta clara con explicaciones, prácticas y fuentes. Empieza sin programar y avanza hasta proyectos, automatizaciones y sistemas reales.",
+    primaryCta: "Elegir mi ruta",
+    secondaryCta: "Buscar un tema",
     assurances: ["Gratis", "Sin registro", "Progreso en tu navegador", "Fuentes visibles"],
     briefLabel: "Tu primera sesión",
     briefTitle: "Una tarea pequeña. Un resultado comprobable.",
@@ -64,7 +65,7 @@ const copy = {
     briefAction: "Abrir la misión guiada",
     visualAlt: "Mapa visual de un flujo de inteligencia artificial para una pyme",
     visualLabel: "Ruta destacada",
-    sectionLabel: "Empieza por aquí",
+    sectionLabel: "Elige tu ruta",
     sectionTitle: "¿Qué quieres conseguir con IA?",
     sectionLead: "Elige por tu objetivo, no por el nombre de una tecnología.",
     choices: [
@@ -105,10 +106,11 @@ const copy = {
     skip: "Skip to content",
     edition: "Independent open education",
     topic: "Artificial intelligence · Practical guides · English and Spanish",
-    title: "Learn artificial intelligence by doing something useful today.",
-    lead: "In 15 minutes, complete a first task, review the result, and know your next step. No sign-up and no coding required.",
-    primaryCta: "Start now",
-    secondaryCta: "Explore courses",
+    heroLabel: "Practical, open learning with no sign-up",
+    title: "Learn AI step by step, from the basics to real-world use.",
+    lead: "Choose what you want to achieve and follow a clear path with explanations, practice, and sources. Start without coding and progress to projects, automation, and production systems.",
+    primaryCta: "Choose my path",
+    secondaryCta: "Search a topic",
     assurances: ["Free", "No sign-up", "Progress in your browser", "Visible sources"],
     briefLabel: "Your first session",
     briefTitle: "One small task. One result you can verify.",
@@ -116,7 +118,7 @@ const copy = {
     briefAction: "Open the guided mission",
     visualAlt: "Visual map of an artificial intelligence workflow for a small business",
     visualLabel: "Featured path",
-    sectionLabel: "Start here",
+    sectionLabel: "Choose your path",
     sectionTitle: "What do you want to achieve with AI?",
     sectionLead: "Choose by outcome, not by the name of a technology.",
     choices: [
@@ -170,21 +172,37 @@ export default function AulafyNexusLanding({
   const destinations = primaryDestinations(locale);
   const english = locale === "en";
   const siteUrl = "https://www.aulafy.net";
+  const pageUrl = `${siteUrl}${english ? "/en" : "/"}`;
   const guideStructuredData = {
     "@context": "https://schema.org",
-    "@type": "HowTo",
-    name: guide.title,
-    description: guide.lead,
-    inLanguage: locale,
-    isAccessibleForFree: true,
-    url: `${siteUrl}${english ? "/en" : "/"}#business-guide-title`,
-    step: guide.steps.map((step, index) => ({
-      "@type": "HowToStep",
-      position: index + 1,
-      name: step.title,
-      text: step.text,
-      url: `${siteUrl}${step.href}`,
-    })),
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: text.title,
+        description: text.lead,
+        inLanguage: locale,
+        isPartOf: { "@id": `${siteUrl}/#website` },
+        mainEntity: { "@id": `${pageUrl}#small-business-guide` },
+      },
+      {
+        "@type": "HowTo",
+        "@id": `${pageUrl}#small-business-guide`,
+        name: guide.title,
+        description: guide.lead,
+        inLanguage: locale,
+        isAccessibleForFree: true,
+        url: `${pageUrl}#business-guide-title`,
+        step: guide.steps.map((step, index) => ({
+          "@type": "HowToStep",
+          position: index + 1,
+          name: step.title,
+          text: step.text,
+          url: `${siteUrl}${step.href}`,
+        })),
+      },
+    ],
   };
 
   useEffect(() => {
@@ -217,17 +235,21 @@ export default function AulafyNexusLanding({
             <LanguageSwitch />
           </div>
         </div>
+        <nav className={styles.mobileNav} aria-label={english ? "Mobile navigation" : "Navegación móvil"}>
+          {destinations.map((item) => <Link key={item.id} href={item.href}>{item.label}</Link>)}
+          <Link href={nav.search.href}>{nav.search.label}</Link>
+        </nav>
       </header>
 
       <main id="main-content">
         <section className={styles.hero}>
           <article className={styles.leadStory}>
-            <p className={styles.kicker}>{text.sectionLabel}</p>
+            <p className={styles.kicker}>{text.heroLabel}</p>
             <h1>{text.title}</h1>
             <p className={styles.lead}>{text.lead}</p>
             <div className={styles.heroActions}>
               <Link className={styles.primaryAction} href={nav.start.href}>{text.primaryCta}</Link>
-              <Link className={styles.secondaryAction} href={nav.courses.href}>{text.secondaryCta}</Link>
+              <Link className={styles.secondaryAction} href={nav.search.href}>{text.secondaryCta}</Link>
             </div>
             <ul className={styles.assurances} aria-label={english ? "Access conditions" : "Condiciones de acceso"}>
               {text.assurances.map((item) => <li key={item}>{item}</li>)}

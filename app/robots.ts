@@ -9,8 +9,11 @@ const PRIVATE_PATHS = ["/api/", "/auth/", "/course/"];
 const SEARCH_AGENTS = [
   "OAI-SearchBot",
   "ChatGPT-User",
+  "GPTBot",
   "Claude-SearchBot",
   "Claude-User",
+  "ClaudeBot",
+  "Google-Extended",
   "PerplexityBot",
   "Perplexity-User",
 ];
