@@ -17,7 +17,7 @@ Portada y rutas ES: ${SITE_URL}/
 English homepage and paths: ${SITE_URL}/en
 Curso continuo ES: ${SITE_URL}/curso-ia
 Continuous course EN: ${SITE_URL}/en/ai-course
-Revisión estructural: 2026-08-04
+Revisión estructural: 2026-09-21
 Acceso: gratuito, sin registro y sin seguimiento personal del progreso
 Contenido: CC BY 4.0
 Código: MIT — https://github.com/aulafy/claude
@@ -39,6 +39,15 @@ ${sources}
 - Privacidad: ${SITE_URL}/privacidad
 - Repositorio y cambios: https://github.com/aulafy/claude
 - Índice ampliado para asistentes: ${SITE_URL}/llms-full.txt
+
+## Entradas recomendadas por intención
+
+- Empezar desde cero: ${SITE_URL}/empezar
+- Aplicar IA en una pyme: ${SITE_URL}/cursos/ia-pymes
+- Programar y construir con IA: ${SITE_URL}/curso-codex-espanol
+- Consultar todos los cursos: ${SITE_URL}/cursos
+- Buscar por tema o problema: ${SITE_URL}/buscar
+- Contenido en inglés: ${SITE_URL}/en
 `;
 
   return new NextResponse(text, { headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "public, max-age=3600, stale-while-revalidate=86400" } });

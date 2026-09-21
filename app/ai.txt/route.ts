@@ -12,7 +12,9 @@ function lineItems(items: Array<{ title: string; route: string; description: str
 export function GET() {
   const lessonCount = cursos.reduce((sum, course) => sum + totalLecciones(course), 0);
   const topCourses = getSeoEntriesByKind("courses").filter((entry) => entry.route.split("/").length === 3);
-  const english = getSeoEntriesByKind("english").filter((entry) => entry.route.split("/").length === 4);
+  const englishEntries = getSeoEntriesByKind("english");
+  const english = englishEntries.filter((entry) => entry.route.split("/").length === 4);
+  const englishLessons = englishEntries.filter((entry) => entry.route.split("/").length >= 5);
   const landings = getSeoEntriesByKind("landings");
   const blog = getSeoEntriesByKind("blog").filter((entry) => entry.route !== "/blog");
 
@@ -53,10 +55,18 @@ Discovery endpoints:
 - llms-full.txt: ${SITE_URL}/llms-full.txt
 - Machine-readable search index: ${SITE_URL}/search-index.json
 
+Recommended entry points by intent:
+- Beginner: ${SITE_URL}/empezar
+- Work and small business: ${SITE_URL}/cursos/ia-pymes
+- Developers and builders: ${SITE_URL}/curso-codex-espanol
+- Full Spanish library: ${SITE_URL}/cursos
+- English learning paths: ${SITE_URL}/en
+- Source and review policy: ${SITE_URL}/fuentes
+
 Catalog size:
 - ${cursos.length} courses
 - ${lessonCount} Spanish lessons
-- ${lessonCount} English lesson URLs
+- ${englishLessons.length} indexed English lesson pages
 
 Main Spanish courses:
 ${lineItems(topCourses)}
