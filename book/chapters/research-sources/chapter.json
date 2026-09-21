@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "research-sources",
+  "sourceLocale": "es",
+  "level": "beginner",
+  "minutes": 25,
+  "risk": "low",
+  "prerequisites": ["read-documents"],
+  "claimIds": [],
+  "legacyPaths": ["public/recursos/ia-desde-cero/curso-ia-desde-cero.md"],
+  "localized": {
+    "es": {
+      "title": "Investigar con fuentes",
+      "summary": "Aprende a convertir una pregunta abierta en una pequeña investigación trazable.",
+      "outcomes": ["Distinguir una fuente primaria de un comentario.", "Registrar qué fuente respalda cada afirmación."],
+      "exercise": {
+        "question": "Un artículo resume una regla pero no enlaza el documento original. ¿Qué estado le das?",
+        "options": ["Fuente primaria confirmada.", "Pista para investigar, pendiente de confirmar.", "Prueba suficiente si está bien escrito."],
+        "correct": 1,
+        "explanation": "El artículo puede orientar la búsqueda, pero sin la fuente original no confirma por sí solo la regla."
+      }
+    },
+    "en": {
+      "title": "Research with sources",
+      "summary": "Learn to turn an open question into a small, traceable investigation.",
+      "outcomes": ["Distinguish a primary source from commentary.", "Record which source supports each claim."],
+      "exercise": {
+        "question": "An article summarizes a rule but does not link to the original document. What status should you give it?",
+        "options": ["Confirmed primary source.", "A research lead that still needs checking.", "Sufficient proof if it is well written."],
+        "correct": 1,
+        "explanation": "The article may guide your search, but without the original source it does not confirm the rule by itself."
+      }
+    }
+  },
+  "translationFrom": { "es": null, "en": "d5e9515a737a0e86cb9514fb7d51cd28fcfcd5ad03ddc193ae4542216dc7b6f5" },
+  "approvals": { "es": [], "en": [] }
+}

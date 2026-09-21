@@ -1,0 +1,28 @@
+---
+id: measure-local-result
+type: lesson
+slug: measure-local-result
+title: Measure a local result before scaling up
+description: Compare quality, latency and resource use with a small repeatable test.
+course: local-ai
+module: evaluation
+level: beginner
+estimatedMinutes: 20
+status: published
+concepts: [local-ai, evaluation, latency]
+skills: [measure-latency, compare-output]
+prerequisites: [local-data-boundary]
+updated: 2026-09-05
+---
+
+# Measure a local result before scaling up
+
+One impressive answer is not an evaluation. Use a tiny test set with the same prompt, inputs and acceptance criteria. Compare the answer, elapsed time and whether the machine remains usable.
+
+## Practice
+
+Run three examples with the selected model. Record model tag, approximate response time, output quality and any truncation or failure. Repeat one example after changing only the context length.
+
+## Evidence
+
+Write a decision: keep this model, test a smaller one or stop. Include the reason and the next reversible experiment. Do not claim that a local model is reliable beyond the task you measured.

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "costs",
+  "sourceLocale": "es",
+  "level": "advanced",
+  "minutes": 35,
+  "risk": "technical",
+  "prerequisites": ["evals"],
+  "claimIds": [],
+  "legacyPaths": ["public/recursos/ia-desde-cero/curso-ia-desde-cero.md"],
+  "localized": {
+    "es": {
+      "title": "Calidad, coste y latencia",
+      "summary": "Compara un flujo de IA por tarea completa, tiempo y calidad, no solo por el precio anunciado del modelo.",
+      "outcomes": ["Definir una métrica mínima de calidad.", "Medir coste y latencia con el mismo conjunto de pruebas."],
+      "exercise": {
+        "question": "Dos modelos resuelven 10 casos. A cuesta 0,04 €, tarda 2 s y acierta 7; B cuesta 0,10 €, tarda 5 s y acierta 9. ¿Qué conclusión es válida?",
+        "options": ["A es siempre mejor porque es más barato.", "B es siempre mejor porque acierta más.", "La decisión depende del umbral de calidad y del coste máximo que tenga la tarea."],
+        "correct": 2,
+        "explanation": "Una comparación útil necesita el objetivo y sus límites. El modelo más caro puede compensar si evita revisión manual, pero no hay una respuesta universal sin conocer el contexto."
+      }
+    },
+    "en": {
+      "title": "Quality, cost and latency",
+      "summary": "Compare an AI workflow by complete-task cost, time and quality, not only by the model's advertised price.",
+      "outcomes": ["Define a minimum quality metric.", "Measure cost and latency on the same test set."],
+      "exercise": {
+        "question": "Two models solve 10 cases. A costs €0.04, takes 2 seconds and gets 7 right; B costs €0.10, takes 5 seconds and gets 9 right. Which conclusion is valid?",
+        "options": ["A is always better because it is cheaper.", "B is always better because it is more accurate.", "The decision depends on the quality threshold and the task's maximum acceptable cost."],
+        "correct": 2,
+        "explanation": "A useful comparison needs its goal and constraints. The more expensive model may pay off if it avoids manual review, but there is no universal answer without context."
+      }
+    }
+  },
+  "translationFrom": { "es": null, "en": "52e56e50e549a2653c1033593fb2a061accb01869b2b66c97e9794176b9c0825" },
+  "approvals": { "es": [], "en": [] }
+}

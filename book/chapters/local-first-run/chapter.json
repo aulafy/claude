@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "local-first-run",
+  "sourceLocale": "es",
+  "level": "intermediate",
+  "minutes": 35,
+  "risk": "technical",
+  "prerequisites": ["local-hardware"],
+  "claimIds": [],
+  "legacyPaths": ["public/recursos/ia-desde-cero/curso-ia-desde-cero.md"],
+  "localized": {
+    "es": {
+      "title": "Instalar y ejecutar un modelo",
+      "summary": "Aprende a preparar una instalación local con una prueba reversible y a distinguir que arranca de que funciona bien.",
+      "outcomes": ["Separar instalación, ejecución y evaluación.", "Registrar una primera prueba sin mezclarla con datos privados."],
+      "exercise": {
+        "question": "La aplicación abre, pero responde con datos inventados en la prueba. ¿Qué conclusión es válida?",
+        "options": ["La instalación es correcta y ya puede usarse para todo.", "Arranca, pero la capacidad y la fiabilidad aún necesitan evaluación.", "Hay que descargar una versión aún más grande."],
+        "correct": 1,
+        "explanation": "Que un programa arranque solo demuestra una parte del proceso. La calidad debe medirse con tareas y criterios concretos."
+      }
+    },
+    "en": {
+      "title": "Install and run a model",
+      "summary": "Learn to prepare a local installation with a reversible test and distinguish starting from working well.",
+      "outcomes": ["Separate installation, execution and evaluation.", "Record a first test without mixing it with private data."],
+      "exercise": {
+        "question": "The application opens, but it invents details in the test. Which conclusion is valid?",
+        "options": ["The installation is correct and ready for everything.", "It starts, but its capability and reliability still need evaluation.", "Download an even larger version."],
+        "correct": 1,
+        "explanation": "Starting only proves one part of the process. Quality must be measured with concrete tasks and criteria."
+      }
+    }
+  },
+  "translationFrom": { "es": null, "en": "16221c781b68d7b5e1a7c5e886da071b069c7945d160d54596cb9a4092535c86" },
+  "approvals": { "es": [], "en": [] }
+}

@@ -1,0 +1,28 @@
+---
+id: local-data-boundary
+type: lesson
+slug: local-data-boundary
+title: Set a boundary for local data
+description: Decide what may enter the local system and create a recovery point before experimenting.
+course: local-ai
+module: safety
+level: beginner
+estimatedMinutes: 20
+status: published
+concepts: [local-ai, privacy, backups]
+skills: [classify-data, make-backup]
+prerequisites: [ollama-context-window]
+updated: 2026-09-05
+---
+
+# Set a boundary for local data
+
+Local inference can reduce the need to send content to a hosted API, but it does not make every workflow safe automatically. Extensions, logs, mounted folders and third-party tools still need review.
+
+## Practice
+
+Create a disposable project folder with a sample file. Make a copy of it before testing. List data that is allowed, data that must be redacted and data that must never enter the experiment. Do not mount a whole home directory when a single folder is enough.
+
+## Evidence
+
+Save the data boundary, the backup location and the recovery test. A backup is only useful if you can restore a known file from it.

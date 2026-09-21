@@ -11,12 +11,22 @@ export type CurriculumGraph = {
   documents: readonly CanonicalContentDocument[];
 };
 
-export const conceptRegistry = new Set(["llm", "token", "context-window", "ollama", "local-inference", "quantization"]);
-export const skillRegistry = new Set(["run-local-model", "inspect-model", "configure-context-window"]);
+export const conceptRegistry = new Set([
+  "llm", "token", "context-window", "ollama", "local-inference", "quantization", "local-ai",
+  "task-scope", "reversibility", "memory", "privacy", "backups", "evaluation", "latency",
+]);
+export const skillRegistry = new Set([
+  "run-local-model", "inspect-model", "configure-context-window", "define-task",
+  "write-acceptance-criteria", "inspect-hardware", "choose-model", "classify-data",
+  "make-backup", "measure-latency", "compare-output",
+]);
 export const conceptRelations: readonly ConceptRelation[] = [
   { source: "context-window", target: "llm", type: "REQUIRES" },
   { source: "ollama", target: "local-inference", type: "PART_OF" },
   { source: "quantization", target: "local-inference", type: "RELATED_TO" },
+  { source: "task-scope", target: "local-inference", type: "BUILDS_ON" },
+  { source: "privacy", target: "local-inference", type: "REQUIRES" },
+  { source: "evaluation", target: "local-inference", type: "BUILDS_ON" },
 ];
 
 export function buildCurriculumGraph(documents: CanonicalContentDocument[]): CurriculumGraph {

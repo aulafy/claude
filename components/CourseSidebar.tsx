@@ -7,7 +7,6 @@ import { getCurso } from "@/lib/cursos";
 import { getEnglishCourseSections, getEnglishLessonTitle } from "@/lib/english-lessons";
 import { getLocalizedCurso, type Locale } from "@/lib/i18n";
 import Icon from "@/components/Icon";
-import ThemeToggle from "@/components/ThemeToggle";
 import BrandMark from "@/components/BrandMark";
 import { getEnglishLessonSlug, getEnglishLessonTitleOverride, getSourceLessonSlug } from "@/lib/course-lesson-routing";
 import SaveLearningItemButton from "@/components/SaveLearningItemButton";
@@ -133,7 +132,6 @@ export default function CourseSidebar({ locale = "es" }: { locale?: Locale }) {
           <p className="mb-3 aula-meta text-[var(--muted)]">{text.privacy}</p>
           <div className="flex items-center justify-between">
             {curso.pdf ? <a href={curso.pdf} className="aula-meta hover:text-[var(--accent)]"><Icon name="pdf" /> {text.download}</a> : <span />}
-            <ThemeToggle compact />
           </div>
         </div>
       </aside>

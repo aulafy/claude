@@ -1,0 +1,30 @@
+[
+  {
+    "id": "allocated-context",
+    "description": {
+      "es": "La ventana de contexto efectiva debe comprobarse en el entorno utilizado.",
+      "en": "The effective context window must be checked in the environment in use."
+    },
+    "sourceIds": [
+      "ollama-context"
+    ],
+    "chapterIds": [
+      "local-context"
+    ],
+    "volatile": true
+  },
+  {
+    "id": "local-installation",
+    "description": {
+      "es": "La instalación y compatibilidad dependen de la versión y el sistema.",
+      "en": "Installation and compatibility depend on the version and operating system."
+    },
+    "sourceIds": [
+      "ollama-releases"
+    ],
+    "chapterIds": [
+      "local-first-run"
+    ],
+    "volatile": true
+  }
+]

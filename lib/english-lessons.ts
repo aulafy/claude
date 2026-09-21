@@ -1,5 +1,6 @@
 import englishLessonContent from "@/lib/english-lesson-content.json";
 import { aiRouterLessons } from "@/lib/ai-router-course-content";
+import { aiConsultantEnglishLessons } from "@/lib/ai-consultant-course-content";
 import { codexLessons } from "@/lib/codex-course-content";
 import { foundationLessons } from "@/lib/foundation-course-content";
 import { ollamaContextWindowLesson } from "@/lib/ollama-context-window-lesson";
@@ -331,6 +332,7 @@ const allLessons = [
   ...codexEnglishLessons,
   ...foundationEnglishLessons,
   ...aiRouterEnglishLessons,
+  ...aiConsultantEnglishLessons,
 ];
 const lessonsByKey = new Map(allLessons.map((lesson) => [`${lesson.courseSlug}/${lesson.slug}`, lesson]));
 

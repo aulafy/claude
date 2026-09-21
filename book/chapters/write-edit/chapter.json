@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "write-edit",
+  "sourceLocale": "es",
+  "level": "intermediate",
+  "minutes": 30,
+  "risk": "low",
+  "prerequisites": ["verify-output"],
+  "claimIds": [],
+  "legacyPaths": ["public/recursos/ia-desde-cero/curso-ia-desde-cero.md"],
+  "localized": {
+    "es": {
+      "title": "Escribir, editar y revisar",
+      "summary": "Convierte un texto de partida en un borrador útil sin inventar datos que la fuente no contiene.",
+      "outcomes": ["Separar hechos, ausencias y propuestas.", "Revisar un borrador generado antes de compartirlo."],
+      "exercise": {
+        "question": "El texto solo dice cuándo, dónde y cuánto dura una reunión. ¿Qué debe hacer el borrador?",
+        "options": ["Añadir un precio y un enlace de inscripción para que parezca completo.", "Conservar los hechos, señalar lo que falta y proponer preguntas separadas.", "Presentar como confirmados todos los detalles habituales de una reunión."],
+        "correct": 1,
+        "explanation": "Editar bien no consiste en rellenar silencios con suposiciones. Los datos ausentes deben quedar visibles y las propuestas deben distinguirse de la fuente."
+      }
+    },
+    "en": {
+      "title": "Write, edit and review",
+      "summary": "Turn source text into a useful draft without inventing details the source does not contain.",
+      "outcomes": ["Separate facts, omissions and suggestions.", "Review a generated draft before sharing it."],
+      "exercise": {
+        "question": "The text only states when, where and how long a meeting lasts. What should the draft do?",
+        "options": ["Add a price and registration link to make it look complete.", "Keep the facts, flag what is missing and offer separate questions.", "Present all usual meeting details as confirmed."],
+        "correct": 1,
+        "explanation": "Good editing does not fill gaps with assumptions. Missing data should remain visible, and suggestions should be distinguished from the source."
+      }
+    }
+  },
+  "translationFrom": { "es": null, "en": "9c29c442601bb2d54eb735e384c6bb56c2f80274fde60e3eb63b8a5d2e09ddd2" },
+  "approvals": { "es": [], "en": [] }
+}

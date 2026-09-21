@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "id": "first-task",
+  "sourceLocale": "es",
+  "level": "beginner",
+  "minutes": 15,
+  "risk": "low",
+  "prerequisites": [],
+  "claimIds": [],
+  "legacyPaths": [
+    "public/recursos/ia-desde-cero/curso-ia-desde-cero.md"
+  ],
+  "localized": {
+    "es": {
+      "title": "Tu primer encargo a una IA",
+      "summary": "De una petición vaga a un borrador que puedes comprobar. Sin programar, sin instalar nada y con datos ficticios.",
+      "outcomes": [
+        "Escribir una petición con objetivo, datos y límites.",
+        "Comprobar un borrador antes de utilizarlo."
+      ],
+      "exercise": {
+        "question": "El borrador añade una fecha límite que no estaba en tus datos. ¿Qué haces?",
+        "options": [
+          "Lo acepto porque suena razonable.",
+          "Pido que elimine esa fecha y compruebo el nuevo borrador.",
+          "Pregunto a otra IA y acepto lo que diga la mayoría."
+        ],
+        "correct": 1,
+        "explanation": "La fuente no contiene una fecha límite. El dato añadido debe retirarse o confirmarse fuera de la respuesta."
+      }
+    },
+    "en": {
+      "title": "Your first task for AI",
+      "summary": "Turn a vague request into a draft you can check. No code, no installation and only fictional data.",
+      "outcomes": [
+        "Write a request with an outcome, facts and boundaries.",
+        "Check a draft before using it."
+      ],
+      "exercise": {
+        "question": "The draft adds a deadline that was not in your facts. What should you do?",
+        "options": [
+          "Accept it because it sounds reasonable.",
+          "Ask for the deadline to be removed and check the new draft.",
+          "Ask another AI and follow the majority."
+        ],
+        "correct": 1,
+        "explanation": "Your source contains no deadline. Remove the added claim or confirm it outside the answer."
+      }
+    }
+  },
+  "translationFrom": {
+    "es": null,
+    "en": "cf54f9a06c8b1176e628a988bde56b44a7e33675e77f1458fb8aa76832e477a6"
+  },
+  "approvals": {
+    "es": [],
+    "en": []
+  }
+}

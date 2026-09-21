@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "read-documents",
+  "sourceLocale": "es",
+  "level": "beginner",
+  "minutes": 20,
+  "risk": "low",
+  "prerequisites": ["first-task", "verify-output", "data-boundaries"],
+  "claimIds": [],
+  "legacyPaths": ["public/recursos/ia-desde-cero/curso-ia-desde-cero.md"],
+  "localized": {
+    "es": {
+      "title": "Leer y resumir documentos",
+      "summary": "Aprende a extraer hechos de un documento corto sin confundir un resumen con una fuente.",
+      "outcomes": ["Separar hechos, preguntas y opiniones.", "Comprobar un resumen contra el documento original."],
+      "exercise": {
+        "question": "Un resumen afirma que el plazo termina el viernes, pero el documento no incluye ninguna fecha. ¿Cómo lo presentas?",
+        "options": ["Como un hecho porque aparece en el resumen.", "Como una pregunta pendiente de confirmar.", "Como una fecha probable."],
+        "correct": 1,
+        "explanation": "El resumen no añade evidencia. Cuando el documento no respalda un dato, debes marcarlo como pendiente o eliminarlo."
+      }
+    },
+    "en": {
+      "title": "Read and summarize documents",
+      "summary": "Learn to extract facts from a short document without confusing a summary with a source.",
+      "outcomes": ["Separate facts, questions and opinions.", "Check a summary against the original document."],
+      "exercise": {
+        "question": "A summary says the deadline is Friday, but the document has no date. How should you present it?",
+        "options": ["As a fact because it appears in the summary.", "As a question that still needs confirmation.", "As a likely date."],
+        "correct": 1,
+        "explanation": "A summary is not new evidence. When the document does not support a detail, mark it as pending or remove it."
+      }
+    }
+  },
+  "translationFrom": { "es": null, "en": "09d437e2091e9b871bc798801f35415c591d855135c3805731cbd13f60db7d8a" },
+  "approvals": { "es": [], "en": [] }
+}

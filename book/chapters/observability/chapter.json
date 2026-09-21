@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "observability",
+  "sourceLocale": "es",
+  "level": "advanced",
+  "minutes": 35,
+  "risk": "technical",
+  "prerequisites": ["costs", "evals"],
+  "claimIds": [],
+  "legacyPaths": ["public/recursos/ia-desde-cero/curso-ia-desde-cero.md"],
+  "localized": {
+    "es": {
+      "title": "Observabilidad y cambios de modelo",
+      "summary": "Registra lo necesario para entender cuándo un flujo de IA cambia, falla o necesita revisión humana.",
+      "outcomes": ["Elegir señales útiles sin guardar contenido sensible por defecto.", "Comparar una versión nueva con una referencia conocida."],
+      "exercise": {
+        "question": "Después de cambiar de modelo, suben los reintentos y baja la calidad. ¿Cuál es el primer paso más útil?",
+        "options": ["Ocultar el cambio para que las métricas no preocupen.", "Comparar una muestra fija con la versión anterior y revisar configuración, errores y casos fallidos.", "Cambiar de nuevo de modelo sin guardar ningún registro."],
+        "correct": 1,
+        "explanation": "Una señal aislada no explica la causa. Una comparación reproducible, con configuración y casos fallidos, permite investigar sin convertir una intuición en diagnóstico."
+      }
+    },
+    "en": {
+      "title": "Observability and model changes",
+      "summary": "Record what you need to understand when an AI workflow changes, fails or needs human review.",
+      "outcomes": ["Choose useful signals without storing sensitive content by default.", "Compare a new version with a known reference."],
+      "exercise": {
+        "question": "After switching models, retries rise and quality falls. What is the most useful first step?",
+        "options": ["Hide the change so the metrics do not cause concern.", "Compare a fixed sample with the previous version and review settings, errors and failed cases.", "Switch models again without keeping any record."],
+        "correct": 1,
+        "explanation": "One isolated signal does not explain the cause. A reproducible comparison with settings and failed cases lets you investigate without turning intuition into a diagnosis."
+      }
+    }
+  },
+  "translationFrom": { "es": null, "en": "3f8f504161e5cbccf52899f6f20b20dfc4c266ca48b2d8da95d65549a48c2dd3" },
+  "approvals": { "es": [], "en": [] }
+}

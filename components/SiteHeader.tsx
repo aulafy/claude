@@ -1,15 +1,16 @@
 import Link from "next/link";
 import LanguageSwitch from "@/components/LanguageSwitch";
-import ThemeToggle from "@/components/ThemeToggle";
 import BrandMark from "@/components/BrandMark";
 import ContinueLearning from "@/components/ContinueLearning";
 import Icon from "@/components/Icon";
 import type { Locale } from "@/lib/i18n";
 import { siteNav } from "@/lib/site-nav";
+import { primaryDestinations } from "@/lib/information-architecture";
 
 export default function SiteHeader({ locale = "es" }: { locale?: Locale }) {
   const isEnglish = locale === "en";
   const nav = siteNav(locale);
+  const destinations = primaryDestinations(locale);
 
   return (
     <header className="editorial-site-header">
@@ -23,18 +24,11 @@ export default function SiteHeader({ locale = "es" }: { locale?: Locale }) {
         </Link>
         <nav className="editorial-site-header__nav" aria-label={isEnglish ? "Main navigation" : "Navegación principal"}>
           <ContinueLearning locale={locale} compact />
-          <Link
-            href={nav.start.href}
-            className="editorial-site-header__link editorial-site-header__start"
-          >
-            {nav.start.label}
-          </Link>
-          <Link
-            href={nav.courses.href}
-            className="editorial-site-header__link"
-          >
-            {nav.courses.label}
-          </Link>
+          {destinations.map((item) => (
+            <Link key={item.id} href={item.href} className="editorial-site-header__link">
+              {item.label}
+            </Link>
+          ))}
           <Link
             href={nav.search.href}
             className="editorial-site-header__icon"
@@ -44,7 +38,6 @@ export default function SiteHeader({ locale = "es" }: { locale?: Locale }) {
             <Icon name="search" />
           </Link>
           <LanguageSwitch />
-          <ThemeToggle compact />
         </nav>
       </div>
     </header>

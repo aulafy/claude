@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "api-contracts",
+  "sourceLocale": "es",
+  "level": "advanced",
+  "minutes": 35,
+  "risk": "technical",
+  "prerequisites": ["local-context"],
+  "claimIds": [],
+  "legacyPaths": ["public/recursos/ia-desde-cero/curso-ia-desde-cero.md"],
+  "localized": {
+    "es": {
+      "title": "APIs y contratos de datos",
+      "summary": "Aprende a definir entradas, salidas y errores antes de conectar una aplicación a un modelo.",
+      "outcomes": ["Escribir un contrato pequeño y comprobable.", "Rechazar respuestas que no cumplen el formato esperado."],
+      "exercise": {
+        "question": "El modelo devuelve una respuesta correcta en texto libre cuando tu aplicación espera un campo obligatorio. ¿Qué haces?",
+        "options": ["La acepto y dejo que la interfaz adivine el campo.", "La rechazo o mando a revisión y registro el error de formato.", "Pido al modelo que sea más creativo."],
+        "correct": 1,
+        "explanation": "Una respuesta que no cumple el contrato no debe avanzar silenciosamente. Hay que detenerla, registrar el motivo y decidir cómo recuperarla."
+      }
+    },
+    "en": {
+      "title": "APIs and data contracts",
+      "summary": "Learn to define inputs, outputs and errors before connecting an application to a model.",
+      "outcomes": ["Write a small, testable contract.", "Reject responses that do not meet the expected format."],
+      "exercise": {
+        "question": "The model returns a correct free-form answer while your application expects a required field. What should you do?",
+        "options": ["Accept it and let the interface guess the field.", "Reject it or send it to review and record the format error.", "Ask the model to be more creative."],
+        "correct": 1,
+        "explanation": "A response that breaks the contract must not continue silently. Stop it, record the reason and decide how to recover."
+      }
+    }
+  },
+  "translationFrom": { "es": null, "en": "8b7c71a7d5ece8eade3175e113a5a9a0eb94f858d2eac4161425278594d54b84" },
+  "approvals": { "es": [], "en": [] }
+}

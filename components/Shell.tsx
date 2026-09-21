@@ -12,7 +12,6 @@ import LessonStructuredData from "@/components/LessonStructuredData";
 import LessonFeedback from "@/components/LessonFeedback";
 import LessonCommunityCta from "@/components/social/LessonCommunityCta";
 import CourseCurriculumMap from "@/components/CourseCurriculumMap";
-import AmbientLearningScene from "@/components/AmbientLearningScene";
 import LessonProgressTracker from "@/components/LessonProgressTracker";
 import { getEnglishLessonTitleOverride, getSourceLessonSlug } from "@/lib/course-lesson-routing";
 import ExternalLearningLinkTracker from "@/components/ExternalLearningLinkTracker";
@@ -22,6 +21,8 @@ export default function Shell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const english = isEnglishPath(pathname);
   const locale = english ? "en" : "es";
+
+  if (pathname === "/book" || pathname.startsWith("/book/")) return <>{children}</>;
 
   if (pathname === "/" || pathname === "/en" || pathname === "/maintenance" || pathname === "/wiki" || pathname === "/en/wiki") return <>{children}</>;
   if (pathname.startsWith("/en/learn/") || pathname === "/en/privacy") {
@@ -62,7 +63,6 @@ export default function Shell({ children }: { children: React.ReactNode }) {
         <CourseSidebar locale={locale} />
         <div className="md:ml-[252px] min-h-screen flex flex-col">
           <a href="#main-content" className="aula-skip-link">{locale === "en" ? "Skip to content" : "Saltar al contenido"}</a>
-          <AmbientLearningScene variant="lesson" />
           <main id="main-content" className="flex-1">
             {children}
             {esLeccion && <LessonCommunityCta courseSlug={parts[1]} lessonSlug={parts[2]} />}
@@ -89,7 +89,6 @@ export default function Shell({ children }: { children: React.ReactNode }) {
       <ExternalLearningLinkTracker />
       <a href="#main-content" className="aula-skip-link">{locale === "en" ? "Skip to content" : "Saltar al contenido"}</a>
       <SiteHeader locale={locale} />
-      <AmbientLearningScene variant="site" />
       <main id="main-content" className="min-h-screen">
         {children}
         {(esCurso || enCurso) && <CourseCurriculumMap currentSlug={esCurso ? parts[1] : parts[2]} locale={locale} />}

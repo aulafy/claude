@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "connectors",
+  "sourceLocale": "es",
+  "level": "intermediate",
+  "minutes": 30,
+  "risk": "technical",
+  "prerequisites": ["workflow"],
+  "claimIds": [],
+  "legacyPaths": ["public/recursos/ia-desde-cero/curso-ia-desde-cero.md"],
+  "localized": {
+    "es": {
+      "title": "Conectar herramientas y datos",
+      "summary": "Aprende a conceder solo el permiso necesario y a comprobar qué datos atraviesan un conector.",
+      "outcomes": ["Relacionar cada paso con un permiso concreto.", "Diseñar una prueba sin exponer datos reales."],
+      "exercise": {
+        "question": "Una integración pide acceso de escritura para leer una lista. ¿Qué haces?",
+        "options": ["Lo acepto porque la herramienta lo solicita.", "Detengo la conexión y busco un permiso de solo lectura.", "Comparto primero un archivo real para probar."],
+        "correct": 1,
+        "explanation": "El permiso debe corresponder a la tarea. Si solo necesitas leer, el acceso de escritura amplía el riesgo sin necesidad."
+      }
+    },
+    "en": {
+      "title": "Connect tools and data",
+      "summary": "Learn to grant only the needed permission and check what data crosses a connector.",
+      "outcomes": ["Match each step to a specific permission.", "Design a test without exposing real data."],
+      "exercise": {
+        "question": "An integration requests write access to read a list. What should you do?",
+        "options": ["Accept it because the tool asks for it.", "Stop and look for a read-only permission.", "Share a real file first to test it."],
+        "correct": 1,
+        "explanation": "Permissions should match the task. If you only need to read, write access adds risk without a need."
+      }
+    }
+  },
+  "translationFrom": { "es": null, "en": "c69f65c94351ed4ed14cc74ea4621890472096ed6332b1f0bf4b88c41f8070f9" },
+  "approvals": { "es": [], "en": [] }
+}

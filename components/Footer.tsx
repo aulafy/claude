@@ -5,7 +5,7 @@ import type { Locale } from "@/lib/i18n";
 const copy = {
   es: {
     tagline: "Aprende IA construyendo y comprobando.",
-    links: [["/brain", "Aulafy Brain"], ["/mi-ruta", "Mi ruta"], ["/que-aprender-ia", "Orientación"], ["/buscar", "Buscar"], ["/cursos", "Cursos"], ["/guias", "Guías"], ["/blog#radar", "Radar"], ["/feed.xml", "RSS"], ["/programa", "Programa"], ["/curso-codex-espanol", "Codex"], ["/proyectos", "Proyectos"], ["/fuentes", "Fuentes"], ["/acerca", "Acerca de Aulafy"]],
+    links: [["/cursos", "Aprender"], ["/cursos/ia-pymes", "Trabajo y pymes"], ["/curso-codex-espanol", "Construir"], ["/buscar", "Buscar"], ["/fuentes", "Fuentes"], ["/acerca", "Acerca de Aulafy"]],
     note: "Educación abierta · contenido CC BY 4.0 · código MIT",
     privacy: "Privacidad",
     community: "Comunidad",
@@ -14,7 +14,7 @@ const copy = {
   },
   en: {
     tagline: "Learn AI by building and verifying.",
-    links: [["/en/brain", "Aulafy Brain"], ["/en/my-path", "My path"], ["/en/paths", "Guidance"], ["/en/search", "Search"], ["/en/courses", "Courses"], ["/guias", "Guides"], ["/blog#radar", "Radar"], ["/en/feed.xml", "RSS"], ["/en/program", "Program"], ["/proyectos", "Projects"], ["/fuentes", "Sources"], ["/acerca", "About Aulafy"]],
+    links: [["/en/courses", "Learn"], ["/en/courses/ia-pymes", "Work & business"], ["/en/courses/codex-programadores", "Build"], ["/en/search", "Search"], ["/fuentes", "Sources"], ["/acerca", "About Aulafy"]],
     note: "Open education · content CC BY 4.0 · code MIT",
     privacy: "Privacy",
     community: "Community",
@@ -47,6 +47,7 @@ export default function Footer({ locale = "es" }: { locale?: Locale }) {
             <Link href="/comunidad" className="text-[var(--muted)] hover:text-[var(--accent)]">{content.community}</Link>
             <Link href="/aviso-legal" className="text-[var(--muted)] hover:text-[var(--accent)]">{content.legal}</Link>
             <Link href="/licencia" className="text-[var(--muted)] hover:text-[var(--accent)]">{content.license}</Link>
+            <Link href={locale === "en" ? "/en/feed.xml" : "/feed.xml"} className="text-[var(--muted)] hover:text-[var(--accent)]">RSS</Link>
             <a href="https://github.com/aulafy/claude" target="_blank" rel="noreferrer" className="text-[var(--muted)] hover:text-[var(--accent)]">GitHub</a>
           </div>
         </div>

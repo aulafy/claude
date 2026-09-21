@@ -104,6 +104,7 @@ export const searchData: SearchItem[] = [
   { href: "/cursos/claude-code", title: "Inicio de la guía", section: "Empezar", keywords: "home portada qué es claude code introducción" },
   { href: "/", title: "Aulafy", section: "Cursos", keywords: "aulafy portada cursos ia inteligencia artificial open source" },
   { href: "/blog", title: "Blog de IA en español", section: "Blog", keywords: "blog ia español grok modelos mcp agentes herramientas comparativas seo aeo prompts tendencias" },
+  { href: "/blog/radar-ia-pymes-septiembre-2026", title: "Radar de IA para pymes: Claude SMB, Codex, Muse y Jev", section: "Blog", keywords: "claude for small business codex pymes chatgpt work muse meta jev typesafe automatizacion pyme septiembre 2026" },
   { href: "/blog/ultimos-modelos-ia-local-agosto-2026", title: "Últimos modelos de IA local de 2026", section: "Blog", keywords: "modelos ia local open weight 2026 kimi k3 inkling laguna deepseek v4 qwen3.8 muse glimmer nemotron benchmarks local.ai hardware mac rtx dgx" },
   { href: "/blog/latest-local-ai-models-august-2026", title: "Latest local AI models released in 2026", section: "Blog", keywords: "latest local ai models open weights kimi k3 inkling laguna deepseek qwen muse nemotron benchmark hardware" },
   { href: "/blog/kimi-k3-moonshot-modelo-abierto-2026", title: "Kimi K3 de Moonshot AI: modelo abierto de 2,8T", section: "Blog", keywords: "kimi k3 moonshot ai 2.8t 2,8 billones parámetros modelo abierto open weights moe contexto 1 millón tokens kimi code api precio" },
