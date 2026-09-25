@@ -65,13 +65,13 @@ const copy = {
     briefAction: "Abrir la misión guiada",
     visualAlt: "Mapa visual de un flujo de inteligencia artificial para una pyme",
     visualLabel: "Ruta destacada",
-    sectionLabel: "Elige tu ruta",
-    sectionTitle: "¿Qué quieres conseguir con IA?",
-    sectionLead: "Elige por tu objetivo, no por el nombre de una tecnología.",
+    sectionLabel: "El camino de Aulafy",
+    sectionTitle: "Aprende IA en 3 niveles",
+    sectionLead: "Si nunca has usado IA, empieza por el nivel 1. Si ya tienes base, salta al 2 o al 3. Todo lo demás está en la Biblioteca.",
     choices: [
       {
         number: "01",
-        label: "Principiantes",
+        label: "Nivel 1 · Empieza",
         title: "Entender la IA desde cero",
         text: "Aprende qué puede hacer, cómo pedir resultados útiles y cómo detectar errores antes de confiar.",
         href: "/empezar",
@@ -79,7 +79,7 @@ const copy = {
       },
       {
         number: "02",
-        label: "Trabajo y empresa",
+        label: "Nivel 2 · Aplica",
         title: "Aplicarla en mi trabajo",
         text: "Evalúa procesos, documentos, datos y automatizaciones con privacidad y revisión humana.",
         href: "/cursos/ia-pymes/diagnostico-piloto",
@@ -87,7 +87,7 @@ const copy = {
       },
       {
         number: "03",
-        label: "Perfil técnico",
+        label: "Nivel 3 · Construye",
         title: "Construir software con IA",
         text: "Programa con agentes, conecta modelos locales y crea sistemas RAG y automatizaciones fiables.",
         href: "/cursos/claude-code",
@@ -334,9 +334,7 @@ export default function AulafyNexusLanding({
       <footer className={styles.footer}>
         <p>{text.footer}</p>
         <nav aria-label={english ? "Project information" : "Información del proyecto"}>
-          <Link href={english ? "/en/ai-course" : "/curso-ia"}>{text.programme}</Link>
-          <Link href={english ? "/en/courses/codex-programadores" : "/curso-codex-espanol"}>{text.codex}</Link>
-          <Link href={english ? "/en/paths" : "/rutas"}>{text.paths}</Link>
+          <Link href={nav.courses.href}>{text.catalogue}</Link>
           <Link href="/acerca">{text.about}</Link>
           <a href="https://github.com/aulafy/claude" target="_blank" rel="noreferrer">GitHub</a>
         </nav>

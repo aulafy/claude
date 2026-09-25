@@ -18,9 +18,9 @@ export function primaryDestinations(locale: SiteLocale): PrimaryDestination[] {
   }
 
   return [
-    { id: "learn", href: "/empezar", label: "Aprender", description: "Empieza desde cero con una tarea guiada." },
-    { id: "work", href: "/cursos/ia-pymes", label: "Trabajo y pymes", description: "Aplica IA con seguridad a procesos reales." },
-    { id: "build", href: "/cursos#programacion", label: "Construir", description: "Crea software, agentes y sistemas locales." },
+    { id: "learn", href: "/empezar", label: "1 · Empieza", description: "Empieza desde cero con una tarea guiada." },
+    { id: "work", href: "/cursos/ia-pymes", label: "2 · Aplica", description: "Aplica IA con seguridad a procesos reales." },
+    { id: "build", href: "/cursos/claude-code", label: "3 · Construye", description: "Crea software, agentes y sistemas locales." },
     { id: "library", href: "/cursos", label: "Biblioteca", description: "Consulta todos los cursos y guías prácticas." },
   ];
 }

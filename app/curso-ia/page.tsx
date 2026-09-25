@@ -1,3 +1,4 @@
+import PathNotice from "@/components/PathNotice";
 import type { Metadata } from "next";
 import UnifiedCourse from "@/components/UnifiedCourse";
 
@@ -7,4 +8,4 @@ export const metadata: Metadata = {
   alternates: { canonical: "/curso-ia", languages: { "es-ES": "/curso-ia", "en-US": "/en/ai-course", "x-default": "/curso-ia" } },
 };
 
-export default function CompleteAiCourse() { return <UnifiedCourse locale="es" />; }
+export default function CompleteAiCourse() { return <><PathNotice /><UnifiedCourse locale="es" /></>; }

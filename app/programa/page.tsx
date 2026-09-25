@@ -1,3 +1,4 @@
+import PathNotice from "@/components/PathNotice";
 import type { Metadata } from "next";
 import AiProgramPage from "@/components/AiProgramPage";
 
@@ -9,5 +10,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <AiProgramPage locale="es" />;
+  return <><PathNotice /><AiProgramPage locale="es" /></>;
 }

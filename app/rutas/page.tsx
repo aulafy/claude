@@ -1,3 +1,4 @@
+import PathNotice from "@/components/PathNotice";
 import type { Metadata } from "next";
 import LearningPathsPage from "@/components/LearningPathsPage";
 
@@ -9,5 +10,5 @@ export const metadata: Metadata = {
 
 export default async function Page({ searchParams }: { searchParams: Promise<{ perfil?: string | string[]; ruta?: string | string[] }> }) {
   const { perfil, ruta } = await searchParams;
-  return <LearningPathsPage locale="es" initialProfile={typeof perfil === "string" ? perfil : undefined} initialPath={typeof ruta === "string" ? ruta : undefined} />;
+  return <><PathNotice /><LearningPathsPage locale="es" initialProfile={typeof perfil === "string" ? perfil : undefined} initialPath={typeof ruta === "string" ? ruta : undefined} /></>;
 }
