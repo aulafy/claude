@@ -53,6 +53,16 @@ html.dark {
   --capsule-bg-strong: rgba(34, 30, 40, 0.96);
   --capsule-border: rgba(246, 241, 232, 0.14);
   --capsule-shadow: 0 18px 60px rgba(0, 0, 0, 0.26);
+  --accent: #8fb4ff;
+  --accent-hover: #b8cfff;
+  --surface: #221f29;
+  --surface-border: #3d3747;
+  --panel: #1d1a22;
+  --capsule-border-strong: rgba(143, 180, 255, 0.45);
+  --code-bg: #0f0e13;
+  --brand-violet: #8fb4ff;
+  --brand-fuchsia: #f09a80;
+  --brand-cyan: #6fdad6;
 }
 
 html {
@@ -114,7 +124,7 @@ body {
   top: 0;
   z-index: 50;
   border-bottom: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.96);
+  background: color-mix(in srgb, var(--bg) 96%, transparent);
   backdrop-filter: blur(10px);
 }
 
@@ -2078,3 +2088,40 @@ html.light .learning-room__viewport { color-scheme: dark; }
   .site-search__rescues { grid-template-columns: 1fr; }
   .site-search__rescues section > p { min-height: 0; }
 }
+
+/* Contraste en modo noche: remapea clases claras de Tailwind */
+html.dark [class*="bg-white"]:not([class*="bg-white/"]),
+html.dark [class*="bg-zinc-50"],
+html.dark [class*="bg-zinc-100"],
+html.dark [class*="bg-slate-50"],
+html.dark [class*="bg-gray-50"],
+html.dark [class*="bg-[#f"] { background-color: var(--panel) !important; }
+html.dark [class*="text-black"],
+html.dark [class*="text-zinc-900"],
+html.dark [class*="text-zinc-800"],
+html.dark [class*="text-slate-900"],
+html.dark [class*="text-gray-900"] { color: var(--text) !important; }
+html.dark [class*="text-zinc-300"],
+html.dark [class*="text-zinc-400"],
+html.dark [class*="text-zinc-500"] { color: var(--muted) !important; }
+html.dark th { background: #26222d; color: var(--text); }
+html.dark td { color: var(--text); }
+
+/* Modo día: código siempre claro sobre oscuro y textos pastel legibles */
+html:not(.dark) pre[class*="text-zinc"],
+html:not(.dark) pre [class*="text-zinc"] { color: #f6f1e8 !important; }
+html:not(.dark) [class*="text-emerald-200"],
+html:not(.dark) [class*="text-emerald-300"],
+html:not(.dark) [class*="text-emerald-400"],
+html:not(.dark) [class*="text-green-400"] { color: var(--signal-green) !important; }
+html:not(.dark) [class*="text-amber-100"],
+html:not(.dark) [class*="text-amber-200"],
+html:not(.dark) [class*="text-amber-300"],
+html:not(.dark) [class*="text-amber-400"],
+html:not(.dark) [class*="text-yellow-400"] { color: var(--signal-amber) !important; }
+html:not(.dark) [class*="text-rose-200"],
+html:not(.dark) [class*="text-rose-300"],
+html:not(.dark) [class*="text-rose-400"],
+html:not(.dark) [class*="text-red-400"] { color: var(--signal-rose) !important; }
+html:not(.dark) [class*="text-sky-200"],
+html:not(.dark) [class*="text-sky-300"] { color: var(--accent) !important; }
