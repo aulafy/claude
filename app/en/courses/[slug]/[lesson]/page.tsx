@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Icon, { type IconName } from "@/components/Icon";
 import { Terminal } from "@/components/Book";
 import { cursos } from "@/lib/cursos";
+import { getCourseQuality } from "@/lib/course-quality";
 import { getLocalizedCurso } from "@/lib/i18n";
 import {
   getEnglishLesson,
@@ -221,6 +222,8 @@ export default async function EnglishLessonPage({
     inLanguage: "en",
     isAccessibleForFree: true,
     learningResourceType: "Lesson",
+    dateModified: getCourseQuality(slug).reviewedAt,
+    license: "https://creativecommons.org/licenses/by/4.0/",
     isPartOf: { "@id": `${SITE_URL}/en/courses/${slug}#learning-resource`, name: course.title },
     provider: { "@id": `${SITE_URL}/#organization` },
     author: { "@id": `${SITE_URL}/#author` },

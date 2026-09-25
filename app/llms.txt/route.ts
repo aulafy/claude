@@ -11,18 +11,25 @@ export function GET() {
 
   const text = `# Aulafy
 
-> Curso abierto, continuo y bilingüe para aprender inteligencia artificial desde los fundamentos hasta producción.
+> Plataforma abierta, gratuita y bilingüe (español e inglés) para aprender inteligencia artificial en 3 niveles: Empieza (desde cero, sin programar), Aplica (IA en el trabajo y en pymes) y Construye (software, agentes, RAG e IA local).
+
+## Camino recomendado en 3 niveles
+
+1. Empieza — primera tarea útil con IA en 15 minutos, sin conocimientos previos: ${SITE_URL}/empezar
+2. Aplica — IA en pymes y en el trabajo, con privacidad y revisión humana: ${SITE_URL}/cursos/ia-pymes
+3. Construye — programar con agentes de IA, RAG e IA local: ${SITE_URL}/cursos/claude-code
+Biblioteca con todos los cursos: ${SITE_URL}/cursos
 
 Portada y rutas ES: ${SITE_URL}/
 English homepage and paths: ${SITE_URL}/en
 Curso continuo ES: ${SITE_URL}/curso-ia
 Continuous course EN: ${SITE_URL}/en/ai-course
-Revisión estructural: 2026-09-21
+Revisión estructural: 2026-09-25
 Acceso: gratuito, sin registro y sin seguimiento personal del progreso
 Contenido: CC BY 4.0
 Código: MIT — https://github.com/aulafy/claude
 
-El curso continuo de Aulafy contiene ${unifiedModules.length} módulos, ${unifiedLessonCount} lecciones y ${unifiedModules.length} proyectos integradores. Cada lección declara resultados, explicación, práctica, evidencia, fuentes y volatilidad editorial. La portada también ofrece una biblioteca ampliada de cursos especializados y rutas por objetivo: no deben confundirse con el temario del curso continuo.
+Además, el curso continuo (material complementario) contiene ${unifiedModules.length} módulos, ${unifiedLessonCount} lecciones y ${unifiedModules.length} proyectos integradores. Cada lección declara resultados, explicación, práctica, evidencia, fuentes y volatilidad editorial. La portada también ofrece una biblioteca ampliada de cursos especializados y rutas por objetivo: no deben confundirse con el temario del curso continuo.
 
 ## Temario canónico
 
@@ -44,7 +51,7 @@ ${sources}
 
 - Empezar desde cero: ${SITE_URL}/empezar
 - Aplicar IA en una pyme: ${SITE_URL}/cursos/ia-pymes
-- Programar y construir con IA: ${SITE_URL}/curso-codex-espanol
+- Programar y construir con IA: ${SITE_URL}/cursos/claude-code
 - Consultar todos los cursos: ${SITE_URL}/cursos
 - Buscar por tema o problema: ${SITE_URL}/buscar
 - Contenido en inglés: ${SITE_URL}/en

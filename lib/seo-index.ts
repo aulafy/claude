@@ -68,10 +68,10 @@ const coreEntries: SeoIndexEntry[] = [
     priority: 0.99,
     changeFrequency: "monthly",
     lastModified: "2026-08-16",
-    alternateRoute: "/en/start",
+    alternateRoute: "/en/learn/what-ai-can-do",
   },
   {
-    route: "/en/start",
+    route: "/en/learn/what-ai-can-do",
     title: "Your first useful AI task in 15 minutes",
     description: "A guided mission to use AI for the first time, verify the result, and keep the final decision human.",
     language: "en",
@@ -375,6 +375,10 @@ const blogEntries: SeoIndexEntry[] = blogPosts.map((post) => ({
 
 const englishCourses = getLocalizedCursos("en");
 
+// Cursos cuyas lecciones solo existen en inglés (no hay /cursos/<slug>/<lección>).
+const englishOnlyLessons = new Set(["ai-consultant"]);
+const hasSpanishLessons = (slug: string) => !englishOnlyLessons.has(slug);
+
 const courseEntries: SeoIndexEntry[] = cursos.flatMap((course) => [
   {
     route: `/cursos/${course.slug}`,
@@ -387,7 +391,8 @@ const courseEntries: SeoIndexEntry[] = cursos.flatMap((course) => [
     lastModified: getCourseQuality(course.slug).reviewedAt,
     alternateRoute: course.availableInEnglish === false ? undefined : `/en/courses/${course.slug}`,
   },
-  ...lecciones(course).map((lesson) => ({
+  // Solo lecciones con ruta real en español (evita 404 en el sitemap).
+  ...(hasSpanishLessons(course.slug) ? lecciones(course) : []).map((lesson) => ({
     route: `/cursos/${course.slug}/${lesson.slug}`,
     title: lesson.title,
     description: `${lesson.title}. Lección gratuita del curso ${course.title} en Aulafy.`,
@@ -397,6 +402,7 @@ const courseEntries: SeoIndexEntry[] = cursos.flatMap((course) => [
     changeFrequency: "monthly" as const,
     lastModified: getCourseQuality(course.slug).reviewedAt,
     alternateRoute: course.availableInEnglish === false
+      || !getEnglishLessons().some((item) => item.courseSlug === course.slug && item.slug === lesson.slug)
       ? undefined
       : `/en/courses/${course.slug}/${lesson.slug}`,
   })),
@@ -414,7 +420,10 @@ const englishCourseEntries: SeoIndexEntry[] = englishCourses.flatMap((course) =>
     lastModified: getCourseQuality(course.slug).reviewedAt,
     alternateRoute: `/cursos/${course.slug}`,
   },
-  ...getEnglishCourseSections(course).flatMap((section) => section.lecciones).map((lesson) => {
+  // Solo lecciones traducidas: las demás devuelven 404 en /en.
+  ...getEnglishCourseSections(course).flatMap((section) => section.lecciones).filter((lesson) =>
+    getEnglishLessons().some((item) => item.courseSlug === course.slug && item.slug === lesson.slug),
+  ).map((lesson) => {
     const translatedLesson = getEnglishLessons().find(
       (item) => item.courseSlug === course.slug && item.slug === lesson.slug,
     );
@@ -431,7 +440,8 @@ const englishCourseEntries: SeoIndexEntry[] = englishCourses.flatMap((course) =>
       lastModified: getCourseQuality(course.slug).reviewedAt,
       alternateRoute: translatedLesson?.alternateRoute === null
         ? undefined
-        : translatedLesson?.alternateRoute ?? `/cursos/${course.slug}/${lesson.slug}`,
+        : translatedLesson?.alternateRoute
+          ?? (hasSpanishLessons(course.slug) ? `/cursos/${course.slug}/${lesson.slug}` : undefined),
     };
   }),
 ]);
