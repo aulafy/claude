@@ -1308,10 +1308,13 @@ export const seoLandings: SeoLanding[] = [
       "Una pyme quiere estimar coste: agrupas tokens, runtime local, cola GPU y revisiones humanas por tipo de tarea.",
     ],
     related: [
-      { title: "Observabilidad local", href: "/cursos/agentes-produccion/observabilidad-agentes-locales", desc: "Lección completa." },
-      { title: "Evals y logs", href: "/cursos/agentes-produccion/evals-logs", desc: "Base." },
-      { title: "Recuperación de errores", href: "/cursos/agentes-produccion/recuperacion-errores", desc: "Retries, backoff y escalado." },
-      { title: "MLOps y observabilidad", href: "/cursos/mlops-local/observabilidad", desc: "Métrica, coste y dashboards." },
+      { title: "Laboratorio de observabilidad", href: "/cursos/agentes-produccion/observabilidad-agentes-locales", desc: "Ocho módulos y un resultado verificable." },
+      { title: "Setup: Langfuse y Ollama", href: "/cursos/agentes-produccion/setup-langfuse-ollama", desc: "Cloud o laboratorio local con Docker." },
+      { title: "RAG con trazabilidad", href: "/cursos/agentes-produccion/rag-trazabilidad", desc: "Fuentes, filtros y grounding." },
+      { title: "Tools y loops trazables", href: "/cursos/agentes-produccion/tools-loops-trazables", desc: "Permisos, límites y parada segura." },
+      { title: "Evals y scores", href: "/cursos/agentes-produccion/evals-scores-langfuse", desc: "Comparar versiones con evidencia." },
+      { title: "Privacidad y producción", href: "/cursos/agentes-produccion/privacidad-produccion-observabilidad", desc: "Retención, accesos, costes y alertas." },
+      { title: "Cómo leer una traza", href: "/cursos/agentes-produccion/analizar-trazas", desc: "De resultado a causa y regresión." },
     ],
     faqs: [
       { q: "¿Qué diferencia hay entre logs y trazas?", a: "Un log registra un hecho aislado. Una traza une todos los pasos de una ejecución y permite ver la relación entre entrada, spans, tools, modelo, errores y resultado." },
