@@ -1025,9 +1025,9 @@ kbd {
   opacity: .58;
 }
 
-html.light .social-input,
-html.light .social-textarea,
-html.light .social-select {
+html:not(.dark) .social-input,
+html:not(.dark) .social-textarea,
+html:not(.dark) .social-select {
   background: #fff;
   border-color: var(--border);
 }
@@ -1189,23 +1189,23 @@ html:not(.dark) kbd {
   border-color: var(--border);
 }
 
-html.light th {
+html:not(.dark) th {
   background: #eef2f7;
   color: var(--text);
 }
 
-html.light td,
-html.light tr:nth-child(even) td {
+html:not(.dark) td,
+html:not(.dark) tr:nth-child(even) td {
   background: #fff;
   color: var(--muted);
 }
 
-html.light .callout-info { background: #e8f1ff; color: #1d4ed8; }
-html.light .callout-warning { background: #fff7ed; color: #b45309; }
-html.light .callout-tip { background: #ecfdf5; color: #047857; }
-html.light .callout-orange {
+html:not(.dark) .callout-info { background: #e8f1ff; color: #1d4ed8; }
+html:not(.dark) .callout-warning { background: #fff7ed; color: #b45309; }
+html:not(.dark) .callout-tip { background: #ecfdf5; color: #047857; }
+html:not(.dark) .callout-orange {
   background: color-mix(in srgb, var(--brand-fuchsia) 8%, #fff);
-  color: var(--accent);
+  color: var(--text);
 }
 
 @media (max-width: 640px) {
@@ -1965,8 +1965,8 @@ html.light .callout-orange {
 .learning-lab__footer a { border: 1px solid var(--border); padding: .75rem .9rem; color: var(--text); font-size: .78rem; font-weight: 750; }
 .learning-lab__footer a:hover { border-color: var(--brand-cyan); color: var(--brand-cyan); }
 
-html.light .learning-room,
-html.light .learning-room__viewport { color-scheme: dark; }
+html:not(.dark) .learning-room,
+html:not(.dark) .learning-room__viewport { color-scheme: dark; }
 
 @media (max-width: 1120px) {
   .learning-lab__shell { grid-template-columns: 1fr; }
