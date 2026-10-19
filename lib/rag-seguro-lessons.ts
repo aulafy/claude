@@ -174,7 +174,7 @@ export const RAG_LESSONS: Record<string, RigorousData> = {
     },
     results: {
       title: "Qué trae cada buscador a la pregunta «¿Abren los sábados?»",
-      text: "bm25    [('horarios#0', 2.6)]\nvector  [('devoluciones#0', 0.25), ('privacidad#0', 0.19), ('horarios#0', 0.17)]",
+      text: "bm25    [('horarios#0', 2.6)]\nvector  [('devoluciones#0', 0.25), ('privacidad#0', 0.19), ('horarios#0', 0.17)]\n\nrecall@2 / MRR, 26 preguntas, trozos por títulos\nbm25              0.846 / 0.808\nvector de letras  0.846 / 0.808\nvector neuronal   0.923 / 0.827\nbm25 + letras     0.923 / 0.827\nbm25 + neuronal   0.885 / 0.827",
       reading: "BM25 encuentra el documento correcto porque la palabra sábado aparece literalmente; el vector pone primero devoluciones por parecido de letras. Cada buscador falla donde el otro acierta.",
     },
     errors: [
