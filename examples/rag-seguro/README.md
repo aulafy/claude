@@ -19,4 +19,4 @@ RAG_MODEL=llama3.2:3b python3 run_injection.py     # ataque de inyección indire
 
 **Entorno de las mediciones (19/10/2026):** macOS, Python 3.14.7, Ollama 0.40.6, modelos `llama3.2:3b` y `qwen3.5:9b-mlx`, temperatura 0 y semilla fija.
 
-**Límites:** el corpus es pequeño (17 documentos) y las preguntas son 30; una pregunta distinta cambia las métricas en 3–4 puntos. Los «vectores» son n-gramas de caracteres, no embeddings neuronales: la lección de embeddings explica cómo sustituirlos.
+**Límites:** el corpus es pequeño (17 documentos) y las preguntas son 30; una pregunta distinta cambia las métricas en 3–4 puntos. Los «vectores» por defecto son n-gramas de caracteres; `run_neural_eval.py` los compara con nomic-embed-text (requiere `ollama pull nomic-embed-text`).

@@ -1,0 +1,14 @@
+== k=2 ==
+bm25            recall@2=0.846 mrr=0.808 fallos=4
+vector-hash     recall@2=0.846 mrr=0.808 fallos=4
+vector-neural   recall@2=0.923 mrr=0.827 fallos=2
+    ['¿Cuánto tardan en responder una urgencia de obra?', '¿Qué hago si el mueble se me estropea con el agua?']
+hibrido-hash    recall@2=0.923 mrr=0.827 fallos=2
+hibrido-neural  recall@2=0.885 mrr=0.827 fallos=3
+    ['¿Cuánto me cobráis por ir a mi casa?', '¿Qué hago si el mueble se me estropea con el agua?', '¿Cuánto dura la oferta que me han dado?']
+== k=4 ==
+bm25            recall@4=0.923 mrr=0.833 fallos=2
+vector-hash     recall@4=0.962 mrr=0.846 fallos=1
+vector-neural   recall@4=1.000 mrr=0.849 fallos=0
+hibrido-hash    recall@4=1.000 mrr=0.849 fallos=0
+hibrido-neural  recall@4=1.000 mrr=0.862 fallos=0

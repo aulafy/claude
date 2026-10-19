@@ -172,7 +172,7 @@ const records: Record<string, CourseQualityRecord> = {
     volatility: "revisable",
     reviewDays: 30,
     scope:
-      "10 de 14 lecciones reescritas con el estándar riguroso y ejecutadas sobre el proyecto examples/rag-seguro (Python estándar + Ollama local, 22 tests, 30 preguntas de evaluación). No ejecutadas: GraphRAG, OCR y tablas, Qdrant con permisos y Obsidian; tampoco embeddings neuronales ni un reranker con modelo cruzado.",
+      "10 de 14 lecciones reescritas con el estándar riguroso y ejecutadas sobre el proyecto examples/rag-seguro (Python estándar + Ollama local, 22 tests, 30 preguntas de evaluación). No ejecutadas: GraphRAG, OCR y tablas, Qdrant con permisos y Obsidian; ni un reranker con modelo cruzado. Embeddings neuronales ejecutados con nomic-embed-text.",
     evidence: [
       "Proyecto ejecutable con 22 tests y prueba de mutación del filtro de permisos.",
       "Cifras de recuperación, respuesta e inyección medidas con llama3.2:3b y qwen3.5:9b-mlx (ficheros eval/).",

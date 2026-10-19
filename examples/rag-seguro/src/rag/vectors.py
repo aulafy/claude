@@ -32,3 +32,24 @@ class VectorIndex:
         q = embed(query)
         scored = sorted(((c, cosine(q, v)) for c, v in zip(self.chunks, self.vecs)), key=lambda x: -x[1])
         return scored[:k]
+
+
+def ollama_embed(texts: list[str], model: str = "nomic-embed-text") -> list[list[float]]:
+    """Embeddings neuronales vía Ollama /api/embed (requiere: ollama pull nomic-embed-text)."""
+    import json, os, urllib.request
+    url = os.environ.get("OLLAMA_URL", "http://127.0.0.1:11434") + "/api/embed"
+    req = urllib.request.Request(url, json.dumps({"model": model, "input": texts}).encode(), {"Content-Type": "application/json"})
+    with urllib.request.urlopen(req, timeout=300) as r:
+        vecs = json.loads(r.read())["embeddings"]
+    return [[x / (math.sqrt(sum(y * y for y in v)) or 1.0) for x in v] for v in vecs]
+
+
+class NeuralIndex(VectorIndex):
+    """Misma interfaz que VectorIndex; nomic-embed-text pide prefijos distintos para documento y consulta."""
+    def __init__(self, chunks: list[Chunk]):
+        self.chunks = chunks
+        self.vecs = ollama_embed(["search_document: " + c.text for c in chunks])
+
+    def search(self, query: str, k: int = 4) -> list[tuple[Chunk, float]]:
+        q = ollama_embed(["search_query: " + query])[0]
+        return sorted(((c, cosine(q, v)) for c, v in zip(self.chunks, self.vecs)), key=lambda x: -x[1])[:k]
