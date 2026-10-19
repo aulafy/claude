@@ -1,0 +1,8 @@
+modelo=llama3.2:3b
+{
+ "respuestas": 30,
+ "con_citas_inventadas": 0,
+ "cita_fuera_de_lo_recuperado": 0,
+ "en_cuarentena": 19,
+ "sin_cita_y_sin_abstencion": 0
+}

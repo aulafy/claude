@@ -1,0 +1,16 @@
+== Chunking (buscador híbrido + reranking) ==
+fixed      trozos= 32 k=2 recall=0.923 mrr=0.846
+fixed      trozos= 32 k=4 recall=1.000 mrr=0.865
+paragraph  trozos= 22 k=2 recall=0.885 mrr=0.846
+paragraph  trozos= 22 k=4 recall=1.000 mrr=0.878
+heading    trozos= 25 k=2 recall=0.885 mrr=0.788
+heading    trozos= 25 k=4 recall=1.000 mrr=0.824
+
+== Buscador (chunking por títulos, k=2) ==
+bm25     recall@2=0.846 mrr=0.808 fallos=4
+    ['¿Cuánto hay que pagar de señal?', '¿Cuánto me cobráis por ir a mi casa?', '¿Qué hago si el mueble se me estropea con el agua?', '¿Cuánto dura la oferta que me han dado?']
+vector   recall@2=0.846 mrr=0.808 fallos=4
+    ['¿Abren los sábados?', '¿Cuánto tardan en responder una urgencia de obra?', '¿Cuánto tiempo tengo para devolver algo que no me gusta?', '¿Cuánto dura la oferta que me han dado?']
+hybrid   recall@2=0.923 mrr=0.827 fallos=2
+rerank   recall@2=0.885 mrr=0.788 fallos=3
+    ['¿Cuánto hay que pagar de señal?', '¿Qué hago si el mueble se me estropea con el agua?', '¿Cuánto dura la oferta que me han dado?']

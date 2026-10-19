@@ -1,0 +1,6 @@
+/Users/mac/carpeta sin título/aulafy-estructura/examples/rag-seguro/run_qdrant.py:16: UserWarning: Payload indexes have no effect in the local Qdrant. Please use server Qdrant if you need payload indexes.
+  cli.create_payload_index("marea", "acceso", models.PayloadSchemaType.KEYWORD)
+visitante con filtro: consultas con fuga=0/30  resultados dentro de lo permitido=30/30
+equipo    con filtro: consultas con fuga=0/30  resultados dentro de lo permitido=30/30
+rrhh      con filtro: consultas con fuga=0/30  resultados dentro de lo permitido=30/30
+visitante SIN filtro (error de configuración): consultas que devuelven trozos no permitidos=15/30

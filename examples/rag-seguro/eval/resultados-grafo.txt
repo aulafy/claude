@@ -1,0 +1,9 @@
+grafo: 22 trozos, 55 aristas entre documentos distintos
+✔ base  ✔ grafo  ¿Cuánto cuesta venir a medir a 20 km de la ciudad?  -> base ['tarifas#1', 'tarifas-2025#0', 'mediciones#0', 'tarifas#0'] | grafo ['tarifas#1', 'tarifas-2025#0', 'mediciones#0', 'tarifas#0']
+✔ base  ✔ grafo  ¿Cuánto tardo en recibir una cocina si acepto el presupuesto y pago la señal?  -> base ['tarifas#2', 'plazos#0', 'proceso#0', 'email-cliente#0'] | grafo ['tarifas#2', 'plazos#0', 'proceso#0', 'presupuestos#1']
+✔ base  ✔ grafo  ¿Qué IVA lleva el presupuesto y cuánto dura la instalación?  -> base ['plazos#2', 'presupuestos#0', 'proceso#0', 'presupuestos#1'] | grafo ['plazos#2', 'presupuestos#0', 'garantia#0', 'proceso#0']
+✔ base  ✔ grafo  ¿Cuánto es la señal y en qué fase del proceso se paga?  -> base ['proceso#0', 'email-cliente#0', 'tarifas#2', 'plazos#0'] | grafo ['proceso#0', 'email-cliente#0', 'plazos#0', 'tarifas#2']
+✔ base  ✖ grafo  ¿Cuánto tardan en atender una reclamación de garantía por una fuga?  -> base ['email-cliente#0', 'garantia#0', 'soporte#0', 'devoluciones#0'] | grafo ['email-cliente#0', 'garantia#0', 'cuidado#1', 'devoluciones#0']
+✖ base  ✖ grafo  ¿La visita de medición cuesta algo y cuánto dura?  -> base ['mediciones#0', 'proceso#0', 'horarios#0', 'email-cliente#0'] | grafo ['mediciones#0', 'proceso#0', 'horarios#0', 'email-cliente#0']
+solo recuperación k=4: 5/6 preguntas con TODOS los documentos necesarios
+grafo (2 semillas + vecinos): 4/6 preguntas con TODOS los documentos necesarios

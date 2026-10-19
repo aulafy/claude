@@ -86,11 +86,12 @@ function addDays(isoDate: string, days: number) {
   return date.toISOString().slice(0, 10);
 }
 
-function record(input: Omit<CourseQualityRecord, "reviewedAt" | "nextReview">): CourseQualityRecord {
+function record(input: Omit<CourseQualityRecord, "reviewedAt" | "nextReview"> & { reviewedAt?: string }): CourseQualityRecord {
+  const date = input.reviewedAt ?? reviewedAt;
   return {
     ...input,
-    reviewedAt,
-    nextReview: addDays(reviewedAt, input.reviewDays),
+    reviewedAt: date,
+    nextReview: addDays(date, input.reviewDays),
   };
 }
 
@@ -166,11 +167,17 @@ const records: Record<string, CourseQualityRecord> = {
     sources: [N8N, OLLAMA, OWASP_LLM],
   }),
   "rag-seguro": record({
-    status: "Revisión editorial",
+    status: "Probado parcialmente",
+    reviewedAt: "2026-10-19",
     volatility: "revisable",
     reviewDays: 30,
-    scope: "RAG con chunking, embeddings, búsqueda híbrida, re-ranking, citaciones, permisos, evals y abstención.",
-    evidence: ["Curso específico de RAG seguro.", "Lecciones de evaluación y citaciones.", "Énfasis en autorización y recuperación medible."],
+    scope:
+      "14 de 14 lecciones con el estándar riguroso, ejecutadas sobre el proyecto examples/rag-seguro (Python estándar + Ollama local, 27 tests, 30 preguntas de evaluación). Límites: Qdrant probado en modo local, sin servidor; OCR con un documento sintético y solo el modelo inglés de tesseract; sin reranker de modelo cruzado.",
+    evidence: [
+      "Proyecto ejecutable con 27 tests y pruebas de mutación de los filtros de permisos.",
+      "Cifras de recuperación, respuesta e inyección medidas con llama3.2:3b y qwen3.5:9b-mlx (ficheros eval/).",
+      "Cada lección indica fecha, entorno, salida esperada y errores reales encontrados al ejecutarla.",
+    ],
     sources: [NIST, OWASP_LLM, HUGGING_FACE_MODEL_CARDS],
   }),
   "agentes-automatizacion": record({

@@ -1,0 +1,3 @@
+modelo=qwen3.5:9b-mlx preguntas=30 tiempo=855s
+correctas: 29/30 · cita incluye la fuente correcta: 30/30 · cita precisa (solo la fuente correcta): 28/30
+ ✖ parafrasis ¿Qué hago si el mueble se me estropea con el agua? Seca los salpicones de agua en el día, ya que la humedad prolongada anula la garantía. Lue ['cuidado#1', 'garantia#1']
