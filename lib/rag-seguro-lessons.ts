@@ -164,7 +164,8 @@ export const RAG_LESSONS: Record<string, RigorousData> = {
     steps: [
       { title: "Mide el parecido entre pares de frases", code: "python3 - <<'EOF'\nimport sys; sys.path.insert(0, 'src')\nfrom rag.vectors import embed, cosine\npares = [('presupuesto', 'presupuestos'), ('sábados', 'horario de sábado y domingo'), ('coste de ir a mi casa', 'desplazamiento')]\nfor a, b in pares: print(f'{cosine(embed(a), embed(b)):.3f}', a, '~', b)\nEOF" },
       { title: "Compara qué recupera cada buscador", code: "python3 - <<'EOF'\nimport sys; sys.path.insert(0, 'src')\nfrom rag.pipeline import Rag\nh = Rag().index_for('visitante')\nq = '¿Abren los sábados?'\nprint('bm25  ', [(c.id, round(s, 2)) for c, s in h.bm25.search(q, 3)])\nprint('vector', [(c.id, round(s, 2)) for c, s in h.vec.search(q, 3)])\nEOF" },
-      { title: "Mide los cuatro buscadores sobre las 26 preguntas", code: "python3 run_retrieval_eval.py" },\n      { title: "Compara con embeddings neuronales", code: "ollama pull nomic-embed-text\\npython3 run_neural_eval.py" },
+      { title: "Mide los cuatro buscadores sobre las 26 preguntas", code: "python3 run_retrieval_eval.py" },
+      { title: "Compara con embeddings neuronales", code: "ollama pull nomic-embed-text\\npython3 run_neural_eval.py" },
     ],
     check: {
       command: "python3 run_retrieval_eval.py | sed -n '8,12p'",
