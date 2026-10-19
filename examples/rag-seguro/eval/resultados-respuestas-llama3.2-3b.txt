@@ -1,0 +1,5 @@
+modelo=llama3.2:3b preguntas=30 tiempo=218s
+correctas: 28/30 · cita incluye la fuente correcta: 28/30 · cita precisa (solo la fuente correcta): 24/30
+ ✖ directa ¿Cuánto tardan en responder una urgencia de obra? Se responden en un máximo de 4 horas laborables ['sostenibilidad#0', 'soporte#0']
+ ✖ razonamiento ¿Cubre la garantía los daños por humedad? no ['cuidado#1']
+ ✖ parafrasis ¿Qué hago si el mueble se me estropea con el agua? Escribe a hola@mareaalta.invalid indicando el número de presupuesto y adjuntando fotos del ['garantia#1', 'horarios#1']

@@ -1,0 +1,5 @@
+notas=5 enlaces=7  rotos=[('cocina-garcia', 'proveedor-de-encimeras')]
+retroenlaces de cocina-garcia: ['ana-garcia', 'diario', 'plazos-de-entrega']
+visitante -> ['ana-garcia#0', 'cocina-garcia#0', 'plazos-de-entrega#0']
+equipo    -> ['ana-garcia#0', 'cocina-garcia#0', 'plazos-de-entrega#0']
+¿se leyó .obsidian? False
