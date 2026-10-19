@@ -1,0 +1,9 @@
+fixed size=100         trozos= 78 media=  87c  k=2 recall=0.885 mrr=0.808  k=4 recall=0.962
+fixed size=200         trozos= 43 media= 155c  k=2 recall=0.846 mrr=0.769  k=4 recall=0.962
+fixed size=300         trozos= 32 media= 203c  k=2 recall=0.923 mrr=0.846  k=4 recall=1.000
+fixed size=600         trozos= 18 media= 326c  k=2 recall=0.885 mrr=0.827  k=4 recall=0.962
+fixed size=1200        trozos= 17 media= 343c  k=2 recall=0.885 mrr=0.827  k=4 recall=0.962
+heading max=150        trozos= 30 media= 201c  k=2 recall=0.923 mrr=0.808  k=4 recall=1.000
+heading max=300        trozos= 25 media= 237c  k=2 recall=0.885 mrr=0.788  k=4 recall=1.000
+heading max=600        trozos= 25 media= 237c  k=2 recall=0.885 mrr=0.788  k=4 recall=1.000
+heading max=1200       trozos= 25 media= 237c  k=2 recall=0.885 mrr=0.788  k=4 recall=1.000

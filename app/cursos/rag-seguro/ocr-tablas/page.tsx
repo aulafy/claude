@@ -19,6 +19,10 @@ export default function Page() {
       courseHref="/cursos/rag-seguro"
       courseLabel="RAG avanzado y seguro"
     >
+      <Cuidado>
+        Estado de esta lección: explicación revisada, <strong>no ejecutada</strong>. Todavía no tiene proyecto reproducible, salida esperada ni errores medidos como las lecciones ejecutadas del curso. Úsala como mapa y comprueba cada comando en tu entorno.
+      </Cuidado>
+
       <Objetivos>
         <ul>
           <li>Decidir cuándo necesitas OCR y cuándo basta extracción de texto.</li>

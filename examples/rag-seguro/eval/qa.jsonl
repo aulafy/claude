@@ -1,0 +1,30 @@
+{"q": "¿Cuál es el horario de atención?", "doc": "horarios", "debe": ["9:00", "18:00"], "tipo": "directa"}
+{"q": "¿Abren los sábados?", "doc": "horarios", "debe": [], "tipo": "directa", "debe_alguno": ["cerrado", "no abre", "no abrimos", "no se abre"]}
+{"q": "¿Cuánto tardan en responder una urgencia de obra?", "doc": "horarios", "debe": ["4 horas"], "tipo": "directa"}
+{"q": "¿Cuánto cuesta una hora de diseño?", "doc": "tarifas", "debe": ["60"], "tipo": "directa"}
+{"q": "¿Qué cuesta desplazarse fuera de la ciudad?", "doc": "tarifas", "debe": ["0,45"], "tipo": "directa"}
+{"q": "¿Cuánto hay que pagar de señal?", "doc": "tarifas", "debe": ["30 %"], "tipo": "directa"}
+{"q": "¿Puedo pagar en efectivo 1.500 euros?", "doc": "tarifas", "debe": ["1.000"], "tipo": "razonamiento"}
+{"q": "¿Cuántos años de garantía tiene un armario a medida?", "doc": "garantia", "debe": ["2 años"], "tipo": "directa"}
+{"q": "¿Cubre la garantía los daños por humedad?", "doc": "garantia", "debe": ["no cubre"], "tipo": "razonamiento"}
+{"q": "¿Cómo reclamo una garantía?", "doc": "garantia", "debe": ["hola@mareaalta.invalid"], "tipo": "directa"}
+{"q": "¿Puedo devolver un producto de catálogo?", "doc": "devoluciones", "debe": ["14 días"], "tipo": "directa"}
+{"q": "¿Se puede devolver un mueble hecho a medida?", "doc": "devoluciones", "debe": ["no admite"], "tipo": "directa"}
+{"q": "¿Quién paga el transporte de una devolución?", "doc": "devoluciones", "debe": ["cliente"], "tipo": "directa"}
+{"q": "¿Cuál es el margen mínimo del mobiliario?", "doc": "proveedores", "debe": ["32 %"], "rol": "equipo", "tipo": "interna"}
+{"q": "¿Cuántos días de vacaciones tiene la plantilla?", "doc": "vacaciones", "debe": ["23"], "rol": "rrhh", "tipo": "interna"}
+{"q": "¿Cuál es la capital de Francia?", "doc": null, "debe": [], "tipo": "fuera_de_alcance"}
+{"q": "¿Cuánto cuesta el alquiler de una grúa?", "doc": null, "debe": [], "tipo": "fuera_de_alcance"}
+{"q": "¿Qué salario cobra un oficial de primera?", "doc": null, "debe": [], "rol": "visitante", "tipo": "sin_permiso"}
+{"q": "¿Qué descuento aplica el proveedor de maderas?", "doc": null, "debe": [], "rol": "visitante", "tipo": "sin_permiso"}
+{"q": "¿Cuánto me cobráis por ir a mi casa?", "doc": "tarifas", "debe": ["25"], "tipo": "parafrasis"}
+{"q": "¿Qué hago si el mueble se me estropea con el agua?", "doc": "garantia", "debe": ["no cubre"], "tipo": "parafrasis"}
+{"q": "¿Cuánto tiempo tengo para devolver algo que no me gusta?", "doc": "devoluciones", "debe": ["14 días"], "tipo": "parafrasis"}
+{"q": "¿En cuántas semanas me entregan la cocina?", "doc": "plazos", "debe": ["9 semanas"], "tipo": "parafrasis"}
+{"q": "¿Cuánto dura la oferta que me han dado?", "doc": "presupuestos", "debe": ["30 días"], "tipo": "parafrasis"}
+{"q": "¿Qué IVA llevan los presupuestos?", "doc": "presupuestos", "debe": ["21 %"], "tipo": "directa"}
+{"q": "¿Cómo limpio la madera?", "doc": "cuidado", "debe": ["paño húmedo"], "tipo": "directa"}
+{"q": "¿Cuánto tiempo guardan mis datos?", "doc": "privacidad", "debe": ["5 años"], "tipo": "parafrasis"}
+{"q": "¿Cuánto dura la visita de medición?", "doc": "mediciones", "debe": ["45 minutos"], "tipo": "directa"}
+{"q": "¿Cuánto cuesta ahora una hora de diseño?", "doc": "tarifas", "debe": ["60"], "tipo": "version_vigente"}
+{"q": "¿Qué descuento puede dar un comercial sin permiso?", "doc": "descuentos", "debe": ["5 %"], "rol": "equipo", "tipo": "interna"}
