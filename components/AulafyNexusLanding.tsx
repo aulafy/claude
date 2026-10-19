@@ -94,7 +94,7 @@ const copy = {
         action: "Ver la ruta técnica",
       },
     ],
-    count: (courses: number, lessons: number) => `${courses} cursos · ${lessons} lecciones abiertas`,
+    count: (courses: number, lessons: number, solid?: number) => `${courses} cursos · ${lessons} lecciones abiertas${solid ? ` · ${solid} cursos completos, el resto en desarrollo` : ""}`,
     catalogue: "Ver el catálogo completo",
     footer: "Aulafy publica educación abierta para aprender IA con criterio.",
     programme: "Programa de 28 lecciones",
@@ -147,7 +147,7 @@ const copy = {
         action: "View the technical path",
       },
     ],
-    count: (courses: number, lessons: number) => `${courses} courses · ${lessons} open lessons`,
+    count: (courses: number, lessons: number, solid?: number) => `${courses} courses · ${lessons} open lessons${solid ? ` · ${solid} complete, the rest in development` : ""}`,
     catalogue: "View the full catalogue",
     footer: "Aulafy publishes open education for learning AI with judgment.",
     programme: "28-lesson programme",
@@ -160,10 +160,12 @@ const copy = {
 export default function AulafyNexusLanding({
   courseCount,
   lessonCount,
+  solidCount,
   locale = "es",
 }: {
   courseCount: number;
   lessonCount: number;
+  solidCount?: number;
   locale?: LandingLocale;
 }) {
   const text = copy[locale];
@@ -309,6 +311,8 @@ export default function AulafyNexusLanding({
               <small>{guide.note}</small>
             </div>
           </header>
+          <details className={styles.businessDetails}>
+          <summary>{english ? "See the 6 decisions" : "Ver las 6 decisiones"}</summary>
           <ol className={styles.businessSteps}>
             {guide.steps.map((step) => (
               <li key={step.number}>
@@ -322,10 +326,11 @@ export default function AulafyNexusLanding({
             <Link className={styles.primaryAction} href={guide.primary.href}>{guide.primary.label}</Link>
             <Link className={styles.secondaryAction} href={guide.secondary.href}>{guide.secondary.label}</Link>
           </div>
+          </details>
         </section>
 
         <section className={styles.catalogueLine} aria-label={text.catalogue}>
-          <strong>{text.count(courseCount, lessonCount)}</strong>
+          <strong>{text.count(courseCount, lessonCount, solidCount)}</strong>
           <span>{english ? "Free · Bilingual · No account" : "Gratis · Bilingüe · Sin cuenta"}</span>
           <Link href={nav.courses.href}>{text.catalogue} <span aria-hidden="true">→</span></Link>
         </section>

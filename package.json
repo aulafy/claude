@@ -52,6 +52,8 @@
     "verify:model-references": "node scripts/verify-model-references.mjs",
     "verify-social": "node scripts/verify-social.mjs",
     "verify-web-ai": "node --experimental-strip-types scripts/verify-web-ai-course.mjs",
+    "lessons:standard": "node scripts/validate-lesson-standard.mjs",
+    "audit:depth": "node scripts/audit-lesson-depth.mjs",
     "audit-education": "node --experimental-strip-types scripts/audit-education.mjs",
     "audit:site-graph": "node scripts/audit-site-graph.mjs",
     "metrics:learning": "node scripts/report-learning-metrics.mjs",

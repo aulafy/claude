@@ -1,3 +1,4 @@
+import { DEPTH_LABEL, getCourseDepth } from "@/lib/course-depth";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -173,6 +174,7 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
 
             <div className="mt-5 flex flex-wrap items-center gap-2">
               <span className="aula-chip"><Icon name="chart" /> {curso.level}</span>
+              {(() => { const d = getCourseDepth(curso.slug); return d ? <span className="aula-chip" data-tone={d.depth === "completo" ? "green" : d.depth === "esquema" ? "amber" : undefined} title={DEPTH_LABEL[d.depth].hint}><Icon name="check" /> {DEPTH_LABEL[d.depth].label}</span> : null; })()}
               {itinerary && primaryPhase ? (
                 <>
                   <span className="aula-chip" data-tone="cyan"><Icon name="rocket" /> Ruta principal · {pluralLabel(primaryLessonCount, "lesson")}</span>

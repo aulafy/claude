@@ -127,3 +127,10 @@
   .footer { flex-direction: column; }
 }
 @media (prefers-reduced-motion: reduce) { .choice { transition: none; } }
+
+/* Guía para pymes plegada: la portada ofrece un solo camino principal y el resto se abre a petición */
+.businessDetails { margin-top: 1rem; }
+.businessDetails > summary { cursor: pointer; list-style: none; padding: .9rem 0; font-weight: 700; color: #a5b4fc; }
+.businessDetails > summary::-webkit-details-marker { display: none; }
+.businessDetails > summary::after { content: " ▾"; }
+.businessDetails[open] > summary::after { content: " ▴"; }
