@@ -3,7 +3,7 @@
 Pipeline mínimo, **sin dependencias** (solo Python 3.10+ y, para generar respuestas, [Ollama](https://ollama.com)), pensado para aprender cada pieza ejecutándola. Todos los datos son **ficticios**.
 
 ```bash
-python3 -m unittest discover -s tests -v     # 22 pruebas, sin red ni modelo
+python3 -m unittest discover -s tests -v     # 27 pruebas, sin red ni modelo
 python3 run_demo.py                           # ingesta y chunking
 python3 run_retrieval_eval.py                 # compara chunking y buscadores
 RAG_MODEL=llama3.2:3b python3 run_answer_eval.py   # evalúa respuestas (requiere Ollama)

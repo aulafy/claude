@@ -127,3 +127,41 @@ class Trazabilidad(unittest.TestCase):
     def test_eval_acepta_respuestas_equivalentes(self):
         caso = {"doc": "horarios", "debe": [], "debe_alguno": ["cerrado", "no abrimos"]}
         self.assertTrue(answer_ok({"respuesta": "No abrimos los sábados", "citas": ["horarios#0"], "no_encontrado": False}, caso)["correcta"])
+
+
+class Grafo(unittest.TestCase):
+    def setUp(self):
+        from rag.graph import ChunkGraph
+        self.ch = chunk_corpus(load_corpus("corpus"), "heading")
+        self.g = ChunkGraph(self.ch)
+
+    def test_aristas_simetricas_y_entre_documentos_distintos(self):
+        for a, vec in self.g.adj.items():
+            for b in vec:
+                self.assertIn(a, self.g.adj[b])
+                self.assertNotEqual(self.g.by_id[a].doc_id, self.g.by_id[b].doc_id)
+
+    def test_expand_respeta_k_y_no_duplica(self):
+        from rag.graph import expand
+        hits = self.ch[:4]
+        out = expand(hits, self.g, "¿Cuánto cuesta el desplazamiento?", 4, 2)
+        self.assertEqual(len(out), 4); self.assertEqual(len({c.id for c in out}), 4)
+
+    def test_entidades_normaliza_acentos(self):
+        from rag.graph import entities
+        self.assertIn("garantia", entities("La GARANTÍA cubre")); self.assertIn("senal", entities("la señal"))
+
+
+class Boveda(unittest.TestCase):
+    def test_enlaces_rotos_retroenlaces_y_exclusiones(self):
+        from rag.vault import load_vault, report
+        docs, links = load_vault("vault"); r = report(docs, links)
+        self.assertEqual(r["rotos"], [("cocina-garcia", "proveedor-de-encimeras")])
+        self.assertIn("diario", r["retroenlaces"]["cocina-garcia"])
+        self.assertFalse(any(".obsidian" in d.meta["ruta"] for d in docs))
+
+    def test_notas_privadas_no_llegan_a_ningun_rol(self):
+        from rag.vault import load_vault
+        docs, _ = load_vault("vault"); ch = chunk_corpus(docs, "heading")
+        for role in ("visitante", "equipo", "rrhh"):
+            self.assertFalse(any(c.doc_id == "diario" for c in allowed(ch, role)))

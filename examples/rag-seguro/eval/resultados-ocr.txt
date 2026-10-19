@@ -1,0 +1,10 @@
+limpio        preproceso=no  CER=0.015  celdas de la tabla recuperadas: 12/12
+limpio        preproceso=sí  CER=0.019  celdas de la tabla recuperadas: 12/12
+rotado 2°     preproceso=no  CER=0.015  celdas de la tabla recuperadas: 12/12
+rotado 2°     preproceso=sí  CER=0.024  celdas de la tabla recuperadas: 10/12
+ruido         preproceso=no  CER=0.112  celdas de la tabla recuperadas: 11/12
+ruido         preproceso=sí  CER=0.131  celdas de la tabla recuperadas: 12/12
+rotado+ruido  preproceso=no  CER=0.126  celdas de la tabla recuperadas: 12/12
+rotado+ruido  preproceso=sí  CER=0.083  celdas de la tabla recuperadas: 10/12
+acentos: 'Garantia de instalacién: sefal del 30 %' (idiomas disponibles: ['osd', 'snum'])
+PDF nativo (pdftotext -layout): celdas 12 / 12 | Garantía de instalación: señal del 30%
