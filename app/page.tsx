@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import AulafyNexusLanding from "@/components/AulafyNexusLanding";
 import { cursos, totalLecciones } from "@/lib/cursos";
+import { getCourseDepth } from "@/lib/course-depth";
 
 export const metadata: Metadata = {
   title: "Aulafy — Aprende IA paso a paso, de cero a proyectos reales",
@@ -21,5 +22,6 @@ export const metadata: Metadata = {
 
 export default function Home() {
   const lessons = cursos.reduce((sum, course) => sum + totalLecciones(course), 0);
-  return <AulafyNexusLanding courseCount={cursos.length} lessonCount={lessons} />;
+  const solid = cursos.filter((course) => getCourseDepth(course.slug)?.depth === "completo").length;
+  return <AulafyNexusLanding courseCount={cursos.length} lessonCount={lessons} solidCount={solid} />;
 }

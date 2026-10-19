@@ -5,17 +5,21 @@ import { cursos, totalLecciones, type Curso } from "@/lib/cursos";
 import { getCourseGuidance } from "@/lib/course-guidance";
 import { courseGroups } from "@/lib/course-groups";
 import TaskExplorer from "@/components/TaskExplorer";
+import { learningSpine } from "@/lib/learning-spine";
+import { DEPTH_LABEL, DEPTH_ORDER, getCourseDepth } from "@/lib/course-depth";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aulafy.net";
 
 function CourseCard({ course }: { course: Curso }) {
   const guidance = getCourseGuidance(course.slug, "es");
+  const depth = getCourseDepth(course.slug);
   return (
     <Link href={`/cursos/${course.slug}`} className="group aula-panel flex h-full flex-col p-5">
       <span className="flex items-start gap-4">
         <span className="aula-icon flex-none text-violet-300"><Icon name={course.icon as IconName} /></span>
         <span className="min-w-0 flex-1">
           <span className="flex flex-wrap gap-2">
+            {depth ? <span className="aula-chip" data-tone={depth.depth === "completo" ? "green" : depth.depth === "esquema" ? "amber" : undefined} title={DEPTH_LABEL[depth.depth].hint}>{DEPTH_LABEL[depth.depth].label}</span> : null}
             <span className="aula-chip" data-tone="cyan">{course.level}</span>
             <span className="aula-chip">{totalLecciones(course)} lecciones</span>
             {guidance ? <span className="aula-chip">≈ {guidance.estimatedHours} h</span> : null}
@@ -168,14 +172,38 @@ export default function Cursos() {
         </p>
       </section>
 
+      <section id="columna-vertebral" className="aula-panel mb-8 p-5 sm:p-6" aria-labelledby="spine-title">
+        <span className="aula-section-label"><Icon name="rocket" /> Ruta recomendada</span>
+        <h2 id="spine-title" className="mt-2 font-display text-2xl font-bold text-[var(--text)]">Si solo vas a hacer una cosa: sigue esta ruta</h2>
+        <p className="mt-2 max-w-3xl text-sm leading-relaxed text-[var(--muted)]">Seis cursos, en orden, solo con contenido completo. Todo lo demás son especialidades que puedes añadir después.</p>
+        <ol className="mt-5 grid gap-3 md:grid-cols-2">
+          {learningSpine.map((step, index) => {
+            const course = cursos.find((c) => c.slug === step.slug);
+            if (!course) return null;
+            return (
+              <li key={step.slug}>
+                <Link href={`/cursos/${step.slug}`} className="group flex h-full gap-4 rounded-lg border border-[var(--border)] p-4 hover:border-[var(--accent)]">
+                  <span className="aula-chip shrink-0 self-start" data-tone="cyan">{index + 1}</span>
+                  <span>
+                    <strong className="block font-display text-[var(--text)] group-hover:text-[var(--accent)]">{course.title}</strong>
+                    <span className="mt-1 block text-sm text-[var(--muted)]">{step.why}</span>
+                    <span className="mt-2 block text-xs text-[var(--muted)]">Nivel {step.level} · Al terminar: {step.outcome}</span>
+                  </span>
+                </Link>
+              </li>
+            );
+          })}
+        </ol>
+      </section>
+
       <div className="mb-6">
         <span className="aula-section-label"><Icon name="book" /> Biblioteca completa</span>
         <h2 className="mt-2 font-display text-2xl font-bold text-[var(--text)]">Biblioteca completa</h2>
-        <p className="mt-2 max-w-3xl text-[var(--muted)]">Cuatro bloques estables, desde los fundamentos hasta la construcción de sistemas y aplicaciones.</p>
+        <p className="mt-2 max-w-3xl text-[var(--muted)]">Cuatro bloques. Cada curso indica su profundidad (Completo, En desarrollo o Esquema) y los más sólidos aparecen primero.</p>
       </div>
 
       {courseGroups.map((group) => {
-        const groupCourses = group.slugs.map((slug) => cursos.find((course) => course.slug === slug)).filter((course): course is Curso => Boolean(course));
+        const groupCourses = group.slugs.map((slug) => cursos.find((course) => course.slug === slug)).filter((course): course is Curso => Boolean(course)).sort((a, b) => DEPTH_ORDER[getCourseDepth(a.slug)?.depth ?? "desarrollo"] - DEPTH_ORDER[getCourseDepth(b.slug)?.depth ?? "desarrollo"]);
         return (
           <details id={group.id} key={group.id} open={group.id === "empezar"} className="aula-disclosure aula-panel mb-5 scroll-mt-24">
             <summary className="flex cursor-pointer list-none items-center justify-between gap-5 p-5 sm:p-6">
