@@ -112,6 +112,47 @@ export const cursos: Curso[] = [
     ],
   },
   {
+    slug: "app-gestion-con-ia",
+    title: "Construye tu app de gestión con IA",
+    short: "Una app local para autónomos, paso a paso: base de datos, agentes con aprobación, RAG, seguridad y ampliaciones",
+    desc: "Curso práctico basado en un proyecto real y abierto (REM Negocio): aprende a construir una app de gestión para autónomos y pymes con ayuda de IA, sin dependencias, con datos en local y una persona que aprueba lo que propone la IA. Incluye el libro «Manual del usuario de REM» y el repositorio con licencia MIT.",
+    level: "Principiante → intermedio",
+    updatedAt: "2026-10-19",
+    icon: "briefcase",
+    gradient: ["#0a6cd9", "#0e7490"],
+    availableInEnglish: false,
+    pdf: "/recursos/app-gestion-con-ia/Manual-del-usuario-de-REM.pdf",
+    resources: [
+      { href: "/recursos/app-gestion-con-ia/tutorial-rem.md", label: "Tutorial de construcción", format: "MD" },
+      { href: "/recursos/app-gestion-con-ia/Manual-del-usuario-de-REM.pdf", label: "Libro «Manual del usuario de REM»", format: "PDF" },
+    ],
+    secciones: [
+      { title: "Entender y empezar", lecciones: [
+        { slug: "que-vamos-a-construir", title: "Qué vamos a construir y con qué reglas" },
+        { slug: "instalar-y-explorar", title: "Instala REM y explora la app con datos ficticios" },
+      ] },
+      { title: "Construir la base", lecciones: [
+        { slug: "servidor-sin-frameworks", title: "Un servidor sin frameworks" },
+        { slug: "base-de-datos-sqlite", title: "Base de datos: SQLite, esquema y migraciones" },
+        { slug: "dinero-iva-numeracion", title: "Reglas de negocio: dinero, IVA y numeración" },
+        { slug: "interfaz-sin-framework", title: "Interfaz sin framework y diseño que se entiende" },
+      ] },
+      { title: "Inteligencia con control", lecciones: [
+        { slug: "importar-datos", title: "Importar datos de otros programas con plan declarativo" },
+        { slug: "asistente-agentes", title: "La parte agéntica: asistente, políticas y aprobación" },
+        { slug: "rag-y-modelo-local", title: "RAG y modelo de IA local" },
+      ] },
+      { title: "Seguridad y clientes", lecciones: [
+        { slug: "copias-y-seguridad", title: "Copias cifradas y seguridad por capas" },
+        { slug: "canal-con-clientes", title: "Un canal cifrado con tus clientes" },
+      ] },
+      { title: "Método y ampliaciones", lecciones: [
+        { slug: "metodo-ia", title: "Programar con IA: el método" },
+        { slug: "extender-con-modulos", title: "Ampliaciones a medida con módulos y el skill de Claude Code" },
+      ] },
+    ],
+  },
+  {
     slug: "ia-datos-analitica",
     title: "Asistentes analíticos locales con datos reales",
     short: "Convierte CSV, Excel y bases ligeras en respuestas, consultas y dashboards verificables",
