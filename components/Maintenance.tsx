@@ -1,5 +1,6 @@
 import BrandMark from "@/components/BrandMark";
 import Link from "next/link";
+import ThemeToggle from "@/components/ThemeToggle";
 import DocumentLanguage from "@/components/DocumentLanguage";
 import MaintenanceScene from "@/components/MaintenanceScene";
 import styles from "./Maintenance.module.css";
@@ -7,7 +8,7 @@ import styles from "./Maintenance.module.css";
 export default function Maintenance({ english = false }: { english?: boolean }) {
   return <div className={styles.page} lang={english ? "en" : "es"}>
     <DocumentLanguage locale={english ? "en" : "es"} />
-    <header className={styles.header}><Link href={english ? "/en" : "/"} prefetch={false} className={styles.brand} aria-label="Aulafy"><BrandMark /><strong>Aulafy</strong></Link><nav aria-label={english ? "Language" : "Idioma"}><Link href="/" prefetch={false} hrefLang="es" aria-current={!english ? "page" : undefined}>ES</Link><Link href="/en" prefetch={false} hrefLang="en" aria-current={english ? "page" : undefined}>EN</Link></nav></header>
+    <header className={styles.header}><Link href={english ? "/en" : "/"} prefetch={false} className={styles.brand} aria-label="Aulafy"><BrandMark /><strong>Aulafy</strong></Link><nav aria-label={english ? "Language" : "Idioma"}><Link href="/" prefetch={false} hrefLang="es" aria-current={!english ? "page" : undefined}>ES</Link><Link href="/en" prefetch={false} hrefLang="en" aria-current={english ? "page" : undefined}>EN</Link><ThemeToggle compact locale={english ? "en" : "es"} /></nav></header>
     <main className={styles.main}>
       <MaintenanceScene english={english} />
       <section className={styles.message} aria-labelledby="maintenance-title">

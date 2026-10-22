@@ -2133,3 +2133,7 @@ html:not(.dark) [class*="text-sky-300"] { color: var(--accent) !important; }
 .path-notice a { display: inline-flex; align-items: center; gap: .4rem; padding: .35rem .7rem; border: 1px solid var(--border); border-radius: 999px; background: var(--panel); color: var(--text); font-weight: 700; text-decoration: none; }
 .path-notice a:hover { border-color: var(--accent); color: var(--accent); }
 .path-notice a span { display: grid; place-items: center; width: 1.3rem; height: 1.3rem; border-radius: 50%; background: var(--accent); color: var(--bg); font-size: .7rem; }
+
+/* Conmutador día/noche flotante para páginas sin cabecera propia */
+.theme-toggle-floating{position:fixed;top:.75rem;right:.75rem;z-index:60}
+@media print{.theme-toggle,.theme-toggle-floating{display:none}}

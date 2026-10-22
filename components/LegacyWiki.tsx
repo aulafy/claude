@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ThemeToggle from "@/components/ThemeToggle";
 import BrandMark from "@/components/BrandMark";
 import DocumentLanguage from "@/components/DocumentLanguage";
 import Icon from "@/components/Icon";
@@ -24,7 +25,7 @@ export default function LegacyWiki({ english = false, query = "" }: { english?: 
     <a className={styles.skip} href="#wiki-main">{english ? "Skip to content" : "Saltar al contenido"}</a>
     <header className={styles.header}>
       <Link href={home} className={styles.brand}><BrandMark /><strong>Aulafy</strong><span>Wiki</span></Link>
-      <nav aria-label={english ? "Language" : "Idioma"}><Link href={`/wiki${query ? `?q=${encodeURIComponent(query)}` : ""}`} hrefLang="es" aria-current={!english ? "page" : undefined}>ES</Link><Link href={`/en/wiki${query ? `?q=${encodeURIComponent(query)}` : ""}`} hrefLang="en" aria-current={english ? "page" : undefined}>EN</Link></nav>
+      <nav aria-label={english ? "Language" : "Idioma"}><Link href={`/wiki${query ? `?q=${encodeURIComponent(query)}` : ""}`} hrefLang="es" aria-current={!english ? "page" : undefined}>ES</Link><Link href={`/en/wiki${query ? `?q=${encodeURIComponent(query)}` : ""}`} hrefLang="en" aria-current={english ? "page" : undefined}>EN</Link><ThemeToggle compact locale={english ? "en" : "es"} /></nav>
     </header>
     <div className={styles.layout}>
       <aside className={styles.sidebar}>

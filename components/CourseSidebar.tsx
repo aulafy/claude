@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { getCurso } from "@/lib/cursos";
 import { getEnglishCourseSections, getEnglishLessonTitle } from "@/lib/english-lessons";
 import { getLocalizedCurso, type Locale } from "@/lib/i18n";
+import ThemeToggle from "@/components/ThemeToggle";
 import Icon from "@/components/Icon";
 import BrandMark from "@/components/BrandMark";
 import { getEnglishLessonSlug, getEnglishLessonTitleOverride, getSourceLessonSlug } from "@/lib/course-lesson-routing";
@@ -81,7 +82,10 @@ export default function CourseSidebar({ locale = "es" }: { locale?: Locale }) {
         className={`fixed top-0 left-0 h-screen w-[252px] flex flex-col border-r border-[var(--border)] bg-[var(--sidebar-bg)] z-40 transition-transform duration-200 ${open ? "translate-x-0" : "-translate-x-full"} md:translate-x-0`}
       >
         <div className="px-5 py-4 border-b border-[var(--border)]">
-          <Link href={locale === "en" ? "/en/courses" : "/cursos"} onClick={closeMenu} className="aula-meta hover:text-[var(--accent)] inline-flex items-center gap-1.5 mb-4">← {text.allCourses}</Link>
+          <div className="flex items-center justify-between mb-4">
+            <Link href={locale === "en" ? "/en/courses" : "/cursos"} onClick={closeMenu} className="aula-meta hover:text-[var(--accent)] inline-flex items-center gap-1.5">← {text.allCourses}</Link>
+            <ThemeToggle compact locale={locale} />
+          </div>
           <div className="flex items-start gap-2.5">
             <BrandMark className="mt-0.5 h-7 w-7 flex-none text-[var(--accent)]" />
             <Link href={locale === "en" ? `/en/courses/${curso.slug}` : `/cursos/${curso.slug}`} onClick={() => setOpen(false)} className="block font-display text-sm font-semibold text-[var(--text)] leading-snug">{curso.title}</Link>

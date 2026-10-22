@@ -6,6 +6,7 @@ import Link from "next/link";
 import BrandMark from "@/components/BrandMark";
 import ContinueLearning from "@/components/ContinueLearning";
 import LanguageSwitch from "@/components/LanguageSwitch";
+import ThemeToggle from "@/components/ThemeToggle";
 import styles from "@/components/AulafyNexusLanding.module.css";
 import { trackLearningEvent } from "@/lib/learning-events";
 import { siteNav } from "@/lib/site-nav";
@@ -235,6 +236,7 @@ export default function AulafyNexusLanding({
           </nav>
           <div className={styles.controls}>
             <LanguageSwitch />
+            <ThemeToggle compact locale={locale} />
           </div>
         </div>
         <nav className={styles.mobileNav} aria-label={english ? "Mobile navigation" : "Navegación móvil"}>

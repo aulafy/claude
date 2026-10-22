@@ -6,3 +6,11 @@
 .footer { display:flex; flex-wrap:wrap; justify-content:space-between; gap:16px; padding:20px 5%; border-top:1px solid #e6ebef; font-size:11px; color:#74808a; }.footer a { color:inherit; text-decoration:none; }.footer a:hover { text-decoration:underline; }.footer .archiveLink { margin-left:auto; color:#176b62; font-size:13px; font-weight:600; padding:4px 0; }
 @media(max-width:600px) { .header { padding:20px; }.scene { height:300px; }.message { margin-top:12px; margin-bottom:32px; }.message h1 { font-size:35px; }.lead { font-size:14px; }.eyebrow { font-size:10px; }.footer { justify-content:center; text-align:center; }.motion { right:12px; }.promise { gap:10px; } }
 @media(max-height:720px) and (min-width:601px) { .scene { height:230px; }.header { padding-top:16px; padding-bottom:12px; }.message { margin-bottom:24px; }.message h1 { font-size:36px; } }
+
+/* ---- Modo noche (html.dark) ---- */
+:global(html.dark) .page{background:#111015;color:#e6e8ee;color-scheme:dark}
+:global(html.dark) .page a:focus-visible,:global(html.dark) .page button:focus-visible{outline-color:#9fc0ff}
+:global(html.dark) .header nav{border-color:#3a3f4d}
+:global(html.dark) .header nav a{color:#aab2c3}
+:global(html.dark) .header nav a[aria-current]{background:#e6e8ee;color:#111015}
+:global(html.dark) .motion{color:#aab2c3}
