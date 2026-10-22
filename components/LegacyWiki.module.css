@@ -2,3 +2,28 @@
 @media(min-width:1500px){.layout{grid-template-columns:250px minmax(0,1fr);gap:64px}}
 @media(max-width:900px){.layout{grid-template-columns:190px minmax(0,1fr);padding:0 24px;gap:26px}.header{padding:20px 24px}.main h1{font-size:36px}.paths,.articles{grid-template-columns:1fr}.paths{gap:20px}}
 @media(max-width:620px){.header{padding:18px 20px}.brand strong{font-size:27px}.brand img{width:27px;height:27px}.layout{display:flex;flex-direction:column;padding:0 20px;gap:0}.sidebar{position:static;width:100%;padding:14px 0;border-bottom:1px solid #ddd}.sidebar nav{display:flex;flex-wrap:wrap;gap:5px 14px}.sidebar nav p{width:100%;margin:4px 0}.sidebar nav a{padding:4px 0;font-size:12px}.sidebar nav a span{display:none}.return{margin-top:12px;padding-top:12px;font-size:12px}.main{padding-top:26px}.main h1{font-size:34px}.intro{font-size:15px}.section h2{font-size:26px}.references{columns:1}.notice{padding:12px;font-size:12px}.lessons{padding-left:8px}.section{margin-top:20px}.paths{gap:22px}}
+
+/* ---- Modo noche (html.dark) ---- */
+:global(html.dark) .wiki{background:#111015;color:#e6e8ee;color-scheme:dark}
+:global(html.dark) .wiki a{color:#6fd0c2}
+:global(html.dark) .wiki :focus-visible{outline-color:#6fd0c2}
+:global(html.dark) .skip{background:#1b1a22;color:#f1f2f6}
+:global(html.dark) .header{border-bottom-color:#3a3f4d}
+:global(html.dark) .brand,:global(html.dark) .header nav a[aria-current]{color:#f1f2f6!important}
+:global(html.dark) .brand span{border-left-color:#3a3f4d}
+:global(html.dark) .sidebar nav p{color:#9aa3b5}
+:global(html.dark) .sidebar nav a{color:#cfd5e1}
+:global(html.dark) .sidebar nav a span{color:#c9a77a}
+:global(html.dark) .eyebrow{color:#6fd0c2}
+:global(html.dark) .intro{color:#c3cad8}
+:global(html.dark) .stats,:global(html.dark) .description,:global(html.dark) .paths p,:global(html.dark) .course summary small,:global(html.dark) .lessons>p,:global(html.dark) .articles article>p:last-child,:global(html.dark) .footer{color:#aab2c3}
+:global(html.dark) .date{color:#9aa3b5}
+:global(html.dark) .notice{border-left-color:#d19a3c;background:#221d14;color:#e3d6bf}
+:global(html.dark) .search>div{border-color:#4a4f5e}
+:global(html.dark) .search input{background:#1b1a22;color:#f1f2f6}
+:global(html.dark) .search button{background:#2a8f82;color:#fff}
+:global(html.dark) .section{border-top-color:#3a3f4d}
+:global(html.dark) .section h2>span{color:#c9a77a}
+:global(html.dark) .course,:global(html.dark) .articles article,:global(html.dark) .sidebar,:global(html.dark) .return{border-color:#2f3340}
+:global(html.dark) .articles h3 a{color:#f1f2f6}
+:global(html.dark) .footer{border-top-color:#3a3f4d}

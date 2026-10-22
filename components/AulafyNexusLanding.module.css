@@ -134,3 +134,22 @@
 .businessDetails > summary::-webkit-details-marker { display: none; }
 .businessDetails > summary::after { content: " ▾"; }
 .businessDetails[open] > summary::after { content: " ▴"; }
+
+/* ---- Modo noche (html.dark) ---- */
+:global(html.dark) .page { --canvas: #111015; --surface: #1b1a22; --ink: #f1f2f6; --muted: #aab2c3; --line: #2f3340; --blue: #7aa5ff; --blue-dark: #a9c6ff; --blue-soft: #1e2b49; --green: #5fd3b5; --green-soft: #12302a; --coral: #ff8f73; color-scheme: dark; }
+:global(html.dark) .skip { color: #111015; }
+:global(html.dark) .header { background: rgba(17, 16, 21, .94); }
+:global(html.dark) .navRow nav > a, :global(html.dark) .mobileNav a { color: #c9d1df; }
+:global(html.dark) .mobileNav { background: var(--surface); }
+:global(html.dark) .primaryAction { background: var(--blue); border-color: var(--blue); color: #0b1020; }
+:global(html.dark) .primaryAction:hover { background: #a2c0ff; border-color: #a2c0ff; }
+:global(html.dark) .secondaryAction { background: transparent; color: var(--blue-dark); }
+:global(html.dark) .brief { box-shadow: 0 18px 55px rgba(0, 0, 0, .55); }
+:global(html.dark) .heroVisual > span { background: rgba(17, 16, 21, .92); color: var(--ink); }
+:global(html.dark) .choice:hover { border-color: #3f62ad; box-shadow: 0 12px 30px rgba(0, 0, 0, .45); }
+:global(html.dark) .choice:nth-child(3) > div span { background: #3a2119; }
+:global(html.dark) .catalogueLine { background: var(--surface); }
+:global(html.dark) .businessGuide { background: #1a2236; }
+:global(html.dark) .businessGuide .primaryAction { background: #fff; border-color: #fff; color: #0b46a8; }
+:global(html.dark) .businessGuide .secondaryAction { background: transparent; border-color: #7b879b; color: #fff; }
+.controls :global(.theme-toggle) { margin-left: .25rem; }

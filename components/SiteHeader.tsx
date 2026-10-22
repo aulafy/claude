@@ -1,5 +1,6 @@
 import Link from "next/link";
 import LanguageSwitch from "@/components/LanguageSwitch";
+import ThemeToggle from "@/components/ThemeToggle";
 import BrandMark from "@/components/BrandMark";
 import ContinueLearning from "@/components/ContinueLearning";
 import Icon from "@/components/Icon";
@@ -38,6 +39,7 @@ export default function SiteHeader({ locale = "es" }: { locale?: Locale }) {
             <Icon name="search" />
           </Link>
           <LanguageSwitch />
+          <ThemeToggle compact locale={locale} />
         </nav>
       </div>
     </header>

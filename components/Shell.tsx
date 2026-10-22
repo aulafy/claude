@@ -16,6 +16,7 @@ import LessonProgressTracker from "@/components/LessonProgressTracker";
 import { getEnglishLessonTitleOverride, getSourceLessonSlug } from "@/lib/course-lesson-routing";
 import ExternalLearningLinkTracker from "@/components/ExternalLearningLinkTracker";
 import MobileLearningNav from "@/components/MobileLearningNav";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Shell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -26,7 +27,7 @@ export default function Shell({ children }: { children: React.ReactNode }) {
 
   if (pathname === "/" || pathname === "/en" || pathname === "/maintenance" || pathname === "/wiki" || pathname === "/en/wiki") return <>{children}</>;
   if (pathname.startsWith("/en/learn/") || pathname === "/en/privacy") {
-    return <><DocumentLanguage locale={locale} />{children}</>;
+    return <><DocumentLanguage locale={locale} /><div className="theme-toggle-floating"><ThemeToggle compact locale={locale} /></div>{children}</>;
   }
 
   // 1) Landing: pantalla completa, con su propio header y footer.

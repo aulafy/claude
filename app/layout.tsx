@@ -3,6 +3,7 @@ import { Geist_Mono, Manrope, Source_Serif_4 } from "next/font/google";
 import Shell from "@/components/Shell";
 import "./globals.css";
 import "./fontawesome.css";
+import { THEME_INIT_SCRIPT } from "@/lib/theme";
 
 const manrope = Manrope({
   variable: "--font-geist-sans",
@@ -267,6 +268,9 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${manrope.variable} ${geistMono.variable} ${display.variable} ${sourceSerif.variable} antialiased`}
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+      </head>
       <body className="min-h-screen">
         <script
           type="application/ld+json"
