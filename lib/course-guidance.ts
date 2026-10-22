@@ -31,6 +31,15 @@ const guidanceEs: Record<string, CourseGuidance> = {
     estimatedHours: 12,
     updated: "2026-08-04",
   },
+  "app-gestion-con-ia": {
+    track: "Aplicaciones prácticas",
+    audience: "Autónomos, pymes y desarrolladores que quieren construir su propia app de gestión con IA, con datos en local y supervisión humana.",
+    prerequisites: ["Un ordenador con Node.js 22.13 o superior", "Ganas de usar la terminal; no hace falta experiencia previa"],
+    outcomes: ["Construir una app local con base de datos, reglas de dinero y numeración correcta", "Diseñar agentes y un asistente que proponen y nunca actúan sin aprobación", "Ampliar la app con módulos validados y un asistente de programación con IA"],
+    deliverable: "Una app de gestión propia, con pruebas, copias cifradas, un asistente con política de aprobación y una ampliación a medida.",
+    estimatedHours: 16,
+    updated: "2026-10-19",
+  },
   "ia-datos-analitica": {
     track: "Aplicaciones prácticas",
     audience: "Analistas, profesionales de operaciones y personas con hojas de cálculo que quieren construir asistentes locales sin ocultar consultas ni decisiones sobre los datos.",
