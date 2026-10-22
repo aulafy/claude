@@ -9,53 +9,11 @@ export const DEPTH_MEASURED_AT = "2026-10-19";
 export const DEPTH_THRESHOLDS = { schema: 250, development: 450 } as const;
 
 const MEASURES: Record<string, Omit<CourseDepthRecord, "depth" | "measuredAt">> = {
-  "ia-docentes-educacion": {
-    "lessons": 16,
-    "medianWords": 120,
-    "minWords": 96,
-    "codeBlocks": 0,
-    "thinLessons": 16
-  },
-  "ia-datos-analitica": {
-    "lessons": 14,
-    "medianWords": 191,
-    "minWords": 167,
-    "codeBlocks": 1,
-    "thinLessons": 14
-  },
-  "automatizacion-self-hosted": {
-    "lessons": 10,
-    "medianWords": 285,
-    "minWords": 235,
-    "codeBlocks": 15,
-    "thinLessons": 1
-  },
-  "fine-tuning-local": {
-    "lessons": 8,
-    "medianWords": 304,
-    "minWords": 254,
-    "codeBlocks": 16,
-    "thinLessons": 0
-  },
-  "crear-webs-con-ia": {
-    "lessons": 47,
-    "medianWords": 340,
-    "minWords": 267,
-    "codeBlocks": 73,
-    "thinLessons": 0
-  },
   "agentes-automatizacion": {
     "lessons": 20,
-    "medianWords": 343,
+    "medianWords": 348,
     "minWords": 255,
     "codeBlocks": 52,
-    "thinLessons": 0
-  },
-  "mlops-local": {
-    "lessons": 10,
-    "medianWords": 347,
-    "minWords": 275,
-    "codeBlocks": 18,
     "thinLessons": 0
   },
   "agentes-produccion": {
@@ -65,53 +23,95 @@ const MEASURES: Record<string, Omit<CourseDepthRecord, "depth" | "measuredAt">> 
     "codeBlocks": 15,
     "thinLessons": 0
   },
-  "codex-programadores": {
-    "lessons": 10,
-    "medianWords": 354,
-    "minWords": 320,
-    "codeBlocks": 39,
-    "thinLessons": 0
-  },
-  "rag-seguro": {
-    "lessons": 14,
-    "medianWords": 357,
-    "minWords": 289,
-    "codeBlocks": 32,
-    "thinLessons": 0
-  },
   "ai-router": {
     "lessons": 6,
-    "medianWords": 380,
+    "medianWords": 389,
     "minWords": 357,
     "codeBlocks": 6,
     "thinLessons": 0
   },
-  "fundamentos-aulafy": {
-    "lessons": 6,
-    "medianWords": 382,
-    "minWords": 318,
+  "automatizacion-self-hosted": {
+    "lessons": 10,
+    "medianWords": 289,
+    "minWords": 235,
     "codeBlocks": 15,
+    "thinLessons": 1
+  },
+  "claude-code": {
+    "lessons": 24,
+    "medianWords": 676,
+    "minWords": 160,
+    "codeBlocks": 89,
+    "thinLessons": 2
+  },
+  "codex-desde-cero": {
+    "lessons": 20,
+    "medianWords": 995,
+    "minWords": 833,
+    "codeBlocks": 68,
+    "thinLessons": 0
+  },
+  "codex-programadores": {
+    "lessons": 10,
+    "medianWords": 358,
+    "minWords": 320,
+    "codeBlocks": 39,
+    "thinLessons": 0
+  },
+  "crear-webs-con-ia": {
+    "lessons": 47,
+    "medianWords": 340,
+    "minWords": 267,
+    "codeBlocks": 73,
     "thinLessons": 0
   },
   "deepseek-harness": {
     "lessons": 10,
-    "medianWords": 488,
+    "medianWords": 495,
     "minWords": 259,
     "codeBlocks": 24,
     "thinLessons": 0
+  },
+  "fine-tuning-local": {
+    "lessons": 8,
+    "medianWords": 309,
+    "minWords": 254,
+    "codeBlocks": 16,
+    "thinLessons": 0
+  },
+  "fundamentos-aulafy": {
+    "lessons": 6,
+    "medianWords": 392,
+    "minWords": 318,
+    "codeBlocks": 15,
+    "thinLessons": 0
+  },
+  "ia-datos-analitica": {
+    "lessons": 14,
+    "medianWords": 192,
+    "minWords": 167,
+    "codeBlocks": 1,
+    "thinLessons": 14
+  },
+  "ia-desde-cero": {
+    "lessons": 12,
+    "medianWords": 715,
+    "minWords": 608,
+    "codeBlocks": 4,
+    "thinLessons": 0
+  },
+  "ia-docentes-educacion": {
+    "lessons": 16,
+    "medianWords": 120,
+    "minWords": 96,
+    "codeBlocks": 0,
+    "thinLessons": 16
   },
   "ia-generativa": {
     "lessons": 7,
     "medianWords": 506,
     "minWords": 459,
     "codeBlocks": 17,
-    "thinLessons": 0
-  },
-  "seguridad-evals": {
-    "lessons": 7,
-    "medianWords": 564,
-    "minWords": 512,
-    "codeBlocks": 12,
     "thinLessons": 0
   },
   "ia-local": {
@@ -121,39 +121,39 @@ const MEASURES: Record<string, Omit<CourseDepthRecord, "depth" | "measuredAt">> 
     "codeBlocks": 106,
     "thinLessons": 0
   },
-  "videojuegos-3d-ia": {
-    "lessons": 6,
-    "medianWords": 593,
-    "minWords": 471,
-    "codeBlocks": 15,
-    "thinLessons": 0
-  },
   "ia-pymes": {
     "lessons": 20,
-    "medianWords": 612,
+    "medianWords": 754,
     "minWords": 300,
     "codeBlocks": 38,
     "thinLessons": 0
   },
-  "claude-code": {
-    "lessons": 24,
-    "medianWords": 675,
-    "minWords": 160,
-    "codeBlocks": 89,
-    "thinLessons": 2
-  },
-  "ia-desde-cero": {
-    "lessons": 12,
-    "medianWords": 688,
-    "minWords": 608,
-    "codeBlocks": 4,
+  "mlops-local": {
+    "lessons": 10,
+    "medianWords": 349,
+    "minWords": 275,
+    "codeBlocks": 18,
     "thinLessons": 0
   },
-  "codex-desde-cero": {
-    "lessons": 20,
-    "medianWords": 989,
-    "minWords": 833,
-    "codeBlocks": 68,
+  "rag-seguro": {
+    "lessons": 14,
+    "medianWords": 905,
+    "minWords": 782,
+    "codeBlocks": 97,
+    "thinLessons": 0
+  },
+  "seguridad-evals": {
+    "lessons": 7,
+    "medianWords": 564,
+    "minWords": 512,
+    "codeBlocks": 12,
+    "thinLessons": 0
+  },
+  "videojuegos-3d-ia": {
+    "lessons": 6,
+    "medianWords": 603,
+    "minWords": 471,
+    "codeBlocks": 15,
     "thinLessons": 0
   }
 };
