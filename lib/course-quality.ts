@@ -180,6 +180,24 @@ const records: Record<string, CourseQualityRecord> = {
     ],
     sources: [NIST, OWASP_LLM, HUGGING_FACE_MODEL_CARDS],
   }),
+  "webapps-pymes-con-claude": record({
+    status: "Probado parcialmente",
+    reviewedAt: "2026-10-22",
+    volatility: "volátil",
+    reviewDays: 30,
+    scope:
+      "8 lecciones con el estándar riguroso sobre el proyecto REM Negocio (MIT): cada comando y cada salida esperada se ejecutaron desde un clon limpio el 22 de octubre de 2026. Límites: el marco legal (AEAT) cambia y se revisa cada 30 días; las capturas son de una instancia con datos ficticios; el modelo real se probó solo con qwen3.5 9B en Ollama.",
+    evidence: [
+      "278 pruebas automáticas y simulador de negocios ejecutados desde un clon limpio.",
+      "Capturas reales de la aplicación con datos ficticios, sin barra del sistema, rutas ni claves.",
+      "Fuentes oficiales de la AEAT consultadas y fechadas.",
+    ],
+    sources: [
+      ANTHROPIC_DOCS,
+      OWASP_LLM,
+      { label: "AEAT · Verifactu: ámbito de aplicación", href: "https://sede.agenciatributaria.gob.es/Sede/iva/sistemas-informaticos-facturacion-verifactu/preguntas-frecuentes/cuestiones-generales-ambitos-aplicacion.html" },
+    ],
+  }),
   "agentes-automatizacion": record({
     status: "Revisión editorial",
     volatility: "volátil",

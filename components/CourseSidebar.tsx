@@ -110,7 +110,7 @@ export default function CourseSidebar({ locale = "es" }: { locale?: Locale }) {
               const start = navigationSections.slice(0, sectionIndex).reduce((sum, item) => sum + item.lecciones.length, 0);
               return (
                 <div key={section.title} className="mb-5">
-                  <p className="px-3 mb-2 aula-section-label">{section.title}</p>
+                  <p className="px-3 mb-2 aula-section-label">{locale === "en" ? curso.secciones[sectionIndex]?.title ?? section.title : section.title}</p>
                   {section.lecciones.map((lesson, lessonIndex) => {
                     const number = start + lessonIndex + 1;
                     const href = lessonHref(lesson.slug);

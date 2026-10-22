@@ -1,6 +1,8 @@
 // Fuente única de verdad de los cursos de Aulafy.
 // Cada lección re-exporta una página existente; las URLs antiguas redirigen aquí.
 
+import { webappsCourseEs, webappsLessonsEs } from "./webapps-pymes-es.ts";
+
 export type Leccion = { slug: string; title: string };
 export type Seccion = { title: string; lecciones: Leccion[] };
 export type RecursoCurso = { href: string; label: string; format: string };
@@ -1043,6 +1045,27 @@ export const cursos: Curso[] = [
           { slug: "evals-citaciones", title: "Evals, citaciones y trazabilidad" },
         ],
       },
+    ],
+  },
+  {
+    slug: "webapps-pymes-con-claude",
+    title: webappsCourseEs.title,
+    short: webappsCourseEs.short,
+    desc: webappsCourseEs.desc,
+    level: "Principiante → intermedio",
+    updatedAt: "2026-10-22",
+    icon: "rocket",
+    gradient: ["#0ea5e9", "#f97316"],
+    availableInEnglish: true,
+    resources: [
+      { href: "https://github.com/aulafy/REM-L", label: "REM Negocio: código y documentación (MIT)", format: "WEB" },
+      { href: "https://github.com/aulafy/REM-L/blob/main/docs/README.md", label: "Documentación de REM Negocio por público", format: "WEB" },
+    ],
+    // Las lecciones se derivan de los datos de la lección para no duplicar títulos.
+    secciones: [
+      { title: "Producto, método y datos", lecciones: webappsLessonsEs.slice(0, 3).map(({ slug, title }) => ({ slug, title })) },
+      { title: "Interfaz, IA y pruebas", lecciones: webappsLessonsEs.slice(3, 6).map(({ slug, title }) => ({ slug, title })) },
+      { title: "Seguridad y publicación", lecciones: webappsLessonsEs.slice(6).map(({ slug, title }) => ({ slug, title })) },
     ],
   },
   {

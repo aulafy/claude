@@ -1,3 +1,5 @@
+import { webappsLessonsEn } from "./webapps-pymes-en.ts";
+
 const deepseekHarnessEnglishSlugs: Record<string, string> = {
   introduccion: "introduction",
   instalacion: "installation",
@@ -39,6 +41,7 @@ export function getSourceLessonSlug(courseSlug: string, englishLessonSlug: strin
 }
 
 export function getEnglishLessonTitleOverride(courseSlug: string, sourceLessonSlug: string) {
+  if (courseSlug === "webapps-pymes-con-claude") return webappsLessonsEn.find((lesson) => lesson.slug === sourceLessonSlug)?.title;
   if (courseSlug !== "deepseek-harness") return undefined;
   return deepseekHarnessEnglishTitles[sourceLessonSlug];
 }

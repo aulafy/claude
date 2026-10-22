@@ -23,18 +23,54 @@ export type LessonMission = {
   steps?: [string, string, string];
 };
 
+export type BookLocale = "es" | "en";
+
+/** Textos fijos del capítulo; solo se usan cuando una lección declara su idioma. */
+const CHAPTER_TEXT = {
+  es: {
+    courses: "Cursos", coursesHref: "/cursos", lesson: "Lección", sources: "fuentes primarias",
+    reviewedPending: (d: string) => `Revisión pendiente desde ${d}`, reviewed: (d: string) => `Revisión editorial · ${d}`,
+    mapLabel: "Cómo recorrer esta lección", dateLocale: "es-ES",
+    goal: "Objetivo", goalSmall: "Qué conseguirás", learn: "Aprende", learnSmall: "Conceptos y ejemplos",
+    practice: "Practica", practiceSmall: "Acción y evidencia", verify: "Verifica", verifySmall: "Fuentes y vigencia",
+    content: "Contenido de la lección",
+    noteLabel: "Fuentes y actualización", noteTitle: "Aprende con una referencia verificable",
+    noteBody: "Aulafy distingue los conceptos estables de los datos que cambian —versiones, precios, modelos y comandos—. Consulta la ficha del curso para ver la fecha de revisión, el alcance comprobado y las fuentes primarias.",
+    noteCaveat: "«Revisión editorial» significa que se han revisado estructura, afirmaciones y fuentes. No significa que todos los comandos hayan sido ejecutados: cuando exista una prueba técnica, se indicará como tal.",
+    seeSources: "Ver vigencia y fuentes", method: "Método de fuentes",
+    nextLabel: "Siguiente misión recomendada",
+    nextBody: (n: string) => `Si has guardado la evidencia de esta lección, continúa con «${n}». Si no, repite la comprobación antes de avanzar.`,
+  },
+  en: {
+    courses: "Courses", coursesHref: "/en/courses", lesson: "Lesson", sources: "primary sources",
+    reviewedPending: (d: string) => `Review overdue since ${d}`, reviewed: (d: string) => `Editorial review · ${d}`,
+    mapLabel: "How to work through this lesson", dateLocale: "en-GB",
+    goal: "Goal", goalSmall: "What you will achieve", learn: "Learn", learnSmall: "Concepts and examples",
+    practice: "Practise", practiceSmall: "Action and evidence", verify: "Verify", verifySmall: "Sources and validity",
+    content: "Lesson content",
+    noteLabel: "Sources and updates", noteTitle: "Learn from a verifiable reference",
+    noteBody: "Aulafy separates stable concepts from data that changes —versions, prices, models and commands. See the course page for the review date, the scope that was checked and the primary sources.",
+    noteCaveat: "“Editorial review” means structure, claims and sources were reviewed. It does not mean every command was run: when a technical test exists, it is stated as such.",
+    seeSources: "See validity and sources", method: "Sources method",
+    nextLabel: "Next recommended mission",
+    nextBody: (n: string) => `If you saved the evidence for this lesson, continue with “${n}”. If not, repeat the check before moving on.`,
+  },
+} as const;
+
 export function Crumb({
   label,
   courseHref = "/cursos/ia-local",
   courseLabel = "Claude Code + IA Local",
+  locale = "es",
 }: {
   label: string;
   courseHref?: string;
   courseLabel?: string;
+  locale?: BookLocale;
 }) {
   return (
     <div className="mb-4 aula-meta">
-      <Link href="/cursos" className="hover:text-zinc-400">Cursos</Link>
+      <Link href={CHAPTER_TEXT[locale].coursesHref} className="hover:text-zinc-400">{CHAPTER_TEXT[locale].courses}</Link>
       <span className="mx-2">/</span>
       <Link href={courseHref} className="hover:text-zinc-400">{courseLabel}</Link>
       <span className="mx-2">/</span>
@@ -163,17 +199,20 @@ export function Terminal({ children, locale = "es" }: { children: string; locale
 export function ChapterNav({
   prev,
   next,
+  locale = "es",
 }: {
   prev?: { href: string; label: string };
   next?: { href: string; label: string };
+  locale?: BookLocale;
 }) {
+  const t = CHAPTER_TEXT[locale];
   return (
     <div className="mt-12 pt-8 border-t border-zinc-800">
       {next ? (
         <div className="aula-panel mb-5 p-5">
-          <span className="aula-section-label"><Icon name="rocket" /> Siguiente misión recomendada</span>
+          <span className="aula-section-label"><Icon name="rocket" /> {t.nextLabel}</span>
           <p className="mt-2 text-sm leading-relaxed text-zinc-400">
-            Si has guardado la evidencia de esta lección, continúa con «{next.label}». Si no, repite la comprobación antes de avanzar.
+            {t.nextBody(next.label)}
           </p>
         </div>
       ) : null}
@@ -282,6 +321,7 @@ export function Chapter({
   courseLabel,
   mission,
   showMission = true,
+  locale = "es",
 }: {
   crumb: string;
   title: string;
@@ -292,64 +332,66 @@ export function Chapter({
   courseLabel?: string;
   mission?: LessonMission;
   showMission?: boolean;
+  locale?: BookLocale;
 }) {
+  const t = CHAPTER_TEXT[locale];
   const courseUrl = courseHref ?? "/cursos/ia-local";
   const courseSlug = courseUrl.split("/").filter(Boolean).at(-1) ?? "ia-local";
   const quality = getCourseQuality(courseSlug);
   const freshness = getCourseFreshness(quality);
-  const reviewDate = new Intl.DateTimeFormat("es-ES", { dateStyle: "medium" }).format(new Date(`${quality.reviewedAt}T12:00:00Z`));
-  const nextReviewDate = new Intl.DateTimeFormat("es-ES", { dateStyle: "medium" }).format(new Date(`${quality.nextReview}T12:00:00Z`));
+  const reviewDate = new Intl.DateTimeFormat(t.dateLocale, { dateStyle: "medium" }).format(new Date(`${quality.reviewedAt}T12:00:00Z`));
+  const nextReviewDate = new Intl.DateTimeFormat(t.dateLocale, { dateStyle: "medium" }).format(new Date(`${quality.nextReview}T12:00:00Z`));
 
   return (
     <div className="aula-shell max-w-4xl mx-auto px-6 sm:px-8 py-12 sm:py-14">
-      <Crumb label={crumb} courseHref={courseHref} courseLabel={courseLabel} />
+      <Crumb label={crumb} courseHref={courseHref} courseLabel={courseLabel} locale={locale} />
       <header className="aula-frame p-6 sm:p-8 mb-10">
         <div className="aula-icon text-fuchsia-300 text-xl mb-5">
           <Icon name={icon} />
         </div>
         <span className="aula-section-label">
-          <Icon name="book" /> Lección
+          <Icon name="book" /> {t.lesson}
         </span>
         <div className="mt-3 flex flex-wrap gap-2">
           <span className="aula-chip" data-tone={freshness.overdue ? "amber" : "green"}>
             <Icon name={freshness.overdue ? "warning" : "shield"} />
-            {freshness.overdue ? `Revisión pendiente desde ${nextReviewDate}` : `Revisión editorial · ${reviewDate}`}
+            {freshness.overdue ? t.reviewedPending(nextReviewDate) : t.reviewed(reviewDate)}
           </span>
-          <span className="aula-chip">{quality.sources.length} fuentes primarias</span>
+          <span className="aula-chip">{quality.sources.length} {t.sources}</span>
         </div>
         <h1 className="font-display text-3xl sm:text-5xl font-extrabold text-white mt-3 mb-4 leading-tight">
           {title}
         </h1>
         <Lead>{lead}</Lead>
-        <nav className="lesson-reading-map" aria-label="Cómo recorrer esta lección">
-          <a href={showMission ? "#mision" : "#objetivos"}><span>1</span><strong>Objetivo</strong><small>Qué conseguirás</small></a>
-          <a href="#contenido"><span>2</span><strong>Aprende</strong><small>Conceptos y ejemplos</small></a>
-          <a href={showMission ? "#mision" : "#practica"}><span>3</span><strong>Practica</strong><small>Acción y evidencia</small></a>
-          <a href="#fuentes-leccion"><span>4</span><strong>Verifica</strong><small>Fuentes y vigencia</small></a>
+        <nav className="lesson-reading-map" aria-label={t.mapLabel}>
+          <a href={showMission ? "#mision" : "#objetivos"}><span>1</span><strong>{t.goal}</strong><small>{t.goalSmall}</small></a>
+          <a href="#contenido"><span>2</span><strong>{t.learn}</strong><small>{t.learnSmall}</small></a>
+          <a href={showMission ? "#mision" : "#practica"}><span>3</span><strong>{t.practice}</strong><small>{t.practiceSmall}</small></a>
+          <a href="#fuentes-leccion"><span>4</span><strong>{t.verify}</strong><small>{t.verifySmall}</small></a>
         </nav>
       </header>
       {showMission ? <MissionBrief title={title} mission={mission} /> : null}
       <article id="contenido" className="aula-reading mx-auto scroll-mt-24">
         <div className="lesson-content-heading" aria-hidden="true">
-          <span>Contenido de la lección</span>
+          <span>{t.content}</span>
         </div>
         {children}
       </article>
       <aside id="fuentes-leccion" className="lesson-editorial-note scroll-mt-24" aria-labelledby="lesson-editorial-title">
         <div>
-          <span className="aula-section-label"><Icon name="shield" /> Fuentes y actualización</span>
-          <h2 id="lesson-editorial-title">Aprende con una referencia verificable</h2>
+          <span className="aula-section-label"><Icon name="shield" /> {t.noteLabel}</span>
+          <h2 id="lesson-editorial-title">{t.noteTitle}</h2>
           <p>
-            Aulafy distingue los conceptos estables de los datos que cambian —versiones, precios, modelos y comandos—. Consulta la ficha del curso para ver la fecha de revisión, el alcance comprobado y las fuentes primarias.
+            {t.noteBody}
           </p>
-          <p className="lesson-editorial-caveat">«Revisión editorial» significa que se han revisado estructura, afirmaciones y fuentes. No significa que todos los comandos hayan sido ejecutados: cuando exista una prueba técnica, se indicará como tal.</p>
+          <p className="lesson-editorial-caveat">{t.noteCaveat}</p>
         </div>
         <div className="lesson-editorial-actions">
           <Link href={`${courseUrl}#calidad-y-fuentes`} className="aula-button aula-button-primary">
-            <Icon name="check" /> Ver vigencia y fuentes
+            <Icon name="check" /> {t.seeSources}
           </Link>
           <Link href="/fuentes" className="aula-button aula-button-secondary">
-            <Icon name="external" /> Método de fuentes
+            <Icon name="external" /> {t.method}
           </Link>
         </div>
       </aside>
