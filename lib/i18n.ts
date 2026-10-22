@@ -1,4 +1,5 @@
 import { cursos, proximamente, type Curso } from "@/lib/cursos";
+import { webappsCourseEn } from "./webapps-pymes-en.ts";
 
 export type Locale = "es" | "en";
 
@@ -9,6 +10,7 @@ export function isCourseAvailableInLocale(course: Curso, locale: Locale) {
 type CourseCopy = Pick<Curso, "title" | "short" | "desc">;
 
 const englishCourseCopy: Record<string, CourseCopy> = {
+  "webapps-pymes-con-claude": webappsCourseEn,
   "deepseek-harness": {
     title: "DeepSeek Harness (DSH), from zero to expert",
     short: "Open-source agents with Cordis, plugins, sessions, and profiles.",
@@ -149,6 +151,9 @@ const sectionTitleEn: Record<string, string> = {
   "Recuperar mejor": "Better retrieval",
   "Seguridad y producción": "Security and production",
   "Antes de automatizar": "Before automating",
+  "Producto, método y datos": "Product, method and data",
+  "Interfaz, IA y pruebas": "Interface, AI and testing",
+  "Seguridad y publicación": "Security and publishing",
   "Flujos de oficina": "Office workflows",
 };
 

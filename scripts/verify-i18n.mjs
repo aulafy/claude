@@ -7,6 +7,7 @@ import { codexLessons } from "../lib/codex-course-content.ts";
 import { foundationLessons } from "../lib/foundation-course-content.ts";
 import { dshEnglishLessons } from "../lib/deepseek-harness-lessons-en.ts";
 import { getSourceLessonSlug } from "../lib/course-lesson-routing.ts";
+import { webappsLessonsEn } from "../lib/webapps-pymes-en.ts";
 
 const generatedEnglish = JSON.parse(fs.readFileSync("lib/english-lesson-content.json", "utf8")).lessons;
 const generatedByKey = new Map(generatedEnglish.map((lesson) => [`${lesson.courseSlug}/${lesson.slug}`, lesson]));
@@ -17,6 +18,7 @@ const authoredEnglish = new Map(
     ...codexLessons.map((lesson) => [`codex-programadores/${lesson.slug}`, lesson.title.en]),
     ...foundationLessons.map((lesson) => [`fundamentos-aulafy/${lesson.slug}`, lesson.title.en]),
     ...aiRouterLessons.map((lesson) => [`ai-router/${lesson.slug}`, lesson.title.en]),
+    ...webappsLessonsEn.map((lesson) => [`webapps-pymes-con-claude/${lesson.slug}`, lesson.title]),
     ...dshEnglishLessons.map((lesson) => [
       `deepseek-harness/${getSourceLessonSlug("deepseek-harness", lesson.slug)}`,
       lesson.title,

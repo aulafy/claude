@@ -209,6 +209,15 @@ const guidanceEs: Record<string, CourseGuidance> = {
     estimatedHours: 12,
     updated,
   },
+  "webapps-pymes-con-claude": {
+    track: "Aplicaciones prácticas",
+    audience: "Personas con perfil técnico básico o medio que quieren construir con Claude una aplicación de gestión para pymes y autónomos, y equipos que desean entender cómo se hace con control de calidad.",
+    prerequisites: ["Saber usar una terminal y Git a nivel básico", "Node.js 22.13 o superior instalado", "Haber leído la introducción de Claude Code (opcional)"],
+    outcomes: ["Definir un producto para pymes con límites comprobables", "Trabajar con Claude en pasos pequeños con pruebas y revisión", "Calcular importes sin errores y probar con negocios simulados", "Documentar seguridad, privacidad y marco legal con fuentes primarias"],
+    deliverable: "Un proyecto de gestión para pymes ejecutándose en local, con pruebas, un simulador de negocios, documentación por público y una frontera legal explicada con fuentes.",
+    estimatedHours: 6,
+    updated: "2026-10-22",
+  },
   "ia-pymes": {
     track: "Aplicaciones prácticas",
     audience: "Autónomos, pequeñas empresas y profesionales de operaciones.",
@@ -223,6 +232,7 @@ const guidanceEs: Record<string, CourseGuidance> = {
 const guidanceEn: Record<string, CourseGuidance> = {};
 
 Object.assign(guidanceEn, {
+  "webapps-pymes-con-claude": { ...guidanceEs["webapps-pymes-con-claude"], track: "Practical applications", audience: "People with a basic-to-intermediate technical background who want to build a management app for freelancers and small businesses with Claude, and teams that want to see how it is done with quality control.", prerequisites: ["Basic terminal and Git use", "Node.js 22.13 or later installed", "Having read the Claude Code introduction (optional)"], outcomes: ["Define a product for small businesses with testable limits", "Work with Claude in small steps with tests and review", "Compute amounts without errors and test with simulated businesses", "Document security, privacy and the legal framework with primary sources"], deliverable: "A small-business management project running locally, with tests, a business simulator, documentation by audience and a legal boundary explained with sources." },
   "fundamentos-aulafy": { ...guidanceEs["fundamentos-aulafy"], track: "Foundations", audience: "Learners entering local AI, agents, RAG, or MLOps courses who need a clear technical base.", prerequisites: ["Your own computer", "Willingness to use the terminal calmly"], outcomes: ["Prepare a reproducible local-first environment", "Use Python with uv, Git, AGENTS.md, and Docker with judgment", "Create a base template for AI projects"], deliverable: "An Aulafy base project with README, AGENTS.md, Python environment, clean Git history, and services ready." },
   "codex-programadores": { ...guidanceEs["codex-programadores"], track: "AI-assisted programming", audience: "Developers and teams adopting coding agents professionally.", prerequisites: ["Basic Git skills", "A small repository for practice"], outcomes: ["Explore unfamiliar code with evidence", "Request and implement verifiable changes", "Control permissions, review, and automation"], deliverable: "A complete repository change with a test, review, and clean commit." },
   "ai-router": { ...guidanceEs["ai-router"], track: "Systems, models, and agents", audience: "Teams and creators combining local models, frontier APIs, and human review in real pipelines.", prerequisites: ["Basic Python", "Understanding of LLM APIs and local models", "Some LiteLLM or LLM observability context helps"], outcomes: ["Design routing policies by privacy, cost, and difficulty", "Use LiteLLM as a gateway with keys, budgets, and fallbacks", "Measure quality with scoring, shadow mode, and traces"], deliverable: "An AI Router prototype for generating and reviewing educational content with auditable routes." },

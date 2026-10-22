@@ -30,6 +30,6 @@ export const courseGroups: CourseGroup[] = [
     id: "aplicaciones",
     title: "Aplicaciones prácticas",
     description: "Lleva la IA a contenidos, negocios, videojuegos y flujos de trabajo reales.",
-    slugs: ["ia-generativa", "videojuegos-3d-ia", "ia-pymes", "ia-docentes-educacion", "ia-datos-analitica"],
+    slugs: ["ia-generativa", "videojuegos-3d-ia", "webapps-pymes-con-claude", "ia-pymes", "ia-docentes-educacion", "ia-datos-analitica"],
   },
 ];
