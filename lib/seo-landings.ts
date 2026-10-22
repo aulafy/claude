@@ -194,27 +194,27 @@ export const seoLandings: SeoLanding[] = [
   {
     slug: "curso-ia-local-ollama",
     title: "Curso IA local con Ollama en español",
-    h1: "Curso de IA local con Ollama, LM Studio y Open WebUI",
+    h1: "Curso actualizado de Ollama: local, cloud, agentes y APIs",
     description:
-      "Aprende IA local en español: Ollama, LM Studio, modelos GGUF, cuantización, Open WebUI, Qdrant, RAG privado y publicación de apps.",
-    keywords: ["curso IA local", "Ollama español", "Open WebUI Ollama", "LM Studio español", "modelos locales"],
+      "Aprende Ollama en español: app y CLI, modelos locales y cloud, Codex y Claude Code, APIs compatibles, Open WebUI, cuantización y RAG privado.",
+    keywords: ["curso Ollama", "Ollama español", "Ollama cloud", "Ollama Codex", "Open WebUI Ollama", "modelos locales"],
     icon: "brain",
     primaryHref: "/cursos/ia-local",
     primaryLabel: "Entrar al curso de IA local",
     audience:
-      "Para quienes quieren usar modelos abiertos en su propio ordenador o servidor, con más privacidad, menos dependencia de cuotas y una base práctica para crear herramientas.",
+      "Para quienes quieren ejecutar modelos en su ordenador, usar modelos cloud cuando convenga y conectar apps o agentes sin perder de vista privacidad, coste y control.",
     promise:
-      "Aprenderás a elegir modelos, ejecutarlos con Ollama o LM Studio, conectar interfaces como Open WebUI y construir flujos con documentos, voz y apps pequeñas.",
+      "Aprenderás a elegir dónde corre cada modelo, usar la app y la CLI, lanzar Codex o Claude Code con Ollama, conectar APIs compatibles y construir flujos con documentos.",
     sections: [
       {
-        title: "IA local sin humo",
+        title: "Ollama actual, sin humo",
         body:
-          "La IA local no consiste en instalar un modelo enorme y esperar milagros. Hay que entender memoria, cuantización, contexto, velocidad, privacidad y límites. El curso baja eso a decisiones concretas: qué modelo elegir, cuándo usar Q4 o Q8, cuándo compensa un servidor y cuándo basta un portátil.",
+          "Ollama ya no es solo una terminal para modelos locales: incluye app de escritorio, modelos cloud, integraciones con agentes y APIs compatibles. El curso separa cada ruta para que sepas dónde se ejecuta el modelo y qué datos salen de tu equipo.",
         bullets: [
-          "Instalar Ollama y probar modelos abiertos.",
-          "Comparar LM Studio, Ollama y Open WebUI según el caso.",
-          "Entender GGUF, cuantización y requisitos de hardware.",
-          "Usar Qdrant y RAG para consultar documentos privados.",
+          "Instalar Ollama y usar la app, la CLI y la API.",
+          "Distinguir modelos locales y cloud antes de enviar datos.",
+          "Lanzar Codex CLI, Claude Code u OpenCode con Ollama.",
+          "Elegir modelos por tamaño, contexto y capacidades, no por una lista fija.",
         ],
       },
       {
@@ -222,26 +222,28 @@ export const seoLandings: SeoLanding[] = [
         body:
           "El enfoque es local-first: usar la nube solo cuando tenga sentido. Para una pyme, un docente o un autónomo, esto permite experimentar con documentos internos, facturas, manuales o bases de conocimiento sin enviar todo a servicios externos desde el primer día.",
         bullets: [
-          "Chatbots con documentos propios.",
+          "Chatbots y RAG con documentos propios.",
           "Herramientas de estudio y oficina.",
-          "Apps publicables con límites claros.",
+          "Apps compatibles con las APIs de Ollama, OpenAI o Anthropic.",
         ],
       },
     ],
     examples: [
-      "Elegir un modelo para un Mac, un PC con RTX o un servidor barato.",
+      "Elegir un modelo local o cloud para cada tarea y documentar la decisión.",
+      "Conectar Codex o Claude Code mediante ollama launch.",
       "Crear un chatbot local con Open WebUI, Ollama y Qdrant.",
       "Convertir un conjunto de PDF en una base consultable.",
       "Publicar una miniapp de IA con controles de coste.",
     ],
     related: [
-      { title: "Ollama desde cero", href: "/cursos/ia-local/ollama-desde-cero", desc: "Instala y prueba modelos locales." },
+      { title: "Ollama desde cero", href: "/cursos/ia-local/ollama-desde-cero", desc: "App, CLI, local, cloud y APIs." },
       { title: "Open WebUI + Qdrant", href: "/cursos/ia-local/open-webui-qdrant", desc: "Monta interfaz y base vectorial." },
       { title: "Hardware 2026", href: "/cursos/ia-local/hardware-minimo-2026", desc: "Elige equipo con cabeza." },
     ],
     faqs: [
       { q: "¿Necesito una GPU potente?", a: "No siempre. Depende del modelo, cuantización y objetivo. El curso explica opciones para portátil, Mac y PC con GPU." },
-      { q: "¿Ollama es suficiente?", a: "Para empezar, sí. Luego puedes sumar Open WebUI, Qdrant, vLLM o llama.cpp según la carga." },
+      { q: "¿Ollama solo funciona en local?", a: "No. Puede ejecutar modelos descargados en tu equipo y también modelos cloud. La lección explica cómo distinguirlos." },
+      { q: "¿Puedo usar Ollama con Codex o Claude Code?", a: "Sí. Ollama ofrece integraciones directas mediante ollama launch; para agentes conviene un modelo con herramientas y al menos 64K de contexto." },
       { q: "¿Sirve para empresas?", a: "Sí, especialmente para prototipos privados, documentación interna y flujos con revisión humana." },
     ],
   },
